@@ -176,8 +176,8 @@ export default function ServiceDelivery() {
       className="relative overflow-hidden border-b border-[#ECECEC]"
       style={{
         background: '#FCFCFD',
-        paddingTop: 'clamp(64px, 8vh, 120px)',
-        paddingBottom: 'clamp(64px, 8vh, 120px)',
+        paddingTop: 'clamp(40px, 5vh, 72px)',
+        paddingBottom: 'clamp(40px, 5vh, 72px)',
       }}
     >
       {/* Subtle blueprint drawing lines and tiny dots */}

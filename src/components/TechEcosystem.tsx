@@ -10,7 +10,6 @@ import {
   Database,
   Server,
   Cloud,
-  Check,
   LucideIcon
 } from "lucide-react"
 
@@ -76,7 +75,7 @@ const DatabricksLogo = ({ className = "h-12 w-auto opacity-100" }: LogoProps) =>
      className={className}
      xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(0.15352384)">
-      <g transform="matrix(0.36351711,0,0,0.36351711,4.0072789,23.638451)">
+      <g transform="matrix(0.36351711,0,0,0.36351711,4.6672789,23.638451)">
         <path
           d="M 0,24.8 V 38.5 L 41.1,60 82.2,38.5 v -13.7 0 L 67.7,17.4 82.2,9.8 v -13.6 0 0 -0.1 L 82.1,-3.8 41.1,-25 0.1,-3.9 H 0 V 9.8 L 14.5,17.4 0,24.8"
           fill="#db1905"
@@ -92,7 +91,7 @@ const DatabricksLogo = ({ className = "h-12 w-auto opacity-100" }: LogoProps) =>
           transform="translate(0,-36)"
         />
       </g>
-      <g transform="matrix(0.14782641,0,0,0.14782641,23.58982,28.736084)">
+      <g transform="matrix(0.14782641,0,0,0.14782641,24.250,28.736084)">
         <g transform="translate(0,-36)">
           <path
             d="m 140.9,39.8 h 0.4 c 0,0 -0.4,-3.5 -0.4,-4 V 7.3 h -8.5 V 0 h 17.4 v 80.9 h 8.2 v 7.3 h -14.9 l -1.3,-8.3 h -0.5 c 0,0 -5.4,9.1 -18.8,9.1 -14.6,0 -25.6,-9.8 -25.6,-28.5 0,-18.2 11.8,-28.4 25.7,-28.4 14.1,0.1 18.3,7.7 18.3,7.7 z m 0,32.6 V 47.6 c -1.5,-2.4 -6.3,-7.9 -16.6,-7.9 -8.9,0 -18.6,6.5 -18.6,20.9 0,14.3 8.8,21.1 18.7,21.1 6.7,-0.1 13.4,-3.2 16.5,-9.3 z"
@@ -469,7 +468,7 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
       viewport={{ once: true, amount: 0.12 }}
       variants={sectionVariants}
       onMouseMove={handleSectionMouseMove}
-      className="relative overflow-hidden border-y border-[#ECECEC] bg-[#FFFFFF] py-24 lg:py-32"
+      className="relative overflow-hidden border-y border-[#ECECEC] bg-[#FFFFFF] py-14 lg:py-20"
     >
       {/* ── BACKGROUND LAYER 1: Engineering Blueprint Grid & CAD Symbols (<3% opacity, parallax) ── */}
       <motion.div
@@ -745,28 +744,6 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
               ))}
             </motion.div>
           </div>
-        </div>
-
-        {/* ── Bottom Benefits badges ── */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mt-16 relative z-10 border-t border-[#ECECEC] pt-8">
-          {[
-            "Trusted Global Partner",
-            "Industrial Automation",
-            "Enterprise AI",
-            "Cloud Infrastructure",
-            "Digital Transformation",
-            "Enterprise Security"
-          ].map((item, idx) => (
-            <div
-              key={idx}
-              className="group relative overflow-hidden flex items-center gap-2 px-6 py-3 rounded-full border border-[#ECECEC] bg-[#FFFFFF] shadow-sm cursor-default transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-            >
-              <Check className="w-3.5 h-3.5 text-[#C5165C] flex-shrink-0" />
-              <span className="text-[12.5px] font-bold text-slate-700 font-sans tracking-wide relative z-10">
-                {item}
-              </span>
-            </div>
-          ))}
         </div>
 
         {/* ── Footer CTA Button ── */}

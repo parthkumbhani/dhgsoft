@@ -13,6 +13,7 @@ import CaseStudies from '@/components/CaseStudies';
 import TechEcosystem from '@/components/TechEcosystem';
 import InnovationInstitute from '@/components/InnovationInstitute';
 import WhyChooseUs from '@/components/WhyChooseUs';
+import Careers from '@/components/Careers';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import ContactModal from '@/components/ContactModal';
@@ -62,6 +63,9 @@ export default function Home() {
 
         {/* 9. Why DHGsoft */}
         <WhyChooseUs />
+
+        {/* 9.5. Careers / Join Us */}
+        <Careers />
 
         {/* 10. Contact / CTA */}
         <ContactSection />

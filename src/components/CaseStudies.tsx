@@ -139,7 +139,7 @@ export default function CaseStudies() {
   const activeStudy = INDUSTRIES_DATA[activeIdx];
 
   return (
-    <section id="case-studies" className="py-32 bg-[#FAFBFC] relative overflow-hidden border-b border-slate-100 select-none">
+    <section id="case-studies" className="py-16 bg-[#FAFBFC] relative overflow-hidden border-b border-slate-100 select-none">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 relative z-10 w-full flex flex-col">
         
         {/* Section Header */}
