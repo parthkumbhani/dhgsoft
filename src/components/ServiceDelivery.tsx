@@ -204,7 +204,6 @@ export default function ServiceDelivery() {
         <line x1="0" y1="10%" x2="100%" y2="10%" stroke="#0F172A" strokeWidth="1" strokeDasharray="5,5" />
         <line x1="0" y1="90%" x2="100%" y2="90%" stroke="#0F172A" strokeWidth="1" strokeDasharray="5,5" />
         <path d="M 50 100 L 150 100 M 100 50 L 100 150" stroke="#0F172A" strokeWidth="1" />
-        <path d="M 90% 100 L 95% 100 M 92.5% 50 L 92.5% 150" stroke="#0F172A" strokeWidth="1" />
       </svg>
 
       {/* Decorative Technical Labels for Digital Command Center Feel */}

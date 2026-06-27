@@ -5,6 +5,7 @@ import { Toaster } from 'sonner';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Industries from '@/components/Industries';
+import CEOMessage from '@/components/CEOMessage';
 import Services from '@/components/Services';
 import ServiceDelivery from '@/components/ServiceDelivery';
 import Ecosystem from '@/components/Ecosystem';
@@ -34,6 +35,9 @@ export default function Home() {
             if (el) el.scrollIntoView({ behavior: 'smooth' });
           }}
         />
+
+        {/* 1.5. CEO Message */}
+        <CEOMessage />
 
         {/* 2. Industries We Serve */}
         <Industries />
