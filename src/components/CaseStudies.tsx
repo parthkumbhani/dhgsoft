@@ -1,207 +1,259 @@
-"use client"
+'use client';
 
-import React, { useState } from "react"
-import { motion } from "framer-motion"
-import { Badge } from "@/components/ui/badge"
-import { ArrowRight } from "lucide-react"
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
-const CASE_STUDIES = [
+interface KPI {
+  value: string;
+  label: string;
+}
+
+interface CaseStudy {
+  id: string;
+  name: string;
+  title: string;
+  description: string;
+  image: string;
+  kpis: KPI[];
+}
+
+const INDUSTRIES_DATA: CaseStudy[] = [
   {
+    id: "automotive",
+    name: "Automotive",
     title: "Connected Factory Optimization for Global Automotive OEM",
-    industry: "Automotive",
-    metric: "42% OEE Improvement",
-    challenge: "A Tier-1 automotive manufacturer struggled with data silos across its assembly plant floor, preventing real-time production analytics and OEE monitoring.",
-    solution: "DHG Soft deployed a unified Industrial Data Platform integrating PLC telemetry with their MES database. Created customized dashboards and edge-level analytics pipelines.",
-    impact: "Achieved a 42% increase in Overall Equipment Effectiveness (OEE) and reduced unscheduled downtime by 18% within the first six months of deployment.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80"
+    description: "DHGsoft deployed an integrated Industrial IoT telemetry network across assembly plant floors, bridging PLC datasets with local MES databases. This achieved real-time OEE reporting and enabled predictive machine maintenance schedules.",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+    kpis: [
+      { value: "42%", label: "OEE Improvement" },
+      { value: "$3.2M", label: "Annual Savings" },
+      { value: "31%", label: "Downtime Reduction" },
+      { value: "99.9%", label: "Availability" }
+    ]
   },
   {
-    title: "Zero-Trust OT/IT Cybersecurity for European Power Grid",
-    industry: "Energy & Utilities",
-    metric: "IEC 62443 Certified",
-    challenge: "A regional energy distribution grid needed to secure its remote substations and integrate control room access without exposing the network to public internet threats.",
-    solution: "Implemented an end-to-end zero-trust access control framework conforming to IEC 62443 security standards, featuring micro-segmentation and multi-factor authentication.",
-    impact: "Successfully protected 30+ critical power substation nodes, blocking all unauthorized network attempts and securing telemetry pipelines.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80"
+    id: "manufacturing",
+    name: "Manufacturing",
+    title: "AI-Powered Quality Assurance for Global Semiconductor Production",
+    description: "We embedded deep-learning vision models directly into assembly lines to detect microscopic wafer defects. The system monitors raw silicon substrate events with sub-millisecond classification response times.",
+    image: "https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?auto=format&fit=crop&w=1200&q=80",
+    kpis: [
+      { value: "99.8%", label: "Defect Detection Accuracy" },
+      { value: "28%", label: "Scrap Rate Reduction" },
+      { value: "15ms", label: "Inspection Latency" },
+      { value: "$4.5M", label: "Year-on-Year Savings" }
+    ]
   },
   {
-    title: "Predictive Anomaly Detection for Global Chemical Producer",
-    industry: "Chemicals",
-    metric: "$1.2M Annual Savings",
-    challenge: "Frequent, unpredictable sensor failures in critical chemical batch processing led to high product discard rates and expensive repair overheads.",
-    solution: "Built a customized machine learning analytics pipeline that process batch telemetry. Deployed predictive models to flag anomalies 4 hours before failure.",
-    impact: "Prevented 8 major processing line failures, reduced chemical waste by 24%, and saved the client approximately $1.2M in annual operational costs.",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
+    id: "healthcare",
+    name: "Healthcare",
+    title: "Decentralized Clinical Trial Analytics Platform",
+    description: "Constructed a secure, HIPAA-compliant patient telemetry hub that securely aggregates real-time health data from consumer wearables. The platform provides clinical researchers with immediate anomaly detection alerts.",
+    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80",
+    kpis: [
+      { value: "95%", label: "Patient Retention Rate" },
+      { value: "60%", label: "Trial Setup Acceleration" },
+      { value: "0", label: "Security Incidents" },
+      { value: "4.8/5", label: "Clinician CSAT" }
+    ]
+  },
+  {
+    id: "energy",
+    name: "Energy",
+    title: "Grid Modernization & Predictive Load Dispatching",
+    description: "Implemented a hybrid-cloud event-driven platform capable of processing millions of electrical telemetry events per second. The software optimizes green energy load distribution across regional grids.",
+    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=80",
+    kpis: [
+      { value: "22%", label: "Renewable Integration" },
+      { value: "18ms", label: "Network Latency" },
+      { value: "99.999%", label: "Grid Reliability" },
+      { value: "14%", label: "Peak Demand Savings" }
+    ]
+  },
+  {
+    id: "financial",
+    name: "Financial Services",
+    title: "Real-time High-frequency Fraud Prevention Architecture",
+    description: "Created an enterprise banking core layer featuring distributed transaction intelligence and sub-millisecond fraud evaluation. The solution intercepts anomalous movements across digital retail banking networks.",
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
+    kpis: [
+      { value: "99.99%", label: "Fraud Interception Rate" },
+      { value: "<8ms", label: "Approval Overhead" },
+      { value: "$12M", label: "Loss Prevention Annual" },
+      { value: "30M", label: "Daily Transactions Secured" }
+    ]
   }
-]
+];
+
+function CountUp({ value, duration = 1000 }: { value: string; duration?: number }) {
+  const [displayValue, setDisplayValue] = useState('');
+
+  useEffect(() => {
+    const numericMatch = value.match(/[\d.]+/);
+    if (!numericMatch) {
+      setDisplayValue(value);
+      return;
+    }
+
+    const targetNum = parseFloat(numericMatch[0]);
+    const prefix = value.substring(0, value.indexOf(numericMatch[0]));
+    const suffix = value.substring(value.indexOf(numericMatch[0]) + numericMatch[0].length);
+
+    const startTime = performance.now();
+
+    let animationFrameId: number;
+
+    const updateNumber = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      const easedProgress = progress * (2 - progress); // easeOutQuad
+      const current = targetNum * easedProgress;
+
+      const decimalPlaces = (numericMatch[0].split('.')[1] || '').length;
+      const formatted = current.toFixed(decimalPlaces);
+
+      setDisplayValue(`${prefix}${formatted}${suffix}`);
+
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(updateNumber);
+      } else {
+        setDisplayValue(value);
+      }
+    };
+
+    animationFrameId = requestAnimationFrame(updateNumber);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [value, duration]);
+
+  return <span>{displayValue}</span>;
+}
 
 export default function CaseStudies() {
-  const [activeIdx, setActiveIdx] = useState(0)
-  const activeStudy = CASE_STUDIES[activeIdx]
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  const activeStudy = INDUSTRIES_DATA[activeIdx];
 
   return (
-    <section id="case-studies" className="py-24 bg-white relative overflow-hidden">
-      {/* Background — intentionally different from other sections: subtle diagonal lines */}
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,#f8fafc_25%,transparent_25%,transparent_50%,#f8fafc_50%,#f8fafc_75%,transparent_75%,transparent)] bg-[size:60px_60px] opacity-30 pointer-events-none" />
-
-      <div className="max-w-[1440px] mx-auto px-6 relative z-10">
+    <section id="case-studies" className="py-32 bg-[#FAFBFC] relative overflow-hidden border-b border-slate-100 select-none">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 relative z-10 w-full flex flex-col">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
-          <div className="max-w-2xl">
-            <div className="text-xs font-bold text-primary uppercase tracking-wider mb-3 font-sans">
-              Proven Results
-            </div>
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight font-headline">
-              Enterprise Impact Studies
-            </h2>
-            <p className="text-slate-600 mt-4 text-sm lg:text-base leading-relaxed font-sans">
-              Read how our digital engineering teams support global enterprises in solving complex OT/IT issues and maximizing efficiency.
-            </p>
-          </div>
+        <div className="text-left max-w-3xl mb-12">
+          <span className="text-xs font-bold text-blue-600 uppercase tracking-[0.25em] mb-4 block text-left">
+            PROVEN RESULTS
+          </span>
+          <h2 className="text-[34px] md:text-[50px] font-extrabold text-slate-900 tracking-tight leading-[1.1] font-headline mb-4 text-left">
+            Enterprise Impact Studies
+          </h2>
+          <p className="text-slate-500 text-[15px] md:text-[16px] leading-relaxed font-sans max-w-2xl text-left">
+            Empirical outcomes delivered for leading global enterprises through high-fidelity engineering, scalable system architecture, and machine intelligence.
+          </p>
         </div>
 
-        {/* Asymmetric Featured Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+        {/* Horizontal Industry Selector */}
+        <div className="flex border-b border-slate-200 mb-16 overflow-x-auto no-scrollbar gap-8 md:gap-12 w-full">
+          {INDUSTRIES_DATA.map((study, idx) => {
+            const isActive = activeIdx === idx;
+            return (
+              <button
+                key={study.id}
+                onClick={() => setActiveIdx(idx)}
+                className={`pb-4 text-[14px] md:text-[15px] font-semibold tracking-wide transition-all relative cursor-pointer uppercase whitespace-nowrap focus:outline-none ${
+                  isActive ? "text-slate-900 font-bold" : "text-slate-400 hover:text-slate-600"
+                }`}
+              >
+                {study.name}
+                {isActive && (
+                  <motion.div
+                    layoutId="activeUnderline"
+                    className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-slate-900"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </button>
+            );
+          })}
+        </div>
 
-          {/* Left: Featured Case Study — large image card */}
+        {/* Main Content Area */}
+        <AnimatePresence mode="wait">
           <motion.div
             key={activeIdx}
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-7 relative group cursor-pointer overflow-hidden rounded-[24px] min-h-[480px] lg:min-h-[540px] flex flex-col justify-end"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="w-full flex flex-col text-left"
           >
-            {/* Background image */}
-            <div className="absolute inset-0 w-full h-full overflow-hidden">
-              <img
+            {/* 16:9 Visual Panel with subtle zoom in animation on enter */}
+            <div className="relative aspect-[16/9] w-full rounded-[28px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.08)] bg-slate-100 border border-slate-200/50 mb-12">
+              <motion.img
+                initial={{ scale: 1.02 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
                 src={activeStudy.image}
                 alt={activeStudy.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover select-none"
               />
+              {/* Dark overlay */}
+              <div className="absolute inset-0 bg-slate-950/20 mix-blend-multiply pointer-events-none" />
             </div>
 
-            {/* Dark gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/10" />
-
-            {/* Top badges */}
-            <div className="absolute top-6 left-6 z-10 flex items-center gap-3">
-              <Badge variant="outline" className="bg-white/10 backdrop-blur-md border-white/25 text-white font-semibold text-[10px]">
-                {activeStudy.industry}
-              </Badge>
-              <span className="text-[10px] font-bold text-[#fbc00e] bg-[#fbc00e]/10 backdrop-blur-md border border-[#fbc00e]/25 px-2.5 py-1 rounded uppercase tracking-wider">
-                {activeStudy.metric}
-              </span>
-            </div>
-
-            {/* Bottom content */}
-            <div className="relative z-10 p-8 lg:p-10">
-              <h3 className="text-xl lg:text-2xl font-bold text-white tracking-tight font-headline leading-snug mb-4 max-w-lg">
+            {/* Title & Description with fade-up transition */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+            >
+              <h3 className="text-2xl md:text-3.5xl font-extrabold text-slate-900 tracking-tight leading-snug mb-4 font-headline text-left">
                 {activeStudy.title}
               </h3>
+              <p className="text-slate-600 text-[15px] md:text-[16px] leading-relaxed font-sans max-w-4xl mb-12 text-left">
+                {activeStudy.description}
+              </p>
+            </motion.div>
 
-              {/* Challenge / Solution / Impact in compact layout */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-                <div className="border-l-2 border-white/20 pl-3">
-                  <h5 className="text-[9px] font-bold text-white/50 uppercase tracking-wider font-sans mb-1">Challenge</h5>
-                  <p className="text-[11px] text-slate-300 leading-relaxed font-sans line-clamp-3">{activeStudy.challenge}</p>
+            {/* KPI Metrics Row with fade-up transition */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 border-t border-b border-slate-200/60 py-10 mb-12 w-full"
+            >
+              {activeStudy.kpis.map((kpi, kIdx) => (
+                <div key={kIdx} className="text-left flex flex-col justify-start">
+                  <span className="text-[34px] md:text-[46px] font-black text-slate-900 tracking-tight leading-none mb-3">
+                    <CountUp value={kpi.value} />
+                  </span>
+                  <span className="text-[11px] md:text-[12px] font-bold text-slate-500 uppercase tracking-widest leading-normal text-left">
+                    {kpi.label}
+                  </span>
                 </div>
-                <div className="border-l-2 border-white/20 pl-3">
-                  <h5 className="text-[9px] font-bold text-white/50 uppercase tracking-wider font-sans mb-1">Solution</h5>
-                  <p className="text-[11px] text-slate-300 leading-relaxed font-sans line-clamp-3">{activeStudy.solution}</p>
-                </div>
-                <div className="border-l-2 border-[#fbc00e]/40 pl-3">
-                  <h5 className="text-[9px] font-bold text-[#fbc00e] uppercase tracking-wider font-sans mb-1">Impact</h5>
-                  <p className="text-[11px] text-white leading-relaxed font-sans line-clamp-3 font-medium">{activeStudy.impact}</p>
-                </div>
-              </div>
+              ))}
+            </motion.div>
 
-              {/* CTA */}
-              <div className="mt-6 flex items-center gap-2 text-white/70 group-hover:text-[#fbc00e] transition-colors cursor-pointer">
-                <span className="text-xs font-bold uppercase tracking-wider font-sans">
-                  Request Technical Brief
-                </span>
-                <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-              </div>
-            </div>
+            {/* Bottom CTA Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              className="flex justify-start"
+            >
+              <button className="flex items-center gap-2.5 px-8 py-4 bg-slate-900 hover:bg-slate-800 text-white rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none">
+                <span>Read Case Study</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </motion.div>
+
           </motion.div>
-
-          {/* Right: Case study selector cards — stacked */}
-          <div className="lg:col-span-5 flex flex-col gap-4">
-            {CASE_STUDIES.map((study, idx) => {
-              const isActive = idx === activeIdx
-              return (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: 15 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.4, delay: idx * 0.08 }}
-                  onClick={() => setActiveIdx(idx)}
-                  className={`relative cursor-pointer rounded-[20px] p-6 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group/card ${
-                    isActive
-                      ? "bg-slate-950 text-white shadow-[0_15px_35px_rgba(15,23,42,0.25)]"
-                      : "bg-slate-50 border border-slate-200/80 text-slate-800 hover:bg-slate-100 hover:border-slate-300"
-                  }`}
-                >
-                  {/* Active indicator line */}
-                  <div className={`absolute top-0 left-0 w-full h-[3px] rounded-t-[20px] bg-gradient-to-r from-primary via-secondary to-[#fbc00e] transition-opacity duration-300 ${
-                    isActive ? "opacity-100" : "opacity-0"
-                  }`} />
-
-                  {/* Card header */}
-                  <div className="flex items-start justify-between gap-4 mb-3">
-                    <Badge variant="outline" className={`shrink-0 font-semibold text-[10px] ${
-                      isActive 
-                        ? "border-white/20 text-white/60" 
-                        : "border-slate-250 text-slate-500"
-                    }`}>
-                      {study.industry}
-                    </Badge>
-                    <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded shrink-0 transition-colors ${
-                      isActive
-                        ? "text-[#fbc00e] bg-[#fbc00e]/10"
-                        : "text-primary bg-primary/5"
-                    }`}>
-                      {study.metric}
-                    </span>
-                  </div>
-
-                  {/* Title */}
-                  <h4 className={`text-sm font-bold leading-snug font-headline transition-colors ${
-                    isActive ? "text-white" : "text-slate-800 group-hover/card:text-primary"
-                  }`}>
-                    {study.title}
-                  </h4>
-
-                  {/* Brief description — only on non-active */}
-                  <p className={`text-[11px] leading-relaxed font-sans mt-2 line-clamp-2 transition-colors ${
-                    isActive ? "text-slate-400" : "text-slate-500"
-                  }`}>
-                    {study.challenge}
-                  </p>
-
-                  {/* Active state arrow indicator */}
-                  <div className={`mt-3 pt-3 border-t flex items-center justify-between transition-all ${
-                    isActive
-                      ? "border-white/10 text-[#fbc00e]"
-                      : "border-slate-200/60 text-slate-400 group-hover/card:text-primary"
-                  }`}>
-                    <span className="text-[9px] font-bold uppercase tracking-wider font-sans">
-                      {isActive ? "Currently Viewing" : "View Case Study"}
-                    </span>
-                    <ArrowRight className={`h-3.5 w-3.5 transition-transform ${
-                      isActive ? "translate-x-0" : "group-hover/card:translate-x-1"
-                    }`} />
-                  </div>
-                </motion.div>
-              )
-            })}
-          </div>
-
-        </div>
+        </AnimatePresence>
 
       </div>
     </section>
-  )
+  );
 }

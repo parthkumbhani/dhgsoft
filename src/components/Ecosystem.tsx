@@ -1,147 +1,590 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  Cloud, 
+  Cpu, 
+  Brain, 
+  Database, 
+  Shield, 
+  Layers, 
+  ArrowRight, 
+  ChevronLeft, 
+  ChevronRight 
+} from 'lucide-react';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
-
-interface Service {
-  id: number;
-  title: string;
-  description: string;
-  image_url: string;
-  grid_span: number;
-  category?: string;
-}
-
-const DEFAULT_SERVICES: Service[] = [
+const ARCHITECTURE_DATA = [
   {
-    id: 1,
-    title: "Cloud Transformation",
-    description: "Migrate complex legacy systems to high-performance, resilient cloud architectures without downtime.",
-    image_url: "https://lh3.googleusercontent.com/aida-public/AB6AXuD2mJyqYuHlU7WuO-p_QBMTrdpqrfvkGZvT4QVcQl0Uiqc0JbsUk0-cjkeapMIE55d65YhnWCxQWdcV1WSALdLCDBzx79c6q0ZspbGjP2BdZyvXeBu1mCd7Lt1XjA0-vOrgXtzzItxLERhqoh0p2wCai5GXK4UJaq9-TpoHTqv35YK3S59ZpKgec7SWTkNbblesZx7DyiKl0NH8omrOC6ht7cMnd_P8D_c1nMIG1hMVZxZfaTyTxQ1mB2YotW5LYOdoA1cEx-K8XUQ",
-    grid_span: 8,
-    category: "Cloud"
+    num: "01",
+    name: "Cloud Infrastructure",
+    icon: Cloud,
+    color: "#3B82F6", // Blue
+    title: "Hybrid Cloud Infrastructure",
+    description: "Enterprise hybrid-cloud environments scaled for massive OT/IT workloads.",
+    detailDesc: "We deploy highly resilient, low-latency hybrid cloud frameworks that securely bridge on-premise industrial networks with hyperscaler compute capacity.",
+    tech: ["AWS", "Azure", "Terraform", "Kubernetes"],
+    kpi: "SLA Availability: 99.999%",
+    outcome: "Zero-downtime migrations of legacy operational data to scalable cloud structures.",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
   },
   {
-    id: 2,
-    title: "Data Analytics",
-    description: "Turning raw numbers into tactical assets through advanced modeling.",
-    image_url: "https://lh3.googleusercontent.com/aida-public/AB6AXuAkTPzT3ZVeg5Mswz5kkE9fXreUB3GmbRgzOEw-j6suFrM0KteSbnBWQqtimwGs3EjS23LnVkcZw0k2mG5zPxgQ88cwJDfrz4xwvFgivjuK5WAepy2gEbZmNVQLJhf1Nu62p-VzVGlLdGqFwvclPfGkdzvUHJVwUGwH_7wiJfADgy7seVR0faImMbWUiRz4q7H-3ump1fQMIn4-2HhRxw9b3QPR8VtXO8mFZWo4xrVudiaPsx7AbsLbBegbkiOxfqopI3naG5OcL7I",
-    grid_span: 4,
-    category: "Data"
+    num: "02",
+    name: "Enterprise Integration",
+    icon: Cpu,
+    color: "#8B5CF6", // Violet
+    title: "Enterprise Integration Layer",
+    description: "Seamless API orchestration and data synchronization across distributed silos.",
+    detailDesc: "Connect legacy databases, enterprise resource planning (ERP) platforms, and real-time telemetry systems into a single event-driven architecture.",
+    tech: ["FastAPI", "Apache Kafka", "GraphQL", "gRPC"],
+    kpi: "Latency: <15ms",
+    outcome: "Fully unified operational sync across global sites and remote networks.",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
   },
   {
-    id: 3,
-    title: "Digital Strategy",
-    description: "Holistic consulting for the next decade of digital evolution.",
-    image_url: "https://lh3.googleusercontent.com/aida-public/AB6AXuDqZzwMcuiwVaTV9566SYhRPhH8tlwZdaYs37FTwknzPo46JYDhw4cqsj1YaCzStS5KmdRaCLqFSrfdv0fYyM6UyEsBBupQO6XPEZVrcRU5ka_2YkrLdytOzPOdMF414tP0CbpXY7fmKJAdug6U27yNFXawIaEfaTv4nPUZMX_rCUiTO6U0dq-KnN7Y6Y5ga7GCbkn3j7leF_FNJGTqf9r3_YvMGvZGhwT1OfCFdQTEPeJhBmkvu2t9TPltzMqePRDk2YoyQQ1QQAM",
-    grid_span: 4,
-    category: "Strategy"
+    num: "03",
+    name: "AI Automation",
+    icon: Brain,
+    color: "#EC4899", // Pink
+    title: "Intelligent AI Automation",
+    description: "Self-optimizing pipelines and predictive workflows powered by custom models.",
+    detailDesc: "Embed deep learning models directly into production streams to automate decision cycles, predict failures, and streamline manufacturing pipelines.",
+    tech: ["PyTorch", "TensorFlow", "OpenAI API", "Kubeflow"],
+    kpi: "Efficiency: +42%",
+    outcome: "Reduction of manual operational reviews and automated error recovery.",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80"
   },
   {
-    id: 4,
-    title: "Unified Connectivity",
-    description: "Bridging silos with integrated APIs and cross-platform sync capabilities.",
-    image_url: "https://lh3.googleusercontent.com/aida-public/AB6AXuCJtZewUFOSYtNpx2oeozhBKKkaoDKkuHMBZt3UFHzTNZdTSuKMFttgcdkeG7V8FHvyLIjsuNCysotSfRpDlY4hbXDoUTohs1Nk63n2q8uk7j2xLjC8f4K8fHJFj2Ienbd8Pr0r8v284h2mX32CT-hjVLTMmr18pWIjC7ZrtEsgKsWCZICF7X8_RPrqb40bg4v1E4I4OmvwKrguGYU2hZ1lH2eAKxThGxXlqsro7g9U5Rr46H8tfLHt8zltKb94Go7me6IuUUAhsTM",
-    grid_span: 8,
-    category: "Connectivity"
+    num: "04",
+    name: "Data Intelligence",
+    icon: Database,
+    color: "#F59E0B", // Amber
+    title: "Data Intelligence Hub",
+    description: "High-volume data processing and predictive intelligence modeling.",
+    detailDesc: "Ingest and process terabytes of telemetry data using stream-processing clusters, transforming raw events into actionable business assets.",
+    tech: ["Apache Spark", "Snowflake", "Databricks", "PostgreSQL"],
+    kpi: "Data Volume: 5TB/day",
+    outcome: "Real-time interactive dashboard queries with instant intelligence insights.",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    num: "05",
+    name: "Cybersecurity",
+    icon: Shield,
+    color: "#EF4444", // Red
+    title: "Zero-Trust Cybersecurity Architecture",
+    description: "Zero-trust architectures securing critical network connections.",
+    detailDesc: "Protect operations at every layer with granular perimeter defenses, encrypted transport tunnels, active threat monitoring, and strict authentication.",
+    tech: ["Vault", "OpenVPN", "OAuth2", "Wazuh"],
+    kpi: "Incident Rate: 0%",
+    outcome: "Complete compliance with industrial cybersecurity standards and secure access.",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    num: "06",
+    name: "Edge Computing",
+    icon: Layers,
+    color: "#06B6D4", // Cyan
+    title: "Distributed Edge Computing",
+    description: "Local compute layers for real-time telemetry processing.",
+    detailDesc: "Deploy lightweight compute clusters directly onto local gateway devices to filter noise, run models, and verify telemetry before cloud upload.",
+    tech: ["AWS IoT Greengrass", "Docker Edge", "MQTT", "K3s"],
+    kpi: "Local Uptime: 100%",
+    outcome: "Reduced bandwidth overhead and active offline execution capabilities.",
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80"
   }
 ];
 
-import { ArrowRight } from "lucide-react";
-
 export default function Ecosystem() {
-  const [services, setServices] = useState<Service[]>(DEFAULT_SERVICES);
-  const [, setLoading] = useState(true);
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Single transition controller
+  const goToStage = (targetIdx: number, direction: 'Next' | 'Prev' | 'Direct') => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+
+    const currentStageNum = activeIdx + 1;
+    const targetStageNum = targetIdx + 1;
+
+    console.log(`Current Stage: 0${currentStageNum}`);
+    console.log(`Direction: ${direction}`);
+
+    if (direction === 'Next') {
+      const rawTarget = currentStageNum + 1;
+      console.log(`Target: 0${rawTarget > 6 ? 7 : rawTarget}`);
+      if (rawTarget > 6) {
+        console.log(`If target > 6\ntarget = 1`);
+      }
+    } else if (direction === 'Prev') {
+      const rawTarget = currentStageNum - 1;
+      console.log(`Target: 0${rawTarget < 1 ? 0 : rawTarget}`);
+      if (rawTarget < 1) {
+        console.log(`If target < 1\ntarget = 6`);
+      }
+    } else {
+      console.log(`Target: 0${targetStageNum}`);
+    }
+
+    setActiveIdx(targetIdx);
+
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 700);
+  };
+
+  const handleNext = () => {
+    if (isAnimating) return;
+    const nextIdx = (activeIdx + 1) % 6;
+    goToStage(nextIdx, 'Next');
+  };
+
+  const handlePrev = () => {
+    if (isAnimating) return;
+    const prevIdx = (activeIdx - 1 + 6) % 6;
+    goToStage(prevIdx, 'Prev');
+  };
+
+  // Unified timer / auto rotation loop
   useEffect(() => {
-    fetch(`${API_BASE}/api/services`)
-      .then(res => {
-        if (!res.ok) throw new Error('API Response not ok');
-        return res.json();
-      })
-      .then((data: Service[]) => {
-        if (data && data.length > 0) {
-          setServices(data);
-        }
-        setLoading(false);
-      })
-      .catch(err => {
-        console.warn('API error fetching services, using local fallback:', err);
-        setLoading(false);
-      });
-  }, []);
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    if (isHovered) {
+      return;
+    }
+    timerRef.current = setInterval(() => {
+      if (!isAnimating) {
+        handleNext();
+      }
+    }, 7000);
+
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, [activeIdx, isAnimating, isHovered]);
+
+  // Keyboard navigation listener
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (isAnimating) return;
+      if (e.key === "ArrowRight") {
+        handleNext();
+      } else if (e.key === "ArrowLeft") {
+        handlePrev();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activeIdx, isAnimating]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5; // -0.5 to 0.5
+    const y = (e.clientY - rect.top) / rect.height - 0.5; // -0.5 to 0.5
+    setMousePos({ x, y });
+  };
+
+  const handleMouseLeave = () => {
+    setMousePos({ x: 0, y: 0 });
+    setIsHovered(false);
+  };
+
+  const currentStage = ARCHITECTURE_DATA[activeIdx] || ARCHITECTURE_DATA[0];
 
   return (
-    <section id="technology-ecosystem" className="py-24 bg-slate-950 text-white relative overflow-hidden border-b border-slate-900">
-      {/* Background grids */}
-      <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] bg-[size:32px_32px] opacity-20 pointer-events-none" />
+    <section 
+      id="technology-ecosystem" 
+      className="py-28 bg-[#060B16] text-white relative overflow-hidden border-b border-slate-950 select-none"
+    >
+      {/* Subtle animated background grid */}
+      <motion.div 
+        animate={{
+          opacity: [0.08, 0.14, 0.08]
+        }}
+        transition={{
+          repeat: Infinity,
+          duration: 8,
+          ease: "easeInOut"
+        }}
+        className="absolute inset-0 bg-[linear-gradient(to_right,#111827_1px,transparent_1px),linear-gradient(to_bottom,#111827_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0"
+      />
 
-      <div className="max-w-[1440px] mx-auto px-6 relative z-10">
+      {/* Parallax Background Glowing Blob */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <motion.div
+          animate={{
+            backgroundColor: currentStage.color,
+            scale: isHovered ? 1.15 : 1,
+            x: mousePos.x * -45, // Inverse parallax
+            y: mousePos.y * -45
+          }}
+          transition={{ type: "tween", ease: "easeOut", duration: 0.8 }}
+          className="absolute top-1/4 left-1/3 w-[450px] h-[450px] rounded-full blur-[140px] opacity-15 pointer-events-none"
+        />
+      </div>
+
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 relative z-10 w-full flex flex-col">
         
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-          <div className="max-w-2xl">
-            <div className="text-xs font-bold text-primary uppercase tracking-wider mb-3 font-sans">
-              Operational Architecture
-            </div>
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight font-headline">
-              Technology Infrastructure Ecosystem
-            </h2>
-            <p className="text-slate-400 mt-4 text-sm lg:text-base leading-relaxed font-sans">
-              Unified digital layers built to connect telemetry devices, enterprise platforms, and cloud intelligence seamlessly.
-            </p>
-          </div>
-          <a className="text-xs font-bold text-[#fbc00e] hover:text-[#e0a800] flex items-center gap-1.5 transition-colors group shrink-0 animate-pulse font-sans" href="#services">
-            Explore Capabilities
-            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-          </a>
+        {/* Editorial Section Header */}
+        <div className="text-left max-w-3xl mb-16">
+          <span className="text-xs font-bold text-blue-500 uppercase tracking-[0.25em] mb-4 block">
+            OPERATIONAL ARCHITECTURE
+          </span>
+          <h2 className="text-[34px] md:text-[50px] font-extrabold text-white tracking-tight leading-[1.1] font-headline mb-4">
+            Technology Infrastructure Ecosystem
+          </h2>
+          <p className="text-slate-400 text-[15px] md:text-[16px] leading-relaxed font-sans max-w-2xl">
+            Unified digital layers built to connect telemetry devices, enterprise systems, and cloud intelligence seamlessly under a secure, resilient operational framework.
+          </p>
         </div>
 
-        {/* 12-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[450px]">
-          {services.map((service) => {
-            const colSpanClass = service.grid_span === 8 
-              ? 'md:col-span-8' 
-              : 'md:col-span-4';
+        {/* ====================================================== */}
+        {/* DESKTOP VIEW: Cinematic Showcase Left, Nav List Right */}
+        {/* ====================================================== */}
+        <div className="hidden lg:flex flex-row items-center justify-between gap-12 w-full min-h-[550px]">
+          
+          {/* Left Side: Cinematic 16:9 Panel */}
+          <div className="w-[68%] flex flex-col items-start">
+            <div 
+              ref={containerRef}
+              onMouseMove={handleMouseMove}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={handleMouseLeave}
+              className="w-full h-[430px] rounded-[28px] overflow-hidden group shadow-[0_30px_70px_rgba(0,0,0,0.6)] bg-[#0A0F1E] border border-white/5 flex items-end relative"
+            >
+              {/* Image Crossfade Container */}
+              <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={activeIdx}
+                    src={currentStage.image}
+                    alt={currentStage.title}
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ 
+                      opacity: 0.75, 
+                      scale: 1.03,
+                      x: mousePos.x * 22,
+                      y: mousePos.y * 22
+                    }}
+                    exit={{ opacity: 0 }}
+                    transition={{ 
+                      opacity: { duration: 0.6 },
+                      x: { type: "tween", ease: "easeOut", duration: 0.4 },
+                      y: { type: "tween", ease: "easeOut", duration: 0.4 }
+                    }}
+                    className="w-full h-full object-cover select-none absolute inset-0"
+                  />
+                </AnimatePresence>
+              </div>
 
-            return (
-              <div 
-                key={service.id}
-                className={`${colSpanClass} group relative cursor-pointer overflow-hidden rounded-[24px] border border-slate-900 shadow-lg h-[250px] md:h-auto hover:border-primary/50 transition-all duration-500 hover:-translate-y-1`}
-              >
-                {/* Background Image */}
-                <img 
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
-                  alt={service.title}
-                  src={service.image_url} 
+              {/* Dynamic Particle Field */}
+              <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
+                {[...Array(12)].map((_, i) => (
+                  <motion.span
+                    key={i}
+                    animate={{
+                      y: [0, -120],
+                      opacity: [0, 0.6, 0]
+                    }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 5 + (i % 4) * 2,
+                      ease: "linear",
+                      delay: i * 0.4
+                    }}
+                    className="absolute w-1 h-1 rounded-full bg-white/20 pointer-events-none"
+                    style={{
+                      left: `${(i * 8) % 95 + 2}%`,
+                      bottom: "-10px"
+                    }}
+                  />
+                ))}
+              </div>
+
+              {/* Cinematic Vignette Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent z-10 pointer-events-none" />
+
+              {/* Left and Right Nav Chevrons (Appear on Hover) */}
+              <div className="absolute inset-y-0 left-4 flex items-center z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handlePrev();
+                  }}
+                  className="w-10 h-10 rounded-full bg-black/60 border border-white/10 text-white flex items-center justify-center hover:bg-black/85 hover:scale-105 transition-all"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="absolute inset-y-0 right-4 flex items-center z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleNext();
+                  }}
+                  className="w-10 h-10 rounded-full bg-black/60 border border-white/10 text-white flex items-center justify-center hover:bg-black/85 hover:scale-105 transition-all"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Overlay Content (Bottom Left) */}
+              <div className="absolute bottom-0 left-0 p-10 z-20 max-w-xl text-left">
+                <motion.div
+                  key={activeIdx}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest block mb-2">
+                    CAPABILITY {currentStage.num}
+                  </span>
+                  
+                  <h3 className="text-3xl font-extrabold text-white tracking-tight leading-none mb-3 font-headline">
+                    {currentStage.title}
+                  </h3>
+                  
+                  <p className="text-[14px] text-slate-300 leading-relaxed mb-6 font-sans">
+                    {currentStage.detailDesc}
+                  </p>
+
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-4 mb-6">
+                    <span className="text-[9px] font-bold text-blue-400 uppercase tracking-wider block mb-1">
+                      Business Outcome & KPI
+                    </span>
+                    <p className="text-[12px] text-white font-bold leading-normal mb-0.5">
+                      {currentStage.kpi}
+                    </p>
+                    <p className="text-[11.5px] text-slate-400 leading-relaxed font-sans">
+                      {currentStage.outcome}
+                    </p>
+                  </div>
+                  
+                  {/* Tech stack tags */}
+                  <div className="flex flex-wrap gap-1.5 mb-6">
+                    {currentStage.tech.map((t, idx) => (
+                      <span key={idx} className="bg-white/10 border border-white/10 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider font-sans">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-white uppercase tracking-wider cursor-pointer group/cta font-sans">
+                    <span>Explore Capability</span>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/cta:translate-x-1" />
+                  </div>
+                </motion.div>
+              </div>
+
+            </div>
+
+            {/* Premium Progress Indicators */}
+            <div className="flex items-center gap-4 mt-6 select-none pl-4">
+              <span className="text-[12px] font-bold text-slate-500 font-sans tracking-widest">
+                0{activeIdx + 1}
+              </span>
+              <div className="w-[140px] h-[2px] bg-slate-800 rounded-full overflow-hidden relative">
+                <div 
+                  className="bg-white h-full transition-all duration-700 ease-out" 
+                  style={{ width: `${((activeIdx + 1) / 6) * 100}%` }} 
                 />
-                
-                {/* Dark Vignette Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
-                
+              </div>
+              <span className="text-[12px] font-bold text-slate-700 font-sans tracking-widest">
+                06
+              </span>
+            </div>
 
+          </div>
 
-                {/* Category Tag */}
-                {service.category && (
-                  <div className="absolute top-6 left-6 z-10">
-                    <span className="inline-flex items-center px-3 py-1 bg-white/10 backdrop-blur-md text-[#fbc00e] font-bold text-[10px] uppercase tracking-wider rounded border border-white/25 font-sans">
-                      {service.category}
+          {/* Right Side: Capability Navigation List */}
+          <div className="w-[28%] flex flex-col gap-3.5">
+            {ARCHITECTURE_DATA.map((stage, idx) => {
+              const isActive = activeIdx === idx;
+              const Icon = stage.icon;
+              
+              return (
+                <div
+                  key={idx}
+                  onMouseEnter={() => {
+                    if (!isAnimating && activeIdx !== idx) {
+                      goToStage(idx, 'Direct');
+                    }
+                  }}
+                  onClick={() => {
+                    if (!isAnimating && activeIdx !== idx) {
+                      goToStage(idx, 'Direct');
+                    }
+                  }}
+                  className={`flex items-center gap-4 p-4 rounded-[22px] cursor-pointer select-none transition-all duration-500 border ${
+                    isActive
+                      ? "bg-white/[0.04] border-white/10 shadow-lg scale-[1.03]"
+                      : "border-transparent hover:bg-white/[0.02]"
+                  }`}
+                >
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors duration-300 ${
+                    isActive ? "bg-blue-500 text-white" : "bg-white/5 text-slate-500"
+                  }`}>
+                    <Icon className="w-4.5 h-4.5" />
+                  </div>
+                  
+                  <div className="text-left flex-grow">
+                    <span className="text-[9px] font-bold text-slate-500 block tracking-wider uppercase font-sans">
+                      {stage.num}
+                    </span>
+                    <h4 className={`text-[14px] font-extrabold tracking-tight font-headline transition-colors ${
+                      isActive ? "text-white" : "text-slate-400 hover:text-slate-200"
+                    }`}>
+                      {stage.name}
+                    </h4>
+                    {isActive && (
+                      <motion.p
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        className="text-[11px] text-slate-400 leading-normal mt-1 max-w-[220px] font-sans"
+                      >
+                        {stage.description}
+                      </motion.p>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+
+        {/* ====================================================== */}
+        {/* TABLET VIEW: Navigation on Top, Image below           */}
+        {/* ====================================================== */}
+        <div className="hidden md:flex lg:hidden flex-col items-center w-full gap-8">
+          
+          {/* Horizontal Navigation List */}
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-2 w-full">
+            {ARCHITECTURE_DATA.map((stage, idx) => {
+              const isActive = activeIdx === idx;
+              const Icon = stage.icon;
+              
+              return (
+                <div
+                  key={idx}
+                  onClick={() => {
+                    if (!isAnimating && activeIdx !== idx) {
+                      goToStage(idx, 'Direct');
+                    }
+                  }}
+                  className={`flex flex-col items-center justify-center p-3 rounded-2xl cursor-pointer select-none transition-all duration-300 border ${
+                    isActive
+                      ? "bg-white/[0.04] border-white/10 shadow-md"
+                      : "border-transparent bg-white/[0.01]"
+                  }`}
+                >
+                  <Icon className={`w-5 h-5 mb-1 ${isActive ? "text-blue-500" : "text-slate-500"}`} />
+                  <span className={`text-[11px] font-bold font-sans ${isActive ? "text-white" : "text-slate-400"}`}>
+                    {stage.name.split(" ")[0]}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Visual Panel */}
+          <div className="w-full max-w-3xl h-[380px] rounded-[24px] overflow-hidden shadow-lg border border-white/5 flex items-end relative">
+            <div className="absolute inset-0 w-full h-full overflow-hidden">
+              <img 
+                src={currentStage.image} 
+                alt={currentStage.title} 
+                className="w-full h-full object-cover opacity-75"
+              />
+            </div>
+            
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent z-10 pointer-events-none" />
+
+            <div className="absolute bottom-0 left-0 p-8 z-20 text-left">
+              <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest block mb-1">
+                STAGE {currentStage.num}
+              </span>
+              <h3 className="text-2xl font-extrabold text-white tracking-tight mb-2 font-headline">
+                {currentStage.title}
+              </h3>
+              <p className="text-[13px] text-slate-300 leading-relaxed mb-4 max-w-xl font-sans">
+                {currentStage.detailDesc}
+              </p>
+              <div className="flex flex-wrap gap-1">
+                {currentStage.tech.map((t, idx) => (
+                  <span key={idx} className="bg-white/10 border border-white/10 text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* ====================================================== */}
+        {/* MOBILE VIEW: Horizontal Touch-Swipe Capabilities Row  */}
+        {/* ====================================================== */}
+        <div className="block md:hidden w-full overflow-hidden">
+          
+          <div className="flex overflow-x-auto gap-4 no-scrollbar scroll-smooth w-full px-1 py-2 snap-x snap-mandatory">
+            {ARCHITECTURE_DATA.map((stage, idx) => (
+              <div 
+                key={idx} 
+                className="w-[85vw] shrink-0 snap-center bg-slate-900 border border-white/5 rounded-[24px] overflow-hidden flex flex-col h-[390px]"
+              >
+                {/* Image */}
+                <div className="w-full h-[160px] overflow-hidden relative">
+                  <img 
+                    src={stage.image} 
+                    alt={stage.title} 
+                    className="w-full h-full object-cover opacity-80" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                  <div className="absolute top-4 left-4">
+                    <span className="text-[9px] font-bold text-blue-400 uppercase tracking-wider">
+                      STAGE {stage.num}
                     </span>
                   </div>
-                )}
+                </div>
 
-                {/* Text overlay */}
-                <div className="absolute bottom-0 left-0 p-8 text-white z-10">
-                  <h3 className="text-lg lg:text-xl font-extrabold mb-2 tracking-tight font-headline group-hover:text-[#fbc00e] transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-xs text-slate-300 mt-2 max-w-md leading-relaxed opacity-90 font-sans">{service.description}</p>
+                {/* Content */}
+                <div className="p-5 flex flex-col justify-between flex-grow text-left">
+                  <div>
+                    <h3 className="text-lg font-bold text-white tracking-tight mb-1.5 font-headline">
+                      {stage.title}
+                    </h3>
+                    <p className="text-[12px] text-slate-400 leading-relaxed font-sans mb-3 line-clamp-3">
+                      {stage.detailDesc}
+                    </p>
+                    <div className="flex flex-wrap gap-1">
+                      {stage.tech.map((t, tidx) => (
+                        <span key={tidx} className="bg-white/5 border border-white/5 text-slate-300 text-[8px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider font-sans">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-blue-400 cursor-pointer font-sans mt-3">
+                    <span>Explore Capability</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </div>
                 </div>
               </div>
-            );
-          })}
+            ))}
+          </div>
+
         </div>
+
       </div>
     </section>
   );

@@ -1,642 +1,661 @@
-"use client"
+'use client';
 
-import React, { useState, useRef, useEffect } from "react"
-import { motion } from "framer-motion"
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import {
-  Lightbulb,
-  Ruler,
+  Target,
+  Compass,
   Cpu,
   Play,
-  Activity,
+  Monitor,
   Award,
-  ArrowRight
-} from "lucide-react"
+  ArrowRight,
+  TrendingUp,
+  Map,
+  BarChart3,
+  Layout,
+  Users,
+  GitBranch,
+  Settings,
+  Plug,
+  ShieldCheck,
+  Zap,
+  Package,
+  RefreshCw,
+  GraduationCap,
+  Share2,
+  Lightbulb,
+  Check,
+  Trophy,
+  LucideIcon
+} from 'lucide-react';
 
-const STAGES_DATA = [
+/* ═══════════════════════════════════════════════════════════════
+   STAGES DATA — 7 stages with specific industrial visuals & features
+   ═══════════════════════════════════════════════════════════════ */
+
+interface FeatureBlock {
+  icon: LucideIcon;
+  title: string;
+  desc: string;
+}
+
+interface StageItem {
+  num: string;
+  name: string;
+  icon: LucideIcon;
+  desc: string;
+  image: string;
+  badgeSubtitle: string;
+  features: FeatureBlock[];
+}
+
+const STAGES_DATA: StageItem[] = [
   {
     num: "01",
     name: "Strategy",
-    title: "Strategy Assessment",
-    icon: Lightbulb,
-    metric: "98% Alignment",
-    progress: 98,
-    status: "Optimized",
-    color: "bg-blue-500",
-    dx: 120, // Desktop coordinates
-    dy: 120,
-    tx: 80,  // Tablet coordinates
-    ty: 270,
-    kpi: "Stakeholder Alignment: 100%",
-    tech: ["Jira Align", "Miro", "Confluence"],
-    capabilities: ["Business Assessment", "Advisory Workshops", "ROI Projections"],
-    desc: "Define ambitious digital roadmaps, governance models, and project timelines aligned with core enterprise KPIs and digital capabilities.",
-    outcome: "A consistent strategy mapped directly to business objectives and approved for execution.",
-    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80"
+    icon: Target,
+    desc: "Define business objectives, transformation roadmaps, governance models, and measurable outcomes.",
+    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
+    badgeSubtitle: "Assess • Align • Blueprint",
+    features: [
+      { icon: TrendingUp, title: "Goal Alignment", desc: "Align business vision with measurable digital outcomes." },
+      { icon: Map, title: "Roadmap Planning", desc: "Develop scalable implementation strategies." },
+      { icon: BarChart3, title: "Governance & KPI", desc: "Track execution using measurable business metrics." }
+    ]
   },
   {
     num: "02",
-    name: "Architecture",
-    title: "Architecture & Design",
-    icon: Ruler,
-    metric: "AI Blueprint",
-    progress: 90,
-    status: "Verified",
-    color: "bg-indigo-500",
-    dx: 680,
-    dy: 110,
-    tx: 140,
-    ty: 160,
-    kpi: "Design Compliance: 100%",
-    tech: ["AWS Systems", "Lucidchart", "Kubernetes"],
-    capabilities: ["Cloud Blueprints", "API Integrations", "Security Auditing"],
-    desc: "Design scalable cloud-native architectures, API integration layers, and comprehensive data flows to support modern application workloads.",
-    outcome: "Audited system blueprints and reference architectures signed off by engineering.",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80"
+    name: "Design",
+    icon: Compass,
+    desc: "Create user-centered experiences, solution architectures, operating models, and implementation plans.",
+    image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=80",
+    badgeSubtitle: "Model • Architect • Plan",
+    features: [
+      { icon: Layout, title: "Architecture Design", desc: "Build resilient cloud-native and edge architectures." },
+      { icon: Users, title: "Workflow Mapping", desc: "Blueprint operator experience and system workflows." },
+      { icon: GitBranch, title: "Data Standards", desc: "Define secure protocols and information schemas." }
+    ]
   },
   {
     num: "03",
-    name: "Engineering",
-    title: "Engineering & Build",
+    name: "Build",
     icon: Cpu,
-    metric: "42 Tasks Active",
-    progress: 75,
-    status: "Building",
-    color: "bg-violet-500",
-    dx: 100,
-    dy: 300,
-    tx: 240,
-    ty: 90,
-    kpi: "Code Coverage: >92%",
-    tech: ["Next.js", "FastAPI", "Docker"],
-    capabilities: ["CI/CD Orchestration", "Microservices", "TDD Standards"],
-    desc: "Develop enterprise solutions following clean code principles, active test coverage, and automated integration checks in a fast-moving agile workflow.",
-    outcome: "Production-ready, highly secure repository build with complete deployment pipelines.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
+    desc: "Develop, configure, integrate, and test digital solutions using agile and quality-focused delivery practices.",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
+    badgeSubtitle: "Engineer • Code • Integrate",
+    features: [
+      { icon: Settings, title: "System Integration", desc: "Assemble factory automation software and core databases." },
+      { icon: Plug, title: "API & Middleware", desc: "Establish SCADA, PLC, and enterprise connections." },
+      { icon: ShieldCheck, title: "Quality Verification", desc: "Execute factory testing and pipeline validations." }
+    ]
   },
   {
     num: "04",
-    name: "Deployment",
-    title: "Deployment & Release",
+    name: "Deploy",
     icon: Play,
-    metric: "Auto Deployed",
-    progress: 100,
-    status: "Complete",
-    color: "bg-emerald-500",
-    dx: 130,
-    dy: 470,
-    tx: 360,
-    ty: 90,
-    kpi: "Downtime during cutover: 0s",
-    tech: ["Terraform", "GitHub Actions", "ArgoCD"],
-    capabilities: ["Automated Cutover", "Infrastructure-as-code", "Verification Checklists"],
-    desc: "Configure infrastructure deployments and perform automated cutovers to live environments with zero user downtime and immediate post-release sanity audits.",
-    outcome: "Active production server instances serving users globally across cloud regions.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
+    desc: "Launch solutions efficiently through structured release management, change management, and adoption planning.",
+    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+    badgeSubtitle: "Launch • Validate • Adapt",
+    features: [
+      { icon: Zap, title: "Plant Commissioning", desc: "Supervise deployment, validation, and physical startup." },
+      { icon: Package, title: "Release Operations", desc: "Manage deployment version control." },
+      { icon: RefreshCw, title: "Change Alignment", desc: "Train operations personnel and handle site transitions." }
+    ]
   },
   {
     num: "05",
-    name: "Operations",
-    title: "Operations & Support",
-    icon: Activity,
-    metric: "99.99% Uptime",
-    progress: 99,
-    status: "Healthy",
-    color: "bg-sky-500",
-    dx: 670,
-    dy: 460,
-    tx: 460,
-    ty: 160,
-    kpi: "SLA Availability: >99.99%",
-    tech: ["Datadog", "Prometheus", "PagerDuty"],
-    capabilities: ["Telemetry Tracking", "Log Aggregation", "24/7 Remote Ops"],
-    desc: "Proactively monitor cloud health, gather system metrics, optimize database structures, and maintain live platform scaling limits.",
-    outcome: "Continuous system health status reporting with auto-triggered alerts.",
-    image: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1200&q=80"
+    name: "Operate",
+    icon: Monitor,
+    desc: "Maintain, monitor, optimize, and support business-critical systems to ensure reliability and performance.",
+    image: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1200&q=80",
+    badgeSubtitle: "Monitor • Optimize • Defend",
+    features: [
+      { icon: Monitor, title: "Dashboard Telemetry", desc: "Monitor SCADA data and performance analytics." },
+      { icon: Settings, title: "Predictive Ops", desc: "Apply historical telemetry to forecast maintenance." },
+      { icon: ShieldCheck, title: "Cyber Defenses", desc: "Enforce OT network isolation per standard IEC 62443." }
+    ]
   },
   {
     num: "06",
-    name: "Innovation",
-    title: "Continuous Innovation",
+    name: "Enable",
     icon: Award,
-    metric: "AI Enhanced",
-    progress: 85,
-    status: "Active",
-    color: "bg-amber-500",
-    dx: 700,
-    dy: 280,
-    tx: 520,
-    ty: 270,
-    kpi: "Process Efficiency: +40%",
-    tech: ["TensorFlow", "OpenAI API", "LangChain"],
-    capabilities: ["Predictive Analytics", "Feedback Loops", "Automation Enhancements"],
-    desc: "Integrate feedback loops, continuous system learning models, and automated business intelligence modules to optimize enterprise software execution.",
-    outcome: "Optimized pipelines and direct recommendations for next-generation systems.",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80"
+    desc: "Drive continuous improvement through training, knowledge transfer, capability building, and innovation programs that empower organizations to sustain operational excellence.",
+    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80",
+    badgeSubtitle: "Empower • Educate • Elevate",
+    features: [
+      { icon: GraduationCap, title: "Skill Engineering", desc: "Deliver hands-on training to engineering teams." },
+      { icon: Share2, title: "Knowledge Assets", desc: "Package runtime protocols and capture system details." },
+      { icon: Lightbulb, title: "Innovation Loops", desc: "Drive incremental upgrades and system expansions." }
+    ]
+  },
+  {
+    num: "07",
+    name: "Business Outcome",
+    icon: Trophy,
+    desc: "A consistent, scalable approach that transforms strategy into sustainable business value and operational excellence.",
+    image: "https://images.unsplash.com/photo-1581091870622-0c3ae06d507b?auto=format&fit=crop&w=1200&q=80",
+    badgeSubtitle: "Value • Scale • Sustainability",
+    features: [
+      { icon: Check, title: "Faster Delivery", desc: "Accelerate time-to-market using pre-built engineering accelerators." },
+      { icon: Check, title: "Lower Risk", desc: "Ensure business continuity with rigorous validation protocols." },
+      { icon: Check, title: "Operational Excellence", desc: "Maximize asset performance through real-time SCADA telemetry." },
+      { icon: Check, title: "Continuous Innovation", desc: "Maintain digital leadership via regular feedback loops." }
+    ]
   }
-]
-
-const getCurvePath = (x: number, y: number, isTablet: boolean) => {
-  const cx = isTablet ? 300 : 400
-  const cy = isTablet ? 320 : 300
-  
-  // Cubic Bezier curve calculation
-  const cp1x = x + (cx - x) * 0.5
-  const cp1y = y
-  const cp2x = cx - (cx - x) * 0.2
-  const cp2y = cy
-  
-  return `M ${x} ${y} C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${cx} ${cy}`
-}
-
-interface DetailPanelProps {
-  activeStage: number;
-  className?: string;
-}
-
-function DetailPanel({ activeStage, className }: DetailPanelProps) {
-  const currentStage = STAGES_DATA[activeStage] || STAGES_DATA[0]
-  
-  return (
-    <div className={`bg-white/85 backdrop-blur-md border border-white/60 shadow-[0_20px_50px_rgba(15,23,42,0.04)] rounded-[24px] p-6 flex flex-col gap-4 overflow-hidden group hover:shadow-[0_25px_60px_-15px_rgba(37,99,235,0.08)] transition-all duration-500 relative ${className}`}>
-      <motion.div
-        key={activeStage}
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="h-full flex flex-col justify-between flex-grow"
-      >
-        <div>
-          {/* Banner Image */}
-          <div className="w-full h-[150px] overflow-hidden rounded-xl relative select-none mb-4">
-            <img 
-              src={currentStage.image} 
-              alt={currentStage.title} 
-              className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0D14]/40 to-transparent" />
-          </div>
-
-          {/* Title & Badge */}
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-[10px] font-bold text-[#2563EB] tracking-widest uppercase font-sans">
-              STAGE {currentStage.num}
-            </span>
-            <span className="text-[9px] font-bold bg-[#2563EB]/5 border border-[#2563EB]/15 text-[#2563EB] px-2.5 py-0.5 rounded-full uppercase tracking-wider font-sans">
-              {currentStage.name}
-            </span>
-          </div>
-
-          <h3 className="text-xl font-bold text-[#0F172A] tracking-tight leading-tight mb-2 font-headline">
-            {currentStage.title}
-          </h3>
-
-          {/* Description */}
-          <p className="text-[13px] text-[#64748B] leading-relaxed font-sans mb-4">
-            {currentStage.desc}
-          </p>
-
-          {/* KPI / Business Outcome Highlight */}
-          <div className="bg-[#2563EB]/5 border border-[#2563EB]/10 rounded-[14px] p-3 text-left mb-4">
-            <span className="text-[9px] font-bold text-[#2563EB] uppercase tracking-wider block mb-0.5 font-sans">
-              Business Outcome & KPI
-            </span>
-            <p className="text-[12px] text-[#0F172A] font-semibold leading-relaxed font-sans mb-1">
-              {currentStage.kpi}
-            </p>
-            <p className="text-[11.5px] text-[#64748B] leading-relaxed font-sans">
-              {currentStage.outcome}
-            </p>
-          </div>
-
-          {/* Capabilities & Tech Stack Split */}
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <span className="text-[9px] font-bold text-[#2563EB] uppercase tracking-wider block mb-1.5 font-sans">
-                Capabilities
-              </span>
-              <div className="flex flex-wrap gap-1">
-                {currentStage.capabilities.map((cap, idx) => (
-                  <span key={idx} className="bg-slate-50 border border-slate-100 text-[10px] font-medium px-2 py-0.5 rounded-md text-slate-600 font-sans">
-                    {cap}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div>
-              <span className="text-[9px] font-bold text-[#2563EB] uppercase tracking-wider block mb-1.5 font-sans">
-                Tech Stack
-              </span>
-              <div className="flex flex-wrap gap-1">
-                {currentStage.tech.map((tool, idx) => (
-                  <span key={idx} className="bg-blue-50/40 border border-blue-100/30 text-[10px] font-medium px-2 py-0.5 rounded-md text-[#2563EB] font-sans">
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Explore CTA */}
-        <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-1.5 text-[12px] font-bold text-[#2563EB] cursor-pointer group/btn font-sans w-fit">
-          <span>Explore Capability</span>
-          <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
-        </div>
-      </motion.div>
-    </div>
-  )
-}
+];
 
 export default function ServiceDelivery() {
-  const [activeStage, setActiveStage] = useState(0)
-  const [hoveredStage, setHoveredStage] = useState<number | null>(null)
-  
-  const handleStageSelect = (idx: number) => {
-    setActiveStage(idx)
-  }
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
-  const isAnyHovered = hoveredStage !== null
+  const activeStage = STAGES_DATA[activeIdx];
+
+  const premiumTransition = {
+    duration: 0.75,
+    ease: [0.22, 1, 0.36, 1] as const
+  };
+
+  const buttonText = activeIdx === 6 ? "Explore Success" : "Learn More";
 
   return (
-    <section id="delivery" className="py-20 bg-[#FAFBFC] border-b border-[rgba(0,0,0,0.06)] relative overflow-hidden flex items-center">
-      {/* Subtle engineering grid background */}
-      <div className="absolute inset-0 bg-[radial-gradient(rgba(15,23,42,0.02)_1.5px,transparent_1.5px)] bg-[size:32px_32px] pointer-events-none" />
-      
-      {/* Decorative gradient highlights */}
-      <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] rounded-full blur-[120px] bg-gradient-to-tr from-blue-500/5 to-transparent pointer-events-none" />
-      <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] rounded-full blur-[120px] bg-gradient-to-bl from-purple-500/5 to-transparent pointer-events-none" />
+    <motion.section
+      ref={sectionRef}
+      id="delivery"
+      animate={
+        isInView
+          ? { opacity: 1, filter: 'blur(0px)', scale: 1 }
+          : { opacity: 0, filter: 'blur(8px)', scale: 0.98 }
+      }
+      transition={{
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1]
+      }}
+      className="relative overflow-hidden border-b border-[#ECECEC]"
+      style={{
+        background: '#FCFCFD',
+        paddingTop: 'clamp(64px, 8vh, 120px)',
+        paddingBottom: 'clamp(64px, 8vh, 120px)',
+      }}
+    >
+      {/* Subtle blueprint drawing lines and tiny dots */}
+      <div
+        className="absolute inset-0 pointer-events-none z-0 opacity-15"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(15, 23, 42, 0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(15, 23, 42, 0.02) 1px, transparent 1px)
+          `,
+          backgroundSize: '50px 50px',
+        }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none z-0 opacity-15"
+        style={{
+          backgroundImage: 'radial-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px)',
+          backgroundSize: '25px 25px',
+        }}
+      />
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 relative z-10 w-full flex flex-col items-center">
+      {/* Subtle Engineering Blueprint Diagonal Lines */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-[0.03] select-none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="10%" x2="100%" y2="10%" stroke="#0F172A" strokeWidth="1" strokeDasharray="5,5" />
+        <line x1="0" y1="90%" x2="100%" y2="90%" stroke="#0F172A" strokeWidth="1" strokeDasharray="5,5" />
+        <path d="M 50 100 L 150 100 M 100 50 L 100 150" stroke="#0F172A" strokeWidth="1" />
+        <path d="M 90% 100 L 95% 100 M 92.5% 50 L 92.5% 150" stroke="#0F172A" strokeWidth="1" />
+      </svg>
+
+      {/* Decorative Technical Labels for Digital Command Center Feel */}
+      <div className="absolute top-8 left-8 text-slate-400/40 font-mono text-[9px] pointer-events-none select-none tracking-widest hidden md:block">
+        [ DHG_DELIVERY_CONSOLE_V2.0 ]
+      </div>
+      <div className="absolute top-8 right-8 text-slate-400/40 font-mono text-[9px] pointer-events-none select-none tracking-widest hidden md:block">
+        SYS_LIFECYCLE: ACTIVE
+      </div>
+
+      {/* Barely visible floating particles */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-[2px] h-[2px] rounded-full bg-[#8C123B]/30"
+            style={{
+              left: `${15 + i * 14}%`,
+              top: `${20 + (i * 12) % 60}%`,
+            }}
+            animate={{
+              y: [0, -45, 0],
+              x: [0, 10, 0],
+              opacity: [0.1, 0.4, 0.1],
+            }}
+            transition={{
+              duration: 10 + i * 2,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Soft radial glow behind the center image card on desktop */}
+      <div
+        className="absolute pointer-events-none z-0 hidden lg:block"
+        style={{
+          width: '500px',
+          height: '500px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(140,18,59,0.03) 0%, rgba(245,158,11,0.005) 60%, transparent 85%)',
+          filter: 'blur(75px)',
+          left: '50%',
+          top: '50%',
+          transform: 'translate(-50%, -50%)',
+        }}
+      />
+
+      {/* Soft moving gradient light behind right active content */}
+      <motion.div
+        className="absolute pointer-events-none z-0 hidden lg:block"
+        style={{
+          width: '350px',
+          height: '350px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(140,18,59,0.015) 0%, transparent 70%)',
+          filter: 'blur(60px)',
+          right: '5%',
+          top: '40%',
+        }}
+        animate={{
+          y: [-25, 25, -25],
+          x: [-15, 15, -15],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+      />
+
+      <div className="max-w-[1700px] mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         
-        {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <span className="text-xs font-bold text-[#2563EB] uppercase tracking-[0.2em] mb-3 block">
+        {/* ── Section Header ── */}
+        <div className="flex flex-col w-full text-left mb-14 lg:mb-18">
+          <span
+            className="font-bold uppercase block mb-3 font-sans tracking-[0.25em]"
+            style={{
+              fontSize: 11,
+              color: '#8C123B',
+            }}
+          >
             DELIVERY EXCELLENCE
           </span>
-          <h2 className="text-[30px] md:text-[38px] font-extrabold text-[#0F172A] tracking-tight leading-tight font-headline">
-            From Vision to Sustained Operations
+          <h2
+            className="font-extrabold tracking-tight text-[#0F172A] mb-4 font-headline"
+            style={{
+              fontSize: 'clamp(28px, 3.2vw, 46px)',
+              lineHeight: 1.1,
+            }}
+          >
+            From Strategy to Sustained Operations
           </h2>
-          <p className="text-[#64748B] text-[14.5px] leading-relaxed font-sans mt-2 max-w-xl mx-auto">
-            Experience our Enterprise Intelligence Grid—visualizing continuous pipelines managing complex projects.
+          <p
+            className="font-sans text-slate-500 max-w-[700px]"
+            style={{
+              fontSize: 15.5,
+              lineHeight: 1.7,
+            }}
+          >
+            Our delivery model supports organizations across the entire digital transformation lifecycle, ensuring seamless execution from initial vision through long-term operational success.
           </p>
         </div>
 
-        {/* ====================================================== */}
-        {/* DESKTOP VIEW: Floating Grid Canvas + Details Panel    */}
-        {/* ====================================================== */}
-        <div className="hidden lg:flex flex-row items-center justify-between gap-8 w-full h-[600px] mt-4">
-          
-          {/* Left Side: Dynamic Grid Canvas */}
-          <div className="w-[60%] h-full relative shrink-0 select-none">
-            
-            {/* SVG Connecting Paths */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 800 600">
-              {STAGES_DATA.map((stage, idx) => {
-                const isHovered = hoveredStage === idx
-                const isBlurred = hoveredStage !== null && hoveredStage !== idx
-                const path = getCurvePath(stage.dx, stage.dy, false)
-                
-                return (
-                  <g key={idx}>
-                    {/* Background path line */}
-                    <path
-                      d={path}
-                      fill="none"
-                      stroke={isHovered ? "rgba(37, 99, 235, 0.25)" : "rgba(15, 23, 42, 0.05)"}
-                      strokeWidth={isHovered ? 3 : 1.5}
-                      className="transition-all duration-500"
-                    />
-                    
-                    {/* Moving data overlay particles */}
-                    <motion.path
-                      d={path}
-                      fill="none"
-                      stroke={isHovered ? "#3B82F6" : "rgba(59, 130, 246, 0.45)"}
-                      strokeWidth={isHovered ? 2.5 : 1.5}
-                      strokeLinecap="round"
-                      strokeDasharray="8 24"
-                      animate={{
-                        strokeDashoffset: [0, -120],
-                        opacity: isBlurred ? 0.2 : 0.8
-                      }}
-                      transition={{
-                        strokeDashoffset: {
-                          repeat: Infinity,
-                          duration: isHovered ? 1.2 : 2.5,
-                          ease: "linear"
-                        },
-                        opacity: { duration: 0.4 }
-                      }}
-                    />
-                  </g>
-                )
-              })}
-            </svg>
-
-            {/* Centered AI Core */}
-            <div 
-              className="absolute z-20"
+        {/* ── Outer Premium Container ── */}
+        <motion.div
+          key={activeIdx}
+          animate={{
+            y: [2, 0, 2],
+            boxShadow: [
+              '0px 20px 50px rgba(10, 12, 18, 0.025)',
+              '0px 25px 60px rgba(10, 12, 18, 0.04)',
+              '0px 20px 50px rgba(10, 12, 18, 0.025)'
+            ]
+          }}
+          transition={premiumTransition}
+          className="relative w-full rounded-[30px] border border-[#ECECEC] bg-white/40 backdrop-blur-md p-6 lg:p-8 mb-16 lg:mb-20 overflow-hidden"
+        >
+          {/* Subtle animated gradient line strictly on the top edge */}
+          <div className="absolute top-0 left-0 right-0 h-[4px] overflow-hidden rounded-t-[30px] z-20">
+            <motion.div
+              className="w-[200%] h-full"
               style={{
-                left: "400px",
-                top: "300px",
-                transform: "translate(-50%, -50%)"
+                background: 'linear-gradient(90deg, #8C123B 0%, #C2185B 25%, #F59E0B 50%, #C2185B 75%, #8C123B 100%)',
               }}
-            >
-              {/* Pulsing glow aura background */}
+              animate={{
+                x: ['0%', '-50%'],
+              }}
+              transition={{
+                repeat: Infinity,
+                duration: 10,
+                ease: 'linear',
+              }}
+            />
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-8 items-stretch z-10 relative">
+            
+            {/* COLUMN 1: LEFT DELIVERY NAVIGATION (32% Width on Desktop) */}
+            <div className="w-full lg:w-[32%] flex flex-col gap-4 justify-center relative py-4 px-2">
+              
+              {/* Background timeline line running behind cards (ends exactly at Stage 07 center) */}
+              <div className="absolute left-[36px] top-[38px] bottom-[38px] w-[1.5px] bg-[#ECECEC] z-0 pointer-events-none" />
+
+              {/* Filled active timeline line (ends exactly at Stage 07 center when active) */}
               <motion.div
+                className="absolute left-[36px] top-[38px] w-[1.5px] bg-gradient-to-b from-[#8C123B] via-[#C2185B] to-[#F59E0B] z-0 pointer-events-none origin-top"
+                style={{ height: 'calc(100% - 76px)' }}
                 animate={{
-                  scale: isAnyHovered ? 1.2 : 1,
-                  opacity: isAnyHovered ? 0.95 : 0.7
+                  scaleY: activeIdx / 6
                 }}
-                transition={{ type: "spring", stiffness: 100, damping: 15 }}
-                className="absolute inset-[-40px] rounded-full bg-blue-500/10 blur-2xl pointer-events-none z-0"
+                transition={premiumTransition}
               />
-              
-              {/* Rotating inner dashed ring */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
-                className="absolute inset-[-25px] rounded-full border border-dashed border-blue-400/20 z-10 pointer-events-none"
-              />
-              
-              {/* Rotating outer ring with indicator dot */}
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
-                className="absolute inset-[-40px] rounded-full border border-blue-500/10 z-10 pointer-events-none"
-              >
-                <span className="absolute top-1 left-1/2 w-2 h-2 rounded-full bg-blue-500/40 transform -translate-x-1/2" />
-              </motion.div>
 
-              {/* Main Core Container */}
-              <div className="w-[155px] h-[155px] rounded-full bg-white/85 backdrop-blur-md border border-white/80 shadow-[0_12px_45px_rgba(15,23,42,0.05)] flex flex-col items-center justify-center text-center p-4 z-20">
-                <span className="text-[8px] font-bold text-[#2563EB] tracking-[0.18em] uppercase mb-1">
-                  AI CORE
-                </span>
-                <h4 className="text-[13px] font-extrabold text-[#0F172A] leading-tight font-headline">
-                  DELIVERY ENGINE
-                </h4>
-                <span className="text-[8px] text-[#64748B] font-medium mt-1 font-sans">
-                  Enterprise Grid
-                </span>
-              </div>
-            </div>
-
-            {/* Orbiting Modules */}
-            {STAGES_DATA.map((stage, idx) => {
-              const Icon = stage.icon
-              const isHovered = hoveredStage === idx
-              const isBlurred = hoveredStage !== null && hoveredStage !== idx
-              
-              return (
-                <motion.div
-                  key={idx}
-                  onHoverStart={() => {
-                    setHoveredStage(idx)
-                    setActiveStage(idx)
-                  }}
-                  onHoverEnd={() => setHoveredStage(null)}
-                  onClick={() => handleStageSelect(idx)}
-                  animate={{
-                    y: isHovered ? -5 : [0, -6, 0] // Gentle floating when not hovered
-                  }}
-                  transition={{
-                    y: {
-                      repeat: isHovered ? 0 : Infinity,
-                      duration: 3 + idx * 0.4,
-                      ease: "easeInOut"
-                    }
-                  }}
-                  className="absolute w-[185px] h-[102px] bg-white/75 backdrop-blur-md border border-white/60 shadow-[0_8px_30px_rgba(15,23,42,0.03)] rounded-[22px] p-3 flex flex-col justify-between cursor-pointer select-none z-10 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
-                  style={{
-                    left: `${stage.dx}px`,
-                    top: `${stage.dy}px`,
-                    transform: isHovered ? "translate(-50%, -50%) scale(1.06)" : "translate(-50%, -50%)",
-                    filter: isBlurred ? "blur(1.5px)" : "none",
-                    opacity: isBlurred ? 0.45 : 1,
-                    zIndex: isHovered ? 30 : 10
-                  }}
-                >
-                  <div className="flex items-center justify-between w-full">
-                    {/* Icon container */}
-                    <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 text-[#2563EB] flex items-center justify-center group-hover/mod:bg-[#2563EB] group-hover/mod:text-white transition-colors duration-300">
-                      <Icon className="w-4.5 h-4.5" />
-                    </div>
-                    
-                    {/* Blinking Live Indicator */}
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                    </span>
-                  </div>
-
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-[11px] font-extrabold text-slate-800 tracking-tight font-sans">
-                        {stage.name}
-                      </span>
-                      <span className="text-[8.5px] font-semibold text-slate-400 font-sans">
-                        {stage.metric.split(" ")[0]}
-                      </span>
-                    </div>
-                    {/* Progress slider */}
-                    <div className="w-full bg-slate-100 rounded-full h-1 mt-1 overflow-hidden">
-                      <div 
-                        className="bg-blue-500 h-1 rounded-full transition-all duration-1000" 
-                        style={{ width: `${stage.progress}%` }} 
-                      />
-                    </div>
-                  </div>
-                </motion.div>
-              )
-            })}
-
-          </div>
-
-          {/* Right Side: Command Detail Panel */}
-          <DetailPanel activeStage={activeStage} className="w-[40%] h-[550px]" />
-
-        </div>
-
-        {/* ====================================================== */}
-        {/* TABLET VIEW: Semi-circular Layout + Details Panel     */}
-        {/* ====================================================== */}
-        <div className="hidden md:flex lg:hidden flex-col items-center gap-8 w-full mt-4">
-          
-          {/* Semi-circular Orbit Canvas */}
-          <div className="w-[600px] h-[400px] relative shrink-0 mx-auto select-none">
-            
-            {/* SVG Connecting Paths */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 600 400">
               {STAGES_DATA.map((stage, idx) => {
-                const isActive = activeStage === idx
-                const path = getCurvePath(stage.tx, stage.ty, true)
+                const Icon = stage.icon;
+                const isActive = activeIdx === idx;
+                const isHovered = hoveredIdx === idx;
                 
                 return (
-                  <g key={idx}>
-                    <path
-                      d={path}
-                      fill="none"
-                      stroke={isActive ? "rgba(37, 99, 235, 0.2)" : "rgba(15, 23, 42, 0.04)"}
-                      strokeWidth={isActive ? 2.5 : 1.5}
-                      className="transition-all duration-300"
-                    />
-                    <motion.path
-                      d={path}
-                      fill="none"
-                      stroke={isActive ? "#3B82F6" : "rgba(59, 130, 246, 0.4)"}
-                      strokeWidth={isActive ? 2 : 1}
-                      strokeLinecap="round"
-                      strokeDasharray="6 20"
-                      animate={{
-                        strokeDashoffset: [0, -100]
-                      }}
-                      transition={{
-                        repeat: Infinity,
-                        duration: isActive ? 1.5 : 3.5,
-                        ease: "linear"
-                      }}
-                    />
-                  </g>
-                )
-              })}
-            </svg>
+                  <motion.div
+                    key={idx}
+                    onClick={() => setActiveIdx(idx)}
+                    onMouseEnter={() => setHoveredIdx(idx)}
+                    onMouseLeave={() => setHoveredIdx(null)}
+                    className="w-full relative z-10"
+                    animate={{
+                      x: isActive ? 8 : 0,
+                      scale: isActive ? 1.03 : 1.0,
+                    }}
+                    transition={premiumTransition}
+                  >
+                    <div
+                      className={`relative flex items-center justify-between p-4 pl-12 pr-5 rounded-[18px] cursor-pointer select-none transition-all duration-300 border ${
+                        isActive
+                          ? 'border-transparent bg-white shadow-md shadow-[#8C123B]/5'
+                          : isHovered
+                          ? 'border-[#ECECEC] bg-white shadow-sm'
+                          : 'border-[#ECECEC] bg-white/70 backdrop-blur-sm shadow-sm'
+                      }`}
+                    >
+                      {/* Animated gradient card border outline */}
+                      {isActive && (
+                        <motion.div
+                          layoutId="activeCardBorder"
+                          className="absolute inset-0 rounded-[18px] pointer-events-none z-20"
+                          style={{
+                            border: '1.5px solid transparent',
+                            background: 'linear-gradient(135deg, #8C123B, #F59E0B) border-box',
+                            WebkitMask: 'linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)',
+                            WebkitMaskComposite: 'destination-out',
+                            maskComposite: 'exclude',
+                          }}
+                          transition={premiumTransition}
+                        />
+                      )}
 
-            {/* Bottom-Centered AI Core */}
-            <div 
-              className="absolute z-20"
-              style={{
-                left: "300px",
-                top: "320px",
-                transform: "translate(-50%, -50%)"
-              }}
-            >
-              {/* Aura */}
-              <div className="absolute inset-[-30px] rounded-full bg-blue-500/10 blur-xl pointer-events-none z-0" />
+                      {/* Glowing vertical left status indicator bar */}
+                      {isActive ? (
+                        <motion.div
+                          layoutId="activeVerticalIndicator"
+                          className="absolute left-[-1.5px] top-3.5 bottom-3.5 w-[3.5px] bg-gradient-to-b from-[#8C123B] to-[#F59E0B] rounded-r-full z-30 shadow-sm shadow-[#8C123B]/30"
+                          transition={premiumTransition}
+                        />
+                      ) : isHovered ? (
+                        <motion.div
+                          layoutId="hoverVerticalIndicator"
+                          className="absolute left-[-1.5px] top-[25%] bottom-[25%] w-[2.5px] bg-gradient-to-b from-[#8C123B]/50 to-[#F59E0B]/50 rounded-r-full z-20"
+                          transition={premiumTransition}
+                        />
+                      ) : null}
+
+                      <div className="flex items-center gap-4 relative z-10">
+                        {/* Icon Wrapper (gradient circle on active) */}
+                        <div className="relative">
+                          {isActive && (
+                            <motion.div
+                              layoutId={`iconGlow-${idx}`}
+                              className="absolute inset-[-6px] rounded-full filter blur-[6px] pointer-events-none z-0"
+                              style={{
+                                background: 'radial-gradient(circle, rgba(140,18,59,0.35) 0%, rgba(245,158,11,0.1) 60%, transparent 100%)',
+                              }}
+                              transition={premiumTransition}
+                            />
+                          )}
+                          <motion.div
+                            animate={{
+                              rotate: isHovered && !isActive ? 6 : 0,
+                            }}
+                            transition={{ duration: 0.3, ease: 'easeOut' }}
+                            className={`w-9 h-9 rounded-full flex items-center justify-center relative z-10 transition-all duration-300 ${
+                              isActive
+                                ? 'bg-gradient-to-br from-[#8C123B] to-[#F59E0B] text-white shadow-md shadow-[#8C123B]/20 scale-[1.08]'
+                                : 'bg-slate-100 text-slate-400'
+                            }`}
+                          >
+                            <Icon className="w-4.5 h-4.5" />
+                          </motion.div>
+                        </div>
+                        
+                        <span
+                          className={`font-sans transition-colors duration-300 ${
+                            isActive ? 'font-bold text-[#0F172A]' : 'font-semibold text-slate-600'
+                          }`}
+                          style={{ fontSize: 13.5 }}
+                        >
+                          {stage.name}
+                        </span>
+                      </div>
+
+                      <span
+                        className={`text-[11px] font-bold font-sans transition-colors duration-300 relative z-10 ${
+                          isActive ? 'text-[#8C123B] font-extrabold' : 'text-slate-400'
+                        }`}
+                      >
+                        {stage.num}
+                      </span>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {/* COLUMN 2: CENTER HERO IMAGE (38% Width on Desktop) */}
+            <div className="w-full lg:w-[38%] relative overflow-hidden min-h-[440px] lg:min-h-auto rounded-[24px] shadow-md border border-[#ECECEC] bg-slate-900 flex-grow z-10">
               
-              {/* Concentric rings */}
+              {/* Premium top border animation traveling once across top edge on transition */}
+              <div className="absolute top-0 left-0 right-0 h-[3.5px] overflow-hidden z-20">
+                <motion.div
+                  key={`border-sweep-${activeIdx}`}
+                  className="h-full"
+                  style={{
+                    width: '200%',
+                    background: 'linear-gradient(90deg, #9D174D 0%, #F97316 50%, #9D174D 100%)',
+                  }}
+                  initial={{ x: '-100%' }}
+                  animate={{ x: '0%' }}
+                  transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] as const }}
+                />
+              </div>
+
+              {/* Layered Crossfade Morphing Images */}
+              <AnimatePresence mode="popLayout">
+                <motion.img
+                  key={activeIdx}
+                  src={activeStage.image}
+                  alt={activeStage.name}
+                  initial={{ opacity: 0, scale: 1.03, filter: 'blur(4px)' }}
+                  animate={{ opacity: 1, scale: 1.0, filter: 'blur(0px)' }}
+                  exit={{ opacity: 0, scale: 1.03, filter: 'blur(4px)' }}
+                  transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] as const }}
+                  className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
+                />
+              </AnimatePresence>
+
+              {/* Morphing dark overlay layer pulsing to 15% opacity on transition */}
               <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 18, ease: "linear" }}
-                className="absolute inset-[-15px] rounded-full border border-dashed border-blue-400/20 z-10 pointer-events-none"
+                key={`dark-pulse-${activeIdx}`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: [0, 0.15, 0] }}
+                transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] as const }}
+                className="absolute inset-0 bg-slate-950 pointer-events-none z-10"
               />
 
-              {/* Core Box */}
-              <div className="w-[120px] h-[120px] rounded-full bg-white/85 backdrop-blur-md border border-white/80 shadow-[0_8px_30px_rgba(15,23,42,0.04)] flex flex-col items-center justify-center text-center p-3 z-20">
-                <span className="text-[7.5px] font-bold text-[#2563EB] tracking-wider uppercase mb-0.5">
-                  AI CORE
+              {/* Static Bottom Dark overlay for text readability */}
+              <div
+                className="absolute inset-0 pointer-events-none z-10"
+                style={{
+                  background: 'linear-gradient(to top, rgba(15,23,42,0.8) 0%, rgba(15,23,42,0.15) 50%, transparent 80%)',
+                }}
+              />
+
+              {/* Bottom-left Badge */}
+              <div className="absolute bottom-6 left-6 z-20 flex flex-col gap-1 text-left">
+                <span className="bg-[#8C123B]/85 backdrop-blur-sm text-white px-2.5 py-0.5 rounded text-[9.5px] font-extrabold tracking-wider uppercase w-fit shadow">
+                  {activeStage.name.toUpperCase()} EXCELLENCE
                 </span>
-                <h4 className="text-[11.5px] font-extrabold text-[#0F172A] leading-tight font-headline">
-                  ENGINE
-                </h4>
+                <span className="text-[9px] text-slate-300 font-medium tracking-wide">
+                  {activeStage.badgeSubtitle}
+                </span>
               </div>
             </div>
 
-            {/* Surrounding Arch Widgets */}
-            {STAGES_DATA.map((stage, idx) => {
-              const Icon = stage.icon
-              const isActive = activeStage === idx
+            {/* COLUMN 3: RIGHT PREMIUM GLASS CONTENT PANEL (30% Width on Desktop) */}
+            <div className="w-full lg:w-[30%] p-6 lg:p-7 flex flex-col justify-between relative bg-white/82 backdrop-blur-md rounded-[24px] border border-white/50 shadow-md overflow-hidden min-h-[500px] z-10">
               
-              return (
-                <div
-                  key={idx}
-                  onClick={() => handleStageSelect(idx)}
-                  className={`absolute w-[145px] h-[86px] bg-white/75 backdrop-blur-md border rounded-[20px] p-2.5 flex flex-col justify-between cursor-pointer select-none z-10 transition-all duration-300 ${
-                    isActive 
-                      ? "border-[#2563EB] shadow-md scale-105" 
-                      : "border-white/60 shadow-sm"
-                  }`}
-                  style={{
-                    left: `${stage.tx}px`,
-                    top: `${stage.ty}px`,
-                    transform: "translate(-50%, -50%)"
-                  }}
+              <AnimatePresence mode="wait">
+                {/* Content Layout Wrapper with lift and blur exit animations */}
+                <motion.div
+                  key={activeIdx}
+                  exit={{ y: -24, opacity: 0, filter: 'blur(4px)' }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }}
+                  className="relative z-10 flex-grow flex flex-col justify-between h-full"
                 >
-                  <div className="flex items-center justify-between w-full">
-                    <div className="w-7 h-7 rounded-lg bg-blue-500/10 border border-blue-500/20 text-[#2563EB] flex items-center justify-center">
-                      <Icon className="w-4 h-4" />
-                    </div>
-                    
-                    <span className="relative flex h-1.5 w-1.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
-                    </span>
-                  </div>
-
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold text-slate-800 tracking-tight font-sans">
-                        {stage.name}
-                      </span>
-                      <span className="text-[8px] font-bold text-slate-400 font-sans">
-                        {stage.metric.split(" ")[0]}
-                      </span>
-                    </div>
-                    <div className="w-full bg-slate-100 rounded-full h-0.5 mt-0.5 overflow-hidden">
-                      <div className="bg-blue-500 h-0.5 rounded-full" style={{ width: `${stage.progress}%` }} />
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-
-          </div>
-
-          {/* Details Card */}
-          <DetailPanel activeStage={activeStage} className="w-full max-w-[600px] h-auto min-h-[500px]" />
-
-        </div>
-
-        {/* ====================================================== */}
-        {/* MOBILE VIEW: Horizontal Swiper + Details Panel        */}
-        {/* ====================================================== */}
-        <div className="block md:hidden w-full mt-4">
-          
-          {/* Horizontal widget scroller */}
-          <div className="flex overflow-x-auto pb-4 gap-4 no-scrollbar scroll-smooth w-full px-1">
-            {STAGES_DATA.map((stage, idx) => {
-              const Icon = stage.icon
-              const isActive = activeStage === idx
-              
-              return (
-                <button
-                  key={idx}
-                  onClick={() => handleStageSelect(idx)}
-                  className={`shrink-0 w-[170px] h-[92px] bg-white/75 backdrop-blur-md border rounded-[22px] p-3 flex flex-col justify-between text-left select-none transition-all duration-300 ${
-                    isActive 
-                      ? "border-[#2563EB] bg-[#2563EB]/5 shadow-md scale-105" 
-                      : "border-white/60 shadow-sm"
-                  }`}
-                >
-                  <div className="flex items-center justify-between w-full">
-                    <div className="w-7 h-7 rounded-lg bg-blue-500/10 border border-blue-500/20 text-[#2563EB] flex items-center justify-center">
-                      <Icon className="w-4 h-4" />
-                    </div>
-                    
-                    <span className="relative flex h-1.5 w-1.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
-                    </span>
-                  </div>
                   
-                  <div>
-                    <span className="text-[8px] font-bold text-slate-400 block leading-none mb-0.5">STAGE 0{idx + 1}</span>
-                    <span className="text-[12px] font-bold text-slate-900 leading-none">{stage.name}</span>
+                  {/* Large faded background step number */}
+                  <div className="absolute right-[-10px] top-[-5px] pointer-events-none select-none overflow-hidden z-0">
+                    <motion.span
+                      initial={{ opacity: 0, y: 30, scale: 0.9, filter: 'blur(4px)' }}
+                      animate={{ opacity: 0.04, y: 0, scale: 1.0, filter: 'blur(0px)' }}
+                      transition={{ delay: 0.05, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+                      className="font-black text-[#8C123B] leading-none block"
+                      style={{ fontSize: '140px' }}
+                    >
+                      {activeStage.num}
+                    </motion.span>
                   </div>
-                </button>
-              )
-            })}
-          </div>
 
-          {/* Details Card */}
-          <div className="mt-6 w-full">
-            <DetailPanel activeStage={activeStage} className="h-auto min-h-[500px]" />
-          </div>
+                  <div>
+                    {/* Stage Label */}
+                    <motion.span
+                      initial={{ opacity: 0, y: 30, filter: 'blur(4px)' }}
+                      animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                      transition={{ delay: 0.0, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+                      className="text-[9.5px] font-extrabold text-[#C2185B] tracking-wider uppercase block mb-0.5 text-left"
+                    >
+                      STAGE {activeStage.num}
+                    </motion.span>
 
-        </div>
+                    {/* Heading */}
+                    <motion.h3
+                      initial={{ opacity: 0, y: 30, filter: 'blur(4px)' }}
+                      animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                      transition={{ delay: 0.10, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+                      className="text-xl font-extrabold text-[#0F172A] mb-2.5 tracking-tight font-headline text-left"
+                    >
+                      {activeStage.name}
+                    </motion.h3>
+                    
+                    {/* Description */}
+                    <motion.p
+                      initial={{ opacity: 0, y: 30, filter: 'blur(4px)' }}
+                      animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                      transition={{ delay: 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+                      className="text-[12.5px] text-slate-500 leading-relaxed mb-5 font-sans text-left"
+                    >
+                      {activeStage.desc}
+                    </motion.p>
+
+                    {/* Feature / Success Cards (Staggered reveal) */}
+                    <div className="flex flex-col gap-3">
+                      {activeStage.features.map((feat, fIdx) => {
+                        const FeatIcon = feat.icon;
+                        return (
+                          <motion.div
+                            key={fIdx}
+                            initial={{ opacity: 0, x: 20, scale: 0.98 }}
+                            animate={{ opacity: 1, x: 0, scale: 1.0 }}
+                            transition={{
+                              delay: 0.20 + fIdx * 0.05,
+                              duration: 0.6,
+                              ease: [0.22, 1, 0.36, 1] as const
+                            }}
+                            className="flex items-start gap-3 p-2 rounded-xl border border-slate-100/60 bg-white/40 hover:bg-white/80 hover:scale-[1.01] hover:border-slate-200 shadow-sm transition-all duration-300 group/item text-left"
+                          >
+                            <div className="text-slate-500 bg-slate-50 group-hover/item:bg-[#8C123B]/5 p-2 rounded-lg transition-colors flex items-center justify-center flex-shrink-0">
+                              <FeatIcon className="w-4 h-4 text-[#8C123B]" />
+                            </div>
+                            <div>
+                              <h4 className="text-[12.5px] font-bold text-slate-800 mb-0.5 font-headline">
+                                {feat.title}
+                              </h4>
+                              <p className="text-[11px] text-slate-400 leading-normal font-sans">
+                                {feat.desc}
+                              </p>
+                            </div>
+                          </motion.div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* CTA Button */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.35, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+                    className="mt-8 relative z-10 text-left"
+                  >
+                    <motion.button
+                      whileHover={{
+                        y: -2,
+                        boxShadow: '0px 10px 25px rgba(140, 18, 59, 0.22)',
+                      }}
+                      whileTap={{ scale: 0.98 }}
+                      className="group relative overflow-hidden flex items-center gap-2.5 text-[11.5px] font-bold text-white px-7 py-3 rounded-full transition-all duration-300 cursor-pointer w-fit"
+                      style={{
+                        background: 'linear-gradient(90deg, #8C123B 0%, #C2185B 50%, #F59E0B 100%)',
+                        backgroundSize: '200% 100%',
+                        backgroundPosition: '0% 0%',
+                      }}
+                      animate={{
+                        backgroundPosition: hoveredIdx !== null ? '100% 0%' : '0% 0%'
+                      }}
+                      transition={{ duration: 0.45, ease: 'easeInOut' }}
+                    >
+                      <span className="relative z-10 font-sans tracking-wide">{buttonText}</span>
+                      <ArrowRight className="w-3.5 h-3.5 relative z-10 transition-transform duration-300 group-hover:translate-x-[6px]" />
+                    </motion.button>
+                  </motion.div>
+
+                </motion.div>
+              </AnimatePresence>
+
+            </div>
+
+          </div>
+        </motion.div>
 
       </div>
-    </section>
-  )
+    </motion.section>
+  );
 }

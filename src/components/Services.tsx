@@ -1,172 +1,646 @@
-"use client"
+'use client';
 
-import React from "react"
-import { motion } from "framer-motion"
-import { ArrowRight } from "lucide-react"
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 
-const SERVICES_DATA = [
+/* ═══════════════════════════════════════════════════════════════
+   SERVICES DATA — 8 Capabilities mapped to real industrial assets
+   ═══════════════════════════════════════════════════════════════ */
+
+interface ServiceData {
+  title: string;
+  category: string;
+  desc: string;
+  image: string;
+  overview: string;
+  capabilities: string[];
+  technologies: string[];
+  outcomes: string[];
+}
+
+const SERVICES_DATA: ServiceData[] = [
   {
     title: "Industrial Digital Transformation",
     category: "Smart Manufacturing",
     desc: "Modernize factories with AI-powered automation, predictive maintenance, digital twins, and intelligent manufacturing systems.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
-    gridClass: "col-span-12 lg:col-span-8",
-    layoutType: "horizontal"
+    image: "/industries/automotive.png",
+    overview: "End-to-end modernization of legacy manufacturing operations into highly optimized, data-driven smart factories.",
+    capabilities: ["Real-Time Digital Twin Deployment", "OEE Optimization & Analytics", "Predictive Quality Control", "Zero-Harm Safety Monitoring"],
+    technologies: ["Industry 4.0", "Edge AI", "Computer Vision", "3D Digital Twins"],
+    outcomes: ["35% downtime reduction", "18% OEE increase", "Zero-safety incident logs"]
   },
   {
     title: "OT / IT Integration",
     category: "Automation",
-    desc: "Connect operational technology with enterprise platforms for real-time visibility, secure communication, and seamless industrial operations.",
-    image: "https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?auto=format&fit=crop&w=1200&q=80",
-    gridClass: "col-span-12 lg:col-span-4",
-    layoutType: "vertical"
+    desc: "Connect operational technology with enterprise platforms for real-time visibility, secure communication, and seamless operations.",
+    image: "/industries/power.png",
+    overview: "Bridges the gap between physical factory floor assets and corporate IT business intelligence systems.",
+    capabilities: ["PLC/SCADA to ERP Syncing", "OPC UA & MQTT Broker Design", "Secure Edge Data Pipelines", "Legacy Protocol Translations"],
+    technologies: ["OPC UA", "MQTT Sparkplug", "Kafka", "SCADA/HMI"],
+    outcomes: ["100% data ingestion", "Zero packet drop rates", "Real-time asset sync"]
   },
   {
     title: "Industrial Data Platforms",
     category: "Data Platforms",
     desc: "Build centralized data ecosystems that transform industrial telemetry into actionable business intelligence.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-    gridClass: "col-span-12 lg:col-span-8",
-    layoutType: "horizontal"
+    image: "/industries/datacenters.png",
+    overview: "Unified telemetry hubs capable of processing millions of time-series data points from plant sensors.",
+    capabilities: ["Historian Database Upgrades", "Multi-Site Data Hubs", "Time-Series Analytics Engines", "Unified Namespace (UNS)"],
+    technologies: ["TimescaleDB", "InfluxDB", "Apache Spark", "Snowflake"],
+    outcomes: ["45% speedup in queries", "Single source of truth", "Scalable telemetry"]
   },
   {
     title: "Artificial Intelligence & Analytics",
     category: "AI Systems",
     desc: "Deploy enterprise AI models that optimize production, forecasting, anomaly detection, and decision intelligence.",
-    image: "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=1200&q=80",
-    gridClass: "col-span-12 lg:col-span-4",
-    layoutType: "vertical"
+    image: "/industries/lifesciences.png",
+    overview: "Cognitive automation systems designed to predict anomalies and prescribe optimal plant settings.",
+    capabilities: ["Predictive Maintenance Models", "Vision Defect Inspection", "Energy Load Forecasting", "Process Setpoint Tuning"],
+    technologies: ["TensorFlow", "PyTorch", "Computer Vision", "MLOps Pipelines"],
+    outcomes: ["50% scrap rate reduction", "94% anomaly detection accuracy", "12% energy savings"]
   },
   {
     title: "Industrial IoT",
     category: "Industrial IoT",
     desc: "Connect machines, sensors, and edge devices into one secure intelligent ecosystem.",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
-    gridClass: "col-span-12 lg:col-span-4",
-    layoutType: "vertical"
+    image: "/industries/food.png",
+    overview: "Dense sensor networks and smart edge node deployments for granular machinery metrics tracking.",
+    capabilities: ["Edge Mesh Network Setup", "Low-Latency Device Control", "Smart Metering Platforms", "Edge Computing Nodes"],
+    technologies: ["LoRaWAN", "AWS IoT", "Azure IoT Hub", "Edge Compute"],
+    outcomes: ["99.9% device uptime", "Sub-second data latency", "Automated device pairing"]
   },
   {
     title: "Cloud Infrastructure",
     category: "Enterprise Cloud",
     desc: "Scalable cloud-native platforms built for mission-critical industrial workloads.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
-    gridClass: "col-span-12 lg:col-span-8",
-    layoutType: "horizontal"
+    image: "/industries/epc.png",
+    overview: "Resilient cloud architectures built to host mission-critical, high-availability OT applications.",
+    capabilities: ["Kubernetes Cluster Deployments", "Hybrid Cloud Environments", "IaC Configuration Pipelines", "Scalable API Gateways"],
+    technologies: ["Terraform", "EKS/GKE", "Helm Charts", "Hybrid Network"],
+    outcomes: ["99.99% system SLA", "Auto-scaling orchestration", "Zero-downtime rollouts"]
   },
   {
     title: "Cybersecurity",
     category: "Cyber Defense",
     desc: "Zero Trust architectures protecting industrial assets, networks, cloud, and enterprise operations.",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80",
-    gridClass: "col-span-12 lg:col-span-6",
-    layoutType: "horizontal"
+    image: "/industries/water.png",
+    overview: "OT-centric security systems built to protect critical assets from cyber risks and network intrusions.",
+    capabilities: ["OT/IT Network Zoning (62443)", "Edge Intrusion Prevention", "Zero-Trust Access Control", "Vulnerability Audits"],
+    technologies: ["IEC 62443", "Zero Trust", "SIEM/SOAR", "OT Firewalls"],
+    outcomes: ["No security breaches", "Full ISO 27001 readiness", "Immediate incident logs"]
   },
   {
     title: "Managed Services",
     category: "Digital Operations",
     desc: "Continuous monitoring, optimization, governance, and enterprise operational excellence.",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
-    gridClass: "col-span-12 lg:col-span-6",
-    layoutType: "horizontal"
+    image: "/industries/mining.png",
+    overview: "Proactive infrastructure monitoring and continuous support for enterprise software solutions.",
+    capabilities: ["24/7/365 Remote Monitoring", "Database Tuning & Scaling", "Compliance & Patch Syncs", "Performance SLA Tracking"],
+    technologies: ["Datadog", "Prometheus", "PagerDuty", "ITIL Framework"],
+    outcomes: ["99.9% availability", "Immediate alert responses", "Sustained lifecycle health"]
   }
-]
+];
+
+/* ═══════════════════════════════════════════════════════════════
+   CAPABILITY CARD COMPONENT (DARK GLASSMORPHISM)
+   ═══════════════════════════════════════════════════════════════ */
+
+function ServiceCard({ data, isExpanded, onCardHover, onCardLeave }: {
+  data: ServiceData;
+  isExpanded: boolean;
+  onCardHover: () => void;
+  onCardLeave: () => void;
+}) {
+  return (
+    <div
+      className="relative group cursor-pointer"
+      onMouseEnter={onCardHover}
+      onMouseLeave={onCardLeave}
+      style={{ height: 480 }}
+    >
+      {/* Soft brand glows spreading beneath card on hover */}
+      <motion.div
+        className="absolute -inset-3 rounded-[32px] pointer-events-none z-0"
+        animate={{
+          opacity: isExpanded ? 0.75 : 0,
+          scale: isExpanded ? 1.02 : 0.95,
+        }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        style={{
+          background: 'radial-gradient(ellipse at center, rgba(138,18,58,0.22) 0%, rgba(245,130,32,0.08) 50%, transparent 75%)',
+          filter: 'blur(20px)',
+        }}
+      />
+
+      {/* Card Shell */}
+      <motion.div
+        className="relative w-full h-full overflow-hidden z-10"
+        animate={{
+          boxShadow: isExpanded
+            ? '0 25px 50px -12px rgba(10,12,18,0.8), 0 0 30px rgba(138,18,58,0.18), 0 0 15px rgba(245,130,32,0.1)'
+            : '0 8px 32px rgba(10,12,18,0.6), 0 1px 2px rgba(255,255,255,0.02)',
+          y: isExpanded ? -10 : 0,
+        }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        style={{
+          borderRadius: 28,
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          background: 'rgba(20, 24, 34, 0.72)',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
+        }}
+      >
+        {/* ── Animated Top Gradient Border ── */}
+        <div
+          className="absolute top-0 left-0 right-0 h-[4px] z-40"
+          style={{
+            borderRadius: '28px 28px 0 0',
+            background: 'linear-gradient(90deg, #8B0036, #C2185B, #F28C28, #F5B731, #8B0036)',
+            backgroundSize: '300% 100%',
+            animation: 'gradientFlow 6s linear infinite',
+          }}
+        />
+
+        {/* ══════════════════════════════════
+            DEFAULT STATE — Image + Info
+           ══════════════════════════════════ */}
+        <motion.div
+          className="absolute inset-0 flex flex-col"
+          animate={{
+            opacity: isExpanded ? 0 : 1,
+            y: isExpanded ? -12 : 0,
+          }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          style={{ pointerEvents: isExpanded ? 'none' : 'auto' }}
+        >
+          {/* Image — 70% */}
+          <div className="relative w-full overflow-hidden" style={{ height: '66%', borderRadius: '28px 28px 0 0' }}>
+            <motion.img
+              src={data.image}
+              alt={data.title}
+              className="w-full h-full object-cover select-none pointer-events-none"
+              animate={{ scale: isExpanded ? 1.05 : 1.0 }}
+              transition={{ duration: 3, ease: [0.22, 1, 0.36, 1] }}
+            />
+            {/* Bottom dark gradient overlay */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'linear-gradient(to top, rgba(10,12,18,0.85) 0%, rgba(10,12,18,0.2) 40%, transparent 70%)',
+              }}
+            />
+            {/* Category badge */}
+            <div className="absolute top-4 left-4 z-20">
+              <span className="backdrop-blur-md bg-black/40 text-[#AEB7C8] border border-white/10 px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase">
+                {data.category}
+              </span>
+            </div>
+          </div>
+
+          {/* Content — 34% */}
+          <div className="flex-grow flex flex-col justify-between px-6 pt-4 pb-6">
+            <div>
+              <h3
+                className="font-bold tracking-tight font-headline text-white"
+                style={{ fontSize: 18, lineHeight: 1.25, marginBottom: 8 }}
+              >
+                {data.title}
+              </h3>
+              <p
+                className="font-sans line-clamp-2 text-[#C7CEDD]"
+                style={{ fontSize: 13, lineHeight: 1.6 }}
+              >
+                {data.desc}
+              </p>
+            </div>
+
+            {/* Arrow Button — bottom right */}
+            <div className="flex justify-end mt-2">
+              <div
+                className="flex items-center justify-center rounded-full"
+                style={{
+                  width: 44,
+                  height: 44,
+                  background: 'linear-gradient(135deg, #8B0036 0%, #F28C28 100%)',
+                }}
+              >
+                <ArrowUpRight className="text-white" style={{ width: 18, height: 18 }} />
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* ══════════════════════════════════
+            EXPANDED STATE — Info Panel
+           ══════════════════════════════════ */}
+        <motion.div
+          className="absolute inset-0 flex flex-col"
+          animate={{
+            opacity: isExpanded ? 1 : 0,
+            y: isExpanded ? 0 : 16,
+          }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            pointerEvents: isExpanded ? 'auto' : 'none',
+            borderRadius: 28,
+            background: 'linear-gradient(160deg, rgba(20,24,34,0.96) 0%, rgba(15,20,30,0.97) 50%, rgba(10,12,18,0.98) 100%)',
+          }}
+        >
+          {/* Blueprint grid texture */}
+          <div
+            className="absolute inset-0 pointer-events-none z-0"
+            style={{
+              borderRadius: 28,
+              backgroundImage: `
+                linear-gradient(rgba(245,130,32,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(245,130,32,0.015) 1px, transparent 1px)
+              `,
+              backgroundSize: '32px 32px',
+            }}
+          />
+
+          {/* Animated Blueprint Nodes */}
+          {isExpanded && (
+            <>
+              <motion.div
+                className="absolute rounded-full z-0"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 0.5, scale: 1 }}
+                transition={{ delay: 0.15, duration: 0.5, ease: 'easeOut' }}
+                style={{
+                  width: 6, height: 6, top: '18%', right: '12%',
+                  background: '#C2185B',
+                  boxShadow: '0 0 12px rgba(194,24,91,0.5)',
+                }}
+              />
+              <motion.div
+                className="absolute rounded-full z-0"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 0.4, scale: 1 }}
+                transition={{ delay: 0.25, duration: 0.5, ease: 'easeOut' }}
+                style={{
+                  width: 5, height: 5, top: '45%', right: '8%',
+                  background: '#F58220',
+                  boxShadow: '0 0 10px rgba(245,130,32,0.4)',
+                }}
+              />
+              <motion.div
+                className="absolute rounded-full z-0"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 0.35, scale: 1 }}
+                transition={{ delay: 0.35, duration: 0.5, ease: 'easeOut' }}
+                style={{
+                  width: 4, height: 4, bottom: '22%', left: '10%',
+                  background: '#8B0036',
+                  boxShadow: '0 0 8px rgba(138,18,58,0.4)',
+                }}
+              />
+              {/* Connection lines */}
+              <motion.div
+                className="absolute z-0 pointer-events-none"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ delay: 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                style={{
+                  top: '18%', right: '12%',
+                  width: 80, height: 1,
+                  background: 'linear-gradient(to left, rgba(194,24,91,0.2), transparent)',
+                  transformOrigin: 'right',
+                }}
+              />
+              <motion.div
+                className="absolute z-0 pointer-events-none"
+                initial={{ scaleY: 0 }}
+                animate={{ scaleY: 1 }}
+                transition={{ delay: 0.3, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                style={{
+                  top: '18%', right: 'calc(12% + 3px)',
+                  width: 1, height: 100,
+                  background: 'linear-gradient(to bottom, rgba(194,24,91,0.15), rgba(245,130,32,0.1), transparent)',
+                  transformOrigin: 'top',
+                }}
+              />
+            </>
+          )}
+
+          {/* Content */}
+          <div className="relative z-10 flex flex-col h-full p-6 justify-between">
+            <div>
+              {/* Header */}
+              <motion.h3
+                initial={{ opacity: 0, y: 8 }}
+                animate={isExpanded ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+                transition={{ duration: 0.35, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
+                className="font-bold tracking-tight font-headline text-white"
+                style={{ fontSize: 19, lineHeight: 1.25, marginBottom: 8 }}
+              >
+                {data.title}
+              </motion.h3>
+
+              <motion.p
+                initial={{ opacity: 0, y: 6 }}
+                animate={isExpanded ? { opacity: 1, y: 0 } : { opacity: 0, y: 6 }}
+                transition={{ duration: 0.35, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="font-sans text-[#C7CEDD]"
+                style={{ fontSize: 12.5, lineHeight: 1.6, marginBottom: 16 }}
+              >
+                {data.overview}
+              </motion.p>
+
+              {/* Service Points */}
+              <div className="flex flex-col gap-2.5 mb-4">
+                {data.capabilities.map((service, sIdx) => (
+                  <motion.div
+                    key={sIdx}
+                    initial={{ opacity: 0, x: -8 }}
+                    animate={isExpanded ? { opacity: 1, x: 0 } : { opacity: 0, x: -8 }}
+                    transition={{ duration: 0.3, delay: 0.12 + sIdx * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                    className="flex items-start gap-2.5"
+                  >
+                    <div
+                      className="mt-1.5 flex-shrink-0 rounded-full"
+                      style={{
+                        width: 5, height: 5,
+                        background: 'linear-gradient(135deg, #F28C28, #8B0036)',
+                        boxShadow: '0 0 6px rgba(242,140,40,0.5)',
+                      }}
+                    />
+                    <span style={{ fontSize: 12.5, color: '#C7CEDD', lineHeight: 1.4, fontWeight: 500 }}>
+                      {service}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              {/* Technologies */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={isExpanded ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ duration: 0.3, delay: 0.32, ease: 'easeOut' }}
+                className="flex flex-wrap gap-1.5 mb-5"
+              >
+                {data.technologies.map((tech, tIdx) => (
+                  <span
+                    key={tIdx}
+                    className="rounded-full font-medium"
+                    style={{
+                      fontSize: 10,
+                      padding: '3px 10px',
+                      color: '#AEB7C8',
+                      background: 'rgba(255,255,255,0.04)',
+                      border: '1px solid rgba(255,255,255,0.06)',
+                      letterSpacing: '0.02em',
+                    }}
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </motion.div>
+
+              {/* CTA Row */}
+              <motion.div
+                initial={{ opacity: 0, y: 6 }}
+                animate={isExpanded ? { opacity: 1, y: 0 } : { opacity: 0, y: 6 }}
+                transition={{ duration: 0.35, delay: 0.38, ease: [0.22, 1, 0.36, 1] }}
+                className="flex items-center justify-between pt-2 border-t border-white/5"
+              >
+                <div className="relative group/cta cursor-pointer">
+                  <span
+                    className="font-semibold text-white"
+                    style={{ fontSize: 14, letterSpacing: '0.01em' }}
+                  >
+                    Explore Capabilities
+                  </span>
+                  {/* Animated underline */}
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    animate={isExpanded ? { scaleX: 1 } : { scaleX: 0 }}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    style={{
+                      height: 1.5,
+                      background: 'linear-gradient(to right, #8B0036, #F28C28)',
+                      transformOrigin: 'left',
+                      marginTop: 2,
+                      borderRadius: 1,
+                    }}
+                  />
+                </div>
+
+                {/* Arrow button inside gradient circle with soft outer glow */}
+                <motion.div
+                  animate={{
+                    rotate: isExpanded ? 45 : 0,
+                    boxShadow: isExpanded
+                      ? '0 0 20px rgba(139,0,54,0.45), 0 0 10px rgba(242,140,40,0.2)'
+                      : '0 2px 8px rgba(10,12,18,0.4)',
+                  }}
+                  transition={{ duration: 0.35, ease: 'easeOut' }}
+                  className="flex items-center justify-center rounded-full"
+                  style={{
+                    width: 44,
+                    height: 44,
+                    background: 'linear-gradient(135deg, #8B0036 0%, #F28C28 100%)',
+                  }}
+                >
+                  <ArrowUpRight className="text-white" style={{ width: 18, height: 18 }} />
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* Gradient keyframe animation */}
+      <style>{`
+        @keyframes gradientFlow {
+          0% { background-position: 0% 50%; }
+          100% { background-position: 300% 50%; }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MAIN SECTION
+   ═══════════════════════════════════════════════════════════════ */
 
 export default function Services() {
+  const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
+  const [particles, setParticles] = useState<number[]>([]);
+
+  // Avoid hydration mismatch for random particle positions
+  useEffect(() => {
+    setParticles(Array.from({ length: 15 }, (_, i) => i));
+  }, []);
+
   return (
-    <section id="services" className="py-[120px] bg-[#F8FAFC] border-y border-[rgba(0,0,0,0.06)] relative overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 relative z-10">
-        
-        {/* Editorial Section Header */}
-        <div className="max-w-7xl mb-24 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-          <div className="max-w-4xl text-left">
-            <span className="text-xs font-bold text-[#1E40AF] uppercase tracking-[0.15em] mb-4 block">
-              DOMAIN ARCHITECTURE & CAPABILITIES
-            </span>
-            <h2 className="text-[40px] md:text-[64px] font-extrabold text-[#0F172A] tracking-tight leading-[1.08] font-headline">
-              Comprehensive Digital Engineering &<br className="hidden md:inline" /> Operational Solutions
-            </h2>
-          </div>
-          <div className="max-w-xl text-left lg:pb-2">
-            <p className="text-[#475569] text-[16px] md:text-[18px] leading-relaxed font-sans">
-              From industrial automation to enterprise intelligence, we engineer scalable digital platforms that connect data, AI, cloud, and operations into one intelligent ecosystem.
-            </p>
-          </div>
+    <section
+      id="services"
+      className="relative overflow-hidden select-none border-y border-white/5"
+      style={{
+        background: '#0A0C12',
+        paddingTop: 'clamp(64px, 8vh, 120px)',
+        paddingBottom: 'clamp(64px, 8vh, 120px)',
+      }}
+    >
+      {/* Luxury Layered Dark Background Glows */}
+      <div
+        className="absolute pointer-events-none z-0"
+        style={{
+          width: 800,
+          height: 800,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(138,18,58,0.065) 0%, rgba(21,27,45,0.2) 50%, transparent 70%)',
+          filter: 'blur(100px)',
+          top: '-15%',
+          left: '5%',
+        }}
+      />
+      <div
+        className="absolute pointer-events-none z-0"
+        style={{
+          width: 700,
+          height: 700,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(245,130,32,0.035) 0%, rgba(17,21,33,0.3) 55%, transparent 75%)',
+          filter: 'blur(90px)',
+          bottom: '-10%',
+          right: '10%',
+        }}
+      />
+      <div
+        className="absolute pointer-events-none z-0"
+        style={{
+          width: 900,
+          height: 900,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(90,45,130,0.03) 0%, transparent 75%)',
+          filter: 'blur(120px)',
+          top: '30%',
+          left: '25%',
+        }}
+      />
+
+      {/* Subtle background engineering blueprint grid */}
+      <div
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.007) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.007) 1px, transparent 1px)
+          `,
+          backgroundSize: '80px 80px',
+          opacity: 0.65,
+        }}
+      />
+
+      {/* Premium Vignette */}
+      <div
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{
+          background: 'radial-gradient(circle at center, transparent 30%, rgba(10,12,18,0.75) 100%)',
+        }}
+      />
+
+      {/* Slow floating GPU accelerated particles */}
+      {particles.map((idx) => {
+        // Seeded random numbers to keep them consistent on render
+        const randX = (idx * 7) % 100;
+        const randY = (idx * 13) % 100;
+        const size = (idx % 3) + 1.5;
+        const duration = 12 + (idx % 6);
+        const delay = idx * 0.4;
+
+        return (
+          <motion.div
+            key={idx}
+            className="absolute rounded-full bg-white/10 pointer-events-none z-0"
+            style={{
+              width: size,
+              height: size,
+              left: `${randX}%`,
+              top: `${randY}%`,
+            }}
+            animate={{
+              y: [0, -90],
+              opacity: [0, 0.6, 0],
+            }}
+            transition={{
+              duration: duration,
+              repeat: Infinity,
+              ease: 'linear',
+              delay: delay,
+            }}
+          />
+        );
+      })}
+
+      {/* Moving Ambient Glow Blob */}
+      <motion.div
+        className="absolute pointer-events-none z-0"
+        style={{
+          width: 500,
+          height: 500,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(138,18,58,0.04) 0%, rgba(245,130,32,0.01) 60%, transparent 80%)',
+          filter: 'blur(80px)',
+          top: '20%',
+        }}
+        animate={{ x: ['-20%', '120%', '-20%'] }}
+        transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
+      />
+
+      <div className="max-w-[1700px] mx-auto px-6 md:px-10 lg:px-16 xl:px-20 relative z-10">
+
+        {/* ── Section Header ── */}
+        <div className="flex flex-col w-full text-left mb-12 md:mb-16">
+          <span
+            className="font-semibold uppercase block mb-4"
+            style={{
+              fontSize: 11,
+              color: '#F28C28',
+              letterSpacing: '0.3em',
+            }}
+          >
+            DOMAIN ARCHITECTURE & CAPABILITIES
+          </span>
+          <h2
+            className="font-extrabold tracking-tight font-headline text-white mb-4"
+            style={{
+              fontSize: 'clamp(28px, 3.4vw, 50px)',
+              lineHeight: 1.08,
+            }}
+          >
+            Comprehensive Digital Engineering & Operational Solutions
+          </h2>
+          <p
+            className="font-sans max-w-3xl text-[#C7CEDD]"
+            style={{
+              fontSize: 'clamp(14px, 1.1vw, 17px)',
+              lineHeight: 1.7,
+            }}
+          >
+            From industrial automation to enterprise intelligence, we engineer scalable digital platforms that connect data, AI, cloud, and operations into one intelligent ecosystem.
+          </p>
         </div>
 
-        {/* Editorial Masonry Bento Grid */}
-        <div className="grid grid-cols-12 gap-8">
-          {SERVICES_DATA.map((srv, idx) => {
-            const isHorizontal = srv.layoutType === "horizontal"
-
-            return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.7, delay: idx * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                className={`group relative overflow-hidden rounded-[22px] bg-white shadow-[0_20px_50px_rgba(15,23,42,0.04)] hover:shadow-[0_30px_60px_-15px_rgba(15,23,42,0.12)] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${srv.gridClass} cursor-pointer flex flex-col ${
-                  isHorizontal ? "lg:flex-row lg:h-[420px]" : "lg:h-[420px]"
-                } h-auto`}
-                whileHover={{ y: -8 }}
-              >
-                {/* Image Section (~45% of card) */}
-                <div
-                  className={`relative overflow-hidden select-none ${
-                    isHorizontal 
-                      ? "w-full lg:w-[45%] h-[240px] lg:h-full rounded-t-[22px] lg:rounded-tr-none lg:rounded-l-[22px]" 
-                      : "w-full h-[200px] lg:h-[45%] rounded-t-[22px]"
-                  }`}
-                >
-                  <motion.div
-                    className="w-full h-full bg-cover bg-center"
-                    style={{ backgroundImage: `url(${srv.image})` }}
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                  />
-                  {/* Category Pill over image on mobile, or in text block on desktop */}
-                  <div className="absolute top-4 left-4 z-20 block lg:hidden">
-                    <span className="backdrop-blur-md bg-[#0F172A]/70 text-white border border-white/10 px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase">
-                      {srv.category}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Text Content Section (~55% of card) */}
-                <div
-                  className={`flex flex-col justify-between p-[36px] flex-grow ${
-                    isHorizontal ? "w-full lg:w-[55%]" : "w-full lg:h-[55%]"
-                  }`}
-                >
-                  <div>
-                    {/* Category Pill for Desktop */}
-                    <span className="hidden lg:block text-[11px] font-bold text-[#1E40AF] tracking-[0.15em] uppercase mb-4">
-                      {srv.category}
-                    </span>
-
-                    {/* Title */}
-                    <h3 className="text-[24px] md:text-[34px] font-bold text-[#0F172A] tracking-tight leading-tight mb-3 group-hover:text-[#1E40AF] transition-colors duration-500 font-headline">
-                      {srv.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-[15px] md:text-[18px] text-[#475569] leading-relaxed font-sans line-clamp-3">
-                      {srv.desc}
-                    </p>
-                  </div>
-
-                  {/* Read More Action */}
-                  <div className="text-[14px] md:text-[16px] font-semibold text-[#1E40AF] mt-6 flex items-center gap-1.5 transition-colors">
-                    <span>Read More</span>
-                    <ArrowRight className="h-4.5 w-4.5 transition-transform duration-300 group-hover:translate-x-1.5" />
-                  </div>
-                </div>
-              </motion.div>
-            )
-          })}
+        {/* ── 2×4 Grid ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-7">
+          {SERVICES_DATA.map((item, idx) => (
+            <ServiceCard
+              key={idx}
+              data={item}
+              isExpanded={expandedIdx === idx}
+              onCardHover={() => setExpandedIdx(idx)}
+              onCardLeave={() => setExpandedIdx(null)}
+            />
+          ))}
         </div>
-
       </div>
     </section>
-  )
+  );
 }
