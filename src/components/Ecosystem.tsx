@@ -202,7 +202,7 @@ export default function Ecosystem() {
   return (
     <section 
       id="technology-ecosystem" 
-      className="py-28 bg-[#060B16] text-white relative overflow-hidden border-b border-slate-950 select-none"
+      className="py-16 bg-[#060B16] text-white relative overflow-hidden border-b border-slate-950 select-none"
     >
       {/* Subtle animated background grid */}
       <motion.div 

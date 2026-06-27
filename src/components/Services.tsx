@@ -483,8 +483,8 @@ export default function Services() {
       className="relative overflow-hidden select-none border-y border-white/5"
       style={{
         background: '#0A0C12',
-        paddingTop: 'clamp(64px, 8vh, 120px)',
-        paddingBottom: 'clamp(64px, 8vh, 120px)',
+        paddingTop: 'clamp(40px, 5vh, 72px)',
+        paddingBottom: 'clamp(40px, 5vh, 72px)',
       }}
     >
       {/* Luxury Layered Dark Background Glows */}

@@ -536,8 +536,8 @@ export default function Industries() {
       className="relative overflow-hidden border-b border-[rgba(0,0,0,0.06)]"
       style={{
         background: 'radial-gradient(ellipse 90% 70% at 50% 0%, #ffffff 0%, #fff8fb 35%, #fff5ef 65%, #f8f8ff 100%)',
-        paddingTop: 'clamp(64px, 8vh, 120px)',
-        paddingBottom: 'clamp(64px, 8vh, 120px)',
+        paddingTop: 'clamp(40px, 5vh, 72px)',
+        paddingBottom: 'clamp(40px, 5vh, 72px)',
       }}
     >
       {/* Animated ambient light glow */}

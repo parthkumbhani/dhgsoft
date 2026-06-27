@@ -95,7 +95,7 @@ export default function InnovationInstitute() {
   }, [logIndex, activeConsoleTab])
 
   return (
-    <section id="innovation-institute" className="py-24 bg-[#0b0f19] text-white relative border-y border-slate-900 overflow-hidden">
+    <section id="innovation-institute" className="py-14 bg-[#0b0f19] text-white relative border-y border-slate-900 overflow-hidden">
       {/* Background radial matrix grids */}
       <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] bg-[size:32px_32px] opacity-15 pointer-events-none" />
 

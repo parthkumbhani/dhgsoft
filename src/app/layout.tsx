@@ -19,9 +19,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
         />
-        {/* Google Fonts: Hanken Grotesk and Inter */}
+        {/* Google Fonts: Hanken Grotesk, Inter, Great Vibes, and Dancing Script */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:ital,wght@0,100..900;1,100..900&family=Dancing+Script:wght@400..700&family=Great+Vibes&display=swap"
           rel="stylesheet"
         />
       </head>

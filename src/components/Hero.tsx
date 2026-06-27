@@ -42,7 +42,7 @@ export default function Hero({ onContactClick, onExploreServices }: HeroProps) {
   };
 
   return (
-    <section className="relative min-h-[95vh] lg:min-h-screen flex items-center overflow-hidden bg-white pt-28 pb-20 lg:pt-36 lg:pb-28">
+    <section className="relative min-h-[95vh] lg:min-h-screen flex items-center overflow-hidden bg-white pt-20 pb-14 lg:pt-28 lg:pb-20">
       {/* Cinematic Background Video and Overlays */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
         <video
