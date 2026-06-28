@@ -198,13 +198,34 @@ export default function CEOMessage() {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 flex items-center justify-center order-1 lg:order-2 w-full"
           >
-            {/* Clean Portrait Card with rounded corners and elegant drop shadow */}
-            <div className="relative w-full max-w-[420px] aspect-[3/4] rounded-3xl overflow-hidden border border-slate-200/80 shadow-[0_20px_50px_rgba(15,23,42,0.08)] bg-slate-50">
+            {/* Clean Portrait Card with background-removed CEO photo and elegant gradient backdrop */}
+            <div className="relative w-full max-w-[420px] aspect-[3/4] rounded-[32px] overflow-hidden border border-slate-200/80 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.08)] bg-gradient-to-br from-[#F8FAFC] via-[#F1F5F9] to-[#FFFFFF]">
+              
+              {/* Inner ambient light glow */}
+              <div 
+                className="absolute inset-0 pointer-events-none z-0 opacity-70"
+                style={{
+                  background: 'radial-gradient(circle at 50% 60%, rgba(197, 22, 92, 0.08) 0%, rgba(59, 130, 246, 0.04) 50%, transparent 80%)'
+                }}
+              />
+              
+              {/* Subtle background circuit pattern for tech context */}
+              <div 
+                className="absolute inset-0 opacity-[0.02] pointer-events-none z-0"
+                style={{
+                  backgroundImage: `
+                    linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px)
+                  `,
+                  backgroundSize: '20px 20px',
+                }}
+              />
+
               <Image
-                src="/CEO.jpeg"
+                src="/CEO_nobg.png"
                 alt="Hitesh Patel — Chief Executive Officer, DHGsoft"
                 fill
-                className="object-cover object-top select-none transition-transform duration-700 hover:scale-102"
+                className="object-contain object-bottom select-none transition-transform duration-700 hover:scale-[1.03] z-10"
                 priority
                 sizes="(max-width: 1024px) 90vw, 420px"
               />
