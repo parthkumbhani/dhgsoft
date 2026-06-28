@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Quote } from 'lucide-react';
 
 const CEO_PARAGRAPHS = [
   "Innovation is at the heart of everything we do at DHGsoft. We believe the next generation of industry will be built on intelligent technologies that connect people, data, and operations to unlock new possibilities.",
@@ -19,109 +19,81 @@ const STATS = [
 
 export default function CEOMessage() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
   return (
     <section
       ref={sectionRef}
       id="ceo-message"
-      className="relative overflow-hidden border-b border-[#ECECEC]"
+      className="relative overflow-hidden border-b border-slate-200/80 bg-white"
       style={{
-        background: 'linear-gradient(135deg, #FCFCFD 0%, #F8FAFC 40%, #FFFFFF 70%, #FCFCFD 100%)',
-        paddingTop: 'clamp(64px, 8vh, 110px)',
-        paddingBottom: 'clamp(64px, 8vh, 110px)',
+        paddingTop: 'clamp(80px, 10vh, 130px)',
+        paddingBottom: 'clamp(80px, 10vh, 130px)',
       }}
     >
-      {/* ── Ambient Background Glows (Light-themed, soft and elegant) ── */}
+      {/* ── Soft Ambient Glows (Premium Light Palette) ── */}
       <div
-        className="absolute pointer-events-none"
+        className="absolute pointer-events-none z-0"
         style={{
-          width: 600,
-          height: 600,
+          width: 700,
+          height: 700,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(197,22,92,0.03) 0%, rgba(255,138,0,0.01) 50%, transparent 70%)',
-          filter: 'blur(100px)',
+          background: 'radial-gradient(circle, rgba(197,22,92,0.04) 0%, rgba(245,138,0,0.01) 60%, transparent 70%)',
+          filter: 'blur(120px)',
           top: '-10%',
           left: '-5%',
         }}
       />
       <div
-        className="absolute pointer-events-none"
+        className="absolute pointer-events-none z-0"
         style={{
-          width: 500,
-          height: 500,
+          width: 600,
+          height: 600,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(59,130,246,0.02) 0%, rgba(99,102,241,0.005) 50%, transparent 70%)',
-          filter: 'blur(80px)',
+          background: 'radial-gradient(circle, rgba(59,130,246,0.03) 0%, rgba(99,102,241,0.005) 50%, transparent 70%)',
+          filter: 'blur(100px)',
           bottom: '-10%',
           right: '5%',
         }}
       />
 
-      {/* ── Technical Grid Overlay ── */}
+      {/* ── Blueprint Grid & Technology Lines ── */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        className="absolute inset-0 pointer-events-none opacity-[0.03] z-0"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px)
+            linear-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px)
           `,
-          backgroundSize: '24px 24px',
+          backgroundSize: '32px 32px',
         }}
       />
 
-      {/* ── Subtle diagonal lines top-left ── */}
-      <div className="absolute top-0 left-0 pointer-events-none opacity-[0.04]">
-        <svg width="300" height="300" viewBox="0 0 300 300">
-          <line x1="0" y1="100" x2="200" y2="0" stroke="#CBD5E1" strokeWidth="0.5" />
-          <line x1="0" y1="200" x2="300" y2="0" stroke="#CBD5E1" strokeWidth="0.5" />
-          <line x1="0" y1="300" x2="300" y2="100" stroke="#CBD5E1" strokeWidth="0.5" />
-        </svg>
-      </div>
-
-      {/* ── Bottom-right hex shapes ── */}
-      <div className="absolute bottom-8 right-8 pointer-events-none opacity-[0.02]">
-        <svg width="200" height="180" viewBox="0 0 200 180">
-          <path d="M40 30 L70 15 L100 30 L100 60 L70 75 L40 60Z" fill="none" stroke="#94A3B8" strokeWidth="0.8" />
-          <path d="M100 30 L130 15 L160 30 L160 60 L130 75 L100 60Z" fill="none" stroke="#94A3B8" strokeWidth="0.8" />
-          <path d="M70 75 L100 60 L130 75 L130 105 L100 120 L70 105Z" fill="none" stroke="#94A3B8" strokeWidth="0.8" />
-        </svg>
-      </div>
-
-      {/* ── Top-right dot grid ── */}
-      <div className="absolute top-6 right-16 pointer-events-none opacity-[0.05]">
-        <svg width="180" height="180" viewBox="0 0 180 180">
-          {Array.from({ length: 81 }).map((_, i) => (
-            <circle
-              key={i}
-              cx={(i % 9) * 20 + 10}
-              cy={Math.floor(i / 9) * 20 + 10}
-              r="1.5"
-              fill="#94A3B8"
-            />
-          ))}
-        </svg>
-      </div>
+      {/* Technical crosshairs decorations */}
+      <div className="absolute top-12 left-12 w-8 h-8 border-t border-l border-slate-300/40 pointer-events-none z-0" />
+      <div className="absolute top-12 right-12 w-8 h-8 border-t border-r border-slate-300/40 pointer-events-none z-0" />
+      <div className="absolute bottom-12 left-12 w-8 h-8 border-b border-l border-slate-300/40 pointer-events-none z-0" />
+      <div className="absolute bottom-12 right-12 w-8 h-8 border-b border-r border-slate-300/40 pointer-events-none z-0" />
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 relative z-10">
+        
+        {/* ── Main Grid ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-        {/* ── Main Split Grid: Text Left, Image Right ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-          {/* ━━━━ LEFT — Text Content ━━━━ */}
+          {/* ━━━━ LEFT — Text Content Column (7 cols on desktop) ━━━━ */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-            className="order-2 lg:order-1 text-left"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 flex flex-col items-start text-left order-2 lg:order-1"
           >
             {/* Section Tag */}
-            <div className="flex items-center gap-2.5 mb-5 justify-start">
-              <Sparkles className="w-4 h-4 text-[#C5165C]" />
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 mb-6 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-[#C5165C]" />
               <span
-                className="font-extrabold uppercase tracking-[0.2em]"
+                className="font-extrabold uppercase tracking-[0.2em] font-sans"
                 style={{
-                  fontSize: 11,
+                  fontSize: 10,
                   background: 'linear-gradient(90deg, #C5165C, #FF8A00)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
@@ -131,125 +103,111 @@ export default function CEOMessage() {
               </span>
             </div>
 
-            {/* Heading */}
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="font-extrabold text-slate-900 tracking-tight mb-4 font-headline text-left"
-              style={{ fontSize: 'clamp(28px, 3.2vw, 44px)', lineHeight: 1.12 }}
-            >
-              Building Tomorrow&apos;s
-              <br />
-              Industries —{' '}
-              <span
-                style={{
-                  background: 'linear-gradient(90deg, #C5165C 0%, #E8364F 40%, #FF8A00 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }}
+            {/* Giant quote icon background */}
+            <div className="relative w-full">
+              <Quote
+                className="absolute -top-10 -left-6 fill-current text-slate-100 opacity-60 z-0 pointer-events-none"
+                style={{ width: 100, height: 100 }}
+              />
+              
+              <h2
+                className="font-extrabold text-slate-900 tracking-tight mb-6 font-headline relative z-10 leading-tight"
+                style={{ fontSize: 'clamp(28px, 3.2vw, 44px)' }}
               >
-                Today
-              </span>
-            </motion.h2>
-
-            {/* Gradient underline */}
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={isInView ? { scaleX: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="origin-left mb-8 text-left"
-            >
-              <div className="h-[3px] w-14 rounded-full bg-gradient-to-r from-[#C5165C] to-[#FF8A00]" />
-            </motion.div>
+                Building Tomorrow&apos;s
+                <br />
+                Industries —{' '}
+                <span
+                  style={{
+                    background: 'linear-gradient(90deg, #C5165C 0%, #E8364F 40%, #FF8A00 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                >
+                  Today
+                </span>
+              </h2>
+            </div>
 
             {/* Paragraphs */}
-            <div className="space-y-5 mb-8 text-left">
+            <div className="space-y-5 text-left mb-8 relative z-10">
               {CEO_PARAGRAPHS.map((para, i) => (
-                <motion.p
+                <p
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.3 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                  className="text-slate-650 leading-relaxed font-sans font-medium"
-                  style={{ fontSize: 'clamp(13.5px, 1.05vw, 15.5px)', lineHeight: 1.85 }}
+                  className="text-slate-600 leading-relaxed font-sans font-medium"
+                  style={{ fontSize: 'clamp(14px, 1.05vw, 15.5px)', lineHeight: 1.8 }}
                 >
                   {para}
-                </motion.p>
+                </p>
               ))}
             </div>
 
-            {/* CEO Designation & Frosted Signature Bar */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.55 }}
-              className="flex items-center justify-between p-4 rounded-2xl bg-white/70 border border-slate-200/50 shadow-sm max-w-sm mb-8 text-left"
-            >
-              <div>
-                <h4 className="text-base font-extrabold text-slate-900 font-headline leading-snug">
-                  Hitesh Patel
-                </h4>
-                <p className="text-xs text-slate-500 font-bold mt-0.5 uppercase tracking-wider">
-                  Chief Executive Officer
-                </p>
-                <p className="text-[11px] font-extrabold mt-0.5" style={{ color: '#C5165C' }}>
-                  DHGsoft
-                </p>
-              </div>
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-                style={{
-                  background: 'linear-gradient(135deg, #C5165C 0%, #E8364F 60%, #FF8A00 100%)',
-                  boxShadow: '0 4px 14px rgba(197, 22, 92, 0.25)',
-                }}
-              >
-                <span className="text-white font-black text-xs">HP</span>
-              </div>
-            </motion.div>
-
-            {/* Stats Row */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-wrap gap-8 mb-8 text-left"
-            >
-              {STATS.map((stat, i) => (
-                <div key={i} className="flex flex-col animate-pulse-slow">
-                  <span
-                    className="font-black leading-none"
+            {/* CEO Designation Frosted Card & Stats in a clean integrated block */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full items-stretch border-t border-slate-200/80 pt-8 mt-4">
+              
+              {/* Designation info */}
+              <div className="flex flex-col justify-between p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200/60 shadow-sm relative group hover:border-[#C5165C]/30 transition-all duration-300">
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#C5165C] to-[#FF8A00] rounded-t-2xl opacity-80" />
+                
+                <div>
+                  <h4 className="text-[17px] font-extrabold text-slate-900 font-headline leading-tight">
+                    Hitesh Patel
+                  </h4>
+                  <p className="text-[11px] text-slate-500 font-extrabold mt-1 uppercase tracking-wider">
+                    Chief Executive Officer
+                  </p>
+                  <p className="text-[10px] font-extrabold mt-0.5" style={{ color: '#C5165C' }}>
+                    DHGsoft
+                  </p>
+                </div>
+                
+                <div className="flex items-center justify-between mt-6">
+                  <span className="text-[10px] font-bold text-slate-400 font-sans uppercase">Verify Identity</span>
+                  <div
+                    className="w-9 h-9 rounded-full flex items-center justify-center font-black text-white text-xs shadow-md"
                     style={{
-                      fontSize: 'clamp(28px, 2.5vw, 36px)',
-                      background: 'linear-gradient(90deg, #C5165C 0%, #FF8A00 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
+                      background: 'linear-gradient(135deg, #C5165C 0%, #E8364F 60%, #FF8A00 100%)',
                     }}
                   >
-                    {stat.value}
-                  </span>
-                  <span className="text-slate-500 font-bold mt-1.5 uppercase tracking-widest font-sans" style={{ fontSize: 9.5 }}>
-                    {stat.label}
-                  </span>
+                    HP
+                  </div>
                 </div>
-              ))}
-            </motion.div>
+              </div>
 
-            {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="text-left"
-            >
+              {/* Stats readout */}
+              <div className="flex flex-col justify-center gap-4 pl-2">
+                {STATS.map((stat, i) => (
+                  <div key={i} className="flex items-center gap-4">
+                    <span
+                      className="font-black text-3xl leading-none tracking-tight min-w-[70px]"
+                      style={{
+                        background: 'linear-gradient(90deg, #C5165C 0%, #FF8A00 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                      }}
+                    >
+                      {stat.value}
+                    </span>
+                    <div className="flex flex-col">
+                      <span className="text-[10px] font-bold text-slate-700 uppercase tracking-widest font-sans">
+                        {stat.label}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+
+            {/* Action Row */}
+            <div className="mt-8 pt-4 w-full">
               <button
-                className="group inline-flex items-center gap-2.5 font-bold text-white rounded-full px-8 py-3.5 transition-all duration-300 cursor-pointer border-0"
+                className="group inline-flex items-center gap-2.5 font-bold text-white rounded-xl px-8 py-4 transition-all duration-300 cursor-pointer border-0"
                 style={{
                   fontSize: 13,
                   background: 'linear-gradient(90deg, #C5165C 0%, #E8364F 50%, #FF8A00 100%)',
                   backgroundSize: '200% 100%',
-                  boxShadow: '0 4px 20px rgba(197, 22, 92, 0.2)',
+                  boxShadow: '0 4px 20px rgba(197, 22, 92, 0.15)',
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLButtonElement).style.backgroundPosition = '100% 0%';
@@ -258,7 +216,7 @@ export default function CEOMessage() {
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLButtonElement).style.backgroundPosition = '0% 0%';
-                  (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 4px 20px rgba(197, 22, 92, 0.2)';
+                  (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 4px 20px rgba(197, 22, 92, 0.15)';
                   (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(0px)';
                 }}
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
@@ -266,32 +224,40 @@ export default function CEOMessage() {
                 <span className="font-sans tracking-wide">Connect with Our Team</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
-            </motion.div>
+            </div>
+
           </motion.div>
 
-          {/* ━━━━ RIGHT — CEO Portrait with Circular Background Pane ━━━━ */}
+          {/* ━━━━ RIGHT — CEO Portrait with layered graphics (5 cols on desktop) ━━━━ */}
           <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="relative flex items-center justify-center order-1 lg:order-2 w-full translate-y-[-10px] lg:translate-y-[-20px]"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 flex items-center justify-center order-1 lg:order-2 w-full relative"
           >
-            {/* Main Outer Container: holds both background and overlay image */}
-            <div className="relative w-full max-w-[480px] aspect-square flex items-center justify-center">
+            {/* Background halo rings & decorative geometry */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-[110%] aspect-square rounded-full border border-slate-200/40 absolute animate-spin-slow z-0" />
+              <div className="w-[95%] aspect-square rounded-full border border-dashed border-slate-200/50 absolute z-0" />
+              <div className="w-[80%] aspect-square rounded-full bg-gradient-to-tr from-[#C5165C]/5 to-transparent absolute z-0 blur-2xl" />
+            </div>
+
+            {/* Portrait frame with soft shadow */}
+            <div className="relative w-full max-w-[430px] aspect-square flex items-center justify-center z-10">
               
-              {/* The Professional Background Image */}
+              {/* Friend's background graphic */}
               <div className="absolute inset-0 z-0 select-none pointer-events-none">
                 <Image
                   src="/ceo_bg.png"
-                  alt="Background Graphics"
+                  alt="Corporate Background Graphic"
                   fill
-                  className="object-contain"
+                  className="object-contain opacity-90"
                   priority
                 />
               </div>
 
-              {/* CEO Image: Masked inside a circle matching the circle in the background graphics */}
-              <div className="relative w-[82.5%] aspect-square rounded-full overflow-hidden z-10 shadow-lg border-2 border-white/60">
+              {/* CEO Circular Frame with high contrast white bezel & elevation shadow */}
+              <div className="relative w-[81.5%] aspect-square rounded-full overflow-hidden z-10 shadow-[0_30px_60px_-15px_rgba(15,23,42,0.18)] border-4 border-white">
                 <Image
                   src="/CEO.png"
                   alt="Hitesh Patel — Chief Executive Officer, DHGsoft"
@@ -303,11 +269,30 @@ export default function CEOMessage() {
                 />
               </div>
 
+              {/* Faint technical measurement label overlays */}
+              <div className="absolute bottom-2 right-2 px-2.5 py-1 rounded bg-white/80 border border-slate-200/60 backdrop-blur-sm z-20 text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest pointer-events-none shadow-sm">
+                SEC_OT_IT // V1.0
+              </div>
+              <div className="absolute top-2 left-2 px-2.5 py-1 rounded bg-white/80 border border-slate-200/60 backdrop-blur-sm z-20 text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest pointer-events-none shadow-sm">
+                R&D_ENV // HP_01
+              </div>
+
             </div>
           </motion.div>
 
         </div>
       </div>
+      
+      {/* Slow spinning animation keyframe */}
+      <style>{`
+        @keyframes spinSlow {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+          animation: spinSlow 30s linear infinite;
+        }
+      `}</style>
     </section>
   );
 }
