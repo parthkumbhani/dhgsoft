@@ -32,7 +32,7 @@ export default function CEOMessage() {
           width: 700,
           height: 700,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(197,22,92,0.03) 0%, rgba(255,138,0,0.01) 60%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(197,22,92,0.035) 0%, rgba(255,138,0,0.01) 60%, transparent 70%)',
           filter: 'blur(120px)',
           top: '-10%',
           left: '-5%',
@@ -64,10 +64,10 @@ export default function CEOMessage() {
       />
 
       {/* Technical crosshairs decorations */}
-      <div className="absolute top-12 left-12 w-8 h-8 border-t border-l border-slate-300/40 pointer-events-none z-0" />
-      <div className="absolute top-12 right-12 w-8 h-8 border-t border-r border-slate-300/40 pointer-events-none z-0" />
-      <div className="absolute bottom-12 left-12 w-8 h-8 border-b border-l border-slate-300/40 pointer-events-none z-0" />
-      <div className="absolute bottom-12 right-12 w-8 h-8 border-b border-r border-slate-300/40 pointer-events-none z-0" />
+      <div className="absolute top-12 left-12 w-8 h-8 border-t border-l border-slate-350/40 pointer-events-none z-0" />
+      <div className="absolute top-12 right-12 w-8 h-8 border-t border-r border-slate-350/40 pointer-events-none z-0" />
+      <div className="absolute bottom-12 left-12 w-8 h-8 border-b border-l border-slate-350/40 pointer-events-none z-0" />
+      <div className="absolute bottom-12 right-12 w-8 h-8 border-b border-r border-slate-350/40 pointer-events-none z-0" />
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         
@@ -196,39 +196,27 @@ export default function CEOMessage() {
             initial={{ opacity: 0, scale: 0.98 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 flex items-center justify-center order-1 lg:order-2 w-full"
+            className="lg:col-span-5 flex items-center justify-center order-1 lg:order-2 w-full relative"
           >
-            {/* Clean Portrait Card with background-removed CEO photo and elegant gradient backdrop */}
-            <div className="relative w-full max-w-[420px] aspect-[3/4] rounded-[32px] overflow-hidden border border-slate-200/80 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.08)] bg-gradient-to-br from-[#F8FAFC] via-[#F1F5F9] to-[#FFFFFF]">
-              
-              {/* Inner ambient light glow */}
-              <div 
-                className="absolute inset-0 pointer-events-none z-0 opacity-70"
-                style={{
-                  background: 'radial-gradient(circle at 50% 60%, rgba(197, 22, 92, 0.08) 0%, rgba(59, 130, 246, 0.04) 50%, transparent 80%)'
-                }}
-              />
-              
-              {/* Subtle background circuit pattern for tech context */}
-              <div 
-                className="absolute inset-0 opacity-[0.02] pointer-events-none z-0"
-                style={{
-                  backgroundImage: `
-                    linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px)
-                  `,
-                  backgroundSize: '20px 20px',
-                }}
-              />
+            {/* Background design (wireframe layout) for soft backlighting */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-[106%] aspect-[3/4] rounded-[34px] border border-slate-200/40 absolute z-0" />
+              <div className="w-[85%] aspect-[3/4] rounded-[28px] bg-gradient-to-tr from-[#C5165C]/5 via-[#FF8A00]/5 to-transparent absolute z-0 blur-2xl animate-pulse" />
+            </div>
 
+            {/* Clean Portrait Card with high resolution original photo (CEO.jpeg) */}
+            <div className="relative w-full max-w-[420px] aspect-[3/4] rounded-3xl overflow-hidden border-2 border-white shadow-[0_20px_50px_rgba(15,23,42,0.12)] bg-slate-50 z-10">
               <Image
-                src="/CEO_nobg.png"
+                src="/CEO.jpeg"
                 alt="Hitesh Patel — Chief Executive Officer, DHGsoft"
                 fill
-                className="object-contain object-bottom select-none transition-transform duration-700 hover:scale-[1.03] z-10"
+                className="object-cover object-top select-none transition-transform duration-700 hover:scale-102"
                 priority
                 sizes="(max-width: 1024px) 90vw, 420px"
               />
+              
+              {/* Subtle elegant gradient overlay on image */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/15 via-transparent to-transparent pointer-events-none z-20" />
             </div>
           </motion.div>
 
