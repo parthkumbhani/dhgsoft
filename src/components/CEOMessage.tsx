@@ -3,12 +3,18 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight, Sparkles, Quote } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 const CEO_PARAGRAPHS = [
   "Innovation is at the heart of everything we do at DHGsoft. We believe the next generation of industry will be built on intelligent technologies that connect people, data, and operations to unlock new possibilities.",
   "Our commitment is to transform bold ideas into practical solutions that deliver measurable outcomes. By combining Artificial Intelligence, Industrial IoT, Cloud, Data Platforms, and Digital Engineering, we help organizations innovate faster, operate smarter, and grow sustainably.",
   "As technology continues to evolve, we remain focused on pushing boundaries, embracing change, and creating solutions that shape the future of intelligent enterprises. Together with our customers and partners, we are building tomorrow's industries—today.",
+];
+
+const STATS = [
+  { value: "15+", label: "Years of Innovation" },
+  { value: "200+", label: "Enterprise Clients" },
+  { value: "40+", label: "Countries Served" },
 ];
 
 export default function CEOMessage() {
@@ -202,6 +208,34 @@ export default function CEOMessage() {
               </div>
             </motion.div>
 
+            {/* Stats Row */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="flex flex-wrap gap-8 mb-8 text-left"
+            >
+              {STATS.map((stat, i) => (
+                <div key={i} className="flex flex-col animate-pulse-slow">
+                  <span
+                    className="font-black leading-none"
+                    style={{
+                      fontSize: 'clamp(28px, 2.5vw, 36px)',
+                      background: 'linear-gradient(90deg, #C5165C 0%, #FF8A00 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    {stat.value}
+                  </span>
+                  <span className="text-slate-500 font-bold mt-1.5 uppercase tracking-widest font-sans" style={{ fontSize: 9.5 }}>
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </motion.div>
+
             {/* CTA Button */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -263,6 +297,7 @@ export default function CEOMessage() {
                   alt="Hitesh Patel — Chief Executive Officer, DHGsoft"
                   fill
                   className="object-cover object-top select-none scale-[0.86] translate-y-[6%]"
+                  style={{ filter: 'drop-shadow(0 14px 28px rgba(15, 23, 42, 0.12))' }}
                   priority
                   sizes="(max-width: 1024px) 90vw, 400px"
                 />
