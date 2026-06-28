@@ -191,49 +191,23 @@ export default function CEOMessage() {
 
           </motion.div>
 
-          {/* ━━━━ RIGHT — Larger Rectangular Portrait Column (5 cols on desktop) ━━━━ */}
+          {/* ━━━━ RIGHT — Simple & Attractive Portrait Column (5 cols on desktop) ━━━━ */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 flex items-center justify-center order-1 lg:order-2 w-full relative"
+            className="lg:col-span-5 flex items-center justify-center order-1 lg:order-2 w-full"
           >
-            {/* Background geometric design (wireframe layout) */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-[110%] aspect-[3/4] rounded-[36px] border border-slate-200/50 absolute z-0" />
-              <div className="w-[102%] aspect-[3/4] rounded-[32px] border border-dashed border-slate-350/40 absolute z-0" />
-              <div className="w-[85%] aspect-[3/4] rounded-[28px] bg-gradient-to-tr from-[#C5165C]/5 to-transparent absolute z-0 blur-2xl" />
-            </div>
-
-            {/* Portrait card with premium drop shadow and 3:4 aspect ratio */}
-            <div className="relative w-full max-w-[430px] aspect-[3/4] z-10">
-              
-              {/* Outer double border glow */}
-              <div className="absolute -inset-2 rounded-[30px] bg-gradient-to-br from-white/80 via-transparent to-slate-200/40 border border-slate-200/50 z-0 pointer-events-none shadow-[0_30px_70px_-15px_rgba(15,23,42,0.14)]" />
-
-              {/* CEO Portrait with rounded layout and white border */}
-              <div className="relative w-full h-full rounded-[28px] overflow-hidden z-10 border-4 border-white shadow-[0_20px_50px_-10px_rgba(15,23,42,0.12)]">
-                <Image
-                  src="/CEO.jpeg"
-                  alt="Hitesh Patel — Chief Executive Officer, DHGsoft"
-                  fill
-                  className="object-cover object-top select-none transition-transform duration-700 hover:scale-102"
-                  priority
-                  sizes="(max-width: 1024px) 90vw, 430px"
-                />
-                
-                {/* Subtle overlay gradient at the bottom */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent pointer-events-none z-12" />
-              </div>
-
-              {/* Faint technical measurement label overlays */}
-              <div className="absolute bottom-4 right-4 px-2.5 py-1 rounded-lg bg-white/90 border border-slate-200/60 backdrop-blur-sm z-20 text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest pointer-events-none shadow-sm">
-                SEC_OT_IT // V1.0
-              </div>
-              <div className="absolute top-4 left-4 px-2.5 py-1 rounded-lg bg-white/90 border border-slate-200/60 backdrop-blur-sm z-20 text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest pointer-events-none shadow-sm">
-                R&D_ENV // HP_01
-              </div>
-
+            {/* Clean Portrait Card with rounded corners and elegant drop shadow */}
+            <div className="relative w-full max-w-[420px] aspect-[3/4] rounded-3xl overflow-hidden border border-slate-200/80 shadow-[0_20px_50px_rgba(15,23,42,0.08)] bg-slate-50">
+              <Image
+                src="/CEO.jpeg"
+                alt="Hitesh Patel — Chief Executive Officer, DHGsoft"
+                fill
+                className="object-cover object-top select-none transition-transform duration-700 hover:scale-102"
+                priority
+                sizes="(max-width: 1024px) 90vw, 420px"
+              />
             </div>
           </motion.div>
 
