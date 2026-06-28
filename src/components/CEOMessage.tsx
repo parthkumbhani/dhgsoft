@@ -11,12 +11,6 @@ const CEO_PARAGRAPHS = [
   "As technology continues to evolve, we remain focused on pushing boundaries, embracing change, and creating solutions that shape the future of intelligent enterprises. Together with our customers and partners, we are building tomorrow's industries—today.",
 ];
 
-const STATS = [
-  { value: "15+", label: "Years of Innovation" },
-  { value: "200+", label: "Enterprise Clients" },
-  { value: "40+", label: "Countries Served" },
-];
-
 export default function CEOMessage() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
@@ -142,30 +136,8 @@ export default function CEOMessage() {
               ))}
             </div>
 
-            {/* ── Premium Horizontal Stats Ribbon ── */}
-            <div className="grid grid-cols-3 gap-6 w-full py-6 border-y border-slate-200/80 mb-8 mt-2">
-              {STATS.map((stat, i) => (
-                <div key={i} className={`flex flex-col text-left ${i < 2 ? 'border-r border-slate-200/80 pr-4' : ''}`}>
-                  <span
-                    className="text-3xl font-black leading-none"
-                    style={{
-                      background: 'linear-gradient(90deg, #C5165C 0%, #FF8A00 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                    }}
-                  >
-                    {stat.value}
-                  </span>
-                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-2 leading-snug font-sans">
-                    {stat.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-
             {/* ── CEO Designation Full-Width Badge ── */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200/60 shadow-sm w-full mb-8 relative group hover:border-[#C5165C]/30 transition-all duration-300">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200/60 shadow-sm w-full mb-8 mt-4 relative group hover:border-[#C5165C]/30 transition-all duration-300">
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#C5165C] to-[#FF8A00] rounded-t-2xl opacity-80" />
               <div>
                 <h4 className="text-[17px] font-extrabold text-slate-900 font-headline leading-tight">
