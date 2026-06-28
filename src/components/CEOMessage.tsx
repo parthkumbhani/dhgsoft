@@ -38,7 +38,7 @@ export default function CEOMessage() {
           width: 700,
           height: 700,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(197,22,92,0.04) 0%, rgba(245,138,0,0.01) 60%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(197,22,92,0.03) 0%, rgba(255,138,0,0.01) 60%, transparent 70%)',
           filter: 'blur(120px)',
           top: '-10%',
           left: '-5%',
@@ -50,7 +50,7 @@ export default function CEOMessage() {
           width: 600,
           height: 600,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(59,130,246,0.03) 0%, rgba(99,102,241,0.005) 50%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(59,130,246,0.02) 0%, rgba(99,102,241,0.005) 50%, transparent 70%)',
           filter: 'blur(100px)',
           bottom: '-10%',
           right: '5%',
@@ -62,8 +62,8 @@ export default function CEOMessage() {
         className="absolute inset-0 pointer-events-none opacity-[0.03] z-0"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px)
+            linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px)
           `,
           backgroundSize: '32px 32px',
         }}
@@ -142,67 +142,56 @@ export default function CEOMessage() {
               ))}
             </div>
 
-            {/* CEO Designation Frosted Card & Stats in a clean integrated block */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full items-stretch border-t border-slate-200/80 pt-8 mt-4">
-              
-              {/* Designation info */}
-              <div className="flex flex-col justify-between p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200/60 shadow-sm relative group hover:border-[#C5165C]/30 transition-all duration-300">
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#C5165C] to-[#FF8A00] rounded-t-2xl opacity-80" />
-                
-                <div>
-                  <h4 className="text-[17px] font-extrabold text-slate-900 font-headline leading-tight">
-                    Hitesh Patel
-                  </h4>
-                  <p className="text-[11px] text-slate-500 font-extrabold mt-1 uppercase tracking-wider">
-                    Chief Executive Officer
-                  </p>
-                  <p className="text-[10px] font-extrabold mt-0.5" style={{ color: '#C5165C' }}>
-                    DHGsoft
-                  </p>
-                </div>
-                
-                <div className="flex items-center justify-between mt-6">
-                  <span className="text-[10px] font-bold text-slate-400 font-sans uppercase">Verify Identity</span>
-                  <div
-                    className="w-9 h-9 rounded-full flex items-center justify-center font-black text-white text-xs shadow-md"
+            {/* ── Premium Horizontal Stats Ribbon ── */}
+            <div className="grid grid-cols-3 gap-6 w-full py-6 border-y border-slate-200/80 mb-8 mt-2">
+              {STATS.map((stat, i) => (
+                <div key={i} className={`flex flex-col text-left ${i < 2 ? 'border-r border-slate-200/80 pr-4' : ''}`}>
+                  <span
+                    className="text-3xl font-black leading-none"
                     style={{
-                      background: 'linear-gradient(135deg, #C5165C 0%, #E8364F 60%, #FF8A00 100%)',
+                      background: 'linear-gradient(90deg, #C5165C 0%, #FF8A00 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
                     }}
                   >
-                    HP
-                  </div>
+                    {stat.value}
+                  </span>
+                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-2 leading-snug font-sans">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* ── CEO Designation Full-Width Badge ── */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200/60 shadow-sm w-full mb-8 relative group hover:border-[#C5165C]/30 transition-all duration-300">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#C5165C] to-[#FF8A00] rounded-t-2xl opacity-80" />
+              <div>
+                <h4 className="text-[17px] font-extrabold text-slate-900 font-headline leading-tight">
+                  Hitesh Patel
+                </h4>
+                <p className="text-[11px] text-slate-500 font-extrabold mt-1.5 uppercase tracking-wider">
+                  Chief Executive Officer, DHGsoft
+                </p>
+              </div>
+              <div className="flex items-center gap-3 mt-4 sm:mt-0">
+                <span className="text-[10px] font-bold text-slate-400 font-sans uppercase">Verify Identity</span>
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center font-black text-white text-xs shadow-md"
+                  style={{
+                    background: 'linear-gradient(135deg, #C5165C 0%, #E8364F 60%, #FF8A00 100%)',
+                  }}
+                >
+                  HP
                 </div>
               </div>
-
-              {/* Stats readout */}
-              <div className="flex flex-col justify-center gap-4 pl-2">
-                {STATS.map((stat, i) => (
-                  <div key={i} className="flex items-center gap-4">
-                    <span
-                      className="font-black text-3xl leading-none tracking-tight min-w-[70px]"
-                      style={{
-                        background: 'linear-gradient(90deg, #C5165C 0%, #FF8A00 100%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                      }}
-                    >
-                      {stat.value}
-                    </span>
-                    <div className="flex flex-col">
-                      <span className="text-[10px] font-bold text-slate-700 uppercase tracking-widest font-sans">
-                        {stat.label}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
             </div>
 
             {/* Action Row */}
-            <div className="mt-8 pt-4 w-full">
+            <div className="w-full">
               <button
-                className="group inline-flex items-center gap-2.5 font-bold text-white rounded-xl px-8 py-4 transition-all duration-300 cursor-pointer border-0"
+                className="group inline-flex items-center gap-2.5 font-bold text-white rounded-xl px-8 py-3.5 transition-all duration-300 cursor-pointer border-0"
                 style={{
                   fontSize: 13,
                   background: 'linear-gradient(90deg, #C5165C 0%, #E8364F 50%, #FF8A00 100%)',
