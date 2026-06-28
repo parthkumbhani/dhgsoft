@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Quote } from 'lucide-react';
 
 const CEO_PARAGRAPHS = [
   "Innovation is at the heart of everything we do at DHGsoft. We believe the next generation of industry will be built on intelligent technologies that connect people, data, and operations to unlock new possibilities.",
@@ -21,14 +21,69 @@ export default function CEOMessage() {
       id="ceo-message"
       className="relative overflow-hidden border-b border-[#ECECEC]"
       style={{
-        background: 'radial-gradient(ellipse 120% 80% at 30% 20%, #ffffff 0%, #fefefe 40%, #faf9fb 70%, #f8f7fa 100%)',
-        paddingTop: 'clamp(50px, 6vh, 90px)',
-        paddingBottom: 'clamp(50px, 6vh, 90px)',
+        background: 'linear-gradient(135deg, #FCFCFD 0%, #F8FAFC 40%, #FFFFFF 70%, #FCFCFD 100%)',
+        paddingTop: 'clamp(64px, 8vh, 110px)',
+        paddingBottom: 'clamp(64px, 8vh, 110px)',
       }}
     >
-      {/* ── Subtle decorative background elements ── */}
-      {/* Top-right dot grid */}
-      <div className="absolute top-6 right-16 pointer-events-none opacity-[0.06]">
+      {/* ── Ambient Background Glows (Light-themed, soft and elegant) ── */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          width: 600,
+          height: 600,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(197,22,92,0.03) 0%, rgba(255,138,0,0.01) 50%, transparent 70%)',
+          filter: 'blur(100px)',
+          top: '-10%',
+          left: '-5%',
+        }}
+      />
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          width: 500,
+          height: 500,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(59,130,246,0.02) 0%, rgba(99,102,241,0.005) 50%, transparent 70%)',
+          filter: 'blur(80px)',
+          bottom: '-10%',
+          right: '5%',
+        }}
+      />
+
+      {/* ── Technical Grid Overlay ── */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px)
+          `,
+          backgroundSize: '24px 24px',
+        }}
+      />
+
+      {/* ── Subtle diagonal lines top-left ── */}
+      <div className="absolute top-0 left-0 pointer-events-none opacity-[0.04]">
+        <svg width="300" height="300" viewBox="0 0 300 300">
+          <line x1="0" y1="100" x2="200" y2="0" stroke="#CBD5E1" strokeWidth="0.5" />
+          <line x1="0" y1="200" x2="300" y2="0" stroke="#CBD5E1" strokeWidth="0.5" />
+          <line x1="0" y1="300" x2="300" y2="100" stroke="#CBD5E1" strokeWidth="0.5" />
+        </svg>
+      </div>
+
+      {/* ── Bottom-right hex shapes ── */}
+      <div className="absolute bottom-8 right-8 pointer-events-none opacity-[0.02]">
+        <svg width="200" height="180" viewBox="0 0 200 180">
+          <path d="M40 30 L70 15 L100 30 L100 60 L70 75 L40 60Z" fill="none" stroke="#94A3B8" strokeWidth="0.8" />
+          <path d="M100 30 L130 15 L160 30 L160 60 L130 75 L100 60Z" fill="none" stroke="#94A3B8" strokeWidth="0.8" />
+          <path d="M70 75 L100 60 L130 75 L130 105 L100 120 L70 105Z" fill="none" stroke="#94A3B8" strokeWidth="0.8" />
+        </svg>
+      </div>
+
+      {/* ── Top-right dot grid ── */}
+      <div className="absolute top-6 right-16 pointer-events-none opacity-[0.05]">
         <svg width="180" height="180" viewBox="0 0 180 180">
           {Array.from({ length: 81 }).map((_, i) => (
             <circle
@@ -42,24 +97,6 @@ export default function CEOMessage() {
         </svg>
       </div>
 
-      {/* Subtle diagonal lines top-left */}
-      <div className="absolute top-0 left-0 pointer-events-none opacity-[0.04]">
-        <svg width="300" height="300" viewBox="0 0 300 300">
-          <line x1="0" y1="100" x2="200" y2="0" stroke="#CBD5E1" strokeWidth="0.5" />
-          <line x1="0" y1="200" x2="300" y2="0" stroke="#CBD5E1" strokeWidth="0.5" />
-          <line x1="0" y1="300" x2="300" y2="100" stroke="#CBD5E1" strokeWidth="0.5" />
-        </svg>
-      </div>
-
-      {/* Bottom-right hex shapes */}
-      <div className="absolute bottom-8 right-8 pointer-events-none opacity-[0.03]">
-        <svg width="200" height="180" viewBox="0 0 200 180">
-          <path d="M40 30 L70 15 L100 30 L100 60 L70 75 L40 60Z" fill="none" stroke="#94A3B8" strokeWidth="0.8" />
-          <path d="M100 30 L130 15 L160 30 L160 60 L130 75 L100 60Z" fill="none" stroke="#94A3B8" strokeWidth="0.8" />
-          <path d="M70 75 L100 60 L130 75 L130 105 L100 120 L70 105Z" fill="none" stroke="#94A3B8" strokeWidth="0.8" />
-        </svg>
-      </div>
-
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 relative z-10">
 
         {/* ── Main Split Grid: Text Left, Image Right ── */}
@@ -70,10 +107,10 @@ export default function CEOMessage() {
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-            className="order-2 lg:order-1"
+            className="order-2 lg:order-1 text-left"
           >
             {/* Section Tag */}
-            <div className="flex items-center gap-2.5 mb-5">
+            <div className="flex items-center gap-2.5 mb-5 justify-start">
               <Sparkles className="w-4 h-4 text-[#C5165C]" />
               <span
                 className="font-extrabold uppercase tracking-[0.2em]"
@@ -84,7 +121,7 @@ export default function CEOMessage() {
                   WebkitTextFillColor: 'transparent',
                 }}
               >
-                DHG Innovation Institute
+                Message from our CEO
               </span>
             </div>
 
@@ -93,8 +130,8 @@ export default function CEOMessage() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="font-extrabold text-slate-900 tracking-tight mb-4"
-              style={{ fontSize: 'clamp(28px, 3.2vw, 46px)', lineHeight: 1.12 }}
+              className="font-extrabold text-slate-900 tracking-tight mb-4 font-headline text-left"
+              style={{ fontSize: 'clamp(28px, 3.2vw, 44px)', lineHeight: 1.12 }}
             >
               Building Tomorrow&apos;s
               <br />
@@ -115,20 +152,20 @@ export default function CEOMessage() {
               initial={{ scaleX: 0 }}
               animate={isInView ? { scaleX: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="origin-left mb-8"
+              className="origin-left mb-8 text-left"
             >
               <div className="h-[3px] w-14 rounded-full bg-gradient-to-r from-[#C5165C] to-[#FF8A00]" />
             </motion.div>
 
             {/* Paragraphs */}
-            <div className="space-y-5 mb-10">
+            <div className="space-y-5 mb-8 text-left">
               {CEO_PARAGRAPHS.map((para, i) => (
                 <motion.p
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.3 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                  className="text-slate-500 leading-relaxed font-sans"
+                  className="text-slate-650 leading-relaxed font-sans font-medium"
                   style={{ fontSize: 'clamp(13.5px, 1.05vw, 15.5px)', lineHeight: 1.85 }}
                 >
                   {para}
@@ -136,11 +173,41 @@ export default function CEOMessage() {
               ))}
             </div>
 
+            {/* CEO Designation & Frosted Signature Bar */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.55 }}
+              className="flex items-center justify-between p-4 rounded-2xl bg-white/70 border border-slate-200/50 shadow-sm max-w-sm mb-8 text-left"
+            >
+              <div>
+                <h4 className="text-base font-extrabold text-slate-900 font-headline leading-snug">
+                  Hitesh Patel
+                </h4>
+                <p className="text-xs text-slate-500 font-bold mt-0.5 uppercase tracking-wider">
+                  Chief Executive Officer
+                </p>
+                <p className="text-[11px] font-extrabold mt-0.5" style={{ color: '#C5165C' }}>
+                  DHGsoft
+                </p>
+              </div>
+              <div
+                className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                style={{
+                  background: 'linear-gradient(135deg, #C5165C 0%, #E8364F 60%, #FF8A00 100%)',
+                  boxShadow: '0 4px 14px rgba(197, 22, 92, 0.25)',
+                }}
+              >
+                <span className="text-white font-black text-xs">HP</span>
+              </div>
+            </motion.div>
+
             {/* CTA Button */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.6 }}
+              className="text-left"
             >
               <button
                 className="group inline-flex items-center gap-2.5 font-bold text-white rounded-full px-8 py-3.5 transition-all duration-300 cursor-pointer border-0"
@@ -148,16 +215,16 @@ export default function CEOMessage() {
                   fontSize: 13,
                   background: 'linear-gradient(90deg, #C5165C 0%, #E8364F 50%, #FF8A00 100%)',
                   backgroundSize: '200% 100%',
-                  boxShadow: '0 4px 20px rgba(197, 22, 92, 0.25)',
+                  boxShadow: '0 4px 20px rgba(197, 22, 92, 0.2)',
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLButtonElement).style.backgroundPosition = '100% 0%';
-                  (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 8px 32px rgba(197, 22, 92, 0.4)';
+                  (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 8px 32px rgba(197, 22, 92, 0.35)';
                   (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-2px)';
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLButtonElement).style.backgroundPosition = '0% 0%';
-                  (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 4px 20px rgba(197, 22, 92, 0.25)';
+                  (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 4px 20px rgba(197, 22, 92, 0.2)';
                   (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(0px)';
                 }}
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
@@ -189,14 +256,13 @@ export default function CEOMessage() {
                 />
               </div>
 
-              {/* CEO Image: Masked inside a perfect circle matching the circle in the background graphics */}
-              <div className="relative w-[82.5%] aspect-square rounded-full overflow-hidden z-10">
+              {/* CEO Image: Masked inside a circle matching the circle in the background graphics */}
+              <div className="relative w-[82.5%] aspect-square rounded-full overflow-hidden z-10 shadow-lg border-2 border-white/60">
                 <Image
                   src="/CEO.png"
                   alt="Hitesh Patel — Chief Executive Officer, DHGsoft"
                   fill
                   className="object-cover object-top select-none scale-[0.86] translate-y-[6%]"
-                  style={{ filter: 'drop-shadow(0 14px 28px rgba(15, 23, 42, 0.12))' }}
                   priority
                   sizes="(max-width: 1024px) 90vw, 400px"
                 />
