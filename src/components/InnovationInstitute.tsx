@@ -1,251 +1,252 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React from "react"
 import Link from "next/link"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { 
-  BookOpen, 
-  Terminal, 
+  Cpu, 
+  Network, 
+  Cloud, 
+  Settings, 
+  ArrowRight, 
   Users, 
-  ArrowUpRight, 
-  Sparkles,
-  Lock,
-  Cpu,
-  Database,
-  ShieldCheck
+  Lightbulb, 
+  Rocket, 
+  TrendingUp, 
+  Compass 
 } from "lucide-react"
 
-const PILLARS_DATA = [
+const INNOVATION_CARDS = [
   {
-    title: "Academic Research & Publications",
-    desc: "Collaborative white papers and case studies on industrial cyber-safety standards (IEC 62443) and edge ML models.",
-    icon: BookOpen,
+    title: "Artificial Intelligence",
+    desc: "Intelligent algorithms and machine learning models that drive smarter decisions.",
+    icon: Cpu,
+    colorClass: "border-l-indigo-600",
+    iconBg: "bg-indigo-50 text-indigo-600",
+    arrowColor: "text-indigo-600"
   },
   {
-    title: "Enablement & Virtual Sandboxes",
-    desc: "Hands-on virtual code sandboxes, developer sandboxes, and structured bootcamps for edge telemetry systems.",
-    icon: Terminal,
+    title: "Industrial IoT",
+    desc: "Connecting machines, systems, and people to unlock real-time insights and efficiency.",
+    icon: Network,
+    colorClass: "border-l-emerald-500",
+    iconBg: "bg-emerald-50 text-emerald-500",
+    arrowColor: "text-emerald-500"
   },
   {
-    title: "Hyperscaler & OEM Programs",
-    desc: "Shared alignment architectures and capability frameworks with leading cloud hyperscalers and automation vendors.",
-    icon: Users,
+    title: "Cloud & Data Platforms",
+    desc: "Scalable cloud solutions and modern data platforms that power growth and innovation.",
+    icon: Cloud,
+    colorClass: "border-l-blue-500",
+    iconBg: "bg-blue-50 text-blue-500",
+    arrowColor: "text-blue-500"
+  },
+  {
+    title: "Digital Engineering",
+    desc: "End-to-end engineering solutions that transform ideas into high-performing systems.",
+    icon: Settings,
+    colorClass: "border-l-orange-500",
+    iconBg: "bg-orange-50 text-orange-500",
+    arrowColor: "text-orange-500"
   }
 ]
 
-interface ConsoleTabContent {
-  title: string
-  logs: string[]
-}
-
-const CONSOLE_TABS: Record<string, ConsoleTabContent> = {
-  telemetry: {
-    title: "Telemetry Ingestion API",
-    logs: [
-      "[CONN] Initializing secure socket on AHM_PI_01...",
-      "[CONN] Connected via TLS 1.3 // Port 8883",
-      "[DATA] Streaming SCADA tags: [VIB_01: 4.2mm/s, TEMP_01: 78.4C]",
-      "[DATA] Ingesting packet: Vadodara Plant Edge ➔ Syncing...",
-      "[OK] 12 channels replicated to Unified Data Lake successfully."
-    ]
+const STATS_DATA = [
+  {
+    value: "50+",
+    label: "Innovation Experts",
+    icon: Users,
+    iconBg: "bg-blue-50 text-blue-600"
   },
-  anomaly: {
-    title: "ML Anomaly Detection",
-    logs: [
-      "[ML] Pulling last 24H data from AVEVA PI Lake...",
-      "[ML] Feeding neural network weights: anomaly detection active.",
-      "[INFO] Precision check: 99.8% model validation accuracy.",
-      "[WARN] Subtle pump cavitation pattern identified on Site B.",
-      "[OK] Alert dispatched to CXO Command Core dashboard."
-    ]
+  {
+    value: "100+",
+    label: "Research Projects",
+    icon: Lightbulb,
+    iconBg: "bg-emerald-50 text-emerald-600"
   },
-  security: {
-    title: "IEC-62443 Compliance Audit",
-    logs: [
-      "[SEC] Initializing network topology auditor...",
-      "[SEC] Scanning edge node certificates against IEC 62443.",
-      "[SEC] Verifying micro-segmentation boundaries: NIST SP 800-82.",
-      "[SEC] Encryption check: payload transport TLS 1.3 AES-256.",
-      "[OK] Audit complete. Zero-trust configuration: 100% compliant."
-    ]
+  {
+    value: "25+",
+    label: "Patents & IPs",
+    icon: Rocket,
+    iconBg: "bg-purple-50 text-purple-600"
+  },
+  {
+    value: "30+",
+    label: "Industrial Deployments",
+    icon: TrendingUp,
+    iconBg: "bg-orange-50 text-orange-600"
   }
-}
+]
 
 export default function InnovationInstitute() {
-  const [activeConsoleTab, setActiveConsoleTab] = useState<"telemetry" | "anomaly" | "security">("telemetry")
-  const [displayedLogs, setDisplayedLogs] = useState<string[]>([])
-  const [logIndex, setLogIndex] = useState(0)
-
-  // Loop to simulate typing logs in real-time
-  useEffect(() => {
-    setDisplayedLogs([])
-    setLogIndex(0)
-  }, [activeConsoleTab])
-
-  useEffect(() => {
-    const currentTabLogs = CONSOLE_TABS[activeConsoleTab].logs
-    if (logIndex < currentTabLogs.length) {
-      const timer = setTimeout(() => {
-        setDisplayedLogs(prev => [...prev, currentTabLogs[logIndex]])
-        setLogIndex(prev => prev + 1)
-      }, 600)
-      return () => clearTimeout(timer)
-    }
-  }, [logIndex, activeConsoleTab])
-
   return (
-    <section id="innovation-institute" className="py-14 bg-[#0b0f19] text-white relative border-y border-slate-900 overflow-hidden">
-      {/* Background radial matrix grids */}
-      <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] bg-[size:32px_32px] opacity-15 pointer-events-none" />
+    <section id="innovation-institute" className="py-10 lg:py-12 bg-white text-slate-900 relative overflow-hidden">
+      {/* Top right ambient background blur and dot pattern */}
+      <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-gradient-to-br from-blue-300/20 to-purple-300/20 blur-3xl pointer-events-none" />
+      
+      {/* 3x6 Dot Grid Pattern */}
+      <div className="absolute top-12 right-[8%] hidden lg:grid grid-cols-3 gap-3.5 opacity-30 pointer-events-none">
+        {[...Array(18)].map((_, i) => (
+          <div key={i} className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+        ))}
+      </div>
 
-      <div className="max-w-[1440px] mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
+        
+        {/* Section Header */}
+        <div className="text-left mb-12 lg:mb-16">
+          <div className="flex items-center gap-3 text-[11px] font-bold text-blue-600 uppercase tracking-[0.2em] font-sans">
+            <span>DHG Innovation Institute</span>
+            <div className="h-[1px] w-12 bg-blue-200" />
+          </div>
+          <h2 className="text-3xl lg:text-[42px] font-extrabold text-slate-950 leading-[1.15] tracking-tight mt-3 mb-4 font-headline">
+            Engineering Innovation.<br />Powering the <span className="text-blue-600">Future.</span>
+          </h2>
+          <p className="text-slate-600 text-sm max-w-[560px] leading-relaxed font-sans font-medium">
+            At DHG Innovation Institute, we research, build, and deploy next-generation 
+            technologies that solve real industrial challenges and create measurable impact.
+          </p>
+        </div>
+
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Left Column - Sandbox Console Interactive Panel */}
-          <div className="lg:col-span-6 flex justify-center w-full relative">
+          {/* Left Column - Image Card with custom sloped SVG clipping mask and stroke */}
+          <div className="lg:col-span-7 relative">
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="w-full max-w-[550px] bg-slate-950 border border-slate-900 rounded-[28px] p-5 shadow-2xl flex flex-col justify-between overflow-hidden select-none min-h-[420px]"
+              className="relative w-full overflow-visible"
             >
-              {/* Header */}
-              <div className="flex items-center justify-between border-b border-slate-900 pb-3.5 mb-4">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#C30072] animate-pulse" />
-                  <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest pl-1">
-                    VIRTUAL_SANDBOX // R&D_ENV
-                  </span>
+              {/* Responsive Sloped SVG Card */}
+              <svg 
+                viewBox="0 0 700 500" 
+                className="w-full h-auto overflow-visible select-none drop-shadow-[0_10px_30px_rgba(148,163,184,0.12)]"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <clipPath id="institute-img-clip">
+                    <path d="M 32,0 L 668,0 A 32,32 0 0 1 700,32 L 700,300 Q 700,325 680,340 L 540,480 Q 520,500 490,500 L 32,500 A 32,32 0 0 1 0,468 L 0,32 A 32,32 0 0 1 32,0 Z" />
+                  </clipPath>
+                </defs>
+                
+                {/* Fallback Background block for clean rendering */}
+                <path d="M 32,0 L 668,0 A 32,32 0 0 1 700,32 L 700,300 Q 700,325 680,340 L 540,480 Q 520,500 490,500 L 32,500 A 32,32 0 0 1 0,468 L 0,32 A 32,32 0 0 1 32,0 Z" fill="#F8FAFC" />
+                
+                {/* Image clipped to the sloped path */}
+                <image
+                  href="/smart_factory_visual.png"
+                  width="700"
+                  height="500"
+                  clipPath="url(#institute-img-clip)"
+                  preserveAspectRatio="xMidYMid slice"
+                />
+
+                {/* Accent blue outline that runs along the bottom-right slope */}
+                <path 
+                  d="M 710,240 L 710,300 Q 710,325 690,345 L 545,490 Q 525,510 495,510 L 315,510" 
+                  fill="none" 
+                  stroke="#3b82f6" 
+                  strokeWidth="2.5" 
+                  strokeLinecap="round"
+                  className="opacity-75"
+                />
+              </svg>
+
+              {/* Bottom-left overlay badge */}
+              <div className="absolute bottom-6 left-6 right-6 md:right-auto bg-[#080E1E] text-white p-5 rounded-2xl shadow-2xl flex items-center gap-4 border border-blue-950/20 max-w-full md:max-w-[340px] z-20">
+                <div className="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400 shrink-0">
+                  <Compass className="w-5 h-5" />
                 </div>
-                <span className="text-[8px] font-mono text-[#fbc00e] bg-[#fbc00e]/5 border border-[#fbc00e]/15 px-2 py-0.5 rounded font-bold uppercase">
-                  ACTIVE PIPELINE
-                </span>
-              </div>
-
-              {/* Console Tabs */}
-              <div className="grid grid-cols-3 gap-1.5 p-1 bg-slate-900/60 rounded-xl border border-slate-900/80 mb-4">
-                {(["telemetry", "anomaly", "security"] as const).map((tabId) => {
-                  const isActive = activeConsoleTab === tabId
-                  return (
-                    <button
-                      key={tabId}
-                      onClick={() => setActiveConsoleTab(tabId)}
-                      className={`py-2 px-2.5 rounded-lg text-center font-mono text-[9px] font-bold uppercase transition-all ${
-                        isActive 
-                          ? "bg-slate-950 text-[#fbc00e] border border-slate-800 shadow" 
-                          : "text-slate-500 hover:text-slate-355"
-                      }`}
-                    >
-                      {tabId}
-                    </button>
-                  )
-                })}
-              </div>
-
-              {/* Shell output area */}
-              <div className="bg-slate-950/90 border border-slate-900 rounded-xl p-4 flex-grow flex flex-col justify-between font-mono text-[10px] min-h-[220px] text-left">
-                <div className="space-y-2.5">
-                  <div className="flex justify-between items-center text-slate-600 text-[8px] border-b border-slate-900/60 pb-1.5">
-                    <span>CONSOLE STATE // STREAMING</span>
-                    <span>TAPPED: Vadodara Edge</span>
-                  </div>
-                  
-                  <div className="space-y-2 text-slate-300">
-                    <AnimatePresence>
-                      {displayedLogs.map((log, i) => {
-                        const isOk = log.startsWith("[OK]")
-                        const isWarn = log.startsWith("[WARN]")
-                        const isSec = log.startsWith("[SEC]")
-                        return (
-                          <motion.div
-                            key={i}
-                            initial={{ opacity: 0, x: -5 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className={`leading-relaxed ${
-                              isOk 
-                                ? "text-emerald-400 font-bold" 
-                                : isWarn 
-                                  ? "text-[#fbc00e] font-bold" 
-                                  : isSec 
-                                    ? "text-[#C30072]" 
-                                    : "text-slate-400"
-                            }`}
-                          >
-                            {log}
-                          </motion.div>
-                        )
-                      })}
-                    </AnimatePresence>
-                  </div>
-                </div>
-
-                {/* Simulated telemetry parameters */}
-                <div className="flex justify-between items-center border-t border-slate-900/80 pt-3 mt-4 text-[8px] text-slate-500">
-                  <span className="flex items-center gap-1"><Lock className="w-3 h-3 text-[#C30072]" /> AES-256 Payload</span>
-                  <span className="flex items-center gap-1"><Cpu className="w-3 h-3 text-blue-500" /> R&D Hub: Online</span>
+                <div className="text-left">
+                  <h5 className="text-sm font-bold tracking-wide">Research. Engineer. Deploy.</h5>
+                  <p className="text-[11px] text-slate-400 mt-0.5 font-medium">Solutions built for the real world.</p>
                 </div>
               </div>
-
             </motion.div>
           </div>
 
-          {/* Right Column - Title and Pillars */}
-          <div className="lg:col-span-6 flex flex-col items-start text-left">
-            <div className="inline-flex items-center gap-2 text-xs font-bold text-[#C30072] uppercase tracking-widest px-3 py-1 rounded-full bg-[#C30072]/10 border border-[#C30072]/15 mb-4 font-sans">
-              <Sparkles className="h-3.5 w-3.5 text-[#C30072]" />
-              DHG Innovation Institute
-            </div>
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-white tracking-tight font-headline">
-              Advancing Heavy Operations Through Collaborative R&D
-            </h2>
-            <div className="h-[3px] w-16 bg-gradient-to-r from-[#C30072] via-[#E10088] to-[#F36B2A] mt-4 mb-8 rounded-full" />
-            
-            {/* Pillars stack */}
-            <div className="space-y-4 w-full">
-              {PILLARS_DATA.map((pillar, idx) => {
-                const Icon = pillar.icon
-                return (
-                  <div 
-                    key={idx}
-                    className="flex items-start gap-4 p-4 rounded-2xl bg-slate-950/40 border border-slate-900 hover:border-slate-800 transition-colors group"
-                  >
-                    <div className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 text-slate-500 flex items-center justify-center shrink-0 transition-colors group-hover:bg-[#C30072]/10 group-hover:border-[#C30072]/20 group-hover:text-[#fbc00e]">
-                      <Icon className="h-4.5 w-4.5" />
+          {/* Right Column - Stacked List Cards */}
+          <div className="lg:col-span-5 flex flex-col gap-4">
+            {INNOVATION_CARDS.map((card, idx) => {
+              const Icon = card.icon
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className={`flex items-center justify-between p-5 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 border-l-[4px] ${card.colorClass} group cursor-pointer`}
+                >
+                  <div className="flex items-center">
+                    <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${card.iconBg}`}>
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <div>
-                      <h4 className="text-xs font-extrabold text-white uppercase tracking-wide font-headline">
-                        {pillar.title}
-                      </h4>
-                      <p className="text-[11px] text-slate-400 leading-relaxed font-sans font-medium mt-1">
-                        {pillar.desc}
-                      </p>
+                    <div className="flex-grow pl-4 text-left">
+                      <h4 className="text-slate-950 font-bold text-sm tracking-tight">{card.title}</h4>
+                      <p className="text-slate-500 text-[11px] leading-relaxed mt-0.5 font-medium">{card.desc}</p>
                     </div>
                   </div>
-                )
-              })}
-            </div>
+                  <div className={`shrink-0 pl-2 transition-transform duration-300 group-hover:translate-x-1 ${card.arrowColor}`}>
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </motion.div>
+              )
+            })}
 
-            {/* Action button */}
-            <motion.div 
+            {/* CTA Button */}
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="mt-10"
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mt-2 text-left"
             >
               <Link href="/innovation-institute" className="inline-block">
-                <Button className="font-bold rounded-xl bg-gradient-to-r from-primary to-secondary hover:from-primary hover:to-secondary hover:-translate-y-[2px] active:scale-[0.98] text-white px-8 py-4 h-auto shadow-lg shadow-primary/20 transition-all duration-300 border-0 flex items-center gap-2 cursor-pointer">
-                  Access R&D Portal
-                  <ArrowUpRight className="h-4.5 w-4.5" />
+                <Button className="rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold text-xs px-6 py-4 h-auto shadow-md shadow-blue-500/10 transition-all duration-300 flex items-center gap-2 border-0 cursor-pointer">
+                  Explore Our Innovation
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Button>
               </Link>
             </motion.div>
           </div>
 
         </div>
+
+        {/* Bottom Statistics Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-16 lg:mt-24 bg-white border border-slate-100 rounded-3xl p-6 lg:p-8 shadow-lg shadow-slate-100/50"
+        >
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-4 lg:gap-0 lg:divide-x lg:divide-slate-150">
+            {STATS_DATA.map((stat, idx) => {
+              const StatIcon = stat.icon
+              return (
+                <div key={idx} className="flex items-center gap-4 pl-0 lg:pl-8 first:pl-0">
+                  <div className={`w-11 h-11 rounded-full flex items-center justify-center shrink-0 ${stat.iconBg}`}>
+                    <StatIcon className="w-5 h-5" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-2xl lg:text-3xl font-extrabold text-slate-950 tracking-tight leading-none">
+                      {stat.value}
+                    </div>
+                    <div className="text-[11px] font-semibold text-slate-500 mt-1 uppercase tracking-wider">
+                      {stat.label}
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </motion.div>
+
       </div>
     </section>
   )

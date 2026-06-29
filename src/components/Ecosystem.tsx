@@ -103,10 +103,23 @@ export default function Ecosystem() {
 
   const containerRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const transitionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  
+  const activeIdxRef = useRef(0);
+  const isAnimatingRef = useRef(false);
+
+  // Sync state to refs for interval closure safety
+  useEffect(() => {
+    activeIdxRef.current = activeIdx;
+  }, [activeIdx]);
+
+  useEffect(() => {
+    isAnimatingRef.current = isAnimating;
+  }, [isAnimating]);
 
   // Single transition controller
   const goToStage = (targetIdx: number, direction: 'Next' | 'Prev' | 'Direct') => {
-    if (isAnimating) return;
+    if (isAnimatingRef.current) return;
     setIsAnimating(true);
 
     const currentStageNum = activeIdx + 1;
@@ -133,43 +146,53 @@ export default function Ecosystem() {
 
     setActiveIdx(targetIdx);
 
-    setTimeout(() => {
+    if (transitionTimeoutRef.current) {
+      clearTimeout(transitionTimeoutRef.current);
+    }
+
+    transitionTimeoutRef.current = setTimeout(() => {
       setIsAnimating(false);
     }, 700);
   };
 
   const handleNext = () => {
-    if (isAnimating) return;
-    const nextIdx = (activeIdx + 1) % 6;
+    if (isAnimatingRef.current) return;
+    const nextIdx = (activeIdxRef.current + 1) % 6;
     goToStage(nextIdx, 'Next');
   };
 
   const handlePrev = () => {
-    if (isAnimating) return;
-    const prevIdx = (activeIdx - 1 + 6) % 6;
+    if (isAnimatingRef.current) return;
+    const prevIdx = (activeIdxRef.current - 1 + 6) % 6;
     goToStage(prevIdx, 'Prev');
   };
 
   // Unified timer / auto rotation loop
   useEffect(() => {
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-    }
     if (isHovered) {
       return;
     }
-    timerRef.current = setInterval(() => {
-      if (!isAnimating) {
-        handleNext();
+    
+    const interval = setInterval(() => {
+      if (!isAnimatingRef.current) {
+        const nextIdx = (activeIdxRef.current + 1) % 6;
+        goToStage(nextIdx, 'Next');
       }
     }, 7000);
 
     return () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
+      clearInterval(interval);
+    };
+  }, [isHovered]);
+
+  // Cleanup timeouts on unmount
+  useEffect(() => {
+    return () => {
+      if (transitionTimeoutRef.current) {
+        clearTimeout(transitionTimeoutRef.current);
       }
     };
-  }, [activeIdx, isAnimating, isHovered]);
+  }, []);
 
   // Keyboard navigation listener
   useEffect(() => {
@@ -202,7 +225,7 @@ export default function Ecosystem() {
   return (
     <section 
       id="technology-ecosystem" 
-      className="py-16 bg-[#060B16] text-white relative overflow-hidden border-b border-slate-950 select-none"
+      className="py-8 bg-[#060B16] text-white relative overflow-hidden border-b border-slate-950 select-none"
     >
       {/* Subtle animated background grid */}
       <motion.div 

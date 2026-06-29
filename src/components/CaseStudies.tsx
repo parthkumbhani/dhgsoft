@@ -170,7 +170,7 @@ export default function CaseStudies() {
   };
 
   return (
-    <section id="case-studies" className="py-16 bg-[#FAFBFC] relative overflow-hidden border-b border-slate-100 select-none">
+    <section id="case-studies" className="py-8 bg-[#FAFBFC] relative overflow-hidden border-b border-slate-100 select-none">
       
       {/* Background Soft Grids/Accents */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.015] z-0"
