@@ -5,6 +5,28 @@ import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight, Sparkles, Quote } from 'lucide-react';
 
+const DotGrid = ({ className }: { className?: string }) => (
+  <svg
+    width="18"
+    height="50"
+    viewBox="0 0 18 50"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+  >
+    <circle cx="3" cy="3" r="2.5" fill="#CBD5E1" />
+    <circle cx="3" cy="13" r="2.5" fill="#CBD5E1" />
+    <circle cx="3" cy="23" r="2.5" fill="#CBD5E1" />
+    <circle cx="3" cy="33" r="2.5" fill="#CBD5E1" />
+    <circle cx="3" cy="43" r="2.5" fill="#CBD5E1" />
+    <circle cx="15" cy="3" r="2.5" fill="#CBD5E1" />
+    <circle cx="15" cy="13" r="2.5" fill="#CBD5E1" />
+    <circle cx="15" cy="23" r="2.5" fill="#CBD5E1" />
+    <circle cx="15" cy="33" r="2.5" fill="#CBD5E1" />
+    <circle cx="15" cy="43" r="2.5" fill="#CBD5E1" />
+  </svg>
+);
+
 const CEO_PARAGRAPHS = [
   "Innovation is at the heart of everything we do at DHGsoft. We believe the next generation of industry will be built on intelligent technologies that connect people, data, and operations to unlock new possibilities.",
   "Our commitment is to transform bold ideas into practical solutions that deliver measurable outcomes. By combining Artificial Intelligence, Industrial IoT, Cloud, Data Platforms, and Digital Engineering, we help organizations innovate faster, operate smarter, and grow sustainably.",
@@ -196,92 +218,65 @@ export default function CEOMessage() {
             initial={{ opacity: 0, scale: 0.98 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 flex items-center justify-center order-1 lg:order-2 w-full relative pt-6 pb-12"
+            className="lg:col-span-5 flex items-center justify-center order-1 lg:order-2 w-full relative pt-6 pb-12 px-6"
           >
-            {/* Ambient background lines & shapes */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-              {/* Curved line loop overlay */}
-              <svg className="w-[125%] h-[125%] absolute stroke-slate-200/50 fill-none" viewBox="0 0 100 100">
-                <path d="M10,40 Q30,10 70,30 T90,80" strokeWidth="0.3" />
-                <circle cx="15" cy="50" r="1.5" className="fill-[#C5165C]/30 stroke-none" />
-              </svg>
-            </div>
-
-            {/* ── PEAKING BACKDROP SHAPES (Mockup Layers) ── */}
-            {/* Layer 1: Top-Right Red-Purple Offset Card */}
-            <div 
-              className="absolute top-0 right-2 w-[85%] h-[80%] rounded-[28px] z-0 opacity-95 pointer-events-none transform translate-x-2 -translate-y-2"
-              style={{
-                background: 'linear-gradient(135deg, #C5165C 0%, #9E1047 100%)',
-              }}
-            />
-            {/* Layer 2: Bottom-Left Orange-Yellow Offset Card */}
-            <div 
-              className="absolute bottom-6 left-2 w-[85%] h-[80%] rounded-[28px] z-0 opacity-90 pointer-events-none transform -translate-x-2 translate-y-2"
-              style={{
-                background: 'linear-gradient(135deg, #FF8A00 0%, #E8364F 100%)',
-              }}
-            />
-
-            {/* ── MAIN PORTRAIT CARD ── */}
-            <div className="relative w-full max-w-[410px] aspect-[3/4] rounded-[28px] overflow-hidden border border-slate-200/80 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.15)] bg-white z-10 p-1">
+            {/* Absolute positioning container wrapper to maintain relative sizing between all mockup elements */}
+            <div className="relative w-full max-w-[360px] aspect-[3.2/4] mx-auto">
               
-              {/* Outer white inner border frame */}
-              <div className="absolute inset-1 rounded-[24px] border-2 border-white/90 z-20 pointer-events-none" />
+              {/* Dot Grid top-left */}
+              <DotGrid className="absolute -left-12 top-6 opacity-40 z-0" />
               
-              {/* Card Background: Cinematic Blurred Corporate Office */}
-              <div className="absolute inset-0 z-0">
-                <Image
-                  src="/office_blur.png"
-                  alt="Corporate Backdrop"
-                  fill
-                  className="object-cover opacity-95"
-                  priority
-                />
-                {/* Subtle vignette layer */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent" />
-              </div>
+              {/* Outer Pink Curved Line Offset */}
+              <div className="absolute inset-0 rounded-[32px] border-t border-r border-[#E8364F]/50 pointer-events-none z-0 transform translate-x-10 -translate-y-10" />
 
-              {/* CEO Portrait (Transparent Cutout) with silhouette shadow */}
-              <div className="relative w-full h-full flex items-end justify-center z-10">
-                <Image
-                  src="/CEO_nobg_clean.png"
-                  alt="Hitesh Patel — Chief Executive Officer, DHGsoft"
-                  fill
-                  className="object-contain object-bottom select-none transition-transform duration-700 hover:scale-[1.03] filter drop-shadow-[0_12px_24px_rgba(15,23,42,0.18)]"
-                  priority
-                  sizes="(max-width: 1024px) 90vw, 410px"
-                />
-              </div>
+              {/* Pink Backdrop Card */}
+              <div className="absolute inset-0 rounded-[32px] bg-gradient-to-tr from-[#C5165C] to-[#E8364F] z-0 transform translate-x-6 -translate-y-6 shadow-md" />
 
-              {/* Top-Left Dark Badge */}
-              <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-[#0A1120]/80 backdrop-blur-md border border-white/10 z-20 flex items-center gap-1.5 shadow-md pointer-events-none">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#E8364F]" />
-                <span className="text-[9px] font-bold text-white uppercase tracking-widest font-sans">
-                  Executive Profile
-                </span>
+              {/* Outer Orange Curved Line Offset */}
+              <div className="absolute inset-0 rounded-[32px] border-b border-l border-[#FF8A00]/50 pointer-events-none z-0 transform -translate-x-10 translate-y-10" />
+
+              {/* Orange Backdrop Card */}
+              <div className="absolute inset-0 rounded-[32px] bg-gradient-to-bl from-[#FF8A00] to-[#E8364F] z-0 transform -translate-x-6 translate-y-6 shadow-md" />
+
+              {/* Dot Grid bottom-right */}
+              <DotGrid className="absolute -right-12 bottom-6 opacity-40 z-0" />
+
+              {/* ── MAIN PORTRAIT CARD ── */}
+              <div className="absolute inset-0 rounded-[32px] border-[10px] border-white bg-white overflow-hidden shadow-[0_25px_60px_-15px_rgba(15,23,42,0.18)] z-10">
+                
+                {/* Card Background: Warm White and Beige Gradient */}
+                <div 
+                  className="absolute inset-0 z-0"
+                  style={{
+                    background: 'linear-gradient(135deg, #FFFFFF 0%, #EBDBA2 100%)',
+                  }}
+                />
+
+                {/* CEO Portrait (Transparent Cutout) with silhouette shadow */}
+                <div className="relative w-full h-full flex items-end justify-center z-10">
+                  <Image
+                    src="/CEO_nobg_clean.png"
+                    alt="Hitesh Patel — Chief Executive Officer, DHGsoft"
+                    fill
+                    className="object-contain object-bottom select-none transition-transform duration-700 hover:scale-[1.03] filter drop-shadow-[0_12px_24px_rgba(15,23,42,0.18)]"
+                    priority
+                    sizes="(max-width: 1024px) 90vw, 410px"
+                  />
+                </div>
+
+                {/* Corner brackets */}
+                <div className="absolute top-4 right-4 w-12 h-12 z-20 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-8 h-[1.5px] bg-white/70" />
+                  <div className="absolute top-0 right-0 h-8 w-[1.5px] bg-white/70" />
+                </div>
+                <div className="absolute bottom-4 left-4 w-12 h-12 z-20 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-8 h-[1.5px] bg-white/70" />
+                  <div className="absolute bottom-0 left-0 h-8 w-[1.5px] bg-white/70" />
+                </div>
+
               </div>
 
             </div>
-
-            {/* ── FLOATING QUOTE BOX (Bottom Left Overlay) ── */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="absolute bottom-1 left-[-24px] max-w-[290px] sm:max-w-[325px] bg-[#0A1120] border border-slate-800 rounded-[20px] p-5 shadow-[0_15px_30px_rgba(15,23,42,0.25)] z-30 flex flex-col items-start text-left"
-            >
-              <Quote className="w-7 h-7 fill-current text-[#E8364F] opacity-90 mb-2.5" />
-              
-              <p className="text-[12px] leading-relaxed text-slate-300 font-medium font-sans">
-                We don’t just build technology.<br />
-                We engineer progress.<br />
-                We create solutions that empower<br />
-                industries, transform operations,<br />
-                <span className="font-extrabold bg-gradient-to-r from-[#C5165C] to-[#FF8A00] bg-clip-text text-transparent">and shape a better tomorrow.</span>
-              </p>
-            </motion.div>
-
           </motion.div>
 
         </div>

@@ -468,7 +468,7 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
       viewport={{ once: true, amount: 0.12 }}
       variants={sectionVariants}
       onMouseMove={handleSectionMouseMove}
-      className="relative overflow-hidden border-y border-[#ECECEC] bg-[#FFFFFF] py-14 lg:py-20"
+      className="relative overflow-hidden border-y border-[#ECECEC] bg-[#FFFFFF] py-8 lg:py-12"
     >
       {/* ── BACKGROUND LAYER 1: Engineering Blueprint Grid & CAD Symbols (<3% opacity, parallax) ── */}
       <motion.div
@@ -625,7 +625,7 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
       <div className="max-w-[1700px] mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         
         {/* ── Section Header ── */}
-        <div className="text-center max-w-4xl mx-auto mb-20 lg:mb-24">
+        <div className="text-center max-w-4xl mx-auto mb-8 lg:mb-10">
           <span
             className="font-bold uppercase block mb-3 font-sans tracking-[0.25em]"
             style={{
@@ -636,7 +636,7 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
             STRATEGIC TECHNOLOGY PARTNERS
           </span>
           <h2
-            className="font-extrabold tracking-tight text-[#0F172A] mb-5 font-headline leading-tight"
+            className="font-extrabold tracking-tight text-[#0F172A] mb-3 font-headline leading-tight"
             style={{
               fontSize: 'clamp(28px, 3.2vw, 42px)',
             }}
@@ -654,7 +654,7 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
         <div 
           onMouseEnter={handleMouseEnterCarousel}
           onMouseLeave={handleMouseLeaveCarousel}
-          className="relative w-full rounded-[40px] border border-[#ECECEC] bg-[#FFFFFF] p-6 lg:p-12 mb-10 overflow-hidden shadow-[0px_25px_60px_rgba(0,0,0,0.02)]"
+          className="relative w-full rounded-[40px] border border-[#ECECEC] bg-[#FFFFFF] p-4 lg:p-8 lg:py-10 mb-6 overflow-hidden shadow-[0px_25px_60px_rgba(0,0,0,0.02)]"
         >
           {/* Navigation Arrows */}
           <div className="absolute inset-y-0 left-4 right-4 flex items-center justify-between pointer-events-none z-20">
@@ -674,7 +674,7 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
 
           {/* Horizontal Connection Track Line */}
           <svg
-            className="absolute inset-x-0 top-[205px] h-[2px] pointer-events-none z-0 overflow-visible"
+            className="absolute inset-x-0 top-[173px] h-[2px] pointer-events-none z-0 overflow-visible"
             viewBox="0 0 1200 2"
             preserveAspectRatio="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -712,7 +712,7 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
             style={{
               left: "50%",
               marginLeft: "-225px",
-              top: "180px",
+              top: "148px",
               marginTop: "-225px",
             }}
           >
@@ -724,11 +724,11 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
             />
           </div>
 
-          <div className="relative w-full py-8">
+          <div className="relative w-full py-4">
             {/* Horizontal Coverflow Container */}
             <motion.div
               variants={cardsContainerVariants}
-              className="relative w-full h-[400px] flex items-center justify-center overflow-visible z-10 py-4"
+              className="relative w-full h-[360px] flex items-center justify-center overflow-visible z-10 py-2"
             >
               {PARTNERS_DATA.map((partner, idx) => (
                 <PartnerCard
@@ -747,7 +747,7 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
         </div>
 
         {/* ── Footer CTA Button ── */}
-        <div className="mt-14 flex justify-center w-full relative z-20">
+        <div className="mt-8 flex justify-center w-full relative z-20">
           <motion.button
             onClick={handleContactNavigation}
             whileHover={{
