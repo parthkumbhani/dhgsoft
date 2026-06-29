@@ -21,18 +21,18 @@ export default function CEOMessage() {
       id="ceo-message"
       className="relative overflow-hidden border-b border-slate-200/80 bg-white"
       style={{
-        paddingTop: 'clamp(80px, 10vh, 130px)',
-        paddingBottom: 'clamp(80px, 10vh, 130px)',
+        paddingTop: 'clamp(90px, 11vh, 140px)',
+        paddingBottom: 'clamp(90px, 11vh, 140px)',
       }}
     >
       {/* ── Soft Ambient Glows (Premium Light Palette) ── */}
       <div
         className="absolute pointer-events-none z-0"
         style={{
-          width: 700,
-          height: 700,
+          width: 750,
+          height: 750,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(197,22,92,0.035) 0%, rgba(255,138,0,0.01) 60%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(197,22,92,0.03) 0%, rgba(255,138,0,0.01) 60%, transparent 70%)',
           filter: 'blur(120px)',
           top: '-10%',
           left: '-5%',
@@ -41,8 +41,8 @@ export default function CEOMessage() {
       <div
         className="absolute pointer-events-none z-0"
         style={{
-          width: 600,
-          height: 600,
+          width: 650,
+          height: 650,
           borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(59,130,246,0.02) 0%, rgba(99,102,241,0.005) 50%, transparent 70%)',
           filter: 'blur(100px)',
@@ -72,7 +72,7 @@ export default function CEOMessage() {
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         
         {/* ── Main Grid ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center">
 
           {/* ━━━━ LEFT — Text Content Column (7 cols on desktop) ━━━━ */}
           <motion.div
@@ -191,69 +191,97 @@ export default function CEOMessage() {
 
           </motion.div>
 
-          {/* ━━━━ RIGHT — Designer Rectangular Portrait Column (5 cols on desktop) ━━━━ */}
+          {/* ━━━━ RIGHT — Layered Mockup-Matched Portrait Column (5 cols on desktop) ━━━━ */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 flex items-center justify-center order-1 lg:order-2 w-full relative group"
+            className="lg:col-span-5 flex items-center justify-center order-1 lg:order-2 w-full relative pt-6 pb-12"
           >
-            {/* Tech line decorations around the card (Graphic Designer layout) */}
-            <div className="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-[#C5165C]/40 rounded-tl-lg pointer-events-none z-0" />
-            <div className="absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-[#C5165C]/40 rounded-tr-lg pointer-events-none z-0" />
-            <div className="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-[#FF8A00]/40 rounded-bl-lg pointer-events-none z-0" />
-            <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-[#FF8A00]/40 rounded-br-lg pointer-events-none z-0" />
+            {/* Ambient background lines & shapes */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+              {/* Curved line loop overlay */}
+              <svg className="w-[125%] h-[125%] absolute stroke-slate-200/50 fill-none" viewBox="0 0 100 100">
+                <path d="M10,40 Q30,10 70,30 T90,80" strokeWidth="0.3" />
+                <circle cx="15" cy="50" r="1.5" className="fill-[#C5165C]/30 stroke-none" />
+              </svg>
+            </div>
 
-            {/* Glowing background halo */}
-            <div className="absolute -inset-1 rounded-[36px] bg-gradient-to-r from-[#C5165C] to-[#FF8A00] opacity-[0.06] blur-xl group-hover:opacity-[0.12] transition-opacity duration-500 z-0 pointer-events-none" />
+            {/* ── PEAKING BACKDROP SHAPES (Mockup Layers) ── */}
+            {/* Layer 1: Top-Right Red-Purple Offset Card */}
+            <div 
+              className="absolute top-0 right-2 w-[85%] h-[80%] rounded-[28px] z-0 opacity-95 pointer-events-none transform translate-x-2 -translate-y-2"
+              style={{
+                background: 'linear-gradient(135deg, #C5165C 0%, #9E1047 100%)',
+              }}
+            />
+            {/* Layer 2: Bottom-Left Orange-Yellow Offset Card */}
+            <div 
+              className="absolute bottom-6 left-2 w-[85%] h-[80%] rounded-[28px] z-0 opacity-90 pointer-events-none transform -translate-x-2 translate-y-2"
+              style={{
+                background: 'linear-gradient(135deg, #FF8A00 0%, #E8364F 100%)',
+              }}
+            />
 
-            {/* Main Portrait Card */}
-            <div className="relative w-full max-w-[420px] aspect-[3/4] rounded-[32px] overflow-hidden border border-slate-200/80 shadow-[0_20px_50px_rgba(15,23,42,0.06)] bg-gradient-to-b from-white via-[#F8FAFC] to-[#F1F5F9] z-10 p-1">
+            {/* ── MAIN PORTRAIT CARD ── */}
+            <div className="relative w-full max-w-[410px] aspect-[3/4] rounded-[28px] overflow-hidden border border-slate-200/80 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.15)] bg-white z-10 p-1">
               
-              {/* Inner double border white frame */}
-              <div className="absolute inset-1 rounded-[28px] border-2 border-white/85 z-20 pointer-events-none" />
+              {/* Outer white inner border frame */}
+              <div className="absolute inset-1 rounded-[24px] border-2 border-white/90 z-20 pointer-events-none" />
               
-              {/* Elegant ambient light effects */}
-              <div 
-                className="absolute inset-0 pointer-events-none z-0 opacity-60"
-                style={{
-                  background: 'radial-gradient(circle at 50% 75%, rgba(197, 22, 92, 0.06) 0%, rgba(59, 130, 246, 0.03) 65%, transparent 100%)'
-                }}
-              />
-              
-              {/* Graphic grid backdrop */}
-              <div 
-                className="absolute inset-0 opacity-[0.015] pointer-events-none z-0"
-                style={{
-                  backgroundImage: `
-                    linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px)
-                  `,
-                  backgroundSize: '16px 16px',
-                }}
-              />
+              {/* Card Background: Cinematic Blurred Corporate Office */}
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src="/office_blur.png"
+                  alt="Corporate Backdrop"
+                  fill
+                  className="object-cover opacity-95"
+                  priority
+                />
+                {/* Subtle vignette layer */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent" />
+              </div>
 
-              {/* CEO Transparent Cutout Portrait with silhouette drop-shadow */}
+              {/* CEO Portrait (Transparent Cutout) with silhouette shadow */}
               <div className="relative w-full h-full flex items-end justify-center z-10">
                 <Image
                   src="/CEO_nobg_clean.png"
                   alt="Hitesh Patel — Chief Executive Officer, DHGsoft"
                   fill
-                  className="object-contain object-bottom select-none transition-transform duration-700 group-hover:scale-[1.03] filter drop-shadow-[0_12px_24px_rgba(15,23,42,0.12)]"
+                  className="object-contain object-bottom select-none transition-transform duration-700 hover:scale-[1.03] filter drop-shadow-[0_12px_24px_rgba(15,23,42,0.18)]"
                   priority
-                  sizes="(max-width: 1024px) 90vw, 420px"
+                  sizes="(max-width: 1024px) 90vw, 410px"
                 />
               </div>
 
-              {/* Premium Floating Badge */}
-              <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/85 backdrop-blur-md border border-slate-200/60 shadow-sm z-30 flex items-center gap-1.5 pointer-events-none">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#C5165C]" />
-                <span className="text-[9px] font-bold text-slate-650 uppercase tracking-widest font-sans">
+              {/* Top-Left Dark Badge */}
+              <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-[#0A1120]/80 backdrop-blur-md border border-white/10 z-20 flex items-center gap-1.5 shadow-md pointer-events-none">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#E8364F]" />
+                <span className="text-[9px] font-bold text-white uppercase tracking-widest font-sans">
                   Executive Profile
                 </span>
               </div>
 
             </div>
+
+            {/* ── FLOATING QUOTE BOX (Bottom Left Overlay) ── */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="absolute bottom-1 left-[-24px] max-w-[290px] sm:max-w-[325px] bg-[#0A1120] border border-slate-800 rounded-[20px] p-5 shadow-[0_15px_30px_rgba(15,23,42,0.25)] z-30 flex flex-col items-start text-left"
+            >
+              <Quote className="w-7 h-7 fill-current text-[#E8364F] opacity-90 mb-2.5" />
+              
+              <p className="text-[12px] leading-relaxed text-slate-300 font-medium font-sans">
+                We don’t just build technology.<br />
+                We engineer progress.<br />
+                We create solutions that empower<br />
+                industries, transform operations,<br />
+                <span className="font-extrabold bg-gradient-to-r from-[#C5165C] to-[#FF8A00] bg-clip-text text-transparent">and shape a better tomorrow.</span>
+              </p>
+            </motion.div>
+
           </motion.div>
 
         </div>
