@@ -83,7 +83,7 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-us" className="py-14 bg-white border-t border-slate-200/60 relative overflow-hidden">
+    <section id="why-us" className="py-8 bg-white border-t border-slate-200/60 relative overflow-hidden">
       {/* Background — clean, no radial grid to differentiate from other sections */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50/30 to-white pointer-events-none" />
 

@@ -43,8 +43,8 @@ export default function CEOMessage() {
       id="ceo-message"
       className="relative overflow-hidden border-b border-slate-200/80 bg-white"
       style={{
-        paddingTop: 'clamp(90px, 11vh, 140px)',
-        paddingBottom: 'clamp(90px, 11vh, 140px)',
+        paddingTop: 'clamp(40px, 6vh, 60px)',
+        paddingBottom: 'clamp(40px, 6vh, 60px)',
       }}
     >
       {/* ── Soft Ambient Glows (Premium Light Palette) ── */}
@@ -221,25 +221,25 @@ export default function CEOMessage() {
             className="lg:col-span-5 flex items-center justify-center order-1 lg:order-2 w-full relative pt-6 pb-12 px-6"
           >
             {/* Absolute positioning container wrapper to maintain relative sizing between all mockup elements */}
-            <div className="relative w-full max-w-[360px] aspect-[3.2/4] mx-auto">
+            <div className="relative w-full max-w-[330px] aspect-[3.2/4] mx-auto">
               
               {/* Dot Grid top-left */}
-              <DotGrid className="absolute -left-12 top-6 opacity-40 z-0" />
+              <DotGrid className="absolute -left-8 top-6 opacity-40 z-0" />
               
               {/* Outer Pink Curved Line Offset */}
-              <div className="absolute inset-0 rounded-[32px] border-t border-r border-[#E8364F]/50 pointer-events-none z-0 transform translate-x-10 -translate-y-10" />
+              <div className="absolute inset-0 rounded-[32px] border-t border-r border-[#E8364F]/50 pointer-events-none z-0 transform translate-x-7 -translate-y-7" />
 
               {/* Pink Backdrop Card */}
-              <div className="absolute inset-0 rounded-[32px] bg-gradient-to-tr from-[#C5165C] to-[#E8364F] z-0 transform translate-x-6 -translate-y-6 shadow-md" />
+              <div className="absolute inset-0 rounded-[32px] bg-gradient-to-tr from-[#C5165C] to-[#E8364F] z-0 transform translate-x-4 -translate-y-4 shadow-md" />
 
               {/* Outer Orange Curved Line Offset */}
-              <div className="absolute inset-0 rounded-[32px] border-b border-l border-[#FF8A00]/50 pointer-events-none z-0 transform -translate-x-10 translate-y-10" />
+              <div className="absolute inset-0 rounded-[32px] border-b border-l border-[#FF8A00]/50 pointer-events-none z-0 transform -translate-x-7 translate-y-7" />
 
               {/* Orange Backdrop Card */}
-              <div className="absolute inset-0 rounded-[32px] bg-gradient-to-bl from-[#FF8A00] to-[#E8364F] z-0 transform -translate-x-6 translate-y-6 shadow-md" />
+              <div className="absolute inset-0 rounded-[32px] bg-gradient-to-bl from-[#FF8A00] to-[#E8364F] z-0 transform -translate-x-4 translate-y-4 shadow-md" />
 
               {/* Dot Grid bottom-right */}
-              <DotGrid className="absolute -right-12 bottom-6 opacity-40 z-0" />
+              <DotGrid className="absolute -right-8 bottom-6 opacity-40 z-0" />
 
               {/* ── MAIN PORTRAIT CARD ── */}
               <div className="absolute inset-0 rounded-[32px] border-[10px] border-white bg-white overflow-hidden shadow-[0_25px_60px_-15px_rgba(15,23,42,0.18)] z-10">

@@ -117,7 +117,7 @@ export default function Careers() {
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
       variants={sectionVariants}
-      className="relative overflow-hidden border-t border-slate-200/60 bg-[#FAFBFC] py-14 lg:py-20"
+      className="relative overflow-hidden border-t border-slate-200/60 bg-[#FAFBFC] py-8 lg:py-10"
     >
       {/* ── Subtle decorative background ── */}
       <div className="absolute inset-0 pointer-events-none z-0">

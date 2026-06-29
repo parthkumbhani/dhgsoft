@@ -132,7 +132,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-14 bg-white relative overflow-hidden">
+    <section id="contact" className="py-8 bg-white relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#C30072] via-[#E10088] to-[#F36B2A] opacity-35" />
       <div className="max-w-[1440px] mx-auto px-6">
 
