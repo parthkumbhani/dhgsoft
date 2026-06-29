@@ -191,32 +191,68 @@ export default function CEOMessage() {
 
           </motion.div>
 
-          {/* ━━━━ RIGHT — Simple & Attractive Portrait Column (5 cols on desktop) ━━━━ */}
+          {/* ━━━━ RIGHT — Designer Rectangular Portrait Column (5 cols on desktop) ━━━━ */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 flex items-center justify-center order-1 lg:order-2 w-full relative"
+            className="lg:col-span-5 flex items-center justify-center order-1 lg:order-2 w-full relative group"
           >
-            {/* Background design (wireframe layout) for soft backlighting */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-[106%] aspect-[3/4] rounded-[34px] border border-slate-200/40 absolute z-0" />
-              <div className="w-[85%] aspect-[3/4] rounded-[28px] bg-gradient-to-tr from-[#C5165C]/5 via-[#FF8A00]/5 to-transparent absolute z-0 blur-2xl animate-pulse" />
-            </div>
+            {/* Tech line decorations around the card (Graphic Designer layout) */}
+            <div className="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-[#C5165C]/40 rounded-tl-lg pointer-events-none z-0" />
+            <div className="absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-[#C5165C]/40 rounded-tr-lg pointer-events-none z-0" />
+            <div className="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-[#FF8A00]/40 rounded-bl-lg pointer-events-none z-0" />
+            <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-[#FF8A00]/40 rounded-br-lg pointer-events-none z-0" />
 
-            {/* Clean Portrait Card with high resolution original photo (CEO.jpeg) */}
-            <div className="relative w-full max-w-[420px] aspect-[3/4] rounded-3xl overflow-hidden border-2 border-white shadow-[0_20px_50px_rgba(15,23,42,0.12)] bg-slate-50 z-10">
-              <Image
-                src="/CEO.jpeg"
-                alt="Hitesh Patel — Chief Executive Officer, DHGsoft"
-                fill
-                className="object-cover object-top select-none transition-transform duration-700 hover:scale-102"
-                priority
-                sizes="(max-width: 1024px) 90vw, 420px"
+            {/* Glowing background halo */}
+            <div className="absolute -inset-1 rounded-[36px] bg-gradient-to-r from-[#C5165C] to-[#FF8A00] opacity-[0.06] blur-xl group-hover:opacity-[0.12] transition-opacity duration-500 z-0 pointer-events-none" />
+
+            {/* Main Portrait Card */}
+            <div className="relative w-full max-w-[420px] aspect-[3/4] rounded-[32px] overflow-hidden border border-slate-200/80 shadow-[0_20px_50px_rgba(15,23,42,0.06)] bg-gradient-to-b from-white via-[#F8FAFC] to-[#F1F5F9] z-10 p-1">
+              
+              {/* Inner double border white frame */}
+              <div className="absolute inset-1 rounded-[28px] border-2 border-white/85 z-20 pointer-events-none" />
+              
+              {/* Elegant ambient light effects */}
+              <div 
+                className="absolute inset-0 pointer-events-none z-0 opacity-60"
+                style={{
+                  background: 'radial-gradient(circle at 50% 75%, rgba(197, 22, 92, 0.06) 0%, rgba(59, 130, 246, 0.03) 65%, transparent 100%)'
+                }}
               />
               
-              {/* Subtle elegant gradient overlay on image */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/15 via-transparent to-transparent pointer-events-none z-20" />
+              {/* Graphic grid backdrop */}
+              <div 
+                className="absolute inset-0 opacity-[0.015] pointer-events-none z-0"
+                style={{
+                  backgroundImage: `
+                    linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px)
+                  `,
+                  backgroundSize: '16px 16px',
+                }}
+              />
+
+              {/* CEO Transparent Cutout Portrait with silhouette drop-shadow */}
+              <div className="relative w-full h-full flex items-end justify-center z-10">
+                <Image
+                  src="/CEO_nobg_clean.png"
+                  alt="Hitesh Patel — Chief Executive Officer, DHGsoft"
+                  fill
+                  className="object-contain object-bottom select-none transition-transform duration-700 group-hover:scale-[1.03] filter drop-shadow-[0_12px_24px_rgba(15,23,42,0.12)]"
+                  priority
+                  sizes="(max-width: 1024px) 90vw, 420px"
+                />
+              </div>
+
+              {/* Premium Floating Badge */}
+              <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/85 backdrop-blur-md border border-slate-200/60 shadow-sm z-30 flex items-center gap-1.5 pointer-events-none">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#C5165C]" />
+                <span className="text-[9px] font-bold text-slate-650 uppercase tracking-widest font-sans">
+                  Executive Profile
+                </span>
+              </div>
+
             </div>
           </motion.div>
 
