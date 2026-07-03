@@ -72,48 +72,132 @@ export default function AboutPage() {
       <main className="flex-grow">
         
         {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 1: HERO & OVERVIEW ━━━━━━━━━━━━━━━━━━━━━━ */}
-        {/* Immersive hero with cinematic industrial photography & asymmetric elements */}
-        <section id="overview" className="relative pt-32 pb-24 md:pt-40 md:pb-36 bg-white overflow-hidden">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
-            
-            {/* Top Tagline */}
-            <div className="flex items-center gap-2 mb-8">
-              <Sparkles className="w-3.5 h-3.5 text-[#D4145A]" />
-              <span className="font-extrabold uppercase tracking-[0.25em] text-[#D4145A] font-mono text-[10px]">
-                About Us // Core Profile
-              </span>
-            </div>
-
-            {/* Asymmetric Typography Block */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-16">
-              <div className="lg:col-span-8 text-left">
-                <h1 className="font-extrabold text-[#0F172A] tracking-tight leading-[1.05] font-headline text-[48px] sm:text-[64px] lg:text-[76px]">
-                  Engineering the Future of{' '}
-                  <span className="bg-gradient-to-r from-[#D4145A] to-[#F15A24] bg-clip-text text-transparent">
-                    Connected Industries
-                  </span>
-                </h1>
-              </div>
-              <div className="lg:col-span-4 text-left border-l-2 border-slate-200 pl-8 py-2">
-                <p className="text-slate-500 font-medium text-base sm:text-lg leading-relaxed">
-                  DHGsoft is a global Industrial Digital Transformation company helping organizations connect operations, data, applications, and people to create intelligent, efficient, and sustainable enterprises.
-                </p>
-              </div>
-            </div>
-
-            {/* Cinematic Widescreen Canvas */}
-            <div className="relative w-full aspect-[21/9] rounded-[32px] overflow-hidden border border-slate-200/80 shadow-[0_30px_70px_-15px_rgba(15,23,42,0.15)] bg-slate-50">
+        {/* Full-screen 100vh cinematic industrial opening scene */}
+        <section id="overview" className="relative w-full h-screen overflow-hidden bg-slate-950 flex items-center">
+          
+          {/* Slow parallax zoom backdrop image */}
+          <div className="absolute inset-0 z-0">
+            <motion.div 
+              className="relative w-full h-full"
+              initial={{ scale: 1.05 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 10, ease: "easeOut" }}
+            >
               <Image
-                src="/about_hero.png"
-                alt="Widescreen Automated Assembly Floor Visual"
+                src="/about_hero_cinematic.png"
+                alt="DHGsoft Modern Smart Manufacturing Operations"
                 fill
-                className="object-cover"
+                className="object-cover pointer-events-none select-none"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent pointer-events-none" />
-            </div>
-
+            </motion.div>
           </div>
+
+          {/* Subtly calibrated 35% dark overlay to balance realism and typography */}
+          <div className="absolute inset-0 bg-slate-950/35 z-10 pointer-events-none" />
+
+          {/* Left-Aligned Editorial Block */}
+          <div className="max-w-[1440px] w-full mx-auto px-6 md:px-16 lg:px-24 relative z-20 flex items-center h-full">
+            <div className="max-w-[520px] text-left flex flex-col items-start pt-12 md:pt-16">
+              
+              {/* Uppercase Small Label with Gradient Underline */}
+              <div className="flex flex-col items-start gap-2 mb-6 group">
+                <span className="font-extrabold uppercase tracking-[0.25em] text-white font-mono text-[10px] md:text-xs">
+                  ABOUT DHGSOFT
+                </span>
+                <div className="h-0.5 w-12 bg-gradient-to-r from-[#D4145A] to-[#F15A24]" />
+              </div>
+
+              {/* Headline: Editorial Typography, Bold and Elegant */}
+              <motion.h1 
+                className="font-extrabold text-white tracking-tight leading-[1.08] font-headline text-[38px] sm:text-[48px] lg:text-[56px] mb-6"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                Engineering the Future<br />of Connected Industries
+              </motion.h1>
+
+              {/* Description: Maximum 3 short readable lines */}
+              <motion.p 
+                className="text-slate-100 font-medium text-base sm:text-lg leading-relaxed mb-8"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                DHGsoft is a global Industrial Digital Transformation company helping organizations connect operations, data, applications, and people to create intelligent, efficient, and sustainable enterprises.
+              </motion.p>
+
+              {/* Buttons: Primary (explore) and Secondary (contact) */}
+              <motion.div 
+                className="flex flex-wrap items-center gap-4"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                <button
+                  className="group inline-flex items-center gap-2.5 font-bold text-white rounded-xl px-7 py-3.5 transition-all duration-300 cursor-pointer border-0 shadow-lg"
+                  style={{
+                    fontSize: 13,
+                    background: 'linear-gradient(90deg, #D4145A 0%, #F15A24 100%)',
+                    backgroundSize: '200% 100%',
+                    boxShadow: '0 4px 20px rgba(212, 20, 90, 0.25)',
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.backgroundPosition = '100% 0%';
+                    (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 8px 32px rgba(212, 20, 90, 0.45)';
+                    (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.backgroundPosition = '0% 0%';
+                    (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 4px 20px rgba(212, 20, 90, 0.25)';
+                    (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(0px)';
+                  }}
+                  onClick={() => {
+                    const el = document.getElementById('company-overview');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  <span className="font-sans tracking-wide">Explore Our Story</span>
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+
+                <button
+                  className="inline-flex items-center gap-2.5 font-bold text-white rounded-xl px-7 py-3.5 transition-all duration-300 cursor-pointer border border-white/45 bg-transparent hover:bg-white hover:text-slate-900 hover:border-white shadow-md active:scale-95"
+                  style={{ fontSize: 13 }}
+                  onClick={() => setIsContactOpen(true)}
+                >
+                  <span className="font-sans tracking-wide">Contact Our Experts</span>
+                </button>
+              </motion.div>
+
+            </div>
+          </div>
+
+          {/* Thin animated line Scroll Indicator at bottom center */}
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none">
+            <span className="text-[9px] font-bold text-white/50 uppercase tracking-[0.25em] font-mono">
+              Scroll to discover
+            </span>
+            <div className="w-[1px] h-10 bg-white/20 relative overflow-hidden">
+              <motion.div
+                className="absolute top-0 left-0 w-full bg-white"
+                style={{ height: '30%' }}
+                animate={{
+                  y: [0, 28, 0],
+                  opacity: [0, 1, 0]
+                }}
+                transition={{
+                  duration: 2.2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Bottom Transition: Soft gradient fade smoothly into the next slate-50 section */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F8FAFC] via-[#F8FAFC]/80 to-transparent pointer-events-none z-10" />
         </section>
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 2: COMPANY OVERVIEW ━━━━━━━━━━━━━━━━━━━━━━ */}
