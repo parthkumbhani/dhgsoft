@@ -71,16 +71,16 @@ const INDUSTRIES = [
 ]
 
 const ABOUT_MENU = [
-  { name: "Overview", desc: "Our history, engineering focus, and corporate stats." },
-  { name: "Vision, Mission & Values", desc: "OT/IT bridge philosophy and core values." },
-  { name: "Leadership Team", desc: "Meet our systems architects and executives." },
-  { name: "Customer Centricity", desc: "Zero-downtime integration & client SLAs." },
-  { name: "Partners Ecosystem", desc: "Collaborating with global solutions vendors." },
-  { name: "Technology Partners", desc: "Cloud, hardware, and SCADA alliances." },
-  { name: "Sustainability & ESG", desc: "Clean operations and green computing." },
-  { name: "Ethics & Compliance", desc: "Zero-trust standards & regulatory compliance." },
-  { name: "Recognition", desc: "Industry awards and engineering certs." },
-  { name: "Locations", desc: "Global offices, command centers, and hubs." }
+  { name: "Overview", desc: "Our history, engineering focus, and corporate stats.", href: "/about#overview" },
+  { name: "Vision, Mission & Values", desc: "OT/IT bridge philosophy and core values.", href: "/about#vision" },
+  { name: "Leadership Team", desc: "Meet our systems architects and executives.", href: "/about#leadership" },
+  { name: "Why DHGsoft", desc: "Zero-downtime integration & client SLAs.", href: "/about#why-dhgsoft" },
+  { name: "Partners Ecosystem", desc: "Collaborating with global solutions vendors.", href: "/about#partners" },
+  { name: "Technology Partners", desc: "Cloud, hardware, and SCADA alliances.", href: "/about#partners" },
+  { name: "Sustainability & ESG", desc: "Clean operations and green computing.", href: "/about#responsibility" },
+  { name: "Ethics & Compliance", desc: "Zero-trust standards & regulatory compliance.", href: "/about#responsibility" },
+  { name: "Recognition", desc: "Industry awards and engineering certs.", href: "/about#recognition" },
+  { name: "Locations", desc: "Global offices, command centers, and hubs.", href: "/about#global" }
 ]
 
 const CAREERS_MENU = [
@@ -343,7 +343,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                           Building premium digital engineering solutions and driving AI transformation for global enterprises since 2012.
                         </p>
                       </div>
-                      <Link href="#why-us" className="text-xs font-bold text-primary hover:text-secondary flex items-center gap-1.5 group transition-colors">
+                      <Link href="/about" className="text-xs font-bold text-primary hover:text-secondary flex items-center gap-1.5 group transition-colors">
                         Discover Our Story
                         <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                       </Link>
@@ -352,7 +352,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                       {ABOUT_MENU.map((item, i) => (
                         <NavigationMenuLink asChild key={i}>
                           <Link
-                            href="#why-us"
+                            href={item.href || "/about"}
                             className="group block select-none rounded-md p-2 leading-none no-underline outline-none transition-all hover:bg-primary/5"
                           >
                             <div className="text-sm font-semibold text-slate-800 group-hover:text-primary transition-colors">
@@ -542,7 +542,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                       {ABOUT_MENU.map((item, i) => (
                         <Link
                           key={i}
-                          href="#why-us"
+                          href={item.href || "/about"}
                           onClick={() => setMobileOpen(false)}
                           className="block py-1.5 text-xs text-slate-700 hover:text-primary font-medium transition-colors"
                         >
