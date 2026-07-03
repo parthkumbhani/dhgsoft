@@ -201,102 +201,146 @@ export default function AboutPage() {
         </section>
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 2: COMPANY OVERVIEW ━━━━━━━━━━━━━━━━━━━━━━ */}
-        {/* Editorial Story Canvas: Oversized offset photography, two-column layouts, and floating collaboration image */}
-        <section id="company-overview" className="bg-white py-32 md:py-40 relative min-h-[1100px] flex flex-col justify-between overflow-hidden">
-          <div className="max-w-[1500px] w-full mx-auto px-6 md:px-16 lg:px-24 flex flex-col items-start relative z-10">
-            
-            {/* Eyebrow Label */}
-            <div className="flex items-center gap-2 mb-6">
-              <span className="font-extrabold uppercase tracking-[0.25em] text-[#D4145A] font-mono text-[10px] md:text-xs">
-                ABOUT DHGSOFT
-              </span>
-            </div>
-
-            {/* Heading and Thin Vertical Gradient Accent Line */}
-            <div className="flex gap-6 items-start mb-8 text-left">
-              {/* Thin vertical gradient line */}
-              <div className="w-[3px] h-[72px] sm:h-[96px] bg-gradient-to-b from-[#D4145A] to-[#F15A24] shrink-0" />
+        {/* Editorial Ribbon Layout: High-end wireframe background, landscape anchor, and dual-column bottom offset images */}
+        <section id="company-overview" className="bg-white py-24 relative max-h-[950px] lg:max-h-[900px] flex items-center overflow-hidden border-b border-slate-100">
+          
+          {/* Premium Architectural background overlay with contour lines & engineering grid */}
+          <div className="absolute inset-0 pointer-events-none opacity-[0.035] z-0 overflow-hidden">
+            <svg className="w-full h-full stroke-slate-900 fill-none" viewBox="0 0 1440 900" preserveAspectRatio="none">
+              <defs>
+                <pattern id="minimal-dot-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+                  <circle cx="2" cy="2" r="1.2" className="fill-slate-900" />
+                </pattern>
+                <linearGradient id="accent-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#D4145A" />
+                  <stop offset="100%" stopColor="#F15A24" />
+                </linearGradient>
+              </defs>
               
-              <motion.h2 
-                className="text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-[#0F172A] tracking-tight leading-[1.12]"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8 }}
-              >
-                Engineering Intelligence.<br />Industrial Excellence.
-              </motion.h2>
-            </div>
+              {/* Dot grid */}
+              <rect width="100%" height="100%" fill="url(#minimal-dot-grid)" />
 
-            {/* Introduction paragraph */}
-            <motion.p
-              className="text-[#0F172A] font-bold text-lg sm:text-xl leading-relaxed max-w-[820px] text-left mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              Founded with a vision to accelerate industrial innovation, DHGsoft delivers end-to-end digital engineering, industrial automation, OT/IT integration, AI, cloud, cybersecurity, and operational intelligence solutions.
-            </motion.p>
+              {/* Engineering curves */}
+              <path d="M-100,200 C300,50 600,600 1540,100" strokeWidth="1" stroke="url(#accent-gradient)" />
+              <path d="M-50,450 C400,250 800,750 1490,400" strokeWidth="1" stroke="url(#accent-gradient)" strokeDasharray="4 4" />
+              <path d="M100,750 C500,650 900,900 1540,700" strokeWidth="1" stroke="url(#accent-gradient)" />
+            </svg>
+            
+            {/* Soft radial gradients in corners */}
+            <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-[#D4145A]/20 to-transparent filter blur-3xl" />
+            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-gradient-to-tl from-[#F15A24]/20 to-transparent filter blur-3xl" />
+          </div>
 
-            {/* Oversized photograph occupying 75% width, offset to the right */}
-            <div className="relative w-full flex justify-end mb-20">
-              <div className="w-full lg:w-[75%] relative aspect-[16/9] rounded-[32px] overflow-hidden border border-slate-200/80 shadow-[0_30px_60px_-15px_rgba(15,23,42,0.12)] bg-slate-50 group z-10">
-                <Image
-                  src="/smart_factory_visual.png"
-                  alt="DHGsoft Smart Manufacturing Operations"
-                  fill
-                  className="object-cover transition-transform duration-[12s] ease-out group-hover:scale-[1.01]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/10 via-transparent to-transparent pointer-events-none" />
+          <div className="max-w-[1440px] w-full mx-auto px-6 md:px-16 lg:px-24 relative z-10 flex flex-col justify-between h-full">
+            
+            {/* Top Info Header */}
+            <div>
+              {/* Eyebrow Label */}
+              <div className="flex items-center gap-2 mb-3">
+                <span className="font-extrabold uppercase tracking-[0.25em] text-[#D4145A] font-mono text-[9px] md:text-[10px]">
+                  ABOUT DHGSOFT
+                </span>
               </div>
 
-              {/* Small floating secondary image overlapping the bottom-right corner (approx 20% width) */}
-              <div className="absolute right-8 -bottom-10 w-[22%] aspect-square rounded-[20px] overflow-hidden border border-white shadow-[0_20px_45px_rgba(15,23,42,0.18)] bg-slate-50 z-20 transition-transform duration-500 hover:-translate-y-[6px]">
-                <Image
-                  src="/about_collaboration.png"
-                  alt="Engineers collaborating in corporate session"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-
-            {/* Editorial Content: Two Columns */}
-            <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 text-left">
-              <div className="lg:col-span-10 lg:col-start-2 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-                
-                <motion.p
-                  className="text-slate-500 font-medium text-base sm:text-lg leading-relaxed"
+              {/* Large Editorial Heading */}
+              <div className="flex gap-5 items-start mb-8 text-left">
+                <div className="w-[3px] h-[54px] sm:h-[68px] bg-gradient-to-b from-[#D4145A] to-[#F15A24] shrink-0" />
+                <motion.h2 
+                  className="text-2xl sm:text-3xl lg:text-[38px] font-extrabold text-[#0F172A] tracking-tight leading-[1.12]"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.6 }}
                 >
-                  We help manufacturers, utilities, infrastructure providers, and process industries modernize operations by connecting plant-floor assets with enterprise systems and cloud technologies.
-                </motion.p>
-                
-                <motion.p
-                  className="text-slate-500 font-medium text-base sm:text-lg leading-relaxed"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                >
-                  Our expertise spans the complete digital transformation lifecycle—from consulting and solution architecture to implementation, managed services, and continuous optimization.
-                </motion.p>
-
+                  Engineering Intelligence.<br />Industrial Excellence.
+                </motion.h2>
               </div>
             </div>
 
-            {/* Small Closing Statement */}
-            <div className="w-full text-left mt-16 lg:pl-[8.333%]">
-              <motion.p
-                className="text-slate-400 text-sm sm:text-base font-normal max-w-[950px] pt-6 border-t border-slate-100"
-                initial={{ opacity: 0, y: 20 }}
+            {/* Asymmetrical Split: Left Story Blocks | Right Photographic Ribbon */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+              
+              {/* Left Column: 3 Editorial Story Blocks (Intro, Digital Transformation, Business Outcomes) */}
+              <div className="lg:col-span-5 flex flex-col gap-6 text-left z-20">
+                
+                {/* Story Block 01: Introduction */}
+                <div className="space-y-1">
+                  <span className="text-[9px] font-bold text-[#D4145A] uppercase tracking-widest font-mono">01 // INTRODUCTION</span>
+                  <p className="text-slate-700 font-bold text-[14px] sm:text-[15px] leading-relaxed max-w-[480px]">
+                    Founded with a vision to accelerate industrial innovation, DHGsoft delivers end-to-end digital engineering, industrial automation, OT/IT integration, AI, cloud, cybersecurity, and operational intelligence solutions.
+                  </p>
+                </div>
+
+                {/* Story Block 02: Digital Transformation */}
+                <div className="space-y-1">
+                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">02 // DIGITAL TRANSFORMATION</span>
+                  <p className="text-slate-500 font-medium text-xs sm:text-sm leading-relaxed max-w-[480px]">
+                    We help manufacturers, utilities, infrastructure providers, and process industries modernize operations by connecting plant-floor assets with enterprise systems and cloud technologies.
+                  </p>
+                </div>
+
+                {/* Story Block 03: Business Outcomes */}
+                <div className="space-y-1">
+                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">03 // BUSINESS OUTCOMES</span>
+                  <p className="text-slate-500 font-medium text-xs sm:text-sm leading-relaxed max-w-[480px]">
+                    Our expertise spans the complete digital transformation lifecycle—from consulting and solution architecture to implementation, managed services, and continuous optimization.
+                  </p>
+                </div>
+
+              </div>
+
+              {/* Right Column: Photographic Ribbon layout (Landscape main + 2 offset bottom images) */}
+              <div className="lg:col-span-7 flex flex-col gap-4 w-full z-10">
+                
+                {/* Main Landscape Anchor Image (approx 75% of section) */}
+                <div className="relative w-full aspect-[21/9] rounded-[20px] overflow-hidden border border-slate-200/80 shadow-[0_12px_28px_rgba(15,23,42,0.06)] bg-slate-50 group">
+                  <Image
+                    src="/smart_factory_visual.png"
+                    alt="DHGsoft Smart Manufacturing Operations"
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-102"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/10 via-transparent to-transparent pointer-events-none" />
+                </div>
+
+                {/* Second Row: Two smaller offset images (equal height, different width) */}
+                <div className="grid grid-cols-12 gap-4 w-full">
+                  {/* Image 01: Collaboration (Wider) */}
+                  <div className="col-span-7 relative aspect-[16/9] rounded-[16px] overflow-hidden border border-slate-200/80 shadow-[0_8px_20px_rgba(15,23,42,0.05)] bg-slate-50 group">
+                    <Image
+                      src="/about_collaboration.png"
+                      alt="Engineering collaboration meeting"
+                      fill
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-102"
+                    />
+                    <div className="absolute inset-0 bg-slate-950/5 pointer-events-none" />
+                  </div>
+
+                  {/* Image 02: Control Room (Narrower) */}
+                  <div className="col-span-5 relative aspect-[16/9] rounded-[16px] overflow-hidden border border-slate-200/80 shadow-[0_8px_20px_rgba(15,23,42,0.05)] bg-slate-50 group">
+                    <Image
+                      src="/about_engineering.png"
+                      alt="Industrial control room"
+                      fill
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-102"
+                    />
+                    <div className="absolute inset-0 bg-slate-950/5 pointer-events-none" />
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* Bottom Quote Block: Spanning full width under layout, thin vertical line */}
+            <div className="w-full text-left mt-8 border-t border-slate-100 pt-6 flex gap-5 items-start z-20">
+              <div className="w-[2px] h-[36px] bg-gradient-to-b from-[#D4145A] to-[#F15A24] shrink-0" />
+              <motion.p 
+                className="text-slate-550 italic text-[11px] sm:text-xs leading-relaxed max-w-[1250px] font-sans"
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: 0.5 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6 }}
               >
                 Whether enabling a smart factory, implementing industrial data platforms, modernizing enterprise applications, or deploying AI-driven operational intelligence, DHGsoft delivers measurable business outcomes that improve productivity, reliability, safety, and sustainability.
               </motion.p>
