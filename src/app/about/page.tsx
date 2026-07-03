@@ -6,328 +6,209 @@ import { motion } from 'framer-motion';
 import { Toaster } from 'sonner';
 import { 
   ArrowRight, 
-  Quote, 
-  Sparkles, 
-  Compass, 
-  Target, 
-  ShieldCheck, 
-  Heart, 
+  CheckCircle2, 
+  Award, 
+  BookOpen, 
+  Milestone, 
   Lightbulb, 
+  Quote, 
+  Building2, 
+  Globe, 
   Users, 
-  Globe2, 
-  Award,
-  BookOpen,
-  Milestone,
-  CheckCircle2
+  BarChart3 
 } from 'lucide-react';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactModal from '@/components/ContactModal';
 
-const STATS = [
-  { value: "15+", label: "Years of Engineering Innovation" },
-  { value: "200+", label: "Enterprise Projects Completed" },
-  { value: "40+", label: "Global Industries Modernized" }
-];
+// ━━━━━━━━━━━━━━━━━━━━━━ CONSTANTS & METADATA ━━━━━━━━━━━━━━━━━━━━━━
 
 const WHAT_WE_DO_LIST = [
-  { name: "Industrial Automation", desc: "PLC/SCADA architectures, control panel design, and shop-floor engineering." },
-  { name: "OT / IT Integration", desc: "Connecting telemetry, OPC servers, and fieldbus assets with enterprise systems." },
-  { name: "Industrial Data Platforms", desc: "Unified data namespace pipelines for enterprise-wide analytics." },
-  { name: "Artificial Intelligence & Analytics", desc: "Predictive maintenance algorithms, process optimization, and anomaly detection." },
-  { name: "Industrial Internet of Things (IIoT)", desc: "Edge gateways, telemetry ingest networks, and device fleet management." },
-  { name: "Digital Engineering", desc: "Custom systems software, API orchestrations, and virtual digital twin simulations." },
-  { name: "Enterprise Applications", desc: "Next-gen manufacturing execution systems (MES), ERP, and PLM integrations." },
-  { name: "Cloud Infrastructure", desc: "Highly secure hybrid cloud architectures for mission-critical operations." },
-  { name: "Cybersecurity", desc: "Zero-trust OT cybersecurity protection defending critical infrastructure assets." },
-  { name: "Managed Services", desc: "24/7/365 global technical support, monitoring, and site reliability engineering." }
+  { name: 'Industrial Digital Engineering', desc: 'Connecting OT assets with IT enterprise systems for seamless data pipelines.' },
+  { name: 'Industrial Automation & Control', desc: 'Designing robust PLC, SCADA, DCS architectures for complex plants.' },
+  { name: 'OT/IT Integration', desc: 'Bridging shop-floor data with cloud databases and enterprise ERP networks.' },
+  { name: 'Industrial AI & Analytics', desc: 'Deploying machine learning models for predictive maintenance and optimization.' },
+  { name: 'Cloud & Infrastructure', desc: 'Migrating industrial telemetry to secure Microsoft Azure & AWS clusters.' },
+  { name: 'Cybersecurity & Compliance', desc: 'Securing critical infrastructure using IEC 62443 and NIST standards.' },
+  { name: 'Managed Services & Support', desc: '24/7 remote monitoring, incident response, and continuous optimization.' }
 ];
 
 const INDUSTRIES_MAPPING = [
-  { name: "Industrial Manufacturing", file: "smart_factory_visual.png", desc: "Smart factory operations & automation." },
-  { name: "Automotive", file: "industries/automotive.png", desc: "OEM assembly line optimization." },
-  { name: "Life Sciences", file: "industries/lifesciences.png", desc: "Regulatory compliance & batch analytics." },
-  { name: "Semiconductor", file: "ceo_bg.png", desc: "Yield optimization & cleanroom systems." },
-  { name: "Chemical Manufacturing", file: "energy_visual.png", desc: "Process safety & telemetry integration." },
-  { name: "Food & Beverages", file: "industries/food.png", desc: "Traceability & recipe management." },
-  { name: "Oil & Gas", file: "industries/mining.png", desc: "Pipeline monitoring & asset security." },
-  { name: "Power & Utilities", file: "industries/power.png", desc: "Smart grid management & telemetry." },
-  { name: "Mining & Metals", file: "industries/mining.png", desc: "Fleet automation & supply logistics." },
-  { name: "Water & Wastewater Management", file: "industries/water.png", desc: "Flow analytics & treatment automation." },
-  { name: "Consumer Packaged Goods", file: "industries/food.png", desc: "High-speed packaging line efficiency." },
-  { name: "Data Centres", file: "industries/datacenters.png", desc: "Power, cooling & infrastructure control." },
-  { name: "EPC", file: "industries/epc.png", desc: "Digital twins & project execution." },
-  { name: "Agriculture", file: "industries/power.png", desc: "Precision farming & resource management." }
+  { name: 'Manufacturing', desc: 'Smart factory networks, ISA-95 systems, and overall equipment effectiveness.', file: 'smart_factory_visual.png' },
+  { name: 'Power & Utilities', desc: 'Substation automation, grid monitoring, and renewable energy telemetry.', file: 'power_utility.png' },
+  { name: 'Water & Wastewater', desc: 'Scada networks, chemical treatment, and distribution telemetry.', file: 'water_wastewater.png' },
+  { name: 'Food & Beverages', desc: 'Batch control, recipe management, and manufacturing traceability.', file: 'food_beverages.png' },
+  { name: 'Life Sciences', desc: 'GAMP 5 validation, batch records, and pharmaceutical compliance.', file: 'life_sciences.png' },
+  { name: 'Automotive', desc: 'Robotic assembly, shop floor analytics, and parts traceability.', file: 'automotive.png' },
+  { name: 'Mining & Metals', desc: 'Asset health monitoring, dispatch control, and material handling systems.', file: 'mining_metals.png' },
+  { name: 'EPC & Construction', desc: 'Digital twin setups, commissioning, and system loop validation.', file: 'epc_construction.png' },
+  { name: 'Infrastructure', desc: 'Building automation, telemetry command loops, and HVAC controls.' },
+  { name: 'Chemicals', desc: 'Process hazard analysis, reactor control, and safety instrumented systems.' },
+  { name: 'Oil & Gas', desc: 'Pipeline telemetry, wellhead automation, and terminal control systems.' },
+  { name: 'Pulp & Paper', desc: 'Quality control systems, waste minimization, and DCS optimization.' }
 ];
 
 export default function AboutPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   return (
-    <div className="bg-white text-slate-900 min-h-screen flex flex-col font-sans antialiased overflow-x-hidden">
-      {/* Premium Sticky Navigation */}
+    <div className="min-h-screen bg-white text-slate-800 antialiased font-sans selection:bg-[#D4145A] selection:text-white">
+      {/* Navigation */}
       <Header onContactClick={() => setIsContactOpen(true)} />
 
-      <main className="flex-grow">
-        
-        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 1: HERO & OVERVIEW ━━━━━━━━━━━━━━━━━━━━━━ */}
-        {/* Full-screen 100vh cinematic industrial opening scene */}
-        <section id="overview" className="relative w-full h-screen overflow-hidden bg-slate-950 flex items-center">
-          
-          {/* Slow parallax zoom backdrop image */}
-          <div className="absolute inset-0 z-0">
-            <motion.div 
-              className="relative w-full h-full"
-              initial={{ scale: 1.05 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 10, ease: "easeOut" }}
-            >
-              <Image
-                src="/about_hero_cinematic.png"
-                alt="DHGsoft Modern Smart Manufacturing Operations"
-                fill
-                className="object-cover pointer-events-none select-none"
-                priority
-              />
-            </motion.div>
-          </div>
+      <main className="relative z-10">
 
-          {/* Subtly calibrated 35% dark overlay to balance realism and typography */}
-          <div className="absolute inset-0 bg-slate-950/35 z-10 pointer-events-none" />
-
-          {/* Left-Aligned Editorial Block */}
-          <div className="max-w-[1440px] w-full mx-auto px-6 md:px-16 lg:px-24 relative z-20 flex items-center h-full">
-            <div className="max-w-[520px] text-left flex flex-col items-start pt-12 md:pt-16">
-              
-              {/* Uppercase Small Label with Gradient Underline */}
-              <div className="flex flex-col items-start gap-2 mb-6 group">
-                <span className="font-extrabold uppercase tracking-[0.25em] text-white font-mono text-[10px] md:text-xs">
-                  ABOUT DHGSOFT
-                </span>
-                <div className="h-0.5 w-12 bg-gradient-to-r from-[#D4145A] to-[#F15A24]" />
-              </div>
-
-              {/* Headline: Editorial Typography, Bold and Elegant */}
+        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 1: HERO ━━━━━━━━━━━━━━━━━━━━━━ */}
+        {/* Simple, spacious, human-designed editorial hero banner */}
+        <section className="bg-[#F8FAFC] py-20 lg:py-28 flex items-center relative overflow-hidden border-b border-slate-100">
+          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left side content */}
+            <div className="lg:col-span-6 text-left space-y-6">
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono">
+                Global Industrial Innovation
+              </span>
               <motion.h1 
-                className="font-extrabold text-white tracking-tight leading-[1.08] font-headline text-[38px] sm:text-[48px] lg:text-[56px] mb-6"
-                initial={{ opacity: 0, y: 30 }}
+                className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-[#0F172A] tracking-tight leading-[1.1]"
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                transition={{ duration: 0.6 }}
               >
-                Engineering the Future<br />of Connected Industries
+                Engineering the Future of Connected Industries
               </motion.h1>
-
-              {/* Description: Maximum 3 short readable lines */}
               <motion.p 
-                className="text-slate-100 font-medium text-base sm:text-lg leading-relaxed mb-8"
-                initial={{ opacity: 0, y: 30 }}
+                className="text-slate-500 font-medium text-base sm:text-lg leading-relaxed max-w-xl"
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                transition={{ duration: 0.6, delay: 0.15 }}
               >
                 DHGsoft is a global Industrial Digital Transformation company helping organizations connect operations, data, applications, and people to create intelligent, efficient, and sustainable enterprises.
               </motion.p>
-
-              {/* Buttons: Primary (explore) and Secondary (contact) */}
+              
               <motion.div 
-                className="flex flex-wrap items-center gap-4"
-                initial={{ opacity: 0, y: 30 }}
+                className="flex flex-wrap items-center gap-4 pt-2"
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
               >
                 <button
-                  className="group inline-flex items-center gap-2.5 font-bold text-white rounded-xl px-7 py-3.5 transition-all duration-300 cursor-pointer border-0 shadow-lg"
+                  className="group inline-flex items-center gap-2.5 font-bold text-white rounded-xl px-7 py-3.5 transition-all duration-300 cursor-pointer border-0 shadow-md hover:shadow-lg active:scale-95"
                   style={{
                     fontSize: 13,
                     background: 'linear-gradient(90deg, #D4145A 0%, #F15A24 100%)',
-                    backgroundSize: '200% 100%',
-                    boxShadow: '0 4px 20px rgba(212, 20, 90, 0.25)',
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.backgroundPosition = '100% 0%';
-                    (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 8px 32px rgba(212, 20, 90, 0.45)';
-                    (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-2px)';
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.backgroundPosition = '0% 0%';
-                    (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 4px 20px rgba(212, 20, 90, 0.25)';
-                    (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(0px)';
                   }}
                   onClick={() => {
                     const el = document.getElementById('company-overview');
                     if (el) el.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  <span className="font-sans tracking-wide">Explore Our Story</span>
+                  <span className="tracking-wide">Explore Our Story</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
-
                 <button
-                  className="inline-flex items-center gap-2.5 font-bold text-white rounded-xl px-7 py-3.5 transition-all duration-300 cursor-pointer border border-white/45 bg-transparent hover:bg-white hover:text-slate-900 hover:border-white shadow-md active:scale-95"
+                  className="inline-flex items-center gap-2.5 font-bold text-slate-800 rounded-xl px-7 py-3.5 transition-all duration-300 cursor-pointer border border-slate-200 bg-white hover:bg-slate-50 shadow-xs"
                   style={{ fontSize: 13 }}
                   onClick={() => setIsContactOpen(true)}
                 >
-                  <span className="font-sans tracking-wide">Contact Our Experts</span>
+                  <span className="tracking-wide">Contact Our Experts</span>
                 </button>
               </motion.div>
-
             </div>
-          </div>
 
-          {/* Thin animated line Scroll Indicator at bottom center */}
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none">
-            <span className="text-[9px] font-bold text-white/50 uppercase tracking-[0.25em] font-mono">
-              Scroll to discover
-            </span>
-            <div className="w-[1px] h-10 bg-white/20 relative overflow-hidden">
-              <motion.div
-                className="absolute top-0 left-0 w-full bg-white"
-                style={{ height: '30%' }}
-                animate={{
-                  y: [0, 28, 0],
-                  opacity: [0, 1, 0]
-                }}
-                transition={{
-                  duration: 2.2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
+            {/* Right side cinematic portrait image block */}
+            <div className="lg:col-span-6 relative group">
+              <div className="absolute -top-6 -left-6 -bottom-6 -right-6 border border-slate-200/60 rounded-[28px] pointer-events-none z-0 hidden lg:block" />
+              <div className="relative w-full aspect-[4/3] rounded-[24px] overflow-hidden border border-slate-200 shadow-[0_15px_40px_rgba(15,23,42,0.06)] bg-white z-10">
+                <Image
+                  src="/about_hero.png"
+                  alt="Industrial systems operations command"
+                  fill
+                  priority
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-102"
+                />
+              </div>
             </div>
-          </div>
 
-          {/* Bottom Transition: Soft gradient fade smoothly into the next slate-50 section */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F8FAFC] via-[#F8FAFC]/80 to-transparent pointer-events-none z-10" />
+          </div>
         </section>
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 2: COMPANY OVERVIEW ━━━━━━━━━━━━━━━━━━━━━━ */}
-        {/* Editorial Filmstrip Layout: Compact height, 3-image filmstrip, 3 horizontal story columns, and centered quote */}
-        <section id="company-overview" className="bg-white py-20 md:py-24 relative max-h-[820px] min-h-[720px] flex items-center overflow-hidden border-b border-slate-100">
-          
-          <div className="max-w-[1440px] w-full mx-auto px-6 md:px-16 lg:px-24 relative z-10 flex flex-col justify-between h-full text-center">
+        {/* Editorial spread: Flat white bg, large landscape image, side-by-side storytelling layout */}
+        <section id="company-overview" className="bg-white py-24 md:py-32 relative border-b border-slate-100">
+          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24 relative z-10 flex flex-col gap-16">
             
-            {/* Header: Centered Label & Editorial Heading */}
-            <div className="flex flex-col items-center mb-6">
-              <span className="font-extrabold uppercase tracking-[0.25em] text-[#D4145A] font-mono text-[9px] md:text-[10px] mb-3">
+            {/* Centered Eyebrow & Bold Heading */}
+            <div className="text-left max-w-2xl">
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
                 ABOUT DHGSOFT
               </span>
-              
-              <motion.h2 
-                className="text-2xl sm:text-3xl lg:text-[38px] font-extrabold text-[#0F172A] tracking-tight leading-[1.12]"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6 }}
-              >
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#0F172A] tracking-tight leading-[1.12]">
                 Engineering Intelligence. Industrial Excellence.
-              </motion.h2>
+              </h2>
             </div>
 
-            {/* Filmstrip: 3 Real Photos Side-by-Side (Equal height, rounded corners, soft shadow) */}
-            <div className="grid grid-cols-3 gap-6 w-full my-6">
-              {/* Image 1: Factory */}
-              <div className="relative h-[160px] sm:h-[180px] rounded-[20px] overflow-hidden border border-slate-200/80 shadow-[0_8px_20px_rgba(15,23,42,0.04)] bg-slate-50 group">
-                <Image
-                  src="/smart_factory_visual.png"
-                  alt="Modern manufacturing plant floor"
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-102"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/10 via-transparent to-transparent pointer-events-none" />
-              </div>
-
-              {/* Image 2: Engineers Collaboration */}
-              <div className="relative h-[160px] sm:h-[180px] rounded-[20px] overflow-hidden border border-slate-200/80 shadow-[0_8px_20px_rgba(15,23,42,0.04)] bg-slate-50 group">
-                <Image
-                  src="/about_collaboration.png"
-                  alt="Engineering collaboration session"
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-102"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/10 via-transparent to-transparent pointer-events-none" />
-              </div>
-
-              {/* Image 3: Control Room */}
-              <div className="relative h-[160px] sm:h-[180px] rounded-[20px] overflow-hidden border border-slate-200/80 shadow-[0_8px_20px_rgba(15,23,42,0.04)] bg-slate-50 group">
-                <Image
-                  src="/about_engineering.png"
-                  alt="Industrial systems control room"
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-102"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/10 via-transparent to-transparent pointer-events-none" />
-              </div>
+            {/* Cinematic Wide Photograph */}
+            <div className="relative w-full aspect-[21/9] rounded-[24px] overflow-hidden border border-slate-200 shadow-[0_12px_30px_rgba(15,23,42,0.05)] bg-slate-50 group">
+              <Image
+                src="/smart_factory_visual.png"
+                alt="DHGsoft Smart Manufacturing Operations"
+                fill
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-102"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/15 via-transparent to-transparent pointer-events-none" />
             </div>
 
-            {/* Horizontal Divider Line */}
-            <div className="w-full h-[1px] bg-[#E8EDF2]" />
-
-            {/* Content: 3 Editorial Story Columns (Innovation, Engineering, Transformation) */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 w-full text-left py-6">
+            {/* Asymmetrical Text Spread */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
               
-              {/* Column 1: Innovation */}
-              <div className="space-y-1">
-                <h3 className="font-extrabold text-slate-800 text-xs sm:text-sm uppercase tracking-wider font-mono">Innovation</h3>
-                <p className="text-slate-500 font-medium text-xs sm:text-sm leading-relaxed">
+              {/* Bold Statement (Left) */}
+              <div className="lg:col-span-5 text-left border-l-2 border-[#D4145A] pl-8">
+                <p className="text-slate-800 font-bold text-lg sm:text-xl leading-relaxed">
                   Founded with a vision to accelerate industrial innovation, DHGsoft delivers end-to-end digital engineering, industrial automation, OT/IT integration, AI, cloud, cybersecurity, and operational intelligence solutions.
                 </p>
               </div>
 
-              {/* Column 2: Engineering */}
-              <div className="space-y-1 md:border-x md:border-slate-100 md:px-8">
-                <h3 className="font-extrabold text-slate-800 text-xs sm:text-sm uppercase tracking-wider font-mono">Engineering</h3>
-                <p className="text-slate-500 font-medium text-xs sm:text-sm leading-relaxed">
-                  We help manufacturers, utilities, infrastructure providers, and process industries modernize operations by connecting plant-floor assets with enterprise systems and cloud technologies. Our expertise spans the complete lifecycle from consulting to optimization.
+              {/* Two reading columns (Right) */}
+              <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8 text-left text-slate-500 font-medium text-sm sm:text-base leading-relaxed">
+                <p>
+                  We help manufacturers, utilities, infrastructure providers, and process industries modernize operations by connecting plant-floor assets with enterprise systems and cloud technologies.
                 </p>
-              </div>
-
-              {/* Column 3: Transformation */}
-              <div className="space-y-1">
-                <h3 className="font-extrabold text-slate-800 text-xs sm:text-sm uppercase tracking-wider font-mono">Transformation</h3>
-                <p className="text-slate-500 font-medium text-xs sm:text-sm leading-relaxed">
-                  Whether enabling a smart factory, implementing industrial data platforms, modernizing enterprise applications, or deploying AI-driven operational intelligence, DHGsoft delivers measurable outcomes that improve productivity, safety, and sustainability.
+                <p>
+                  Our expertise spans the complete digital transformation lifecycle—from consulting and solution architecture to implementation, managed services, and continuous optimization.
                 </p>
               </div>
 
             </div>
 
-            {/* Horizontal Divider Line */}
-            <div className="w-full h-[1px] bg-[#E8EDF2] mb-6" />
-
-            {/* Centered Closing Quote */}
-            <div className="w-full flex justify-center z-20">
-              <motion.p 
-                className="text-slate-700 font-bold text-sm sm:text-base leading-relaxed tracking-wide italic font-headline"
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6 }}
-              >
-                &ldquo;Connecting Intelligence to Transform Industry.&rdquo;
-              </motion.p>
+            {/* Centered closing statement quote block */}
+            <div className="w-full text-left pt-10 border-t border-slate-100 mt-4">
+              <p className="text-slate-500 text-xs sm:text-sm font-normal max-w-4xl italic leading-relaxed">
+                &ldquo;Whether enabling a smart factory, implementing industrial data platforms, modernizing enterprise applications, or deploying AI-driven operational intelligence, DHGsoft delivers measurable business outcomes that improve productivity, reliability, safety, and sustainability.&rdquo;
+              </p>
             </div>
 
           </div>
         </section>
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 3: WHAT WE DO ━━━━━━━━━━━━━━━━━━━━━━ */}
-        {/* Photography-led content: Premium portrait grid side-by-side with asymmetric capability items */}
+        {/* Asymmetric layout: Tall portrait block next to capabilities list */}
         <section className="bg-white py-24 md:py-32 border-b border-slate-100">
           <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24">
             
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
               
-              {/* Left Side: Tall Professional portrait photo block */}
+              {/* Left Column: Portrait photograph */}
               <div className="lg:col-span-5 relative group">
                 <div className="absolute -bottom-6 -right-6 w-full h-full border border-slate-100 rounded-[28px] pointer-events-none z-0" />
                 <div className="relative w-full aspect-[3/4] rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(15,23,42,0.06)] bg-slate-50 z-10">
                   <Image
                     src="/about_engineering.png"
-                    alt="DHGsoft Digital Systems Operations"
+                    alt="DHGsoft digital telemetry systems command"
                     fill
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-102"
                   />
-                  <div className="absolute inset-0 bg-slate-950/30 z-20" />
+                  <div className="absolute inset-0 bg-slate-950/25 z-20" />
                   <div className="absolute inset-0 z-30 flex flex-col justify-end p-8 text-left text-white">
                     <Quote className="w-8 h-8 fill-current text-[#F15A24] opacity-90 mb-4" />
                     <p className="text-base sm:text-lg font-bold leading-relaxed max-w-xs font-sans">
@@ -337,10 +218,10 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Right Side: Capabilities Narrative stack */}
+              {/* Right Column: Capabilities Stack */}
               <div className="lg:col-span-7 text-left space-y-10 lg:pl-6">
                 <div>
-                  <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
                     Services Capabilities
                   </span>
                   <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight leading-tight">
@@ -350,7 +231,7 @@ export default function AboutPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
                   {WHAT_WE_DO_LIST.map((item, idx) => (
-                    <div key={idx} className="flex gap-4 border-t border-slate-100 pt-4 text-left group hover:border-[#D4145A] transition-all duration-350">
+                    <div key={idx} className="flex gap-4 border-t border-slate-100 pt-4 text-left group hover:border-[#D4145A] transition-all duration-300">
                       <span className="text-[10px] font-bold text-[#D4145A] font-mono mt-0.5">0{idx + 1}</span>
                       <div>
                         <h4 className="font-extrabold text-[#0F172A] text-sm sm:text-[15px] group-hover:text-[#D4145A] transition-colors">{item.name}</h4>
@@ -367,13 +248,13 @@ export default function AboutPage() {
         </section>
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 4: INDUSTRIES ━━━━━━━━━━━━━━━━━━━━━━ */}
-        {/* Large Image Mosaic Grid (Asymmetric puzzle layouts, clean backgrounds) */}
+        {/* Photographic Grid layout showing key segments */}
         <section className="bg-[#F8FAFC] py-24 md:py-32 border-b border-slate-200/60">
           <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24">
             
             {/* Header */}
             <div className="text-left mb-16 max-w-xl">
-              <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
                 Target Sectors
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight leading-tight mb-4">
@@ -401,20 +282,20 @@ export default function AboutPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none" />
                   <div className="relative z-10 text-left">
-                    <span className="text-[8px] font-extrabold uppercase tracking-widest text-[#F15A24] font-mono mb-1 block">Sector 0{idx + 1}</span>
+                    <span className="text-[8px] font-bold uppercase tracking-widest text-[#F15A24] font-mono mb-1 block">Sector 0{idx + 1}</span>
                     <h3 className="text-white font-extrabold text-sm sm:text-base leading-tight">{ind.name}</h3>
-                    <p className="text-[10px] text-slate-350 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-350 line-clamp-1">{ind.desc}</p>
+                    <p className="text-[10px] text-slate-300 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-350 line-clamp-1">{ind.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* Mosaic bottom inline sectors */}
+            {/* Minor sectors inline text */}
             <div className="mt-12 pt-8 border-t border-slate-200/80 flex flex-wrap gap-x-8 gap-y-3 justify-start text-left">
               {INDUSTRIES_MAPPING.slice(8).map((ind, idx) => (
                 <div key={idx} className="flex items-center gap-2">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#D4145A]" />
-                  <span className="text-[10px] font-extrabold text-slate-700 uppercase tracking-widest font-mono">{ind.name}</span>
+                  <span className="text-[10px] font-bold text-slate-700 uppercase tracking-widest font-mono">{ind.name}</span>
                 </div>
               ))}
             </div>
@@ -422,74 +303,55 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 5: VISION ━━━━━━━━━━━━━━━━━━━━━━ */}
-        {/* One powerful statement over full-width industrial photography */}
-        <section className="relative w-full h-[480px] md:h-[580px] flex items-center justify-center overflow-hidden group">
-          <Image
-            src="/about_values.png"
-            alt="Cinematic Wide-Angle Sunset Wind Farm"
-            fill
-            className="object-cover transition-transform duration-[12s] ease-out group-hover:scale-102"
-            priority
-          />
-          {/* Heavy dark vignette overlay to make text pop */}
-          <div className="absolute inset-0 bg-slate-950/60 z-10" />
-          
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24 relative z-20 text-center">
-            <div className="max-w-4xl mx-auto flex flex-col items-center">
-              <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#F15A24] font-mono mb-6">
-                Our Vision
-              </span>
-              <h2 className="text-xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-relaxed font-headline">
-                &ldquo;To become a globally trusted leader in Industrial Digital Transformation by enabling connected, intelligent, and sustainable industries.&rdquo;
-              </h2>
-            </div>
-          </div>
-        </section>
-
-        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 6: MISSION ━━━━━━━━━━━━━━━━━━━━━━ */}
-        {/* Magazine article layout with bold headers and purpose statements */}
+        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 5: VISION & MISSION ━━━━━━━━━━━━━━━━━━━━━━ */}
+        {/* Dynamic Corporate Mandate spread on pure white canvas */}
         <section className="bg-white py-24 md:py-32 border-b border-slate-100">
           <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
               
-              {/* Left Column: Purpose quote */}
-              <div className="lg:col-span-5 text-left border-l-2 border-[#D4145A] pl-8 py-1">
-                <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
+              {/* Left Column: Purpose */}
+              <div className="lg:col-span-5 text-left border-l-2 border-[#D4145A] pl-8">
+                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
                   Our Purpose
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] tracking-tight leading-tight">
+                <h3 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-[#0F172A] tracking-tight leading-tight">
                   Connecting Intelligence to Transform Industry.
                 </h3>
               </div>
 
-              {/* Right Column: Mission statement narrative */}
-              <div className="lg:col-span-7 text-left space-y-4 lg:pl-6">
-                <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
-                  Our Mission
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] tracking-tight leading-tight mb-4">
-                  Empowering Operational Excellence
-                </h2>
-                <p className="text-slate-600 font-medium text-base sm:text-lg leading-relaxed max-w-xl">
-                  To empower industries with innovative digital engineering solutions that connect operational technology, enterprise systems, and data intelligence to improve operational excellence and business performance.
-                </p>
+              {/* Right Column: Vision & Mission */}
+              <div className="lg:col-span-7 text-left space-y-10 lg:pl-6">
+                {/* Vision block */}
+                <div className="space-y-2">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400 font-mono block">Our Vision</span>
+                  <h4 className="text-xl sm:text-2xl font-extrabold text-[#0F172A] leading-snug">
+                    To become a globally trusted leader in Industrial Digital Transformation by enabling connected, intelligent, and sustainable industries.
+                  </h4>
+                </div>
+
+                {/* Mission block */}
+                <div className="space-y-2 border-t border-slate-100 pt-6">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400 font-mono block">Our Mission</span>
+                  <p className="text-slate-655 font-medium text-sm sm:text-base leading-relaxed">
+                    To empower industries with innovative digital engineering solutions that connect operational technology, enterprise systems, and data intelligence to improve operational excellence and business performance.
+                  </p>
+                </div>
               </div>
 
             </div>
           </div>
         </section>
 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 7: CORE VALUES ━━━━━━━━━━━━━━━━━━━━━━ */}
-        {/* Photography-driven values: Asymmetric split card layout */}
+        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 6: CORE VALUES ━━━━━━━━━━━━━━━━━━━━━━ */}
+        {/* Simple layout: Core values text block next to a tall wind farm visual */}
         <section className="bg-[#F8FAFC] py-24 md:py-32 border-b border-slate-200/60">
           <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-stretch">
               
-              {/* Left Grid: Core values details */}
+              {/* Left Column: Values list */}
               <div className="lg:col-span-7 text-left space-y-10 flex flex-col justify-between">
                 <div>
-                  <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
                     Core Philosophy
                   </span>
                   <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight leading-tight">
@@ -498,56 +360,55 @@ export default function AboutPage() {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                  <div className="space-y-1">
-                    <h4 className="font-extrabold text-slate-800 text-sm mb-2 flex items-center gap-2">
+                  <div className="space-y-1.5">
+                    <h4 className="font-extrabold text-slate-800 text-sm flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#D4145A]" /> Innovation
                     </h4>
-                    <p className="text-xs text-slate-500 leading-relaxed">Continuously embracing emerging technologies to solve complex industrial challenges.</p>
+                    <p className="text-xs text-slate-500 leading-relaxed font-medium">Continuously embracing emerging technologies to solve complex industrial challenges.</p>
                   </div>
-                  <div className="space-y-1">
-                    <h4 className="font-extrabold text-slate-800 text-sm mb-2 flex items-center gap-2">
+                  <div className="space-y-1.5">
+                    <h4 className="font-extrabold text-slate-800 text-sm flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#D4145A]" /> Customer Success
                     </h4>
-                    <p className="text-xs text-slate-500 leading-relaxed">Our customers&apos; success defines our success.</p>
+                    <p className="text-xs text-slate-500 leading-relaxed font-medium">Our customers&apos; success defines our success.</p>
                   </div>
-                  <div className="space-y-1">
-                    <h4 className="font-extrabold text-slate-800 text-sm mb-2 flex items-center gap-2">
+                  <div className="space-y-1.5">
+                    <h4 className="font-extrabold text-slate-800 text-sm flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#D4145A]" /> Integrity
                     </h4>
-                    <p className="text-xs text-slate-500 leading-relaxed">Building trusted relationships through transparency and ethical business practices.</p>
+                    <p className="text-xs text-slate-500 leading-relaxed font-medium">Building trusted relationships through transparency and ethical business practices.</p>
                   </div>
-                  <div className="space-y-1">
-                    <h4 className="font-extrabold text-slate-800 text-sm mb-2 flex items-center gap-2">
+                  <div className="space-y-1.5">
+                    <h4 className="font-extrabold text-slate-800 text-sm flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#D4145A]" /> Excellence
                     </h4>
-                    <p className="text-xs text-slate-500 leading-relaxed">Delivering high-quality engineering and technology solutions with precision.</p>
+                    <p className="text-xs text-slate-500 leading-relaxed font-medium">Delivering high-quality engineering and technology solutions with precision.</p>
                   </div>
-                  <div className="space-y-1">
-                    <h4 className="font-extrabold text-slate-800 text-sm mb-2 flex items-center gap-2">
+                  <div className="space-y-1.5">
+                    <h4 className="font-extrabold text-slate-800 text-sm flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#D4145A]" /> Collaboration
                     </h4>
-                    <p className="text-xs text-slate-500 leading-relaxed">Working together with customers, partners, and technology leaders to create lasting value.</p>
+                    <p className="text-xs text-slate-500 leading-relaxed font-medium">Working together with customers, partners, and technology leaders to create lasting value.</p>
                   </div>
-                  <div className="space-y-1">
-                    <h4 className="font-extrabold text-slate-800 text-sm mb-2 flex items-center gap-2">
+                  <div className="space-y-1.5">
+                    <h4 className="font-extrabold text-slate-800 text-sm flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#D4145A]" /> Sustainability
                     </h4>
-                    <p className="text-xs text-slate-500 leading-relaxed">Helping industries operate more efficiently while supporting environmental responsibility.</p>
+                    <p className="text-xs text-slate-500 leading-relaxed font-medium">Helping industries operate more efficiently while supporting environmental responsibility.</p>
                   </div>
                 </div>
               </div>
 
-              {/* Right Side: Environmental Wind Farm Photograph */}
+              {/* Right Column: Values Image */}
               <div className="lg:col-span-5 relative group">
                 <div className="absolute -top-6 -right-6 w-full h-full border border-slate-200 rounded-[28px] pointer-events-none z-0" />
                 <div className="relative w-full aspect-[3/4] rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(15,23,42,0.06)] bg-slate-50 z-10">
                   <Image
                     src="/about_values.png"
-                    alt="Corporate values wind farm backdrop"
+                    alt="DHGsoft core values wind farm"
                     fill
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-102"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/15 via-transparent to-transparent" />
                 </div>
               </div>
 
@@ -555,15 +416,14 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 8: LEADERSHIP ━━━━━━━━━━━━━━━━━━━━━━ */}
-        {/* Executive editorial feature: GQ/Forbes magazine style portrait with offset layout */}
+        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 7: LEADERSHIP ━━━━━━━━━━━━━━━━━━━━━━ */}
+        {/* GQ/Forbes magazine style profile block with dual slate borders */}
         <section id="leadership" className="bg-white py-24 md:py-32 border-b border-slate-100">
           <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
               
-              {/* Left Column: Magazine style portrait block */}
+              {/* Left Column: Portrait */}
               <div className="lg:col-span-5 flex items-center justify-center relative pt-6 pb-6">
-                {/* Thin, elegant dual outline borders representing architectural precision */}
                 <div className="absolute top-0 right-4 w-[85%] h-[90%] rounded-[24px] border border-slate-200/60 z-0 pointer-events-none transform translate-x-3 -translate-y-3" />
                 <div className="absolute bottom-4 left-4 w-[85%] h-[90%] rounded-[24px] border border-slate-200/60 z-0 pointer-events-none transform -translate-x-3 translate-y-3" />
 
@@ -607,7 +467,7 @@ export default function AboutPage() {
               {/* Right Column: Narrative details */}
               <div className="lg:col-span-7 text-left space-y-8 lg:pl-6">
                 <div>
-                  <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
                     Leadership
                   </span>
                   <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight leading-tight">
@@ -644,14 +504,14 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 9: WHY DHGSOFT ━━━━━━━━━━━━━━━━━━━━━━ */}
-        {/* Simple storytelling columns, clean list layout */}
+        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 8: WHY DHGSOFT ━━━━━━━━━━━━━━━━━━━━━━ */}
+        {/* Simple layout: Four columns split with thin vertical borders */}
         <section id="why-us" className="bg-[#F8FAFC] py-24 md:py-32 border-b border-slate-200/60">
           <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24">
             
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-12">
               <div className="lg:col-span-5 text-left">
-                <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
+                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
                   Why DHGsoft
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight leading-tight">
@@ -659,7 +519,7 @@ export default function AboutPage() {
                 </h2>
               </div>
               <div className="lg:col-span-7 text-left">
-                <p className="text-slate-600 font-medium text-base sm:text-lg leading-relaxed">
+                <p className="text-slate-655 font-medium text-base sm:text-lg leading-relaxed">
                   We believe digital transformation is about connecting every aspect of industrial operations—from machines and people to enterprise applications and intelligent analytics.
                 </p>
               </div>
@@ -695,9 +555,9 @@ export default function AboutPage() {
               </div>
 
               <div className="text-left">
-                <span className="text-xs font-extrabold text-slate-400 font-mono block mb-4">04 // RELIABILITY</span>
-                <h3 className="font-extrabold text-slate-800 text-sm mb-3">Global Delivery</h3>
-                <p className="text-xs text-slate-500 leading-relaxed mt-4">
+                <span className="text-[9px] font-bold text-slate-400 font-mono block mb-3">04 // RELIABILITY</span>
+                <h3 className="font-extrabold text-slate-800 text-sm mb-2">Global Delivery</h3>
+                <p className="text-xs text-slate-500 leading-relaxed mt-3 font-medium">
                   Flexible onsite, offshore, and hybrid delivery models supported by experienced engineering teams.
                 </p>
               </div>
@@ -706,27 +566,27 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 10: PARTNER ECOSYSTEM ━━━━━━━━━━━━━━━━━━━━━━ */}
-        {/* Real collaboration photography with partner ecosystem visualization */}
+        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 9: PARTNER ECOSYSTEM ━━━━━━━━━━━━━━━━━━━━━━ */}
+        {/* White background: Collaborations info next to partner logos grid */}
         <section id="partners" className="bg-white py-24 md:py-32 border-b border-slate-100">
           <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
               
-              {/* Left Column: Context details */}
+              {/* Left Column: Details */}
               <div className="lg:col-span-5 text-left">
-                <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
+                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
                   Collaborations
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight leading-tight mb-6">
                   Partner Ecosystem
                 </h2>
-                <p className="text-slate-700 font-bold leading-relaxed mb-4">
+                <p className="text-slate-705 font-bold leading-relaxed mb-4">
                   Innovation happens through collaboration.
                 </p>
                 <p className="text-slate-500 text-sm leading-relaxed mb-6">
                   DHGsoft works closely with customers, technology providers, universities, research institutions, system integrators, and industry experts to deliver future-ready solutions.
                 </p>
- 
+
                 <div className="space-y-6 border-t border-slate-100 pt-6">
                   <div className="space-y-1">
                     <h4 className="font-extrabold text-slate-800 text-xs uppercase tracking-wider">Technology Partners</h4>
@@ -748,7 +608,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
- 
+
               {/* Right Column: Visual and Partner Logos */}
               <div className="lg:col-span-7 flex flex-col gap-8">
                 <div className="relative w-full h-[280px] rounded-[24px] overflow-hidden border border-slate-200 shadow-xs bg-slate-50 group">
@@ -775,28 +635,28 @@ export default function AboutPage() {
                   ))}
                 </div>
               </div>
- 
+
             </div>
           </div>
         </section>
- 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 11: CORPORATE RESPONSIBILITY ━━━━━━━━━━━━━━━━━━━━━━ */}
-        {/* Environmental and sustainability imagery with offset details */}
+
+        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 10: CORPORATE RESPONSIBILITY ━━━━━━━━━━━━━━━━━━━━━━ */}
+        {/* Environmental sustainability next to detail blocks */}
         <section id="responsibility" className="bg-[#F8FAFC] py-24 md:py-32 border-b border-slate-200/60">
           <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
               
-              {/* Left Column: Environmental wind farm visuals */}
+              {/* Left Column: Photo */}
               <div className="lg:col-span-5 text-left flex flex-col gap-6">
                 <div>
-                  <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
                     Commitment
                   </span>
                   <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight leading-tight">
                     Corporate Responsibility
                   </h2>
                 </div>
- 
+
                 <div className="relative w-full aspect-[4/3] rounded-[24px] overflow-hidden border border-slate-200 shadow-[0_15px_40px_rgba(15,23,42,0.04)] bg-slate-50 group">
                   <Image
                     src="/about_values.png"
@@ -807,60 +667,58 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-slate-950/15 pointer-events-none" />
                 </div>
               </div>
- 
-              {/* Right Column: Core areas list */}
+
+              {/* Right Column: ESG items */}
               <div className="lg:col-span-7 space-y-6 lg:pl-6 text-left">
-                
                 <div className="border-b border-slate-200/60 pb-5">
                   <h3 className="font-extrabold text-slate-800 text-sm uppercase tracking-wider mb-2 font-mono">Sustainability</h3>
                   <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-medium">
                     Helping organizations improve operational efficiency while reducing energy consumption and environmental impact.
                   </p>
                 </div>
- 
+
                 <div className="border-b border-slate-200/60 pb-5">
                   <h3 className="font-extrabold text-slate-800 text-sm uppercase tracking-wider mb-2 font-mono">ESG</h3>
                   <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-medium">
                     Supporting Environmental, Social, and Governance initiatives through digital technologies and intelligent operations.
                   </p>
                 </div>
- 
+
                 <div className="border-b border-slate-200/60 pb-5">
                   <h3 className="font-extrabold text-slate-800 text-sm uppercase tracking-wider mb-2 font-mono">Ethics & Compliance</h3>
                   <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-medium">
                     Integrity and ethical business practices guide every customer engagement.
                   </p>
                 </div>
- 
+
                 <div className="border-b border-slate-200/60 pb-5">
                   <h3 className="font-extrabold text-slate-800 text-sm uppercase tracking-wider mb-2 font-mono">Information Security</h3>
                   <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-medium">
                     Protecting customer data through secure engineering practices and internationally accepted security principles.
                   </p>
                 </div>
- 
+
                 <div>
                   <h3 className="font-extrabold text-slate-800 text-sm uppercase tracking-wider mb-2 font-mono">Quality</h3>
                   <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-medium">
                     Committed to delivering reliable, scalable, and high-quality engineering solutions.
                   </p>
                 </div>
- 
               </div>
- 
+
             </div>
           </div>
         </section>
- 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 12: RECOGNITION ━━━━━━━━━━━━━━━━━━━━━━ */}
-        {/* Elegant achievements showcase: Structured lists with numeric indexes */}
+
+        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 11: RECOGNITION ━━━━━━━━━━━━━━━━━━━━━━ */}
+        {/* High-end Achievements showcase: 6 grid cards with thin borders */}
         <section id="recognition" className="bg-white py-24 md:py-32 border-b border-slate-100">
           <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
               
-              {/* Left Column: Context */}
+              {/* Left Column */}
               <div className="lg:col-span-4 text-left">
-                <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
+                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
                   Recognition
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight leading-tight mb-6">
@@ -870,8 +728,8 @@ export default function AboutPage() {
                   This section highlights our primary focus vectors and certified standards:
                 </p>
               </div>
- 
-              {/* Right Column: Achievements list */}
+
+              {/* Right Column Grid */}
               <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
                 <div className="p-6 bg-slate-50 border border-slate-200/50 rounded-2xl flex gap-4 items-start shadow-xs hover:border-[#D4145A] transition-colors duration-300">
                   <div className="w-9 h-9 rounded-lg bg-rose-50 flex items-center justify-center text-[#D4145A] shrink-0">
@@ -882,7 +740,7 @@ export default function AboutPage() {
                     <p className="text-xs text-slate-500 leading-relaxed font-medium">Operational optimization and process efficiency validation metrics.</p>
                   </div>
                 </div>
- 
+
                 <div className="p-6 bg-slate-50 border border-slate-200/50 rounded-2xl flex gap-4 items-start shadow-xs hover:border-[#D4145A] transition-colors duration-300">
                   <div className="w-9 h-9 rounded-lg bg-rose-50 flex items-center justify-center text-[#D4145A] shrink-0">
                     <BookOpen className="w-5 h-5" />
@@ -892,7 +750,7 @@ export default function AboutPage() {
                     <p className="text-xs text-slate-500 leading-relaxed font-medium">Engineering awards recognizing robust digital systems architectures.</p>
                   </div>
                 </div>
- 
+
                 <div className="p-6 bg-slate-50 border border-slate-200/50 rounded-2xl flex gap-4 items-start shadow-xs hover:border-[#D4145A] transition-colors duration-300">
                   <div className="w-9 h-9 rounded-lg bg-rose-50 flex items-center justify-center text-[#D4145A] shrink-0">
                     <Milestone className="w-5 h-5" />
@@ -902,7 +760,7 @@ export default function AboutPage() {
                     <p className="text-xs text-slate-500 leading-relaxed font-medium">Acknowledged as a technology leader in industrial integration telemetry.</p>
                   </div>
                 </div>
- 
+
                 <div className="p-6 bg-slate-50 border border-slate-200/50 rounded-2xl flex gap-4 items-start shadow-xs hover:border-[#D4145A] transition-colors duration-300">
                   <div className="w-9 h-9 rounded-lg bg-rose-50 flex items-center justify-center text-[#D4145A] shrink-0">
                     <CheckCircle2 className="w-5 h-5" />
@@ -912,7 +770,7 @@ export default function AboutPage() {
                     <p className="text-xs text-slate-500 leading-relaxed font-medium">Internationally recognized engineering standards and security certifications.</p>
                   </div>
                 </div>
- 
+
                 <div className="p-6 bg-slate-50 border border-slate-200/50 rounded-2xl flex gap-4 items-start shadow-xs hover:border-[#D4145A] transition-colors duration-300">
                   <div className="w-9 h-9 rounded-lg bg-rose-50 flex items-center justify-center text-[#D4145A] shrink-0">
                     <Lightbulb className="w-5 h-5" />
@@ -922,7 +780,7 @@ export default function AboutPage() {
                     <p className="text-xs text-slate-500 leading-relaxed font-medium">Proprietary namespace pipelines and customized IIoT edge models.</p>
                   </div>
                 </div>
- 
+
                 <div className="p-6 bg-slate-50 border border-slate-200/50 rounded-2xl flex gap-4 items-start shadow-xs hover:border-[#D4145A] transition-colors duration-300">
                   <div className="w-9 h-9 rounded-lg bg-rose-50 flex items-center justify-center text-[#D4145A] shrink-0">
                     <Milestone className="w-5 h-5" />
@@ -933,20 +791,20 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
- 
+
             </div>
           </div>
         </section>
- 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 13: GLOBAL PRESENCE ━━━━━━━━━━━━━━━━━━━━━━ */}
-        {/* Minimal world map connectivity integrated with photography */}
+
+        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 12: GLOBAL PRESENCE ━━━━━━━━━━━━━━━━━━━━━━ */}
+        {/* Sticky Delivery locations column next to global Map hub */}
         <section id="global" className="bg-[#F8FAFC] py-24 md:py-32 border-b border-slate-200/60 relative">
           <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
               
-              {/* Left Column: Context */}
+              {/* Left Column */}
               <div className="lg:col-span-5 text-left lg:sticky lg:top-28">
-                <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
+                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
                   Global Presence
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight leading-tight mb-6">
@@ -960,13 +818,13 @@ export default function AboutPage() {
                   <p>
                     Locations: Corporate Office, Regional Offices, Delivery Centers, Partner Network
                   </p>
-                  <p className="text-slate-500 text-xs sm:text-sm font-normal pt-4 border-t border-slate-200/60">
+                  <p className="text-slate-505 text-xs sm:text-sm font-normal pt-4 border-t border-slate-200/60">
                     Looking Ahead: DHGsoft continues investing in innovation, talent, strategic partnerships, and emerging technologies to shape the future of connected industries and intelligent enterprises.
                   </p>
                 </div>
               </div>
- 
-              {/* Right Column: Global Presence Backdrop */}
+
+              {/* Right Column: Global Map */}
               <div className="lg:col-span-7 flex flex-col gap-6 group">
                 <div className="relative w-full aspect-[4/3] rounded-[28px] overflow-hidden border border-slate-200 shadow-xs bg-slate-50">
                   <Image
@@ -978,16 +836,17 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-slate-950/15 pointer-events-none" />
                 </div>
               </div>
- 
+
             </div>
           </div>
         </section>
- 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 14: MINIMAL CTA ━━━━━━━━━━━━━━━━━━━━━━ */}
+
+        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 13: MINIMAL CTA ━━━━━━━━━━━━━━━━━━━━━━ */}
+        {/* Simple centered banner with gradient button */}
         <section className="bg-white py-20 md:py-24">
           <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24 text-center">
             <div className="max-w-2xl mx-auto flex flex-col items-center">
-              <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3">
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3">
                 Consultation
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight mb-8">
