@@ -201,49 +201,100 @@ export default function AboutPage() {
         </section>
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 2: COMPANY OVERVIEW ━━━━━━━━━━━━━━━━━━━━━━ */}
-        {/* Editorial Storytelling with offset photography & magazine article style */}
-        <section className="bg-[#F8FAFC] py-28 md:py-36 border-y border-slate-200/60 relative overflow-hidden">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        {/* Editorial storytelling with offset photography, blueprint texture, and premium line heights */}
+        <section id="company-overview" className="bg-white min-h-[1000px] lg:min-h-[1100px] flex items-center relative overflow-hidden py-32 md:py-40">
+          
+          {/* Subtle blueprint grid texture at 2-3% opacity for technical depth */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-[75%] pointer-events-none opacity-[0.025] z-0"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(15, 23, 42, 0.1) 1.5px, transparent 1.5px),
+                linear-gradient(90deg, rgba(15, 23, 42, 0.1) 1.5px, transparent 1.5px)
+              `,
+              backgroundSize: '24px 24px',
+            }}
+          />
+
+          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24 relative z-10 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
               
-              {/* Left Column: Offset Vertical Photograph */}
-              <div className="lg:col-span-5 relative">
-                <div className="absolute -top-6 -left-6 w-full h-full border border-slate-200 rounded-[28px] pointer-events-none z-0" />
-                <div className="relative w-full aspect-[3/4] rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(15,23,42,0.1)] bg-slate-50 z-10">
+              {/* Left Column: One tall premium vertical photograph (42% width equivalent) */}
+              <div className="lg:col-span-5 relative group">
+                {/* Visual outline bracket extending above/below */}
+                <div className="absolute -top-8 -left-8 -bottom-8 -right-8 border border-slate-100 rounded-[32px] pointer-events-none z-0 hidden lg:block" />
+                
+                <div className="relative w-full aspect-[4/5] rounded-[24px] overflow-hidden shadow-[0_25px_60px_-15px_rgba(15,23,42,0.12)] border border-slate-200/80 bg-slate-50 z-10">
                   <Image
                     src="/smart_factory_visual.png"
-                    alt="DHGsoft Smart Manufacturing Telemetry"
+                    alt="DHGsoft Smart Manufacturing Floor Operations"
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-102"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/15 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/10 via-transparent to-transparent pointer-events-none" />
                 </div>
               </div>
 
-              {/* Right Column: Editorial Column Narrative */}
-              <div className="lg:col-span-7 text-left space-y-8 lg:pl-10">
-                <span className="text-[11px] font-black uppercase tracking-[0.25em] text-[#D4145A] font-mono block">
-                  Executive Statement
-                </span>
+              {/* Right Column: Floating content area with negative whitespace */}
+              <div className="lg:col-span-7 text-left space-y-8 z-20">
                 
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight leading-tight">
-                  Company Overview
-                </h2>
-                
-                <div className="space-y-6 text-slate-650 leading-relaxed font-sans font-medium text-base sm:text-lg">
-                  <p>
-                    Founded with a vision to accelerate industrial innovation, DHGsoft delivers end-to-end digital engineering, industrial automation, OT/IT integration, AI, cloud, cybersecurity, and operational intelligence solutions.
-                  </p>
-                  <p>
-                    We help manufacturers, utilities, infrastructure providers, and process industries modernize operations by connecting plant-floor assets with enterprise systems and cloud technologies.
-                  </p>
-                  <p>
-                    Our expertise spans the complete digital transformation lifecycle—from consulting and solution architecture to implementation, managed services, and continuous optimization.
-                  </p>
-                  <p className="text-slate-500 font-normal text-sm sm:text-base pt-6 border-t border-slate-200">
-                    Whether enabling a smart factory, implementing industrial data platforms, modernizing enterprise applications, or deploying AI-driven operational intelligence, DHGsoft delivers measurable business outcomes that improve productivity, reliability, safety, and sustainability.
-                  </p>
+                {/* Small Label */}
+                <div className="flex items-center gap-2">
+                  <span className="font-extrabold uppercase tracking-[0.25em] text-[#D4145A] font-mono text-[10px] md:text-xs">
+                    ABOUT DHGSOFT
+                  </span>
                 </div>
+
+                {/* Large Editorial Heading */}
+                <motion.h2 
+                  className="text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-[#0F172A] tracking-tight leading-[1.15]"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8 }}
+                >
+                  Engineering Intelligence.<br />Industrial Excellence.
+                </motion.h2>
+
+                {/* Body Paragraphs: Exact content provided, comfortable line length */}
+                <div className="space-y-6 text-slate-500 font-medium text-[16px] sm:text-[18px] leading-relaxed max-w-[620px]">
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                  >
+                    Founded with a vision to accelerate industrial innovation, DHGsoft delivers end-to-end digital engineering, industrial automation, OT/IT integration, AI, cloud, cybersecurity, and operational intelligence solutions.
+                  </motion.p>
+                  
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                  >
+                    We help manufacturers, utilities, infrastructure providers, and process industries modernize operations by connecting plant-floor assets with enterprise systems and cloud technologies.
+                  </motion.p>
+
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                  >
+                    Our expertise spans the complete digital transformation lifecycle—from consulting and solution architecture to implementation, managed services, and continuous optimization.
+                  </motion.p>
+
+                  <motion.p
+                    className="text-slate-400 text-sm sm:text-base font-normal pt-6 border-t border-slate-100"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                  >
+                    Whether enabling a smart factory, implementing industrial data platforms, modernizing enterprise applications, or deploying AI-driven operational intelligence, DHGsoft delivers measurable business outcomes that improve productivity, reliability, safety, and sustainability.
+                  </motion.p>
+                </div>
+
               </div>
 
             </div>
