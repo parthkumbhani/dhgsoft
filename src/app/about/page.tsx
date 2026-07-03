@@ -202,49 +202,8 @@ export default function AboutPage() {
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 2: COMPANY OVERVIEW ━━━━━━━━━━━━━━━━━━━━━━ */}
         {/* Editorial Filmstrip Layout: Compact height, 3-image filmstrip, 3 horizontal story columns, and centered quote */}
-        <section id="company-overview" className="bg-gradient-to-b from-white via-slate-50 to-white py-16 md:py-20 relative max-h-[820px] min-h-[720px] flex items-center overflow-hidden border-b border-slate-100">
+        <section id="company-overview" className="bg-white py-20 md:py-24 relative max-h-[820px] min-h-[720px] flex items-center overflow-hidden border-b border-slate-100">
           
-          {/* Creative, Glowing Background Overlay (Contours, compasses, dot grids & soft gradient flows) */}
-          <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-            
-            {/* Colorful Glow Blobs */}
-            <div className="absolute top-[-100px] left-[-100px] w-[450px] h-[450px] rounded-full bg-gradient-to-tr from-[#D4145A] to-[#F15A24] opacity-[0.07] blur-[90px] animate-pulse duration-[8s]" />
-            <div className="absolute bottom-[-150px] right-[-100px] w-[550px] h-[550px] rounded-full bg-gradient-to-bl from-[#F15A24] to-[#FF8A00] opacity-[0.08] blur-[110px] animate-pulse duration-[10s]" />
-            <div className="absolute top-[40%] left-[30%] w-[300px] h-[300px] rounded-full bg-gradient-to-r from-[#D4145A] to-transparent opacity-[0.03] blur-[80px]" />
-
-            {/* Blueprint Grid & Vector Blueprint Lines */}
-            <svg className="w-full h-full stroke-slate-900 fill-none" viewBox="0 0 1440 800" preserveAspectRatio="none">
-              <defs>
-                <pattern id="filmstrip-dot-grid" width="24" height="24" patternUnits="userSpaceOnUse">
-                  <circle cx="2" cy="2" r="1" className="fill-slate-950/20" />
-                </pattern>
-                <linearGradient id="glow-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#D4145A" stopOpacity="0.3" />
-                  <stop offset="100%" stopColor="#F15A24" stopOpacity="0.3" />
-                </linearGradient>
-                <linearGradient id="lines-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#D4145A" stopOpacity="0.01" />
-                  <stop offset="50%" stopColor="#F15A24" stopOpacity="0.2" />
-                  <stop offset="100%" stopColor="#D4145A" stopOpacity="0.01" />
-                </linearGradient>
-              </defs>
-
-              {/* Dot Grid Layer */}
-              <rect width="100%" height="100%" fill="url(#filmstrip-dot-grid)" />
-
-              {/* Glowing telemetry coordinate lines */}
-              <path d="M-100,300 C300,120 600,680 1540,250" stroke="url(#lines-gradient)" strokeWidth="1.5" />
-              <path d="M-50,550 C400,350 850,780 1490,500" stroke="url(#lines-gradient)" strokeWidth="1" strokeDasharray="6 6" />
-              <path d="M100,700 C550,550 950,850 1540,650" stroke="url(#lines-gradient)" strokeWidth="1.5" />
-
-              {/* Circular Telemetry Rings representing Systems Precision */}
-              <circle cx="10%" cy="35%" r="100" stroke="url(#glow-gradient)" strokeWidth="0.8" strokeDasharray="3 3" />
-              <circle cx="10%" cy="35%" r="140" stroke="url(#glow-gradient)" strokeWidth="0.5" />
-              <circle cx="90%" cy="65%" r="160" stroke="url(#glow-gradient)" strokeWidth="0.8" strokeDasharray="4 4" />
-              <circle cx="90%" cy="65%" r="220" stroke="url(#glow-gradient)" strokeWidth="0.5" />
-            </svg>
-          </div>
-
           <div className="max-w-[1440px] w-full mx-auto px-6 md:px-16 lg:px-24 relative z-10 flex flex-col justify-between h-full text-center">
             
             {/* Header: Centered Label & Editorial Heading */}
