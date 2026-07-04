@@ -133,7 +133,7 @@ export default function AboutPage() {
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 2: COMPANY OVERVIEW ━━━━━━━━━━━━━━━━━━━━━━ */}
         {/* Editorial Filmstrip spread layout with subtle engineering contour/grid background */}
-        <section id="company-overview" className="bg-white py-16 relative border-b border-slate-100 overflow-hidden flex flex-col justify-start">
+        <section id="company-overview" className="bg-white pt-28 pb-16 relative border-b border-slate-100 overflow-hidden flex flex-col justify-start">
           
           {/* Subtle Background System (Contour Top-Left, Grid Bottom-Right at 2% opacity) */}
           <div className="absolute top-0 left-0 w-[450px] h-[450px] opacity-[0.02] pointer-events-none z-0 select-none">
@@ -157,70 +157,68 @@ export default function AboutPage() {
             </svg>
           </div>
 
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] w-full relative z-10 flex flex-col justify-start">
+          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] w-full relative z-10 flex flex-col justify-start gap-8">
             
             {/* 1. Editorial Label & 2. Main Heading (with Vertical Gradient accent line) */}
-            <div className="flex gap-6 items-start text-left mb-6">
-              <div className="w-[2px] h-14 bg-gradient-to-b from-[#D4145A] to-[#F15A24] rounded-full shrink-0" />
-              <div className="space-y-3">
+            <div className="flex gap-6 items-start text-left">
+              <div className="w-[3px] h-16 bg-gradient-to-b from-[#D4145A] to-[#F15A24] rounded-full shrink-0 mt-2" />
+              <div className="space-y-2">
                 <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono block">
                   ABOUT DHGSOFT
                 </span>
-                <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-extrabold text-[#0F172A] tracking-tight leading-[1.15] max-w-[520px]">
+                <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-extrabold text-[#0F172A] tracking-tight leading-[1.12] max-w-[580px]">
                   Engineering Intelligence. Industrial Excellence.
                 </h2>
               </div>
             </div>
 
             {/* 3. Short Intro (max 4 lines) */}
-            <div className="text-left mb-8">
-              <p className="text-slate-500 font-medium text-sm sm:text-base leading-[1.8] max-w-[620px]">
+            <div className="text-left">
+              <p className="text-slate-500 font-medium text-sm sm:text-base leading-[1.8] max-w-[720px]">
                 Founded with a vision to accelerate industrial innovation, DHGsoft delivers end-to-end digital engineering, industrial automation, OT/IT integration, AI, cloud, cybersecurity, and operational intelligence solutions.
               </p>
             </div>
 
-            {/* 4. Visual Story (3-image filmstrip) */}
-            <div className="grid grid-cols-12 gap-6 w-full h-[150px] mb-8">
-              {/* Image One: Landscape */}
-              <div className="col-span-5 relative overflow-hidden rounded-[24px] border border-slate-200/80 p-0.5 bg-white shadow-xs group">
-                <div className="relative w-full h-full rounded-[22px] overflow-hidden">
-                  <Image
-                    src="/smart_factory_visual.png"
-                    alt="Modern Industrial Manufacturing"
-                    fill
-                    className="object-cover transition-transform duration-600 ease-out group-hover:scale-[1.02]"
-                  />
-                </div>
+            {/* 4. Visual Story (3-image filmstrip with asymmetrical column balance) */}
+            <div className="grid grid-cols-12 gap-5 w-full h-[180px]">
+              {/* Image One: Landscape (5 Columns) */}
+              <div className="col-span-5 relative overflow-hidden rounded-[24px] border border-slate-200/60 shadow-[0_4px_20px_rgba(15,23,42,0.03)] group">
+                <Image
+                  src="/smart_factory_visual.png"
+                  alt="Modern Industrial Manufacturing"
+                  fill
+                  className="object-cover transition-transform duration-600 ease-out group-hover:scale-[1.02]"
+                />
               </div>
-              {/* Image Two: Portrait */}
-              <div className="col-span-2 relative overflow-hidden rounded-[24px] border border-slate-200/80 p-0.5 bg-white shadow-xs group">
-                <div className="relative w-full h-full rounded-[22px] overflow-hidden">
-                  <Image
-                    src="/about_collaboration.png"
-                    alt="Engineering Team Discussion"
-                    fill
-                    className="object-cover transition-transform duration-600 ease-out group-hover:scale-[1.02]"
-                  />
-                </div>
+              {/* Image Two: Portrait (3 Columns) */}
+              <div className="col-span-3 relative overflow-hidden rounded-[24px] border border-slate-200/60 shadow-[0_4px_20px_rgba(15,23,42,0.03)] group">
+                <Image
+                  src="/about_collaboration.png"
+                  alt="Engineering Team Discussion"
+                  fill
+                  className="object-cover transition-transform duration-600 ease-out group-hover:scale-[1.02]"
+                />
               </div>
-              {/* Image Three: Landscape */}
-              <div className="col-span-5 relative overflow-hidden rounded-[24px] border border-slate-200/80 p-0.5 bg-white shadow-xs group">
-                <div className="relative w-full h-full rounded-[22px] overflow-hidden">
-                  <Image
-                    src="/about_hero.png"
-                    alt="Industrial Control Room Operations"
-                    fill
-                    className="object-cover transition-transform duration-600 ease-out group-hover:scale-[1.02]"
-                  />
-                </div>
+              {/* Image Three: Landscape (4 Columns) */}
+              <div className="col-span-4 relative overflow-hidden rounded-[24px] border border-slate-200/60 shadow-[0_4px_20px_rgba(15,23,42,0.03)] group">
+                <Image
+                  src="/about_hero.png"
+                  alt="Industrial Control Room Operations"
+                  fill
+                  className="object-cover transition-transform duration-600 ease-out group-hover:scale-[1.02]"
+                />
               </div>
             </div>
 
-            {/* 5. Editorial Story Blocks: Horizontal 3-column layout with vertical border dividers */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full text-left">
+            {/* 5. Editorial Story Blocks: Horizontal 3-column layout with vertical border dividers and indices */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full text-left pt-2">
               {/* Block One */}
-              <div className="space-y-3 pr-6 border-r border-[#E8EDF2]/40">
-                <h4 className="text-[#0F172A] font-extrabold text-sm leading-snug">
+              <div className="space-y-3 pr-6 border-r border-slate-100">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-bold text-[#D4145A] font-mono">01 //</span>
+                  <span className="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest font-mono">INTEGRATION</span>
+                </div>
+                <h4 className="text-[#0F172A] font-extrabold text-sm leading-snug group-hover:text-primary transition-colors">
                   Connecting plant-floor assets with enterprise systems and cloud.
                 </h4>
                 <p className="text-[#64748B] text-[13px] leading-[1.7] font-medium">
@@ -229,8 +227,12 @@ export default function AboutPage() {
               </div>
               
               {/* Block Two */}
-              <div className="space-y-3 pr-6 md:px-6 md:border-r border-[#E8EDF2]/40">
-                <h4 className="text-[#0F172A] font-extrabold text-sm leading-snug">
+              <div className="space-y-3 pr-6 md:px-6 md:border-r border-slate-100">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-bold text-[#D4145A] font-mono">02 //</span>
+                  <span className="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest font-mono">TRANSFORMATION</span>
+                </div>
+                <h4 className="text-[#0F172A] font-extrabold text-sm leading-snug group-hover:text-primary transition-colors">
                   Comprehensive transformation expertise across the digital lifecycle.
                 </h4>
                 <p className="text-[#64748B] text-[13px] leading-[1.7] font-medium">
@@ -240,7 +242,11 @@ export default function AboutPage() {
 
               {/* Block Three */}
               <div className="space-y-3 md:pl-6">
-                <h4 className="text-[#0F172A] font-extrabold text-sm leading-snug">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-bold text-[#D4145A] font-mono">03 //</span>
+                  <span className="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest font-mono">INTELLIGENCE</span>
+                </div>
+                <h4 className="text-[#0F172A] font-extrabold text-sm leading-snug group-hover:text-primary transition-colors">
                   AI-driven operational intelligence and digital twins validation.
                 </h4>
                 <p className="text-[#64748B] text-[13px] leading-[1.7] font-medium">
@@ -249,12 +255,11 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* 6. Signature Statement: Bottom-left with thin vertical gradient line */}
-            <div className="flex gap-4 items-stretch text-left max-w-[480px] mt-8 z-10">
-              <div className="w-[2px] bg-gradient-to-b from-[#D4145A] to-[#F15A24] shrink-0" />
-              <p className="text-lg sm:text-xl font-extrabold text-[#0F172A] tracking-tight leading-tight uppercase font-sans">
-                Connecting Intelligence<br />
-                to Transform Industry.
+            {/* 6. Signature Statement: Typography pull-quote card with vertical brand accent line */}
+            <div className="flex gap-4 items-stretch text-left max-w-3xl mt-4 p-5 rounded-2xl border border-slate-100 bg-slate-50/50 z-10">
+              <div className="w-[3px] bg-gradient-to-b from-[#D4145A] to-[#F15A24] rounded-full shrink-0" />
+              <p className="text-xs sm:text-sm text-slate-500 italic font-medium leading-relaxed">
+                &ldquo;Whether enabling a smart factory, implementing industrial data platforms, modernizing enterprise applications, or deploying AI-driven operational intelligence, DHGsoft delivers measurable business outcomes that improve productivity, reliability, safety, and sustainability.&rdquo;
               </p>
             </div>
 
