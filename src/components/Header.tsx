@@ -70,6 +70,18 @@ const INDUSTRIES = [
   { name: "Agriculture", desc: "Precision farming & resource management." }
 ]
 
+const ABOUT_MENU = [
+  { name: "Overview", desc: "Our history, engineering focus, and corporate stats.", href: "/about#overview" },
+  { name: "Vision, Mission & Values", desc: "OT/IT bridge philosophy and core values.", href: "/about#vision" },
+  { name: "Leadership Team", desc: "Meet our systems architects and executives.", href: "/about#leadership" },
+  { name: "Why DHGsoft", desc: "Zero-downtime integration & client SLAs.", href: "/about#why-dhgsoft" },
+  { name: "Partners Ecosystem", desc: "Collaborating with global solutions vendors.", href: "/about#partners" },
+  { name: "Technology Partners", desc: "Cloud, hardware, and SCADA alliances.", href: "/about#partners" },
+  { name: "Sustainability & ESG", desc: "Clean operations and green computing.", href: "/about#responsibility" },
+  { name: "Ethics & Compliance", desc: "Zero-trust standards & regulatory compliance.", href: "/about#responsibility" },
+  { name: "Recognition", desc: "Industry awards and engineering certs.", href: "/about#recognition" },
+  { name: "Locations", desc: "Global offices, command centers, and hubs.", href: "/about#global" }
+]
 
 const CAREERS_MENU = [
   { name: "Life at DHGsoft", desc: "Discover our culture, benefits, and engineering mindset." },
@@ -112,6 +124,7 @@ export default function Header({ onContactClick }: HeaderProps) {
         capabilities: 950,
         industries: 950,
         insights: 600,
+        about: 750,
         careers: 650,
       }
 
@@ -313,6 +326,48 @@ export default function Header({ onContactClick }: HeaderProps) {
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
+              {/* About Mega Menu */}
+              <NavigationMenuItem value="about" className="relative">
+                <NavigationMenuTrigger className="relative text-sm font-semibold text-slate-700 hover:text-primary focus:text-primary data-[state=open]:text-primary px-4 py-2 transition-colors after:absolute after:bottom-0 after:left-4 after:right-4 after:h-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-tertiary after:transform after:scale-x-0 hover:after:scale-x-100 data-[state=open]:after:scale-x-100 data-[active]:after:scale-x-100 after:transition-transform after:duration-300">
+                  About
+                </NavigationMenuTrigger>
+                <NavigationMenuContent className="p-6 !w-[750px] z-50">
+                  {/* Dynamic Pointer Arrow */}
+                  <div style={arrowStyle} className="absolute -top-[6px] w-3 h-3 bg-white border-t border-l border-slate-200 rotate-45 z-50 transition-all duration-300" />
+                  
+                  <div className="grid grid-cols-3 gap-6 relative z-10">
+                    <div className="col-span-1 bg-gradient-to-b from-slate-900 to-slate-950 rounded-md p-6 text-white flex flex-col justify-between border-l-4 border-primary">
+                      <div>
+                        <h4 className="text-lg font-bold text-white tracking-tight">About Us</h4>
+                        <p className="text-xs text-slate-400 mt-3 leading-relaxed">
+                          Building premium digital engineering solutions and driving AI transformation for global enterprises since 2012.
+                        </p>
+                      </div>
+                      <Link href="/about" className="text-xs font-bold text-primary hover:text-secondary flex items-center gap-1.5 group transition-colors">
+                        Discover Our Story
+                        <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
+                    <div className="col-span-2 grid grid-cols-2 gap-4">
+                      {ABOUT_MENU.map((item, i) => (
+                        <NavigationMenuLink asChild key={i}>
+                          <Link
+                            href={item.href || "/about"}
+                            className="group block select-none rounded-md p-2 leading-none no-underline outline-none transition-all hover:bg-primary/5"
+                          >
+                            <div className="text-sm font-semibold text-slate-800 group-hover:text-primary transition-colors">
+                              {item.name}
+                            </div>
+                            <p className="text-xs text-slate-500 mt-1 line-clamp-1">
+                              {item.desc}
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      ))}
+                    </div>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
 
               {/* Careers Dropdown */}
               <NavigationMenuItem value="careers" className="relative">
@@ -479,6 +534,23 @@ export default function Header({ onContactClick }: HeaderProps) {
                     </AccordionContent>
                   </AccordionItem>
 
+                  <AccordionItem value="about" className="border-b-0">
+                    <AccordionTrigger className="text-sm font-bold text-slate-800 hover:no-underline hover:text-primary transition-colors">
+                      About
+                    </AccordionTrigger>
+                    <AccordionContent className="bg-slate-50 p-3 rounded-md flex flex-col gap-1.5">
+                      {ABOUT_MENU.map((item, i) => (
+                        <Link
+                          key={i}
+                          href={item.href || "/about"}
+                          onClick={() => setMobileOpen(false)}
+                          className="block py-1.5 text-xs text-slate-700 hover:text-primary font-medium transition-colors"
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </AccordionContent>
+                  </AccordionItem>
 
                   <AccordionItem value="careers" className="border-b-0">
                     <AccordionTrigger className="text-sm font-bold text-slate-800 hover:no-underline hover:text-primary transition-colors">
