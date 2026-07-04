@@ -134,7 +134,7 @@ export default function AboutPage() {
         {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 2: COMPANY OVERVIEW ━━━━━━━━━━━━━━━━━━━━━━ */}
         {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 2: COMPANY OVERVIEW ━━━━━━━━━━━━━━━━━━━━━━ */}
         {/* Editorial Filmstrip spread layout with subtle engineering contour/grid background */}
-        <section id="company-overview" className="bg-white py-24 md:py-28 relative border-b border-slate-100 overflow-hidden min-h-[780px] max-h-[850px] flex items-center">
+        <section id="company-overview" className="bg-white pt-[100px] relative border-b border-slate-100 overflow-hidden flex flex-col justify-start">
           
           {/* Subtle Background System (Contour Top-Left, Grid Bottom-Right at 2% opacity) */}
           <div className="absolute top-0 left-0 w-[450px] h-[450px] opacity-[0.02] pointer-events-none z-0 select-none">
@@ -158,23 +158,30 @@ export default function AboutPage() {
             </svg>
           </div>
 
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24 w-full relative z-10 flex flex-col gap-12">
+          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] w-full relative z-10 flex flex-col justify-start">
             
-            {/* Top Area: Left-aligned Eyebrow + Title beside custom 80px Vertical Gradient Line */}
-            <div className="flex gap-6 items-start text-left">
+            {/* 1. Editorial Label & 2. Main Heading (with Vertical Gradient accent line) */}
+            <div className="flex gap-6 items-start text-left mb-8">
               <div className="w-[2px] h-20 bg-gradient-to-b from-[#D4145A] to-[#F15A24] rounded-full shrink-0" />
-              <div className="space-y-2">
+              <div className="space-y-5">
                 <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono block">
                   ABOUT DHGSOFT
                 </span>
-                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#0F172A] tracking-tight leading-[1.12]">
+                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#0F172A] tracking-tight leading-[1.15] max-w-[520px]">
                   Engineering Intelligence. Industrial Excellence.
                 </h2>
               </div>
             </div>
 
-            {/* Editorial Filmstrip: 3 images (Landscape 40% / Portrait 20% / Landscape 40%) equal height */}
-            <div className="grid grid-cols-12 gap-6 w-full h-[280px]">
+            {/* 3. Short Intro (max 4 lines) */}
+            <div className="text-left mb-12">
+              <p className="text-slate-500 font-medium text-base sm:text-lg leading-[1.8] max-w-[620px]">
+                Founded with a vision to accelerate industrial innovation, DHGsoft delivers end-to-end digital engineering, industrial automation, OT/IT integration, AI, cloud, cybersecurity, and operational intelligence solutions.
+              </p>
+            </div>
+
+            {/* 4. Visual Story (3-image filmstrip) */}
+            <div className="grid grid-cols-12 gap-6 w-full h-[220px] mb-14">
               {/* Image One: Landscape */}
               <div className="col-span-5 relative overflow-hidden rounded-[24px] border border-slate-200/80 p-0.5 bg-white shadow-xs group">
                 <div className="relative w-full h-full rounded-[22px] overflow-hidden">
@@ -210,48 +217,49 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Content Area: 3 Story Blocks (Spanning 60% of width) with thin E8EDF2 horizontal lines */}
-            <div className="w-full lg:w-[60%] space-y-6 text-left">
-              {/* Block 1 */}
-              <div className="space-y-1.5">
-                <h4 className="text-slate-800 font-bold text-sm sm:text-base leading-relaxed">
-                  Founded with a vision to accelerate industrial innovation, DHGsoft delivers end-to-end digital engineering and automation.
+            {/* 5. Editorial Story Blocks (60% width max) with E8EDF2 dividers */}
+            <div className="w-full lg:w-[60%] space-y-[56px] text-left">
+              {/* Block One */}
+              <div className="space-y-8">
+                <h4 className="text-[#0F172A] font-extrabold text-lg sm:text-xl leading-snug">
+                  Connecting plant-floor assets with enterprise systems and cloud.
                 </h4>
-                <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-medium">
-                  We specialize in digital engineering, industrial automation, OT/IT integration, AI, cloud, cybersecurity, and operational intelligence solutions.
+                <p className="text-[#64748B] text-[18px] leading-[1.8] font-medium max-w-[70ch]">
+                  We help manufacturers, utilities, infrastructure providers, and process industries <span className="font-bold text-slate-800">modernize operations</span> by establishing secure, reliable, and real-time connectivity between operational environments and enterprise cloud networks.
                 </p>
               </div>
               
-              <div className="border-t border-[#E8EDF2]/40" />
+              <div className="border-t border-[#E8EDF2] opacity-40" />
 
-              {/* Block 2 */}
-              <div className="space-y-1.5">
-                <h4 className="text-slate-800 font-bold text-sm sm:text-base leading-relaxed">
-                  We help manufacturers, utilities, infrastructure providers, and process industries modernize operations.
+              {/* Block Two */}
+              <div className="space-y-8">
+                <h4 className="text-[#0F172A] font-extrabold text-lg sm:text-xl leading-snug">
+                  Comprehensive transformation expertise across the digital lifecycle.
                 </h4>
-                <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-medium">
-                  By connecting plant-floor assets with enterprise systems and cloud technologies, we construct highly secure, robust data paths.
+                <p className="text-[#64748B] text-[18px] leading-[1.8] font-medium max-w-[70ch]">
+                  Our expertise covers the entire lifecycle—from <span className="font-bold text-slate-800">consulting and solution architecture</span> to implementation, systems commissioning, managed services, and continuous operational intelligence optimization.
                 </p>
               </div>
 
-              <div className="border-t border-[#E8EDF2]/40" />
+              <div className="border-t border-[#E8EDF2] opacity-40" />
 
-              {/* Block 3 */}
-              <div className="space-y-1.5">
-                <h4 className="text-slate-800 font-bold text-sm sm:text-base leading-relaxed">
-                  Our expertise spans the complete digital transformation lifecycle.
+              {/* Block Three */}
+              <div className="space-y-8">
+                <h4 className="text-[#0F172A] font-extrabold text-lg sm:text-xl leading-snug">
+                  AI-driven operational intelligence and digital twins validation.
                 </h4>
-                <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-medium">
-                  From consulting and solution architecture to implementation, managed services, and continuous optimization, we provide end-to-end guidance.
+                <p className="text-[#64748B] text-[18px] leading-[1.8] font-medium max-w-[70ch]">
+                  Whether enabling a smart factory, implementing industrial data platforms, or modernizing software architectures, DHGsoft delivers <span className="font-bold text-slate-800">measurable business outcomes</span> that improve safety, productivity, and sustainability.
                 </p>
               </div>
             </div>
 
-            {/* Signature Statement: Bottom-left with vertical gradient line */}
-            <div className="flex gap-4 items-stretch text-left max-w-2xl mt-4 z-10">
-              <div className="w-[3px] rounded-full bg-gradient-to-b from-[#D4145A] to-[#F15A24] shrink-0" />
-              <p className="text-xs sm:text-sm text-slate-500 italic font-medium leading-relaxed">
-                &ldquo;Whether enabling a smart factory, implementing industrial data platforms, modernizing enterprise applications, or deploying AI-driven operational intelligence, DHGsoft delivers measurable business outcomes that improve productivity, reliability, safety, and sustainability.&rdquo;
+            {/* 6. Signature Statement: Bottom-left with thin vertical gradient line */}
+            <div className="flex gap-4 items-stretch text-left max-w-[480px] mt-16 pb-[100px] z-10">
+              <div className="w-[2px] bg-gradient-to-b from-[#D4145A] to-[#F15A24] shrink-0" />
+              <p className="text-xl sm:text-2xl font-extrabold text-[#0F172A] tracking-tight leading-tight uppercase font-sans">
+                Connecting Intelligence<br />
+                to Transform Industry.
               </p>
             </div>
 
