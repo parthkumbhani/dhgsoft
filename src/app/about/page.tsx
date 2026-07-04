@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import ContactModal from "@/components/ContactModal";
 
 // Modular Section Components
-import Header from "@/components/about/Header";
+import Header from "@/components/Header";
 import Hero from "@/components/about/Hero";
 import CompanyOverview from "@/components/about/CompanyOverview";
 import WhatWeDo from "@/components/about/WhatWeDo";
