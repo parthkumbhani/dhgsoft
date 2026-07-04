@@ -330,81 +330,137 @@ export default function AboutPage() {
         </section>
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 3: WHAT WE DO ━━━━━━━━━━━━━━━━━━━━━━ */}
-        {/* Horizontal Editorial Capability Ribbon with alternating image aspect ratios and subtle 2% grid background */}
-        <section id="capabilities" className="bg-[#FAFBFD] py-16 relative border-b border-slate-100 overflow-hidden flex flex-col justify-start min-h-[700px] max-h-[850px]">
+        {/* 3-Chapter Editorial Capability layout with subtle engineering contour/grid background */}
+        <section id="capabilities" className="bg-[#FAFBFD] pt-20 pb-16 relative border-b border-slate-100 overflow-hidden flex flex-col justify-start min-h-[760px] max-h-[980px]">
           
-          {/* Subtle 2% Opacity Engineering Grid Background */}
+          {/* Subtle 2% Opacity Engineering Background Atmosphere (Dot Matrix, Grid, Contour) */}
           <div className="absolute inset-0 opacity-[0.02] pointer-events-none z-0 select-none">
             <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+                <pattern id="dot-matrix" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <circle cx="2" cy="2" r="0.6" fill="#0F172A" />
+                </pattern>
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
                   <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0F172A" strokeWidth="0.5" />
                 </pattern>
               </defs>
-              <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+              <rect width="100%" height="100%" fill="url(#dot-matrix)" />
+              <rect width="100%" height="100%" fill="url(#grid)" opacity="0.5" />
+              <path d="M-50,250 C150,150 350,550 750,350 C1050,250 1150,650 1450,450" fill="none" stroke="#0F172A" strokeWidth="0.5" />
             </svg>
           </div>
 
           <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] w-full relative z-10 flex flex-col justify-start gap-8">
             
             {/* Header Block with vertical gradient accent line */}
-            <div className="flex gap-6 items-start text-left">
-              <div className="w-[3px] h-12 bg-gradient-to-b from-[#D4145A] to-[#F15A24] rounded-full shrink-0" />
-              <div className="space-y-1">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 text-left w-full">
+              <div className="space-y-3">
                 <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono block">
-                  CAPABILITIES
+                  WHAT WE DO
                 </span>
-                <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-extrabold text-[#0F172A] tracking-tight leading-tight">
-                  What We Do
+                <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0F172A] tracking-tight leading-tight">
+                  Building Connected<br />Industrial Ecosystems
                 </h2>
               </div>
+              <p className="text-slate-500 font-medium text-sm sm:text-base leading-[1.8] max-w-[540px] md:mb-1">
+                We help manufacturers, utilities, infrastructure providers, and process industries modernize operations by connecting plant-floor assets with enterprise systems and cloud technologies.
+              </p>
             </div>
 
-            {/* Horizontal Scroll Ribbon Container */}
-            <div className="flex gap-8 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-6 w-full scrollbar-none py-2 z-10">
-              {WHAT_WE_DO_LIST.map((item, idx) => (
-                <div 
-                  key={idx} 
-                  className="w-[340px] md:w-[380px] shrink-0 snap-start flex flex-col justify-between bg-white border border-slate-100 p-6 rounded-[24px] shadow-[0_4px_25px_rgba(15,23,42,0.02)] hover:border-[#D4145A] hover:shadow-[0_12px_35px_rgba(15,23,42,0.04)] transition-all duration-500 group relative"
-                >
-                  <div className="space-y-5">
-                    {/* Dynamic aspect ratio image container */}
-                    <div className={`relative w-full overflow-hidden rounded-[20px] border border-slate-200/60 shadow-[0_4px_15px_rgba(15,23,42,0.02)] ${item.aspect} bg-slate-50 group-hover:border-slate-300 transition-all duration-300`}>
-                      <Image
-                        src={item.image}
-                        alt={item.name}
-                        fill
-                        className="object-cover transition-transform duration-600 ease-out group-hover:scale-[1.02]"
-                      />
-                    </div>
-
-                    <div className="space-y-3 text-left">
-                      {/* Numeric Index */}
-                      <span className="text-[10px] font-bold text-[#D4145A] font-mono block">
-                        0{idx + 1} // CAPABILITY
-                      </span>
-
-                      {/* Title with Vertical accent line */}
-                      <div className="flex gap-3 items-start">
-                        <div className="w-[2px] h-8 bg-gradient-to-b from-[#D4145A] to-[#F15A24] rounded-full shrink-0 mt-1" />
-                        <h4 className="text-slate-800 font-extrabold text-sm sm:text-base leading-snug">
-                          {item.name}
-                        </h4>
-                      </div>
-
-                      {/* Editorial headline quote */}
-                      <p className="text-[#0F172A] font-bold text-xs sm:text-sm leading-snug">
-                        {item.headline}
-                      </p>
-
-                      {/* Supporting description */}
-                      <p className="text-slate-500 text-xs sm:text-[13px] leading-relaxed max-w-[60ch]">
-                        {item.desc}
-                      </p>
-                    </div>
+            {/* 3-Chapter Continuous Editorial Ribbon Layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full text-left pt-4 z-10">
+              
+              {/* CHAPTER ONE: CONNECT */}
+              <div className="flex flex-col justify-start pr-0 lg:pr-8 border-b lg:border-b-0 lg:border-r border-slate-100 pb-8 lg:pb-0">
+                {/* 1. Large panoramic real photograph (aspect 21:9) */}
+                <div className="relative w-full aspect-[21/9] overflow-hidden rounded-[20px] border border-slate-200/60 shadow-[0_4px_15px_rgba(15,23,42,0.02)] group mb-5">
+                  <Image
+                    src="/about_hero.png"
+                    alt="Industrial control systems command"
+                    fill
+                    className="object-cover transition-transform duration-600 ease-out group-hover:scale-[1.02]"
+                  />
+                </div>
+                {/* Title with vertical gradient bar */}
+                <div className="flex gap-3 items-start mb-3">
+                  <div className="w-[2px] h-8 bg-gradient-to-b from-[#D4145A] to-[#F15A24] rounded-full shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-[10px] font-bold text-[#D4145A] font-mono block">01 // CONNECT</span>
+                    <h4 className="text-slate-800 font-extrabold text-base tracking-tight uppercase">OPERATIONAL INFRASTRUCTURE</h4>
                   </div>
                 </div>
-              ))}
+                {/* Paragraph copy */}
+                <p className="text-[#0F172A] font-bold text-[13px] leading-snug mb-3">
+                  We establish secure, real-time data flows across industrial networks.
+                </p>
+                <p className="text-[#64748B] text-[13px] leading-[1.7] font-medium max-w-[60ch]">
+                  By integrating plant-floor assets via <span className="font-bold text-slate-800">Industrial Automation</span>, <span className="font-bold text-slate-800">OT / IT Integration</span>, and the <span className="font-bold text-slate-800">Industrial Internet of Things (IIoT)</span>, we construct the foundation for connected operations.
+                </p>
+              </div>
+
+              {/* CHAPTER TWO: INTELLIGENCE */}
+              <div className="flex flex-col justify-start pr-0 lg:pr-8 border-b lg:border-b-0 lg:border-r border-slate-100 pb-8 lg:pb-0">
+                {/* 2. Large tall portrait photograph (aspect 4:5) */}
+                <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[20px] border border-slate-200/60 shadow-[0_4px_15px_rgba(15,23,42,0.02)] group mb-5">
+                  <Image
+                    src="/about_collaboration.png"
+                    alt="Engineering collaboration session"
+                    fill
+                    className="object-cover transition-transform duration-600 ease-out group-hover:scale-[1.02]"
+                  />
+                </div>
+                {/* Title with vertical gradient bar */}
+                <div className="flex gap-3 items-start mb-3">
+                  <div className="w-[2px] h-8 bg-gradient-to-b from-[#D4145A] to-[#F15A24] rounded-full shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-[10px] font-bold text-[#D4145A] font-mono block">02 // INTELLIGENCE</span>
+                    <h4 className="text-slate-800 font-extrabold text-base tracking-tight uppercase">OPERATIONAL ANALYTICS</h4>
+                  </div>
+                </div>
+                {/* Paragraph copy */}
+                <p className="text-[#0F172A] font-bold text-[13px] leading-snug mb-3">
+                  We transform raw operational telemetry into strategic optimization value.
+                </p>
+                <p className="text-[#64748B] text-[13px] leading-[1.7] font-medium max-w-[60ch]">
+                  Through unified <span className="font-bold text-slate-800">Industrial Data Platforms</span>, advanced <span className="font-bold text-slate-800">Artificial Intelligence</span> models, and <span className="font-bold text-slate-800">Digital Engineering</span>, we predict failures and optimize manufacturing yields.
+                </p>
+              </div>
+
+              {/* CHAPTER THREE: SCALE */}
+              <div className="flex flex-col justify-start lg:pl-4">
+                {/* 3. Wide cinematic industrial photograph (aspect 16:10) */}
+                <div className="relative w-full aspect-[16/10] overflow-hidden rounded-[20px] border border-slate-200/60 shadow-[0_4px_15px_rgba(15,23,42,0.02)] group mb-5">
+                  <Image
+                    src="/smart_factory_visual.png"
+                    alt="Modern industrial manufacturing"
+                    fill
+                    className="object-cover transition-transform duration-600 ease-out group-hover:scale-[1.02]"
+                  />
+                </div>
+                {/* Title with vertical gradient bar */}
+                <div className="flex gap-3 items-start mb-3">
+                  <div className="w-[2px] h-8 bg-gradient-to-b from-[#D4145A] to-[#F15A24] rounded-full shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-[10px] font-bold text-[#D4145A] font-mono block">03 // SCALE</span>
+                    <h4 className="text-slate-800 font-extrabold text-base tracking-tight uppercase">ENTERPRISE SCALE</h4>
+                  </div>
+                </div>
+                {/* Paragraph copy */}
+                <p className="text-[#0F172A] font-bold text-[13px] leading-snug mb-3">
+                  We expand architectures securely across global enterprise operations.
+                </p>
+                <p className="text-[#64748B] text-[13px] leading-[1.7] font-medium max-w-[60ch]">
+                  Deploying <span className="font-bold text-slate-800">Enterprise Applications</span>, resilient <span className="font-bold text-slate-800">Cloud Infrastructure</span>, comprehensive <span className="font-bold text-slate-800">Cybersecurity</span>, and 24/7 <span className="font-bold text-slate-800">Managed Services</span>.
+                </p>
+                {/* Closing Statement */}
+                <div className="mt-5 p-4 rounded-xl border border-slate-100 bg-[#FAFBFD] flex gap-3 items-center">
+                  <div className="w-[2px] h-6 bg-gradient-to-b from-[#D4145A] to-[#F15A24] rounded-full shrink-0" />
+                  <span className="text-[11px] font-extrabold text-slate-700 uppercase tracking-wider font-mono">
+                    Connecting Intelligence to Transform Industry.
+                  </span>
+                </div>
+              </div>
+
             </div>
 
           </div>
