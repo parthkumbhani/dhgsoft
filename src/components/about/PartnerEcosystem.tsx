@@ -77,10 +77,10 @@ export default function PartnerEcosystem() {
 
         {/* Grayscale Partner Logo Strip */}
         <div className="pt-8 border-t border-line">
-          <div className="flex flex-wrap items-center justify-between gap-8 md:gap-12 opacity-30 hover:opacity-100 transition-opacity duration-300">
+          <div className="flex flex-wrap items-center justify-between gap-8 md:gap-12">
             
             {/* AWS */}
-            <div className="h-10 w-24 relative flex items-center justify-center grayscale select-none pointer-events-none">
+            <div className="h-10 w-24 relative flex items-center justify-center opacity-40 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer">
               <Image
                 src="/logos/aws.svg"
                 alt="AWS Logo"
@@ -91,7 +91,7 @@ export default function PartnerEcosystem() {
             </div>
 
             {/* Microsoft Azure */}
-            <div className="h-10 w-32 relative flex items-center justify-center grayscale select-none pointer-events-none">
+            <div className="h-10 w-32 relative flex items-center justify-center opacity-40 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer">
               <Image
                 src="/logos/microsoft-azure.svg"
                 alt="Microsoft Azure Logo"
@@ -102,7 +102,7 @@ export default function PartnerEcosystem() {
             </div>
 
             {/* Schneider Electric */}
-            <div className="h-10 w-36 relative flex items-center justify-center grayscale select-none pointer-events-none">
+            <div className="h-10 w-36 relative flex items-center justify-center opacity-40 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer">
               <Image
                 src="/logos/schneider-electric.svg"
                 alt="Schneider Electric Logo"
@@ -113,7 +113,7 @@ export default function PartnerEcosystem() {
             </div>
 
             {/* AVEVA */}
-            <div className="h-10 w-24 relative flex items-center justify-center grayscale select-none pointer-events-none">
+            <div className="h-10 w-24 relative flex items-center justify-center opacity-40 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer">
               <Image
                 src="/logos/aveva.svg"
                 alt="AVEVA Logo"
@@ -124,7 +124,7 @@ export default function PartnerEcosystem() {
             </div>
 
             {/* Phoenix Contact */}
-            <div className="h-10 w-32 relative flex items-center justify-center grayscale select-none pointer-events-none">
+            <div className="h-10 w-32 relative flex items-center justify-center opacity-40 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer">
               <Image
                 src="/logos/phoenix-contact.svg"
                 alt="Phoenix Contact Logo"
@@ -135,7 +135,7 @@ export default function PartnerEcosystem() {
             </div>
 
             {/* Databricks */}
-            <div className="h-10 w-24 relative flex items-center justify-center grayscale select-none pointer-events-none">
+            <div className="h-10 w-24 relative flex items-center justify-center opacity-40 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer">
               <Image
                 src="/logos/databricks.svg"
                 alt="Databricks Logo"
