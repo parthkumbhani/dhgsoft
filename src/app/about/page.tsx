@@ -21,13 +21,76 @@ import ContactModal from '@/components/ContactModal';
 // ━━━━━━━━━━━━━━━━━━━━━━ CONSTANTS & METADATA ━━━━━━━━━━━━━━━━━━━━━━
 
 const WHAT_WE_DO_LIST = [
-  { name: 'Industrial Digital Engineering', desc: 'Connecting OT assets with IT enterprise systems for seamless data pipelines.' },
-  { name: 'Industrial Automation & Control', desc: 'Designing robust PLC, SCADA, DCS architectures for complex plants.' },
-  { name: 'OT/IT Integration', desc: 'Bridging shop-floor data with cloud databases and enterprise ERP networks.' },
-  { name: 'Industrial AI & Analytics', desc: 'Deploying machine learning models for predictive maintenance and optimization.' },
-  { name: 'Cloud & Infrastructure', desc: 'Migrating industrial telemetry to secure Microsoft Azure & AWS clusters.' },
-  { name: 'Cybersecurity & Compliance', desc: 'Securing critical infrastructure using IEC 62443 and NIST standards.' },
-  { name: 'Managed Services & Support', desc: '24/7 remote monitoring, incident response, and continuous optimization.' }
+  { 
+    name: 'Industrial Digital Engineering', 
+    headline: 'Designing future-ready digital foundations for enterprise operations.',
+    desc: 'We establish digital threads across your manufacturing landscape, connecting operational workflows and assets to unified software architectures.',
+    image: '/smart_factory_visual.png',
+    aspect: 'aspect-[16/9]' 
+  },
+  { 
+    name: 'Industrial Automation & Control', 
+    headline: 'Connecting intelligent control systems with modern manufacturing.',
+    desc: 'We design robust PLC, SCADA, and DCS system architectures that deliver precise execution, process safety, and high operational reliability.',
+    image: '/about_collaboration.png',
+    aspect: 'aspect-[3/4]' 
+  },
+  { 
+    name: 'OT / IT Integration', 
+    headline: 'Bridging plant-floor operations with enterprise technology.',
+    desc: 'We construct secure data paths that bridge shop-floor hardware directly into corporate databases, enterprise ERP systems, and cloud nodes.',
+    image: '/about_global.png',
+    aspect: 'aspect-[21/9]' 
+  },
+  { 
+    name: 'Industrial Data Platforms', 
+    headline: 'Transforming industrial information into real-time intelligence.',
+    desc: 'We implement enterprise data systems and process historians that aggregate, normalize, and secure high-frequency time-series data.',
+    image: '/about_values.png',
+    aspect: 'aspect-[1/1]' 
+  },
+  { 
+    name: 'Artificial Intelligence & Analytics', 
+    headline: 'Deploying machine learning models for predictive industrial optimization.',
+    desc: 'We build AI systems that analyze live sensor telemetry to predict machinery failures, optimize energy consumption, and improve yield quality.',
+    image: '/about_hero.png',
+    aspect: 'aspect-[4/3]' 
+  },
+  { 
+    name: 'Industrial Internet of Things (IIoT)', 
+    headline: 'Orchestrating smart sensor networks across distributed assets.',
+    desc: 'We deploy secure edge computing systems and smart devices that collect telemetry from remote assets, enabling edge analytics and automation.',
+    image: '/smart_factory_visual.png',
+    aspect: 'aspect-[16/10]' 
+  },
+  { 
+    name: 'Cloud Infrastructure', 
+    headline: 'Migrating mission-critical workloads to secure cloud clusters.',
+    desc: 'We design hybrid cloud environments on Microsoft Azure and AWS, configured for high availability, process safety, and industrial-scale throughput.',
+    image: '/about_collaboration.png',
+    aspect: 'aspect-[3/4]' 
+  },
+  { 
+    name: 'Cybersecurity & Compliance', 
+    headline: 'Securing critical infrastructure assets against modern threats.',
+    desc: 'We protect industrial environments using IEC 62443, NIST, and ISO standards, implementing network segmentation, firewalls, and active threat monitoring.',
+    image: '/about_global.png',
+    aspect: 'aspect-[21/9]' 
+  },
+  { 
+    name: 'Enterprise Applications', 
+    headline: 'Modernizing manufacturing software systems for global scale.',
+    desc: 'We implement and customize MES, OEE analytics, and asset management systems that integrate manufacturing execution with enterprise software suites.',
+    image: '/about_values.png',
+    aspect: 'aspect-[1/1]' 
+  },
+  { 
+    name: 'Managed Services & Support', 
+    headline: 'Providing continuous operational reliability and remote systems optimization.',
+    desc: 'We monitor telemetry channels, SCADA servers, and cloud interfaces 24/7/365 to deliver proactive incident response and system maintenance.',
+    image: '/about_hero.png',
+    aspect: 'aspect-[4/3]' 
+  }
 ];
 
 const INDUSTRIES_MAPPING = [
@@ -267,57 +330,81 @@ export default function AboutPage() {
         </section>
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 3: WHAT WE DO ━━━━━━━━━━━━━━━━━━━━━━ */}
-        {/* Asymmetric layout: Tall portrait block (no text overlay, fully clear photo) next to capabilities list */}
-        <section className="bg-white py-24 md:py-32 border-b border-slate-100">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24">
+        {/* Horizontal Editorial Capability Ribbon with alternating image aspect ratios and subtle 2% grid background */}
+        <section id="capabilities" className="bg-[#FAFBFD] py-16 relative border-b border-slate-100 overflow-hidden flex flex-col justify-start min-h-[700px] max-h-[850px]">
+          
+          {/* Subtle 2% Opacity Engineering Grid Background */}
+          <div className="absolute inset-0 opacity-[0.02] pointer-events-none z-0 select-none">
+            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0F172A" strokeWidth="0.5" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+            </svg>
+          </div>
+
+          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] w-full relative z-10 flex flex-col justify-start gap-8">
             
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-              
-              {/* Left Column: Portrait photograph (No overlay text, fully clear) */}
-              <div className="lg:col-span-5 relative group">
-                <div className="absolute -bottom-6 -right-6 w-full h-full border border-slate-100 rounded-[28px] pointer-events-none z-0" />
-                <div className="relative w-full aspect-[3/4] rounded-[24px] overflow-hidden border border-slate-200 p-1 bg-white shadow-[0_20px_50px_rgba(15,23,42,0.05)] z-10">
-                  <div className="relative w-full h-full rounded-[20px] overflow-hidden">
-                    <Image
-                      src="/about_engineering.png"
-                      alt="DHGsoft digital telemetry systems command"
-                      fill
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-102"
-                    />
-                  </div>
-                </div>
+            {/* Header Block with vertical gradient accent line */}
+            <div className="flex gap-6 items-start text-left">
+              <div className="w-[3px] h-12 bg-gradient-to-b from-[#D4145A] to-[#F15A24] rounded-full shrink-0" />
+              <div className="space-y-1">
+                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono block">
+                  CAPABILITIES
+                </span>
+                <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-extrabold text-[#0F172A] tracking-tight leading-tight">
+                  What We Do
+                </h2>
               </div>
+            </div>
 
-              {/* Right Column: Capabilities Stack & Highlighted Quote */}
-              <div className="lg:col-span-7 text-left space-y-10 lg:pl-6">
-                <div className="space-y-4">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono block">
-                    Services Capabilities
-                  </span>
-                  <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight leading-tight">
-                    What We Do
-                  </h2>
-                  <div className="flex gap-3 items-start border-l-2 border-[#F15A24] pl-4 py-1">
-                    <Quote className="w-5 h-5 fill-current text-[#F15A24] opacity-80 shrink-0 mt-0.5" />
-                    <p className="text-sm sm:text-base font-bold text-slate-700 leading-relaxed font-sans">
-                      We design, build, integrate, and manage intelligent industrial ecosystems.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-                  {WHAT_WE_DO_LIST.map((item, idx) => (
-                    <div key={idx} className="flex gap-4 border-t border-slate-100 pt-4 text-left group hover:border-[#D4145A] transition-all duration-300">
-                      <span className="text-[10px] font-bold text-[#D4145A] font-mono mt-0.5">0{idx + 1}</span>
-                      <div>
-                        <h4 className="font-extrabold text-[#0F172A] text-sm sm:text-[15px] group-hover:text-[#D4145A] transition-colors">{item.name}</h4>
-                        <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">{item.desc}</p>
-                      </div>
+            {/* Horizontal Scroll Ribbon Container */}
+            <div className="flex gap-8 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-6 w-full scrollbar-none py-2 z-10">
+              {WHAT_WE_DO_LIST.map((item, idx) => (
+                <div 
+                  key={idx} 
+                  className="w-[340px] md:w-[380px] shrink-0 snap-start flex flex-col justify-between bg-white border border-slate-100 p-6 rounded-[24px] shadow-[0_4px_25px_rgba(15,23,42,0.02)] hover:border-[#D4145A] hover:shadow-[0_12px_35px_rgba(15,23,42,0.04)] transition-all duration-500 group relative"
+                >
+                  <div className="space-y-5">
+                    {/* Dynamic aspect ratio image container */}
+                    <div className={`relative w-full overflow-hidden rounded-[20px] border border-slate-200/60 shadow-[0_4px_15px_rgba(15,23,42,0.02)] ${item.aspect} bg-slate-50 group-hover:border-slate-300 transition-all duration-300`}>
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        fill
+                        className="object-cover transition-transform duration-600 ease-out group-hover:scale-[1.02]"
+                      />
                     </div>
-                  ))}
-                </div>
-              </div>
 
+                    <div className="space-y-3 text-left">
+                      {/* Numeric Index */}
+                      <span className="text-[10px] font-bold text-[#D4145A] font-mono block">
+                        0{idx + 1} // CAPABILITY
+                      </span>
+
+                      {/* Title with Vertical accent line */}
+                      <div className="flex gap-3 items-start">
+                        <div className="w-[2px] h-8 bg-gradient-to-b from-[#D4145A] to-[#F15A24] rounded-full shrink-0 mt-1" />
+                        <h4 className="text-slate-800 font-extrabold text-sm sm:text-base leading-snug">
+                          {item.name}
+                        </h4>
+                      </div>
+
+                      {/* Editorial headline quote */}
+                      <p className="text-[#0F172A] font-bold text-xs sm:text-sm leading-snug">
+                        {item.headline}
+                      </p>
+
+                      {/* Supporting description */}
+                      <p className="text-slate-500 text-xs sm:text-[13px] leading-relaxed max-w-[60ch]">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
 
           </div>
