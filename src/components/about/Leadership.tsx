@@ -8,7 +8,7 @@ import { Quote } from "lucide-react";
 
 export default function Leadership() {
   return (
-    <section id="leadership" className="bg-white py-16 md:py-20 border-b border-line overflow-hidden">
+    <section id="leadership" className="bg-white py-16 md:py-20 border-b border-line overflow-hidden relative bg-dot-matrix bg-tech-grid">
       <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           

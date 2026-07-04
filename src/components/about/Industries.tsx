@@ -24,7 +24,7 @@ const sectors = [
 
 export default function Industries() {
   return (
-    <section id="industries" className="bg-white py-16 md:py-20 border-b border-line">
+    <section id="industries" className="bg-mesh-glow-light py-16 md:py-20 border-b border-line relative bg-tech-grid">
       <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
         
         {/* Header Block */}

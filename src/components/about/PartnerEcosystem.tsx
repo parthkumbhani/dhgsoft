@@ -77,36 +77,72 @@ export default function PartnerEcosystem() {
 
         {/* Grayscale Partner Logo Strip */}
         <div className="pt-8 border-t border-line">
-          <div className="flex flex-wrap items-center justify-between gap-8 md:gap-12 opacity-40 hover:opacity-75 transition-opacity duration-300">
+          <div className="flex flex-wrap items-center justify-between gap-8 md:gap-12 opacity-30 hover:opacity-100 transition-opacity duration-300">
             
             {/* AWS */}
-            <div className="h-10 w-24 relative flex items-center justify-center grayscale">
-              <span className="font-bold text-slate-800 tracking-tighter text-sm uppercase">AWS</span>
+            <div className="h-10 w-24 relative flex items-center justify-center grayscale select-none pointer-events-none">
+              <Image
+                src="/logos/aws.svg"
+                alt="AWS Logo"
+                width={80}
+                height={32}
+                className="object-contain"
+              />
             </div>
 
             {/* Microsoft Azure */}
-            <div className="h-10 w-32 relative flex items-center justify-center grayscale">
-              <span className="font-bold text-slate-850 tracking-tighter text-sm uppercase">Microsoft Azure</span>
+            <div className="h-10 w-32 relative flex items-center justify-center grayscale select-none pointer-events-none">
+              <Image
+                src="/logos/microsoft-azure.svg"
+                alt="Microsoft Azure Logo"
+                width={120}
+                height={32}
+                className="object-contain"
+              />
             </div>
 
             {/* Schneider Electric */}
-            <div className="h-10 w-36 relative flex items-center justify-center grayscale">
-              <span className="font-bold text-slate-850 tracking-tight text-sm uppercase">Schneider Electric</span>
+            <div className="h-10 w-36 relative flex items-center justify-center grayscale select-none pointer-events-none">
+              <Image
+                src="/logos/schneider-electric.svg"
+                alt="Schneider Electric Logo"
+                width={130}
+                height={32}
+                className="object-contain"
+              />
             </div>
 
             {/* AVEVA */}
-            <div className="h-10 w-24 relative flex items-center justify-center grayscale">
-              <span className="font-bold text-slate-800 tracking-widest text-sm uppercase">AVEVA</span>
+            <div className="h-10 w-24 relative flex items-center justify-center grayscale select-none pointer-events-none">
+              <Image
+                src="/logos/aveva.svg"
+                alt="AVEVA Logo"
+                width={90}
+                height={32}
+                className="object-contain"
+              />
             </div>
 
             {/* Phoenix Contact */}
-            <div className="h-10 w-32 relative flex items-center justify-center grayscale">
-              <span className="font-bold text-slate-800 tracking-tight text-sm uppercase">Phoenix Contact</span>
+            <div className="h-10 w-32 relative flex items-center justify-center grayscale select-none pointer-events-none">
+              <Image
+                src="/logos/phoenix-contact.svg"
+                alt="Phoenix Contact Logo"
+                width={110}
+                height={32}
+                className="object-contain"
+              />
             </div>
 
             {/* Databricks */}
-            <div className="h-10 w-24 relative flex items-center justify-center grayscale">
-              <span className="font-bold text-slate-800 tracking-tight text-sm uppercase font-mono">Databricks</span>
+            <div className="h-10 w-24 relative flex items-center justify-center grayscale select-none pointer-events-none">
+              <Image
+                src="/logos/databricks.svg"
+                alt="Databricks Logo"
+                width={90}
+                height={32}
+                className="object-contain"
+              />
             </div>
 
           </div>

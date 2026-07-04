@@ -42,7 +42,7 @@ const items = [
 
 export default function CorporateResponsibility() {
   return (
-    <section className="bg-white border-b border-line overflow-hidden">
+    <section className="bg-white border-b border-line overflow-hidden relative bg-tech-grid bg-dot-matrix">
       
       {/* Full-bleed Image Header Band with Overlay */}
       <div className="relative w-full h-[250px] md:h-[320px] flex items-center justify-center">

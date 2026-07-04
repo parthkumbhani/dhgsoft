@@ -23,7 +23,7 @@ const locationsItems = [
 
 export default function GlobalPresence() {
   return (
-    <section className="bg-white py-16 md:py-20 border-b border-line overflow-hidden">
+    <section className="bg-white py-16 md:py-20 border-b border-line overflow-hidden relative bg-tech-grid bg-dot-matrix">
       <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
         {/* Left Column: Heading & Lists */}

@@ -31,7 +31,7 @@ const items = [
 
 export default function Differentiators() {
   return (
-    <section className="bg-white py-16 md:py-20 border-b border-line">
+    <section className="bg-mesh-glow-light py-16 md:py-20 border-b border-line relative bg-tech-grid">
       <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
         
         {/* Header Block */}
