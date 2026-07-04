@@ -132,57 +132,125 @@ export default function AboutPage() {
         </section>
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 2: COMPANY OVERVIEW ━━━━━━━━━━━━━━━━━━━━━━ */}
-        {/* Editorial spread: Flat white bg, clear wide photo (no dark gradient masks), side-by-side text */}
-        <section id="company-overview" className="bg-white py-24 md:py-32 relative border-b border-slate-100">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24 relative z-10 flex flex-col gap-16">
+        {/* ━━━━━━━━━━━━━━━━━━━━━━ SECTION 2: COMPANY OVERVIEW ━━━━━━━━━━━━━━━━━━━━━━ */}
+        {/* Editorial Filmstrip spread layout with subtle engineering contour/grid background */}
+        <section id="company-overview" className="bg-white py-24 md:py-28 relative border-b border-slate-100 overflow-hidden min-h-[780px] max-h-[850px] flex items-center">
+          
+          {/* Subtle Background System (Contour Top-Left, Grid Bottom-Right at 2% opacity) */}
+          <div className="absolute top-0 left-0 w-[450px] h-[450px] opacity-[0.02] pointer-events-none z-0 select-none">
+            <svg className="w-full h-full" viewBox="0 0 100 100" fill="none">
+              <path d="M-10,25 C15,15 35,55 75,35 C105,25 115,65 145,45" stroke="url(#brand-grad-bg)" strokeWidth="0.4" />
+              <path d="M-10,45 C25,25 45,75 85,55 C115,35 125,85 155,65" stroke="url(#brand-grad-bg)" strokeWidth="0.4" />
+              <path d="M-10,65 C35,35 55,95 95,75 C125,45 135,105 165,85" stroke="url(#brand-grad-bg)" strokeWidth="0.4" />
+              <defs>
+                <linearGradient id="brand-grad-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#D4145A" />
+                  <stop offset="100%" stopColor="#F15A24" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <div className="absolute bottom-0 right-0 w-[450px] h-[450px] opacity-[0.02] pointer-events-none z-0 select-none">
+            <svg className="w-full h-full" viewBox="0 0 100 100" fill="none">
+              <path d="M 0 10 L 100 10 M 0 20 L 100 20 M 0 30 L 100 30 M 0 40 L 100 40 M 0 50 L 100 50 M 0 60 L 100 60 M 0 70 L 100 70 M 0 80 L 100 80 M 0 90 L 100 90" stroke="url(#brand-grad-bg)" strokeWidth="0.25" />
+              <path d="M 10 0 L 10 100 M 20 0 L 20 100 M 30 0 L 30 100 M 40 0 L 40 100 M 50 0 L 50 100 M 60 0 L 60 100 M 70 0 L 70 100 M 80 0 L 80 100 M 90 0 L 90 100" stroke="url(#brand-grad-bg)" strokeWidth="0.25" />
+            </svg>
+          </div>
+
+          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24 w-full relative z-10 flex flex-col gap-12">
             
-            {/* Centered Eyebrow & Bold Heading */}
-            <div className="text-left max-w-2xl">
-              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono mb-3 block">
-                ABOUT DHGSOFT
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#0F172A] tracking-tight leading-[1.12]">
-                Engineering Intelligence. Industrial Excellence.
-              </h2>
-            </div>
-
-            {/* Cinematic Wide Photograph (Fully clear, bright visual frame) */}
-            <div className="relative w-full aspect-[21/9] rounded-[24px] overflow-hidden border border-slate-200 p-1 bg-white shadow-[0_12px_25px_rgba(15,23,42,0.04)] group">
-              <div className="relative w-full h-full rounded-[20px] overflow-hidden">
-                <Image
-                  src="/smart_factory_visual.png"
-                  alt="DHGsoft Smart Manufacturing Operations"
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-102"
-                />
+            {/* Top Area: Left-aligned Eyebrow + Title beside custom 80px Vertical Gradient Line */}
+            <div className="flex gap-6 items-start text-left">
+              <div className="w-[2px] h-20 bg-gradient-to-b from-[#D4145A] to-[#F15A24] rounded-full shrink-0" />
+              <div className="space-y-2">
+                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4145A] font-mono block">
+                  ABOUT DHGSOFT
+                </span>
+                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#0F172A] tracking-tight leading-[1.12]">
+                  Engineering Intelligence. Industrial Excellence.
+                </h2>
               </div>
             </div>
 
-            {/* Asymmetrical Text Spread */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+            {/* Editorial Filmstrip: 3 images (Landscape 40% / Portrait 20% / Landscape 40%) equal height */}
+            <div className="grid grid-cols-12 gap-6 w-full h-[280px]">
+              {/* Image One: Landscape */}
+              <div className="col-span-5 relative overflow-hidden rounded-[24px] border border-slate-200/80 p-0.5 bg-white shadow-xs group">
+                <div className="relative w-full h-full rounded-[22px] overflow-hidden">
+                  <Image
+                    src="/smart_factory_visual.png"
+                    alt="Modern Industrial Manufacturing"
+                    fill
+                    className="object-cover transition-transform duration-600 ease-out group-hover:scale-[1.02]"
+                  />
+                </div>
+              </div>
+              {/* Image Two: Portrait */}
+              <div className="col-span-2 relative overflow-hidden rounded-[24px] border border-slate-200/80 p-0.5 bg-white shadow-xs group">
+                <div className="relative w-full h-full rounded-[22px] overflow-hidden">
+                  <Image
+                    src="/about_collaboration.png"
+                    alt="Engineering Team Discussion"
+                    fill
+                    className="object-cover transition-transform duration-600 ease-out group-hover:scale-[1.02]"
+                  />
+                </div>
+              </div>
+              {/* Image Three: Landscape */}
+              <div className="col-span-5 relative overflow-hidden rounded-[24px] border border-slate-200/80 p-0.5 bg-white shadow-xs group">
+                <div className="relative w-full h-full rounded-[22px] overflow-hidden">
+                  <Image
+                    src="/about_hero.png"
+                    alt="Industrial Control Room Operations"
+                    fill
+                    className="object-cover transition-transform duration-600 ease-out group-hover:scale-[1.02]"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Content Area: 3 Story Blocks (Spanning 60% of width) with thin E8EDF2 horizontal lines */}
+            <div className="w-full lg:w-[60%] space-y-6 text-left">
+              {/* Block 1 */}
+              <div className="space-y-1.5">
+                <h4 className="text-slate-800 font-bold text-sm sm:text-base leading-relaxed">
+                  Founded with a vision to accelerate industrial innovation, DHGsoft delivers end-to-end digital engineering and automation.
+                </h4>
+                <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-medium">
+                  We specialize in digital engineering, industrial automation, OT/IT integration, AI, cloud, cybersecurity, and operational intelligence solutions.
+                </p>
+              </div>
               
-              {/* Bold Statement (Left) */}
-              <div className="lg:col-span-5 text-left border-l-2 border-[#D4145A] pl-8">
-                <p className="text-slate-800 font-bold text-lg sm:text-xl leading-relaxed">
-                  Founded with a vision to accelerate industrial innovation, DHGsoft delivers end-to-end digital engineering, industrial automation, OT/IT integration, AI, cloud, cybersecurity, and operational intelligence solutions.
+              <div className="border-t border-[#E8EDF2]/40" />
+
+              {/* Block 2 */}
+              <div className="space-y-1.5">
+                <h4 className="text-slate-800 font-bold text-sm sm:text-base leading-relaxed">
+                  We help manufacturers, utilities, infrastructure providers, and process industries modernize operations.
+                </h4>
+                <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-medium">
+                  By connecting plant-floor assets with enterprise systems and cloud technologies, we construct highly secure, robust data paths.
                 </p>
               </div>
 
-              {/* Two reading columns (Right) */}
-              <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8 text-left text-slate-500 font-medium text-sm sm:text-base leading-relaxed">
-                <p>
-                  We help manufacturers, utilities, infrastructure providers, and process industries modernize operations by connecting plant-floor assets with enterprise systems and cloud technologies.
-                </p>
-                <p>
-                  Our expertise spans the complete digital transformation lifecycle—from consulting and solution architecture to implementation, managed services, and continuous optimization.
+              <div className="border-t border-[#E8EDF2]/40" />
+
+              {/* Block 3 */}
+              <div className="space-y-1.5">
+                <h4 className="text-slate-800 font-bold text-sm sm:text-base leading-relaxed">
+                  Our expertise spans the complete digital transformation lifecycle.
+                </h4>
+                <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-medium">
+                  From consulting and solution architecture to implementation, managed services, and continuous optimization, we provide end-to-end guidance.
                 </p>
               </div>
-
             </div>
 
-            {/* Centered closing statement quote block */}
-            <div className="w-full text-left pt-10 border-t border-slate-100 mt-4">
-              <p className="text-slate-500 text-xs sm:text-sm font-normal max-w-4xl italic leading-relaxed">
+            {/* Signature Statement: Bottom-left with vertical gradient line */}
+            <div className="flex gap-4 items-stretch text-left max-w-2xl mt-4 z-10">
+              <div className="w-[3px] rounded-full bg-gradient-to-b from-[#D4145A] to-[#F15A24] shrink-0" />
+              <p className="text-xs sm:text-sm text-slate-500 italic font-medium leading-relaxed">
                 &ldquo;Whether enabling a smart factory, implementing industrial data platforms, modernizing enterprise applications, or deploying AI-driven operational intelligence, DHGsoft delivers measurable business outcomes that improve productivity, reliability, safety, and sustainability.&rdquo;
               </p>
             </div>
