@@ -76,11 +76,11 @@ const ABOUT_MENU = [
   { name: "Leadership Team", desc: "Meet our systems architects and executives.", href: "/about/leadership" },
   { name: "Why DHGsoft", desc: "Zero-downtime integration & client SLAs.", href: "/about/why-dhgsoft" },
   { name: "Partners Ecosystem", desc: "Collaborating with global solutions vendors.", href: "/about/partners" },
-  { name: "Technology Partners", desc: "Cloud, hardware, and SCADA alliances.", href: "/about/partners" },
-  { name: "Sustainability & ESG", desc: "Clean operations and green computing.", href: "/about#responsibility" },
-  { name: "Ethics & Compliance", desc: "Zero-trust standards & regulatory compliance.", href: "/about#responsibility" },
-  { name: "Recognition", desc: "Industry awards and engineering certs.", href: "/about#recognition" },
-  { name: "Locations", desc: "Global offices, command centers, and hubs.", href: "/about#global" }
+  { name: "Technology Partners", desc: "Cloud, hardware, and SCADA alliances.", href: "/about/technology-partners" },
+  { name: "Sustainability & ESG", desc: "Clean operations and green computing.", href: "/about/sustainability-esg" },
+  { name: "Ethics & Compliance", desc: "Zero-trust standards & regulatory compliance.", href: "/about/ethics-compliance" },
+  { name: "Recognition", desc: "Industry awards and engineering certs.", href: "/about/recognition" },
+  { name: "Locations", desc: "Global offices, command centers, and hubs.", href: "/about/locations" }
 ]
 
 const CAREERS_MENU = [
