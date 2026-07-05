@@ -71,12 +71,12 @@ const INDUSTRIES = [
 ]
 
 const ABOUT_MENU = [
-  { name: "Overview", desc: "Our history, engineering focus, and corporate stats.", href: "/about#overview" },
-  { name: "Vision, Mission & Values", desc: "OT/IT bridge philosophy and core values.", href: "/about#vision" },
-  { name: "Leadership Team", desc: "Meet our systems architects and executives.", href: "/about#leadership" },
-  { name: "Why DHGsoft", desc: "Zero-downtime integration & client SLAs.", href: "/about#why-dhgsoft" },
-  { name: "Partners Ecosystem", desc: "Collaborating with global solutions vendors.", href: "/about#partners" },
-  { name: "Technology Partners", desc: "Cloud, hardware, and SCADA alliances.", href: "/about#partners" },
+  { name: "Overview", desc: "Our history, engineering focus, and corporate stats.", href: "/about/overview" },
+  { name: "Vision, Mission & Values", desc: "OT/IT bridge philosophy and core values.", href: "/about/vision-mission-values" },
+  { name: "Leadership Team", desc: "Meet our systems architects and executives.", href: "/about/leadership" },
+  { name: "Why DHGsoft", desc: "Zero-downtime integration & client SLAs.", href: "/about/why-dhgsoft" },
+  { name: "Partners Ecosystem", desc: "Collaborating with global solutions vendors.", href: "/about/partners" },
+  { name: "Technology Partners", desc: "Cloud, hardware, and SCADA alliances.", href: "/about/partners" },
   { name: "Sustainability & ESG", desc: "Clean operations and green computing.", href: "/about#responsibility" },
   { name: "Ethics & Compliance", desc: "Zero-trust standards & regulatory compliance.", href: "/about#responsibility" },
   { name: "Recognition", desc: "Industry awards and engineering certs.", href: "/about#recognition" },
