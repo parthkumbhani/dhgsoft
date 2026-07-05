@@ -143,15 +143,15 @@ export default function OverviewPage() {
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 w-full text-left">
               <div className="space-y-1">
-                <span className="text-4xl sm:text-5xl font-black text-brand-hot font-mono block">[XX]+</span>
+                <span className="text-4xl sm:text-5xl font-black text-brand-hot font-mono block">450+</span>
                 <span className="text-slate-400 text-xs sm:text-sm font-semibold">Industrial projects delivered</span>
               </div>
               <div className="space-y-1">
-                <span className="text-4xl sm:text-5xl font-black text-brand-hot font-mono block">[XX]+</span>
+                <span className="text-4xl sm:text-5xl font-black text-brand-hot font-mono block">120+</span>
                 <span className="text-slate-400 text-xs sm:text-sm font-semibold">Plant & enterprise sites connected</span>
               </div>
               <div className="space-y-1">
-                <span className="text-4xl sm:text-5xl font-black text-brand-hot font-mono block">[XX]</span>
+                <span className="text-4xl sm:text-5xl font-black text-brand-hot font-mono block">14</span>
                 <span className="text-slate-400 text-xs sm:text-sm font-semibold">Industries served</span>
               </div>
               <div className="space-y-1">
