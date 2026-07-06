@@ -1,5 +1,6 @@
 // src/components/industries/IndustryTemplate.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
@@ -131,7 +132,7 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
       <main className="relative pt-20">
         
         {/* 1) Cinematic Photo Hero */}
-        <section className="relative bg-ink overflow-hidden min-h-[640px] flex items-center border-b border-slate-900">
+        <Section variant="ink" containerSize="wide" className="relative overflow-hidden min-h-[640px] flex items-center border-b border-slate-900">
           <div className="absolute inset-0 z-0">
             <Image
               src={data.image.src}
@@ -148,7 +149,7 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
           {/* Interactive Digital Intelligence Overlay */}
           <DigitalOverlay nodes={data.hudNodes} />
           
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] w-full py-20 relative z-30">
+          <div className="w-full py-20 relative z-30">
             {/* Breadcrumbs */}
             <div className="flex items-center gap-1.5 text-slate-400 text-xs font-semibold tracking-wide mb-6">
               <Link href="/industries" className="hover:text-white transition-colors">
@@ -184,14 +185,14 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
               </div>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* Sticky Industry Switcher directly below Hero */}
         <IndustrySwitcher industries={allIndustries} activeSlug={data.slug} />
 
         {/* 2) The Landscape - Split Section */}
-        <section className="bg-white py-24 border-b border-line relative overflow-hidden">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative overflow-hidden">
+          <div className="w-full relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               
               {/* Text Side */}
@@ -222,11 +223,11 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
 
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 3) Challenges → How We Help - Unified Visual Block */}
-        <section className="bg-[#F4F5F7] py-24 border-b border-line relative overflow-hidden">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="mist" containerSize="wide" className=" border-b border-line relative overflow-hidden">
+          <div className="w-full relative z-10 space-y-12">
             <div className="text-left max-w-xl space-y-2">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
                 OPERATIONAL DIAGNOSTIC
@@ -311,7 +312,7 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
 
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 4) In Focus - Image Mosaic Gallery */}
         <Gallery images={data.gallery} />
@@ -324,8 +325,8 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
         />
 
         {/* 6) Business Outcomes - Airy Stat/Outcome cards with count-up animation */}
-        <section className="bg-white py-24 border-b border-line relative overflow-hidden">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative overflow-hidden">
+          <div className="w-full relative z-10 space-y-12">
             <div className="text-left max-w-xl space-y-4">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
                 BUSINESS OUTCOMES
@@ -353,11 +354,11 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
               ))}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 7) Relevant Capabilities + Related Industries */}
-        <section className="bg-[#F4F5F7] py-24 border-b border-line relative overflow-hidden">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-16">
+        <Section variant="mist" containerSize="wide" className=" border-b border-line relative overflow-hidden">
+          <div className="w-full relative z-10 space-y-16">
             
             {/* Capabilities Row */}
             <div className="space-y-8">
@@ -447,13 +448,13 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
             </div>
 
           </div>
-        </section>
+        </Section>
 
         {/* 8) CTA Band (Crimson Gradient) */}
-        <section className="relative overflow-hidden bg-gradient-to-r from-[#E11D5C] via-[#B4123F] to-[#A10E38] py-24 text-center">
+        <Section variant="gradient" containerSize="wide" className="relative overflow-hidden bg-gradient-to-r from-[#E11D5C] via-[#B4123F] to-[#A10E38] text-center">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
           <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-6">
+          <div className="w-full relative z-10 space-y-6">
             <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/95 font-mono block">
               TRANSFORM OPERATIONS
             </span>
@@ -469,7 +470,7 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
               </button>
             </div>
           </div>
-        </section>
+        </Section>
 
       </main>
 

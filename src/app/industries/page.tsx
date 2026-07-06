@@ -1,5 +1,6 @@
 // src/app/industries/page.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -22,11 +23,11 @@ export default function ExploreIndustriesPage() {
       <main className="relative pt-20">
         
         {/* Hero Section with Grid/Gradient Pattern */}
-        <section className="relative bg-ink overflow-hidden py-20 border-b border-slate-900">
+        <Section variant="ink" containerSize="wide" className="relative overflow-hidden border-b border-slate-900">
           <div className="absolute inset-0 bg-tech-grid opacity-25 pointer-events-none" />
           <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-brand/10 blur-[130px] pointer-events-none" />
           
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 text-left space-y-6">
+          <div className="w-full relative z-10 text-left space-y-6">
             <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-brand-hot font-mono block">
               INDUSTRIES
             </span>
@@ -37,11 +38,11 @@ export default function ExploreIndustriesPage() {
               Delivering custom software architectures, OT/IT bridges, and secure platforms for critical global sectors.
             </p>
           </div>
-        </section>
+        </Section>
 
         {/* 14 Industry Cards Grid */}
-        <section className="bg-mist py-16 md:py-24 relative bg-dot-matrix">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="mist" containerSize="wide" className=" relative bg-dot-matrix">
+          <div className="w-full relative z-10 space-y-12">
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {industries.map((ind) => (
@@ -89,12 +90,12 @@ export default function ExploreIndustriesPage() {
             </div>
 
           </div>
-        </section>
+        </Section>
 
         {/* CTA Band */}
-        <section className="relative overflow-hidden bg-gradient-to-r from-brand-hot via-brand to-brand-deep py-20 text-center">
+        <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-6">
+          <div className="w-full relative z-10 space-y-6">
             <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
               LET&apos;S BUILD
             </span>
@@ -110,7 +111,7 @@ export default function ExploreIndustriesPage() {
               </button>
             </div>
           </div>
-        </section>
+        </Section>
 
       </main>
 

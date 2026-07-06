@@ -1,5 +1,6 @@
 // src/components/careers/PhotoMosaic.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React from "react";
 import Image from "next/image";
@@ -9,8 +10,8 @@ export default function PhotoMosaic() {
   const images = careersImages.mosaic;
 
   return (
-    <section className="bg-white py-16 md:py-24 border-b border-line relative overflow-hidden bg-tech-grid select-none">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+    <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative overflow-hidden bg-tech-grid select-none">
+      <div className="w-full relative z-10 space-y-12">
         <div className="text-left max-w-xl space-y-3">
           <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
             LIFE IN PICTURES
@@ -106,6 +107,6 @@ export default function PhotoMosaic() {
         </div>
 
       </div>
-    </section>
+    </Section>
   );
 }

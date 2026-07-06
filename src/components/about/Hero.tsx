@@ -1,5 +1,6 @@
 // src/components/about/Hero.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React from "react";
 import Image from "next/image";
@@ -8,7 +9,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[550px] md:min-h-[650px] flex items-center overflow-hidden bg-ink pt-20">
+    <Section variant="ink" containerSize="wide" className="relative min-h-[550px] md:min-h-[650px] flex items-center overflow-hidden ">
       {/* Background Image with Dark Gradient Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -21,7 +22,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-transparent" />
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] w-full relative z-10 py-16 md:py-24">
+      <div className="w-full relative z-10 py-16 md:py-24">
         <div className="max-w-3xl text-left flex gap-6">
           {/* Crimson Vertical Accent Line */}
           <div className="w-[4px] md:w-[6px] bg-brand rounded-full self-stretch shrink-0" />
@@ -56,6 +57,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

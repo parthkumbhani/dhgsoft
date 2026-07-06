@@ -1,3 +1,4 @@
+import { Section } from "@/components/ui/Section";
 import React from "react";
 
 export default function IndustryLoading() {
@@ -7,11 +8,11 @@ export default function IndustryLoading() {
       <div className="h-20 bg-ink border-b border-slate-900 w-full shrink-0" />
 
       {/* Hero Skeleton */}
-      <section className="bg-ink min-h-[640px] flex items-center relative overflow-hidden w-full">
+      <Section variant="ink" containerSize="wide" className=" min-h-[640px] flex items-center relative overflow-hidden w-full">
         {/* Subtle grid pattern overlay */}
         <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
         
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] w-full py-20 relative z-10 text-left space-y-6">
+        <div className="w-full py-20 relative z-10 text-left space-y-6">
           {/* Breadcrumb line skeleton */}
           <div className="h-4 w-40 bg-slate-800 rounded-md animate-pulse" />
           
@@ -30,11 +31,11 @@ export default function IndustryLoading() {
             <div className="h-14 w-44 bg-slate-800 rounded-xl animate-pulse" />
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* Switcher Skeleton */}
       <div className="w-full bg-ink/95 border-y border-slate-900 py-3 shrink-0">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+        <div className="w-full relative z-10">
           <div className="flex items-center gap-3 overflow-hidden py-1">
             {Array.from({ length: 8 }).map((_, i) => (
               <div
@@ -47,7 +48,7 @@ export default function IndustryLoading() {
       </div>
 
       {/* Body content skeleton */}
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] w-full py-24 space-y-16 flex-grow">
+      <div className="relative z-10 w-full py-24 space-y-16 flex-grow">
         {/* The Landscape skeleton */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 space-y-6">

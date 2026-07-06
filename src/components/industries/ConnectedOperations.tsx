@@ -1,5 +1,6 @@
 // src/components/industries/ConnectedOperations.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -38,13 +39,13 @@ export default function ConnectedOperations({ industryName, assets, caption }: C
   ];
 
   return (
-    <section ref={containerRef} className="bg-ink text-white py-20 border-b border-slate-900 overflow-hidden relative">
+    <Section variant="ink" containerSize="wide" ref={containerRef} className=" text-white border-b border-slate-900 overflow-hidden relative">
       {/* Subtle grid pattern overlay */}
       <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
       <div className="absolute -top-1/4 -left-1/4 w-[500px] h-[500px] rounded-full bg-brand/5 blur-[150px] pointer-events-none" />
       <div className="absolute -bottom-1/4 -right-1/4 w-[500px] h-[500px] rounded-full bg-brand-hot/5 blur-[150px] pointer-events-none" />
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10">
+      <div className="w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Text Description Block */}
@@ -211,6 +212,6 @@ export default function ConnectedOperations({ industryName, assets, caption }: C
 
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

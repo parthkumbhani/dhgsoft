@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { Section } from '@/components/ui/Section';
 import {
   Target,
   Compass,
@@ -161,9 +162,11 @@ export default function ServiceDelivery() {
   const buttonText = activeIdx === 6 ? "Explore Success" : "Learn More";
 
   return (
-    <motion.section
+    <Section
       ref={sectionRef}
       id="delivery"
+      variant="white"
+      containerSize="wide"
       animate={
         isInView
           ? { opacity: 1, filter: 'blur(0px)', scale: 1 }
@@ -173,11 +176,9 @@ export default function ServiceDelivery() {
         duration: 0.8,
         ease: [0.22, 1, 0.36, 1]
       }}
-      className="relative overflow-hidden border-b border-[#ECECEC]"
+      className="overflow-hidden border-b border-[#ECECEC]"
       style={{
         background: '#FCFCFD',
-        paddingTop: 'clamp(24px, 3vh, 40px)',
-        paddingBottom: 'clamp(24px, 3vh, 40px)',
       }}
     >
       {/* Subtle blueprint drawing lines and tiny dots */}
@@ -276,7 +277,7 @@ export default function ServiceDelivery() {
         }}
       />
 
-      <div className="max-w-[1700px] mx-auto px-6 md:px-10 lg:px-16 relative z-10">
+      <div className="relative z-10 w-full">
         
         {/* ── Section Header ── */}
         <div className="flex flex-col w-full text-left mb-14 lg:mb-18">
@@ -655,6 +656,6 @@ export default function ServiceDelivery() {
         </motion.div>
 
       </div>
-    </motion.section>
+    </Section>
   );
 }

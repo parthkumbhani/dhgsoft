@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import { Award, Globe2, Briefcase, Calendar, ArrowRight } from "lucide-react"
+import { Section } from "@/components/ui/Section"
 
 const METRICS_DATA = [
   {
@@ -83,11 +84,11 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-us" className="py-8 bg-white border-t border-slate-200/60 relative overflow-hidden">
+    <Section id="why-us" variant="white" containerSize="wide" className="border-t border-slate-200/60 overflow-hidden">
       {/* Background — clean, no radial grid to differentiate from other sections */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50/30 to-white pointer-events-none" />
 
-      <div className="max-w-[1440px] mx-auto px-6 relative z-10">
+      <div className="relative z-10 w-full">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
@@ -190,6 +191,6 @@ export default function WhyChooseUs() {
         </motion.div>
 
       </div>
-    </section>
+    </Section>
   )
 }

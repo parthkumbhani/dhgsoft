@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { Section } from '@/components/ui/Section';
 import { 
   Car, 
   Factory, 
@@ -171,7 +172,12 @@ export default function CaseStudies() {
   };
 
   return (
-    <section id="case-studies" className="py-8 bg-[#FAFBFC] relative overflow-hidden border-b border-slate-100 select-none">
+    <Section
+      id="case-studies"
+      variant="mist"
+      className="border-b border-slate-100 select-none"
+      style={{ background: '#FAFBFC' }}
+    >
       
       {/* Background Soft Grids/Accents */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.015] z-0"
@@ -184,7 +190,7 @@ export default function CaseStudies() {
         }}
       />
 
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-16 relative z-10 w-full flex flex-col">
+      <div className="relative z-10 w-full flex flex-col">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
@@ -240,67 +246,49 @@ export default function CaseStudies() {
           </div>
         </div>
 
-        {/* Main Content Area: Slider Card */}
-        <div className="w-full max-w-5xl mx-auto">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeIdx}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col md:flex-row w-full rounded-[24px] border border-slate-200/80 bg-white overflow-hidden shadow-[0_20px_50px_rgba(15,23,42,0.06)] min-h-[420px]"
-            >
-              {/* Left Side: Image Container */}
-              <div 
-                className="w-full md:w-[42%] aspect-[16/10] md:aspect-auto md:min-h-[420px] relative overflow-hidden bg-slate-50"
-                style={{
-                  clipPath: isMobile ? 'none' : 'polygon(0 0, 100% 0, 82% 100%, 0 100%)'
-                }}
-              >
-                <img
-                  src={activeStudy.image}
-                  alt={activeStudy.title}
-                  className="w-full h-full object-cover select-none"
-                />
-                
-                {/* Slanted blue divider line (SVG layered over top, only on desktop) */}
-                {!isMobile && (
-                  <svg 
-                    className="absolute inset-0 w-full h-full pointer-events-none z-20" 
-                    viewBox="0 0 100 100" 
-                    preserveAspectRatio="none"
-                  >
-                    <line x1="100" y1="0" x2="82" y2="100" stroke="#2563EB" strokeWidth="1.5" />
-                  </svg>
-                )}
-
-                {/* White Dot Grid on top-left of the image */}
-                <div className="absolute top-6 left-6 opacity-30 z-20">
-                  <svg width="28" height="50" viewBox="0 0 28 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="4" cy="4" r="1.5" fill="white" />
-                    <circle cx="4" cy="14" r="1.5" fill="white" />
-                    <circle cx="4" cy="24" r="1.5" fill="white" />
-                    <circle cx="4" cy="34" r="1.5" fill="white" />
-                    <circle cx="4" cy="44" r="1.5" fill="white" />
-                    <circle cx="14" cy="4" r="1.5" fill="white" />
-                    <circle cx="14" cy="14" r="1.5" fill="white" />
-                    <circle cx="14" cy="24" r="1.5" fill="white" />
-                    <circle cx="14" cy="34" r="1.5" fill="white" />
-                    <circle cx="14" cy="44" r="1.5" fill="white" />
-                    <circle cx="24" cy="4" r="1.5" fill="white" />
-                    <circle cx="24" cy="14" r="1.5" fill="white" />
-                    <circle cx="24" cy="24" r="1.5" fill="white" />
-                    <circle cx="24" cy="34" r="1.5" fill="white" />
-                    <circle cx="24" cy="44" r="1.5" fill="white" />
-                  </svg>
-                </div>
-
-                <div className="absolute inset-0 bg-slate-950/10 mix-blend-multiply pointer-events-none z-10" />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeIdx}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 w-full min-h-[420px]"
+          >
+            {/* Left Side: Image Container */}
+            <div className="w-full aspect-[16/10] lg:aspect-auto lg:h-full relative overflow-hidden bg-slate-50 rounded-[24px] border border-slate-200/80 shadow-[0_20px_50px_rgba(15,23,42,0.06)] min-h-[300px] lg:min-h-[420px]">
+              <img
+                src={activeStudy.image}
+                alt={activeStudy.title}
+                className="w-full h-full object-cover select-none"
+              />
+              
+              {/* White Dot Grid on top-left of the image */}
+              <div className="absolute top-6 left-6 opacity-30 z-20">
+                <svg width="28" height="50" viewBox="0 0 28 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="4" cy="4" r="1.5" fill="white" />
+                  <circle cx="4" cy="14" r="1.5" fill="white" />
+                  <circle cx="4" cy="24" r="1.5" fill="white" />
+                  <circle cx="4" cy="34" r="1.5" fill="white" />
+                  <circle cx="4" cy="44" r="1.5" fill="white" />
+                  <circle cx="14" cy="4" r="1.5" fill="white" />
+                  <circle cx="14" cy="14" r="1.5" fill="white" />
+                  <circle cx="14" cy="24" r="1.5" fill="white" />
+                  <circle cx="14" cy="34" r="1.5" fill="white" />
+                  <circle cx="14" cy="44" r="1.5" fill="white" />
+                  <circle cx="24" cy="4" r="1.5" fill="white" />
+                  <circle cx="24" cy="14" r="1.5" fill="white" />
+                  <circle cx="24" cy="24" r="1.5" fill="white" />
+                  <circle cx="24" cy="34" r="1.5" fill="white" />
+                  <circle cx="24" cy="44" r="1.5" fill="white" />
+                </svg>
               </div>
 
-              {/* Right Side: Content Container */}
-              <div className="w-full md:w-[58%] p-6 md:p-10 lg:p-12 flex flex-col justify-between text-left">
+              <div className="absolute inset-0 bg-slate-950/10 mix-blend-multiply pointer-events-none z-10" />
+            </div>
+
+            {/* Right Side: Content Container */}
+            <div className="w-full bg-white border border-slate-200/80 rounded-[24px] p-6 md:p-10 lg:p-12 shadow-[0_20px_50px_rgba(15,23,42,0.06)] flex flex-col justify-between text-left">
                 
                 {/* Header info */}
                 <div>
@@ -386,11 +374,10 @@ export default function CaseStudies() {
                 </div>
 
               </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+          </motion.div>
+        </AnimatePresence>
 
       </div>
-    </section>
+    </Section>
   );
 }

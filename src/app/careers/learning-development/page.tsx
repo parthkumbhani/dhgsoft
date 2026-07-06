@@ -1,5 +1,6 @@
 // src/app/careers/learning-development/page.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -40,7 +41,7 @@ export default function LearningDevelopmentPage() {
       <main className="relative pt-20">
         
         {/* Hero */}
-        <section className="relative min-h-[460px] flex items-center bg-slate-950 text-white py-16 overflow-hidden">
+        <Section variant="ink" containerSize="wide" className="relative min-h-[460px] flex items-center text-white overflow-hidden">
           <div className="absolute inset-0 z-0">
             <Image
               src={careersImages.ldHero.src}
@@ -53,7 +54,7 @@ export default function LearningDevelopmentPage() {
             <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
           </div>
 
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 text-left space-y-6 max-w-4xl">
+          <div className="w-full relative z-10 text-left space-y-6 max-w-4xl">
             {/* Breadcrumbs */}
             <div className="flex items-center gap-1 text-slate-400 text-xs sm:text-sm font-semibold tracking-wide">
               <Link href="/careers" className="hover:text-white transition-colors">
@@ -70,11 +71,11 @@ export default function LearningDevelopmentPage() {
               Continuous training, certifications, and leadership growth.
             </p>
           </div>
-        </section>
+        </Section>
 
         {/* L&D Philosophy split grid */}
-        <section className="bg-white py-16 md:py-24 border-b border-line relative bg-tech-grid">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid">
+          <div className="w-full relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               
               <div className="lg:col-span-6 text-left space-y-6">
@@ -100,11 +101,11 @@ export default function LearningDevelopmentPage() {
 
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* Learning Pathways */}
-        <section className="bg-mist py-16 md:py-24 border-b border-line relative bg-dot-matrix select-none">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="mist" containerSize="wide" className=" border-b border-line relative bg-dot-matrix select-none">
+          <div className="w-full relative z-10 space-y-12">
             <div className="text-left space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
                 PATHWAYS
@@ -129,11 +130,11 @@ export default function LearningDevelopmentPage() {
               })}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* Certifications and Mentorship sections */}
-        <section className="bg-white py-16 md:py-24 border-b border-line relative bg-tech-grid text-left">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] grid grid-cols-1 md:grid-cols-2 gap-12">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid text-left">
+          <div className="w-full relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Certs */}
             <div className="space-y-4">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
@@ -156,12 +157,12 @@ export default function LearningDevelopmentPage() {
               </p>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* A Culture of Learning band */}
-        <section className="bg-slate-900 border-b border-slate-800 py-16 text-white text-center relative overflow-hidden select-none">
+        <Section variant="ink" containerSize="wide" className=" border-b border-slate-800 text-white text-center relative overflow-hidden select-none">
           <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-4 max-w-3xl">
+          <div className="w-full relative z-10 space-y-4 max-w-3xl">
             <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-brand-hot font-mono block">
               OUR DNA
             </span>
@@ -172,7 +173,7 @@ export default function LearningDevelopmentPage() {
               Learning isn&apos;t a program — it&apos;s how we work.
             </p>
           </div>
-        </section>
+        </Section>
 
         {/* Crimson CTA band */}
         <CtaBand

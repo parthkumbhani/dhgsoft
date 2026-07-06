@@ -1,4 +1,5 @@
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -117,13 +118,13 @@ export default function InvestorsPage() {
 
       <main className="relative pt-20">
         {/* ── HERO ──────────────────────────────────────────────── */}
-        <section className="relative bg-slate-950 overflow-hidden">
+        <Section variant="ink" containerSize="default" className="relative overflow-hidden">
           <div className="absolute inset-0 bg-tech-grid opacity-40" />
           <div className="absolute -top-40 left-1/4 w-[700px] h-[700px] rounded-full bg-[#B4123F]/7 blur-[130px] pointer-events-none" />
           <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-[#E11D5C]/5 blur-[100px] pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-950" />
 
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-28 lg:py-36">
+          <div className="w-full relative z-10 py-28 lg:py-36">
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-xs text-slate-500 mb-8 font-medium">
               <Link href="/" className="hover:text-[#B4123F] transition-colors">Home</Link>
@@ -165,12 +166,12 @@ export default function InvestorsPage() {
               </a>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* ── INVESTMENT THESIS ─────────────────────────────────── */}
-        <section id="investment-thesis" className="py-24 lg:py-32 bg-white relative overflow-hidden">
+        <Section variant="white" containerSize="default" id="investment-thesis" className=" bg-white relative overflow-hidden">
           <div className="absolute inset-0 bg-dot-matrix opacity-50" />
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="w-full relative z-10">
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#B4123F]/8 border border-[#B4123F]/20 mb-5">
                 <span className="text-[#B4123F] text-xs font-bold uppercase tracking-[0.18em]">
@@ -214,11 +215,11 @@ export default function InvestorsPage() {
               })}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* ── FINANCIAL HIGHLIGHTS ──────────────────────────────── */}
-        <section className="bg-slate-50 border-y border-slate-100">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <Section variant="white" containerSize="default" className="bg-slate-50 border-y border-slate-100">
+          <div className="w-full relative z-10">
             <div className="py-6 border-b border-slate-200 mb-0">
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400 text-center">
                 Financial Highlights
@@ -242,12 +243,12 @@ export default function InvestorsPage() {
               })}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* ── GOVERNANCE ────────────────────────────────────────── */}
-        <section className="py-24 lg:py-32 bg-white relative overflow-hidden">
+        <Section variant="white" containerSize="default" className=" bg-white relative overflow-hidden">
           <div className="absolute top-0 left-0 w-[400px] h-[400px] rounded-full bg-[#B4123F]/4 blur-[100px] pointer-events-none" />
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="w-full relative z-10">
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 mb-5">
                 <Shield className="w-3.5 h-3.5 text-slate-600" />
@@ -301,12 +302,12 @@ export default function InvestorsPage() {
               })}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* ── REPORTS & FILINGS ─────────────────────────────────── */}
-        <section id="reports" className="py-24 lg:py-32 bg-slate-50 relative overflow-hidden">
+        <Section variant="white" containerSize="default" id="reports" className=" bg-slate-50 relative overflow-hidden">
           <div className="absolute inset-0 bg-tech-grid opacity-30" />
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="w-full relative z-10">
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#B4123F]/8 border border-[#B4123F]/20 mb-5">
                 <span className="text-[#B4123F] text-xs font-bold uppercase tracking-[0.18em]">
@@ -321,7 +322,7 @@ export default function InvestorsPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="w-full relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6">
               {REPORTS.map((report, i) => {
                 const Icon = report.icon;
                 const CardWrapper = report.href ? Link : "div";
@@ -349,10 +350,10 @@ export default function InvestorsPage() {
               })}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* ── CONTACT IR ────────────────────────────────────────── */}
-        <section className="py-24 lg:py-32 bg-white relative overflow-hidden">
+        <Section variant="white" containerSize="default" className=" bg-white relative overflow-hidden">
           <div className="absolute inset-0 bg-dot-matrix opacity-40" />
           <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-[#B4123F]/4 blur-[120px] pointer-events-none" />
           <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-12">
@@ -439,7 +440,7 @@ export default function InvestorsPage() {
               </p>
             </div>
           </div>
-        </section>
+        </Section>
       </main>
 
       <Footer />

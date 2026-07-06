@@ -1,5 +1,6 @@
 // src/app/careers/life-at-dhgsoft/page.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -24,7 +25,7 @@ export default function LifeAtDhgsoftPage() {
       <main className="relative pt-20">
         
         {/* Hero */}
-        <section className="relative min-h-[460px] flex items-center bg-slate-950 text-white py-16 overflow-hidden">
+        <Section variant="ink" containerSize="wide" className="relative min-h-[460px] flex items-center text-white overflow-hidden">
           <div className="absolute inset-0 z-0">
             <Image
               src={careersImages.lifeHero.src}
@@ -37,7 +38,7 @@ export default function LifeAtDhgsoftPage() {
             <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
           </div>
 
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 text-left space-y-6 max-w-4xl">
+          <div className="w-full relative z-10 text-left space-y-6 max-w-4xl">
             {/* Breadcrumbs */}
             <div className="flex items-center gap-1 text-slate-400 text-xs sm:text-sm font-semibold tracking-wide">
               <Link href="/careers" className="hover:text-white transition-colors">
@@ -54,11 +55,11 @@ export default function LifeAtDhgsoftPage() {
               Discover our culture, benefits, and engineering mindset.
             </p>
           </div>
-        </section>
+        </Section>
 
         {/* 5 pillars section */}
-        <section className="bg-white py-16 md:py-24 border-b border-line relative bg-tech-grid select-none">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid select-none">
+          <div className="w-full relative z-10 space-y-12">
             <div className="text-left space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
                 OUR CULTURE
@@ -80,11 +81,11 @@ export default function LifeAtDhgsoftPage() {
               ))}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* The Engineering Mindset - split grid */}
-        <section className="bg-mist py-16 md:py-24 border-b border-line relative bg-dot-matrix">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+        <Section variant="mist" containerSize="wide" className=" border-b border-line relative bg-dot-matrix">
+          <div className="w-full relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               
               <div className="lg:col-span-6 text-left space-y-6">
@@ -110,11 +111,11 @@ export default function LifeAtDhgsoftPage() {
 
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* Benefits & Perks */}
-        <section className="bg-white py-16 md:py-24 border-b border-line relative bg-tech-grid">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid">
+          <div className="w-full relative z-10 space-y-12">
             <div className="text-left space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
                 BENEFITS & PERKS
@@ -139,15 +140,15 @@ export default function LifeAtDhgsoftPage() {
               </span>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* Life in Pictures Mosaic component */}
         <PhotoMosaic />
 
         {/* Diversity & Inclusion Band */}
-        <section className="bg-slate-900 border-b border-slate-800 py-16 text-white text-center relative overflow-hidden select-none">
+        <Section variant="ink" containerSize="wide" className=" border-b border-slate-800 text-white text-center relative overflow-hidden select-none">
           <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-4 max-w-3xl">
+          <div className="w-full relative z-10 space-y-4 max-w-3xl">
             <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-brand-hot font-mono block">
               DIVERSITY & INCLUSION
             </span>
@@ -158,11 +159,11 @@ export default function LifeAtDhgsoftPage() {
               We build diverse teams and an inclusive culture where different backgrounds and perspectives make our engineering stronger.
             </p>
           </div>
-        </section>
+        </Section>
 
         {/* Employee Spotlights */}
-        <section className="bg-mist py-16 md:py-24 border-b border-line relative bg-dot-matrix">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="mist" containerSize="wide" className=" border-b border-line relative bg-dot-matrix">
+          <div className="w-full relative z-10 space-y-12">
             <div className="text-left space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
                 EMPLOYEE SPOTLIGHTS
@@ -200,7 +201,7 @@ export default function LifeAtDhgsoftPage() {
               </span>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* Crimson CTA band */}
         <CtaBand

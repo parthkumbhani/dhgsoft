@@ -4,7 +4,18 @@ import React, { useState } from "react"
 import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { ArrowRight, HelpCircle, Loader2 } from "lucide-react"
+import {
+  ArrowRight,
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  CheckCircle2,
+  Lock,
+  Loader2,
+  HelpCircle
+} from "lucide-react"
+import { Section } from "@/components/ui/Section"
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"
 
@@ -132,9 +143,9 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-8 bg-white relative overflow-hidden">
+    <Section id="contact" variant="white" containerSize="wide" className="overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#C30072] via-[#E10088] to-[#F36B2A] opacity-35" />
-      <div className="max-w-[1440px] mx-auto px-6">
+      <div className="relative z-10 w-full">
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
@@ -400,6 +411,6 @@ export default function ContactSection() {
         </div>
 
       </div>
-    </section>
+    </Section>
   )
 }

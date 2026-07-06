@@ -1,5 +1,6 @@
 // src/components/about/CoreValues.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React from "react";
 import {
@@ -46,8 +47,8 @@ const values = [
 
 export default function CoreValues() {
   return (
-    <section className="bg-ink text-white py-16 md:py-20 border-b border-slate-900 overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+    <Section variant="ink" containerSize="wide" className=" text-white border-b border-slate-900 overflow-hidden">
+      <div className="w-full relative z-10">
         
         {/* Header Block */}
         <div className="text-left mb-12">
@@ -85,6 +86,6 @@ export default function CoreValues() {
         </div>
 
       </div>
-    </section>
+    </Section>
   );
 }

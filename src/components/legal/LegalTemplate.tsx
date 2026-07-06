@@ -1,4 +1,5 @@
 'use client';
+import { Section } from "@/components/ui/Section";
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -65,7 +66,7 @@ export default function LegalTemplate({ page }: LegalTemplateProps) {
         {/* Subtle grid accent */}
         <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] bg-[size:16px_16px] opacity-40" />
         
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="w-full relative z-10">
           {/* Breadcrumb */}
           <div className="flex items-center gap-1.5 text-xs text-text-muted mb-4 font-medium">
             <Link href="/" className="hover:text-brand transition-colors">Home</Link>
@@ -119,18 +120,14 @@ export default function LegalTemplate({ page }: LegalTemplateProps) {
             {/* Document Sections */}
             <div className="space-y-12 bg-white dark:bg-slate-900 p-6 lg:p-10 border border-line rounded-2xl shadow-sm">
               {sections.map((section) => (
-                <section
-                  key={section.id}
-                  id={section.id}
-                  className="scroll-mt-28 space-y-4 group"
-                >
+                <Section variant="white" containerSize="default" key={section.id} id={section.id} className="scroll-mt-28 space-y-4 group">
                   <h2 className="text-xl font-bold text-text-strong font-headline tracking-tight flex items-center gap-3 border-l-2 border-brand pl-3">
                     {section.heading}
                   </h2>
                   <p className="text-[15px] leading-relaxed text-text-muted pl-4 max-w-[72ch] text-justify whitespace-pre-line">
                     {renderBodyText(section.body)}
                   </p>
-                </section>
+                </Section>
               ))}
             </div>
 

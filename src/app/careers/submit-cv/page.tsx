@@ -1,5 +1,6 @@
 // src/app/careers/submit-cv/page.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -38,11 +39,11 @@ export default function SubmitCvPage() {
       <main className="relative pt-20">
         
         {/* Hero */}
-        <section className="relative bg-ink overflow-hidden py-16 border-b border-slate-900">
+        <Section variant="ink" containerSize="wide" className="relative overflow-hidden border-b border-slate-900">
           <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
           <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] rounded-full bg-brand/10 blur-[120px] pointer-events-none" />
           
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 text-left space-y-6">
+          <div className="w-full relative z-10 text-left space-y-6">
             {/* Breadcrumbs */}
             <div className="flex items-center gap-1 text-slate-400 text-xs sm:text-sm font-semibold tracking-wide mb-2">
               <Link href="/careers" className="hover:text-white transition-colors">
@@ -59,18 +60,18 @@ export default function SubmitCvPage() {
               Don&apos;t see the right role? Tell us about yourself — we&apos;re always looking for great people.
             </p>
           </div>
-        </section>
+        </Section>
 
         {/* CV Form section */}
-        <section className="bg-mist py-16 md:py-24 border-b border-line relative bg-dot-matrix">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="mist" containerSize="wide" className=" border-b border-line relative bg-dot-matrix">
+          <div className="w-full relative z-10 space-y-12">
             <CvForm />
           </div>
-        </section>
+        </Section>
 
         {/* What happens next */}
-        <section className="bg-white py-16 md:py-24 border-b border-line relative bg-tech-grid">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid">
+          <div className="w-full relative z-10 space-y-12">
             <div className="text-center max-w-xl mx-auto space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
                 PROCESS
@@ -108,7 +109,7 @@ export default function SubmitCvPage() {
               </Link>
             </div>
           </div>
-        </section>
+        </Section>
 
       </main>
 

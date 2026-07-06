@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import { motion } from "framer-motion"
 import { Shield, Brain, Cpu, Zap, Activity, ArrowRight, Server, Database } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Section } from "@/components/ui/Section"
 
 const WORKFLOW_STEPS = [
   {
@@ -55,15 +56,15 @@ export default function AITransformation() {
   const [activeStep, setActiveStep] = useState(0)
 
   return (
-    <section id="ai-transformation" className="py-24 bg-[#0b0f19] text-white relative overflow-hidden">
+    <Section variant="white" containerSize="wide" id="ai-transformation" className=" bg-[#0b0f19] text-white relative overflow-hidden">
       {/* Background grids */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl opacity-50" />
 
-      <div className="max-w-[1440px] mx-auto px-6 relative z-10">
+      <div className="w-full relative z-10">
         
         {/* Section Title */}
-        <div className="max-w-3xl mb-16">
+        <div className="w-full relative z-10 max-w-3xl mb-16">
           <div className="text-xs font-bold text-primary uppercase tracking-wider mb-3">
             Digital Engineering Edge
           </div>
@@ -176,6 +177,6 @@ export default function AITransformation() {
         </div>
 
       </div>
-    </section>
+    </Section>
   )
 }

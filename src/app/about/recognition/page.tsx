@@ -1,5 +1,6 @@
 // src/app/about/recognition/page.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -60,7 +61,7 @@ export default function RecognitionPage() {
       <main className="relative pt-20">
 
         {/* 1. Hero Band */}
-        <section className="relative min-h-[500px] flex items-center overflow-hidden bg-ink">
+        <Section variant="ink" containerSize="wide" className="relative min-h-[500px] flex items-center overflow-hidden ">
           <div className="absolute inset-0 z-0">
             <Image
               src={recognitionImages.hero.src}
@@ -71,7 +72,7 @@ export default function RecognitionPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-transparent" />
           </div>
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] w-full relative z-10 py-16 md:py-20">
+          <div className="w-full relative z-10 py-16 md:py-20">
             <div className="max-w-3xl text-left flex gap-6">
               <div className="w-[4px] bg-brand rounded-full self-stretch shrink-0" />
               <div className="space-y-4">
@@ -87,11 +88,11 @@ export default function RecognitionPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 2. Our Success Intro */}
-        <section className="bg-mist py-12 md:py-16 border-b border-line text-left overflow-hidden relative bg-dot-matrix">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-4">
+        <Section variant="mist" containerSize="wide" className=" border-b border-line text-left overflow-hidden relative bg-dot-matrix">
+          <div className="w-full relative z-10 space-y-4">
             <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
               OUR SUCCESS
             </span>
@@ -102,11 +103,11 @@ export default function RecognitionPage() {
               This section highlights:
             </p>
           </div>
-        </section>
+        </Section>
 
         {/* 3. What We Highlight Stack Cards */}
-        <section className="bg-white py-16 md:py-20 border-b border-line relative bg-tech-grid">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid">
+          <div className="w-full relative z-10 space-y-12">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {highlightCards.map((card, idx) => {
                 const { title, desc, Icon } = card;
@@ -131,11 +132,11 @@ export default function RecognitionPage() {
               Populate each category with real, verifiable items.
             </p>
           </div>
-        </section>
+        </Section>
 
         {/* 4. Customer Success Stories */}
-        <section className="bg-[#B4123F]/5 py-16 md:py-20 border-b border-line relative bg-tech-grid">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="brandTint" containerSize="wide" className=" border-b border-line relative bg-tech-grid">
+          <div className="w-full relative z-10 space-y-12">
             <div className="text-left">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
                 CASE STUDIES
@@ -214,11 +215,11 @@ export default function RecognitionPage() {
               Replace with real projects and measurable outcomes.
             </p>
           </div>
-        </section>
+        </Section>
 
         {/* 5. Awards & Recognition Placeholder Badges */}
-        <section className="bg-white py-16 md:py-20 border-b border-line relative bg-tech-grid bg-dot-matrix">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-8">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid bg-dot-matrix">
+          <div className="w-full relative z-10 space-y-8">
             <div className="text-left space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
                 AWARDS & RECOGNITION
@@ -245,12 +246,12 @@ export default function RecognitionPage() {
               </p>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 6. CTA Band */}
-        <section className="relative overflow-hidden bg-gradient-to-r from-brand-hot via-brand to-brand-deep py-20 text-center">
+        <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-6">
+          <div className="w-full relative z-10 space-y-6">
             <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
               WORK WITH US
             </span>
@@ -266,7 +267,7 @@ export default function RecognitionPage() {
               </button>
             </div>
           </div>
-        </section>
+        </Section>
 
       </main>
 

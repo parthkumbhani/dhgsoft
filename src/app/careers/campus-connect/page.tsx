@@ -1,5 +1,6 @@
 // src/app/careers/campus-connect/page.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -37,7 +38,7 @@ export default function CampusConnectPage() {
       <main className="relative pt-20">
         
         {/* Hero */}
-        <section className="relative min-h-[460px] flex items-center bg-slate-950 text-white py-16 overflow-hidden">
+        <Section variant="ink" containerSize="wide" className="relative min-h-[460px] flex items-center text-white overflow-hidden">
           <div className="absolute inset-0 z-0">
             <Image
               src={careersImages.campusHero.src}
@@ -50,7 +51,7 @@ export default function CampusConnectPage() {
             <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
           </div>
 
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 text-left space-y-6 max-w-4xl">
+          <div className="w-full relative z-10 text-left space-y-6 max-w-4xl">
             {/* Breadcrumbs */}
             <div className="flex items-center gap-1 text-slate-400 text-xs sm:text-sm font-semibold tracking-wide">
               <Link href="/careers" className="hover:text-white transition-colors">
@@ -67,11 +68,11 @@ export default function CampusConnectPage() {
               Opportunities for recent graduates & university partners.
             </p>
           </div>
-        </section>
+        </Section>
 
         {/* Tab Toggle Navigation */}
-        <section className="bg-white pt-16 pb-8 border-b border-line relative bg-tech-grid select-none">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-8">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid select-none">
+          <div className="w-full relative z-10 space-y-8">
             <div className="flex justify-center border-b border-slate-200">
               <div className="flex gap-8 -mb-px">
                 <button
@@ -97,11 +98,11 @@ export default function CampusConnectPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* Dynamic Audience content */}
-        <section className="bg-mist py-16 md:py-24 border-b border-line relative bg-dot-matrix">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+        <Section variant="mist" containerSize="wide" className=" border-b border-line relative bg-dot-matrix">
+          <div className="w-full relative z-10">
             {activeTab === "students" ? (
               <div className="space-y-12 text-left">
                 <div className="max-w-3xl space-y-4">
@@ -150,12 +151,12 @@ export default function CampusConnectPage() {
               </div>
             )}
           </div>
-        </section>
+        </Section>
 
         {/* Campus Engagement highlights band */}
-        <section className="bg-slate-900 border-b border-slate-800 py-16 text-white text-center relative overflow-hidden select-none">
+        <Section variant="ink" containerSize="wide" className=" border-b border-slate-800 text-white text-center relative overflow-hidden select-none">
           <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-4 max-w-3xl">
+          <div className="w-full relative z-10 space-y-4 max-w-3xl">
             <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-brand-hot font-mono block">
               ENGAGEMENT
             </span>
@@ -166,11 +167,11 @@ export default function CampusConnectPage() {
               From hackathons to lectures, we connect with the next generation of engineers.
             </p>
           </div>
-        </section>
+        </Section>
 
         {/* Academic Partnerships Link blocks */}
-        <section className="bg-white py-16 md:py-24 border-b border-line relative bg-tech-grid text-left">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid text-left">
+          <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-8 space-y-4">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
@@ -195,11 +196,11 @@ export default function CampusConnectPage() {
             </div>
 
           </div>
-        </section>
+        </Section>
 
         {/* How to Connect actions */}
-        <section className="bg-mist py-16 md:py-24 border-b border-line relative bg-dot-matrix">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="mist" containerSize="wide" className=" border-b border-line relative bg-dot-matrix">
+          <div className="w-full relative z-10 space-y-12">
             <div className="text-left space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
                 CONNECT
@@ -251,7 +252,7 @@ export default function CampusConnectPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* Crimson CTA band */}
         <CtaBand

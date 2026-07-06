@@ -13,6 +13,7 @@ import {
   ChevronLeft, 
   ChevronRight 
 } from 'lucide-react';
+import { Section } from '@/components/ui/Section';
 
 const ARCHITECTURE_DATA = [
   {
@@ -223,9 +224,11 @@ export default function Ecosystem() {
   const currentStage = ARCHITECTURE_DATA[activeIdx] || ARCHITECTURE_DATA[0];
 
   return (
-    <section 
+    <Section 
       id="technology-ecosystem" 
-      className="py-8 bg-[#060B16] text-white relative overflow-hidden border-b border-slate-950 select-none"
+      variant="ink"
+      containerSize="wide"
+      className="bg-[#060B16] overflow-hidden border-b border-slate-950 select-none"
     >
       {/* Subtle animated background grid */}
       <motion.div 
@@ -254,7 +257,7 @@ export default function Ecosystem() {
         />
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 relative z-10 w-full flex flex-col">
+      <div className="relative z-10 w-full flex flex-col">
         
         {/* Editorial Section Header */}
         <div className="text-left max-w-3xl mb-16">
@@ -609,6 +612,6 @@ export default function Ecosystem() {
         </div>
 
       </div>
-    </section>
+    </Section>
   );
 }

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Menu, ArrowRight, ChevronDown, Check, Globe, Shield, Terminal, Settings2, Cpu, Factory, Database, Network, Search } from "lucide-react"
+import { Container } from "@/components/ui/Container"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -180,9 +181,9 @@ export default function Header({ onContactClick }: HeaderProps) {
           : "top-0 left-0 w-full h-20 bg-white border-b border-slate-200/50"
       }`}
     >
-      <div
-        className={`w-full h-full flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-          scrolled ? "px-6 md:px-8" : "px-6 lg:px-16"
+      <Container
+        className={`h-full flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          scrolled ? "!max-w-none !px-6 md:!px-8" : ""
         }`}
       >
         {/* Logo */}
@@ -591,7 +592,7 @@ export default function Header({ onContactClick }: HeaderProps) {
             </SheetContent>
           </Sheet>
         </div>
-      </div>
+      </Container>
     </header>
   )
 }

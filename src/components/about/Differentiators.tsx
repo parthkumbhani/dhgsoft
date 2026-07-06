@@ -1,5 +1,6 @@
 // src/components/about/Differentiators.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React from "react";
 import Image from "next/image";
@@ -31,8 +32,8 @@ const items = [
 
 export default function Differentiators() {
   return (
-    <section className="bg-mesh-glow-light py-16 md:py-20 border-b border-line relative bg-tech-grid">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+    <Section variant="white" containerSize="wide" className="bg-mesh-glow-light border-b border-line relative bg-tech-grid">
+      <div className="w-full relative z-10">
         
         {/* Header Block */}
         <div className="text-left mb-12">
@@ -96,6 +97,6 @@ export default function Differentiators() {
         </div>
 
       </div>
-    </section>
+    </Section>
   );
 }

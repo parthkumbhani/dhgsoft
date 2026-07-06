@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
+import { Section } from '@/components/ui/Section';
 
 /* ═══════════════════════════════════════════════════════════════
    INDUSTRY DATA — 8 sectors in required order
@@ -543,13 +544,12 @@ export default function Industries() {
   };
 
   return (
-    <section
+    <Section
       id="industries"
-      className="relative overflow-hidden border-b border-[rgba(0,0,0,0.06)]"
+      containerSize="wide"
+      className="overflow-hidden border-b border-[rgba(0,0,0,0.06)]"
       style={{
         background: 'radial-gradient(ellipse 90% 70% at 50% 0%, #ffffff 0%, #fff8fb 35%, #fff5ef 65%, #f8f8ff 100%)',
-        paddingTop: 'clamp(24px, 3vh, 40px)',
-        paddingBottom: 'clamp(24px, 3vh, 40px)',
       }}
     >
       {/* Animated ambient light glow */}
@@ -567,7 +567,7 @@ export default function Industries() {
         transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
       />
 
-      <div className="max-w-[1700px] mx-auto px-6 md:px-10 lg:px-16 xl:px-20 relative z-10">
+      <div className="relative z-10 w-full">
 
         {/* ── Section Header ── */}
         <div className="flex flex-col w-full text-left mb-12 md:mb-16">
@@ -671,6 +671,6 @@ export default function Industries() {
 
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

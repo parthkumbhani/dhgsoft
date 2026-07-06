@@ -1,5 +1,6 @@
 // src/components/about/CorporateResponsibility.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React from "react";
 import Image from "next/image";
@@ -42,7 +43,7 @@ const items = [
 
 export default function CorporateResponsibility() {
   return (
-    <section className="bg-white border-b border-line overflow-hidden relative bg-tech-grid bg-dot-matrix">
+    <Section variant="white" containerSize="wide" className="bg-white border-b border-line overflow-hidden relative bg-tech-grid bg-dot-matrix">
       
       {/* Full-bleed Image Header Band with Overlay */}
       <div className="relative w-full h-[250px] md:h-[320px] flex items-center justify-center">
@@ -54,7 +55,7 @@ export default function CorporateResponsibility() {
         />
         <div className="absolute inset-0 bg-ink/75" />
         
-        <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] w-full text-left">
+        <div className="relative z-10 w-full text-left">
           <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-hot font-mono block mb-2">
             CORPORATE RESPONSIBILITY
           </span>
@@ -65,7 +66,7 @@ export default function CorporateResponsibility() {
       </div>
 
       {/* 5-Card Icon Grid Content */}
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] py-16 md:py-20">
+      <div className="w-full relative z-10 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 w-full">
           {items.map((item, idx) => {
             const { title, desc, Icon } = item;
@@ -91,6 +92,6 @@ export default function CorporateResponsibility() {
         </div>
       </div>
 
-    </section>
+    </Section>
   );
 }

@@ -4,6 +4,7 @@ import React from "react"
 import { motion } from "framer-motion"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { ShieldAlert, Globe2, RefreshCw, Cpu, Award } from "lucide-react"
+import { Section } from "@/components/ui/Section"
 
 const DELIVERY_NODES = [
   {
@@ -34,15 +35,15 @@ const DELIVERY_NODES = [
 
 export default function DeliveryModel() {
   return (
-    <section id="delivery-model" className="py-24 bg-[#0b0f19] text-white relative overflow-hidden">
+    <Section variant="white" containerSize="wide" id="delivery-model" className=" bg-[#0b0f19] text-white relative overflow-hidden">
       {/* Dynamic background network visual grid */}
       <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] bg-[size:24px_24px] opacity-20" />
       <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-3xl opacity-30 pointer-events-none" />
       
-      <div className="max-w-[1440px] mx-auto px-6 relative z-10">
+      <div className="w-full relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="w-full relative z-10 text-center max-w-3xl mb-16">
           <div className="text-xs font-bold text-primary uppercase tracking-wider mb-3 flex items-center gap-1.5 justify-center">
             <Globe2 className="h-3.5 w-3.5 text-primary" />
             Global Delivery Model
@@ -97,6 +98,6 @@ export default function DeliveryModel() {
         </div>
 
       </div>
-    </section>
+    </Section>
   )
 }

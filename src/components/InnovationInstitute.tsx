@@ -4,6 +4,7 @@ import React from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import { Section } from "@/components/ui/Section"
 import { 
   Cpu, 
   Network, 
@@ -81,7 +82,7 @@ const STATS_DATA = [
 
 export default function InnovationInstitute() {
   return (
-    <section id="innovation-institute" className="py-10 lg:py-12 bg-white text-slate-900 relative overflow-hidden">
+    <Section id="innovation-institute" variant="white" className="overflow-hidden">
       {/* Top right ambient background blur and dot pattern */}
       <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-gradient-to-br from-blue-300/20 to-purple-300/20 blur-3xl pointer-events-none" />
       
@@ -92,7 +93,7 @@ export default function InnovationInstitute() {
         ))}
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
+      <div className="relative z-10 w-full">
         
         {/* Section Header */}
         <div className="text-left mb-12 lg:mb-16">
@@ -248,6 +249,6 @@ export default function InnovationInstitute() {
         </motion.div>
 
       </div>
-    </section>
+    </Section>
   )
 }
