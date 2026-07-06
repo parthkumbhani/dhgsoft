@@ -21,34 +21,34 @@ const SERVICES_MENU = [
     title: "Digital Transformation",
     icon: Factory,
     items: [
-      { name: "Industrial Digital Transformation", desc: "Enterprise-wide OT/IT modernization." },
-      { name: "OT / IT Integration", desc: "Bridge shop-floor and top-floor systems." },
-      { name: "Industrial Data Platforms", desc: "Unified analytics pipeline for industrial IoT." }
+      { name: "Industrial Digital Transformation", desc: "Enterprise-wide OT/IT modernization.", href: "/capabilities/industrial-digital-transformation" },
+      { name: "OT / IT Integration", desc: "Bridge shop-floor and top-floor systems.", href: "/capabilities/ot-it-integration" },
+      { name: "Industrial Data Platforms", desc: "Unified analytics pipeline for industrial IoT.", href: "/capabilities/industrial-data-platforms" }
     ]
   },
   {
     title: "AI & Intelligence",
     icon: Cpu,
     items: [
-      { name: "Artificial Intelligence & Analytics", desc: "Predictive maintenance & yield optimization." },
-      { name: "Industrial Internet of Things (IIoT)", desc: "Edge computing and device telemetry." }
+      { name: "Artificial Intelligence & Analytics", desc: "Predictive maintenance & yield optimization.", href: "/capabilities/ai-analytics" },
+      { name: "Industrial Internet of Things (IIoT)", desc: "Edge computing and device telemetry.", href: "/capabilities/iiot" }
     ]
   },
   {
     title: "Digital Engineering",
     icon: Settings2,
     items: [
-      { name: "Digital Engineering Services", desc: "Custom industrial software & integrations." },
-      { name: "Enterprise Applications", desc: "Next-gen ERP, MES, and PLM implementation." }
+      { name: "Digital Engineering Services", desc: "Custom industrial software & integrations.", href: "/capabilities/digital-engineering" },
+      { name: "Enterprise Applications", desc: "Next-gen ERP, MES, and PLM implementation.", href: "/capabilities/enterprise-applications" }
     ]
   },
   {
     title: "Cloud & Infrastructure",
     icon: Database,
     items: [
-      { name: "Cloud & Infrastructure", desc: "Hybrid cloud solutions for critical ops." },
-      { name: "Cybersecurity", desc: "Zero-trust OT cybersecurity defense systems." },
-      { name: "Managed Services", desc: "24/7/365 global operations management." }
+      { name: "Cloud & Infrastructure", desc: "Hybrid cloud solutions for critical ops.", href: "/capabilities/cloud-infrastructure" },
+      { name: "Cybersecurity", desc: "Zero-trust OT cybersecurity defense systems.", href: "/capabilities/cybersecurity" },
+      { name: "Managed Services", desc: "24/7/365 global operations management.", href: "/capabilities/managed-services" }
     ]
   }
 ]
@@ -227,7 +227,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                               <li key={i}>
                                 <NavigationMenuLink asChild>
                                   <Link
-                                    href="#services"
+                                    href={item.href || "/capabilities"}
                                     className="group block select-none rounded-md p-2 leading-none no-underline outline-none transition-all hover:bg-primary/5"
                                   >
                                     <div className="text-sm font-semibold text-slate-800 group-hover:text-primary transition-colors">
@@ -487,7 +487,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                           {col.items.map((item, i) => (
                             <Link
                               key={i}
-                              href="#services"
+                              href={item.href || "/capabilities"}
                               onClick={() => setMobileOpen(false)}
                               className="block py-1.5 text-xs text-slate-700 hover:text-primary font-medium transition-colors"
                             >
