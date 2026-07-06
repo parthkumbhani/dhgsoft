@@ -54,20 +54,20 @@ const SERVICES_MENU = [
 ]
 
 const INDUSTRIES = [
-  { name: "Industrial Manufacturing", desc: "Smart factory operations & automation." },
-  { name: "Life Sciences", desc: "Regulatory compliance & batch analytics." },
-  { name: "Automotive", desc: "OEM assembly line optimization." },
-  { name: "Semiconductor", desc: "Yield optimization & cleanroom systems." },
-  { name: "Food & Beverages", desc: "Traceability & recipe management." },
-  { name: "Chemical Manufacturing", desc: "Process safety & telemetry integration." },
-  { name: "Oil & Gas", desc: "Pipeline monitoring & asset security." },
-  { name: "Power & Utilities", desc: "Smart grid management & telemetry." },
-  { name: "Mining & Metals", desc: "Fleet automation & supply logistics." },
-  { name: "Water & Wastewater Management", desc: "Flow analytics & treatment automation." },
-  { name: "Consumer Packaged Goods (CPG)", desc: "High-speed packaging line efficiency." },
-  { name: "Data Centres", desc: "Power, cooling & infrastructure control." },
-  { name: "Engineering, Procurement & Construction (EPC)", desc: "Digital twins & project execution." },
-  { name: "Agriculture", desc: "Precision farming & resource management." }
+  { name: "Industrial Manufacturing", desc: "Smart factory operations & automation.", href: "/industries/industrial-manufacturing" },
+  { name: "Life Sciences", desc: "Regulatory compliance & batch analytics.", href: "/industries/life-sciences" },
+  { name: "Automotive", desc: "OEM assembly line optimization.", href: "/industries/automotive" },
+  { name: "Semiconductor", desc: "Yield optimization & cleanroom systems.", href: "/industries/semiconductor" },
+  { name: "Food & Beverages", desc: "Traceability & recipe management.", href: "/industries/food-beverages" },
+  { name: "Chemical Manufacturing", desc: "Process safety & telemetry integration.", href: "/industries/chemical-manufacturing" },
+  { name: "Oil & Gas", desc: "Pipeline monitoring & asset security.", href: "/industries/oil-gas" },
+  { name: "Power & Utilities", desc: "Smart grid management & telemetry.", href: "/industries/power-utilities" },
+  { name: "Mining & Metals", desc: "Fleet automation & supply logistics.", href: "/industries/mining-metals" },
+  { name: "Water & Wastewater Management", desc: "Flow analytics & treatment automation.", href: "/industries/water-wastewater" },
+  { name: "Consumer Packaged Goods (CPG)", desc: "High-speed packaging line efficiency.", href: "/industries/consumer-packaged-goods" },
+  { name: "Data Centres", desc: "Power, cooling & infrastructure control.", href: "/industries/data-centres" },
+  { name: "Engineering, Procurement & Construction (EPC)", desc: "Digital twins & project execution.", href: "/industries/epc" },
+  { name: "Agriculture", desc: "Precision farming & resource management.", href: "/industries/agriculture" }
 ]
 
 const ABOUT_MENU = [
@@ -265,7 +265,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                           Delivering custom software architectures, OT/IT bridges, and secure platforms for critical global sectors.
                         </p>
                       </div>
-                      <Link href="#industries" className="text-xs font-bold text-primary hover:text-secondary flex items-center gap-1.5 group transition-colors">
+                      <Link href="/industries" className="text-xs font-bold text-primary hover:text-secondary flex items-center gap-1.5 group transition-colors">
                         Explore Industries
                         <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                       </Link>
@@ -274,7 +274,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                       {INDUSTRIES.map((ind, i) => (
                         <NavigationMenuLink asChild key={i}>
                           <Link
-                            href="#industries"
+                            href={ind.href}
                             className="group block select-none rounded-md p-2 leading-none no-underline outline-none transition-all hover:bg-primary/5"
                           >
                             <div className="text-sm font-semibold text-slate-800 group-hover:text-primary transition-colors">
@@ -303,13 +303,13 @@ export default function Header({ onContactClick }: HeaderProps) {
                   <div className="grid grid-cols-2 gap-6 relative z-10">
                     <div className="flex flex-col gap-2">
                       <div className="text-xs font-bold uppercase tracking-wider text-primary mb-1">Knowledge Hub</div>
-                      <Link href="#ai-transformation" className="text-sm font-semibold text-slate-800 hover:text-primary py-1 block transition-colors">
+                      <Link href="/insights/ai-automation" className="text-sm font-semibold text-slate-800 hover:text-primary py-1 block transition-colors">
                         AI & Automation
                       </Link>
-                      <Link href="#ecosystem" className="text-sm font-semibold text-slate-800 hover:text-primary py-1 block transition-colors">
+                      <Link href="/insights/technology-ecosystem" className="text-sm font-semibold text-slate-800 hover:text-primary py-1 block transition-colors">
                         Technology Ecosystem
                       </Link>
-                      <Link href="#case-studies" className="text-sm font-semibold text-slate-800 hover:text-primary py-1 block transition-colors">
+                      <Link href="/insights/case-studies" className="text-sm font-semibold text-slate-800 hover:text-primary py-1 block transition-colors">
                         Enterprise Case Studies
                       </Link>
                     </div>
@@ -317,7 +317,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                       <div className="text-xs text-slate-500 leading-relaxed">
                         Read how Fortune 500 manufacturing, energy, and automotive companies optimize production infrastructure and deploy secure cloud edge architectures.
                       </div>
-                      <Link href="#case-studies" className="text-xs font-bold text-primary hover:text-secondary flex items-center gap-1.5 group mt-4 transition-colors">
+                      <Link href="/insights/case-studies" className="text-xs font-bold text-primary hover:text-secondary flex items-center gap-1.5 group mt-4 transition-colors">
                         Read Case Studies
                         <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                       </Link>
@@ -504,10 +504,17 @@ export default function Header({ onContactClick }: HeaderProps) {
                       Industries
                     </AccordionTrigger>
                     <AccordionContent className="bg-slate-50 p-3 rounded-md flex flex-col gap-1.5">
+                      <Link
+                        href="/industries"
+                        onClick={() => setMobileOpen(false)}
+                        className="block py-1.5 text-xs text-[#B4123F] font-bold border-b border-slate-200 transition-colors"
+                      >
+                        Explore All Industries
+                      </Link>
                       {INDUSTRIES.map((ind, i) => (
                         <Link
                           key={i}
-                          href="#industries"
+                          href={ind.href}
                           onClick={() => setMobileOpen(false)}
                           className="block py-1.5 text-xs text-slate-700 hover:text-primary font-medium transition-colors"
                         >
@@ -522,13 +529,13 @@ export default function Header({ onContactClick }: HeaderProps) {
                       Insights
                     </AccordionTrigger>
                     <AccordionContent className="bg-slate-50 p-3 rounded-md flex flex-col gap-2">
-                      <Link href="#ai-transformation" onClick={() => setMobileOpen(false)} className="text-xs text-slate-700 font-medium block py-1 hover:text-primary transition-colors">
+                      <Link href="/insights/ai-automation" onClick={() => setMobileOpen(false)} className="text-xs text-slate-700 font-medium block py-1 hover:text-primary transition-colors">
                         AI & Automation
                       </Link>
-                      <Link href="#ecosystem" onClick={() => setMobileOpen(false)} className="text-xs text-slate-700 font-medium block py-1 hover:text-primary transition-colors">
+                      <Link href="/insights/technology-ecosystem" onClick={() => setMobileOpen(false)} className="text-xs text-slate-700 font-medium block py-1 hover:text-primary transition-colors">
                         Technology Ecosystem
                       </Link>
-                      <Link href="#case-studies" onClick={() => setMobileOpen(false)} className="text-xs text-slate-700 font-medium block py-1 hover:text-primary transition-colors">
+                      <Link href="/insights/case-studies" onClick={() => setMobileOpen(false)} className="text-xs text-slate-700 font-medium block py-1 hover:text-primary transition-colors">
                         Enterprise Case Studies
                       </Link>
                     </AccordionContent>

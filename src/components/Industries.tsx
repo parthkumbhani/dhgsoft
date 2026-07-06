@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
 
 /* ═══════════════════════════════════════════════════════════════
    INDUSTRY DATA — 8 sectors in required order
@@ -17,6 +18,7 @@ interface IndustryCardData {
   services: string[];
   technologies: string[];
   outcomes: string[];
+  slug: string;
 }
 
 const INDUSTRIES_DATA: IndustryCardData[] = [
@@ -28,7 +30,8 @@ const INDUSTRIES_DATA: IndustryCardData[] = [
     overview: "End-to-end digital transformation for mining and metals operations — from pit-to-port optimization to autonomous fleet management.",
     services: ["Predictive Equipment Maintenance", "Autonomous Fleet Management", "AI Ore Grade Optimization", "Digital Mine Safety Systems"],
     technologies: ["IoT Edge Sensors", "SCADA", "AI/ML Pipelines", "Digital Twin"],
-    outcomes: ["30% downtime reduction", "15% yield improvement", "Zero-harm safety targets"]
+    outcomes: ["30% downtime reduction", "15% yield improvement", "Zero-harm safety targets"],
+    slug: "mining-metals"
   },
   {
     industry: "Power Utility",
@@ -38,7 +41,8 @@ const INDUSTRIES_DATA: IndustryCardData[] = [
     overview: "Secure digital automation for power generation, transmission, and distribution infrastructure with real-time grid intelligence.",
     services: ["Smart Grid Platforms", "Substation Automation", "Load Forecasting Systems", "Renewable Integration"],
     technologies: ["IEC 61850", "DNP3", "ADMS", "AMI Metering"],
-    outcomes: ["99.9% grid reliability", "20% outage reduction", "Real-time asset visibility"]
+    outcomes: ["99.9% grid reliability", "20% outage reduction", "Real-time asset visibility"],
+    slug: "power-utilities"
   },
   {
     industry: "Life Sciences",
@@ -48,7 +52,8 @@ const INDUSTRIES_DATA: IndustryCardData[] = [
     overview: "GMP-compliant digital solutions for pharmaceutical manufacturing, laboratory automation, and regulatory compliance.",
     services: ["Electronic Batch Records", "Laboratory Info Systems", "Serialization & Track-Trace", "Process Analytical Tech"],
     technologies: ["GAMP 5", "21 CFR Part 11", "MES", "LIMS"],
-    outcomes: ["40% faster batch release", "100% compliance record", "Full lifecycle traceability"]
+    outcomes: ["40% faster batch release", "100% compliance record", "Full lifecycle traceability"],
+    slug: "life-sciences"
   },
   {
     industry: "Food & Beverages",
@@ -58,7 +63,8 @@ const INDUSTRIES_DATA: IndustryCardData[] = [
     overview: "Smart manufacturing solutions for food safety, production optimization, and end-to-end supply chain traceability.",
     services: ["OEE Optimization Platforms", "Recipe & Batch Control", "Quality Inspection Systems", "Packaging Automation"],
     technologies: ["ISA-88", "ISA-95", "ERP Integration", "Vision AI"],
-    outcomes: ["25% OEE increase", "Zero safety incidents", "Full product traceability"]
+    outcomes: ["25% OEE increase", "Zero safety incidents", "Full product traceability"],
+    slug: "food-beverages"
   },
   {
     industry: "Automotive",
@@ -68,7 +74,8 @@ const INDUSTRIES_DATA: IndustryCardData[] = [
     overview: "Industry 4.0 transformation for automotive OEMs and Tier-1 suppliers with connected factory intelligence.",
     services: ["Digital Factory Platforms", "Robotic Cell Integration", "Predictive Quality Analytics", "Connected Supply Chain"],
     technologies: ["OPC UA", "CAN Bus", "ROS", "MQTT Edge"],
-    outcomes: ["35% faster cycle times", "50% defect reduction", "Real-time production views"]
+    outcomes: ["35% faster cycle times", "50% defect reduction", "Real-time production views"],
+    slug: "automotive"
   },
   {
     industry: "Data Centers",
@@ -78,7 +85,8 @@ const INDUSTRIES_DATA: IndustryCardData[] = [
     overview: "Mission-critical infrastructure management for hyperscale and enterprise data center operations.",
     services: ["DCIM Platform Integration", "Energy & Cooling Tuning", "Capacity Planning Systems", "Power Monitoring & Backup"],
     technologies: ["SNMP", "BACnet", "Modbus", "IPMI"],
-    outcomes: ["40% energy savings", "99.999% uptime SLA", "Predictive capacity management"]
+    outcomes: ["40% energy savings", "99.999% uptime SLA", "Predictive capacity management"],
+    slug: "data-centres"
   },
   {
     industry: "Water & Wastewater",
@@ -88,7 +96,8 @@ const INDUSTRIES_DATA: IndustryCardData[] = [
     overview: "Intelligent water management systems for treatment optimization, distribution monitoring, and regulatory compliance.",
     services: ["Treatment Process Control", "Leak Detection & NRW Control", "Water Quality Monitoring", "Distribution Network Intel"],
     technologies: ["PLC/RTU", "GIS Mapping", "Telemetry", "SCADA"],
-    outcomes: ["30% NRW reduction", "Full compliance safety", "Real-time quality alerts"]
+    outcomes: ["30% NRW reduction", "Full compliance safety", "Real-time quality alerts"],
+    slug: "water-wastewater"
   },
   {
     industry: "EPC",
@@ -98,7 +107,8 @@ const INDUSTRIES_DATA: IndustryCardData[] = [
     overview: "Digital project execution platforms for engineering, procurement, and construction of large-scale industrial infrastructure.",
     services: ["Digital Twin Engineering", "BIM-Integrated Workflows", "Automated Document Control", "Commissioning Systems"],
     technologies: ["Primavera P6", "Aveva E3D", "SAP PM", "Intergraph"],
-    outcomes: ["20% faster project delivery", "15% cost reduction", "Zero-rework commissioning"]
+    outcomes: ["20% faster project delivery", "15% cost reduction", "Zero-rework commissioning"],
+    slug: "epc"
   }
 ];
 
@@ -158,7 +168,8 @@ function IndustryCard({
         pointerEvents: (d >= 0 && d < visibleCount) ? 'auto' : 'none',
       }}
     >
-      {/* Top Brand Accent Border */}
+      <Link href={`/industries/${data.slug}`} className="w-full h-full block relative text-left select-none">
+        {/* Top Brand Accent Border */}
       <motion.div
         className="absolute top-0 left-0 right-0 h-[4px] z-40"
         style={{
@@ -466,6 +477,7 @@ function IndustryCard({
           </div>
         </div>
       </motion.div>
+      </Link>
 
       {/* Gradient keyframe animation */}
       <style>{`
