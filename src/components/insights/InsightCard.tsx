@@ -13,7 +13,11 @@ interface InsightCardProps {
 
 export default function InsightCard({ article }: InsightCardProps) {
   return (
-    <div className="group flex flex-col bg-white border border-line rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:border-brand/40 hover:-translate-y-1.5 transition-all duration-300 text-left h-full">
+    <Link
+      href={`/insights/${article.hub}/${article.slug}`}
+      prefetch
+      className="group flex flex-col bg-white border border-line rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:border-brand/40 hover:-translate-y-1.5 transition-all duration-300 text-left h-full"
+    >
       {/* Article Image */}
       <div className="relative w-full h-[200px] overflow-hidden bg-slate-50">
         <Image
@@ -51,6 +55,6 @@ export default function InsightCard({ article }: InsightCardProps) {
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
