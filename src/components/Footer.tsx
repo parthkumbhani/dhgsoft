@@ -4,11 +4,8 @@ import React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowUp } from "lucide-react"
-import { usePathname } from "next/navigation"
 
 export default function Footer() {
-  const pathname = usePathname()
-  const isCareers = pathname?.startsWith("/careers")
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
@@ -234,12 +231,6 @@ export default function Footer() {
           <div className="text-[10px] text-slate-600 leading-relaxed text-center md:text-left">
             All other trademarks or trade names used in this website are the property of their respective owners.
           </div>
-
-          {isCareers && (
-            <div className="text-[10px] text-slate-500 font-mono text-center md:text-left border-t border-slate-900 pt-4 mt-2 select-none">
-              [Add your equal-opportunity employer statement here.]
-            </div>
-          )}
 
         </div>
 
