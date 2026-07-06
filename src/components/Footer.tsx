@@ -121,7 +121,7 @@ export default function Footer() {
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <Link href="#industries" className="text-sm text-slate-300 hover:text-white transition-all hover:translate-x-1 inline-flex items-center gap-1.5 group">
+                  <Link href="/industries" className="text-sm text-slate-300 hover:text-white transition-all hover:translate-x-1 inline-flex items-center gap-1.5 group">
                     <span className="w-1.5 h-1.5 rounded-full bg-secondary scale-0 group-hover:scale-100 transition-all duration-200" />
                     Industries
                   </Link>
@@ -154,13 +154,13 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className="text-sm text-slate-300 hover:text-white transition-all hover:translate-x-1 inline-flex items-center gap-1.5 group">
+                  <Link href="/investors" className="text-sm text-slate-300 hover:text-white transition-all hover:translate-x-1 inline-flex items-center gap-1.5 group">
                     <span className="w-1.5 h-1.5 rounded-full bg-secondary scale-0 group-hover:scale-100 transition-all duration-200" />
                     Investors
                   </Link>
                 </li>
                 <li>
-                  <Link href="#ai-transformation" className="text-sm text-slate-300 hover:text-white transition-all hover:translate-x-1 inline-flex items-center gap-1.5 group">
+                  <Link href="/newsroom" className="text-sm text-slate-300 hover:text-white transition-all hover:translate-x-1 inline-flex items-center gap-1.5 group">
                     <span className="w-1.5 h-1.5 rounded-full bg-secondary scale-0 group-hover:scale-100 transition-all duration-200" />
                     Newsroom
                   </Link>
@@ -175,7 +175,7 @@ export default function Footer() {
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <Link href="#ecosystem" className="text-sm text-slate-300 hover:text-white transition-all hover:translate-x-1 inline-flex items-center gap-1.5 group">
+                  <Link href="/about/partners" className="text-sm text-slate-300 hover:text-white transition-all hover:translate-x-1 inline-flex items-center gap-1.5 group">
                     <span className="w-1.5 h-1.5 rounded-full bg-secondary scale-0 group-hover:scale-100 transition-all duration-200" />
                     Partners
                   </Link>
