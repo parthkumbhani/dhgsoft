@@ -13,6 +13,12 @@ export interface CapabilityData {
   outcomes: string[];
   industries: string[];
   related: { name: string; href: string }[];
+  
+  // v2 Image properties
+  heroImage: { src: string; alt: string };
+  challengeImage: { src: string; alt: string };
+  featureImage: { src: string; alt: string };
+  inActionImages: { src: string; alt: string }[];
 }
 
 export const CAPABILITIES_DATA: Record<string, CapabilityData> = {
@@ -44,6 +50,28 @@ export const CAPABILITIES_DATA: Record<string, CapabilityData> = {
       { name: "OT / IT Integration", href: "/capabilities/ot-it-integration" },
       { name: "Industrial Data Platforms", href: "/capabilities/industrial-data-platforms" },
       { name: "Cloud & Infrastructure", href: "/capabilities/cloud-infrastructure" }
+    ],
+    heroImage: {
+      src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
+      alt: "Futuristic smart factory overview, wide"
+    },
+    challengeImage: {
+      src: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+      alt: "Engineers reviewing digital dashboards on a factory floor"
+    },
+    featureImage: {
+      src: "https://images.unsplash.com/photo-1537462715879-360eeb61a0bc?auto=format&fit=crop&w=800&q=80",
+      alt: "Manufacturing engineer reviewing operational workflows"
+    },
+    inActionImages: [
+      {
+        src: "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+        alt: "Modern connected factory floor with screens"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=600&q=80",
+        alt: "Executive reviewing operations data on a tablet in a plant"
+      }
     ]
   },
   "ot-it-integration": {
@@ -74,6 +102,28 @@ export const CAPABILITIES_DATA: Record<string, CapabilityData> = {
       { name: "Industrial Data Platforms", href: "/capabilities/industrial-data-platforms" },
       { name: "Industrial Internet of Things (IIoT)", href: "/capabilities/iiot" },
       { name: "Cybersecurity", href: "/capabilities/cybersecurity" }
+    ],
+    heroImage: {
+      src: "https://images.unsplash.com/photo-1581094751156-4d7a8d56b0d9?auto=format&fit=crop&w=1200&q=80",
+      alt: "Industrial network engineer working on the plant floor"
+    },
+    challengeImage: {
+      src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
+      alt: "Operators monitoring SCADA screens in a control room"
+    },
+    featureImage: {
+      src: "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=800&q=80",
+      alt: "Control engineering review"
+    },
+    inActionImages: [
+      {
+        src: "https://images.unsplash.com/photo-1597491853412-f22291c4ddb3?auto=format&fit=crop&w=600&q=80",
+        alt: "PLC control panel and wiring close-up"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80",
+        alt: "Server racks connected to factory equipment"
+      }
     ]
   },
   "industrial-data-platforms": {
@@ -104,6 +154,28 @@ export const CAPABILITIES_DATA: Record<string, CapabilityData> = {
       { name: "Artificial Intelligence & Analytics", href: "/capabilities/ai-analytics" },
       { name: "OT / IT Integration", href: "/capabilities/ot-it-integration" },
       { name: "Cloud & Infrastructure", href: "/capabilities/cloud-infrastructure" }
+    ],
+    heroImage: {
+      src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+      alt: "Industrial analytics data visualization on large screens"
+    },
+    challengeImage: {
+      src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+      alt: "Engineer analyzing time-series data on monitors"
+    },
+    featureImage: {
+      src: "https://images.unsplash.com/photo-1527474305487-b87b222841cc?auto=format&fit=crop&w=800&q=80",
+      alt: "Industrial dataset management diagram"
+    },
+    inActionImages: [
+      {
+        src: "https://images.unsplash.com/photo-1548345680-f5475ea5df84?auto=format&fit=crop&w=600&q=80",
+        alt: "Data server hall, industrial environment"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80",
+        alt: "Operations analytics dashboard wall"
+      }
     ]
   },
   "ai-analytics": {
@@ -134,6 +206,28 @@ export const CAPABILITIES_DATA: Record<string, CapabilityData> = {
       { name: "Industrial Data Platforms", href: "/capabilities/industrial-data-platforms" },
       { name: "Industrial Internet of Things (IIoT)", href: "/capabilities/iiot" },
       { name: "Digital Engineering Services", href: "/capabilities/digital-engineering" }
+    ],
+    heroImage: {
+      src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+      alt: "Abstract AI and industrial analytics visualization"
+    },
+    challengeImage: {
+      src: "https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&w=800&q=80",
+      alt: "Data scientist working with charts in industrial setting"
+    },
+    featureImage: {
+      src: "https://images.unsplash.com/photo-1531747118685-ca8fa6e08806?auto=format&fit=crop&w=800&q=80",
+      alt: "Model training graphics visualization"
+    },
+    inActionImages: [
+      {
+        src: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=600&q=80",
+        alt: "Predictive maintenance sensor on a machine"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&q=80",
+        alt: "Machine-vision camera inspecting products"
+      }
     ]
   },
   "iiot": {
@@ -164,6 +258,28 @@ export const CAPABILITIES_DATA: Record<string, CapabilityData> = {
       { name: "Industrial Data Platforms", href: "/capabilities/industrial-data-platforms" },
       { name: "Artificial Intelligence & Analytics", href: "/capabilities/ai-analytics" },
       { name: "Cloud & Infrastructure", href: "/capabilities/cloud-infrastructure" }
+    ],
+    heroImage: {
+      src: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1200&q=80",
+      alt: "Connected industrial IoT sensors and devices"
+    },
+    challengeImage: {
+      src: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80",
+      alt: "Edge computing device mounted on factory equipment"
+    },
+    featureImage: {
+      src: "https://images.unsplash.com/photo-1591453089816-0fbb971b454c?auto=format&fit=crop&w=800&q=80",
+      alt: "Telemetry collection interface"
+    },
+    inActionImages: [
+      {
+        src: "https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&w=600&q=80",
+        alt: "Wireless sensor on industrial equipment"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=600&q=80",
+        alt: "Field technician with a tablet monitoring assets"
+      }
     ]
   },
   "digital-engineering": {
@@ -194,6 +310,28 @@ export const CAPABILITIES_DATA: Record<string, CapabilityData> = {
       { name: "Enterprise Applications", href: "/capabilities/enterprise-applications" },
       { name: "OT / IT Integration", href: "/capabilities/ot-it-integration" },
       { name: "Industrial Data Platforms", href: "/capabilities/industrial-data-platforms" }
+    ],
+    heroImage: {
+      src: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
+      alt: "Software developers building industrial software solutions"
+    },
+    challengeImage: {
+      src: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80",
+      alt: "Engineering team whiteboard planning session"
+    },
+    featureImage: {
+      src: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80",
+      alt: "Dual coding monitors interface layout"
+    },
+    inActionImages: [
+      {
+        src: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80",
+        alt: "Custom software dashboard on a screen"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=600&q=80",
+        alt: "Developer coding on dual monitors setup"
+      }
     ]
   },
   "enterprise-applications": {
@@ -224,6 +362,28 @@ export const CAPABILITIES_DATA: Record<string, CapabilityData> = {
       { name: "Digital Engineering Services", href: "/capabilities/digital-engineering" },
       { name: "OT / IT Integration", href: "/capabilities/ot-it-integration" },
       { name: "Cloud & Infrastructure", href: "/capabilities/cloud-infrastructure" }
+    ],
+    heroImage: {
+      src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+      alt: "Enterprise business software and operations overview"
+    },
+    challengeImage: {
+      src: "https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&w=800&q=80",
+      alt: "Business team using enterprise software in office"
+    },
+    featureImage: {
+      src: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80",
+      alt: "Integrated systems layout dashboard blueprint"
+    },
+    inActionImages: [
+      {
+        src: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
+        alt: "Manufacturing execution system (MES) screen"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=600&q=80",
+        alt: "Supply-chain planning dashboard interface"
+      }
     ]
   },
   "cloud-infrastructure": {
@@ -254,6 +414,28 @@ export const CAPABILITIES_DATA: Record<string, CapabilityData> = {
       { name: "Cybersecurity", href: "/capabilities/cybersecurity" },
       { name: "Industrial Data Platforms", href: "/capabilities/industrial-data-platforms" },
       { name: "Managed Services", href: "/capabilities/managed-services" }
+    ],
+    heroImage: {
+      src: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?auto=format&fit=crop&w=1200&q=80",
+      alt: "Hybrid cloud data center servers glowing"
+    },
+    challengeImage: {
+      src: "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&w=800&q=80",
+      alt: "Cloud engineers working inside server room"
+    },
+    featureImage: {
+      src: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+      alt: "Edge compute hardware installations"
+    },
+    inActionImages: [
+      {
+        src: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+        alt: "Data center aisle with network cables layout"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=600&q=80",
+        alt: "Cloud architecture screen demonstration with team"
+      }
     ]
   },
   "cybersecurity": {
@@ -284,6 +466,28 @@ export const CAPABILITIES_DATA: Record<string, CapabilityData> = {
       { name: "OT / IT Integration", href: "/capabilities/ot-it-integration" },
       { name: "Cloud & Infrastructure", href: "/capabilities/cloud-infrastructure" },
       { name: "Managed Services", href: "/capabilities/managed-services" }
+    ],
+    heroImage: {
+      src: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80",
+      alt: "Cybersecurity operations center with active terminal screens"
+    },
+    challengeImage: {
+      src: "https://images.unsplash.com/photo-1624969862644-791f3dc98927?auto=format&fit=crop&w=800&q=80",
+      alt: "Security analyst monitoring threats"
+    },
+    featureImage: {
+      src: "https://images.unsplash.com/photo-1562813733-b31f71025d54?auto=format&fit=crop&w=800&q=80",
+      alt: "Zero trust network configurations blueprint"
+    },
+    inActionImages: [
+      {
+        src: "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=600&q=80",
+        alt: "Digital network security lock lock concept screen"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?auto=format&fit=crop&w=600&q=80",
+        alt: "Engineer securing an industrial control system PLC cabinet"
+      }
     ]
   },
   "managed-services": {
@@ -314,6 +518,28 @@ export const CAPABILITIES_DATA: Record<string, CapabilityData> = {
       { name: "Cloud & Infrastructure", href: "/capabilities/cloud-infrastructure" },
       { name: "Cybersecurity", href: "/capabilities/cybersecurity" },
       { name: "Industrial Data Platforms", href: "/capabilities/industrial-data-platforms" }
+    ],
+    heroImage: {
+      src: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1200&q=80",
+      alt: "24/7 operations support center with monitoring walls"
+    },
+    challengeImage: {
+      src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80",
+      alt: "Support engineers monitoring dashboards as a team"
+    },
+    featureImage: {
+      src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+      alt: "Global operations monitoring dashboard overview"
+    },
+    inActionImages: [
+      {
+        src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80",
+        alt: "Global operations center with a world map"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&q=80",
+        alt: "Technician on a remote support headset"
+      }
     ]
   }
 };
