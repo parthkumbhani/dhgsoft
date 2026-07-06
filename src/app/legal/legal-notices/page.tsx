@@ -17,6 +17,11 @@ const sections = [
 
 export default function LegalNoticesPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [currentYear, setCurrentYear] = useState(2026);
+
+  React.useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   return (
     <div className="min-h-screen bg-white text-slate-800 antialiased font-sans selection:bg-[#B4123F] selection:text-white">
@@ -144,7 +149,7 @@ export default function LegalNoticesPage() {
                   </h2>
                   <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
                     <p className="text-slate-700 font-mono text-sm">
-                      © {new Date().getFullYear()} DHGsoft Technologies Pvt. Ltd. All rights reserved.
+                      © {currentYear} DHGsoft Technologies Pvt. Ltd. All rights reserved.
                     </p>
                   </div>
                   <p className="text-slate-600 leading-relaxed text-sm sm:text-base">

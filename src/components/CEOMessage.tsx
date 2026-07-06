@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, useInView, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 
@@ -13,7 +13,13 @@ export default function CEOMessage() {
     offset: ["start end", "end start"]
   });
 
-  const shouldReduceMotion = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const motionPreference = useReducedMotion();
+  const shouldReduceMotion = motionPreference && mounted;
   const scrollTransform = useTransform(scrollYProgress, [0, 1], [-15, 15]);
   const yParallaxImage = shouldReduceMotion ? 0 : scrollTransform;
 
