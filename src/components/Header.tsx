@@ -84,11 +84,11 @@ const ABOUT_MENU = [
 ]
 
 const CAREERS_MENU = [
-  { name: "Life at DHGsoft", desc: "Discover our culture, benefits, and engineering mindset." },
-  { name: "Current Openings", desc: "Explore active engineering, architecture, and consulting roles." },
-  { name: "Internship Program", desc: "Start your journey with real-world OT/IT projects." },
-  { name: "Campus Connect", desc: "Opportunities for recent graduates & university partners." },
-  { name: "Learning & Development", desc: "Continuous training, certifications, and leadership growth." }
+  { name: "Life at DHGsoft", desc: "Discover our culture, benefits, and engineering mindset.", href: "/careers/life-at-dhgsoft" },
+  { name: "Current Openings", desc: "Explore active engineering, architecture, and consulting roles.", href: "/careers/current-openings" },
+  { name: "Internship Program", desc: "Start your journey with real-world OT/IT projects.", href: "/careers/internship-program" },
+  { name: "Campus Connect", desc: "Opportunities for recent graduates & university partners.", href: "/careers/campus-connect" },
+  { name: "Learning & Development", desc: "Continuous training, certifications, and leadership growth.", href: "/careers/learning-development" }
 ]
 
 interface HeaderProps {
@@ -386,20 +386,18 @@ export default function Header({ onContactClick }: HeaderProps) {
                           Join our team of elite digital engineers, cloud architects, and digital twins experts.
                         </p>
                       </div>
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        className="w-full mt-4 border-primary text-primary hover:bg-primary hover:text-white transition-colors text-xs py-1 h-8"
-                        onClick={onContactClick}
+                      <Link
+                        href="/careers/submit-cv"
+                        className="w-full mt-4 border border-primary text-primary hover:bg-primary hover:text-white transition-colors text-xs py-1.5 h-8 block rounded-md text-center font-semibold"
                       >
                         Submit CV
-                      </Button>
+                      </Link>
                     </div>
                     <div className="col-span-2 flex flex-col gap-1.5">
                       {CAREERS_MENU.map((item, i) => (
                         <NavigationMenuLink asChild key={i}>
                           <Link
-                            href="#contact"
+                            href={item.href || "/careers"}
                             className="group block select-none rounded-md p-2 leading-none no-underline outline-none transition-all hover:bg-primary/5"
                           >
                             <div className="text-sm font-semibold text-slate-800 group-hover:text-primary transition-colors">
@@ -567,7 +565,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                       {CAREERS_MENU.map((item, i) => (
                         <Link
                           key={i}
-                          href="#contact"
+                          href={item.href || "/careers"}
                           onClick={() => setMobileOpen(false)}
                           className="block py-1.5 text-xs text-slate-700 hover:text-primary font-medium transition-colors"
                         >
