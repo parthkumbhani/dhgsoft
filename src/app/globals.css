@@ -127,6 +127,12 @@
   --color-brand: #B4123F;
   --color-brand-hot: #E11D5C;
   --color-brand-deep: #A10E38;
+  --color-brand-accent: #F5B301;
+  --color-brand-mid: #E8364F;
+  --color-txt-strong: #0F1420;
+  --color-txt-muted: #5B6270;
+  --color-linkedin: #0A66C2;
+  --color-linkedin-hover: #08529d;
   --color-ink: #0A0E1A;
   --color-ink-2: #111726;
   --color-mist: #F4F5F7;
@@ -206,6 +212,18 @@ body {
   background: linear-gradient(135deg, #7c0438 0%, #950443 50%, #fbc00e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-brand {
+  background: linear-gradient(90deg, var(--color-brand) 0%, var(--color-brand-mid) 40%, var(--color-brand-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-gradient-brand {
+  background: linear-gradient(90deg, var(--color-brand) 0%, var(--color-brand-mid) 40%, var(--color-brand-accent) 100%);
 }
 
 /* Level 1 (Card) - White surface, 1px neutral border, NO shadow */
