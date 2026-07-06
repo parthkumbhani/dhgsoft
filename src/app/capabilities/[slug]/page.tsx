@@ -1,10 +1,7 @@
-// src/app/capabilities/[slug]/page.tsx
 import React from "react";
 import { notFound } from "next/navigation";
 import CapabilityTemplate from "@/components/capabilities/CapabilityTemplate";
 import { CAPABILITIES_DATA } from "@/lib/capabilities";
-
-export const dynamicParams = false;
 
 interface CapabilityPageProps {
   params: Promise<{ slug: string }>;

@@ -194,27 +194,27 @@ export default function Footer() {
           
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="text-[11px] text-slate-500 font-medium">
-              © {new Date().getFullYear()} DHGsoft - All Rights Reserved.
+              © 2026 DHGsoft - All Rights Reserved.
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px]">
-              <Link href="/about" className="text-slate-500 hover:text-white transition-colors font-medium">
+              <Link href="/legal/legal-disclaimer" className="text-slate-500 hover:text-white transition-colors font-medium">
                 Legal Disclaimer
               </Link>
               <span className="text-slate-800">•</span>
-              <Link href="/about" className="text-slate-500 hover:text-white transition-colors font-medium">
+              <Link href="/legal/cookie-policy" className="text-slate-500 hover:text-white transition-colors font-medium">
                 Cookie policy
               </Link>
               <span className="text-slate-800">•</span>
-              <Link href="/about" className="text-slate-500 hover:text-white transition-colors font-medium">
+              <Link href="/legal/legal-notices" className="text-slate-500 hover:text-white transition-colors font-medium">
                 Legal notices
               </Link>
               <span className="text-slate-800">•</span>
-              <Link href="/about" className="text-slate-500 hover:text-white transition-colors font-medium">
+              <Link href="/legal/privacy-policy" className="text-slate-500 hover:text-white transition-colors font-medium">
                 Privacy Policy
               </Link>
               <span className="text-slate-800">•</span>
-              <Link href="/about" className="text-slate-500 hover:text-white transition-colors font-medium">
+              <Link href="/legal/terms-and-conditions" className="text-slate-500 hover:text-white transition-colors font-medium">
                 Terms and Conditions
               </Link>
             </div>

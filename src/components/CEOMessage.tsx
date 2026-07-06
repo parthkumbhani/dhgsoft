@@ -92,7 +92,7 @@ export default function CEOMessage() {
       <div className="absolute bottom-12 right-12 w-8 h-8 border-b border-r border-slate-350/40 pointer-events-none z-0" />
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 relative z-10">
-        
+
         {/* ── Main Grid ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center">
 
@@ -125,7 +125,7 @@ export default function CEOMessage() {
                 className="absolute -top-10 -left-6 fill-current text-slate-100 opacity-60 z-0 pointer-events-none"
                 style={{ width: 100, height: 100 }}
               />
-              
+
               <h2
                 className="font-extrabold text-slate-900 tracking-tight mb-6 font-headline relative z-10 leading-tight"
                 style={{ fontSize: 'clamp(28px, 3.2vw, 44px)' }}
@@ -169,7 +169,7 @@ export default function CEOMessage() {
                   Chief Executive Officer, DHGsoft
                 </p>
               </div>
-              
+
               {/* Premium LinkedIn Brand Button */}
               <a
                 href="https://linkedin.com/in/hitesh-patel-967087a0"
@@ -178,7 +178,7 @@ export default function CEOMessage() {
                 className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#0A66C2]/10 border border-[#0A66C2]/20 hover:bg-[#0A66C2] hover:border-[#0A66C2] text-[#0A66C2] hover:text-white transition-all duration-300 shadow-sm mt-4 sm:mt-0 font-sans font-bold text-xs group"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                 </svg>
                 <span>Connect on LinkedIn</span>
               </a>
@@ -222,10 +222,10 @@ export default function CEOMessage() {
           >
             {/* Absolute positioning container wrapper to maintain relative sizing between all mockup elements */}
             <div className="relative w-full max-w-[330px] aspect-[3.2/4] mx-auto">
-              
+
               {/* Dot Grid top-left */}
               <DotGrid className="absolute -left-8 top-6 opacity-40 z-0" />
-              
+
               {/* Outer Pink Curved Line Offset */}
               <div className="absolute inset-0 rounded-[32px] border-t border-r border-[#E8364F]/50 pointer-events-none z-0 transform translate-x-7 -translate-y-7" />
 
@@ -243,9 +243,9 @@ export default function CEOMessage() {
 
               {/* ── MAIN PORTRAIT CARD ── */}
               <div className="absolute inset-0 rounded-[32px] border-[10px] border-white bg-white overflow-hidden shadow-[0_25px_60px_-15px_rgba(15,23,42,0.18)] z-10">
-                
+
                 {/* Card Background: Warm White and Beige Gradient */}
-                <div 
+                <div
                   className="absolute inset-0 z-0"
                   style={{
                     background: 'linear-gradient(135deg, #FFFFFF 0%, #EBDBA2 100%)',

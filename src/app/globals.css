@@ -28,6 +28,16 @@
 
 
 @theme {
+  --color-brand: #B4123F;
+  --color-brand-hot: #E11D5C;
+  --color-brand-deep: #A10E38;
+  --color-ink: #0A0E1A;
+  --color-ink-2: #111726;
+  --color-mist: #F4F5F7;
+  --color-line: #E5E7EB;
+  --color-text-strong: #0F1420;
+  --color-text-muted: #5B6270;
+
   --color-surface: #ffffff;
   --color-surface-dim: #f1f5f9;
   --color-surface-bright: #ffffff;
