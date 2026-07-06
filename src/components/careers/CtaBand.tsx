@@ -1,5 +1,6 @@
 // src/components/careers/CtaBand.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React from "react";
 import Link from "next/link";
@@ -16,9 +17,9 @@ export default function CtaBand({
   buttonHref = "/careers/submit-cv"
 }: CtaBandProps) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-r from-brand-hot via-brand to-brand-deep py-16 text-center select-none">
+    <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center select-none">
       <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8 text-left">
+      <div className="w-full relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8 text-left">
         
         <div className="max-w-2xl space-y-2">
           <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-white/80 font-mono block">
@@ -39,6 +40,6 @@ export default function CtaBand({
         </div>
 
       </div>
-    </section>
+    </Section>
   );
 }

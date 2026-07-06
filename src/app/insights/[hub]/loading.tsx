@@ -1,3 +1,4 @@
+import { Section } from "@/components/ui/Section";
 // src/app/insights/[hub]/loading.tsx
 import React from "react";
 
@@ -6,7 +7,7 @@ export default function HubLoading() {
     <div className="relative animate-pulse">
       {/* Sticky Switcher skeleton */}
       <div className="sticky top-20 z-30 w-full bg-white border-b border-line py-5">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+        <div className="w-full relative z-10">
           <div className="flex items-center gap-3">
             <div className="h-3 w-8 bg-slate-200 rounded shrink-0" />
             <div className="h-8 w-28 bg-slate-200 rounded-full shrink-0" />
@@ -17,17 +18,17 @@ export default function HubLoading() {
       </div>
 
       {/* Hero Header block skeleton */}
-      <section className="bg-ink py-16 border-b border-slate-900">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-6">
+      <Section variant="ink" containerSize="wide" className=" border-b border-slate-900">
+        <div className="w-full relative z-10 space-y-6">
           <div className="h-4 w-40 bg-slate-800 rounded" />
           <div className="h-10 w-96 bg-slate-800 rounded" />
           <div className="h-6 w-[500px] bg-slate-800 rounded" />
         </div>
-      </section>
+      </Section>
 
       {/* Featured Story skeleton */}
-      <section className="bg-white py-16 md:py-20 border-b border-line">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-8">
+      <Section variant="white" containerSize="wide" className="bg-white border-b border-line">
+        <div className="w-full relative z-10 space-y-8">
           <div className="h-4 w-28 bg-slate-200 rounded" />
           <div className="grid grid-cols-1 lg:grid-cols-12 border border-line rounded-3xl overflow-hidden h-[400px]">
             <div className="lg:col-span-7 bg-slate-100 h-full" />
@@ -44,11 +45,11 @@ export default function HubLoading() {
             </div>
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* Filters and Card Grid skeleton */}
-      <section className="bg-mist py-16 md:py-24 border-b border-line">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+      <Section variant="mist" containerSize="wide" className=" border-b border-line">
+        <div className="w-full relative z-10 space-y-12">
           {/* Filter row skeleton */}
           <div className="flex flex-wrap gap-2.5 pb-6 border-b border-slate-200">
             <div className="h-9 w-16 bg-slate-250 rounded-xl" style={{ backgroundColor: "#e2e8f0" }} />
@@ -74,7 +75,7 @@ export default function HubLoading() {
             ))}
           </div>
         </div>
-      </section>
+      </Section>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowUp } from "lucide-react"
+import { Container } from "@/components/ui/Container"
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -19,7 +20,7 @@ export default function Footer() {
       {/* Technical grid overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] bg-[size:24px_24px] opacity-20" />
 
-      <div className="w-full px-6 lg:px-16 relative z-10">
+      <Container className="relative z-10">
         
         {/* Top Section: Catchphrase & Structured Directories */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -234,7 +235,7 @@ export default function Footer() {
 
         </div>
 
-      </div>
+      </Container>
     </footer>
   )
 }

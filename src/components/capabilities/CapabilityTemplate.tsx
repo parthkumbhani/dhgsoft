@@ -1,5 +1,6 @@
 // src/components/capabilities/CapabilityTemplate.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -85,11 +86,11 @@ export default function CapabilityTemplate({ data }: CapabilityTemplateProps) {
         <CapabilitySwitcher currentSlug={data.slug} />
 
         {/* 1) Photo Hero with Split Layout */}
-        <section className="relative bg-slate-950 text-white overflow-hidden min-h-[550px] flex items-center border-b border-slate-900 select-none">
+        <Section variant="ink" containerSize="wide" className="relative text-white overflow-hidden min-h-[550px] flex items-center border-b border-slate-900 select-none">
           <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
           <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] rounded-full bg-brand/10 blur-[120px] pointer-events-none" />
 
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] w-full py-16 md:py-20 relative z-10">
+          <div className="w-full py-16 md:py-20 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               
               {/* Left text area */}
@@ -147,11 +148,11 @@ export default function CapabilityTemplate({ data }: CapabilityTemplateProps) {
 
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 2) Challenge → Solution Section with Split Image row */}
-        <section className="bg-white py-16 md:py-24 border-b border-line relative bg-tech-grid text-left">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid text-left">
+          <div className="w-full relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               
               <div className="lg:col-span-6 space-y-8">
@@ -194,11 +195,11 @@ export default function CapabilityTemplate({ data }: CapabilityTemplateProps) {
 
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 3) What's Included & Grid with Supporting Photo Block */}
-        <section className="bg-mist py-16 md:py-24 border-b border-line relative bg-dot-matrix text-left">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="mist" containerSize="wide" className=" border-b border-line relative bg-dot-matrix text-left">
+          <div className="w-full relative z-10 space-y-12">
             
             <div className="space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
@@ -242,11 +243,11 @@ export default function CapabilityTemplate({ data }: CapabilityTemplateProps) {
             </div>
 
           </div>
-        </section>
+        </Section>
 
         {/* 4) How It Works with Process Timeline */}
-        <section className="bg-white py-16 md:py-24 border-b border-line relative bg-tech-grid text-left">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid text-left">
+          <div className="w-full relative z-10 space-y-12">
             <div className="space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
                 DELIVERY ROADMAP
@@ -257,13 +258,13 @@ export default function CapabilityTemplate({ data }: CapabilityTemplateProps) {
             </div>
             <ProcessJourney steps={data.steps} />
           </div>
-        </section>
+        </Section>
 
         {/* 5) Signature Band (Full Bleed Dark Ink Backdrop) */}
-        <section className="bg-slate-950 text-white py-20 border-b border-slate-900 overflow-hidden relative select-none">
+        <Section variant="ink" containerSize="wide" className=" text-white border-b border-slate-900 overflow-hidden relative select-none">
           <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
           
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+          <div className="w-full relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               
               <div className="lg:col-span-6 space-y-6 text-left">
@@ -286,11 +287,11 @@ export default function CapabilityTemplate({ data }: CapabilityTemplateProps) {
 
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 6) In Action Section (Masonry Grid with Photos) */}
-        <section className="bg-white py-16 md:py-24 border-b border-line relative bg-tech-grid text-left select-none">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid text-left select-none">
+          <div className="w-full relative z-10 space-y-12">
             
             <div className="space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
@@ -325,12 +326,12 @@ export default function CapabilityTemplate({ data }: CapabilityTemplateProps) {
             </div>
 
           </div>
-        </section>
+        </Section>
 
         {/* 7) Business Outcomes (Stats block with count-ups) */}
-        <section className="bg-slate-900 border-b border-slate-850 py-16 text-white text-center relative overflow-hidden select-none">
+        <Section variant="ink" containerSize="wide" className=" border-b border-slate-850 text-white text-center relative overflow-hidden select-none">
           <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-12">
+          <div className="w-full relative z-10 space-y-12">
             
             <div className="text-left space-y-2">
               <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-brand-hot font-mono block">
@@ -370,11 +371,11 @@ export default function CapabilityTemplate({ data }: CapabilityTemplateProps) {
             </div>
 
           </div>
-        </section>
+        </Section>
 
         {/* 8) Where It Applies (Chips linking to Industries) */}
-        <section className="bg-mist py-16 md:py-24 border-b border-line relative bg-dot-matrix text-left">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-8">
+        <Section variant="mist" containerSize="wide" className=" border-b border-line relative bg-dot-matrix text-left">
+          <div className="w-full relative z-10 space-y-8">
             <div className="space-y-2">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
                 INDUSTRY VERTICALS
@@ -396,11 +397,11 @@ export default function CapabilityTemplate({ data }: CapabilityTemplateProps) {
               ))}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 9) Why DHGsoft */}
-        <section className="bg-white py-16 md:py-24 border-b border-line relative bg-tech-grid text-left">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid text-left">
+          <div className="w-full relative z-10 space-y-12">
             <div className="space-y-2">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
                 WHY DHGSOFT
@@ -437,11 +438,11 @@ export default function CapabilityTemplate({ data }: CapabilityTemplateProps) {
               </div>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 10) Related Capabilities with Image Links */}
-        <section className="bg-mist py-16 md:py-24 border-b border-line relative bg-dot-matrix text-left select-none">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="mist" containerSize="wide" className=" border-b border-line relative bg-dot-matrix text-left select-none">
+          <div className="w-full relative z-10 space-y-12">
             <div className="space-y-2">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
                 RELATED CAPABILITIES
@@ -485,12 +486,12 @@ export default function CapabilityTemplate({ data }: CapabilityTemplateProps) {
               })}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 11) Crimson CTA Band */}
-        <section className="relative overflow-hidden bg-gradient-to-r from-brand-hot via-brand to-brand-deep py-20 text-center select-none">
+        <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center select-none">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-6">
+          <div className="w-full relative z-10 space-y-6">
             <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
               LET&apos;S ENGAGE
             </span>
@@ -506,7 +507,7 @@ export default function CapabilityTemplate({ data }: CapabilityTemplateProps) {
               </button>
             </div>
           </div>
-        </section>
+        </Section>
 
       </main>
 

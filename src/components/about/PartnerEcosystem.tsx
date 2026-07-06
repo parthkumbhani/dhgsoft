@@ -1,5 +1,6 @@
 // src/components/about/PartnerEcosystem.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React from "react";
 import Image from "next/image";
@@ -7,8 +8,8 @@ import { aboutImages } from "@/lib/aboutImages";
 
 export default function PartnerEcosystem() {
   return (
-    <section className="bg-mist py-16 md:py-20 border-b border-line">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-16">
+    <Section variant="mist" containerSize="wide" className=" border-b border-line">
+      <div className="w-full relative z-10 space-y-16">
         
         {/* Main Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -149,6 +150,6 @@ export default function PartnerEcosystem() {
         </div>
 
       </div>
-    </section>
+    </Section>
   );
 }

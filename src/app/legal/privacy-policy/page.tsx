@@ -1,5 +1,6 @@
 // src/app/legal/privacy-policy/page.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -35,10 +36,10 @@ export default function PrivacyPolicyPage() {
       <main className="relative pt-20">
 
         {/* ── Hero ─────────────────────────────────────────────── */}
-        <section className="relative min-h-[320px] flex items-center bg-slate-950 text-white py-16 overflow-hidden">
+        <Section variant="ink" containerSize="wide" className="relative min-h-[320px] flex items-center text-white overflow-hidden">
           <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
           <div className="absolute inset-0 bg-mesh-glow-dark pointer-events-none" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-5">
+          <div className="w-full relative z-10 space-y-5">
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-xs text-slate-400 font-mono uppercase tracking-widest">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -67,11 +68,11 @@ export default function PrivacyPolicyPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* ── Body: TOC + Content ──────────────────────────────── */}
-        <section className="bg-white py-16 md:py-24">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+        <Section variant="white" containerSize="wide" className="bg-white ">
+          <div className="w-full relative z-10">
 
             {/* Placeholder Notice */}
             <div className="mb-10 flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-xl p-4">
@@ -253,7 +254,7 @@ export default function PrivacyPolicyPage() {
               </article>
             </div>
           </div>
-        </section>
+        </Section>
 
       </main>
 

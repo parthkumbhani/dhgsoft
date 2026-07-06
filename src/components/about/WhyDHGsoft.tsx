@@ -1,5 +1,6 @@
 // src/components/about/WhyDHGsoft.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React from "react";
 import {
@@ -40,8 +41,8 @@ const features = [
 
 export default function WhyDHGsoft() {
   return (
-    <section className="bg-[#B4123F]/5 py-16 md:py-20 border-b border-line">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+    <Section variant="brandTint" containerSize="wide" className=" border-b border-line">
+      <div className="w-full relative z-10">
         
         {/* Header Block */}
         <div className="text-left mb-12">
@@ -76,6 +77,6 @@ export default function WhyDHGsoft() {
         </div>
 
       </div>
-    </section>
+    </Section>
   );
 }

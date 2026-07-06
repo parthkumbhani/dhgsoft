@@ -2,6 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { Section } from '@/components/ui/Section';
 import {
   ArrowRight,
   Briefcase,
@@ -111,13 +112,16 @@ export default function Careers() {
   const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
 
   return (
-    <motion.section
+    <Section
       ref={sectionRef}
       id="careers"
+      variant="mist"
+      containerSize="wide"
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
       variants={sectionVariants}
-      className="relative overflow-hidden border-t border-slate-200/60 bg-[#FAFBFC] py-8 lg:py-10"
+      className="overflow-hidden border-t border-slate-200/60"
+      style={{ background: '#FAFBFC' }}
     >
       {/* ── Subtle decorative background ── */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -178,7 +182,7 @@ export default function Careers() {
       </div>
 
       {/* ── Main Content ── */}
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 relative z-10">
+      <div className="relative z-10 w-full">
         {/* Header Row */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-12 lg:mb-16">
           {/* Left: Label + Heading + Subtitle */}
@@ -312,6 +316,6 @@ export default function Careers() {
           })}
         </div>
       </div>
-    </motion.section>
+    </Section>
   );
 }

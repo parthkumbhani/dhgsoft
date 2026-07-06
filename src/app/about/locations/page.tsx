@@ -1,5 +1,6 @@
 // src/app/about/locations/page.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -81,7 +82,7 @@ export default function LocationsPage() {
       <main className="relative pt-20">
 
         {/* 1. Hero Band */}
-        <section className="relative min-h-[500px] flex items-center overflow-hidden bg-ink">
+        <Section variant="ink" containerSize="wide" className="relative min-h-[500px] flex items-center overflow-hidden ">
           <div className="absolute inset-0 z-0">
             <Image
               src={locationsImages.hero.src}
@@ -92,7 +93,7 @@ export default function LocationsPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-transparent" />
           </div>
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] w-full relative z-10 py-16 md:py-20">
+          <div className="w-full relative z-10 py-16 md:py-20">
             <div className="max-w-3xl text-left flex gap-6">
               <div className="w-[4px] bg-brand rounded-full self-stretch shrink-0" />
               <div className="space-y-4">
@@ -108,11 +109,11 @@ export default function LocationsPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 2. Delivery Model */}
-        <section className="bg-mist py-16 md:py-20 border-b border-line overflow-hidden relative bg-dot-matrix">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="mist" containerSize="wide" className=" border-b border-line overflow-hidden relative bg-dot-matrix">
+          <div className="w-full relative z-10 space-y-12">
             <div className="text-left space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
                 DELIVERY MODEL
@@ -140,11 +141,11 @@ export default function LocationsPage() {
               })}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 3. Our Locations */}
-        <section className="bg-[#B4123F]/5 py-16 md:py-20 border-b border-line relative bg-tech-grid bg-dot-matrix">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="brandTint" containerSize="wide" className=" border-b border-line relative bg-tech-grid bg-dot-matrix">
+          <div className="w-full relative z-10 space-y-12">
             <div className="text-left space-y-4">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
                 OUR LOCATIONS
@@ -208,11 +209,11 @@ export default function LocationsPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 4. Global Delivery Centers */}
-        <section className="bg-white py-16 md:py-20 border-b border-line overflow-hidden relative bg-tech-grid">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line overflow-hidden relative bg-tech-grid">
+          <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6 text-left">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
                 DELIVERY CENTERS
@@ -230,12 +231,12 @@ export default function LocationsPage() {
               />
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 5. Get in Touch CTA Band */}
-        <section className="relative overflow-hidden bg-gradient-to-r from-brand-hot via-brand to-brand-deep py-20 text-center">
+        <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-6">
+          <div className="w-full relative z-10 space-y-6">
             <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
               CONTACT
             </span>
@@ -254,7 +255,7 @@ export default function LocationsPage() {
               </button>
             </div>
           </div>
-        </section>
+        </Section>
 
       </main>
 

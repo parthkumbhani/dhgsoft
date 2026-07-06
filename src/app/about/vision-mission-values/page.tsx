@@ -1,5 +1,6 @@
 // src/app/about/vision-mission-values/page.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -80,7 +81,7 @@ export default function VisionMissionValuesPage() {
       <main className="relative pt-20">
 
         {/* 1. Hero Band */}
-        <section className="relative min-h-[500px] flex items-center overflow-hidden bg-ink">
+        <Section variant="ink" containerSize="wide" className="relative min-h-[500px] flex items-center overflow-hidden ">
           <div className="absolute inset-0 z-0">
             <Image
               src={vmvImages.hero.src}
@@ -91,7 +92,7 @@ export default function VisionMissionValuesPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-transparent" />
           </div>
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] w-full relative z-10 py-16 md:py-20">
+          <div className="w-full relative z-10 py-16 md:py-20">
             <div className="max-w-3xl text-left flex gap-6">
               <div className="w-[4px] bg-brand rounded-full self-stretch shrink-0" />
               <div className="space-y-4">
@@ -107,11 +108,11 @@ export default function VisionMissionValuesPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 2. Our Vision */}
-        <section className="bg-mist py-16 md:py-20 border-b border-line overflow-hidden relative bg-dot-matrix">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <Section variant="mist" containerSize="wide" className=" border-b border-line overflow-hidden relative bg-dot-matrix">
+          <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6 text-left">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
                 OUR VISION
@@ -132,11 +133,11 @@ export default function VisionMissionValuesPage() {
               />
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 3. Our Mission */}
-        <section className="bg-white py-16 md:py-20 border-b border-line overflow-hidden relative bg-tech-grid">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line overflow-hidden relative bg-tech-grid">
+          <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 order-2 lg:order-1 relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-line shadow-sm">
               <Image
                 src={vmvImages.mission.src}
@@ -157,12 +158,12 @@ export default function VisionMissionValuesPage() {
               </p>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 4. Our Purpose */}
-        <section className="relative bg-gradient-to-r from-brand-hot via-brand to-brand-deep py-12 md:py-16 overflow-hidden">
+        <Section variant="gradient" containerSize="wide" className="relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/10 to-transparent opacity-30 pointer-events-none" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 text-center space-y-4">
+          <div className="w-full relative z-10 text-center space-y-4">
             <span className="text-[10px] md:text-xs font-extrabold uppercase tracking-[0.3em] text-white/80 font-mono block">
               OUR PURPOSE
             </span>
@@ -170,11 +171,11 @@ export default function VisionMissionValuesPage() {
               Connecting Intelligence to Transform Industry.
             </h2>
           </div>
-        </section>
+        </Section>
 
         {/* 5. Our Core Values */}
-        <section className="bg-ink text-white py-16 md:py-20 border-b border-slate-900 overflow-hidden">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+        <Section variant="ink" containerSize="wide" className=" text-white border-b border-slate-900 overflow-hidden">
+          <div className="w-full relative z-10">
             <div className="text-left mb-12">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-hot font-mono block mb-2">
                 CORE PHILOSOPHY
@@ -203,11 +204,11 @@ export default function VisionMissionValuesPage() {
               })}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 6. How We Work */}
-        <section className="bg-[#B4123F]/5 py-16 md:py-20 border-b border-line relative bg-tech-grid">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+        <Section variant="brandTint" containerSize="wide" className=" border-b border-line relative bg-tech-grid">
+          <div className="w-full relative z-10">
             <div className="text-left mb-12">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
                 HOW WE WORK
@@ -226,12 +227,12 @@ export default function VisionMissionValuesPage() {
               ))}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 7. CTA Band */}
-        <section className="relative overflow-hidden bg-gradient-to-r from-brand-hot via-brand to-brand-deep py-20 text-center">
+        <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-6">
+          <div className="w-full relative z-10 space-y-6">
             <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
               PARTNER WITH US
             </span>
@@ -247,7 +248,7 @@ export default function VisionMissionValuesPage() {
               </button>
             </div>
           </div>
-        </section>
+        </Section>
 
       </main>
 

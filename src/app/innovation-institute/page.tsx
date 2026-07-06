@@ -1,4 +1,5 @@
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -101,7 +102,7 @@ export default function InnovationInstitutePage() {
 
       <main className="relative pt-20">
         {/* ── HERO ──────────────────────────────────────────────── */}
-        <section className="relative bg-slate-950 overflow-hidden">
+        <Section variant="ink" containerSize="default" className="relative overflow-hidden">
           {/* Tech grid overlay */}
           <div className="absolute inset-0 bg-tech-grid opacity-40" />
           {/* Gradient blobs */}
@@ -110,7 +111,7 @@ export default function InnovationInstitutePage() {
           {/* Subtle grid lines */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/20 to-slate-950" />
 
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-28 lg:py-36">
+          <div className="w-full relative z-10 py-28 lg:py-36">
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-xs text-slate-500 mb-8 font-medium tracking-wide">
               <Link href="/" className="hover:text-[#B4123F] transition-colors">Home</Link>
@@ -154,11 +155,11 @@ export default function InnovationInstitutePage() {
               </a>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* ── MISSION STRIP ─────────────────────────────────────── */}
-        <section className="bg-white border-b border-slate-100">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <Section variant="white" containerSize="default" className="bg-white border-b border-slate-100">
+          <div className="w-full relative z-10">
             <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-slate-100">
               {STATS.map((stat, i) => {
                 const Icon = stat.icon;
@@ -181,15 +182,12 @@ export default function InnovationInstitutePage() {
               })}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* ── RESEARCH FOCUS AREAS ──────────────────────────────── */}
-        <section
-          id="research-focus"
-          className="py-24 lg:py-32 bg-slate-50 relative overflow-hidden"
-        >
+        <Section variant="white" containerSize="default" id="research-focus" className=" bg-slate-50 relative overflow-hidden">
           <div className="absolute inset-0 bg-dot-matrix opacity-60" />
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="w-full relative z-10">
             {/* Section header */}
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#B4123F]/8 border border-[#B4123F]/20 mb-5">
@@ -237,12 +235,12 @@ export default function InnovationInstitutePage() {
               })}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* ── FEATURED RESEARCH ─────────────────────────────────── */}
-        <section className="py-24 lg:py-32 bg-white relative overflow-hidden">
+        <Section variant="white" containerSize="default" className=" bg-white relative overflow-hidden">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#B4123F]/4 blur-[120px] pointer-events-none" />
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="w-full relative z-10">
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 mb-5">
                 <span className="text-slate-600 text-xs font-bold uppercase tracking-[0.18em]">
@@ -306,12 +304,12 @@ export default function InnovationInstitutePage() {
               })}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* ── ACADEMIC & INDUSTRY PARTNERS ─────────────────────── */}
-        <section className="py-20 bg-slate-50 relative overflow-hidden">
+        <Section variant="white" containerSize="default" className=" bg-slate-50 relative overflow-hidden">
           <div className="absolute inset-0 bg-tech-grid opacity-30" />
-          <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 text-center">
+          <div className="w-full relative z-10 text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#B4123F]/8 border border-[#B4123F]/20 mb-6">
               <Building2 className="w-3.5 h-3.5 text-[#B4123F]" />
               <span className="text-[#B4123F] text-xs font-bold uppercase tracking-[0.18em]">
@@ -350,10 +348,10 @@ export default function InnovationInstitutePage() {
               })}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* ── CTA BAND ──────────────────────────────────────────── */}
-        <section className="relative bg-[#B4123F] overflow-hidden">
+        <Section variant="white" containerSize="default" className="relative bg-[#B4123F] overflow-hidden">
           <div className="absolute inset-0 bg-tech-grid opacity-20" />
           <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-white/5 blur-3xl pointer-events-none" />
           <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-black/10 blur-3xl pointer-events-none" />
@@ -372,7 +370,7 @@ export default function InnovationInstitutePage() {
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
-        </section>
+        </Section>
       </main>
 
       <Footer />

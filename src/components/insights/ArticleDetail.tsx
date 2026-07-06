@@ -1,5 +1,6 @@
 // src/components/insights/ArticleDetail.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -50,11 +51,11 @@ export default function ArticleDetail({ article, relatedArticles }: ArticleDetai
       />
 
       {/* Header Block */}
-      <section className="bg-ink text-white py-16 border-b border-slate-900 relative overflow-hidden">
+      <Section variant="ink" containerSize="wide" className=" text-white border-b border-slate-900 relative overflow-hidden">
         <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
         <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] rounded-full bg-brand/10 blur-[120px] pointer-events-none" />
 
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-6 text-left">
+        <div className="w-full relative z-10 space-y-6 text-left">
           {/* Breadcrumb */}
           <div className="flex items-center gap-1 text-slate-400 text-xs sm:text-sm font-semibold tracking-wide mb-2">
             <Link href="/insights" className="hover:text-white transition-colors">
@@ -85,10 +86,10 @@ export default function ArticleDetail({ article, relatedArticles }: ArticleDetai
             BY DHGsoft Insights &middot; {article.date} &middot; {article.readTime}
           </p>
         </div>
-      </section>
+      </Section>
 
       {/* Hero Photo Section */}
-      <section className="relative w-full h-[400px] sm:h-[500px] border-b border-line">
+      <Section variant="white" containerSize="wide" className="relative w-full h-[400px] sm:h-[500px] border-b border-line">
         <Image
           src={article.image.src}
           alt={article.image.alt}
@@ -96,11 +97,11 @@ export default function ArticleDetail({ article, relatedArticles }: ArticleDetai
           className="object-cover"
           priority
         />
-      </section>
+      </Section>
 
       {/* Article Content Body */}
-      <section className="bg-white py-16 md:py-24 border-b border-line relative">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+      <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative">
+        <div className="w-full relative z-10">
           <div className="max-w-[70ch] mx-auto text-left space-y-8">
             
             {/* Excerpt */}
@@ -149,11 +150,11 @@ export default function ArticleDetail({ article, relatedArticles }: ArticleDetai
 
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* Sibling Articles Recommendations */}
-      <section className="bg-mist py-16 md:py-20 border-b border-line relative bg-dot-matrix">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+      <Section variant="mist" containerSize="wide" className=" border-b border-line relative bg-dot-matrix">
+        <div className="w-full relative z-10 space-y-12">
           <div className="text-left">
             <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
               RELATED INSIGHTS
@@ -171,12 +172,12 @@ export default function ArticleDetail({ article, relatedArticles }: ArticleDetai
             )}
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* Bottom CTA Band */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-brand-hot via-brand to-brand-deep py-20 text-center">
+      <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
         <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-6">
+        <div className="w-full relative z-10 space-y-6">
           <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
             PUT IT TO WORK
           </span>
@@ -192,7 +193,7 @@ export default function ArticleDetail({ article, relatedArticles }: ArticleDetai
             </button>
           </div>
         </div>
-      </section>
+      </Section>
     </div>
   );
 }

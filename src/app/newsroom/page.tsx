@@ -1,4 +1,5 @@
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -110,13 +111,13 @@ export default function NewsroomPage() {
 
       <main className="relative pt-20">
         {/* ── HERO ──────────────────────────────────────────────── */}
-        <section className="relative bg-slate-950 overflow-hidden">
+        <Section variant="ink" containerSize="default" className="relative overflow-hidden">
           <div className="absolute inset-0 bg-tech-grid opacity-40" />
           <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-[#B4123F]/8 blur-[120px] pointer-events-none" />
           <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] rounded-full bg-[#E11D5C]/5 blur-[100px] pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-950" />
 
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-28 lg:py-36">
+          <div className="w-full relative z-10 py-28 lg:py-36">
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-xs text-slate-500 mb-8 font-medium">
               <Link href="/" className="hover:text-[#B4123F] transition-colors">Home</Link>
@@ -142,13 +143,13 @@ export default function NewsroomPage() {
               Latest news, press releases, and media resources from DHGsoft — the global leader in Industrial Digital Transformation.
             </p>
           </div>
-        </section>
+        </Section>
 
         {/* ── FEATURED STORY ────────────────────────────────────── */}
-        <section className="py-16 bg-slate-900 relative overflow-hidden">
+        <Section variant="ink" containerSize="default" className=" relative overflow-hidden">
           <div className="absolute inset-0 bg-tech-grid opacity-20" />
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B4123F]/40 to-transparent" />
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="w-full relative z-10">
             <div className="rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 hover:border-[#B4123F]/40 transition-all duration-300 p-8 lg:p-12 relative overflow-hidden group">
               {/* Glow */}
               <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-[#B4123F]/8 blur-[100px] pointer-events-none" />
@@ -196,13 +197,13 @@ export default function NewsroomPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* ── PRESS RELEASES ────────────────────────────────────── */}
-        <section className="py-24 lg:py-32 bg-white relative overflow-hidden">
+        <Section variant="white" containerSize="default" className=" bg-white relative overflow-hidden">
           <div className="absolute inset-0 bg-dot-matrix opacity-50" />
           <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-[#B4123F]/4 blur-[120px] pointer-events-none" />
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="w-full relative z-10">
             <div className="flex items-end justify-between mb-14 flex-wrap gap-4">
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#B4123F]/8 border border-[#B4123F]/20 mb-5">
@@ -262,12 +263,12 @@ export default function NewsroomPage() {
               })}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* ── MEDIA RESOURCES ───────────────────────────────────── */}
-        <section className="py-24 lg:py-32 bg-slate-50 relative overflow-hidden">
+        <Section variant="white" containerSize="default" className=" bg-slate-50 relative overflow-hidden">
           <div className="absolute inset-0 bg-tech-grid opacity-30" />
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="w-full relative z-10">
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-200 border border-slate-300 mb-5">
                 <span className="text-slate-600 text-xs font-bold uppercase tracking-[0.18em]">
@@ -304,10 +305,10 @@ export default function NewsroomPage() {
               })}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* ── MEDIA CONTACT ─────────────────────────────────────── */}
-        <section className="py-20 bg-white relative overflow-hidden">
+        <Section variant="white" containerSize="default" className=" bg-white relative overflow-hidden">
           <div className="absolute inset-0 bg-dot-matrix opacity-40" />
           <div className="relative z-10 max-w-2xl mx-auto px-6 lg:px-12">
             <div className="bg-slate-950 rounded-2xl border border-slate-800 hover:border-[#B4123F]/40 transition-all duration-300 p-8 lg:p-10 text-center relative overflow-hidden">
@@ -331,11 +332,11 @@ export default function NewsroomPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* ── DEMO DISCLAIMER ───────────────────────────────────── */}
-        <section className="py-8 bg-amber-50 border-t border-amber-200">
-          <div className="max-w-5xl mx-auto px-6 lg:px-12">
+        <Section variant="white" containerSize="default" className=" bg-amber-50 border-t border-amber-200">
+          <div className="w-full relative z-10">
             <div className="flex items-start gap-3">
               <AlertCircle className="w-4 h-4 text-amber-600 mt-0.5 shrink-0" />
               <p className="text-xs text-amber-700 leading-relaxed">
@@ -343,7 +344,7 @@ export default function NewsroomPage() {
               </p>
             </div>
           </div>
-        </section>
+        </Section>
       </main>
 
       <Footer />

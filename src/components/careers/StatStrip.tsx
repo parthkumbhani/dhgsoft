@@ -1,5 +1,6 @@
 // src/components/careers/StatStrip.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React from "react";
 import { Users, Workflow, Globe, Settings } from "lucide-react";
@@ -33,10 +34,10 @@ export default function StatStrip() {
   ];
 
   return (
-    <section className="bg-slate-900 border-y border-slate-800 py-12 text-white relative overflow-hidden select-none">
+    <Section variant="ink" containerSize="wide" className=" border-y border-slate-800 text-white relative overflow-hidden select-none">
       <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
       
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10">
+      <div className="w-full relative z-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, idx) => {
             const Icon = stat.icon;
@@ -68,6 +69,6 @@ export default function StatStrip() {
           })}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

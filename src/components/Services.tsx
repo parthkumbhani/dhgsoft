@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import { Section } from '@/components/ui/Section';
 
 /* ═══════════════════════════════════════════════════════════════
    SERVICES DATA — 8 Capabilities mapped to real industrial assets
@@ -478,13 +479,13 @@ export default function Services() {
   }, []);
 
   return (
-    <section
+    <Section
       id="services"
-      className="relative overflow-hidden select-none border-y border-white/5"
+      variant="ink"
+      containerSize="wide"
+      className="overflow-hidden select-none border-y border-white/5"
       style={{
         background: '#0A0C12',
-        paddingTop: 'clamp(24px, 3vh, 40px)',
-        paddingBottom: 'clamp(24px, 3vh, 40px)',
       }}
     >
       {/* Luxury Layered Dark Background Glows */}
@@ -594,7 +595,7 @@ export default function Services() {
         transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
       />
 
-      <div className="max-w-[1700px] mx-auto px-6 md:px-10 lg:px-16 xl:px-20 relative z-10">
+      <div className="relative z-10 w-full">
 
         {/* ── Section Header ── */}
         <div className="flex flex-col w-full text-left mb-12 md:mb-16">
@@ -641,6 +642,6 @@ export default function Services() {
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

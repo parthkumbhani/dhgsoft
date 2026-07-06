@@ -1,5 +1,6 @@
 // src/components/industries/Gallery.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React from "react";
 import Image from "next/image";
@@ -16,8 +17,8 @@ export default function Gallery({ images }: GalleryProps) {
   // Let's create a premium layout based on the number of images.
   // We assume 3 to 4 images.
   return (
-    <section className="bg-white py-24 border-b border-line relative overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+    <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative overflow-hidden">
+      <div className="w-full relative z-10 space-y-12">
         <div className="text-left max-w-xl space-y-4">
           <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
             IN FOCUS
@@ -89,6 +90,6 @@ export default function Gallery({ images }: GalleryProps) {
           })}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

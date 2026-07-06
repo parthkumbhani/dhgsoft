@@ -3,6 +3,7 @@
 import React from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import { Section } from "@/components/ui/Section"
 import {
   ArrowRight,
   Cpu,
@@ -42,7 +43,7 @@ export default function Hero({ onContactClick, onExploreServices }: HeroProps) {
   };
 
   return (
-    <section className="relative min-h-[95vh] lg:min-h-screen flex items-center overflow-hidden bg-white pt-20 pb-14 lg:pt-28 lg:pb-20">
+    <Section size="hero" containerSize="wide" className="min-h-[95vh] lg:min-h-screen flex items-center overflow-hidden bg-white">
       {/* Cinematic Background Video and Overlays */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
         <video
@@ -59,8 +60,7 @@ export default function Hero({ onContactClick, onExploreServices }: HeroProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent z-1" />
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-16 w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10 w-full">
 
           {/* Left Text & CTA Column */}
           <motion.div
@@ -153,7 +153,6 @@ export default function Hero({ onContactClick, onExploreServices }: HeroProps) {
             </motion.div>
           </div>
 
-        </div>
       </div>
 
       {/* Floating Scroll Indicator */}
@@ -177,6 +176,6 @@ export default function Hero({ onContactClick, onExploreServices }: HeroProps) {
           />
         </div>
       </div>
-    </section>
+    </Section>
   )
 }

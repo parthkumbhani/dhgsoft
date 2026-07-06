@@ -1,5 +1,6 @@
 // src/components/about/LookingAheadCTA.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React from "react";
 import Image from "next/image";
@@ -14,8 +15,8 @@ export default function LookingAheadCTA({ onContactClick }: LookingAheadCTAProps
     <div className="relative">
       
       {/* 1. Looking Ahead Section */}
-      <section className="bg-mist py-16 md:py-20 border-b border-line overflow-hidden">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <Section variant="mist" containerSize="wide" className=" border-b border-line overflow-hidden">
+        <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left: Heading */}
           <div className="lg:col-span-5 text-left">
             <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block mb-2">
@@ -33,10 +34,10 @@ export default function LookingAheadCTA({ onContactClick }: LookingAheadCTAProps
             </p>
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* 2. Full-bleed Crimson Gradient CTA Band */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-brand-hot via-brand to-brand-deep py-20 text-center">
+      <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
         {/* Background visual asset image */}
         <div className="absolute inset-0 z-0 opacity-10 mix-blend-overlay">
           <Image
@@ -48,7 +49,7 @@ export default function LookingAheadCTA({ onContactClick }: LookingAheadCTAProps
         </div>
         <div className="absolute inset-0 bg-ink/30 pointer-events-none" />
 
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-6">
+        <div className="w-full relative z-10 space-y-6">
           <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/95 font-mono block">
             CONSULTATION
           </span>
@@ -64,7 +65,7 @@ export default function LookingAheadCTA({ onContactClick }: LookingAheadCTAProps
             </button>
           </div>
         </div>
-      </section>
+      </Section>
 
     </div>
   );

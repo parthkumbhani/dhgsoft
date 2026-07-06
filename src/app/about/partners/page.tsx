@@ -1,5 +1,6 @@
 // src/app/about/partners/page.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -48,7 +49,7 @@ export default function PartnersPage() {
       <main className="relative pt-20">
 
         {/* 1. Hero Band */}
-        <section className="relative min-h-[500px] flex items-center overflow-hidden bg-ink">
+        <Section variant="ink" containerSize="wide" className="relative min-h-[500px] flex items-center overflow-hidden ">
           <div className="absolute inset-0 z-0">
             <Image
               src={partnersImages.hero.src}
@@ -59,7 +60,7 @@ export default function PartnersPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-transparent" />
           </div>
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] w-full relative z-10 py-16 md:py-20">
+          <div className="w-full relative z-10 py-16 md:py-20">
             <div className="max-w-3xl text-left flex gap-6">
               <div className="w-[4px] bg-brand rounded-full self-stretch shrink-0" />
               <div className="space-y-4">
@@ -75,11 +76,11 @@ export default function PartnersPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 2. Why We Partner */}
-        <section className="bg-mist py-16 md:py-20 border-b border-line overflow-hidden relative bg-dot-matrix">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <Section variant="mist" containerSize="wide" className=" border-b border-line overflow-hidden relative bg-dot-matrix">
+          <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6 text-left">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
                 COLLABORATION
@@ -100,11 +101,11 @@ export default function PartnersPage() {
               />
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 3. Technology Partners */}
-        <section className="bg-[#B4123F]/5 py-16 md:py-20 border-b border-line relative bg-tech-grid">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-8">
+        <Section variant="brandTint" containerSize="wide" className=" border-b border-line relative bg-tech-grid">
+          <div className="w-full relative z-10 space-y-8">
             <div className="text-left space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
                 TECHNOLOGY PARTNERS
@@ -187,11 +188,11 @@ export default function PartnersPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 4. Partnership Categories */}
-        <section className="bg-white py-16 md:py-20 border-b border-line relative bg-tech-grid">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid">
+          <div className="w-full relative z-10 space-y-12">
             <div className="text-left">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
                 HOW WE PARTNER
@@ -218,11 +219,11 @@ export default function PartnersPage() {
               })}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 5. Academic Partnerships */}
-        <section className="bg-white py-16 md:py-20 border-b border-line overflow-hidden relative bg-tech-grid">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line overflow-hidden relative bg-tech-grid">
+          <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5 order-2 lg:order-1 relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-line shadow-sm">
               <Image
                 src={partnersImages.academic.src}
@@ -240,11 +241,11 @@ export default function PartnersPage() {
               </p>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* 6. Strategic Alliances */}
-        <section className="bg-ink text-white py-12 md:py-16 border-b border-slate-900 overflow-hidden relative">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-3 text-left">
+        <Section variant="ink" containerSize="wide" className=" text-white border-b border-slate-900 overflow-hidden relative">
+          <div className="w-full relative z-10 space-y-3 text-left">
             <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-hot font-mono block">
               STRATEGIC ALLIANCES
             </span>
@@ -252,12 +253,12 @@ export default function PartnersPage() {
               Building long-term partnerships to accelerate innovation and deliver greater customer value.
             </p>
           </div>
-        </section>
+        </Section>
 
         {/* 7. Become a Partner CTA */}
-        <section className="relative overflow-hidden bg-gradient-to-r from-brand-hot via-brand to-brand-deep py-20 text-center">
+        <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-6">
+          <div className="w-full relative z-10 space-y-6">
             <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
               JOIN OUR ECOSYSTEM
             </span>
@@ -273,7 +274,7 @@ export default function PartnersPage() {
               </button>
             </div>
           </div>
-        </section>
+        </Section>
 
       </main>
 

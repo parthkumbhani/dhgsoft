@@ -1,5 +1,6 @@
 // src/app/capabilities/page.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -106,11 +107,11 @@ export default function CapabilitiesLandingPage() {
       <main className="relative pt-20">
 
         {/* Hero Section */}
-        <section className="relative bg-ink overflow-hidden min-h-[400px] flex items-center border-b border-slate-900">
+        <Section variant="ink" containerSize="wide" className="relative overflow-hidden min-h-[400px] flex items-center border-b border-slate-900">
           <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
           <div className="absolute top-1/3 left-1/3 w-[300px] h-[300px] rounded-full bg-brand/10 blur-[100px] pointer-events-none" />
           
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] w-full py-16 md:py-20 relative z-10 text-left">
+          <div className="w-full py-16 md:py-20 relative z-10 text-left">
             <div className="max-w-3xl space-y-4">
               <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-brand-hot font-mono block">
                 CAPABILITIES
@@ -123,11 +124,11 @@ export default function CapabilitiesLandingPage() {
               </p>
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* Categories Section */}
-        <section className="bg-mist py-16 md:py-20 relative bg-dot-matrix">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-16">
+        <Section variant="mist" containerSize="wide" className=" relative bg-dot-matrix">
+          <div className="w-full relative z-10 space-y-16">
             
             {categories.map((category, idx) => (
               <div key={idx} className="space-y-6">
@@ -171,12 +172,12 @@ export default function CapabilitiesLandingPage() {
             ))}
 
           </div>
-        </section>
+        </Section>
 
         {/* CTA Band */}
-        <section className="relative overflow-hidden bg-gradient-to-r from-brand-hot via-brand to-brand-deep py-20 text-center">
+        <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-6">
+          <div className="w-full relative z-10 space-y-6">
             <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
               LET&apos;S TALK
             </span>
@@ -192,7 +193,7 @@ export default function CapabilitiesLandingPage() {
               </button>
             </div>
           </div>
-        </section>
+        </Section>
 
       </main>
 

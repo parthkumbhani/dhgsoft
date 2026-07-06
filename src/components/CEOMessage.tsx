@@ -3,6 +3,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, useInView, useScroll, useTransform, useReducedMotion } from 'framer-motion';
+import { Section } from '@/components/ui/Section';
 
 export default function CEOMessage() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -103,10 +104,11 @@ export default function CEOMessage() {
   };
 
   return (
-    <section
+    <Section
       ref={sectionRef}
       id="ceo-message"
-      className="relative overflow-hidden bg-white py-20 md:py-28 lg:py-32 w-full"
+      variant="white"
+      className="overflow-hidden"
     >
       {/* ━━━━ DECORATIVE BRAND ACCENTS ━━━━ */}
       
@@ -194,7 +196,7 @@ export default function CEOMessage() {
       </div>
 
       {/* ━━━━ MAIN CONTAINER ━━━━ */}
-      <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+      <div className="relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center justify-items-center lg:justify-items-stretch">
           
           {/* ━━━━ LEFT ZONE — Text Content Column (columns 1–8) ━━━━ */}
@@ -229,7 +231,7 @@ export default function CEOMessage() {
 
               <motion.h2
                 variants={headlineVariants}
-                className="font-bold text-txt-strong font-headline relative z-10 leading-[1.05] tracking-tight lg:whitespace-nowrap lg:text-[clamp(2rem,4.2vw,4rem)] text-[clamp(1.75rem,7vw,2.75rem)]"
+                className="font-bold text-txt-strong font-headline relative z-10 leading-[1.05] tracking-tight lg:text-[clamp(2rem,3.8vw,3.5rem)] text-[clamp(1.75rem,7vw,2.75rem)]"
               >
                 {"“Building Tomorrow's Industries — "}
                 <span className="text-gradient-brand">Today</span>
@@ -369,6 +371,6 @@ export default function CEOMessage() {
 
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

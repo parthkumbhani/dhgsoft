@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react"
 import { motion, useMotionValue, useTransform, animate } from "framer-motion"
+import { Section } from "@/components/ui/Section"
 import {
   ArrowRight,
   Zap,
@@ -444,14 +445,16 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
   }
 
   return (
-    <motion.section
+    <Section
       id="ecosystem"
+      variant="white"
+      containerSize="wide"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.12 }}
       variants={sectionVariants}
       onMouseMove={handleSectionMouseMove}
-      className="relative overflow-hidden border-y border-[#ECECEC] bg-[#FFFFFF] py-4 lg:py-6"
+      className="overflow-hidden border-y border-[#ECECEC]"
     >
       {/* ── BACKGROUND LAYER 1: Engineering Blueprint Grid & CAD Symbols (<3% opacity, parallax) ── */}
       <motion.div
@@ -605,7 +608,7 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
         }}
       />
 
-      <div className="max-w-[1700px] mx-auto px-6 md:px-10 lg:px-16 relative z-10">
+      <div className="relative z-10 w-full">
         
         {/* ── Section Header ── */}
         <div className="text-center max-w-4xl mx-auto mb-8 lg:mb-10">
@@ -748,7 +751,7 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
         </div>
 
       </div>
-    </motion.section>
+    </Section>
   )
 }
 

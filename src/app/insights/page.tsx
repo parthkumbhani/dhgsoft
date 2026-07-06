@@ -1,5 +1,6 @@
 // src/app/insights/page.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React from "react";
 import Link from "next/link";
@@ -24,11 +25,11 @@ export default function InsightsLandingPage() {
   return (
     <div className="relative">
       {/* Hero Section */}
-      <section className="relative bg-ink overflow-hidden py-20 border-b border-slate-900">
+      <Section variant="ink" containerSize="wide" className="relative overflow-hidden border-b border-slate-900">
         <div className="absolute inset-0 bg-tech-grid opacity-25 pointer-events-none" />
         <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-brand/10 blur-[130px] pointer-events-none" />
         
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 text-left space-y-6">
+        <div className="w-full relative z-10 text-left space-y-6">
           <div className="flex items-center gap-1 text-slate-400 text-xs sm:text-sm font-semibold tracking-wide mb-2">
             <Link href="/" className="hover:text-white transition-colors">
               DHGsoft
@@ -47,11 +48,11 @@ export default function InsightsLandingPage() {
             Explore deep technical perspectives, standards guides, and real-world impact logs on industrial digitalization.
           </p>
         </div>
-      </section>
+      </Section>
 
       {/* Directory Hub Cards (Image-rich, visual and inviting) */}
-      <section className="bg-white py-16 md:py-24 relative">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+      <Section variant="white" containerSize="wide" className="bg-white relative">
+        <div className="w-full relative z-10 space-y-12">
           <div className="text-left space-y-2">
             <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
               EXPLORE PERSPECTIVES
@@ -173,11 +174,11 @@ export default function InsightsLandingPage() {
 
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* Latest Insights Section */}
-      <section className="bg-mist py-16 md:py-24 border-y border-line relative bg-dot-matrix">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+      <Section variant="mist" containerSize="wide" className=" border-y border-line relative bg-dot-matrix">
+        <div className="w-full relative z-10 space-y-12">
           <div className="text-left space-y-2">
             <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
               REAL-TIME INSIGHTS
@@ -300,15 +301,15 @@ export default function InsightsLandingPage() {
             )}
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* Subscribe Strip */}
       <SubscribeBand />
 
       {/* Crimson bottom CTA */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-brand-hot via-brand to-brand-deep py-20 text-center">
+      <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
         <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-6">
+        <div className="w-full relative z-10 space-y-6">
           <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
             LET&apos;S BUILD
           </span>
@@ -324,7 +325,7 @@ export default function InsightsLandingPage() {
             </button>
           </div>
         </div>
-      </section>
+      </Section>
     </div>
   );
 }

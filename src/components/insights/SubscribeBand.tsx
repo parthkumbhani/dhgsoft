@@ -1,5 +1,6 @@
 // src/components/insights/SubscribeBand.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 
@@ -18,10 +19,10 @@ export default function SubscribeBand() {
   };
 
   return (
-    <section className="bg-slate-900 text-white py-12 border-y border-slate-800 relative overflow-hidden select-none">
+    <Section variant="ink" containerSize="wide" className=" text-white border-y border-slate-800 relative overflow-hidden select-none">
       {/* Mesh lines */}
       <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10">
+      <div className="w-full relative z-10">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 text-left">
           
           <div className="max-w-xl space-y-2">
@@ -67,6 +68,6 @@ export default function SubscribeBand() {
 
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

@@ -1,5 +1,6 @@
 // src/components/about/VisionMission.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React from "react";
 import Image from "next/image";
@@ -7,8 +8,8 @@ import { aboutImages } from "@/lib/aboutImages";
 
 export default function VisionMission() {
   return (
-    <section className="bg-white py-16 md:py-20 border-b border-line relative bg-tech-grid">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-16">
+    <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid">
+      <div className="w-full relative z-10 space-y-16">
         
         {/* ROW A: Vision */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -60,6 +61,6 @@ export default function VisionMission() {
         </div>
 
       </div>
-    </section>
+    </Section>
   );
 }

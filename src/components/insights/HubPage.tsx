@@ -1,5 +1,6 @@
 // src/components/insights/HubPage.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -72,11 +73,11 @@ export default function HubPage({
       <main className="relative pt-20">
         
         {/* Hero Section */}
-        <section className="relative bg-ink overflow-hidden py-16 border-b border-slate-900">
+        <Section variant="ink" containerSize="wide" className="relative overflow-hidden border-b border-slate-900">
           <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
           <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] rounded-full bg-brand/10 blur-[120px] pointer-events-none" />
           
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 text-left space-y-6">
+          <div className="w-full relative z-10 text-left space-y-6">
             {/* Breadcrumb */}
             <div className="flex items-center gap-1 text-slate-400 text-xs sm:text-sm font-semibold tracking-wide mb-2">
               <Link href="/insights" className="hover:text-white transition-colors">
@@ -93,11 +94,11 @@ export default function HubPage({
               {sub}
             </p>
           </div>
-        </section>
+        </Section>
 
         {/* Featured Card Block */}
-        <section className="bg-white py-16 md:py-20 border-b border-line relative bg-tech-grid">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid">
+          <div className="w-full relative z-10 space-y-12">
             <div className="text-left">
               <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block mb-2">
                 FEATURED STORY
@@ -179,11 +180,11 @@ export default function HubPage({
               </Link>
             )}
           </div>
-        </section>
+        </Section>
 
         {/* Filters and Grid List Feed */}
-        <section className="bg-mist py-16 md:py-24 border-b border-line relative bg-dot-matrix">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+        <Section variant="mist" containerSize="wide" className=" border-b border-line relative bg-dot-matrix">
+          <div className="w-full relative z-10 space-y-12">
             
             {/* Filter Tabs Navigation */}
             <div className="flex flex-wrap gap-2.5 justify-start text-left border-b border-slate-200 pb-6">
@@ -236,15 +237,15 @@ export default function HubPage({
             )}
 
           </div>
-        </section>
+        </Section>
 
         {/* Newsletter Strip */}
         <SubscribeBand />
 
         {/* Lower Banner CTA */}
-        <section className="relative overflow-hidden bg-gradient-to-r from-brand-hot via-brand to-brand-deep py-20 text-center">
+        <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-6">
+          <div className="w-full relative z-10 space-y-6">
             <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
               {type === "insights" ? "PUT IT TO WORK" : "YOUR STORY NEXT"}
             </span>
@@ -262,7 +263,7 @@ export default function HubPage({
               </button>
             </div>
           </div>
-        </section>
+        </Section>
 
       </main>
 

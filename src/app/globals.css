@@ -94,7 +94,14 @@
   --radius-full: 9999px;
 
   --spacing-base: 8px;
-  --spacing-gutter: clamp(1.5rem, 3vw, 3.5rem);
+  --spacing-gutter: 1.5rem;
+  --spacing-gutter-md: 2rem;
+  --spacing-sec-y: 4rem;
+  --spacing-sec-y-md: 5rem;
+  --spacing-sec-y-lg: 6rem;
+  --max-w-site: 1280px;
+  --max-w-site-wide: 1440px;
+  --max-w-prose: 70ch;
   --spacing-margin-mobile: 16px;
   --spacing-margin-desktop: clamp(1.5rem, 4vw, 5rem);
   --spacing-container-max: 100%;

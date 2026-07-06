@@ -1,5 +1,6 @@
 // src/components/about/CompanyOverview.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React from "react";
 import Image from "next/image";
@@ -8,8 +9,8 @@ import { motion } from "framer-motion";
 
 export default function CompanyOverview() {
   return (
-    <section className="bg-mist py-16 md:py-20 border-b border-line overflow-hidden relative bg-dot-matrix">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <Section variant="mist" containerSize="wide" className=" border-b border-line overflow-hidden relative bg-dot-matrix">
+      <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
         {/* Left Column: 4 paragraphs */}
         <div className="lg:col-span-6 space-y-6 text-left">
@@ -43,6 +44,6 @@ export default function CompanyOverview() {
         </div>
 
       </div>
-    </section>
+    </Section>
   );
 }

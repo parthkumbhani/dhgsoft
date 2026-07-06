@@ -1,5 +1,6 @@
 // src/components/about/WhatWeDo.tsx
 "use client";
+import { Section } from "@/components/ui/Section";
 
 import React from "react";
 import Image from "next/image";
@@ -32,8 +33,8 @@ const capabilities = [
 
 export default function WhatWeDo() {
   return (
-    <section className="bg-ink text-white py-16 md:py-20 border-b border-slate-900 overflow-hidden relative">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+    <Section variant="ink" containerSize="wide" className=" text-white border-b border-slate-900 overflow-hidden relative">
+      <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
         
         {/* Left Column (Left third on desktop): Image */}
         <div className="lg:col-span-4 relative min-h-[300px] lg:min-h-full rounded-2xl overflow-hidden border border-slate-800 shadow-md">
@@ -78,6 +79,6 @@ export default function WhatWeDo() {
         </div>
 
       </div>
-    </section>
+    </Section>
   );
 }
