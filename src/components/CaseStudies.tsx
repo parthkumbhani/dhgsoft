@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 import { 
   Car, 
   Factory, 
@@ -346,16 +347,18 @@ export default function CaseStudies() {
                 {/* Bottom Row: Link and Slider Controls */}
                 <div className="flex items-center justify-between mt-4">
                   {/* Link to Full Study */}
-                  <button
-                    onClick={() => {
-                      const contactEl = document.getElementById('contact');
-                      if (contactEl) contactEl.scrollIntoView({ behavior: 'smooth' });
-                    }}
+                  <Link
+                    href={`/insights/case-studies/${
+                      activeStudy.id === "automotive" ? "automotive-oem-downtime" :
+                      activeStudy.id === "manufacturing" ? "semiconductor-fab-yield" :
+                      activeStudy.id === "energy" ? "energy-utility-grid" :
+                      "food-beverages-traceability"
+                    }`}
                     className="inline-flex items-center gap-1.5 text-[11px] font-extrabold text-blue-600 uppercase tracking-wider hover:text-blue-700 transition-colors py-1.5 relative group border-b-2 border-blue-600/70 hover:border-blue-600 cursor-pointer"
                   >
                     <span>View Full Case Study</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                  </button>
+                  </Link>
 
                   {/* Navigation Arrows & Index */}
                   <div className="flex items-center gap-3">

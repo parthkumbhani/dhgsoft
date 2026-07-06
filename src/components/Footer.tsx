@@ -127,13 +127,13 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#why-us" className="text-sm text-slate-300 hover:text-white transition-all hover:translate-x-1 inline-flex items-center gap-1.5 group">
+                  <Link href="/about" className="text-sm text-slate-300 hover:text-white transition-all hover:translate-x-1 inline-flex items-center gap-1.5 group">
                     <span className="w-1.5 h-1.5 rounded-full bg-secondary scale-0 group-hover:scale-100 transition-all duration-200" />
                     Company
                   </Link>
                 </li>
                 <li>
-                  <Link href="#contact" className="text-sm text-slate-300 hover:text-white transition-all hover:translate-x-1 inline-flex items-center gap-1.5 group">
+                  <Link href="/careers" className="text-sm text-slate-300 hover:text-white transition-all hover:translate-x-1 inline-flex items-center gap-1.5 group">
                     <span className="w-1.5 h-1.5 rounded-full bg-secondary scale-0 group-hover:scale-100 transition-all duration-200" />
                     Careers
                   </Link>
@@ -148,13 +148,13 @@ export default function Footer() {
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <Link href="#why-us" className="text-sm text-slate-300 hover:text-white transition-all hover:translate-x-1 inline-flex items-center gap-1.5 group">
+                  <Link href="/about#global" className="text-sm text-slate-300 hover:text-white transition-all hover:translate-x-1 inline-flex items-center gap-1.5 group">
                     <span className="w-1.5 h-1.5 rounded-full bg-secondary scale-0 group-hover:scale-100 transition-all duration-200" />
                     Locations
                   </Link>
                 </li>
                 <li>
-                  <Link href="#why-us" className="text-sm text-slate-300 hover:text-white transition-all hover:translate-x-1 inline-flex items-center gap-1.5 group">
+                  <Link href="/about" className="text-sm text-slate-300 hover:text-white transition-all hover:translate-x-1 inline-flex items-center gap-1.5 group">
                     <span className="w-1.5 h-1.5 rounded-full bg-secondary scale-0 group-hover:scale-100 transition-all duration-200" />
                     Investors
                   </Link>
