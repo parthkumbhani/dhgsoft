@@ -189,7 +189,7 @@ export default function Header({ onContactClick }: HeaderProps) {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/DHG soft logo.png"
+            src="/DHGsoft Logo.svg"
             alt="DHG Soft"
             width={scrolled ? 115 : 135}
             height={scrolled ? 37 : 43}
@@ -463,7 +463,7 @@ export default function Header({ onContactClick }: HeaderProps) {
               <SheetHeader className="text-left border-b pb-4">
                 <SheetTitle>
                   <Image
-                    src="/DHG soft logo.png"
+                    src="/DHGsoft Logo.svg"
                     alt="DHG Soft"
                     width={110}
                     height={35}

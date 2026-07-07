@@ -30,7 +30,7 @@ export default function Footer() {
           <div className="lg:col-span-6 space-y-6 flex flex-col items-start">
             <div className="inline-block py-2">
               <Image
-                src="/DHG soft logo.png"
+                src="/DHGsoft Logo.svg"
                 alt="DHG Soft Logo"
                 width={160}
                 height={50}

@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
-import React, { useRef, useState, useEffect } from 'react';
-import Image from 'next/image';
-import { motion, useInView, useScroll, useTransform, useReducedMotion } from 'framer-motion';
-import { Section } from '@/components/ui/Section';
+import React, { useRef } from "react";
+import Image from "next/image";
+import { motion, useInView, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { Section } from "@/components/ui/Section";
+import { ArrowRight } from "lucide-react";
 
 export default function CEOMessage() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -11,287 +12,185 @@ export default function CEOMessage() {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   });
 
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const motionPreference = useReducedMotion();
-  const shouldReduceMotion = motionPreference && mounted;
-  const scrollTransform = useTransform(scrollYProgress, [0, 1], [-15, 15]);
-  const yParallaxImage = shouldReduceMotion ? 0 : scrollTransform;
+  const shouldReduceMotion = !!motionPreference;
 
-  // Animation variants
-  const leftBoxVariants = shouldReduceMotion ? {
-    hidden: { opacity: 1, y: 0 },
-    visible: { opacity: 1, y: 0 }
-  } : {
-    hidden: { opacity: 0, y: -30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } }
-  };
-
-  const eyebrowVariants = shouldReduceMotion ? {
-    hidden: { opacity: 1, y: 0 },
-    visible: { opacity: 1, y: 0 }
-  } : {
-    hidden: { opacity: 0, y: -8 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } }
-  };
-
-  const headlineVariants = shouldReduceMotion ? {
-    hidden: { opacity: 1, y: 0, scale: 1 },
-    visible: { opacity: 1, y: 0, scale: 1 }
-  } : {
-    hidden: { opacity: 0, y: -15, scale: 0.98 },
-    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } }
-  };
-
-  const quoteMarkVariants = shouldReduceMotion ? {
-    hidden: { opacity: 0.08 },
-    visible: { opacity: 0.08 }
-  } : {
-    hidden: { opacity: 0 },
-    visible: { opacity: 0.08, transition: { duration: 0.8, delay: 1.0, ease: "easeOut" as const } }
-  };
-
-  const paragraphVariants = shouldReduceMotion ? {
-    hidden: { opacity: 1, y: 0 },
-    visible: { opacity: 1, y: 0 }
-  } : {
-    hidden: { opacity: 0, y: -10 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } }
-  };
-
-  const dividerVariants = shouldReduceMotion ? {
-    hidden: { scaleX: 1 },
-    visible: { scaleX: 1 }
-  } : {
-    hidden: { scaleX: 0 },
-    visible: { scaleX: 1, transition: { duration: 0.6, delay: 0.8, ease: "easeOut" as const } }
-  };
-
-  const profileRowVariants = shouldReduceMotion ? {
-    hidden: { opacity: 1, y: 0 },
-    visible: { opacity: 1, y: 0 }
-  } : {
-    hidden: { opacity: 0, y: -10 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.9, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } }
-  };
-
-
-  // Portrait frame variants
-  const backGradientVariants = shouldReduceMotion ? {
-    hidden: { x: 16, y: 16, opacity: 1 },
-    visible: { x: 16, y: 16, opacity: 1 },
-    hover: { x: 16, y: 16 }
-  } : {
-    hidden: { x: 0, y: 0, opacity: 0 },
-    visible: { x: 16, y: 16, opacity: 1, transition: { duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
-    hover: { x: 24, y: 24, transition: { duration: 0.3, ease: "easeOut" as const } }
-  };
-
-  const portraitCardVariants = shouldReduceMotion ? {
-    hidden: { opacity: 1, scale: 1, y: 0 },
-    visible: { opacity: 1, scale: 1, y: 0 },
-    hover: { y: 0 }
-  } : {
-    hidden: { opacity: 0, scale: 0.96, y: 0 },
-    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
-    hover: { y: -4, transition: { duration: 0.3, ease: "easeOut" as const } }
-  };
+  // Subtle vertical parallax for the portrait silhouette on desktop
+  const scrollTransform = useTransform(scrollYProgress, [0, 1], [-20, 20]);
+  const yImage = shouldReduceMotion ? 0 : scrollTransform;
 
   return (
     <Section
       ref={sectionRef}
       id="ceo-message"
       variant="white"
-      className="overflow-hidden"
+      size="default"
+      className="overflow-visible"
     >
-      {/* ━━━━ DECORATIVE BRAND ACCENTS ━━━━ */}
-      
-      {/* 1. Big soft gradient blob (top-left) */}
+      {/* Outer wrapper to contain the card relative positioning inside the site container */}
       <motion.div
-        className="absolute pointer-events-none z-0 rounded-full opacity-15"
-        style={{
-          width: '560px',
-          height: '560px',
-          background: 'radial-gradient(circle, var(--color-brand) 0%, var(--color-brand-accent) 100%)',
-          filter: 'blur(80px)',
-          top: '-10%',
-          left: '-10%',
-        }}
-        animate={shouldReduceMotion ? {} : {
-          scale: [1, 1.05, 0.98, 1.05, 1],
-          x: [0, 20, -10, 15, 0],
-          y: [0, -15, 20, -10, 0],
-        }}
-        transition={shouldReduceMotion ? {} : {
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-
-      {/* 2. Second soft blob (bottom-right, behind portrait) */}
-      <motion.div
-        className="absolute pointer-events-none z-0 rounded-full opacity-12"
-        style={{
-          width: '480px',
-          height: '480px',
-          background: 'radial-gradient(circle, var(--color-brand-accent) 0%, var(--color-brand-hot) 100%)',
-          filter: 'blur(80px)',
-          bottom: '-10%',
-          right: '-5%',
-        }}
-        animate={shouldReduceMotion ? {} : {
-          scale: [1, 1.08, 0.95, 1.08, 1],
-          x: [0, -15, 15, -10, 0],
-          y: [0, 20, -15, 10, 0],
-        }}
-        transition={shouldReduceMotion ? {} : {
-          duration: 14,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-
-      {/* Subtle wash of mist in the lower-right quadrant */}
-      <div 
-        className="absolute inset-0 pointer-events-none z-0"
-        style={{
-          background: 'radial-gradient(circle at bottom right, #F4F5F7 0%, transparent 60%)'
-        }}
-      />
-
-      {/* 3. Fine dotted grid pattern (mid-left, behind text) */}
-      <div 
-        className="absolute pointer-events-none z-0 opacity-12 left-6 top-20 w-32 h-32 hidden md:block" 
-        aria-hidden="true"
-        style={{ color: 'var(--color-line)' }}
+        initial={shouldReduceMotion ? {} : { opacity: 0, y: 30, scale: 0.98 }}
+        animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        className="relative w-full min-h-[520px] lg:min-h-[560px] select-none"
       >
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="dotPattern" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="3" cy="3" r="1.5" fill="currentColor" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#dotPattern)" />
-        </svg>
-      </div>
-
-      {/* 4. Thin geometric outline circle (top-right of text column) */}
-      <div className="absolute pointer-events-none z-0 opacity-20 right-10 top-16 w-40 h-40 hidden lg:block" aria-hidden="true">
-        <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="48" stroke="url(#circleGradient)" strokeWidth="1.2" />
-          <defs>
-            <linearGradient id="circleGradient" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-              <stop stopColor="var(--color-brand)" />
-              <stop offset="1" stopColor="var(--color-brand-accent)" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-
-      {/* ━━━━ MAIN CONTAINER ━━━━ */}
-      <div className="relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center justify-items-center lg:justify-items-stretch">
-          
-          {/* ━━━━ LEFT ZONE — Text Content Column (columns 1–8) ━━━━ */}
-          <motion.div
-            variants={leftBoxVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            className="lg:col-span-8 w-full flex flex-col items-start text-left order-1 bg-white/75 backdrop-blur-md rounded-3xl p-8 md:p-12 lg:p-16 border border-slate-100/50 shadow-[0_8px_32px_rgba(0,0,0,0.02)] relative z-10"
+        {/* ━━━━ PANEL BACKGROUND CARD ━━━━ */}
+        <div className="absolute inset-0 rounded-3xl overflow-hidden bg-gradient-to-br from-brand via-[#9A0F35] to-brand-deep z-0 shadow-2xl">
+          {/* Subtle noise/grain texture overlay (mix-blend-overlay) */}
+          <svg
+            className="absolute inset-0 w-full h-full opacity-[0.04] pointer-events-none mix-blend-overlay"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            {/* Eyebrow */}
-            <motion.div 
-              variants={eyebrowVariants}
-              className="inline-flex items-center gap-2 mb-6 border border-brand/20 bg-brand/5 rounded-full px-3 py-1.5"
+            <filter id="ceoNoiseFilter">
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.75"
+                numOctaves="3"
+                stitchTiles="stitch"
+              />
+            </filter>
+            <rect width="100%" height="100%" filter="url(#ceoNoiseFilter)" />
+          </svg>
+
+          {/* Warm Amber Glow behind where the portrait sits */}
+          <motion.div
+            className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#F5B301]/15 blur-3xl pointer-events-none transform translate-x-12 -translate-y-12"
+            animate={
+              shouldReduceMotion
+                ? {}
+                : {
+                    opacity: [0.12, 0.18, 0.12],
+                    scale: [1, 1.06, 1],
+                  }
+            }
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+
+          {/* Large decorative outlined shape for editorial texture */}
+          <svg
+            className="absolute -right-20 -top-20 w-[450px] h-[450px] text-white/8 pointer-events-none"
+            viewBox="0 0 100 100"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="50"
+              cy="50"
+              r="48"
+              stroke="currentColor"
+              strokeWidth="0.2"
+              strokeDasharray="3 3"
+            />
+            <circle cx="50" cy="50" r="41" stroke="currentColor" strokeWidth="0.1" />
+          </svg>
+        </div>
+
+        {/* ━━━━ CONTENT LAYER & GRID ━━━━ */}
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[520px] lg:min-h-[560px]">
+          {/* Content (cols 1-7) */}
+          <div className="lg:col-span-7 flex flex-col justify-center px-6 py-12 md:px-12 lg:px-16 lg:py-20 text-center lg:text-left items-center lg:items-start space-y-8 relative z-10">
+            {/* Eyebrow Pill Chip */}
+            <motion.div
+              initial={shouldReduceMotion ? {} : { opacity: 0, y: 10 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-[10px] font-extrabold tracking-[0.2em] uppercase px-3.5 py-1.5 rounded-full"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
-              <span className="font-extrabold uppercase tracking-[0.2em] font-sans text-brand text-xs">
-                MESSAGE FROM OUR CEO
-              </span>
+              <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#F5B301] to-brand-hot" />
+              MESSAGE FROM OUR CEO
             </motion.div>
 
-            {/* Pull-Quote Headline Container */}
-            <div className="relative w-full mb-8">
-              {/* 5. Oversized decorative quote glyph */}
+            {/* Pull-Quote with oversized curly quote behind it */}
+            <div className="relative w-full">
               <motion.span
-                variants={quoteMarkVariants}
-                className="absolute -top-16 -left-10 text-[9rem] font-serif leading-none select-none pointer-events-none text-gradient-brand font-black"
+                initial={shouldReduceMotion ? { opacity: 0.15 } : { opacity: 0 }}
+                animate={isInView ? { opacity: 0.15 } : {}}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="absolute -top-24 -left-6 lg:-top-28 lg:-left-12 text-[10rem] lg:text-[12rem] leading-none font-serif text-white select-none pointer-events-none font-black"
                 aria-hidden="true"
               >
                 “
               </motion.span>
 
               <motion.h2
-                variants={headlineVariants}
-                className="font-bold text-txt-strong font-headline relative z-10 leading-[1.05] tracking-tight lg:text-[clamp(2rem,3.8vw,3.5rem)] text-[clamp(1.75rem,7vw,2.75rem)]"
+                initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="relative z-10 text-white font-sans text-2xl sm:text-3xl lg:text-[40px] leading-snug tracking-tight font-light max-w-2xl text-left"
               >
-                {"“Building Tomorrow's Industries — "}
-                <span className="text-gradient-brand">Today</span>
-                {"”"}
+                <span className="text-white/70 font-medium">We&apos;re not just </span>
+                <span className="text-white font-extrabold">building technology</span>.
+                <br />
+                <span className="text-white/70 font-medium">We&apos;re </span>
+                <span className="font-black text-[#F5B301]">engineering the future</span>
+                <span className="text-white/70 font-medium"> of connected industry.</span>
               </motion.h2>
             </div>
 
-            {/* Body Paragraphs Stagger Container */}
-            <motion.div
-              variants={{
-                hidden: {},
-                visible: {
-                  transition: {
-                    staggerChildren: 0.1,
-                    delayChildren: 0.35
-                  }
-                }
-              }}
-              className="space-y-5 text-left relative z-10"
-            >
-              <motion.p
-                variants={paragraphVariants}
-                className="text-slate-800 text-base md:text-lg leading-relaxed max-w-[60ch]"
+            {/* Signature Block (Desktop side-by-side, Mobile stacked) */}
+            <div className="flex flex-col md:flex-row md:items-center gap-6 lg:gap-8 pt-4 w-full">
+              {/* Signature Area */}
+              <motion.div
+                initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.95 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="flex flex-col text-left shrink-0"
               >
-                Innovation is at the heart of everything we do at DHGsoft. We believe the next generation of industry will be built on intelligent technologies that connect people, data, and operations to unlock new possibilities.
-              </motion.p>
-              <motion.p
-                variants={paragraphVariants}
-                className="text-slate-800 text-base md:text-lg leading-relaxed max-w-[60ch] mt-5"
-              >
-                Our commitment is to transform bold ideas into practical solutions that deliver measurable outcomes. By combining Artificial Intelligence, Industrial IoT, Cloud, Data Platforms, and Digital Engineering, we help organizations innovate faster, operate smarter, and grow sustainably.
-              </motion.p>
-              <motion.p
-                variants={paragraphVariants}
-                className="text-slate-800 text-base md:text-lg leading-relaxed max-w-[60ch] mt-5"
-              >
-                As technology continues to evolve, we remain focused on pushing boundaries, embracing change, and creating solutions that shape the future of intelligent enterprises. Together with our customers and partners, we are building tomorrow's industries—today.
-              </motion.p>
-            </motion.div>
-
-            {/* Gradient Divider */}
-            <motion.div
-              variants={dividerVariants}
-              style={{ originX: 0 }}
-              className="h-[2px] w-20 bg-gradient-to-r from-brand via-brand-hot to-brand-accent rounded-full mt-10"
-            />
-
-            {/* CEO Designation & LinkedIn Row */}
-            <motion.div 
-              variants={profileRowVariants}
-              className="flex flex-col md:flex-row md:items-center justify-between w-full mt-6 gap-4"
-            >
-              <div>
-                <h4 className="text-2xl md:text-3xl font-bold font-headline leading-tight text-gradient-brand">
+                <span
+                  className="text-4xl md:text-5xl text-white italic select-none"
+                  style={{ fontFamily: "'Dancing Script', cursive" }}
+                >
                   Hitesh Patel
-                </h4>
-                <p className="text-sm md:text-base font-semibold mt-1 uppercase tracking-[0.15em] text-gradient-brand">
+                </span>
+                <span className="text-sm md:text-base text-white/70 italic font-normal mt-1">
                   CHIEF EXECUTIVE OFFICER, DHGSOFT
-                </p>
-              </div>
+                </span>
+              </motion.div>
+
+              {/* Vertical Divider */}
+              <motion.div
+                initial={shouldReduceMotion ? { scaleY: 1 } : { scaleY: 0 }}
+                animate={isInView ? { scaleY: 1 } : {}}
+                transition={{ duration: 0.2, delay: 0.5 }}
+                className="hidden md:block h-12 w-px bg-white/20 origin-top shrink-0"
+              />
+
+              {/* Supporting Statement */}
+              <motion.p
+                initial={shouldReduceMotion ? {} : { opacity: 0, y: 10 }}
+                animate={isInView ? { opacity: 0.85, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="text-white text-sm md:text-base leading-relaxed max-w-md font-light text-left"
+              >
+                At DHGsoft, we transform bold ideas into intelligent solutions — combining AI,
+                Industrial IoT, Cloud, and Data Platforms to help organizations innovate faster
+                and grow sustainably.
+              </motion.p>
+            </div>
+
+            {/* CTA Buttons Row */}
+            <motion.div
+              initial={shouldReduceMotion ? {} : { opacity: 0, y: 15 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="flex items-center gap-4 pt-2 w-full justify-center lg:justify-start"
+            >
+              <button
+                onClick={() =>
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="bg-transparent border border-white text-white rounded-full px-6 py-3 hover:bg-white hover:text-brand transition-all duration-300 inline-flex items-center gap-2 font-semibold text-sm cursor-pointer shadow-sm active:scale-95"
+              >
+                <span>Connect with Our Team</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
 
               <a
                 href="https://linkedin.com/in/hitesh-patel-967087a0"
@@ -299,78 +198,44 @@ export default function CEOMessage() {
                 rel="noopener noreferrer"
                 aria-label="Connect with Hitesh Patel on LinkedIn"
                 title="Connect on LinkedIn"
-                className="flex items-center justify-center w-11 h-11 rounded-full bg-[#0A66C2] hover:bg-[#0958AA] hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 text-white shrink-0 mt-3 md:mt-0"
+                className="w-11 h-11 rounded-full border border-white/40 text-white hover:bg-white hover:text-[#0A66C2] hover:border-white transition-all flex items-center justify-center shrink-0 active:scale-95"
               >
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                 </svg>
               </a>
             </motion.div>
+          </div>
 
-
-          </motion.div>
-
-          {/* ━━━━ RIGHT ZONE — Layered Portrait Column (columns 9–12) ━━━━ */}
+          {/* Portrait Column (cols 8-12) */}
+          {/* On desktop, absolute positioned, overlapping the top card edge */}
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            className="lg:col-span-4 w-full flex items-center justify-center order-2"
+            initial={shouldReduceMotion ? {} : { opacity: 0, y: 32 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="lg:absolute lg:right-6 lg:bottom-0 w-full max-w-[280px] md:max-w-[380px] lg:max-w-none lg:w-[46%] h-[320px] md:h-[420px] lg:h-[112%] z-20 pointer-events-none mt-8 lg:mt-0 flex items-end justify-center overflow-visible"
           >
-            {/* Interactive Portrait frame */}
-            <motion.div
-              initial="rest"
-              whileHover="hover"
-              animate="rest"
-              className="relative w-[88vw] max-w-[380px] md:max-w-[440px] lg:max-w-[420px] aspect-[4/5] z-10"
-            >
-              {/* Layer 1 (back / farthest): offset gradient block */}
-              <motion.div
-                variants={backGradientVariants}
-                className="absolute inset-0 bg-gradient-to-br from-brand via-brand-hot to-brand-accent rounded-[24px] shadow-md z-0"
-              />
+            <div className="relative w-full h-full lg:transform lg:translate-y-[-4%] select-none">
+              {/* Editorial warm light highlight overlay */}
+              <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none z-10" />
 
-              {/* Layer 2 (portrait card): photo mount */}
               <motion.div
-                variants={portraitCardVariants}
-                className="absolute inset-0 bg-white p-3 rounded-[24px] shadow-2xl z-10 overflow-hidden flex flex-col justify-between border border-slate-100/50"
+                style={{ y: yImage }}
+                className="relative w-full h-full flex items-end justify-center"
               >
-                {/* Image Container for parallax scrolling */}
-                <div className="relative w-full h-full rounded-[16px] overflow-hidden bg-slate-50">
-                  <motion.div
-                    style={{ y: yParallaxImage }}
-                    className="absolute inset-x-0 top-[-15px] bottom-[-15px] h-[calc(100%+30px)]"
-                  >
-                    {/* Layer 3: Portrait Image */}
-                    <Image
-                      src="/CEO_nobg_clean.png"
-                      alt="Hitesh Patel — Chief Executive Officer, DHGsoft"
-                      fill
-                      className="object-cover object-center"
-                      priority
-                      sizes="(max-width: 768px) 88vw, (max-width: 1024px) 440px, 420px"
-                    />
-                  </motion.div>
-
-                  {/* Layer 4: L-shaped corner marks */}
-                  <div className="absolute top-2.5 left-2.5 w-5 h-5 border-t-2 border-l-2 border-brand pointer-events-none z-20" />
-                  <div className="absolute bottom-2.5 right-2.5 w-5 h-5 border-b-2 border-r-2 border-brand pointer-events-none z-20" />
-
-                  {/* Very slight warm color grade overlay */}
-                  <div className="absolute inset-0 bg-brand-accent/5 mix-blend-overlay pointer-events-none z-10" />
-                </div>
-
-                {/* Layer 5: CEO gradient badge */}
-                <div className="absolute -top-2.5 -right-2.5 z-20 bg-gradient-to-r from-brand to-brand-accent text-white text-[10px] font-extrabold uppercase tracking-widest px-3.5 py-1.5 rounded-full shadow-md">
-                  CEO
-                </div>
+                <Image
+                  src="/CEO_nobg_clean.png"
+                  alt="Hitesh Patel — Chief Executive Officer, DHGsoft"
+                  fill
+                  className="object-contain object-bottom select-none transition-transform duration-700 hover:scale-[1.02] filter drop-shadow-[0_16px_32px_rgba(10,14,26,0.3)]"
+                  priority
+                  sizes="(max-width: 768px) 280px, (max-width: 1024px) 380px, 500px"
+                />
               </motion.div>
-
-            </motion.div>
+            </div>
           </motion.div>
-
         </div>
-      </div>
+      </motion.div>
     </Section>
   );
 }
