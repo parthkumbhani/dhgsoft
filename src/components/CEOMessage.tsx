@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import { motion, useInView, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { Section } from "@/components/ui/Section";
 import { ArrowRight } from "lucide-react";
 
@@ -10,17 +10,8 @@ export default function CEOMessage() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
   const motionPreference = useReducedMotion();
   const shouldReduceMotion = !!motionPreference;
-
-  // Subtle vertical parallax for the portrait silhouette on desktop
-  const scrollTransform = useTransform(scrollYProgress, [0, 1], [-20, 20]);
-  const yImage = shouldReduceMotion ? 0 : scrollTransform;
 
   return (
     <Section
@@ -207,31 +198,27 @@ export default function CEOMessage() {
             </motion.div>
           </div>
 
-          {/* Portrait Column (cols 8-12) */}
-          {/* On desktop, absolute positioned, overlapping the top card edge */}
+          {/* Portrait Column */}
           <motion.div
-            initial={shouldReduceMotion ? {} : { opacity: 0, y: 32 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="lg:absolute lg:right-6 lg:bottom-0 w-full max-w-[280px] md:max-w-[380px] lg:max-w-none lg:w-[46%] h-[320px] md:h-[420px] lg:h-[112%] z-20 pointer-events-none mt-8 lg:mt-0 flex items-end justify-center overflow-visible"
+            initial={shouldReduceMotion ? {} : { opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="absolute right-0 bottom-0 w-[45%] lg:w-[50%] h-full flex items-end justify-end pointer-events-none"
           >
-            <div className="relative w-full h-full lg:transform lg:translate-y-[-4%] select-none">
+            <div className="relative w-full h-full select-none">
               {/* Editorial warm light highlight overlay */}
               <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none z-10" />
 
-              <motion.div
-                style={{ y: yImage }}
-                className="relative w-full h-full flex items-end justify-center"
-              >
-                <Image
-                  src="/CEO_nobg_clean.png"
-                  alt="Hitesh Patel — Chief Executive Officer, DHGsoft"
-                  fill
-                  className="object-contain object-bottom select-none transition-transform duration-700 hover:scale-[1.02] filter drop-shadow-[0_16px_32px_rgba(10,14,26,0.3)]"
-                  priority
-                  sizes="(max-width: 768px) 280px, (max-width: 1024px) 380px, 500px"
-                />
-              </motion.div>
+              <Image
+                src="/hitesh-patel.png"
+                alt="Hitesh Patel, CEO of DHGsoft"
+                width={1024}
+                height={1024}
+                quality={95}
+                priority
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="h-full w-auto object-contain object-bottom select-none transition-transform duration-700 hover:scale-[1.02]"
+              />
             </div>
           </motion.div>
         </div>
