@@ -636,11 +636,11 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
           </p>
         </div>
 
-        {/* ── Premium Exhibition Outer Container (Pure White layout, no glassmorphism, thin border) ── */}
+        {/* ── Premium Exhibition Carousel (no outer box) ── */}
         <div 
           onMouseEnter={handleMouseEnterCarousel}
           onMouseLeave={handleMouseLeaveCarousel}
-          className="relative w-full rounded-[40px] border border-[#ECECEC] bg-[#FFFFFF] p-4 lg:p-8 lg:py-10 mb-6 overflow-hidden shadow-[0px_25px_60px_rgba(0,0,0,0.02)]"
+          className="relative w-full mb-6 overflow-hidden"
         >
           {/* Navigation Arrows */}
           <div className="absolute inset-y-0 left-4 right-4 flex items-center justify-between pointer-events-none z-20">
@@ -1021,14 +1021,14 @@ function PartnerCard({
 
         {/* Capability Text & Description */}
         <div className="flex-grow flex flex-col justify-center mb-4">
-          <motion.h4
+          <motion.h5
             style={{
               opacity: useTransform(activeRatio, [0, 1], [0.85, 1.0])
             }}
             className="text-[14px] font-bold text-slate-800 mb-2 font-headline tracking-tight"
           >
             {partner.capabilityTitle}
-          </motion.h4>
+          </motion.h5>
           <motion.p
             style={{
               opacity: useTransform(activeRatio, [0, 1], [0.65, 0.85])

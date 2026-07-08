@@ -15,6 +15,12 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      { source: '/careers/internship-program', destination: '/careers/campus-early-careers', permanent: true },
+      { source: '/careers/campus-connect', destination: '/careers/campus-early-careers', permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

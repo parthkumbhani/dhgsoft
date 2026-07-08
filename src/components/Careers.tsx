@@ -299,9 +299,9 @@ export default function Careers() {
 
                 {/* Content */}
                 <div className="px-5 pt-8 pb-5">
-                  <h3 className="text-[16px] font-bold text-slate-800 mb-2 tracking-tight">
+                  <h4 className="text-[16px] font-bold text-slate-800 mb-2 tracking-tight">
                     {card.title}
-                  </h3>
+                  </h4>
                   <p className="text-[13px] text-slate-500 leading-relaxed mb-4 font-sans">
                     {card.description}
                   </p>

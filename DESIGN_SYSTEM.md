@@ -86,3 +86,27 @@ To maintain pixel-perfect alignment across viewports:
 2. **No Custom Padding/Margin on Section Wrappers**: Do not define custom `pt-*`, `pb-*`, `py-*`, `mt-*`, or `mb-*` on the outer wrappers of sections. That responsibility belongs exclusively to the `<Section>` primitive.
 3. **No Arbitrary Max-Widths**: Do not apply custom `max-w-7xl`, `max-w-6xl`, etc., on section layout containers. Use `containerSize="default"` or `containerSize="wide"` on `<Section>`.
 4. **Absolute Decorations Outside Container**: Decorative elements (dots, mesh gradients, grids) should be children of `<Section>` using absolute positioning relative to the section's coordinate space. Ensure `overflow-hidden` is applied to `<Section>` to prevent elements from bleeding into the viewport edge.
+---
+
+## Typography Sizing Rules
+
+Headings render at their default large scale on page-level content: hero titles, section headings, and section sub-headings.
+
+Inside cards and tight components, add `class="card"` (or `class="tight"`) to the container. All headings inside automatically shrink to card-appropriate sizes.
+
+If you need to force a specific visual size regardless of context, use one of the explicit utility classes:
+
+- `.heading-hero`
+- `.heading-section`
+- `.heading-large`
+- `.heading-md`
+- `.heading-sm`
+- `.heading-xs`
+
+For body copy, use:
+
+- `.text-body-md`
+- `.text-body-sm`
+- `.text-label-bold`
+
+**Never override heading sizes with Tailwind `text-*` utilities.** Use the utility classes above, or nest headings inside a `.card` container for automatic contextual sizing.

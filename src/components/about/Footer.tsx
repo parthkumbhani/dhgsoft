@@ -3,6 +3,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUp } from "lucide-react";
 
 export default function Footer() {
@@ -23,19 +24,21 @@ export default function Footer() {
           
           {/* Logo & Social connections */}
           <div className="lg:col-span-6 space-y-6 flex flex-col items-start">
-            <Link href="/" className="flex items-center text-2xl font-bold tracking-tight">
-              <span className="text-brand-hot">dhg</span>
-              <span className="text-white">Soft</span>
+            <Link href="/" className="inline-block lg:-ml-4 mt-0">
+              <Image
+                src="/DHGsoft Logo.svg"
+                alt="DHG Soft Logo"
+                width={230}
+                height={45}
+                style={{ height: 'auto' }}
+                className="object-contain brightness-0 invert opacity-95"
+              />
             </Link>
             <p className="text-slate-500 text-xs sm:text-sm text-left max-w-sm">
               Engineering the future of connected industries through operational technology and data intelligence.
             </p>
             
-            <div className="flex flex-col gap-3 pt-2">
-              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest font-mono">
-                Follow our network
-              </span>
-              <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mt-1">
                 {/* Facebook */}
                 <a
                   href="https://www.facebook.com/profile.php?id=61590735029358"
@@ -101,7 +104,6 @@ export default function Footer() {
                   </svg>
                 </a>
               </div>
-            </div>
           </div>
 
           {/* Directory Navigation Links */}

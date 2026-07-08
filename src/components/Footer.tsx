@@ -12,7 +12,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative overflow-hidden bg-slate-950 text-slate-400 border-t border-slate-900 pt-20 pb-10">
+    <footer className="relative overflow-hidden bg-slate-950 text-slate-400 border-t border-slate-900 pt-8 pb-5">
       {/* Premium background mesh gradient glows */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-60 animate-blob" />
       <div className="absolute -bottom-10 left-10 w-80 h-80 bg-tertiary/10 rounded-full blur-3xl opacity-40 animate-blob animation-delay-4000" />
@@ -23,26 +23,23 @@ export default function Footer() {
       <Container className="relative z-10">
         
         {/* Top Section: Catchphrase & Structured Directories */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           
           {/* Brand Catchphrase */}
           {/* Brand Logo & Social Connections */}
-          <div className="lg:col-span-6 space-y-6 flex flex-col items-start">
-            <div className="inline-block py-2">
+          <div className="lg:col-span-6 space-y-4 flex flex-col items-start">
+            <div className="inline-block mt-0 lg:-ml-6">
               <Image
                 src="/DHGsoft Logo.svg"
                 alt="DHG Soft Logo"
-                width={160}
-                height={50}
+                width={230}
+                height={45}
+                style={{ height: 'auto' }}
                 className="object-contain brightness-0 invert opacity-95"
               />
             </div>
             
-            <div className="flex flex-col gap-3 pt-2">
-              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest font-sans">
-                Follow our network
-              </span>
-              <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mt-1">
                 {/* Facebook */}
                 <a
                   href="https://www.facebook.com/profile.php?id=61590735029358"
@@ -109,17 +106,13 @@ export default function Footer() {
                 </a>
 
               </div>
-            </div>
           </div>
 
           {/* Directory Link Cards */}
-          <div className="lg:col-span-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="lg:col-span-6 grid grid-cols-1 md:grid-cols-3 gap-6">
             
             {/* Column 1: Operations */}
             <div className="space-y-4">
-              <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest border-b border-slate-800 pb-2">
-                Operations
-              </h4>
               <ul className="space-y-3">
                 <li>
                   <Link href="/industries" className="text-sm text-slate-300 hover:text-white transition-all hover:translate-x-1 inline-flex items-center gap-1.5 group">
@@ -144,9 +137,6 @@ export default function Footer() {
 
             {/* Column 2: Enterprise */}
             <div className="space-y-4">
-              <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest border-b border-slate-800 pb-2">
-                Enterprise
-              </h4>
               <ul className="space-y-3">
                 <li>
                   <Link href="/about#global" className="text-sm text-slate-300 hover:text-white transition-all hover:translate-x-1 inline-flex items-center gap-1.5 group">
@@ -171,9 +161,6 @@ export default function Footer() {
 
             {/* Column 3: Network */}
             <div className="space-y-4">
-              <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest border-b border-slate-800 pb-2">
-                Network
-              </h4>
               <ul className="space-y-3">
                 <li>
                   <Link href="/about/partners" className="text-sm text-slate-300 hover:text-white transition-all hover:translate-x-1 inline-flex items-center gap-1.5 group">
@@ -190,7 +177,7 @@ export default function Footer() {
 
 
         {/* Bottom Section: Legal disclosures & Scroll-to-Top */}
-        <div className="mt-8 pt-8 relative flex flex-col gap-4">
+        <div className="mt-2 pt-3 relative flex flex-col gap-2">
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary via-secondary to-tertiary opacity-45" />
           
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">

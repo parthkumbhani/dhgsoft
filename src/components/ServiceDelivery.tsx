@@ -207,13 +207,7 @@ export default function ServiceDelivery() {
         <path d="M 50 100 L 150 100 M 100 50 L 100 150" stroke="#0F172A" strokeWidth="1" />
       </svg>
 
-      {/* Decorative Technical Labels for Digital Command Center Feel */}
-      <div className="absolute top-8 left-8 text-slate-400/40 font-mono text-[9px] pointer-events-none select-none tracking-widest hidden md:block">
-        [ DHG_DELIVERY_CONSOLE_V2.0 ]
-      </div>
-      <div className="absolute top-8 right-8 text-slate-400/40 font-mono text-[9px] pointer-events-none select-none tracking-widest hidden md:block">
-        SYS_LIFECYCLE: ACTIVE
-      </div>
+
 
       {/* Barely visible floating particles */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -605,10 +599,10 @@ export default function ServiceDelivery() {
                               <FeatIcon className="w-4 h-4 text-[#8C123B]" />
                             </div>
                             <div>
-                              <h4 className="text-[12.5px] font-bold text-slate-800 mb-0.5 font-headline">
+                              <h5 className="text-[11px] font-semibold text-slate-800 mb-0.5 font-headline tracking-tight">
                                 {feat.title}
-                              </h4>
-                              <p className="text-[11px] text-slate-400 leading-normal font-sans">
+                              </h5>
+                              <p className="text-[10.5px] text-slate-400 leading-normal font-sans">
                                 {feat.desc}
                               </p>
                             </div>

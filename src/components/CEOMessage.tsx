@@ -5,13 +5,18 @@ import Image from "next/image";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { Section } from "@/components/ui/Section";
 import { ArrowRight } from "lucide-react";
+import { Great_Vibes } from "next/font/google";
+
+const signatureFont = Great_Vibes({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-signature",
+});
 
 export default function CEOMessage() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
-
-  const motionPreference = useReducedMotion();
-  const shouldReduceMotion = !!motionPreference;
+  const shouldReduceMotion = !!useReducedMotion();
 
   return (
     <Section
@@ -21,166 +26,115 @@ export default function CEOMessage() {
       size="default"
       className="overflow-visible"
     >
-      {/* Outer wrapper to contain the card relative positioning inside the site container */}
       <motion.div
-        initial={shouldReduceMotion ? {} : { opacity: 0, y: 30, scale: 0.98 }}
-        animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-        className="relative w-full min-h-[520px] lg:min-h-[560px] select-none"
+        initial={shouldReduceMotion ? {} : { opacity: 0, y: 24 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+        className={`${signatureFont.variable} relative rounded-3xl shadow-2xl overflow-hidden`}
+        /* NOTE: overflow-hidden added to fully contain portrait within the box */
       >
-        {/* ━━━━ PANEL BACKGROUND CARD ━━━━ */}
-        <div className="absolute inset-0 rounded-3xl overflow-hidden bg-gradient-to-br from-brand via-[#9A0F35] to-brand-deep z-0 shadow-2xl">
-          {/* Subtle noise/grain texture overlay (mix-blend-overlay) */}
+        {/* ── Background — clipped separately so portrait can overflow ── */}
+        <div className="absolute inset-0 rounded-3xl overflow-hidden bg-gradient-to-br from-brand via-[#9E1039] to-brand-deep z-0">
+          {/* Warm amber glow */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[480px] h-[480px] bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Fractal noise texture overlay */}
           <svg
+            aria-hidden="true"
             className="absolute inset-0 w-full h-full opacity-[0.04] pointer-events-none mix-blend-overlay"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <filter id="ceoNoiseFilter">
-              <feTurbulence
-                type="fractalNoise"
-                baseFrequency="0.75"
-                numOctaves="3"
-                stitchTiles="stitch"
-              />
+            <filter id="ceoGrain">
+              <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="3" stitchTiles="stitch" />
             </filter>
-            <rect width="100%" height="100%" filter="url(#ceoNoiseFilter)" />
-          </svg>
-
-          {/* Warm Amber Glow behind where the portrait sits */}
-          <motion.div
-            className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#F5B301]/15 blur-3xl pointer-events-none transform translate-x-12 -translate-y-12"
-            animate={
-              shouldReduceMotion
-                ? {}
-                : {
-                    opacity: [0.12, 0.18, 0.12],
-                    scale: [1, 1.06, 1],
-                  }
-            }
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-
-          {/* Large decorative outlined shape for editorial texture */}
-          <svg
-            className="absolute -right-20 -top-20 w-[450px] h-[450px] text-white/8 pointer-events-none"
-            viewBox="0 0 100 100"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="50"
-              cy="50"
-              r="48"
-              stroke="currentColor"
-              strokeWidth="0.2"
-              strokeDasharray="3 3"
-            />
-            <circle cx="50" cy="50" r="41" stroke="currentColor" strokeWidth="0.1" />
+            <rect width="100%" height="100%" filter="url(#ceoGrain)" />
           </svg>
         </div>
 
-        {/* ━━━━ CONTENT LAYER & GRID ━━━━ */}
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[520px] lg:min-h-[560px]">
-          {/* Content (cols 1-7) */}
-          <div className="lg:col-span-7 flex flex-col justify-center px-6 py-12 md:px-12 lg:px-16 lg:py-20 text-center lg:text-left items-center lg:items-start space-y-8 relative z-10">
-            {/* Eyebrow Pill Chip */}
+        {/* ── Content layout — flex for tight side-by-side ── */}
+        <div className="relative z-10 flex flex-col lg:flex-row items-stretch">
+
+          {/* ──────────────── LEFT — content zone (58%) ──────────────── */}
+          {/* Reduced vertical padding → drives panel to compact height */}
+          <div className="lg:w-[58%] px-8 md:px-12 lg:px-14 py-10 md:py-12 lg:py-14 flex flex-col justify-center">
+
+            {/* Decorative opening quote glyph */}
             <motion.div
-              initial={shouldReduceMotion ? {} : { opacity: 0, y: 10 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-[10px] font-extrabold tracking-[0.2em] uppercase px-3.5 py-1.5 rounded-full"
+              initial={shouldReduceMotion ? {} : { opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.4, delay: 0.05 }}
+              aria-hidden="true"
+              className="text-[4.5rem] lg:text-[5.5rem] leading-none font-serif text-white/25 select-none -ml-1 mb-1"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#F5B301] to-brand-hot" />
-              MESSAGE FROM OUR CEO
+              &ldquo;
             </motion.div>
 
-            {/* Pull-Quote with oversized curly quote behind it */}
-            <div className="relative w-full">
-              <motion.span
-                initial={shouldReduceMotion ? { opacity: 0.15 } : { opacity: 0 }}
-                animate={isInView ? { opacity: 0.15 } : {}}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="absolute -top-24 -left-6 lg:-top-28 lg:-left-12 text-[10rem] lg:text-[12rem] leading-none font-serif text-white select-none pointer-events-none font-black"
-                aria-hidden="true"
-              >
-                “
-              </motion.span>
+            {/* Pull-quote — 2 lines */}
+            <motion.h2
+              initial={shouldReduceMotion ? {} : { opacity: 0, y: 14 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-2xl sm:text-3xl lg:text-[2.5rem] leading-[1.18] font-medium text-white/85"
+            >
+              We&apos;re not just{" "}
+              <span className="font-bold text-white">building technology</span>{" "}
+              &mdash; we&apos;re
+              <br />
+              <span className="font-bold text-white">engineering the future</span>{" "}
+              of connected industry.
+            </motion.h2>
 
-              <motion.h2
-                initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="relative z-10 text-white font-sans text-2xl sm:text-3xl lg:text-[40px] leading-snug tracking-tight font-light max-w-2xl text-left"
-              >
-                <span className="text-white/70 font-medium">We&apos;re not just </span>
-                <span className="text-white font-extrabold">building technology</span>.
-                <br />
-                <span className="text-white/70 font-medium">We&apos;re </span>
-                <span className="font-black text-[#F5B301]">engineering the future</span>
-                <span className="text-white/70 font-medium"> of connected industry.</span>
-              </motion.h2>
-            </div>
-
-            {/* Signature Block (Desktop side-by-side, Mobile stacked) */}
-            <div className="flex flex-col md:flex-row md:items-center gap-6 lg:gap-8 pt-4 w-full">
-              {/* Signature Area */}
-              <motion.div
-                initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.95 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-col text-left shrink-0"
-              >
-                <span
-                  className="text-4xl md:text-5xl text-white italic select-none"
-                  style={{ fontFamily: "'Dancing Script', cursive" }}
-                >
+            {/* Signature block */}
+            <motion.div
+              initial={shouldReduceMotion ? {} : { opacity: 0, y: 14 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.2 }}
+              className="mt-8 lg:mt-10 flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-7"
+            >
+              {/* Name + title */}
+              <div className="shrink-0">
+                <p className="font-[family-name:var(--font-signature)] text-4xl lg:text-5xl text-white leading-tight">
                   Hitesh Patel
-                </span>
-                <span className="text-sm md:text-base text-white/70 italic font-normal mt-1">
-                  CHIEF EXECUTIVE OFFICER, DHGSOFT
-                </span>
-              </motion.div>
+                </p>
+                <p className="mt-1.5 text-xs lg:text-sm text-white/65 italic tracking-wide">
+                  Chief Executive Officer, DHGsoft
+                </p>
+              </div>
 
-              {/* Vertical Divider */}
+              {/* Vertical divider (desktop only) */}
               <motion.div
-                initial={shouldReduceMotion ? { scaleY: 1 } : { scaleY: 0 }}
+                initial={shouldReduceMotion ? {} : { scaleY: 0 }}
                 animate={isInView ? { scaleY: 1 } : {}}
-                transition={{ duration: 0.2, delay: 0.5 }}
-                className="hidden md:block h-12 w-px bg-white/20 origin-top shrink-0"
+                transition={{ duration: 0.35, delay: 0.3 }}
+                aria-hidden="true"
+                className="hidden lg:block w-px h-14 bg-white/30 shrink-0 origin-top"
               />
 
-              {/* Supporting Statement */}
-              <motion.p
-                initial={shouldReduceMotion ? {} : { opacity: 0, y: 10 }}
-                animate={isInView ? { opacity: 0.85, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="text-white text-sm md:text-base leading-relaxed max-w-md font-light text-left"
-              >
-                At DHGsoft, we transform bold ideas into intelligent solutions — combining AI,
-                Industrial IoT, Cloud, and Data Platforms to help organizations innovate faster
-                and grow sustainably.
-              </motion.p>
-            </div>
+              {/* Supporting statement */}
+              <p className="text-sm md:text-[0.9375rem] text-white/80 leading-relaxed max-w-[340px] font-light">
+                At DHGsoft, we don&apos;t just build systems &mdash; we build
+                intelligence into industries, enabling them to evolve, adapt,
+                and lead in a rapidly changing world.
+              </p>
+            </motion.div>
 
-            {/* CTA Buttons Row */}
+            {/* CTA row */}
             <motion.div
-              initial={shouldReduceMotion ? {} : { opacity: 0, y: 15 }}
+              initial={shouldReduceMotion ? {} : { opacity: 0, y: 14 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="flex items-center gap-4 pt-2 w-full justify-center lg:justify-start"
+              transition={{ duration: 0.55, delay: 0.3 }}
+              className="mt-8 lg:mt-10 flex items-center gap-4"
             >
               <button
                 onClick={() =>
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="bg-transparent border border-white text-white rounded-full px-6 py-3 hover:bg-white hover:text-brand transition-all duration-300 inline-flex items-center gap-2 font-semibold text-sm cursor-pointer shadow-sm active:scale-95"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white text-white text-sm font-semibold hover:bg-white hover:text-brand transition-all duration-300 group cursor-pointer"
               >
-                <span>Connect with Our Team</span>
-                <ArrowRight className="w-4 h-4" />
+                Connect with Our Team
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </button>
 
               <a
@@ -189,38 +143,45 @@ export default function CEOMessage() {
                 rel="noopener noreferrer"
                 aria-label="Connect with Hitesh Patel on LinkedIn"
                 title="Connect on LinkedIn"
-                className="w-11 h-11 rounded-full border border-white/40 text-white hover:bg-white hover:text-[#0A66C2] hover:border-white transition-all flex items-center justify-center shrink-0 active:scale-95"
+                className="inline-flex items-center justify-center w-11 h-11 rounded-full border border-white/50 text-white hover:bg-white hover:text-[#0A66C2] transition-all duration-300"
               >
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                 </svg>
               </a>
             </motion.div>
           </div>
 
-          {/* Portrait Column */}
-          <motion.div
-            initial={shouldReduceMotion ? {} : { opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="absolute right-0 bottom-0 w-[45%] lg:w-[50%] h-full flex items-end justify-end pointer-events-none"
-          >
-            <div className="relative w-full h-full select-none">
-              {/* Editorial warm light highlight overlay */}
-              <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none z-10" />
-
+          {/* ──────────────── RIGHT — portrait zone (42%) ──────────────── */}
+          {/*
+            CINEMATIC OVERFLOW TRICK:
+            - No min-h on this div → panel height driven by LEFT content only
+            - Portrait container uses inset-y-[-40px] → extends 40px above AND below panel
+            - Image is h-[calc(100%+80px)] → 80px taller than the extended container
+            - object-bottom → jacket/arms anchor to bottom overflow area
+            - items-end → base of image sits at bottom of container
+            Result: head overflows ~40px above panel top, jacket ~40px below panel bottom
+          */}
+          <div className="hidden lg:block lg:w-[42%] relative">
+            <motion.div
+              initial={shouldReduceMotion ? {} : { opacity: 0, x: 16 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.65, delay: 0.2, ease: "easeOut" }}
+              className="absolute inset-y-0 right-0 w-full flex items-end justify-start pointer-events-none"
+            >
               <Image
-                src="/hitesh-patel.png"
+                src="/ceo.png"
                 alt="Hitesh Patel, CEO of DHGsoft"
-                width={1024}
-                height={1024}
+                width={1200}
+                height={1500}
                 quality={95}
                 priority
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="h-full w-auto object-contain object-bottom select-none transition-transform duration-700 hover:scale-[1.02]"
+                sizes="(min-width: 1024px) 42vw, 100vw"
+                className="h-full w-auto max-w-none object-contain object-bottom"
               />
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
+
         </div>
       </motion.div>
     </Section>

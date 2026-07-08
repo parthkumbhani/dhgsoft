@@ -87,8 +87,7 @@ const ABOUT_MENU = [
 const CAREERS_MENU = [
   { name: "Life at DHGsoft", desc: "Discover our culture, benefits, and engineering mindset.", href: "/careers/life-at-dhgsoft" },
   { name: "Current Openings", desc: "Explore active engineering, architecture, and consulting roles.", href: "/careers/current-openings" },
-  { name: "Internship Program", desc: "Start your journey with real-world OT/IT projects.", href: "/careers/internship-program" },
-  { name: "Campus Connect", desc: "Opportunities for recent graduates & university partners.", href: "/careers/campus-connect" },
+  { name: "Campus & Early Careers", desc: "Internships, graduate roles, and university partnerships.", href: "/careers/campus-early-careers" },
   { name: "Learning & Development", desc: "Continuous training, certifications, and leadership growth.", href: "/careers/learning-development" }
 ]
 
@@ -191,8 +190,9 @@ export default function Header({ onContactClick }: HeaderProps) {
           <Image
             src="/DHGsoft Logo.svg"
             alt="DHG Soft"
-            width={scrolled ? 115 : 135}
-            height={scrolled ? 37 : 43}
+            width={scrolled ? 170 : 230}
+            height={scrolled ? 33 : 45}
+            style={{ height: 'auto' }}
             className="object-contain transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
             priority
           />
@@ -382,7 +382,12 @@ export default function Header({ onContactClick }: HeaderProps) {
                   <div className="grid grid-cols-3 gap-6 relative z-10">
                     <div className="col-span-1 bg-gradient-to-b from-slate-900 to-slate-950 rounded-md p-5 text-white flex flex-col justify-between border-l-4 border-primary">
                       <div>
-                        <h4 className="text-md font-bold text-white tracking-tight">Careers</h4>
+                        <Link href="/careers" className="group/title block">
+                          <h4 className="text-md font-bold text-white tracking-tight group-hover/title:text-primary transition-colors flex items-center gap-1.5">
+                            Careers
+                            <ArrowRight className="h-3.5 w-3.5 opacity-0 -translate-x-1 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all" />
+                          </h4>
+                        </Link>
                         <p className="text-2xs text-slate-400 mt-2 leading-relaxed">
                           Join our team of elite digital engineers, cloud architects, and digital twins experts.
                         </p>
@@ -395,6 +400,19 @@ export default function Header({ onContactClick }: HeaderProps) {
                       </Link>
                     </div>
                     <div className="col-span-2 flex flex-col gap-1.5">
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href="/careers"
+                          className="group block select-none rounded-md p-2 leading-none no-underline outline-none transition-all hover:bg-primary/5"
+                        >
+                          <div className="text-sm font-semibold text-primary group-hover:text-primary-hover transition-colors">
+                            Careers Overview
+                          </div>
+                          <p className="text-xs text-slate-500 mt-1 line-clamp-1">
+                            Explore our culture, values, and open opportunities.
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
                       {CAREERS_MENU.map((item, i) => (
                         <NavigationMenuLink asChild key={i}>
                           <Link
@@ -465,8 +483,9 @@ export default function Header({ onContactClick }: HeaderProps) {
                   <Image
                     src="/DHGsoft Logo.svg"
                     alt="DHG Soft"
-                    width={110}
-                    height={35}
+                    width={230}
+                    height={45}
+                    style={{ height: 'auto' }}
                     className="object-contain"
                   />
                 </SheetTitle>
@@ -563,6 +582,13 @@ export default function Header({ onContactClick }: HeaderProps) {
                       Careers
                     </AccordionTrigger>
                     <AccordionContent className="bg-slate-50 p-3 rounded-md flex flex-col gap-1.5">
+                      <Link
+                        href="/careers"
+                        onClick={() => setMobileOpen(false)}
+                        className="block py-1.5 text-xs text-[#B4123F] font-bold border-b border-slate-200 transition-colors"
+                      >
+                        Explore Careers
+                      </Link>
                       {CAREERS_MENU.map((item, i) => (
                         <Link
                           key={i}

@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Section } from "@/components/ui/Section"
@@ -46,12 +47,12 @@ export default function Hero({ onContactClick, onExploreServices }: HeroProps) {
     <Section size="hero" containerSize="wide" className="min-h-[95vh] lg:min-h-screen flex items-center overflow-hidden bg-white">
       {/* Cinematic Background Video and Overlays */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-        <video
-          src="/heropagevideo.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
+        <Image
+          src="/Untitled design.jpg"
+          alt="DHGsoft industrial intelligence background"
+          fill
+          priority
+          sizes="100vw"
           className="absolute inset-0 w-full h-full object-cover opacity-100 scale-100"
         />
         {/* Soft, light vignettes for text contrast without blocking video details */}
@@ -86,7 +87,7 @@ export default function Hero({ onContactClick, onExploreServices }: HeroProps) {
               className="text-headline-xl text-white tracking-tight font-extrabold leading-tight text-balance"
             >
               Transforming Industrial Enterprises Through{" "}
-              <span className="bg-gradient-to-r from-[#C30072] via-[#E10088] to-[#fbc00e] bg-clip-text text-transparent">
+              <span className="block sm:inline bg-gradient-to-r from-[#C30072] via-[#E10088] to-[#fbc00e] bg-clip-text text-transparent font-black">
                 AI, Data & Digital Engineering
               </span>
             </motion.h1>
@@ -122,24 +123,6 @@ export default function Hero({ onContactClick, onExploreServices }: HeroProps) {
               </Button> */}
             </motion.div>
 
-            {/* Metrics */}
-            <motion.div
-              variants={itemVariants}
-              className="mt-14 grid grid-cols-3 gap-8 pt-8 border-t border-white/10 w-full max-w-xl"
-            >
-              <div>
-                <div className="text-2xl lg:text-3xl font-black text-white tracking-tight">100%</div>
-                <div className="text-[10px] font-extrabold text-slate-400 uppercase mt-1.5 tracking-wider">OT/IT Compliance</div>
-              </div>
-              <div>
-                <div className="text-2xl lg:text-3xl font-black text-white tracking-tight">40%+</div>
-                <div className="text-[10px] font-extrabold text-slate-400 uppercase mt-1.5 tracking-wider">OEE Improvement</div>
-              </div>
-              <div>
-                <div className="text-2xl lg:text-3xl font-black text-white tracking-tight">Zero</div>
-                <div className="text-[10px] font-extrabold text-slate-400 uppercase mt-1.5 tracking-wider">Data Silos</div>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Right Column - Premium Glassmorphic Telemetry Card Overlay */}

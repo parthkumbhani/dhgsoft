@@ -113,12 +113,6 @@ export default function SubmitCvPage() {
 
       </main>
 
-      {/* Equal Opportunity Statement */}
-      <div className="bg-slate-950 py-6 text-center border-t border-slate-900 select-none">
-        <span className="text-[10px] text-slate-500 font-mono">
-          [Add your equal-opportunity employer statement here.]
-        </span>
-      </div>
 
       {/* Footer */}
       <Footer />
