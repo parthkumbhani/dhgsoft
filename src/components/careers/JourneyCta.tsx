@@ -13,10 +13,10 @@ export default function JourneyCta() {
   const isInView = useInView(containerRef, { once: true, amount: 0.2 });
 
   return (
-    <Section 
+    <Section
       ref={containerRef}
-      variant="mist" 
-      size="default" 
+      variant="mist"
+      size="default"
       containerSize="wide"
       className="relative overflow-hidden select-none bg-mist border-y border-line py-20 md:py-24"
     >
@@ -72,7 +72,7 @@ export default function JourneyCta() {
       </svg>
 
       <div className="w-full relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8 py-4">
-        
+
         {/* Left Heading */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}

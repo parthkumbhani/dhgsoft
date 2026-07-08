@@ -27,7 +27,7 @@ export default function CareersLandingPage() {
       <main className="relative pt-20">
         
         {/* Section 1: Hero */}
-        <CareersHero />
+        <CareersHero onContactClick={() => setIsContactOpen(true)} />
 
         {/* Section 2: Innovation Meets Opportunity Photo Band */}
         <InnovationBand />
