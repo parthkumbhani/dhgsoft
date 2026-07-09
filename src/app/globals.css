@@ -171,47 +171,42 @@ body {
 }
 
 html, body, button, input, textarea, select, label, p, a, li, span, div {
-  font-family: var(--font-sans), sans-serif;
+  font-family: var(--font-sans), sans-serif !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-sans), sans-serif;
+  font-family: var(--font-sans), sans-serif !important;
   margin: 0;
 }
 
 /* -------- DEFAULT HEADING SIZES (page-level: hero, section titles) -------- */
 
 h1 {
-  font-size: clamp(3rem, 2.25rem + 1.5vw, 4rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  font-weight: 700;
+  font-size: clamp(3rem, 2.25rem + 1.5vw, 4rem) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.02em !important;
 }
 
 h2 {
-  font-size: clamp(2.25rem, 1.75rem + 1.2vw, 3rem);
-  line-height: 1.1;
-  letter-spacing: -0.015em;
-  font-weight: 700;
+  font-size: clamp(2.25rem, 1.75rem + 1.2vw, 3rem) !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.015em !important;
 }
 
 h3 {
-  font-size: clamp(1.75rem, 1.4rem + 1vw, 2.25rem);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  font-weight: 700;
+  font-size: clamp(1.75rem, 1.4rem + 1vw, 2.25rem) !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.01em !important;
 }
 
 h4 {
-  font-size: clamp(1.25rem, 1.12rem + 0.75vw, 1.75rem);
-  line-height: 1.3;
-  font-weight: 600;
+  font-size: clamp(1.25rem, 1.12rem + 0.75vw, 1.75rem) !important;
+  line-height: 1.3 !important;
 }
 
 h5, h6 {
-  font-size: clamp(1rem, 0.95rem + 0.2vw, 1.25rem);
-  line-height: 1.4;
-  font-weight: 600;
+  font-size: clamp(1rem, 0.95rem + 0.2vw, 1.25rem) !important;
+  line-height: 1.4 !important;
 }
 
 /* -------- CONTEXTUAL VARIANTS (inside cards, tight components) -------- */

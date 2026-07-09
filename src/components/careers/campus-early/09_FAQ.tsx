@@ -44,9 +44,9 @@ export default function FAQ() {
                   onClick={() => toggleExpand(idx)}
                   className="flex items-center justify-between p-6 hover:bg-mist transition-colors duration-200 cursor-pointer select-none"
                 >
-                  <h3 className="text-text-strong font-headline font-bold pr-4">
+                  <h5 className="text-text-strong font-headline font-bold pr-4">
                     {item.q}
-                  </h3>
+                  </h5>
                   
                   <div
                     className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-all duration-200 ${

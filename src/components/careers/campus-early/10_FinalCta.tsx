@@ -41,10 +41,11 @@ export default function FinalCta() {
               Apply Now →
             </Button>
           </Link>
-          <Link href="/#contact">
-            <Button variant="outline" size="lg" className="rounded-full border-white/30 text-white hover:bg-white/10 hover:border-white font-bold px-8 py-3">
-              ✉ Contact Campus Relations
-            </Button>
+          <Link 
+            href="/#contact" 
+            className="inline-flex items-center justify-center gap-2 h-12 rounded-full border border-white/30 text-white hover:bg-white/10 hover:border-white font-bold px-8 text-base transition-all duration-300 bg-transparent cursor-pointer"
+          >
+            ✉ Contact Campus Relations
           </Link>
         </div>
 
