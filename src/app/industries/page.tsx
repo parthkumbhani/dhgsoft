@@ -42,7 +42,7 @@ export default function ExploreIndustriesPage() {
         {/* ==========================================
             1. HERO SECTION (Cinematic Dark Industrial Backdrop)
             ========================================== */}
-        <Section variant="ink" size="hero" containerSize="wide" className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <Section variant="ink" size="hero" containerSize="wide" className="relative min-h-screen flex items-center overflow-hidden">
           <div className="absolute inset-0 z-0 pointer-events-none">
             <Image
               src="/images/industrial-hero.png"
@@ -53,9 +53,9 @@ export default function ExploreIndustriesPage() {
               className="object-cover object-center opacity-85 scale-100"
             />
             {/* Dark premium gradient and ambient overlays */}
-            <div className="absolute inset-0 bg-slate-950/20" />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/40 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+            <div className="absolute inset-0 bg-slate-950/10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-950/25 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
             
             {/* Soft glowing ambient shapes */}
             <div 
@@ -76,7 +76,7 @@ export default function ExploreIndustriesPage() {
                   <span className="absolute inset-0 rounded-full bg-brand animate-ping opacity-60" />
                   <span className="relative rounded-full bg-brand w-1.5 h-1.5" />
                 </span>
-                <span className="text-label-bold text-brand uppercase tracking-[0.2em]">
+                <span className="text-[11px] font-extrabold text-brand uppercase tracking-[0.2em]">
                   Digital Transformation Leader
                 </span>
               </div>
