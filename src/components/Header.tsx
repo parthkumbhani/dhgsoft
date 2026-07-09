@@ -447,16 +447,17 @@ export default function Header({ onContactClick }: HeaderProps) {
             >
               <Search className={`transition-all duration-500 ${scrolled ? "h-4 w-4" : "h-5 w-5"}`} />
             </Button>
-            <Button 
-              onClick={onContactClick} 
-              className={`font-bold transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                scrolled
-                  ? "rounded-full bg-gradient-to-r from-primary to-secondary hover:from-primary hover:to-secondary text-white py-2 px-4.5 text-xs h-9 cursor-pointer"
-                  : "rounded-[14px] bg-gradient-to-r from-primary to-secondary hover:from-primary hover:to-secondary hover:-translate-y-[2px] active:scale-[0.98] text-white py-3.5 px-6 text-sm h-auto shadow-sm hover:shadow-md hover:shadow-primary/20 cursor-pointer"
-              }`}
-            >
-              Contact Us
-            </Button>
+            <Link href="/contact">
+              <Button 
+                className={`font-bold transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  scrolled
+                    ? "rounded-full bg-gradient-to-r from-primary to-secondary hover:from-primary hover:to-secondary text-white py-2 px-4.5 text-xs h-9 cursor-pointer"
+                    : "rounded-[14px] bg-gradient-to-r from-primary to-secondary hover:from-primary hover:to-secondary hover:-translate-y-[2px] active:scale-[0.98] text-white py-3.5 px-6 text-sm h-auto shadow-sm hover:shadow-md hover:shadow-primary/20 cursor-pointer"
+                }`}
+              >
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -604,15 +605,13 @@ export default function Header({ onContactClick }: HeaderProps) {
                 </Accordion>
 
                 <div className="mt-8 flex flex-col gap-4">
-                  <Button
-                    onClick={() => {
-                      setMobileOpen(false)
-                      onContactClick()
-                    }}
-                    className="w-full text-white font-bold rounded-[14px] bg-gradient-to-r from-primary to-secondary hover:from-primary hover:to-secondary py-3 h-auto"
-                  >
-                    Contact Us
-                  </Button>
+                  <Link href="/contact" onClick={() => setMobileOpen(false)} className="w-full">
+                    <Button
+                      className="w-full text-white font-bold rounded-[14px] bg-gradient-to-r from-primary to-secondary hover:from-primary hover:to-secondary py-3 h-auto"
+                    >
+                      Contact Us
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </SheetContent>
