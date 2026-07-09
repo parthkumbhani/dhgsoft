@@ -15,7 +15,7 @@ export default function VisionMission() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Text Left */}
           <div className="lg:col-span-6 text-left space-y-4">
-            <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+            <span className="section-eyebrow">
               OUR VISION
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-text-strong tracking-tight leading-tight">
@@ -51,10 +51,10 @@ export default function VisionMission() {
 
           {/* Text Right */}
           <div className="lg:col-span-6 order-1 lg:order-2 text-left space-y-4">
-            <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+            <span className="section-eyebrow">
               OUR MISSION
             </span>
-            <p className="text-text-muted font-medium text-base sm:text-lg leading-relaxed">
+            <p className="section-subtitle">
               To empower industries with innovative digital engineering solutions that connect operational technology, enterprise systems, and data intelligence to improve operational excellence and business performance.
             </p>
           </div>

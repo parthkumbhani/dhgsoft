@@ -68,13 +68,13 @@ export default function LeadershipPage() {
             <div className="max-w-3xl text-left flex gap-6">
               <div className="w-[4px] bg-brand rounded-full self-stretch shrink-0" />
               <div className="space-y-4">
-                <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-brand-hot font-mono block">
+                <span className="section-eyebrow">
                   LEADERSHIP
                 </span>
                 <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-black text-white tracking-tight leading-[1.1] font-sans">
                   The People Behind the Platform
                 </h1>
-                <p className="text-slate-300 font-medium text-base sm:text-lg leading-relaxed">
+                <p className="section-subtitle on-dark">
                   DHGsoft is led by engineers and operators who have spent their careers closing the gap between industrial operations and enterprise technology.
                 </p>
               </div>
@@ -85,7 +85,7 @@ export default function LeadershipPage() {
         {/* 2. Leadership Philosophy */}
         <Section variant="ink" containerSize="wide" className=" text-white border-b border-slate-900 overflow-hidden relative">
           <div className="w-full relative z-10 flex flex-col items-start text-left space-y-4">
-            <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-hot font-mono block mb-2">
+            <span className="section-eyebrow mb-2">
               OUR PHILOSOPHY
             </span>
             <div className="flex flex-col gap-3 font-extrabold text-2xl sm:text-3xl lg:text-[34px] tracking-tight text-white leading-tight font-sans">
@@ -100,7 +100,7 @@ export default function LeadershipPage() {
         <Section variant="white" containerSize="wide" className="bg-white border-b border-line overflow-hidden relative bg-dot-matrix bg-tech-grid">
           <div className="w-full relative z-10 space-y-12">
             <div className="text-left space-y-3">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 EXECUTIVE LEADERSHIP
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-text-strong tracking-tight leading-tight">
@@ -120,7 +120,7 @@ export default function LeadershipPage() {
                       {exec.initials}
                     </span>
                     <div className="absolute inset-0 bg-brand/5 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-                    <div className="absolute bottom-3 left-3 right-3 text-[10px] text-brand uppercase font-extrabold font-mono tracking-wider text-center bg-white/80 backdrop-blur-sm rounded-md py-1 border border-brand/20">
+                    <div className="absolute bottom-3 left-3 right-3 bg-white/80 backdrop-blur-sm rounded-md py-1 border border-brand/20 section-eyebrow on-dark">
                       [Placeholder Avatar — Replace with Photo]
                     </div>
                   </div>
@@ -128,7 +128,7 @@ export default function LeadershipPage() {
                   <div className="space-y-2 flex-grow">
                     <h3 className="font-extrabold text-text-strong text-xl tracking-tight">[Full Name]</h3>
                     <p className="text-brand font-bold text-xs sm:text-sm uppercase tracking-wider">{exec.role}</p>
-                    <p className="text-text-muted text-xs sm:text-sm leading-relaxed pt-2">{exec.desc}</p>
+                    <p className="pt-2 card-description">{exec.desc}</p>
                   </div>
                 </div>
               ))}
@@ -152,7 +152,7 @@ export default function LeadershipPage() {
               />
             </div>
             <div className="lg:col-span-6 space-y-6 text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 LEADERSHIP MINDSET
               </span>
               <p className="text-text-strong font-bold text-xl sm:text-2xl leading-relaxed">
@@ -166,7 +166,7 @@ export default function LeadershipPage() {
         <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
           <div className="w-full relative z-10 space-y-6">
-            <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
+            <span className="section-eyebrow on-dark">
               CAREERS
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-[46px] font-black text-white tracking-tight leading-tight">

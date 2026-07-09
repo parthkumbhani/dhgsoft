@@ -77,13 +77,13 @@ export default function TechnologyPartnersPage() {
             <div className="max-w-3xl text-left flex gap-6">
               <div className="w-[4px] bg-brand rounded-full self-stretch shrink-0" />
               <div className="space-y-4">
-                <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-brand-hot font-mono block">
+                <span className="section-eyebrow">
                   TECHNOLOGY PARTNERS
                 </span>
                 <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-black text-white tracking-tight leading-[1.1] font-sans">
                   Powered by the World&apos;s Leading Platforms
                 </h1>
-                <p className="text-slate-300 font-medium text-base sm:text-lg leading-relaxed">
+                <p className="section-subtitle on-dark">
                   DHGsoft integrates best-in-class industrial and enterprise technologies into solutions that perform on the plant floor and scale across the enterprise.
                 </p>
               </div>
@@ -95,13 +95,13 @@ export default function TechnologyPartnersPage() {
         <Section variant="mist" containerSize="wide" className=" border-b border-line overflow-hidden relative bg-dot-matrix">
           <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6 text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 OUR APPROACH
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-text-strong tracking-tight leading-tight">
                 Technology-agnostic by design
               </h2>
-              <p className="text-text-muted text-sm sm:text-base leading-relaxed">
+              <p className="section-subtitle">
                 We are technology-agnostic. We select and integrate the platforms that best fit each operation and business goal — not a single vendor&apos;s catalog. Our value is in the engineering that makes these technologies work together: securely, reliably, and at industrial scale.
               </p>
             </div>
@@ -120,10 +120,10 @@ export default function TechnologyPartnersPage() {
         <Section variant="brandTint" containerSize="wide" className=" border-b border-line relative bg-tech-grid">
           <div className="w-full relative z-10 space-y-8">
             <div className="text-left space-y-3">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 FEATURED PARTNERS
               </span>
-              <p className="text-text-muted text-sm sm:text-base leading-relaxed">
+              <p className="section-subtitle">
                 We build on trusted platforms from leading technology providers.
               </p>
             </div>
@@ -211,7 +211,7 @@ export default function TechnologyPartnersPage() {
         <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid">
           <div className="w-full relative z-10 space-y-12">
             <div className="text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 THE STACK
               </span>
             </div>
@@ -242,7 +242,7 @@ export default function TechnologyPartnersPage() {
         <Section variant="ink" containerSize="wide" className=" text-white border-b border-slate-900 overflow-hidden relative">
           <div className="w-full relative z-10 space-y-12">
             <div className="text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-hot font-mono block">
+              <span className="section-eyebrow">
                 INTEGRATION EXPERTISE
               </span>
             </div>
@@ -250,25 +250,25 @@ export default function TechnologyPartnersPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
               <div className="space-y-2">
                 <h4 className="font-extrabold text-white text-base sm:text-lg">Vendor-neutral selection</h4>
-                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                <p className="card-description on-dark">
                   The right platform for the problem, backed by real integration experience.
                 </p>
               </div>
               <div className="space-y-2">
                 <h4 className="font-extrabold text-white text-base sm:text-lg">Secure interoperability</h4>
-                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                <p className="card-description on-dark">
                   OT and IT systems connected without compromising security.
                 </p>
               </div>
               <div className="space-y-2">
                 <h4 className="font-extrabold text-white text-base sm:text-lg">Built to scale</h4>
-                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                <p className="card-description on-dark">
                   Solutions designed to standardize across lines, sites, and regions.
                 </p>
               </div>
               <div className="space-y-2">
                 <h4 className="font-extrabold text-white text-base sm:text-lg">Lifecycle support</h4>
-                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                <p className="card-description on-dark">
                   We support the technology we deploy, long after go-live.
                 </p>
               </div>
@@ -280,7 +280,7 @@ export default function TechnologyPartnersPage() {
         <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
           <div className="w-full relative z-10 space-y-6">
-            <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
+            <span className="section-eyebrow on-dark">
               PARTNER WITH US
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-[46px] font-black text-white tracking-tight leading-tight">

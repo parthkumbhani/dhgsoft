@@ -49,7 +49,7 @@ export default function WhatWeDo() {
         {/* Right Column (Right two-thirds on desktop): Info & Grid */}
         <div className="lg:col-span-8 flex flex-col justify-center space-y-6 text-left">
           <div>
-            <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-hot font-mono block mb-2">
+            <span className="section-eyebrow mb-2">
               WHAT WE DO
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-4">

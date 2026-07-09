@@ -37,7 +37,7 @@ export default function Differentiators() {
         
         {/* Header Block */}
         <div className="text-left mb-12">
-          <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block mb-2">
+          <span className="section-eyebrow mb-2">
             WHAT MAKES US DIFFERENT
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-text-strong tracking-tight leading-tight">
@@ -67,11 +67,11 @@ export default function Differentiators() {
                 {/* Content Below */}
                 <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">
                   <div className="space-y-2">
-                    <h3 className="font-extrabold text-text-strong text-base sm:text-lg tracking-tight leading-snug">
+                    <h4 className="font-extrabold text-text-strong text-base sm:text-lg tracking-tight leading-snug">
                       {title}
-                    </h3>
+                    </h4>
                     {desc ? (
-                      <p className="text-text-muted text-xs sm:text-sm leading-relaxed">
+                      <p className="card-description">
                         {desc}
                       </p>
                     ) : null}
@@ -83,7 +83,7 @@ export default function Differentiators() {
                       {chips.map((chip, cidx) => (
                         <span
                           key={cidx}
-                          className="bg-brand/5 border border-brand/10 text-brand text-[10px] font-extrabold tracking-wider px-2.5 py-1 rounded-full uppercase font-mono"
+                          className="bg-brand/5 border border-brand/10 px-2.5 py-1 rounded-full section-eyebrow"
                         >
                           {chip}
                         </span>

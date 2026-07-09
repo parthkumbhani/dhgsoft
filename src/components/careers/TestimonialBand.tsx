@@ -88,7 +88,7 @@ export default function TestimonialBand() {
         {/* Section Header Row (2-column layout) */}
         <div className="w-full border-b border-white/10 pb-6 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4 relative z-10">
           <div className="text-left space-y-2">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-hot block font-mono">
+            <span className="section-eyebrow">
               Employee testimonials
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
@@ -98,7 +98,7 @@ export default function TestimonialBand() {
           
           {/* Arrow Controls (Desktop) */}
           <div className="flex items-center gap-4">
-            <p className="hidden md:block text-sm text-white/60 font-light max-w-xs">
+            <p className="hidden md:block max-w-xs card-description on-dark">
               Explore why people joined DHGsoft—and what keeps them here.
             </p>
             <div className="flex items-center gap-2">

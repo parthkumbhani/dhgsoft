@@ -13,7 +13,7 @@ export default function PhotoMosaic() {
     <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative overflow-hidden bg-tech-grid select-none">
       <div className="w-full relative z-10 space-y-12">
         <div className="text-left max-w-xl space-y-3">
-          <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
+          <span className="section-eyebrow">
             LIFE IN PICTURES
           </span>
           <h2 className="text-3xl font-black text-text-strong tracking-tight">

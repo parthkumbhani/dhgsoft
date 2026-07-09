@@ -14,16 +14,16 @@ export default function WhatYoullGain() {
       <Container className="text-center">
         
         {/* Header */}
-        <span className="text-label-bold text-brand-accent uppercase tracking-[0.2em] block mb-3">
+        <span className="mb-3 section-eyebrow">
           STUDENT SUCCESS
         </span>
         <h2 className="text-white font-headline tracking-tight mb-4">
           What You'll Gain
         </h2>
-        <p className="text-body-sm text-white/70 max-w-[560px] mx-auto leading-relaxed mb-16">
+        <p className="max-w-[560px] mx-auto mb-16 section-subtitle on-dark">
           Every DHGsoft campus program is designed to deliver tangible, career-defining outcomes.
         </p>
-
+ 
         {/* 8-Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
           {GAIN_CARDS.map((card, idx) => (
@@ -34,10 +34,10 @@ export default function WhatYoullGain() {
               <div className="w-10 h-10 rounded-full bg-brand/20 flex items-center justify-center mb-5 border border-brand-hot/5">
                 <CheckCircle2 className="w-5 h-5 text-brand" />
               </div>
-              <h3 className="text-white font-headline font-bold">
+              <h4 className="text-white font-headline font-bold">
                 {card.title}
-              </h3>
-              <p className="text-body-sm text-white/70 mt-2.5 leading-relaxed">
+              </h4>
+              <p className="mt-2.5 card-description on-dark">
                 {card.desc}
               </p>
             </div>

@@ -28,7 +28,7 @@ export default function Recognition() {
         
         {/* Left Column: Text */}
         <div className="lg:col-span-5 text-left space-y-4">
-          <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+          <span className="section-eyebrow">
             RECOGNITION
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-text-strong tracking-tight leading-tight">

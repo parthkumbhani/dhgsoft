@@ -76,13 +76,13 @@ export default function RecognitionPage() {
             <div className="max-w-3xl text-left flex gap-6">
               <div className="w-[4px] bg-brand rounded-full self-stretch shrink-0" />
               <div className="space-y-4">
-                <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-brand-hot font-mono block">
+                <span className="section-eyebrow">
                   RECOGNITION
                 </span>
                 <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-black text-white tracking-tight leading-[1.1] font-sans">
                   Measured by the Value We Create
                 </h1>
-                <p className="text-slate-300 font-medium text-base sm:text-lg leading-relaxed">
+                <p className="section-subtitle on-dark">
                   DHGsoft measures success by the value created for customers.
                 </p>
               </div>
@@ -93,7 +93,7 @@ export default function RecognitionPage() {
         {/* 2. Our Success Intro */}
         <Section variant="mist" containerSize="wide" className=" border-b border-line text-left overflow-hidden relative bg-dot-matrix">
           <div className="w-full relative z-10 space-y-4">
-            <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+            <span className="section-eyebrow">
               OUR SUCCESS
             </span>
             <p className="text-text-strong font-bold text-xl sm:text-2xl leading-relaxed max-w-4xl">
@@ -138,7 +138,7 @@ export default function RecognitionPage() {
         <Section variant="brandTint" containerSize="wide" className=" border-b border-line relative bg-tech-grid">
           <div className="w-full relative z-10 space-y-12">
             <div className="text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 CASE STUDIES
               </span>
             </div>
@@ -156,9 +156,9 @@ export default function RecognitionPage() {
                 </div>
                 <div className="p-6 text-left space-y-4 flex-grow flex flex-col justify-between">
                   <div className="space-y-2">
-                    <span className="text-[10px] font-extrabold text-brand uppercase font-mono tracking-wider">[Industry]</span>
+                    <span className="section-eyebrow">[Industry]</span>
                     <h4 className="font-extrabold text-text-strong text-lg">[Challenge placeholder]</h4>
-                    <p className="text-text-muted text-xs sm:text-sm leading-relaxed">[Solution placeholder]</p>
+                    <p className="card-description">[Solution placeholder]</p>
                   </div>
                   <div className="pt-4 border-t border-line mt-auto flex items-center justify-between">
                     <span className="text-brand font-bold text-base">[XX]% [outcome placeholder]</span>
@@ -178,9 +178,9 @@ export default function RecognitionPage() {
                 </div>
                 <div className="p-6 text-left space-y-4 flex-grow flex flex-col justify-between">
                   <div className="space-y-2">
-                    <span className="text-[10px] font-extrabold text-brand uppercase font-mono tracking-wider">[Industry]</span>
+                    <span className="section-eyebrow">[Industry]</span>
                     <h4 className="font-extrabold text-text-strong text-lg">[Challenge placeholder]</h4>
-                    <p className="text-text-muted text-xs sm:text-sm leading-relaxed">[Solution placeholder]</p>
+                    <p className="card-description">[Solution placeholder]</p>
                   </div>
                   <div className="pt-4 border-t border-line mt-auto flex items-center justify-between">
                     <span className="text-brand font-bold text-base">[XX]% [outcome placeholder]</span>
@@ -200,9 +200,9 @@ export default function RecognitionPage() {
                 </div>
                 <div className="p-6 text-left space-y-4 flex-grow flex flex-col justify-between">
                   <div className="space-y-2">
-                    <span className="text-[10px] font-extrabold text-brand uppercase font-mono tracking-wider">[Industry]</span>
+                    <span className="section-eyebrow">[Industry]</span>
                     <h4 className="font-extrabold text-text-strong text-lg">[Challenge placeholder]</h4>
-                    <p className="text-text-muted text-xs sm:text-sm leading-relaxed">[Solution placeholder]</p>
+                    <p className="card-description">[Solution placeholder]</p>
                   </div>
                   <div className="pt-4 border-t border-line mt-auto flex items-center justify-between">
                     <span className="text-brand font-bold text-base">[XX]% [outcome placeholder]</span>
@@ -221,7 +221,7 @@ export default function RecognitionPage() {
         <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid bg-dot-matrix">
           <div className="w-full relative z-10 space-y-8">
             <div className="text-left space-y-3">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 AWARDS & RECOGNITION
               </span>
             </div>
@@ -252,7 +252,7 @@ export default function RecognitionPage() {
         <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
           <div className="w-full relative z-10 space-y-6">
-            <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
+            <span className="section-eyebrow on-dark">
               WORK WITH US
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-[46px] font-black text-white tracking-tight leading-tight">

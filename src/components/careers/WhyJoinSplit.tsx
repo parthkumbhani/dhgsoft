@@ -26,7 +26,7 @@ export default function WhyJoinSplit() {
         {/* Left: Magazine-mount framed picture */}
         <div className="lg:col-span-6 relative flex items-center justify-center">
           {/* Offset brand gradient background sheet */}
-          <div className="absolute inset-0 translate-x-4 translate-y-4 bg-gradient-to-br from-brand via-brand-hot to-brand-accent rounded-3xl opacity-90 shadow-lg" />
+          <div className="absolute inset-0 translate-x-4 translate-y-4 bg-gradient-to-br from-brand via-brand-hot to-brand-deep rounded-3xl opacity-90 shadow-lg" />
           
           <motion.div 
             initial={{ opacity: 0, scale: 0.98 }}
@@ -49,7 +49,7 @@ export default function WhyJoinSplit() {
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4 }}
-            className="text-xs font-semibold uppercase tracking-[0.2em] text-brand font-mono block"
+            className="section-eyebrow"
           >
             Why join DHGsoft?
           </motion.span>
@@ -85,7 +85,7 @@ export default function WhyJoinSplit() {
               className="inline-flex items-center gap-3 text-brand font-bold hover:text-brand-hot group transition-colors"
             >
               <span>Learn more</span>
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-r from-brand to-brand-accent text-white shadow-md group-hover:scale-105 transition-transform">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand hover:bg-brand-deep text-white shadow-md group-hover:scale-105 transition-transform">
                 <svg className="w-4 h-4 stroke-current fill-none stroke-[2.5]" viewBox="0 0 24 24">
                   <line x1="7" y1="17" x2="17" y2="7"></line>
                   <polyline points="7 7 17 7 17 17"></polyline>

@@ -52,14 +52,14 @@ export default function CoreValues() {
         
         {/* Header Block */}
         <div className="text-left mb-12">
-          <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-hot font-mono block mb-2">
+          <span className="section-eyebrow mb-2">
             CORE PHILOSOPHY
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
             Our Core Values
           </h2>
         </div>
-
+ 
         {/* 6-Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
           {values.map((val, idx) => {
@@ -73,10 +73,10 @@ export default function CoreValues() {
                   <Icon className="w-6 h-6" />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="font-extrabold text-white text-lg tracking-tight">
+                  <h4 className="card-title on-dark">
                     {title}
-                  </h3>
-                  <p className="text-slate-455 text-sm leading-relaxed">
+                  </h4>
+                  <p className="card-description on-dark">
                     {desc}
                   </p>
                 </div>

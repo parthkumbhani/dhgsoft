@@ -30,7 +30,7 @@ export default function Industries() {
         
         {/* Header Block */}
         <div className="text-left mb-12 max-w-2xl">
-          <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block mb-2">
+          <span className="section-eyebrow mb-2">
             TARGET SECTORS
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-text-strong tracking-tight leading-tight mb-4">
@@ -63,12 +63,12 @@ export default function Industries() {
                 
                 {/* Sector Text Card details */}
                 <div className="absolute bottom-0 left-0 w-full p-5 text-left flex flex-col justify-end">
-                  <span className="text-[10px] font-extrabold text-brand-hot uppercase tracking-widest font-mono mb-1">
+                  <span className="mb-1 section-eyebrow on-dark">
                     SECTOR {numStr}
                   </span>
-                  <h3 className="text-base font-extrabold text-white leading-tight">
+                  <h4 className="text-base font-extrabold text-white leading-tight">
                     {sector.name}
-                  </h3>
+                  </h4>
                 </div>
               </div>
             );

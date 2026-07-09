@@ -56,7 +56,7 @@ export default function CorporateResponsibility() {
         <div className="absolute inset-0 bg-ink/75" />
         
         <div className="relative z-10 w-full text-left">
-          <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-hot font-mono block mb-2">
+          <span className="section-eyebrow mb-2">
             CORPORATE RESPONSIBILITY
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
@@ -79,10 +79,10 @@ export default function CorporateResponsibility() {
                   <Icon className="w-6 h-6" />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="font-extrabold text-text-strong text-base sm:text-lg tracking-tight leading-snug">
+                  <h4 className="font-extrabold text-text-strong text-base sm:text-lg tracking-tight leading-snug">
                     {title}
-                  </h3>
-                  <p className="text-text-muted text-xs sm:text-sm leading-relaxed">
+                  </h4>
+                  <p className="card-description">
                     {desc}
                   </p>
                 </div>

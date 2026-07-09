@@ -98,7 +98,7 @@ export default function CareersHero({ onContactClick }: CareersHeroProps) {
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse" />
-              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-white font-mono">
+              <span className="section-eyebrow on-dark">
                 Build Your Career
               </span>
             </motion.div>
@@ -118,7 +118,7 @@ export default function CareersHero({ onContactClick }: CareersHeroProps) {
             {/* Supporting paragraph */}
             <motion.p 
               variants={itemVariants}
-              className="text-white/85 text-base md:text-lg leading-relaxed max-w-[560px] font-light"
+              className="lg:text-[16px] max-w-[560px] section-subtitle on-dark"
             >
               Join a team that&apos;s transforming industrial enterprises through Automation, AI, Data, Cloud, and Digital Engineering. At DHGsoft, you&apos;ll work on cutting-edge technologies, collaborate with industry experts, and help shape the future of connected industries across the globe.
             </motion.p>
@@ -177,7 +177,7 @@ export default function CareersHero({ onContactClick }: CareersHeroProps) {
               
               {/* Captive text tag inside the image container */}
               <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-slate-950/75 backdrop-blur-md border border-white/10 text-white">
-                <p className="text-[11px] font-mono tracking-wider text-brand-accent uppercase font-semibold mb-1">
+                <p className="mb-1 section-eyebrow on-dark">
                   Life at DHGsoft
                 </p>
                 <p className="text-xs text-white/90 leading-relaxed">

@@ -51,7 +51,7 @@ export default function LifeAtDhgsoftPage() {
             <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-black text-white tracking-tight leading-[1.05]">
               Life at DHGsoft
             </h1>
-            <p className="text-slate-350 font-medium text-base sm:text-lg leading-relaxed max-w-2xl text-slate-300">
+            <p className="section-subtitle on-dark max-w-2xl">
               Discover our culture, benefits, and engineering mindset.
             </p>
           </div>
@@ -61,7 +61,7 @@ export default function LifeAtDhgsoftPage() {
         <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid select-none">
           <div className="w-full relative z-10 space-y-12">
             <div className="text-left space-y-3">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
+              <span className="section-eyebrow">
                 OUR CULTURE
               </span>
               <h2 className="text-3xl font-black text-text-strong tracking-tight">
@@ -75,8 +75,8 @@ export default function LifeAtDhgsoftPage() {
                   <div className="h-10 w-10 rounded-xl bg-brand/5 border border-brand/10 text-brand flex items-center justify-center font-mono font-extrabold text-sm">
                     0{i + 1}
                   </div>
-                  <h3 className="font-extrabold text-text-strong text-lg tracking-tight">{pillar.title}</h3>
-                  <p className="text-text-muted text-xs sm:text-sm leading-relaxed">{pillar.desc}</p>
+                  <h4 className="font-extrabold text-text-strong text-lg tracking-tight">{pillar.title}</h4>
+                  <p className="card-description">{pillar.desc}</p>
                 </div>
               ))}
             </div>
@@ -89,13 +89,13 @@ export default function LifeAtDhgsoftPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               
               <div className="lg:col-span-6 text-left space-y-6">
-                <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
+                <span className="section-eyebrow">
                   Mindset & Drive
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-black text-text-strong tracking-tight leading-tight">
                   The Engineering Mindset
                 </h2>
-                <p className="text-text-strong font-medium text-base sm:text-lg leading-relaxed">
+                <p className="section-subtitle">
                   We work the way we engineer: with curiosity, discipline, and a bias for outcomes. We value people who understand both code and operations — and who care about the result, not just the deliverable.
                 </p>
               </div>
@@ -117,7 +117,7 @@ export default function LifeAtDhgsoftPage() {
         <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid">
           <div className="w-full relative z-10 space-y-12">
             <div className="text-left space-y-3">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
+              <span className="section-eyebrow">
                 BENEFITS & PERKS
               </span>
               <h2 className="text-3xl font-black text-text-strong tracking-tight">
@@ -129,7 +129,7 @@ export default function LifeAtDhgsoftPage() {
               {BENEFITS_LIST.map((benefit, i) => (
                 <div key={i} className="bg-slate-50 border border-line rounded-2xl p-6 text-left space-y-3 hover:border-brand/40 transition-all duration-300">
                   <h4 className="font-extrabold text-text-strong text-base tracking-tight">{benefit.name}</h4>
-                  <p className="text-text-muted text-xs leading-relaxed">{benefit.desc}</p>
+                  <p className="card-description">{benefit.desc}</p>
                 </div>
               ))}
             </div>
@@ -149,13 +149,13 @@ export default function LifeAtDhgsoftPage() {
         <Section variant="ink" containerSize="wide" className=" border-b border-slate-800 text-white text-center relative overflow-hidden select-none">
           <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
           <div className="w-full relative z-10 space-y-4 max-w-3xl">
-            <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-brand-hot font-mono block">
+            <span className="section-eyebrow">
               DIVERSITY & INCLUSION
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
               Belonging & Growth
             </h2>
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+            <p className="section-subtitle on-dark">
               We build diverse teams and an inclusive culture where different backgrounds and perspectives make our engineering stronger.
             </p>
           </div>
@@ -165,7 +165,7 @@ export default function LifeAtDhgsoftPage() {
         <Section variant="mist" containerSize="wide" className=" border-b border-line relative bg-dot-matrix">
           <div className="w-full relative z-10 space-y-12">
             <div className="text-left space-y-3">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
+              <span className="section-eyebrow">
                 EMPLOYEE SPOTLIGHTS
               </span>
               <h2 className="text-3xl font-black text-text-strong tracking-tight">
@@ -177,7 +177,7 @@ export default function LifeAtDhgsoftPage() {
               {EMPLOYEE_SPOTLIGHTS.map((spot, i) => (
                 <div key={i} className="bg-white border border-line rounded-2xl p-8 flex flex-col justify-between shadow-sm text-left hover:border-brand/40 transition-all duration-300">
                   <div className="space-y-6">
-                    <p className="text-text-strong font-bold text-base italic leading-relaxed">
+                    <p className="italic section-subtitle">
                       &ldquo;{spot.quote}&rdquo;
                     </p>
                   </div>

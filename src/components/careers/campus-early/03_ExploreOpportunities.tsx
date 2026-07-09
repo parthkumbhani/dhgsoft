@@ -12,7 +12,7 @@ export default function ExploreOpportunities() {
         {/* Header row */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end mb-12">
           <div className="lg:col-span-7 text-left">
-            <span className="text-label-bold text-brand uppercase tracking-[0.2em] block mb-3">
+            <span className="mb-3 section-eyebrow">
               WHAT WE OFFER
             </span>
             <h2 className="text-text-strong font-headline tracking-tight leading-none">
@@ -20,12 +20,12 @@ export default function ExploreOpportunities() {
             </h2>
           </div>
           <div className="lg:col-span-5 text-left lg:text-right flex lg:justify-end">
-            <p className="text-body-sm text-text-muted max-w-[420px] leading-relaxed">
+            <p className="max-w-[420px] section-subtitle">
               Six distinct pathways designed to match your stage of learning and career ambitions.
             </p>
           </div>
         </div>
-
+ 
         {/* 6-Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {OPPORTUNITIES.map((opp, idx) => {
@@ -39,10 +39,10 @@ export default function ExploreOpportunities() {
                   <div className="w-11 h-11 rounded-full bg-brand/10 flex items-center justify-center mb-6 border border-brand-hot/5">
                     <Icon className="w-5 h-5 text-brand" />
                   </div>
-                  <h3 className="text-text-strong font-headline font-bold">
+                  <h4 className="text-text-strong font-headline font-bold">
                     {opp.title}
-                  </h3>
-                  <p className="text-body-sm text-text-muted mt-3 leading-relaxed">
+                  </h4>
+                  <p className="mt-3 card-description">
                     {opp.desc}
                   </p>
                 </div>

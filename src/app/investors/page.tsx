@@ -199,7 +199,7 @@ export default function InvestorsPage() {
                       <div className={`w-12 h-12 rounded-xl ${pillar.bg} ${pillar.color} flex items-center justify-center mb-6`}>
                         <Icon className="w-5 h-5" />
                       </div>
-                      <h3 className={`text-xl font-bold mb-3 ${pillar.color}`}>{pillar.title}</h3>
+                      <h4 className={`text-xl font-bold mb-3 ${pillar.color}`}>{pillar.title}</h4>
                       <p className="text-slate-400 text-sm leading-relaxed mb-6">{pillar.description}</p>
                       <ul className="space-y-2.5">
                         {pillar.points.map((pt, j) => (
@@ -295,7 +295,7 @@ export default function InvestorsPage() {
                     <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2 block">
                       {gov.tag}
                     </span>
-                    <h3 className="text-xl font-bold text-white mb-3">{gov.title}</h3>
+                    <h4 className="text-xl font-bold text-white mb-3">{gov.title}</h4>
                     <p className="text-slate-400 text-sm leading-relaxed">{gov.desc}</p>
                   </div>
                 );
@@ -339,7 +339,7 @@ export default function InvestorsPage() {
                     <span className={`text-[10px] font-bold uppercase tracking-widest ${report.color} mb-2 block`}>
                       {report.tag}
                     </span>
-                    <h3 className="text-base font-bold text-slate-900 mb-3">{report.title}</h3>
+                    <h4 className="text-base font-bold text-slate-900 mb-3">{report.title}</h4>
                     <p className="text-sm text-slate-500 leading-relaxed mb-6">{report.desc}</p>
                     <div className="flex items-center gap-2 text-xs font-semibold text-slate-400 group-hover:text-[#B4123F] transition-colors">
                       <Download className="w-3.5 h-3.5" />

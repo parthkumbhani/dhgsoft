@@ -35,7 +35,7 @@ export default function FiveReasonsGrid() {
       {/* Header Block */}
       <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-20">
         <div className="lg:col-span-7 text-left space-y-3">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand font-mono block">
+          <span className="section-eyebrow">
             Why join DHGsoft?
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-txt-strong tracking-tight font-sans">
@@ -44,12 +44,12 @@ export default function FiveReasonsGrid() {
           </h2>
         </div>
         <div className="lg:col-span-5 text-left lg:text-right font-light">
-          <p className="text-slate-600 text-base md:text-lg leading-relaxed max-w-[460px] lg:ml-auto">
+          <p className="max-w-[460px] lg:ml-auto section-subtitle">
             Build your career with innovation, collaboration, and continuous learning while creating intelligent solutions that shape the future of connected industries.
           </p>
         </div>
       </div>
-
+ 
       {/* 5-Card Grid Column layout (1 column mobile, 2 tablet, 3 small desktop, 5 desktop) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 xl:gap-6 w-full items-stretch">
         {whyJoinReasons.map((reason, index) => {
@@ -68,7 +68,7 @@ export default function FiveReasonsGrid() {
               <div className="group relative w-full rounded-2xl bg-white border border-line p-5 md:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col justify-between min-h-[270px] text-left">
                 {/* Thin top gradient accent stripe */}
                 <div className="absolute top-0 inset-x-0 h-[4px] bg-gradient-to-r from-brand to-brand-hot" />
-
+ 
                 <div className="space-y-5">
                   {/* Header Row */}
                   <div className="flex justify-between items-start">
@@ -78,15 +78,15 @@ export default function FiveReasonsGrid() {
                     </div>
                     <span className="text-xs font-mono font-bold text-slate-300">0{index + 1}</span>
                   </div>
-
+ 
                   {/* Card Title & Description */}
                   <div className="space-y-2.5">
-                    <h3 className="text-lg font-bold text-txt-strong group-hover:text-brand transition-colors relative inline-block">
+                    <h4 className="text-lg font-bold text-txt-strong group-hover:text-brand transition-colors relative inline-block">
                       {reason.title}
                       {/* Short custom underline */}
                       <span className="absolute bottom-[-6px] left-0 w-8 h-[3px] bg-gradient-to-r from-brand to-brand-hot opacity-85 rounded-full" />
-                    </h3>
-                    <p className="text-slate-650 text-xs md:text-sm leading-relaxed pt-1.5 font-light">
+                    </h4>
+                    <p className="pt-1.5 card-description">
                       {reason.description}
                     </p>
                   </div>

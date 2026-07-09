@@ -143,7 +143,7 @@ export default function ContactModal({ isOpen, onClose, prefill = '' }: ContactM
     <Dialog open={isOpen} onOpenChange={(open) => { if (!open) onClose(); }}>
       <DialogContent className="bg-white p-0 max-w-lg w-full border border-slate-200 sm:rounded-2xl shadow-2xl overflow-hidden">
         {/* Gradient header strip */}
-        <div className="h-1.5 w-full bg-gradient-to-r from-brand via-brand-hot to-brand-accent" />
+        <div className="h-1.5 w-full bg-gradient-to-r from-brand via-brand-hot to-brand-deep" />
 
         <div className="px-8 pt-6 pb-8">
           <DialogHeader className="mb-6">
@@ -298,7 +298,7 @@ export default function ContactModal({ isOpen, onClose, prefill = '' }: ContactM
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-gradient-to-r from-brand via-brand-hot to-brand-accent text-white px-8 py-2.5 rounded-xl text-sm font-bold transition-all shadow-md hover:brightness-110 active:scale-95 flex items-center gap-2 min-w-[150px] justify-center"
+                className="bg-gradient-to-r from-brand via-brand-hot to-brand-deep text-white px-8 py-2.5 rounded-xl text-sm font-bold transition-all shadow-md hover:brightness-110 active:scale-95 flex items-center gap-2 min-w-[150px] justify-center"
               >
                 {isSubmitting ? (
                   <>

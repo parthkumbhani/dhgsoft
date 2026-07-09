@@ -85,13 +85,13 @@ export default function SustainabilityESGPage() {
             <div className="max-w-3xl text-left flex gap-6">
               <div className="w-[4px] bg-brand rounded-full self-stretch shrink-0" />
               <div className="space-y-4">
-                <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-brand-hot font-mono block">
+                <span className="section-eyebrow">
                   SUSTAINABILITY & ESG
                 </span>
                 <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-black text-white tracking-tight leading-[1.1] font-sans">
                   Engineering a More Sustainable Industry
                 </h1>
-                <p className="text-slate-300 font-medium text-base sm:text-lg leading-relaxed">
+                <p className="section-subtitle on-dark">
                   DHGsoft helps industrial organizations operate more efficiently while reducing their environmental impact — and holds itself to the same standard.
                 </p>
               </div>
@@ -103,13 +103,13 @@ export default function SustainabilityESGPage() {
         <Section variant="mist" containerSize="wide" className=" border-b border-line overflow-hidden relative bg-dot-matrix">
           <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6 text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 OUR COMMITMENT
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-text-strong tracking-tight leading-tight">
                 Sustainability is an outcome of good engineering
               </h2>
-              <p className="text-text-muted text-sm sm:text-base leading-relaxed">
+              <p className="section-subtitle">
                 We believe efficiency and sustainability go hand in hand. When operations run smarter — with less waste, less energy, and fewer failures — they also run cleaner. Helping industries operate more efficiently while supporting environmental responsibility is core to how we engineer.
               </p>
             </div>
@@ -128,7 +128,7 @@ export default function SustainabilityESGPage() {
         <Section variant="brandTint" containerSize="wide" className=" border-b border-line relative bg-tech-grid">
           <div className="w-full relative z-10 space-y-12">
             <div className="text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 OUR ESG FRAMEWORK
               </span>
             </div>
@@ -159,7 +159,7 @@ export default function SustainabilityESGPage() {
         <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid">
           <div className="w-full relative z-10 space-y-12">
             <div className="text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 SUSTAINABLE OPERATIONS
               </span>
             </div>
@@ -176,7 +176,7 @@ export default function SustainabilityESGPage() {
                       <Icon className="w-5 h-5" />
                     </div>
                     <h4 className="font-extrabold text-text-strong text-base tracking-tight leading-snug">{title}</h4>
-                    <p className="text-text-muted text-xs sm:text-sm leading-relaxed">{desc}</p>
+                    <p className="card-description">{desc}</p>
                   </div>
                 );
               })}
@@ -196,7 +196,7 @@ export default function SustainabilityESGPage() {
               />
             </div>
             <div className="lg:col-span-7 order-1 lg:order-2 space-y-6 text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 OUR PRACTICES
               </span>
               <p className="text-text-strong font-bold text-xl sm:text-2xl leading-relaxed">
@@ -213,7 +213,7 @@ export default function SustainabilityESGPage() {
         <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
           <div className="w-full relative z-10 space-y-6">
-            <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
+            <span className="section-eyebrow on-dark">
               LET&apos;S TALK
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-[46px] font-black text-white tracking-tight leading-tight">

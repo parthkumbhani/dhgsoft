@@ -46,11 +46,11 @@ export default function WhyDHGsoft() {
         
         {/* Header Block */}
         <div className="text-left mb-12">
-          <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+          <span className="section-eyebrow">
             WHY DHGSOFT
           </span>
         </div>
-
+ 
         {/* 5-Card Auto-Fit Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 w-full">
           {features.map((feature, idx) => {
@@ -64,10 +64,10 @@ export default function WhyDHGsoft() {
                   <Icon className="w-6 h-6" />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="font-extrabold text-text-strong text-base sm:text-lg tracking-tight leading-snug">
+                  <h4 className="tracking-tight section-subtitle">
                     {title}
-                  </h3>
-                  <p className="text-text-muted text-xs sm:text-sm leading-relaxed">
+                  </h4>
+                  <p className="card-description">
                     {desc}
                   </p>
                 </div>

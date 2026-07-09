@@ -22,7 +22,7 @@ export default function CtaBand({
       <div className="w-full relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8 text-left">
         
         <div className="max-w-2xl space-y-2">
-          <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-white/80 font-mono block">
+          <span className="section-eyebrow on-dark">
             BUILD THE FUTURE
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">

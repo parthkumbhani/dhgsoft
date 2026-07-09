@@ -38,13 +38,13 @@ export default function OverviewPage() {
             <div className="max-w-3xl text-left flex gap-6">
               <div className="w-[4px] bg-brand rounded-full self-stretch shrink-0" />
               <div className="space-y-4">
-                <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-brand-hot font-mono block">
+                <span className="section-eyebrow">
                   OUR STORY
                 </span>
                 <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-black text-white tracking-tight leading-[1.1] font-sans">
                   Engineering Clarity from Industrial Complexity
                 </h1>
-                <p className="text-slate-300 font-medium text-base sm:text-lg leading-relaxed">
+                <p className="section-subtitle on-dark">
                   DHGsoft exists to help industrial organizations turn fragmented operations into connected, intelligent systems. From the plant floor to the cloud, we engineer the digital backbone that makes modern industry faster, safer, and more sustainable.
                 </p>
               </div>
@@ -56,13 +56,13 @@ export default function OverviewPage() {
         <Section variant="mist" containerSize="wide" className=" border-b border-line overflow-hidden relative bg-dot-matrix">
           <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6 text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 WHO WE ARE
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-text-strong tracking-tight leading-tight">
                 A digital engineering partner built for industry
               </h2>
-              <div className="space-y-4 text-text-muted text-sm sm:text-base leading-relaxed">
+              <div className="space-y-4 section-subtitle">
                 <p>
                   DHGsoft is a global Industrial Digital Transformation company. We bring together deep operational technology expertise, modern software engineering, and applied AI to help manufacturers, utilities, and process industries connect what they build with how they run it.
                 </p>
@@ -89,7 +89,7 @@ export default function OverviewPage() {
         <Section variant="brandTint" containerSize="wide" className=" border-b border-line relative bg-tech-grid">
           <div className="w-full relative z-10">
             <div className="text-left mb-12">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 OUR ENGINEERING FOCUS
               </span>
             </div>
@@ -138,7 +138,7 @@ export default function OverviewPage() {
         <Section variant="ink" containerSize="wide" className=" text-white border-b border-slate-900 overflow-hidden relative">
           <div className="w-full relative z-10 space-y-8">
             <div className="text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-hot font-mono block">
+              <span className="section-eyebrow">
                 BY THE NUMBERS
               </span>
             </div>
@@ -170,7 +170,7 @@ export default function OverviewPage() {
         <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid">
           <div className="w-full relative z-10">
             <div className="text-left mb-12">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 OUR JOURNEY
               </span>
             </div>
@@ -181,7 +181,7 @@ export default function OverviewPage() {
               <div className="space-y-3 relative z-10">
                 <div className="w-12 h-12 rounded-full border-2 border-brand bg-white flex items-center justify-center font-bold text-brand font-mono">01</div>
                 <h4 className="font-extrabold text-text-strong text-base">Foundation</h4>
-                <p className="text-text-muted text-xs sm:text-sm leading-relaxed">
+                <p className="card-description">
                   DHGsoft was formed by engineers who had lived the gap between operations and IT — and were determined to close it.
                 </p>
               </div>
@@ -189,7 +189,7 @@ export default function OverviewPage() {
               <div className="space-y-3 relative z-10">
                 <div className="w-12 h-12 rounded-full border-2 border-brand bg-white flex items-center justify-center font-bold text-brand font-mono">02</div>
                 <h4 className="font-extrabold text-text-strong text-base">Focus</h4>
-                <p className="text-text-muted text-xs sm:text-sm leading-relaxed">
+                <p className="card-description">
                   We concentrated on the hardest problem in industry: making OT and IT work as one, securely and at scale.
                 </p>
               </div>
@@ -197,7 +197,7 @@ export default function OverviewPage() {
               <div className="space-y-3 relative z-10">
                 <div className="w-12 h-12 rounded-full border-2 border-brand bg-white flex items-center justify-center font-bold text-brand font-mono">03</div>
                 <h4 className="font-extrabold text-text-strong text-base">Expansion</h4>
-                <p className="text-text-muted text-xs sm:text-sm leading-relaxed">
+                <p className="card-description">
                   Our capabilities grew across automation, data platforms, cloud, AI, and cybersecurity — end to end.
                 </p>
               </div>
@@ -205,7 +205,7 @@ export default function OverviewPage() {
               <div className="space-y-3 relative z-10">
                 <div className="w-12 h-12 rounded-full border-2 border-brand bg-white flex items-center justify-center font-bold text-brand font-mono">04</div>
                 <h4 className="font-extrabold text-text-strong text-base">Today</h4>
-                <p className="text-text-muted text-xs sm:text-sm leading-relaxed">
+                <p className="card-description">
                   We partner with organizations worldwide to build connected, intelligent, and sustainable operations.
                 </p>
               </div>
@@ -225,7 +225,7 @@ export default function OverviewPage() {
               />
             </div>
             <div className="lg:col-span-6 space-y-6 text-left order-1 lg:order-2">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 WHAT DRIVES US
               </span>
               <p className="text-text-strong font-bold text-xl sm:text-2xl leading-relaxed">
@@ -239,7 +239,7 @@ export default function OverviewPage() {
         <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
           <div className="w-full relative z-10 space-y-6">
-            <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
+            <span className="section-eyebrow on-dark">
               GET STARTED
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-[46px] font-black text-white tracking-tight leading-tight">

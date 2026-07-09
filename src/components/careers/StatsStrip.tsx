@@ -33,7 +33,7 @@ export default function StatsStrip() {
                 {stat.value}
               </div>
               {/* Label */}
-              <div className="text-xs md:text-sm font-semibold text-slate-500 uppercase tracking-wider">
+              <div className="md:text-sm section-eyebrow">
                 {stat.label}
               </div>
             </motion.div>

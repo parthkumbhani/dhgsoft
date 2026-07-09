@@ -22,13 +22,13 @@ export default function FAQ() {
       <Container className="text-center">
         
         {/* Header */}
-        <span className="text-label-bold text-brand uppercase tracking-[0.2em] block mb-3">
+        <span className="mb-3 section-eyebrow">
           COMMON QUESTIONS
         </span>
         <h2 className="text-text-strong font-headline tracking-tight mb-12">
           Frequently Asked Questions
         </h2>
-
+ 
         {/* Accordion Wrapper */}
         <div className="max-w-[820px] mx-auto text-left space-y-3">
           {FAQ_ITEMS.map((item, idx) => {
@@ -62,7 +62,7 @@ export default function FAQ() {
                     )}
                   </div>
                 </div>
-
+ 
                 {/* Content Panel */}
                 <div
                   style={{
@@ -72,7 +72,7 @@ export default function FAQ() {
                     transition: "max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease"
                   }}
                 >
-                  <div className="px-6 pb-6 text-body-sm text-text-muted leading-relaxed">
+                  <div className="px-6 pb-6 card-description">
                     {item.a}
                   </div>
                 </div>

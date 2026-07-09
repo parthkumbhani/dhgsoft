@@ -50,7 +50,7 @@ export default function CurrentOpeningsPage() {
             <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-black text-white tracking-tight leading-[1.05] max-w-4xl">
               Current Openings
             </h1>
-            <p className="text-slate-300 font-medium text-base sm:text-lg leading-relaxed max-w-2xl">
+            <p className="section-subtitle on-dark max-w-2xl">
               Explore active engineering, architecture, and consulting roles.
             </p>
           </div>
@@ -132,7 +132,7 @@ export default function CurrentOpeningsPage() {
                       <h3 className="font-extrabold text-text-strong text-xl tracking-tight leading-snug">
                         {job.title}
                       </h3>
-                      <p className="text-text-muted text-xs sm:text-sm leading-relaxed">
+                      <p className="card-description">
                         {job.blurb}
                       </p>
                     </div>
@@ -140,7 +140,7 @@ export default function CurrentOpeningsPage() {
                     <div className="pt-6 border-t border-slate-100 mt-6 flex items-center justify-end">
                       <Link
                         href="/careers/submit-cv"
-                        className="bg-brand hover:bg-brand-hot text-white text-xs font-extrabold uppercase tracking-wider px-6 py-3 rounded-xl transition-all duration-300 active:scale-95 inline-flex items-center gap-1.5"
+                        className="bg-brand hover:bg-brand-hot px-6 py-3 rounded-xl transition-all duration-300 active:scale-95 inline-flex items-center gap-1.5 section-eyebrow on-dark"
                       >
                         <span>Apply</span>
                         <ArrowRight className="w-4 h-4" />

@@ -96,13 +96,13 @@ export default function VisionMissionValuesPage() {
             <div className="max-w-3xl text-left flex gap-6">
               <div className="w-[4px] bg-brand rounded-full self-stretch shrink-0" />
               <div className="space-y-4">
-                <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-brand-hot font-mono block">
+                <span className="section-eyebrow">
                   WHAT GUIDES US
                 </span>
                 <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-black text-white tracking-tight leading-[1.1] font-sans">
                   Vision, Mission & Values
                 </h1>
-                <p className="text-slate-300 font-medium text-base sm:text-lg leading-relaxed">
+                <p className="section-subtitle on-dark">
                   The beliefs that shape every engagement, every line of code, and every operation we help transform.
                 </p>
               </div>
@@ -114,13 +114,13 @@ export default function VisionMissionValuesPage() {
         <Section variant="mist" containerSize="wide" className=" border-b border-line overflow-hidden relative bg-dot-matrix">
           <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6 text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 OUR VISION
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-text-strong tracking-tight leading-tight">
                 To become a globally trusted leader in Industrial Digital Transformation by enabling connected, intelligent, and sustainable industries.
               </h2>
-              <p className="text-text-muted text-sm sm:text-base leading-relaxed">
+              <p className="section-subtitle">
                 We see a future where every industrial asset is connected, every decision is informed by real-time intelligence, and every operation runs cleaner and safer than the day before. We are building the engineering foundation that makes that future practical.
               </p>
             </div>
@@ -147,13 +147,13 @@ export default function VisionMissionValuesPage() {
               />
             </div>
             <div className="lg:col-span-6 order-1 lg:order-2 space-y-6 text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 OUR MISSION
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-text-strong tracking-tight leading-tight">
                 To empower industries with innovative digital engineering solutions that connect operational technology, enterprise systems, and data intelligence to improve operational excellence and business performance.
               </h2>
-              <p className="text-text-muted text-sm sm:text-base leading-relaxed">
+              <p className="section-subtitle">
                 Our mission is deliberately practical. We help organizations connect what was disconnected, standardize what was fragmented, and act on data that was previously trapped — so that operational excellence becomes a repeatable capability, not a one-time project.
               </p>
             </div>
@@ -164,7 +164,7 @@ export default function VisionMissionValuesPage() {
         <Section variant="gradient" containerSize="wide" className="relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/10 to-transparent opacity-30 pointer-events-none" />
           <div className="w-full relative z-10 text-center space-y-4">
-            <span className="text-[10px] md:text-xs font-extrabold uppercase tracking-[0.3em] text-white/80 font-mono block">
+            <span className="md:text-xs section-eyebrow on-dark">
               OUR PURPOSE
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-[44px] font-black text-white tracking-tight leading-tight select-none">
@@ -177,7 +177,7 @@ export default function VisionMissionValuesPage() {
         <Section variant="ink" containerSize="wide" className=" text-white border-b border-slate-900 overflow-hidden">
           <div className="w-full relative z-10">
             <div className="text-left mb-12">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-hot font-mono block mb-2">
+              <span className="section-eyebrow mb-2">
                 CORE PHILOSOPHY
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
@@ -210,7 +210,7 @@ export default function VisionMissionValuesPage() {
         <Section variant="brandTint" containerSize="wide" className=" border-b border-line relative bg-tech-grid">
           <div className="w-full relative z-10">
             <div className="text-left mb-12">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 HOW WE WORK
               </span>
             </div>
@@ -222,7 +222,7 @@ export default function VisionMissionValuesPage() {
                 >
                   <span className="text-[10px] font-extrabold text-brand font-mono">PRINCIPLE 0{idx + 1}</span>
                   <h4 className="font-extrabold text-text-strong text-base tracking-tight leading-snug">{pr.title}</h4>
-                  <p className="text-text-muted text-xs sm:text-sm leading-relaxed">{pr.desc}</p>
+                  <p className="card-description">{pr.desc}</p>
                 </div>
               ))}
             </div>
@@ -233,7 +233,7 @@ export default function VisionMissionValuesPage() {
         <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
           <div className="w-full relative z-10 space-y-6">
-            <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
+            <span className="section-eyebrow on-dark">
               PARTNER WITH US
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-[46px] font-black text-white tracking-tight leading-tight">

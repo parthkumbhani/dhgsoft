@@ -70,9 +70,9 @@ export default function ExploreIndustriesPage() {
                   {/* Card Info */}
                   <div className="p-6 flex-grow flex flex-col justify-between">
                     <div className="space-y-3">
-                      <h3 className="font-extrabold text-text-strong text-xl tracking-tight leading-snug group-hover:text-brand transition-colors">
+                      <h4 className="font-extrabold text-text-strong text-xl tracking-tight leading-snug group-hover:text-brand transition-colors">
                         {ind.title}
-                      </h3>
+                      </h4>
                       <p className="text-text-muted text-sm leading-relaxed line-clamp-3">
                         {ind.sub}
                       </p>

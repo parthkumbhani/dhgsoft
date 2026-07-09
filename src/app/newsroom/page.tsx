@@ -248,9 +248,9 @@ export default function NewsroomPage() {
                             {pr.date}
                           </span>
                         </div>
-                        <h3 className="text-base font-bold text-slate-900 mb-3 leading-snug group-hover:text-[#B4123F] transition-colors">
+                        <h4 className="text-base font-bold text-slate-900 mb-3 leading-snug group-hover:text-[#B4123F] transition-colors">
                           {pr.title}
-                        </h3>
+                        </h4>
                         <p className="text-sm text-slate-500 leading-relaxed">{pr.blurb}</p>
                         <div className={`flex items-center gap-1.5 mt-4 text-xs font-semibold ${pr.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}>
                           Read More
@@ -294,7 +294,7 @@ export default function NewsroomPage() {
                     <div className={`w-14 h-14 rounded-2xl ${res.iconBg} ${res.color} flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300`}>
                       <Icon className="w-6 h-6" />
                     </div>
-                    <h3 className="text-base font-bold text-slate-900 mb-3">{res.title}</h3>
+                    <h4 className="text-base font-bold text-slate-900 mb-3">{res.title}</h4>
                     <p className="text-sm text-slate-500 leading-relaxed mb-6">{res.desc}</p>
                     <button className={`inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider ${res.color} hover:opacity-80 transition-opacity`}>
                       {res.action}
@@ -317,7 +317,7 @@ export default function NewsroomPage() {
                 <div className="w-14 h-14 rounded-2xl bg-[#B4123F]/15 text-[#E11D5C] flex items-center justify-center mx-auto mb-5">
                   <Mail className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">Media Contact</h3>
+                <h4 className="text-xl font-bold text-white mb-3">Media Contact</h4>
                 <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm mx-auto">
                   For press inquiries, interview requests, and editorial access, contact our communications team.
                 </p>

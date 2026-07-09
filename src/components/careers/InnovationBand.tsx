@@ -103,7 +103,7 @@ export default function InnovationBand() {
           variants={quoteItemVariants}
           className="pt-8"
         >
-          <span className="text-brand-hot font-mono text-xs tracking-[0.25em] uppercase font-bold bg-brand/5 border border-brand-hot/25 px-4 py-1.5 rounded-full backdrop-blur-xs select-none">
+          <span className="bg-brand/5 border border-brand/25 px-4 py-1.5 rounded-full backdrop-blur-xs select-none section-eyebrow">
             DHGsoft Operational Philosophy
           </span>
         </motion.div>

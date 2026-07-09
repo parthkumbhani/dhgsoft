@@ -25,43 +25,43 @@ export default function GraduateProgram() {
         
         {/* Header */}
         <div className="text-left mb-12 space-y-3">
-          <span className="text-label-bold text-brand uppercase tracking-[0.2em] block">
+          <span className="section-eyebrow">
             GRADUATE PROGRAMS
           </span>
           <h2 className="text-text-strong font-headline tracking-tight leading-none">
             Graduate Engineer Trainee (GET)
           </h2>
-          <p className="text-body-md text-text-muted max-w-[720px] leading-relaxed pt-2">
+          <p className="max-w-[720px] pt-2 section-subtitle">
             Our Graduate Engineer Trainee Program prepares fresh graduates for successful careers through structured learning, technical mentoring, and project-based experience.
           </p>
         </div>
-
+ 
         {/* 2-column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Program Includes (col-span-4) */}
           <div className="lg:col-span-4">
             <div className="card bg-white border border-line rounded-2xl p-8 shadow-sm">
-              <span className="text-label-bold text-brand uppercase tracking-[0.2em] block mb-6 font-mono">
+              <span className="mb-6 section-eyebrow">
                 PROGRAM INCLUDES
               </span>
               <ul className="space-y-4">
                 {PROGRAM_INCLUDES_ITEMS.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
-                    <span className="text-body-sm text-text-strong font-medium">{item}</span>
+                    <span className="card-description">{item}</span>
                   </li>
                 ))}
               </ul>
               
               <div className="h-px bg-line my-6" />
               
-              <p className="text-body-sm text-text-muted leading-relaxed">
+              <p className="card-description">
                 Duration: 12–18 months structured program with quarterly performance reviews.
               </p>
             </div>
           </div>
-
+ 
           {/* Right Column: Dynamic Tabs (col-span-8) */}
           <div className="lg:col-span-8">
             
@@ -84,19 +84,19 @@ export default function GraduateProgram() {
                 )
               })}
             </div>
-
+ 
             {/* Tab Detail Panel */}
             <div className="card bg-white border border-line rounded-2xl p-8 shadow-sm transition-all duration-300 text-left">
-              <h3 className="heading-md text-text-strong font-headline mb-3">
+              <h4 className="heading-md text-text-strong font-headline mb-3">
                 {currentContent.title}
-              </h3>
-              <p className="text-body-sm text-text-muted leading-relaxed mb-8">
+              </h4>
+              <p className="mb-8 card-description">
                 {currentContent.desc}
               </p>
-
+ 
               {/* Skills section */}
               <div className="border-t border-line pt-6">
-                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest font-mono block mb-4">
+                <span className="mb-4 section-eyebrow">
                   CORE SKILLS & TECHNOLOGIES
                 </span>
                 <div className="flex flex-wrap gap-2.5">

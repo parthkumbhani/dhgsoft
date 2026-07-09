@@ -11,14 +11,14 @@ export default function WhyChoose() {
         
         {/* Header */}
         <div className="text-left mb-12">
-          <span className="text-label-bold text-brand uppercase tracking-[0.2em] block mb-3">
+          <span className="mb-3 section-eyebrow">
             OUR ADVANTAGE
           </span>
           <h2 className="text-text-strong font-headline tracking-tight leading-none">
             Why Choose DHGsoft?
           </h2>
         </div>
-
+ 
         {/* Asymmetric Assembled Grid */}
         <div className="space-y-4">
           
@@ -34,55 +34,57 @@ export default function WhyChoose() {
                   <div className="w-11 h-11 rounded-full bg-brand/10 flex items-center justify-center mb-6 border border-brand-hot/5">
                     <Icon className="w-5 h-5 text-brand" />
                   </div>
-                  <h3 className="text-text-strong font-headline font-bold">
+                  <h3 className="text-text-strong font-headline">
                     {reason.title}
                   </h3>
-                  <p className="text-body-sm text-text-muted mt-3 leading-relaxed">
+                  <p className="mt-3 card-description">
                     {reason.desc}
                   </p>
                 </div>
               )
             })}
           </div>
-
-          {/* Bottom Row: Wide emerging technologies card + Small decorative card */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            
-            {/* Emerging Technologies Card (spans 2 columns) */}
-            <div className="card bg-white border border-line rounded-2xl p-6 md:col-span-2 text-left shadow-sm flex flex-col justify-between">
-              <div>
-                <div className="w-11 h-11 rounded-full bg-brand/10 flex items-center justify-center mb-6 border border-brand-hot/5">
+ 
+          {/* Bottom row — SINGLE full-width Emerging Technologies card */}
+          <div className="mt-4">
+            <div className="card bg-white border border-line rounded-2xl p-6 md:p-8 hover:border-brand hover:shadow-md transition-all text-left">
+              <div className="flex flex-col md:flex-row md:items-start gap-6">
+                
+                {/* Icon */}
+                <div className="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0">
                   <Cpu className="w-5 h-5 text-brand" />
                 </div>
-                <h3 className="text-text-strong font-headline font-bold mb-2">
-                  Emerging Technologies
-                </h3>
-                <p className="text-body-sm text-text-muted leading-relaxed mb-6">
-                  Gain hands-on experience with the technologies reshaping industry:
-                </p>
-              </div>
-
-              {/* Tech pill chips */}
-              <div className="flex flex-wrap gap-2.5">
-                {EMERGING_TECH_CHIPS.map((chip, idx) => (
-                  <span
-                    key={idx}
-                    className="bg-brand/5 border border-brand/20 text-brand text-xs font-semibold rounded-full px-4 py-2 hover:bg-brand hover:text-white transition-colors duration-250 cursor-default"
-                  >
-                    {chip}
-                  </span>
-                ))}
+                
+                {/* Content */}
+                <div className="flex-1">
+                  <h4 className="text-txt-strong">Emerging Technologies</h4>
+                  <p className="text-body-sm text-txt-muted mt-2">
+                    Gain hands-on experience with the technologies reshaping industry:
+                  </p>
+                  
+                  {/* Chips — spread across the full width now */}
+                  <div className="flex flex-wrap gap-2.5 mt-5">
+                    {[
+                      'Industrial Automation',
+                      'Artificial Intelligence',
+                      'Industrial IoT',
+                      'Cloud Computing',
+                      'Data Engineering',
+                      'Enterprise Applications',
+                      'Cybersecurity',
+                    ].map(tech => (
+                      <span 
+                        key={tech}
+                        className="bg-brand/8 border border-brand/20 text-brand text-body-sm rounded-full px-4 py-2 hover:bg-brand hover:text-white hover:border-brand transition-colors cursor-default"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                
               </div>
             </div>
-
-            {/* Decorative Card (spans 1 column) */}
-            <div className="card bg-white border border-line rounded-2xl p-6 flex flex-col items-center justify-center text-center shadow-sm hover:border-brand/35 transition-all">
-              <Star className="w-12 h-12 text-brand/30 animate-pulse" />
-              <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 font-mono mt-4">
-                BUILDING THE FUTURE
-              </div>
-            </div>
-
           </div>
 
         </div>

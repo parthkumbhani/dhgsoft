@@ -97,13 +97,13 @@ export default function LocationsPage() {
             <div className="max-w-3xl text-left flex gap-6">
               <div className="w-[4px] bg-brand rounded-full self-stretch shrink-0" />
               <div className="space-y-4">
-                <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-brand-hot font-mono block">
+                <span className="section-eyebrow">
                   GLOBAL PRESENCE
                 </span>
                 <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-black text-white tracking-tight leading-[1.1] font-sans">
                   Global Reach, Local Delivery
                 </h1>
-                <p className="text-slate-300 font-medium text-base sm:text-lg leading-relaxed">
+                <p className="section-subtitle on-dark">
                   DHGsoft serves customers through a flexible global delivery model.
                 </p>
               </div>
@@ -115,7 +115,7 @@ export default function LocationsPage() {
         <Section variant="mist" containerSize="wide" className=" border-b border-line overflow-hidden relative bg-dot-matrix">
           <div className="w-full relative z-10 space-y-12">
             <div className="text-left space-y-3">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 DELIVERY MODEL
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-text-strong tracking-tight leading-tight">
@@ -135,7 +135,7 @@ export default function LocationsPage() {
                       <Icon className="w-5 h-5" />
                     </div>
                     <h4 className="font-extrabold text-text-strong text-base tracking-tight leading-snug">{title}</h4>
-                    <p className="text-text-muted text-xs sm:text-sm leading-relaxed">{desc}</p>
+                    <p className="card-description">{desc}</p>
                   </div>
                 );
               })}
@@ -147,7 +147,7 @@ export default function LocationsPage() {
         <Section variant="brandTint" containerSize="wide" className=" border-b border-line relative bg-tech-grid bg-dot-matrix">
           <div className="w-full relative z-10 space-y-12">
             <div className="text-left space-y-4">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 OUR LOCATIONS
               </span>
               <div className="flex flex-wrap gap-3">
@@ -169,9 +169,9 @@ export default function LocationsPage() {
                   className="bg-white border border-line rounded-xl p-6 shadow-sm flex flex-col justify-between text-left space-y-4 hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className="space-y-2">
-                    <span className="text-[10px] font-extrabold text-brand uppercase font-mono tracking-wider">{office.type}</span>
+                    <span className="section-eyebrow">{office.type}</span>
                     <h4 className="font-extrabold text-text-strong text-lg">{office.city}</h4>
-                    <p className="text-text-muted text-xs sm:text-sm leading-relaxed">{office.address}</p>
+                    <p className="card-description">{office.address}</p>
                   </div>
 
                   {(office.phone || office.email) && (
@@ -215,7 +215,7 @@ export default function LocationsPage() {
         <Section variant="white" containerSize="wide" className="bg-white border-b border-line overflow-hidden relative bg-tech-grid">
           <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6 text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 DELIVERY CENTERS
               </span>
               <p className="text-text-strong font-bold text-xl sm:text-2xl leading-relaxed">
@@ -237,7 +237,7 @@ export default function LocationsPage() {
         <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
           <div className="w-full relative z-10 space-y-6">
-            <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
+            <span className="section-eyebrow on-dark">
               CONTACT
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-[46px] font-black text-white tracking-tight leading-tight">

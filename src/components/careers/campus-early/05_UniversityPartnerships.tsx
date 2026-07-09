@@ -29,7 +29,7 @@ export default function UniversityPartnerships() {
           {/* Left Column — Content (~55% width) */}
           <div className="lg:col-span-7 text-left">
             {/* Eyebrow — CRIMSON not amber */}
-            <div className="text-brand text-label-bold uppercase tracking-[0.2em]">
+            <div className="section-eyebrow">
               University Partnerships
             </div>
             
@@ -39,12 +39,12 @@ export default function UniversityPartnerships() {
             </h2>
             
             {/* Sub-line */}
-            <p className="text-body-md text-text-muted mt-6 max-w-[560px] leading-relaxed">
+            <p className="mt-6 max-w-[560px] section-subtitle">
               DHGsoft works with universities, engineering colleges, and technical institutions to bridge the gap between academic education and industrial practice.
             </p>
             
             {/* Sub-heading */}
-            <div className="text-brand text-label-bold uppercase tracking-[0.2em] mt-10">
+            <div className="mt-10 section-eyebrow">
               Partnership Programs
             </div>
             
@@ -55,7 +55,7 @@ export default function UniversityPartnerships() {
                   <div className="w-6 h-6 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0">
                     <Check className="w-3.5 h-3.5 text-brand" />
                   </div>
-                  <span className="text-body-sm text-text-strong font-medium">{item}</span>
+                  <span className="card-description">{item}</span>
                 </div>
               ))}
             </div>
@@ -75,22 +75,28 @@ export default function UniversityPartnerships() {
           {/* Right Column — Image + Floating Badge (~45% width) */}
           <div className="lg:col-span-5 relative w-full">
             
-            {/* Main photo — real, content-related */}
-            <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/5] lg:aspect-[5/6] bg-slate-50 border border-line">
-              <Image
-                src="/images/university-partnerships.png"
-                alt="Engineering students collaborating on a research project in a university lab"
-                fill
-                quality={90}
-                sizes="(min-width: 1024px) 45vw, 100vw"
-                className="object-cover object-center"
-              />
-              {/* Subtle brand-tinted overlay for premium feel */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-brand/10 via-transparent to-transparent pointer-events-none" />
+            {/* Image with soft brand glow */}
+            <div className="relative">
+              {/* Soft brand glow behind */}
+              <div className="absolute -inset-3 bg-gradient-to-tr from-brand/20 via-brand-hot/10 to-transparent rounded-3xl blur-2xl pointer-events-none" />
+              
+              {/* Image — tighter aspect ratio so no huge whitespace above */}
+              <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/5] ring-1 ring-brand/10">
+                <Image
+                  src="/images/university-partnerships.jpg"
+                  alt="Engineering students collaborating on a research project"
+                  fill
+                  quality={90}
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                  className="object-cover object-center"
+                />
+                {/* Subtle brand tint overlay */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-brand/8 via-transparent to-transparent pointer-events-none" />
+              </div>
             </div>
             
-            {/* Floating stat badge — bottom-left overlap */}
-            <div className="card absolute -bottom-6 -left-6 lg:-left-8 bg-brand text-white rounded-2xl shadow-xl p-5 min-w-[160px] text-left border border-brand-hot/20">
+            {/* 15+ University Partners badge — clean crimson pill overlapping bottom-left */}
+            <div className="card absolute -bottom-4 -left-4 lg:-left-6 bg-brand text-white rounded-2xl shadow-xl shadow-brand/30 p-5 min-w-[160px] text-left border border-brand-hot/20">
               <div className="heading-hero text-white leading-none font-headline font-extrabold tracking-tighter">15+</div>
               <div className="text-label-bold uppercase tracking-[0.15em] text-white/85 mt-2 font-mono text-[9px]">
                 University Partners

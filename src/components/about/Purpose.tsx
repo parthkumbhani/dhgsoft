@@ -11,7 +11,7 @@ export default function Purpose() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/10 to-transparent opacity-30 pointer-events-none" />
       
       <div className="w-full relative z-10 text-center space-y-4">
-        <span className="text-[10px] md:text-xs font-extrabold uppercase tracking-[0.3em] text-white/80 font-mono block">
+        <span className="md:text-xs section-eyebrow on-dark">
           OUR PURPOSE
         </span>
         <h2 className="text-3xl sm:text-4xl md:text-[44px] font-black text-white tracking-tight leading-tight select-none">

@@ -36,9 +36,9 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
       <div className="p-6 flex-grow flex flex-col justify-between">
         <div className="space-y-3">
           {/* Headline */}
-          <h3 className="font-extrabold text-text-strong text-lg tracking-tight leading-snug group-hover:text-brand transition-colors line-clamp-2">
+          <h4 className="font-extrabold text-text-strong text-lg tracking-tight leading-snug group-hover:text-brand transition-colors line-clamp-2">
             {caseStudy.title}
-          </h3>
+          </h4>
           <p className="text-text-muted text-sm leading-relaxed line-clamp-2">
             {caseStudy.excerpt}
           </p>

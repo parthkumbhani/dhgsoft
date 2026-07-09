@@ -32,7 +32,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-xs font-extrabold uppercase tracking-[0.25em] text-brand-hot font-mono block"
+              className="section-eyebrow"
             >
               ABOUT DHGSOFT
             </motion.span>
@@ -45,12 +45,12 @@ export default function Hero() {
             >
               Engineering the Future of Connected Industries
             </motion.h1>
-
+ 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-slate-300 font-medium text-base sm:text-lg leading-relaxed max-w-2xl"
+              className="section-subtitle on-dark max-w-2xl"
             >
               DHGsoft is a global Industrial Digital Transformation company helping organizations connect operations, data, applications, and people to create intelligent, efficient, and sustainable enterprises.
             </motion.p>

@@ -64,7 +64,7 @@ export default function FiveReasonsCarousel() {
       {/* Section Header */}
       <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-6 items-end mb-12">
         <div className="lg:col-span-7 text-left space-y-3">
-          <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
+          <span className="section-eyebrow">
             Why join DHGsoft?
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-[2.5rem] font-bold leading-tight text-slate-900 tracking-tight">
@@ -111,11 +111,11 @@ export default function FiveReasonsCarousel() {
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-brand transition-colors relative inline-block">
+                  <h4 className="text-lg font-bold text-slate-900 group-hover:text-brand transition-colors relative inline-block">
                     {reason.title}
                     {/* Subtle underline decoration */}
                     <span className="absolute bottom-[-4px] left-0 w-8 h-0.5 bg-gradient-to-r from-brand to-[#F5B301]" />
-                  </h3>
+                  </h4>
                   <p className="text-slate-600 text-sm leading-relaxed pt-1">
                     {reason.description}
                   </p>
@@ -132,7 +132,7 @@ export default function FiveReasonsCarousel() {
         {/* Progress Bar */}
         <div className="flex-grow max-w-xs bg-slate-100 h-1 rounded-full overflow-hidden">
           <div 
-            className="bg-gradient-to-r from-brand to-brand-accent h-full transition-all duration-150"
+            className="bg-brand hover:bg-brand-deep h-full transition-all duration-150"
             style={{ width: `${Math.max(10, scrollProgress)}%` }}
           />
         </div>

@@ -13,7 +13,7 @@ export default function ConnectingIntelligence() {
         
         {/* Left Column: Text */}
         <div className="lg:col-span-6 text-left space-y-4">
-          <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+          <span className="section-eyebrow">
             WHY DHGSOFT
           </span>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-text-strong tracking-tight leading-tight">

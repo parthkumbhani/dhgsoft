@@ -17,7 +17,7 @@ export default function PartnerEcosystem() {
           {/* Left Column: Text & 3 Sub-Blocks */}
           <div className="lg:col-span-7 text-left space-y-8">
             <div className="space-y-3">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 COLLABORATIONS
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-text-strong tracking-tight leading-tight">
@@ -26,7 +26,7 @@ export default function PartnerEcosystem() {
               <p className="text-brand font-bold text-base sm:text-lg">
                 Innovation happens through collaboration.
               </p>
-              <p className="text-text-muted text-sm sm:text-base leading-relaxed">
+              <p className="section-subtitle">
                 DHGsoft works closely with customers, technology providers, universities, research institutions, system integrators, and industry experts to deliver future-ready solutions.
               </p>
             </div>
@@ -35,7 +35,7 @@ export default function PartnerEcosystem() {
             <div className="space-y-6 border-t border-line pt-6">
               
               <div className="space-y-1">
-                <h4 className="text-xs font-extrabold uppercase tracking-wider text-brand font-mono">
+                <h4 className="section-eyebrow">
                   Technology Partners
                 </h4>
                 <p className="text-text-muted text-sm leading-relaxed">
@@ -44,7 +44,7 @@ export default function PartnerEcosystem() {
               </div>
 
               <div className="space-y-1 border-t border-line/50 pt-4">
-                <h4 className="text-xs font-extrabold uppercase tracking-wider text-brand font-mono">
+                <h4 className="section-eyebrow">
                   Academic Partnerships
                 </h4>
                 <p className="text-text-muted text-sm leading-relaxed">
@@ -53,7 +53,7 @@ export default function PartnerEcosystem() {
               </div>
 
               <div className="space-y-1 border-t border-line/50 pt-4">
-                <h4 className="text-xs font-extrabold uppercase tracking-wider text-brand font-mono">
+                <h4 className="section-eyebrow">
                   Strategic Alliances
                 </h4>
                 <p className="text-text-muted text-sm leading-relaxed">

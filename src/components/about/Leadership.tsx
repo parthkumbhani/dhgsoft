@@ -29,7 +29,7 @@ export default function Leadership() {
               </div>
               <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-white border border-line z-20 flex items-center gap-1.5 pointer-events-none shadow-sm">
                 <div className="w-1.5 h-1.5 rounded-full bg-brand" />
-                <span className="text-[10px] font-extrabold text-text-strong uppercase tracking-widest font-mono">
+                <span className="section-eyebrow">
                   Executive Profile
                 </span>
               </div>
@@ -39,7 +39,7 @@ export default function Leadership() {
           {/* Right Column: Text & Paragraphs */}
           <div className="lg:col-span-7 text-left space-y-8 lg:pl-6">
             <div>
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono mb-2 block">
+              <span className="section-eyebrow mb-2">
                 LEADERSHIP
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-text-strong tracking-tight leading-tight">
@@ -47,7 +47,7 @@ export default function Leadership() {
               </h2>
             </div>
 
-            <div className="space-y-4 text-text-muted text-sm sm:text-base leading-relaxed">
+            <div className="space-y-4 section-subtitle">
               <p>
                 DHGsoft is led by experienced professionals passionate about engineering innovation, industrial technology, and digital transformation.
               </p>

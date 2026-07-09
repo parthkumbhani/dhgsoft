@@ -33,7 +33,7 @@ export default function CampusCard() {
         {/* Left Side: Content info & badge details */}
         <div className="w-full md:w-[55%] text-left space-y-6">
           <div className="flex flex-col gap-4">
-            <span className="inline-flex max-w-fit items-center bg-brand/10 text-brand text-xs font-semibold tracking-[0.2em] uppercase px-3.5 py-1.5 rounded-full font-mono">
+            <span className="inline-flex max-w-fit items-center bg-brand/10 px-3.5 py-1.5 rounded-full section-eyebrow">
               Future-Ready
             </span>
             
@@ -48,13 +48,13 @@ export default function CampusCard() {
             <span className="text-txt-muted font-mono">Grow into the future</span>
           </div>
 
-          <p className="text-txt-muted text-base md:text-lg leading-relaxed max-w-[520px] font-light">
+          <p className="max-w-[520px] section-subtitle">
             Kickstart your career with hands-on projects, mentorship, and continuous learning. Join a community where curiosity drives real-world impact.
           </p>
 
           <div className="pt-2">
             <Link
-              href="/careers/campus-connect"
+              href="/careers/campus-early-careers"
               className={cn(
                 buttonVariants({ variant: "default", size: "lg" }),
                 "rounded-full px-7 py-3.5 text-xs uppercase tracking-wider group bg-slate-900 text-white hover:bg-brand cursor-pointer"
@@ -69,7 +69,7 @@ export default function CampusCard() {
         {/* Right Side: Photo with offset outline border sheet (magazine-mount style) */}
         <div className="w-full md:w-[45%] relative flex items-center justify-center">
           {/* Offset shadow layout */}
-          <div className="absolute inset-0 translate-x-3.5 translate-y-3.5 bg-gradient-to-br from-brand via-brand-hot to-brand-accent rounded-3xl opacity-90 shadow-md" />
+          <div className="absolute inset-0 translate-x-3.5 translate-y-3.5 bg-gradient-to-br from-brand via-brand-hot to-brand-deep rounded-3xl opacity-90 shadow-md" />
           
           <div className="w-full relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-line bg-slate-100 z-10">
             <Image

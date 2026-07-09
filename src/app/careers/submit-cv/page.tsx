@@ -56,7 +56,7 @@ export default function SubmitCvPage() {
             <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-black text-white tracking-tight leading-[1.05] max-w-4xl">
               Submit Your CV
             </h1>
-            <p className="text-slate-300 font-medium text-base sm:text-lg leading-relaxed max-w-2xl">
+            <p className="section-subtitle on-dark max-w-2xl">
               Don&apos;t see the right role? Tell us about yourself — we&apos;re always looking for great people.
             </p>
           </div>
@@ -73,7 +73,7 @@ export default function SubmitCvPage() {
         <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid">
           <div className="w-full relative z-10 space-y-12">
             <div className="text-center max-w-xl mx-auto space-y-3">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
+              <span className="section-eyebrow">
                 PROCESS
               </span>
               <h2 className="text-3xl font-black text-text-strong tracking-tight">
@@ -91,7 +91,7 @@ export default function SubmitCvPage() {
                     </div>
                     <div className="space-y-2">
                       <h4 className="font-extrabold text-text-strong text-lg tracking-tight">{step.title}</h4>
-                      <p className="text-text-muted text-xs sm:text-sm leading-relaxed">{step.desc}</p>
+                      <p className="card-description">{step.desc}</p>
                     </div>
                   </div>
                 );
@@ -102,7 +102,7 @@ export default function SubmitCvPage() {
               <span className="text-text-muted text-sm font-semibold">Or review active vacancies in our listings:</span>
               <Link
                 href="/careers/current-openings"
-                className="bg-slate-900 hover:bg-brand text-white text-xs font-extrabold uppercase tracking-wider px-6 py-4 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center gap-2 group cursor-pointer"
+                className="bg-slate-900 hover:bg-brand px-6 py-4 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center gap-2 group cursor-pointer section-eyebrow on-dark"
               >
                 <span>View Current Openings</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />

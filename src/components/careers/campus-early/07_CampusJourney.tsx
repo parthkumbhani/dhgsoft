@@ -23,7 +23,7 @@ const steps = [
 
 export default function CampusJourney() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const inView = useInView(containerRef, { once: true, amount: 0.3 });
+  const inView = useInView(containerRef, { once: false, amount: 0.3 });
 
   return (
     <Section variant="white" size="default" className="relative overflow-hidden py-20 border-t border-line">
@@ -98,15 +98,15 @@ export default function CampusJourney() {
       <Container className="relative z-10">
         {/* Header — centered */}
         <div className="relative text-center">
-          <div className="text-brand text-label-bold uppercase tracking-[0.2em]">
+          <div className="section-eyebrow">
             Your Path
           </div>
           <h2 className="text-text-strong font-headline mt-4">Campus Journey</h2>
-          <p className="text-body-md text-text-muted mt-6 max-w-[640px] mx-auto leading-relaxed">
+          <p className="mt-6 max-w-[640px] mx-auto section-subtitle">
             From your first campus interaction to a full-time career — here's how the journey unfolds.
           </p>
         </div>
-
+ 
         {/* Timeline */}
         <div ref={containerRef} className="relative mt-20">
           
@@ -124,7 +124,7 @@ export default function CampusJourney() {
             animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
             transition={{ duration: 2.5, ease: [0.22, 1, 0.36, 1] }}
           />
-
+ 
           {/* Nodes + Chevrons row */}
           <div className="flex gap-2 lg:gap-0 overflow-x-auto lg:overflow-visible lg:justify-between pb-4 lg:pb-0 relative scrollbar-thin scrollbar-thumb-brand/20 scrollbar-track-mist">
             {steps.map((step, i) => {
@@ -163,7 +163,7 @@ export default function CampusJourney() {
                     `}>
                       {step.id}
                     </div>
-                    <div className="text-body-sm font-semibold text-text-strong text-center mt-2 max-w-[110px] leading-tight font-headline">
+                    <div className="text-[13px] font-semibold text-text-strong text-center mt-2 max-w-[110px] leading-tight font-headline">
                       {step.label}
                     </div>
                   </motion.div>

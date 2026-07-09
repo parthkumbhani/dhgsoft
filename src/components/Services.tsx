@@ -202,12 +202,12 @@ function ServiceCard({ data, isExpanded, onCardHover, onCardLeave }: {
           {/* Content — 34% */}
           <div className="flex-grow flex flex-col justify-between px-6 pt-4 pb-6">
             <div>
-              <h3
+              <h4
                 className="font-bold tracking-tight font-headline text-white"
                 style={{ fontSize: 18, lineHeight: 1.25, marginBottom: 8 }}
               >
                 {data.title}
-              </h3>
+              </h4>
               <p
                 className="font-sans line-clamp-2 text-[#C7CEDD]"
                 style={{ fontSize: 13, lineHeight: 1.6 }}
@@ -223,7 +223,7 @@ function ServiceCard({ data, isExpanded, onCardHover, onCardLeave }: {
                 style={{
                   width: 44,
                   height: 44,
-                  background: 'linear-gradient(135deg, #8B0036 0%, #F28C28 100%)',
+                  background: 'linear-gradient(135deg, #B4123F 0%, #A10E38 100%)',
                 }}
               >
                 <ArrowUpRight className="text-white" style={{ width: 18, height: 18 }} />
@@ -318,7 +318,7 @@ function ServiceCard({ data, isExpanded, onCardHover, onCardLeave }: {
                 style={{
                   top: '18%', right: 'calc(12% + 3px)',
                   width: 1, height: 100,
-                  background: 'linear-gradient(to bottom, rgba(194,24,91,0.15), rgba(245,130,32,0.1), transparent)',
+                  background: 'linear-gradient(to bottom, rgba(180,18,63,0.15), rgba(161,14,56,0.1), transparent)',
                   transformOrigin: 'top',
                 }}
               />
@@ -329,7 +329,7 @@ function ServiceCard({ data, isExpanded, onCardHover, onCardLeave }: {
           <div className="relative z-10 flex flex-col h-full p-6 justify-between">
             <div>
               {/* Header */}
-              <motion.h3
+              <motion.h4
                 initial={{ opacity: 0, y: 8 }}
                 animate={isExpanded ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
                 transition={{ duration: 0.35, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
@@ -337,7 +337,7 @@ function ServiceCard({ data, isExpanded, onCardHover, onCardLeave }: {
                 style={{ fontSize: 19, lineHeight: 1.25, marginBottom: 8 }}
               >
                 {data.title}
-              </motion.h3>
+              </motion.h4>
 
               <motion.p
                 initial={{ opacity: 0, y: 6 }}
@@ -443,7 +443,7 @@ function ServiceCard({ data, isExpanded, onCardHover, onCardLeave }: {
                   style={{
                     width: 44,
                     height: 44,
-                    background: 'linear-gradient(135deg, #8B0036 0%, #F28C28 100%)',
+                    background: 'linear-gradient(135deg, #B4123F 0%, #A10E38 100%)',
                   }}
                 >
                   <ArrowUpRight className="text-white" style={{ width: 18, height: 18 }} />
@@ -507,7 +507,7 @@ export default function Services() {
           width: 700,
           height: 700,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(245,130,32,0.035) 0%, rgba(17,21,33,0.3) 55%, transparent 75%)',
+          background: 'radial-gradient(circle, rgba(225,29,92,0.035) 0%, rgba(17,21,33,0.3) 55%, transparent 75%)',
           filter: 'blur(90px)',
           bottom: '-10%',
           right: '10%',

@@ -67,7 +67,7 @@ export default function LearningDevelopmentPage() {
             <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-black text-white tracking-tight leading-[1.05]">
               Learning &amp; Development
             </h1>
-            <p className="text-slate-350 font-medium text-base sm:text-lg leading-relaxed max-w-2xl text-slate-300">
+            <p className="section-subtitle on-dark max-w-2xl">
               Continuous training, certifications, and leadership growth.
             </p>
           </div>
@@ -79,13 +79,13 @@ export default function LearningDevelopmentPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               
               <div className="lg:col-span-6 text-left space-y-6">
-                <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
+                <span className="section-eyebrow">
                   GROWTH & CURIOSITY
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-black text-text-strong tracking-tight leading-tight">
                   Our L&amp;D Philosophy
                 </h2>
-                <p className="text-text-strong font-medium text-base sm:text-lg leading-relaxed">
+                <p className="section-subtitle">
                   We believe great engineers never stop learning. We invest in continuous growth — technical, domain, and leadership — so our people keep getting better at solving hard problems.
                 </p>
               </div>
@@ -107,7 +107,7 @@ export default function LearningDevelopmentPage() {
         <Section variant="mist" containerSize="wide" className=" border-b border-line relative bg-dot-matrix select-none">
           <div className="w-full relative z-10 space-y-12">
             <div className="text-left space-y-3">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
+              <span className="section-eyebrow">
                 PATHWAYS
               </span>
               <h2 className="text-3xl font-black text-text-strong tracking-tight">
@@ -123,8 +123,8 @@ export default function LearningDevelopmentPage() {
                     <div className="h-10 w-10 bg-brand/5 border border-brand/10 text-brand rounded-xl flex items-center justify-center">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <h3 className="font-extrabold text-text-strong text-lg tracking-tight">{path.title}</h3>
-                    <p className="text-text-muted text-xs sm:text-sm leading-relaxed">{path.desc}</p>
+                    <h4 className="font-extrabold text-text-strong text-lg tracking-tight">{path.title}</h4>
+                    <p className="card-description">{path.desc}</p>
                   </div>
                 );
               })}
@@ -137,22 +137,22 @@ export default function LearningDevelopmentPage() {
           <div className="w-full relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Certs */}
             <div className="space-y-4">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B4123F] font-mono block">
+              <span className="section-eyebrow">
                 CREDENTIALS
               </span>
               <h3 className="text-2xl font-black text-text-strong tracking-tight">Certifications Support</h3>
-              <p className="text-text-muted text-sm sm:text-base leading-relaxed">
+              <p className="section-subtitle">
                 We support relevant industry certifications across cloud, automation, data, and security. Keep your technical edge sharp with sponsored training and registration coordinate budgets [PLACEHOLDER].
               </p>
             </div>
 
             {/* Mentorship */}
             <div className="space-y-4">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-emerald-600 font-mono block">
+              <span className="section-eyebrow !text-emerald-600">
                 GUIDANCE
               </span>
               <h3 className="text-2xl font-black text-text-strong tracking-tight">Mentorship &amp; Coaching</h3>
-              <p className="text-text-muted text-sm sm:text-base leading-relaxed">
+              <p className="section-subtitle">
                 Every engineer has access to mentors and coaches who help them grow. From architectural review councils to monthly career direction logs, you are never charting your path alone.
               </p>
             </div>
@@ -163,13 +163,13 @@ export default function LearningDevelopmentPage() {
         <Section variant="ink" containerSize="wide" className=" border-b border-slate-800 text-white text-center relative overflow-hidden select-none">
           <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
           <div className="w-full relative z-10 space-y-4 max-w-3xl">
-            <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-brand-hot font-mono block">
+            <span className="section-eyebrow">
               OUR DNA
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
               A Culture of Learning
             </h2>
-            <p className="text-slate-350 text-sm sm:text-base leading-relaxed text-slate-300">
+            <p className="section-subtitle on-dark">
               Learning isn&apos;t a program — it&apos;s how we work.
             </p>
           </div>

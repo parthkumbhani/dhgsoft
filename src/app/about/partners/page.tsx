@@ -64,13 +64,13 @@ export default function PartnersPage() {
             <div className="max-w-3xl text-left flex gap-6">
               <div className="w-[4px] bg-brand rounded-full self-stretch shrink-0" />
               <div className="space-y-4">
-                <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-brand-hot font-mono block">
+                <span className="section-eyebrow">
                   PARTNER ECOSYSTEM
                 </span>
                 <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-black text-white tracking-tight leading-[1.1] font-sans">
                   Better Together — Our Partner Ecosystem
                 </h1>
-                <p className="text-slate-300 font-medium text-base sm:text-lg leading-relaxed">
+                <p className="section-subtitle on-dark">
                   Industrial transformation is a team effort. We collaborate with the world&apos;s leading technology providers, integrators, and institutions to deliver future-ready solutions.
                 </p>
               </div>
@@ -82,13 +82,13 @@ export default function PartnersPage() {
         <Section variant="mist" containerSize="wide" className=" border-b border-line overflow-hidden relative bg-dot-matrix">
           <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6 text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 COLLABORATION
               </span>
               <p className="text-brand font-bold text-lg sm:text-xl">
                 Innovation happens through collaboration.
               </p>
-              <p className="text-text-muted text-sm sm:text-base leading-relaxed">
+              <p className="section-subtitle">
                 DHGsoft works closely with customers, technology providers, universities, research institutions, system integrators, and industry experts to deliver future-ready solutions. The right ecosystem lets us bring proven technology to every problem — and integrate it into operations that already work.
               </p>
             </div>
@@ -107,10 +107,10 @@ export default function PartnersPage() {
         <Section variant="brandTint" containerSize="wide" className=" border-b border-line relative bg-tech-grid">
           <div className="w-full relative z-10 space-y-8">
             <div className="text-left space-y-3">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 TECHNOLOGY PARTNERS
               </span>
-              <p className="text-text-muted text-sm sm:text-base leading-relaxed max-w-3xl">
+              <p className="max-w-3xl section-subtitle">
                 Industrial Automation Platforms, Industrial Data Platforms, Enterprise Software, Cloud Providers, Cybersecurity Technologies, Artificial Intelligence Platforms.
               </p>
             </div>
@@ -194,7 +194,7 @@ export default function PartnersPage() {
         <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid">
           <div className="w-full relative z-10 space-y-12">
             <div className="text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 HOW WE PARTNER
               </span>
             </div>
@@ -233,10 +233,10 @@ export default function PartnersPage() {
               />
             </div>
             <div className="lg:col-span-7 order-1 lg:order-2 space-y-6 text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 ACADEMIC PARTNERSHIPS
               </span>
-              <p className="text-text-muted text-sm sm:text-base leading-relaxed">
+              <p className="section-subtitle">
                 Supporting research, innovation, internships, and workforce development through collaboration with universities and engineering institutions. Together we develop the talent and ideas that keep industrial technology moving forward.
               </p>
             </div>
@@ -246,7 +246,7 @@ export default function PartnersPage() {
         {/* 6. Strategic Alliances */}
         <Section variant="ink" containerSize="wide" className=" text-white border-b border-slate-900 overflow-hidden relative">
           <div className="w-full relative z-10 space-y-3 text-left">
-            <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-hot font-mono block">
+            <span className="section-eyebrow">
               STRATEGIC ALLIANCES
             </span>
             <p className="text-white font-extrabold text-xl sm:text-2xl leading-relaxed">
@@ -259,7 +259,7 @@ export default function PartnersPage() {
         <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
           <div className="w-full relative z-10 space-y-6">
-            <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
+            <span className="section-eyebrow on-dark">
               JOIN OUR ECOSYSTEM
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-[46px] font-black text-white tracking-tight leading-tight">

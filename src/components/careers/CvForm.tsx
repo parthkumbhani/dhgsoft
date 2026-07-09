@@ -78,7 +78,7 @@ export default function CvForm() {
                   consent: false
                 });
               }}
-              className="bg-brand hover:bg-brand-hot text-white text-xs font-extrabold uppercase tracking-wider px-6 py-3 rounded-xl transition-all cursor-pointer"
+              className="bg-brand hover:bg-brand-hot px-6 py-3 rounded-xl transition-all cursor-pointer section-eyebrow on-dark"
             >
               Submit Another CV
             </button>

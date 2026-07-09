@@ -121,9 +121,9 @@ export default function HubPage({
                     <span className="bg-brand/10 text-brand text-[10px] font-extrabold tracking-widest uppercase px-3 py-1.5 rounded-md font-mono">
                       FEATURED ARTICLE
                     </span>
-                    <h3 className="font-black text-text-strong text-2xl sm:text-3xl tracking-tight leading-tight">
+                    <h4 className="font-black text-text-strong text-2xl sm:text-3xl tracking-tight leading-tight">
                       {featured.title}
-                    </h3>
+                    </h4>
                     <p className="text-text-muted text-sm sm:text-base leading-relaxed">
                       {featured.excerpt}
                     </p>
@@ -165,9 +165,9 @@ export default function HubPage({
                     <span className="bg-emerald-500/10 text-emerald-600 border border-emerald-500/15 text-[10px] font-extrabold tracking-widest uppercase px-3 py-1.5 rounded-lg font-mono">
                       ✓ {featured.resultsPreview}
                     </span>
-                    <h3 className="font-black text-text-strong text-2xl sm:text-3xl tracking-tight leading-tight group-hover:text-brand transition-colors">
+                    <h4 className="font-black text-text-strong text-2xl sm:text-3xl tracking-tight leading-tight group-hover:text-brand transition-colors">
                       {featured.title}
-                    </h3>
+                    </h4>
                     <p className="text-text-muted text-sm sm:text-base leading-relaxed">
                       {featured.excerpt}
                     </p>

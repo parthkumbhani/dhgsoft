@@ -375,9 +375,9 @@ export default function Ecosystem() {
                     CAPABILITY {currentStage.num}
                   </span>
                   
-                  <h3 className="text-3xl font-extrabold text-white tracking-tight leading-none mb-3 font-headline">
+                  <h4 className="text-3xl font-extrabold text-white tracking-tight leading-none mb-3 font-headline">
                     {currentStage.title}
-                  </h3>
+                  </h4>
                   
                   <p className="text-[14px] text-slate-300 leading-relaxed mb-6 font-sans">
                     {currentStage.detailDesc}
@@ -538,9 +538,9 @@ export default function Ecosystem() {
               <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest block mb-1">
                 STAGE {currentStage.num}
               </span>
-              <h3 className="text-2xl font-extrabold text-white tracking-tight mb-2 font-headline">
+              <h4 className="text-2xl font-extrabold text-white tracking-tight mb-2 font-headline">
                 {currentStage.title}
-              </h3>
+              </h4>
               <p className="text-[13px] text-slate-300 leading-relaxed mb-4 max-w-xl font-sans">
                 {currentStage.detailDesc}
               </p>
@@ -585,9 +585,9 @@ export default function Ecosystem() {
                 {/* Content */}
                 <div className="p-5 flex flex-col justify-between flex-grow text-left">
                   <div>
-                    <h3 className="text-lg font-bold text-white tracking-tight mb-1.5 font-headline">
+                    <h4 className="text-lg font-bold text-white tracking-tight mb-1.5 font-headline">
                       {stage.title}
-                    </h3>
+                    </h4>
                     <p className="text-[12px] text-slate-400 leading-relaxed font-sans mb-3 line-clamp-3">
                       {stage.detailDesc}
                     </p>

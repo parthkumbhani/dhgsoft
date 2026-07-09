@@ -1,106 +1,107 @@
-import React from "react"
-import { Section } from "@/components/ui/Section"
-import { Container } from "@/components/ui/Container"
-import { Button } from "@/components/ui/button"
+import React from "react";
+import { ArrowRight } from "lucide-react";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
 
 export default function JourneyStarts() {
   return (
-    <Section variant="white" className="py-20">
+    <Section variant="white" size="default">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
-          {/* Left Column (55% width on desktop) */}
-          <div className="lg:col-span-7 space-y-6 text-left">
-            <span className="text-label-bold text-brand uppercase tracking-[0.2em] block">
-              YOUR JOURNEY STARTS HERE
-            </span>
+          {/* LEFT — content */}
+          <div className="lg:col-span-7 text-left">
             
-            <h2 className="text-text-strong font-headline tracking-tight leading-tight">
-              The next generation of{" "}
-              <span className="bg-gradient-to-r from-brand via-brand-hot to-brand-accent bg-clip-text text-transparent">
-                industry innovators
-              </span>{" "}
+            <div className="text-brand text-label-bold uppercase tracking-[0.2em]">
+              Your Journey Starts Here
+            </div>
+            
+            <h2 className="text-txt-strong mt-4">
+              The next generation of{' '}
+              <span className="text-gradient-brand">industry innovators</span>{' '}
               starts here.
             </h2>
-
-            <div className="text-body-md text-text-muted max-w-[560px] space-y-5 leading-relaxed">
-              <p>
-                At DHGsoft, we believe the next generation of innovators will shape the future of connected industries. Through internships, campus recruitment, graduate programs, and university partnerships, we provide aspiring professionals with opportunities to learn, innovate, and grow while working on real-world industrial challenges.
-              </p>
-              <p>
-                Whether you're looking for your first internship or your first full-time role, we'll help you build a strong foundation for a successful career.
-              </p>
-            </div>
-
-            <div className="pt-2">
-              <a href="#opportunities">
-                <Button variant="primary" size="lg" className="rounded-full">
-                  Explore Opportunities →
-                </Button>
+            
+            <p className="text-body-md text-txt-muted mt-6 max-w-[560px]">
+              At DHGsoft, we believe the next generation of innovators will shape the future of connected industries. Through internships, campus recruitment, graduate programs, and university partnerships, we provide aspiring professionals with opportunities to learn, innovate, and grow while working on real-world industrial challenges.
+            </p>
+            
+            <p className="text-body-md text-txt-muted mt-4 max-w-[560px]">
+              Whether you're looking for your first internship or your first full-time role, we'll help you build a strong foundation for a successful career.
+            </p>
+            
+            {/* CTA — SOLID CRIMSON (no more orange gradient) */}
+            <div className="mt-8">
+              <a 
+                href="#opportunities"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand text-white font-semibold hover:bg-brand-deep hover:-translate-y-0.5 transition-all duration-300"
+              >
+                Explore Opportunities
+                <ArrowRight className="w-4 h-4" />
               </a>
             </div>
           </div>
-
-          {/* Right Column (45% width on desktop) */}
-          <div className="lg:col-span-5 space-y-6">
-            
-            {/* 2x2 Grid of Stat Cards */}
-            <div className="grid grid-cols-2 gap-4">
+          
+          {/* RIGHT — compact stats + quote composition */}
+          <div className="lg:col-span-5">
+            <div className="relative space-y-4">
               
-              {/* Card 1 */}
-              <div className="card bg-white border border-line rounded-2xl p-6 text-left flex flex-col justify-between shadow-sm">
-                <div className="heading-hero font-extrabold text-brand leading-none font-headline tracking-tighter">
-                  500+
+              {/* Two stats side by side — 500+ removed, only 6 and 15+ */}
+              <div className="grid grid-cols-2 gap-4">
+                
+                {/* Stat 1: 6 Program Tracks — highlighted crimson */}
+                <div className="card relative bg-brand text-white rounded-2xl p-6 shadow-xl shadow-brand/25 overflow-hidden text-left">
+                  {/* Subtle decorative shape inside */}
+                  <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-white/10 blur-xl pointer-events-none" />
+                  
+                  <div className="relative">
+                    <div className="heading-hero text-white leading-none">6</div>
+                    <div className="text-label-bold uppercase tracking-[0.15em] text-white/85 mt-3">
+                      Program Tracks
+                    </div>
+                  </div>
                 </div>
-                <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-text-muted font-mono mt-4 leading-tight">
-                  STUDENTS TRAINED
+                
+                {/* Stat 2: 15+ University Partners — clean white */}
+                <div className="card relative bg-white border border-line rounded-2xl p-6 hover:border-brand transition-colors overflow-hidden text-left">
+                  {/* Subtle brand tint corner */}
+                  <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-brand/8 blur-xl pointer-events-none" />
+                  
+                  <div className="relative">
+                    <div className="heading-hero text-brand leading-none">15+</div>
+                    <div className="text-label-bold uppercase tracking-[0.15em] text-txt-muted mt-3">
+                      University Partners
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+              
+              {/* Quote card — spans full width below the stats, decorative accent */}
+              <div className="card relative bg-mist border border-line rounded-2xl p-6 overflow-hidden text-left">
+                {/* Large decorative quote glyph in the background */}
+                <div className="absolute -top-4 -left-2 text-[6rem] leading-none text-brand/15 font-serif pointer-events-none select-none">
+                  "
+                </div>
+                
+                <div className="relative">
+                  <p className="text-body-sm italic text-txt-strong">
+                    We invest in talent before the interview — through real projects, real mentors, and real opportunities that build careers, not just résumés.
+                  </p>
+                  <div className="flex items-center gap-3 mt-5">
+                    <div className="w-8 h-[2px] bg-brand rounded-full" />
+                    <div className="text-label-bold text-brand uppercase tracking-[0.2em]">
+                      DHGsoft Engineering Leadership
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              {/* Card 2 */}
-              <div className="card bg-white border border-line rounded-2xl p-6 text-left flex flex-col justify-between shadow-sm">
-                <div className="heading-hero font-extrabold text-brand leading-none font-headline tracking-tighter">
-                  6
-                </div>
-                <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-text-muted font-mono mt-4 leading-tight">
-                  PROGRAM TRACKS
-                </div>
-              </div>
-
-              {/* Card 3 */}
-              <div className="card bg-white border border-line rounded-2xl p-6 text-left flex flex-col justify-between shadow-sm">
-                <div className="heading-hero font-extrabold text-brand leading-none font-headline tracking-tighter">
-                  15+
-                </div>
-                <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-text-muted font-mono mt-4 leading-tight">
-                  UNIVERSITY PARTNERS
-                </div>
-              </div>
-
-              {/* Card 4 (Decorative Brand Mark) */}
-              <div className="card bg-white border border-line rounded-2xl p-6 flex items-center justify-center shadow-sm">
-                <div className="flex items-center text-lg font-bold tracking-tight select-none">
-                  <span className="text-brand">dhg</span>
-                  <span className="text-slate-400">Soft</span>
-                </div>
-              </div>
-
+              
             </div>
-
-            {/* Quote Box */}
-            <div className="card bg-mist border border-line rounded-2xl p-6 text-left shadow-sm">
-              <p className="text-body-sm italic text-text-strong leading-relaxed">
-                "We invest in talent before the interview — through real projects, real mentors, and real opportunities that build careers, not just résumés."
-              </p>
-              <div className="text-label-bold text-brand uppercase tracking-[0.2em] mt-4 font-mono">
-                DHGSOFT ENGINEERING LEADERSHIP
-              </div>
-            </div>
-
           </div>
-
+          
         </div>
       </Container>
     </Section>
-  )
+  );
 }

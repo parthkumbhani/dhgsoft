@@ -14,10 +14,10 @@ export default function CompanyOverview() {
         
         {/* Left Column: 4 paragraphs */}
         <div className="lg:col-span-6 space-y-6 text-left">
-          <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+          <span className="section-eyebrow">
             COMPANY OVERVIEW
           </span>
-          <div className="space-y-5 text-text-muted text-sm sm:text-base leading-relaxed">
+          <div className="space-y-5 section-subtitle">
             <p>
               Founded with a vision to accelerate industrial innovation, DHGsoft delivers end-to-end digital engineering, industrial automation, OT/IT integration, AI, cloud, cybersecurity, and operational intelligence solutions.
             </p>

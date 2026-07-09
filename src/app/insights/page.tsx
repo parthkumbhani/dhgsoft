@@ -86,9 +86,9 @@ export default function InsightsLandingPage() {
                   <span className="text-[10px] font-extrabold uppercase tracking-widest text-brand font-mono">
                     AI & AUTOMATION
                   </span>
-                  <h3 className="font-extrabold text-text-strong text-xl tracking-tight leading-snug group-hover:text-brand transition-colors">
+                  <h4 className="font-extrabold text-text-strong text-xl tracking-tight leading-snug group-hover:text-brand transition-colors">
                     Industrial intelligence
-                  </h3>
+                  </h4>
                   <p className="text-text-muted text-sm leading-relaxed">
                     Deep learning, predictive maintenance models, and machine vision setups optimizing modern plant operations.
                   </p>
@@ -122,9 +122,9 @@ export default function InsightsLandingPage() {
                   <span className="text-[10px] font-extrabold uppercase tracking-widest text-brand font-mono">
                     TECHNOLOGY ECOSYSTEM
                   </span>
-                  <h3 className="font-extrabold text-text-strong text-xl tracking-tight leading-snug group-hover:text-brand transition-colors">
+                  <h4 className="font-extrabold text-text-strong text-xl tracking-tight leading-snug group-hover:text-brand transition-colors">
                     Connected architecture
-                  </h3>
+                  </h4>
                   <p className="text-text-muted text-sm leading-relaxed">
                     Unified Namespace architectures, OT/IT networking, industrial data platform criteria, and edge configurations.
                   </p>
@@ -158,9 +158,9 @@ export default function InsightsLandingPage() {
                   <span className="text-[10px] font-extrabold uppercase tracking-widest text-brand font-mono">
                     ENTERPRISE CASE STUDIES
                   </span>
-                  <h3 className="font-extrabold text-text-strong text-xl tracking-tight leading-snug group-hover:text-brand transition-colors">
+                  <h4 className="font-extrabold text-text-strong text-xl tracking-tight leading-snug group-hover:text-brand transition-colors">
                     Transformation in action
-                  </h3>
+                  </h4>
                   <p className="text-text-muted text-sm leading-relaxed">
                     Anonymized execution logs mapping actual yield gains, downtime reduction, and SCADA stability metrics.
                   </p>
@@ -211,9 +211,9 @@ export default function InsightsLandingPage() {
                 </div>
                 <div className="p-6 flex-grow flex flex-col justify-between">
                   <div className="space-y-2">
-                    <h3 className="font-extrabold text-text-strong text-lg tracking-tight leading-snug group-hover:text-brand transition-colors line-clamp-2">
+                    <h4 className="font-extrabold text-text-strong text-lg tracking-tight leading-snug group-hover:text-brand transition-colors line-clamp-2">
                       {latestArticles[0].title}
-                    </h3>
+                    </h4>
                     <p className="text-text-muted text-sm leading-relaxed line-clamp-3">
                       {latestArticles[0].excerpt}
                     </p>
@@ -248,9 +248,9 @@ export default function InsightsLandingPage() {
                 </div>
                 <div className="p-6 flex-grow flex flex-col justify-between">
                   <div className="space-y-2">
-                    <h3 className="font-extrabold text-text-strong text-lg tracking-tight leading-snug group-hover:text-brand transition-colors line-clamp-2">
+                    <h4 className="font-extrabold text-text-strong text-lg tracking-tight leading-snug group-hover:text-brand transition-colors line-clamp-2">
                       {latestArticles[1].title}
-                    </h3>
+                    </h4>
                     <p className="text-text-muted text-sm leading-relaxed line-clamp-3">
                       {latestArticles[1].excerpt}
                     </p>
@@ -285,9 +285,9 @@ export default function InsightsLandingPage() {
                 </div>
                 <div className="p-6 flex-grow flex flex-col justify-between">
                   <div className="space-y-2">
-                    <h3 className="font-extrabold text-text-strong text-lg tracking-tight leading-snug group-hover:text-brand transition-colors line-clamp-2">
+                    <h4 className="font-extrabold text-text-strong text-lg tracking-tight leading-snug group-hover:text-brand transition-colors line-clamp-2">
                       {latestCaseStudy.title}
-                    </h3>
+                    </h4>
                     <p className="text-text-muted text-sm leading-relaxed line-clamp-3">
                       {latestCaseStudy.excerpt}
                     </p>

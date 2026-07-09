@@ -19,7 +19,7 @@ export default function LookingAheadCTA({ onContactClick }: LookingAheadCTAProps
         <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left: Heading */}
           <div className="lg:col-span-5 text-left">
-            <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block mb-2">
+            <span className="section-eyebrow mb-2">
               FORWARD PERSPECTIVE
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-text-strong tracking-tight leading-tight">
@@ -50,7 +50,7 @@ export default function LookingAheadCTA({ onContactClick }: LookingAheadCTAProps
         <div className="absolute inset-0 bg-ink/30 pointer-events-none" />
 
         <div className="w-full relative z-10 space-y-6">
-          <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/95 font-mono block">
+          <span className="section-eyebrow on-dark">
             CONSULTATION
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-[50px] font-black text-white tracking-tight leading-tight">

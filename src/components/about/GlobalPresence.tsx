@@ -30,7 +30,7 @@ export default function GlobalPresence() {
         {/* Left Column: Heading & Lists */}
         <div className="lg:col-span-6 text-left space-y-8">
           <div className="space-y-3">
-            <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+            <span className="section-eyebrow">
               GLOBAL PRESENCE
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-text-strong tracking-tight leading-tight">
@@ -41,7 +41,7 @@ export default function GlobalPresence() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 border-t border-line pt-6">
             {/* Delivery Model */}
             <div className="space-y-4">
-              <h4 className="text-xs font-extrabold uppercase tracking-wider text-brand font-mono">
+              <h4 className="section-eyebrow">
                 Delivery Model
               </h4>
               <ul className="space-y-2">
@@ -56,7 +56,7 @@ export default function GlobalPresence() {
 
             {/* Locations */}
             <div className="space-y-4">
-              <h4 className="text-xs font-extrabold uppercase tracking-wider text-brand font-mono">
+              <h4 className="section-eyebrow">
                 Locations
               </h4>
               <ul className="space-y-2">

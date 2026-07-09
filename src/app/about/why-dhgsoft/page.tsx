@@ -133,13 +133,13 @@ export default function WhyDHGsoftPage() {
             <div className="max-w-3xl text-left flex gap-6">
               <div className="w-[4px] bg-brand rounded-full self-stretch shrink-0" />
               <div className="space-y-4">
-                <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-brand-hot font-mono block">
+                <span className="section-eyebrow">
                   WHY DHGSOFT
                 </span>
                 <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-black text-white tracking-tight leading-[1.1] font-sans">
                   One Partner. End to End. Built for Industry.
                 </h1>
-                <p className="text-slate-300 font-medium text-base sm:text-lg leading-relaxed">
+                <p className="section-subtitle on-dark">
                   Choosing a digital transformation partner is a decision about trust, depth, and delivery. Here is why industrial organizations choose DHGsoft.
                 </p>
               </div>
@@ -151,7 +151,7 @@ export default function WhyDHGsoftPage() {
         <Section variant="white" containerSize="wide" className="bg-white border-b border-line overflow-hidden relative bg-tech-grid">
           <div className="w-full relative z-10 space-y-12">
             <div className="text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 THE ADVANTAGE
               </span>
             </div>
@@ -182,7 +182,7 @@ export default function WhyDHGsoftPage() {
         <Section variant="ink" containerSize="wide" className=" text-white border-b border-slate-900 overflow-hidden">
           <div className="w-full relative z-10 space-y-12">
             <div className="text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-hot font-mono block">
+              <span className="section-eyebrow">
                 THE DHGSOFT DIFFERENCE
               </span>
             </div>
@@ -205,7 +205,7 @@ export default function WhyDHGsoftPage() {
         <Section variant="mist" containerSize="wide" className=" border-b border-line overflow-hidden relative bg-dot-matrix">
           <div className="w-full relative z-10 space-y-12">
             <div className="text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 HOW WE DELIVER
               </span>
             </div>
@@ -219,7 +219,7 @@ export default function WhyDHGsoftPage() {
                   <div className="space-y-3">
                     <span className="font-mono font-black text-3xl text-brand/20 block">{st.num}</span>
                     <h4 className="font-extrabold text-text-strong text-base tracking-tight">{st.title}</h4>
-                    <p className="text-text-muted text-xs sm:text-sm leading-relaxed">{st.desc}</p>
+                    <p className="card-description">{st.desc}</p>
                   </div>
                 </div>
               ))}
@@ -231,7 +231,7 @@ export default function WhyDHGsoftPage() {
         <Section variant="brandTint" containerSize="wide" className=" border-b border-line relative bg-tech-grid">
           <div className="w-full relative z-10 space-y-12">
             <div className="text-left">
-              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand font-mono block">
+              <span className="section-eyebrow">
                 WHAT YOU CAN EXPECT
               </span>
             </div>
@@ -244,7 +244,7 @@ export default function WhyDHGsoftPage() {
                 >
                   <div className="w-2.5 h-2.5 rounded-full bg-brand" />
                   <h4 className="font-extrabold text-text-strong text-base tracking-tight leading-snug">{out.title}</h4>
-                  <p className="text-text-muted text-xs sm:text-sm leading-relaxed">{out.desc}</p>
+                  <p className="card-description">{out.desc}</p>
                 </div>
               ))}
             </div>
@@ -264,7 +264,7 @@ export default function WhyDHGsoftPage() {
         <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
           <div className="w-full relative z-10 space-y-6">
-            <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
+            <span className="section-eyebrow on-dark">
               CONSULTATION
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-[46px] font-black text-white tracking-tight leading-tight">
