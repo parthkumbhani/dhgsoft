@@ -1,18 +1,14 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
-import { motion, useInView, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { useSafeReducedMotion } from "@/hooks/useSafeReducedMotion";
 
 export default function InnovationBand() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.15 });
-  const shouldReduceMotion = !!useReducedMotion();
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  const shouldReduceMotion = useSafeReducedMotion();
 
   // Scroll parallax hook setup
   const { scrollYProgress } = useScroll({
@@ -51,7 +47,7 @@ export default function InnovationBand() {
     >
       {/* Background Image: Candid professional team collaboration with scroll parallax */}
       <motion.div
-        style={isClient && shouldReduceMotion ? {} : { y }}
+        style={shouldReduceMotion ? {} : { y }}
         className="absolute inset-0 z-0 w-full h-[120%] -top-[10%] origin-center"
       >
         <Image
@@ -73,7 +69,7 @@ export default function InnovationBand() {
       {/* Centered content overlay with staggered animations */}
       <motion.div 
         variants={quoteContainerVariants}
-        initial={isClient && shouldReduceMotion ? "visible" : "hidden"}
+        initial={shouldReduceMotion ? "visible" : "hidden"}
         animate={isInView ? "visible" : "hidden"}
         className="relative z-20 w-full max-w-5xl px-6 md:px-12 text-center flex flex-col items-center justify-center"
       >

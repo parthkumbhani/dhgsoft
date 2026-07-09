@@ -2,21 +2,15 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useSafeReducedMotion } from "@/hooks/useSafeReducedMotion";
 import { Section } from "@/components/ui/Section";
 import { ArrowRight } from "lucide-react";
-import { Great_Vibes } from "next/font/google";
-
-const signatureFont = Great_Vibes({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-signature",
-});
 
 export default function CEOMessage() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
-  const shouldReduceMotion = !!useReducedMotion();
+  const shouldReduceMotion = useSafeReducedMotion();
 
   return (
     <Section
@@ -30,7 +24,7 @@ export default function CEOMessage() {
         initial={shouldReduceMotion ? {} : { opacity: 0, y: 24 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-        className={`${signatureFont.variable} relative rounded-3xl shadow-2xl overflow-hidden`}
+        className="relative rounded-3xl shadow-2xl overflow-hidden"
         /* NOTE: overflow-hidden added to fully contain portrait within the box */
       >
         {/* ── Background — clipped separately so portrait can overflow ── */}
@@ -93,7 +87,7 @@ export default function CEOMessage() {
             >
               {/* Name + title */}
               <div className="shrink-0">
-                <p className="font-[family-name:var(--font-signature)] text-4xl lg:text-5xl text-white leading-tight">
+                <p className="font-signature text-4xl lg:text-5xl text-white leading-tight">
                   Hitesh Patel
                 </p>
                 <p className="mt-1.5 text-xs lg:text-sm text-white/65 italic tracking-wide">

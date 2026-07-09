@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
+import { useSafeReducedMotion } from "@/hooks/useSafeReducedMotion";
 import { ArrowRight } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -13,12 +14,7 @@ interface CareersHeroProps {
 }
 
 export default function CareersHero({ onContactClick }: CareersHeroProps) {
-  const shouldReduceMotion = !!useReducedMotion();
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  const shouldReduceMotion = useSafeReducedMotion();
 
   // Framer Motion variants for staggered fade-up animation
   const containerVariants = {
@@ -42,12 +38,12 @@ export default function CareersHero({ onContactClick }: CareersHeroProps) {
   };
 
   return (
-    <section className="relative w-full min-h-[640px] lg:min-h-[750px] overflow-hidden flex items-center bg-[#0A0E1A] select-none">
+    <section className="relative w-full min-h-[60vh] md:min-h-[70vh] lg:min-h-[80vh] overflow-hidden flex items-center justify-center bg-[#0A0E1A] select-none">
       
       {/* Background image — full bleed with slow Ken Burns breathing animation */}
       <motion.div 
         animate={
-          isClient && shouldReduceMotion 
+          shouldReduceMotion 
             ? {} 
             : { scale: [1.02, 1, 1.02] }
         }
@@ -81,16 +77,16 @@ export default function CareersHero({ onContactClick }: CareersHeroProps) {
       {/* Grid overlay for subtle high-tech engineering structure */}
       <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none z-10" />
 
-      {/* Content — sits above overlays, left-aligned two-column grid */}
-      <div className="relative z-20 mx-auto w-full max-w-site px-gutter md:px-gutter-md pt-28 pb-16">
+      {/* Content — sits above overlays, responsive margins/paddings and centered layout support */}
+      <div className="relative z-20 w-full max-w-[1440px] mx-auto px-4 py-16 sm:px-8 sm:py-20 md:px-12 md:py-24 lg:px-16 lg:py-28 xl:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
           
-          {/* Left Column: Staggered text content */}
+          {/* Left Column: Staggered text content, centered on mobile, left-aligned on desktop */}
           <motion.div 
             variants={containerVariants}
-            initial={isClient && shouldReduceMotion ? "visible" : "hidden"}
+            initial={shouldReduceMotion ? "visible" : "hidden"}
             animate="visible"
-            className="lg:col-span-7 text-left space-y-6 flex flex-col items-start"
+            className="lg:col-span-7 text-center lg:text-left space-y-6 flex flex-col items-center lg:items-start w-full"
           >
             {/* Eyebrow chip */}
             <motion.div 
@@ -103,10 +99,10 @@ export default function CareersHero({ onContactClick }: CareersHeroProps) {
               </span>
             </motion.div>
             
-            {/* H1 — Large anchor with tightened line-height */}
+            {/* H1 — Large anchor with fluid typography and adjusted line-height */}
             <motion.h1 
               variants={itemVariants}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.25rem] font-extrabold leading-[0.95] tracking-tight text-white font-sans"
+              className="text-[clamp(2.25rem,7vw,6.25rem)] font-extrabold leading-[1.05] tracking-tight text-white font-sans text-center lg:text-left"
             >
               <span className="block">Build</span>
               <span className="block">the Future of</span>
@@ -115,24 +111,24 @@ export default function CareersHero({ onContactClick }: CareersHeroProps) {
               </span>
             </motion.h1>
             
-            {/* Supporting paragraph */}
+            {/* Supporting paragraph with capped width and fluid size */}
             <motion.p 
               variants={itemVariants}
-              className="text-white/85 text-base md:text-lg leading-relaxed max-w-[560px] font-light"
+              className="text-white/85 text-[clamp(0.875rem,1.5vw,1.125rem)] leading-relaxed max-w-[600px] mx-auto lg:mx-0 font-light text-center lg:text-left"
             >
               Join a team that&apos;s transforming industrial enterprises through Automation, AI, Data, Cloud, and Digital Engineering. At DHGsoft, you&apos;ll work on cutting-edge technologies, collaborate with industry experts, and help shape the future of connected industries across the globe.
             </motion.p>
             
-            {/* CTAs */}
+            {/* CTAs — full-width/stacked on mobile, inline/row on small screens and up */}
             <motion.div 
               variants={itemVariants}
-              className="pt-2 flex flex-wrap items-center gap-4"
+              className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4 w-full sm:w-auto mx-auto lg:mx-0"
             >
               <Link 
                 href="/careers/current-openings"
                 className={cn(
                   buttonVariants({ variant: "primary", size: "lg" }),
-                  "rounded-full px-7 py-3.5 text-xs uppercase tracking-wider group"
+                  "rounded-full px-7 py-3.5 text-xs uppercase tracking-wider group min-h-[48px] flex items-center justify-center w-full sm:w-auto"
                 )}
               >
                 Explore Vacancies
@@ -141,14 +137,14 @@ export default function CareersHero({ onContactClick }: CareersHeroProps) {
               {onContactClick ? (
                 <button 
                   onClick={onContactClick}
-                  className="inline-flex items-center justify-center px-7 py-3.5 rounded-full border border-white/40 text-white font-bold text-xs uppercase tracking-wider hover:bg-white/10 hover:border-white transition-all duration-300 active:scale-95 cursor-pointer"
+                  className="inline-flex items-center justify-center px-7 py-3.5 rounded-full border border-white/40 text-white font-bold text-xs uppercase tracking-wider hover:bg-white/10 hover:border-white transition-all duration-300 active:scale-95 cursor-pointer min-h-[48px] w-full sm:w-auto"
                 >
                   Contact Us
                 </button>
               ) : (
                 <Link
                   href="/about#contact"
-                  className="inline-flex items-center justify-center px-7 py-3.5 rounded-full border border-white/40 text-white font-bold text-xs uppercase tracking-wider hover:bg-white/10 hover:border-white transition-all duration-300 active:scale-95 cursor-pointer"
+                  className="inline-flex items-center justify-center px-7 py-3.5 rounded-full border border-white/40 text-white font-bold text-xs uppercase tracking-wider hover:bg-white/10 hover:border-white transition-all duration-300 active:scale-95 cursor-pointer min-h-[48px] w-full sm:w-auto"
                 >
                   Contact Us
                 </Link>
@@ -159,10 +155,10 @@ export default function CareersHero({ onContactClick }: CareersHeroProps) {
 
           {/* Right Column: Purposeful Visual Display */}
           <motion.div
-            initial={isClient && shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 35, scale: 0.98 }}
+            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 35, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.85, delay: 0.4, ease: "easeOut" as const }}
-            className="lg:col-span-5 relative w-full h-[300px] sm:h-[380px] lg:h-[460px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-slate-900/40 backdrop-blur-md p-2 group"
+            className="lg:col-span-5 relative w-full h-[250px] sm:h-[380px] lg:h-[460px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-slate-900/40 backdrop-blur-md p-2 group"
           >
             <div className="relative w-full h-full rounded-xl overflow-hidden">
               <Image
