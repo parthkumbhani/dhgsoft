@@ -26,14 +26,15 @@ export interface IndustryData {
   relevantCapabilities: { name: string; href: string }[];
   outcomes: string[];
   related: { name: string; href: string }[];
-  image: IndustryImage; // Cinematic Photo Hero
-  overviewImage: IndustryImage; // The Landscape supporting image
-  supportImage: IndustryImage; // Challenges supporting image
-  gallery: IndustryImage[]; // In Focus 3-4 images
+  image: IndustryImage;
+  overviewImage?: IndustryImage;
+  supportImage?: IndustryImage;
+  gallery?: IndustryImage[];
   iconName: string;
   category: string;
   hudNodes: HUDNode[];
 }
+
 
 export const INDUSTRIES_MAP: Record<string, IndustryData> = {
   "industrial-manufacturing": {
@@ -80,34 +81,8 @@ export const INDUSTRIES_MAP: Record<string, IndustryData> = {
     ],
     image: {
       src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
-      alt: "smart factory robotic assembly, wide"
+      alt: "Industrial manufacturing robotics and automation assembly line"
     },
-    overviewImage: {
-      src: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
-      alt: "engineer with a tablet on a factory floor"
-    },
-    supportImage: {
-      src: "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=800&q=80",
-      alt: "automated production line with robots"
-    },
-    gallery: [
-      {
-        src: "https://images.unsplash.com/photo-1612538498456-e861df91d4d0?auto=format&fit=crop&w=600&q=80",
-        alt: "CNC machine close-up"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=600&q=80",
-        alt: "factory workers collaborating"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
-        alt: "industrial dashboard screen"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80",
-        alt: "parts on a conveyor"
-      }
-    ],
     iconName: "Factory",
     hudNodes: [
       { id: "robotic-line-1", x: 25, y: 35, label: "Cell 1 Active Status", value: "98.4%", pulseSpeed: 2 },
@@ -159,34 +134,8 @@ export const INDUSTRIES_MAP: Record<string, IndustryData> = {
     ],
     image: {
       src: "https://images.unsplash.com/photo-1532187643603-ba119ca4109e?auto=format&fit=crop&w=1200&q=80",
-      alt: "modern pharmaceutical manufacturing facility"
+      alt: "Scientific analysis and research laboratory equipment"
     },
-    overviewImage: {
-      src: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80",
-      alt: "pharmaceutical bioreactor / batch processing equipment"
-    },
-    supportImage: {
-      src: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80",
-      alt: "automated pharmaceutical packaging line"
-    },
-    gallery: [
-      {
-        src: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=600&q=80",
-        alt: "scientist working in a pharmaceutical laboratory"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1628771065518-0d82f1938462?auto=format&fit=crop&w=600&q=80",
-        alt: "pharmaceutical cleanroom production line"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1618572181658-c5989d3d37a7?auto=format&fit=crop&w=600&q=80",
-        alt: "vials / vaccine filling line"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=600&q=80",
-        alt: "quality-control technician with a microscope"
-      }
-    ],
     iconName: "FlaskConical",
     hudNodes: [
       { id: "reactor-psi", x: 30, y: 40, label: "Reactor Pressure", value: "98.4%", pulseSpeed: 2 },
@@ -238,34 +187,8 @@ export const INDUSTRIES_MAP: Record<string, IndustryData> = {
     ],
     image: {
       src: "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80",
-      alt: "car assembly line with welding robots"
+      alt: "Automotive assembly line process with heavy industrial robots"
     },
-    overviewImage: {
-      src: "https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&w=800&q=80",
-      alt: "automotive engineer inspecting a car body"
-    },
-    supportImage: {
-      src: "https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=800&q=80",
-      alt: "robotic arms in car manufacturing"
-    },
-    gallery: [
-      {
-        src: "https://images.unsplash.com/photo-1504215680048-db15ff059678?auto=format&fit=crop&w=600&q=80",
-        alt: "car chassis on the line"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80",
-        alt: "automotive paint shop"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1558441719-ff34b0524a24?auto=format&fit=crop&w=600&q=80",
-        alt: "EV battery assembly"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&w=600&q=80",
-        alt: "vehicle quality inspection"
-      }
-    ],
     iconName: "Car",
     hudNodes: [
       { id: "welder-duty", x: 28, y: 32, label: "Robot Arm Load", value: "98.2%", pulseSpeed: 2 },
@@ -317,34 +240,8 @@ export const INDUSTRIES_MAP: Record<string, IndustryData> = {
     ],
     image: {
       src: "https://images.unsplash.com/photo-1624701928517-44c8ac49d93c?auto=format&fit=crop&w=1200&q=80",
-      alt: "semiconductor fab cleanroom with wafers"
+      alt: "Wafer silicon manufacturing cleanroom silicon fabrication"
     },
-    overviewImage: {
-      src: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=800&q=80",
-      alt: "technician in a bunny suit in a cleanroom"
-    },
-    supportImage: {
-      src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
-      alt: "silicon wafer close-up"
-    },
-    gallery: [
-      {
-        src: "https://images.unsplash.com/photo-1591745038754-6903f888365f?auto=format&fit=crop&w=600&q=80",
-        alt: "chip manufacturing equipment"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80",
-        alt: "microchip macro"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80",
-        alt: "cleanroom corridor"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1631553127989-11c5f3b72bf8?auto=format&fit=crop&w=600&q=80",
-        alt: "wafer inspection under microscope"
-      }
-    ],
     iconName: "Cpu",
     hudNodes: [
       { id: "stepper-vacuum", x: 22, y: 38, label: "Chamber Vacuum", value: "99.8%", pulseSpeed: 1.5 },
@@ -396,34 +293,8 @@ export const INDUSTRIES_MAP: Record<string, IndustryData> = {
     ],
     image: {
       src: "https://images.unsplash.com/photo-1568254183919-78a4f43a2877?auto=format&fit=crop&w=1200&q=80",
-      alt: "beverage bottling line in a factory"
+      alt: "Industrial beverage bottling and automated canning line operations"
     },
-    overviewImage: {
-      src: "https://images.unsplash.com/photo-1549476464-37392f717541?auto=format&fit=crop&w=800&q=80",
-      alt: "food production quality check"
-    },
-    supportImage: {
-      src: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&w=800&q=80",
-      alt: "automated food packaging line"
-    },
-    gallery: [
-      {
-        src: "https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=600&q=80",
-        alt: "bottles on a conveyor"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1582298538104-fe2e74c27f59?auto=format&fit=crop&w=600&q=80",
-        alt: "food processing equipment"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=600&q=80",
-        alt: "beverage warehouse pallets"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=600&q=80",
-        alt: "canning line"
-      }
-    ],
     iconName: "UtensilsCrossed",
     hudNodes: [
       { id: "filler-flow", x: 26, y: 36, label: "Filler Flow Volume", value: "120 m³/h", pulseSpeed: 2 },
@@ -471,38 +342,12 @@ export const INDUSTRIES_MAP: Record<string, IndustryData> = {
     related: [
       { name: "Oil & Gas", href: "/industries/oil-gas" },
       { name: "Life Sciences", href: "/industries/life-sciences" },
-      { name: "Water & Wastewater", href: "/industries/water-wastewater" }
+      { name: "Water & Wastewater Management", href: "/industries/water-wastewater" }
     ],
     image: {
       src: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80",
-      alt: "chemical plant with reactors and pipes at dusk"
+      alt: "Chemical reactor refinery pipes and pressure instrumentation"
     },
-    overviewImage: {
-      src: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=800&q=80",
-      alt: "engineer at a chemical control panel"
-    },
-    supportImage: {
-      src: "https://images.unsplash.com/photo-1527018601619-a508a2be00cd?auto=format&fit=crop&w=800&q=80",
-      alt: "industrial pipes and valves"
-    },
-    gallery: [
-      {
-        src: "https://images.unsplash.com/photo-1581093588401-f3c22d7a161b?auto=format&fit=crop&w=600&q=80",
-        alt: "chemical storage tanks"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1574782091359-37f2a1488c5a?auto=format&fit=crop&w=600&q=80",
-        alt: "plant safety inspection"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&w=600&q=80",
-        alt: "process control room"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1532187863486-abf9d39d66e8?auto=format&fit=crop&w=600&q=80",
-        alt: "chemical lab testing"
-      }
-    ],
     iconName: "TestTubes",
     hudNodes: [
       { id: "vessel-psi", x: 24, y: 34, label: "Reactor Pressure", value: "98.4%", pulseSpeed: 2 },
@@ -554,34 +399,8 @@ export const INDUSTRIES_MAP: Record<string, IndustryData> = {
     ],
     image: {
       src: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
-      alt: "oil refinery pipelines at dusk"
+      alt: "Petrochemical processing facility at dusk with pipelines"
     },
-    overviewImage: {
-      src: "https://images.unsplash.com/photo-1529932260967-af9d3a9792b8?auto=format&fit=crop&w=800&q=80",
-      alt: "engineer inspecting a pipeline"
-    },
-    supportImage: {
-      src: "https://images.unsplash.com/photo-1569420786523-cb879f972b21?auto=format&fit=crop&w=800&q=80",
-      alt: "offshore oil platform"
-    },
-    gallery: [
-      {
-        src: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=80",
-        alt: "gas processing plant"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1622630998477-20aa696ecb05?auto=format&fit=crop&w=600&q=80",
-        alt: "pipeline valves"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80",
-        alt: "oil & gas control room"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=600&q=80",
-        alt: "refinery storage tanks"
-      }
-    ],
     iconName: "Fuel",
     hudNodes: [
       { id: "pipe-flow", x: 28, y: 38, label: "Crude Flow Velocity", value: "120 m³/h", pulseSpeed: 2.2 },
@@ -628,39 +447,13 @@ export const INDUSTRIES_MAP: Record<string, IndustryData> = {
     ],
     related: [
       { name: "Oil & Gas", href: "/industries/oil-gas" },
-      { name: "Water & Wastewater", href: "/industries/water-wastewater" },
+      { name: "Water & Wastewater Management", href: "/industries/water-wastewater" },
       { name: "Data Centres", href: "/industries/data-centres" }
     ],
     image: {
       src: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80",
-      alt: "electrical substation with transmission towers"
+      alt: "High voltage electrical substation and grid transmission lines"
     },
-    overviewImage: {
-      src: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80",
-      alt: "engineer at a grid control center"
-    },
-    supportImage: {
-      src: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=800&q=80",
-      alt: "wind and solar with power lines"
-    },
-    gallery: [
-      {
-        src: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80",
-        alt: "power lines at sunset"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1605980776566-0486c3ac7617?auto=format&fit=crop&w=600&q=80",
-        alt: "substation transformer"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1498084393753-b411b2d26b34?auto=format&fit=crop&w=600&q=80",
-        alt: "renewable energy farm"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?auto=format&fit=crop&w=600&q=80",
-        alt: "smart grid technology"
-      }
-    ],
     iconName: "Zap",
     hudNodes: [
       { id: "grid-frequency", x: 22, y: 32, label: "Grid Frequency Stabilizer", value: "50 Hz", pulseSpeed: 2 },
@@ -712,37 +505,11 @@ export const INDUSTRIES_MAP: Record<string, IndustryData> = {
     ],
     image: {
       src: "https://images.unsplash.com/photo-1601597111158-2fceff270190?auto=format&fit=crop&w=1200&q=80",
-      alt: "open-pit mine with haul trucks"
+      alt: "Open pit mining operation excavation heavy dump trucks"
     },
-    overviewImage: {
-      src: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=800&q=80",
-      alt: "mining engineer with equipment"
-    },
-    supportImage: {
-      src: "https://images.unsplash.com/photo-1579684389782-64d84b5e901a?auto=format&fit=crop&w=800&q=80",
-      alt: "mining excavator"
-    },
-    gallery: [
-      {
-        src: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80",
-        alt: "haul truck loading ore"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=600&q=80",
-        alt: "ore conveyor"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1513828729020-0ac833df5f93?auto=format&fit=crop&w=600&q=80",
-        alt: "steel mill metals"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1618042164219-62c820f10723?auto=format&fit=crop&w=600&q=80",
-        alt: "mine control room"
-      }
-    ],
     iconName: "Mountain",
     hudNodes: [
-      { id: "shovel-engine", x: 26, y: 36, label: "Shovel Engine speed", value: "1420 RPM", pulseSpeed: 2.5 },
+      { id: "shovel-engine", x: 26, y: 36, label: "Excavator Speed", value: "1420 RPM", pulseSpeed: 2.5 },
       { id: "haulage-oee", x: 62, y: 48, label: "Fleet Availability", value: "98.2%", pulseSpeed: 2.1 },
       { id: "shaft-humidity", x: 76, y: 22, label: "Ventilation Airflow", value: "120 m³/h", pulseSpeed: 3 }
     ]
@@ -791,34 +558,8 @@ export const INDUSTRIES_MAP: Record<string, IndustryData> = {
     ],
     image: {
       src: "https://images.unsplash.com/photo-1584267326134-639a0ff99764?auto=format&fit=crop&w=1200&q=80",
-      alt: "water treatment plant aeration tanks, aerial"
+      alt: "Aeration basins and tanks at a water treatment plant"
     },
-    overviewImage: {
-      src: "https://images.unsplash.com/photo-1581092334842-7c3ac3a49000?auto=format&fit=crop&w=800&q=80",
-      alt: "operator monitoring water treatment"
-    },
-    supportImage: {
-      src: "https://images.unsplash.com/photo-1615228690186-107b3858cb5a?auto=format&fit=crop&w=800&q=80",
-      alt: "large pumping station pipes"
-    },
-    gallery: [
-      {
-        src: "https://images.unsplash.com/photo-1574515598835-1f9e2b17a1f5?auto=format&fit=crop&w=600&q=80",
-        alt: "clarifier tanks"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1581092520779-ee22621dd758?auto=format&fit=crop&w=600&q=80",
-        alt: "water quality lab"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1621905230232-a6a2a5aee158?auto=format&fit=crop&w=600&q=80",
-        alt: "distribution pipes"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1603831872111-e22621dd758c?auto=format&fit=crop&w=600&q=80",
-        alt: "wastewater facility"
-      }
-    ],
     iconName: "Droplets",
     hudNodes: [
       { id: "effluent-flow", x: 28, y: 38, label: "Effluent Discharge", value: "120 m³/h", pulseSpeed: 2.2 },
@@ -869,35 +610,9 @@ export const INDUSTRIES_MAP: Record<string, IndustryData> = {
       { name: "Automotive", href: "/industries/automotive" }
     ],
     image: {
-      src: "https://images.unsplash.com/photo-1581092268258-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
-      alt: "high-speed packaging line conveyor"
+      src: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+      alt: "Automated conveyor lines sorting packaged items in factory"
     },
-    overviewImage: {
-      src: "https://images.unsplash.com/photo-1581092920556-c77dce18193b?auto=format&fit=crop&w=800&q=80",
-      alt: "worker monitoring a packaging line"
-    },
-    supportImage: {
-      src: "https://images.unsplash.com/photo-1581092190560-c77dce18193b?auto=format&fit=crop&w=800&q=80",
-      alt: "automated packaging robots"
-    },
-    gallery: [
-      {
-        src: "https://images.unsplash.com/photo-1581092160555-c77dce18193b?auto=format&fit=crop&w=600&q=80",
-        alt: "products on a conveyor"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
-        alt: "distribution warehouse boxes"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1581092825842-ee22621dd758?auto=format&fit=crop&w=600&q=80",
-        alt: "labeling machine"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1581092920492-ee22621dd758?auto=format&fit=crop&w=600&q=80",
-        alt: "palletizing robot"
-      }
-    ],
     iconName: "PackageOpen",
     hudNodes: [
       { id: "packer-motor", x: 26, y: 36, label: "Packer Drive Speed", value: "1420 RPM", pulseSpeed: 2.5 },
@@ -949,34 +664,8 @@ export const INDUSTRIES_MAP: Record<string, IndustryData> = {
     ],
     image: {
       src: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
-      alt: "data center server hall, glowing"
+      alt: "Network server racks in modern high density data center"
     },
-    overviewImage: {
-      src: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80",
-      alt: "technician in a data center aisle"
-    },
-    supportImage: {
-      src: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
-      alt: "data center cooling infrastructure"
-    },
-    gallery: [
-      {
-        src: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
-        alt: "server racks with blue lights"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&fit=crop&w=600&q=80",
-        alt: "network cabling"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1598257006456-0f777247c2af?auto=format&fit=crop&w=600&q=80",
-        alt: "UPS / power room"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1597733336333-e076c223a692?auto=format&fit=crop&w=600&q=80",
-        alt: "data center corridor"
-      }
-    ],
     iconName: "ServerCog",
     hudNodes: [
       { id: "rack-efficiency", x: 22, y: 32, label: "Server PUE Factor", value: "98.4%", pulseSpeed: 2 },
@@ -1028,34 +717,8 @@ export const INDUSTRIES_MAP: Record<string, IndustryData> = {
     ],
     image: {
       src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80",
-      alt: "large construction site with cranes"
+      alt: "Industrial construction site with heavy machinery cranes"
     },
-    overviewImage: {
-      src: "https://images.unsplash.com/photo-1504308000-80022131f5a1?auto=format&fit=crop&w=800&q=80",
-      alt: "engineers reviewing plans on site"
-    },
-    supportImage: {
-      src: "https://images.unsplash.com/photo-1590959651373-a3db0f38a961?auto=format&fit=crop&w=800&q=80",
-      alt: "industrial construction structure"
-    },
-    gallery: [
-      {
-        src: "https://images.unsplash.com/photo-1490134700000-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
-        alt: "crane lifting a load"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1531826210000-bd8dd3c8310d?auto=format&fit=crop&w=600&q=80",
-        alt: "digital twin / BIM on a screen"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1513694203835-bd8dd3c8310d?auto=format&fit=crop&w=600&q=80",
-        alt: "construction workers on site"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1486406146926-ef010cbdcc31?auto=format&fit=crop&w=600&q=80",
-        alt: "infrastructure project aerial"
-      }
-    ],
     iconName: "HardHat",
     hudNodes: [
       { id: "bim-precision", x: 26, y: 36, label: "BIM Alignment Ratio", value: "98.5%", pulseSpeed: 2 },
@@ -1107,34 +770,8 @@ export const INDUSTRIES_MAP: Record<string, IndustryData> = {
     ],
     image: {
       src: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1200&q=80",
-      alt: "agricultural drone over a crop field"
+      alt: "Precision smart farming crop fields and drone monitoring"
     },
-    overviewImage: {
-      src: "https://images.unsplash.com/photo-1593113598338-8a8dd3c8310d?auto=format&fit=crop&w=800&q=80",
-      alt: "farmer with a tablet in a field"
-    },
-    supportImage: {
-      src: "https://images.unsplash.com/photo-1595180400000-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
-      alt: "smart irrigation system"
-    },
-    gallery: [
-      {
-        src: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80",
-        alt: "tractor precision farming"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1597916800000-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
-        alt: "soil sensor in a field"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1530834000000-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
-        alt: "greenhouse technology"
-      },
-      {
-        src: "https://images.unsplash.com/photo-1506306800000-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
-        alt: "crop field aerial"
-      }
-    ],
     iconName: "Sprout",
     hudNodes: [
       { id: "soil-humidity", x: 28, y: 38, label: "Soil Moisture Factor", value: "98.4%", pulseSpeed: 2.2 },

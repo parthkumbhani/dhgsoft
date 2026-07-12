@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <Section variant="ink" containerSize="wide" className="relative min-h-[550px] md:min-h-[650px] flex items-center overflow-hidden ">
+    <Section variant="ink" containerSize="wide" className="relative min-h-[750px] md:min-h-[850px] flex items-center overflow-hidden ">
       {/* Background Image with Dark Gradient Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -41,7 +41,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-[60px] font-black text-white tracking-tight leading-[1.08] font-sans"
+              className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-[1.08] font-sans"
             >
               Engineering the Future of Connected Industries
             </motion.h1>

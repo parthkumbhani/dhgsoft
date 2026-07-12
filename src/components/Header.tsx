@@ -304,7 +304,10 @@ export default function Header({ onContactClick }: HeaderProps) {
                   <div className="grid grid-cols-2 gap-6 relative z-10">
                     <div className="flex flex-col gap-2">
                       <div className="text-xs font-bold uppercase tracking-wider text-primary mb-1">Knowledge Hub</div>
-                      <Link href="/insights/ai-automation" className="text-sm font-semibold text-slate-800 hover:text-primary py-1 block transition-colors">
+                      <Link href="/insights" className="text-sm font-semibold text-primary hover:text-secondary py-1 block transition-colors">
+                        All Insights
+                      </Link>
+                      <Link href="/insights/ai-and-automation" className="text-sm font-semibold text-slate-800 hover:text-primary py-1 block transition-colors">
                         AI & Automation
                       </Link>
                       <Link href="/insights/technology-ecosystem" className="text-sm font-semibold text-slate-800 hover:text-primary py-1 block transition-colors">
@@ -548,7 +551,10 @@ export default function Header({ onContactClick }: HeaderProps) {
                       Insights
                     </AccordionTrigger>
                     <AccordionContent className="bg-slate-50 p-3 rounded-md flex flex-col gap-2">
-                      <Link href="/insights/ai-automation" onClick={() => setMobileOpen(false)} className="text-xs text-slate-700 font-medium block py-1 hover:text-primary transition-colors">
+                      <Link href="/insights" onClick={() => setMobileOpen(false)} className="text-xs text-[#B4123F] font-bold block py-1 hover:text-primary transition-colors">
+                        Explore All Insights
+                      </Link>
+                      <Link href="/insights/ai-and-automation" onClick={() => setMobileOpen(false)} className="text-xs text-slate-700 font-medium block py-1 hover:text-primary transition-colors">
                         AI & Automation
                       </Link>
                       <Link href="/insights/technology-ecosystem" onClick={() => setMobileOpen(false)} className="text-xs text-slate-700 font-medium block py-1 hover:text-primary transition-colors">

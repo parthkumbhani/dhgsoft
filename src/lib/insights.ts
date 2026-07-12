@@ -41,12 +41,7 @@ export const ARTICLES_DATA: Article[] = [
     },
     readTime: "[X] min read",
     date: "[Month YYYY]",
-    hub: "ai-automation",
-    body: [
-      "The transition from reactive to autonomous maintenance represents a fundamental shift in how modern industrial facilities manage asset lifecycle and operational uptime. Historically, maintenance schedules were dictated either by calendar-based intervals or, more costly, by unexpected mechanical failures. In high-throughput manufacturing plants, even a single hour of unplanned downtime can translate to hundreds of thousands of dollars in lost productivity. By leveraging real-time telemetry, IoT sensors, and machine learning models, companies can now anticipate machine degradation before it triggers a line stoppage.",
-      "At the core of autonomous maintenance is the concept of closed-loop self-optimization. Modern sensors log physical parameters such as vibration frequencies, temperature profiles, and motor current draw directly from heavy robotic joints. These continuous streams are analyzed at the edge and in the cloud by deep neural networks trained to identify micro-anomalies that precede failure. When a deviation is recognized, the system does not simply flag a warning; it initiates localized adjustment commands to reduce motor strain or coordinates with scheduling engines to route preventative maintenance crews during natural changeover windows.",
-      "However, scaling industrial AI from pilot tests to full plant-floor operations requires overcoming significant organizational and technical integration challenges. Legacy operational technology (OT) often operates on proprietary protocols that are disconnected from enterprise IT systems. Bridging this OT/IT divide demands secure, interoperable data architectures—such as Unified Namespaces—that democratize sensor telemetry for machine learning models. DHGsoft’s predictive maintenance implementations focus on establishing this secure foundation first, ensuring that AI-driven insights translate directly to measurable reductions in unplanned downtime."
-    ]
+    hub: "ai-automation"
   },
   {
     slug: "turning-industrial-data-to-decisions",
@@ -67,7 +62,7 @@ export const ARTICLES_DATA: Article[] = [
     excerpt: "What \"autonomous\" really means in manufacturing, and the practical steps toward self-optimizing operations.",
     category: "Automation",
     image: {
-      src: "https://images.unsplash.com/photo-1565034946487-077786996e27?auto=format&fit=crop&w=800&q=80",
+      src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
       alt: "Semiconductor circuits representing autonomous routing"
     },
     readTime: "[X] min read",
@@ -106,7 +101,7 @@ export const ARTICLES_DATA: Article[] = [
     excerpt: "The difference between predicting a problem and knowing exactly what to do about it.",
     category: "Predictive Maintenance",
     image: {
-      src: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
+      src: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
       alt: "Global network telemetry interface background"
     },
     readTime: "[X] min read",
@@ -139,12 +134,7 @@ export const ARTICLES_DATA: Article[] = [
     },
     readTime: "[X] min read",
     date: "[Month YYYY]",
-    hub: "technology-ecosystem",
-    body: [
-      "The modern industrial technology stack is undergoing a rapid evolution, driven by the convergence of operational technology (OT) on the plant floor and information technology (IT) in the cloud. Traditionally, industrial architectures followed the rigid Purdue Model, where data moved slowly through isolated layers from physical machinery up to ERP systems. This hierarchical structure, while secure, created data silos that limited real-time visibility. Today, modern architectures are transitioning to decentralized, event-driven networks that allow sensor data to be published once and consumed by any authorized application instantly.",
-      "A key enabler of this modern stack is the Unified Namespace (UNS). By serving as a centralized data broker, the UNS establishes a single, real-time source of truth for the entire enterprise. Whether it is a temperature sensor on a conveyor belt, a PLC controlling a robotic arm, or an MES tracking batch progress, all nodes publish their state to a structured, hierarchical topic namespace. This allows business intelligence platforms, predictive maintenance models, and plant managers to access the exact same data without building complex point-to-point integrations.",
-      "Choosing where to run these industrial workloads is a critical decision in system design. While the cloud offers unlimited storage and massive computational power for training machine learning models, edge computing is essential for latency-sensitive applications like machine vision quality control and real-time safety shutoffs. A hybrid approach—where edge nodes process raw signals at sub-second speeds and forward aggregated telemetry to the cloud for long-term analysis—ensures both local resilience and enterprise-wide optimization. By building on open standards like MQTT Sparkplug B and OPC UA, DHGsoft designs secure, scalable architectures that support the next generation of connected industrial operations."
-    ]
+    hub: "technology-ecosystem"
   },
   {
     slug: "why-uns-reshaping-data",
@@ -178,7 +168,7 @@ export const ARTICLES_DATA: Article[] = [
     excerpt: "The criteria that matter when selecting a platform for industrial-scale data and analytics.",
     category: "Data Platforms",
     image: {
-      src: "https://images.unsplash.com/photo-1542744173-8e0ee26cf221?auto=format&fit=crop&w=800&q=80",
+      src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
       alt: "System architects selecting data models"
     },
     readTime: "[X] min read",
@@ -191,7 +181,7 @@ export const ARTICLES_DATA: Article[] = [
     excerpt: "A practical guide to splitting workloads between edge and cloud for latency, cost, and resilience.",
     category: "Cloud & Edge",
     image: {
-      src: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=800&q=80",
+      src: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
       alt: "Telemetry and computing nodes at the industrial edge"
     },
     readTime: "[X] min read",
@@ -273,7 +263,7 @@ export const CASE_STUDIES_DATA: CaseStudy[] = [
     title: "Semiconductor Fab Lifts Yield with Advanced Analytics",
     excerpt: "Yield analytics and cleanroom monitoring at scale to optimize silicon substrate production cycles.",
     image: {
-      src: "https://images.unsplash.com/photo-1620987278429-ca1858fdb878?auto=format&fit=crop&w=1200&q=80",
+      src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
       alt: "Semiconductor cleanroom technician conducting inspection"
     },
     resultsPreview: "[XX]% yield increase · [XX]% scrap reduction",
@@ -311,7 +301,7 @@ export const CASE_STUDIES_DATA: CaseStudy[] = [
     title: "Energy Utility Modernizes Grid Operations",
     excerpt: "Smart-grid monitoring and SCADA modernization to secure transmission lines and grid networks.",
     image: {
-      src: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1200&q=80",
+      src: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=80",
       alt: "Electricity grid utility transformer infrastructure"
     },
     resultsPreview: "[XX]% reliability increase · [XX]% outage reduction",
@@ -349,7 +339,7 @@ export const CASE_STUDIES_DATA: CaseStudy[] = [
     title: "F&B Leader Achieves Full Traceability",
     excerpt: "End-to-end track-and-trace tracking across high-speed packaging lines.",
     image: {
-      src: "https://images.unsplash.com/photo-1605371924599-2c03b5bac530?auto=format&fit=crop&w=1200&q=80",
+      src: "https://images.unsplash.com/photo-1568254183919-78a4f43a2877?auto=format&fit=crop&w=1200&q=80",
       alt: "High speed bottling conveyor processing line"
     },
     resultsPreview: "[XX]% recall trace speed · [XX]% OEE increase",
@@ -425,7 +415,7 @@ export const CASE_STUDIES_DATA: CaseStudy[] = [
     title: "Manufacturer Boosts OEE with a Connected Factory",
     excerpt: "Unified plant data and real-time dashboards to optimize floor production performance.",
     image: {
-      src: "https://images.unsplash.com/photo-1590986424791-2355385d044a?auto=format&fit=crop&w=1200&q=80",
+      src: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
       alt: "Smart factory floor featuring assembly lines"
     },
     resultsPreview: "[XX]% OEE increase · [XX]% inventory turn improvements",

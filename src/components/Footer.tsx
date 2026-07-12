@@ -20,7 +20,7 @@ export default function Footer() {
 
           {/* Left: Logo + Socials */}
           <div className="lg:col-span-6 flex flex-col items-start space-y-4">
-            <div className="inline-block mt-0 lg:-ml-6 lg:-mt-4">
+            <Link href="/" className="inline-block lg:-ml-10 lg:-mt-20 mt-0">
               <Image
                 src="/DHGsoft Logo.svg"
                 alt="DHG Soft Logo"
@@ -29,7 +29,7 @@ export default function Footer() {
                 style={{ height: 'auto' }}
                 className="object-contain brightness-0 invert opacity-95"
               />
-            </div>
+            </Link>
 
             <div className="flex items-center gap-3 mt-1">
               <a href="https://www.facebook.com/profile.php?id=61590735029358" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-slate-900/50 border border-slate-850 text-slate-400 hover:text-white hover:bg-[#1877F2] hover:border-[#1877F2] transition-all duration-300 flex items-center justify-center">

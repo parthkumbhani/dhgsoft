@@ -212,8 +212,8 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
               <div className="lg:col-span-6">
                 <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-xl border border-line group">
                   <Image
-                    src={data.overviewImage.src}
-                    alt={data.overviewImage.alt}
+                    src={data.overviewImage?.src || defaultCapImage}
+                    alt={data.overviewImage?.alt || data.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -301,8 +301,8 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
               <div className="lg:col-span-4">
                 <div className="relative w-full h-full min-h-[320px] rounded-3xl overflow-hidden shadow-xl border border-line group">
                   <Image
-                    src={data.supportImage.src}
-                    alt={data.supportImage.alt}
+                    src={data.supportImage?.src || defaultCapImage}
+                    alt={data.supportImage?.alt || data.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     sizes="(max-width: 1024px) 100vw, 33vw"
@@ -315,7 +315,7 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
         </Section>
 
         {/* 4) In Focus - Image Mosaic Gallery */}
-        <Gallery images={data.gallery} />
+        <Gallery images={data.gallery || []} />
 
         {/* 5) Connected Operations - Animated SVG Diagram */}
         <ConnectedOperations

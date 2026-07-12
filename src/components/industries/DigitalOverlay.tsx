@@ -57,8 +57,8 @@ export default function DigitalOverlay({ nodes = [] }: DigitalOverlayProps) {
       <svg className="absolute inset-0 w-full h-full opacity-30">
         <defs>
           <linearGradient id="hud-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#E11D5C" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#B4123F" stopOpacity="0.2" />
+            <stop offset="0%" stopColor="var(--color-brand-hot)" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="var(--color-brand)" stopOpacity="0.2" />
           </linearGradient>
         </defs>
 
@@ -114,9 +114,9 @@ export default function DigitalOverlay({ nodes = [] }: DigitalOverlayProps) {
             <motion.div
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              className="bg-ink/80 backdrop-blur-md border border-brand/30 px-3 py-1.5 rounded-lg text-left shadow-lg"
+              className="bg-ink/80 backdrop-blur-md border border-brand/35 px-3 py-1.5 rounded-lg text-left shadow-lg"
             >
-              <span className="text-[10px] font-extrabold text-slate-400 tracking-wider block uppercase font-mono">
+              <span className="text-[10px] font-extrabold text-white/50 tracking-wider block uppercase font-mono">
                 {node.label}
               </span>
               {node.value && (

@@ -1,6 +1,5 @@
 // src/components/industries/ConnectedOperations.tsx
 "use client";
-import { Section } from "@/components/ui/Section";
 
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -39,13 +38,13 @@ export default function ConnectedOperations({ industryName, assets, caption }: C
   ];
 
   return (
-    <Section variant="ink" containerSize="wide" ref={containerRef} className=" text-white border-b border-slate-900 overflow-hidden relative">
+    <section ref={containerRef} className="bg-ink text-white py-20 border-b border-line/10 overflow-hidden relative">
       {/* Subtle grid pattern overlay */}
       <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
       <div className="absolute -top-1/4 -left-1/4 w-[500px] h-[500px] rounded-full bg-brand/5 blur-[150px] pointer-events-none" />
       <div className="absolute -bottom-1/4 -right-1/4 w-[500px] h-[500px] rounded-full bg-brand-hot/5 blur-[150px] pointer-events-none" />
 
-      <div className="w-full relative z-10">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Text Description Block */}
@@ -56,12 +55,12 @@ export default function ConnectedOperations({ industryName, assets, caption }: C
             <h3 className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">
               Connected {industryName} Operations
             </h3>
-            <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+            <p className="text-white/60 text-sm sm:text-base leading-relaxed">
               {caption}
             </p>
             <div className="pt-4 flex items-center gap-3">
-              <span className="h-2 w-2 rounded-full bg-[#E11D5C] animate-ping" />
-              <span className="text-xs font-mono font-bold tracking-widest uppercase text-slate-300">
+              <span className="h-2 w-2 rounded-full bg-brand animate-ping" />
+              <span className="text-xs font-mono font-bold tracking-widest uppercase text-white/80">
                 ACTIVE DATA FLOW PIPELINE
               </span>
             </div>
@@ -72,7 +71,7 @@ export default function ConnectedOperations({ industryName, assets, caption }: C
             style={{ opacity: opacityVal }}
             className="lg:col-span-8 flex justify-center w-full"
           >
-            <div className="relative w-full max-w-[800px] aspect-[2/1] bg-slate-950/40 border border-slate-800/80 rounded-3xl p-6 backdrop-blur-sm overflow-hidden">
+            <div className="relative w-full max-w-[800px] aspect-[2/1] bg-ink-2/45 border border-line/15 rounded-3xl p-6 backdrop-blur-sm overflow-hidden">
               <svg 
                 viewBox="0 0 800 400" 
                 className="w-full h-full"
@@ -93,7 +92,8 @@ export default function ConnectedOperations({ industryName, assets, caption }: C
                       {/* Base Background Pipeline path */}
                       <path
                         d={`M ${hubX} ${hubY} L ${node.x} ${node.y}`}
-                        stroke="rgba(180, 18, 63, 0.15)"
+                        stroke="var(--color-brand)"
+                        strokeOpacity="0.15"
                         strokeWidth="2"
                         strokeLinecap="round"
                       />
@@ -108,7 +108,7 @@ export default function ConnectedOperations({ industryName, assets, caption }: C
                       {/* Travelling Data Pulse Dot */}
                       <motion.circle
                         r="3.5"
-                        fill="#E11D5C"
+                        fill="var(--color-brand-hot)"
                         filter="url(#glow-filter)"
                         animate={{
                           cx: [hubX, node.x],
@@ -127,8 +127,8 @@ export default function ConnectedOperations({ industryName, assets, caption }: C
                 {/* Definitions */}
                 <defs>
                   <linearGradient id="svg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#B4123F" />
-                    <stop offset="100%" stopColor="#E11D5C" />
+                    <stop offset="0%" stopColor="var(--color-brand)" />
+                    <stop offset="100%" stopColor="var(--color-brand-hot)" />
                   </linearGradient>
                   
                   <filter id="glow-filter" x="-20%" y="-20%" width="140%" height="140%">
@@ -144,8 +144,10 @@ export default function ConnectedOperations({ industryName, assets, caption }: C
                     cx={hubX}
                     cy={hubY}
                     r="34"
-                    fill="rgba(180, 18, 63, 0.1)"
-                    stroke="rgba(225, 29, 92, 0.25)"
+                    fill="var(--color-brand)"
+                    fillOpacity="0.1"
+                    stroke="var(--color-brand-hot)"
+                    strokeOpacity="0.25"
                     strokeWidth="1.5"
                     animate={{ scale: [1, 1.25, 1] }}
                     transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
@@ -155,14 +157,14 @@ export default function ConnectedOperations({ industryName, assets, caption }: C
                     cx={hubX}
                     cy={hubY}
                     r="25"
-                    fill="#0A0E1A"
-                    stroke="#B4123F"
+                    fill="var(--color-ink)"
+                    stroke="var(--color-brand)"
                     strokeWidth="3.5"
                   />
                   <g transform={`translate(${hubX - 10}, ${hubY - 10})`}>
                     <path
                       d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-                      stroke="#E11D5C"
+                      stroke="var(--color-brand-hot)"
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -181,13 +183,13 @@ export default function ConnectedOperations({ industryName, assets, caption }: C
                         cx={node.x}
                         cy={node.y}
                         r="20"
-                        fill="#0A0E1A"
-                        stroke="#B4123F"
+                        fill="var(--color-ink)"
+                        stroke="var(--color-brand)"
                         strokeWidth="2"
                       />
                       {/* Icon */}
                       <g transform={`translate(${node.x - 9}, ${node.y - 9})`} className="text-brand-hot">
-                        <Icon className="w-4.5 h-4.5 stroke-[#E11D5C]" strokeWidth={2} />
+                        <Icon className="w-4.5 h-4.5 stroke-brand-hot" strokeWidth={2} />
                       </g>
                       
                       {/* Label Text Overlay */}
@@ -195,7 +197,7 @@ export default function ConnectedOperations({ industryName, assets, caption }: C
                         x={node.x}
                         y={node.y > hubY ? node.y + 35 : node.y - 28}
                         textAnchor="middle"
-                        fill="#94A3B8"
+                        fill="var(--color-txt-muted)"
                         fontSize="10"
                         fontWeight="bold"
                         fontFamily="monospace"
@@ -212,6 +214,6 @@ export default function ConnectedOperations({ industryName, assets, caption }: C
 
         </div>
       </div>
-    </Section>
+    </section>
   );
 }
