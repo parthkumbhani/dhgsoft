@@ -1,6 +1,5 @@
 // src/app/careers/submit-cv/page.tsx
 "use client";
-import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -8,6 +7,7 @@ import { ChevronRight, ArrowRight, ClipboardCheck, PhoneCall, Users2 } from "luc
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
+import { Section } from "@/components/ui/Section";
 import CvForm from "@/components/careers/CvForm";
 
 export default function SubmitCvPage() {
@@ -33,86 +33,98 @@ export default function SubmitCvPage() {
 
   return (
     <div className="min-h-screen bg-white text-slate-800 antialiased font-sans selection:bg-[#B4123F] selection:text-white">
-      {/* Header */}
+      {/* Header Navigation */}
       <Header onContactClick={() => setIsContactOpen(true)} />
 
       <main className="relative pt-20">
         
-        {/* Hero */}
-        <Section variant="ink" containerSize="wide" className="relative overflow-hidden border-b border-slate-900">
-          <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
-          <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] rounded-full bg-brand/10 blur-[120px] pointer-events-none" />
-          
+        {/* Light Sub-Page Hero */}
+        <Section variant="white" size="snug" pattern="none" className="relative min-h-[380px] flex items-center border-b border-line overflow-hidden pt-12 pb-16">
+          {/* Subtle Contour Grid Texture */}
+          <div
+            className="absolute inset-0 bg-tech-grid opacity-[0.012] pointer-events-none z-0"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px)",
+              backgroundSize: "32px 32px",
+            }}
+          />
+
           <div className="w-full relative z-10 text-left space-y-6">
             {/* Breadcrumbs */}
-            <div className="flex items-center gap-1 text-slate-400 text-xs sm:text-sm font-semibold tracking-wide mb-2">
-              <Link href="/careers" className="hover:text-white transition-colors">
+            <div className="flex items-center gap-1 text-slate-400 text-xs sm:text-sm font-semibold tracking-wide">
+              <Link href="/careers" className="hover:text-txt-strong transition-colors">
                 Careers
               </Link>
               <ChevronRight className="w-3.5 h-3.5" />
-              <span className="text-brand-hot">Submit CV</span>
+              <span className="text-brand">Submit CV</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-black text-white tracking-tight leading-[1.05] max-w-4xl">
+            <h1 className="heading-hero text-txt-strong">
               Submit Your CV
             </h1>
-            <p className="section-subtitle on-dark max-w-2xl">
+            <p className="text-body-md text-txt-muted max-w-2xl font-sans font-medium leading-relaxed">
               Don&apos;t see the right role? Tell us about yourself — we&apos;re always looking for great people.
             </p>
           </div>
         </Section>
 
         {/* CV Form section */}
-        <Section variant="mist" containerSize="wide" className=" border-b border-line relative bg-dot-matrix">
+        <Section variant="mist" size="snug" pattern="none" className="relative border-b border-line">
           <div className="w-full relative z-10 space-y-12">
             <CvForm />
           </div>
         </Section>
 
-        {/* What happens next */}
-        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid">
-          <div className="w-full relative z-10 space-y-12">
-            <div className="text-center max-w-xl mx-auto space-y-3">
-              <span className="section-eyebrow">
-                PROCESS
-              </span>
-              <h2 className="text-3xl font-black text-text-strong tracking-tight">
+        {/* What happens next — clean list dividers (no cards) */}
+        <Section variant="white" size="snug" pattern="none" className="relative border-b border-line">
+          <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div className="lg:col-span-5 text-left space-y-3">
+              <span className="section-eyebrow">PROCESS</span>
+              <h2 className="heading-section text-txt-strong mt-3 font-sans font-extrabold text-3xl tracking-tight leading-tight">
                 What Happens Next?
               </h2>
+              <p className="text-body-md text-txt-muted font-sans font-medium leading-relaxed">
+                A simple workflow of how we process speculative applications.
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-              {steps.map((step, idx) => {
-                const Icon = step.icon;
-                return (
-                  <div key={idx} className="bg-slate-50 border border-line rounded-2xl p-8 space-y-4 hover:border-brand/40 transition-all duration-300">
-                    <div className="h-12 w-12 rounded-xl bg-brand/5 border border-brand/10 text-brand flex items-center justify-center">
-                      <Icon className="w-6 h-6" />
+            <div className="lg:col-span-7 border-t border-line divide-y divide-line">
+              {steps.map((step, idx) => (
+                <div key={idx} className="py-6 first:pt-0 last:pb-0 select-none">
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-6 items-start">
+                    {/* Step Icon */}
+                    <div className="md:col-span-2 text-brand">
+                      <step.icon className="w-6 h-6" />
                     </div>
-                    <div className="space-y-2">
-                      <h4 className="font-extrabold text-text-strong text-lg tracking-tight">{step.title}</h4>
-                      <p className="card-description">{step.desc}</p>
+                    {/* Content */}
+                    <div className="md:col-span-10 space-y-2">
+                      <h4 className="font-extrabold text-txt-strong text-lg tracking-tight font-sans">
+                        {step.title}
+                      </h4>
+                      <p className="text-xs md:text-sm text-txt-muted font-sans font-semibold leading-relaxed">
+                        {step.desc}
+                      </p>
                     </div>
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </div>
+          </div>
 
-            <div className="pt-8 text-center border-t border-slate-100 mt-12 flex flex-col items-center justify-center gap-4">
-              <span className="text-text-muted text-sm font-semibold">Or review active vacancies in our listings:</span>
-              <Link
-                href="/careers/current-openings"
-                className="bg-slate-900 hover:bg-brand px-6 py-4 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center gap-2 group cursor-pointer section-eyebrow on-dark"
-              >
-                <span>View Current Openings</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
-              </Link>
-            </div>
+          <div className="pt-8 text-center border-t border-line mt-12 flex flex-col items-center justify-center gap-4">
+            <span className="text-txt-muted text-sm font-semibold">Or review active vacancies in our listings:</span>
+            <Link
+              href="/careers/current-openings"
+              className="bg-slate-900 hover:bg-brand text-white font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center gap-2 group cursor-pointer"
+            >
+              <span>View Current Openings</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
+            </Link>
           </div>
         </Section>
 
       </main>
-
 
       {/* Footer */}
       <Footer />
@@ -122,3 +134,4 @@ export default function SubmitCvPage() {
     </div>
   );
 }
+

@@ -1,204 +1,159 @@
 // src/app/careers/life-at-dhgsoft/page.tsx
 "use client";
-import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ChevronRight, CheckCircle2, ShieldCheck, Heart, Sparkles, Code, Globe, User } from "lucide-react";
+import { ChevronRight, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
-import PhotoMosaic from "@/components/careers/PhotoMosaic";
+import { Section } from "@/components/ui/Section";
 import CtaBand from "@/components/careers/CtaBand";
-import { CULTURE_PILLARS, BENEFITS_LIST, EMPLOYEE_SPOTLIGHTS } from "@/lib/careers";
-import { careersImages } from "@/lib/images/careersImages";
 
 export default function LifeAtDhgsoftPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-white text-slate-800 antialiased font-sans selection:bg-[#B4123F] selection:text-white">
-      {/* Header */}
+      {/* Header Navigation */}
       <Header onContactClick={() => setIsContactOpen(true)} />
 
       <main className="relative pt-20">
         
-        {/* Hero */}
-        <Section variant="ink" containerSize="wide" className="relative min-h-[460px] flex items-center text-white overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <Image
-              src={careersImages.lifeHero.src}
-              alt={careersImages.lifeHero.alt}
-              fill
-              className="object-cover opacity-35"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent" />
-            <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
-          </div>
+        {/* Light Sub-Page Hero */}
+        <Section variant="white" size="snug" pattern="none" className="relative min-h-[380px] flex items-center border-b border-line overflow-hidden pt-12 pb-16">
+          {/* Subtle Contour Grid Texture */}
+          <div
+            className="absolute inset-0 bg-tech-grid opacity-[0.012] pointer-events-none z-0"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px)",
+              backgroundSize: "32px 32px",
+            }}
+          />
 
-          <div className="w-full relative z-10 text-left space-y-6 max-w-4xl">
+          <div className="w-full relative z-10 text-left space-y-6">
             {/* Breadcrumbs */}
             <div className="flex items-center gap-1 text-slate-400 text-xs sm:text-sm font-semibold tracking-wide">
-              <Link href="/careers" className="hover:text-white transition-colors">
+              <Link href="/careers" className="hover:text-txt-strong transition-colors">
                 Careers
               </Link>
               <ChevronRight className="w-3.5 h-3.5" />
-              <span className="text-brand-hot">Life at DHGsoft</span>
+              <span className="text-brand">Life at DHGsoft</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-black text-white tracking-tight leading-[1.05]">
+            <h1 className="heading-hero text-txt-strong">
               Life at DHGsoft
             </h1>
-            <p className="section-subtitle on-dark max-w-2xl">
+            <p className="text-body-md text-txt-muted max-w-2xl font-sans font-medium leading-relaxed">
               Discover our culture, benefits, and engineering mindset.
             </p>
           </div>
         </Section>
 
-        {/* 5 pillars section */}
-        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid select-none">
-          <div className="w-full relative z-10 space-y-12">
-            <div className="text-left space-y-3">
-              <span className="section-eyebrow">
-                OUR CULTURE
-              </span>
-              <h2 className="text-3xl font-black text-text-strong tracking-tight">
-                Pillars of Collaboration
+        {/* ── ALTERNATING EDITORIAL LAYOUTS ── */}
+
+        {/* Section 1: Team Collaboration (Image Left, Text Right) */}
+        <Section variant="white" size="snug" pattern="none" className="border-b border-line">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Image */}
+            <div className="lg:col-span-6 relative aspect-[16/10] rounded-[24px] overflow-hidden shadow-sm border border-line bg-slate-50">
+              <Image
+                src="/images/careers/culture/collaboration.jpg"
+                alt="DHGsoft design systems team brainstorming at whiteboard"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 45vw"
+              />
+            </div>
+            {/* Text */}
+            <div className="lg:col-span-6 space-y-6">
+              <span className="section-eyebrow">Collaboration</span>
+              <h2 className="heading-section text-txt-strong">
+                Cross-Functional Engineering Syncs
               </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {CULTURE_PILLARS.map((pillar, i) => (
-                <div key={i} className="bg-slate-50 border border-line rounded-2xl p-8 space-y-4 text-left hover:border-brand/40 transition-all duration-300">
-                  <div className="h-10 w-10 rounded-xl bg-brand/5 border border-brand/10 text-brand flex items-center justify-center font-mono font-extrabold text-sm">
-                    0{i + 1}
-                  </div>
-                  <h4 className="font-extrabold text-text-strong text-lg tracking-tight">{pillar.title}</h4>
-                  <p className="card-description">{pillar.desc}</p>
-                </div>
-              ))}
+              <p className="text-body-md text-txt-muted font-sans font-medium leading-relaxed">
+                At DHGsoft, engineers don&apos;t work in isolation. Our systems designers, software developers, and industrial analysts sit in joint delivery groups. We align hardware telemetry streams with software architectures through open, collaborative reviews.
+              </p>
             </div>
           </div>
         </Section>
 
-        {/* The Engineering Mindset - split grid */}
-        <Section variant="mist" containerSize="wide" className=" border-b border-line relative bg-dot-matrix">
-          <div className="w-full relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              
-              <div className="lg:col-span-6 text-left space-y-6">
-                <span className="section-eyebrow">
-                  Mindset & Drive
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-black text-text-strong tracking-tight leading-tight">
-                  The Engineering Mindset
-                </h2>
-                <p className="section-subtitle">
-                  We work the way we engineer: with curiosity, discipline, and a bias for outcomes. We value people who understand both code and operations — and who care about the result, not just the deliverable.
-                </p>
-              </div>
-
-              <div className="lg:col-span-6 relative h-[300px] sm:h-[400px] rounded-3xl overflow-hidden shadow-md border border-line">
-                <Image
-                  src={careersImages.lifeMindset.src}
-                  alt={careersImages.lifeMindset.alt}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-
-            </div>
-          </div>
-        </Section>
-
-        {/* Benefits & Perks */}
-        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid">
-          <div className="w-full relative z-10 space-y-12">
-            <div className="text-left space-y-3">
-              <span className="section-eyebrow">
-                BENEFITS & PERKS
-              </span>
-              <h2 className="text-3xl font-black text-text-strong tracking-tight">
-                Supporting Our People
+        {/* Section 2: Industrial Site Visits & Commissioning (Image Right, Text Left) */}
+        <Section variant="mist" size="snug" pattern="none" className="border-b border-line">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Text */}
+            <div className="lg:col-span-6 space-y-6 order-last lg:order-first">
+              <span className="section-eyebrow">On-Site Commissioning</span>
+              <h2 className="heading-section text-txt-strong">
+                Bridging Physical &amp; Digital Floors
               </h2>
+              <p className="text-body-md text-txt-muted font-sans font-medium leading-relaxed">
+                We believe great software is verified at the edge. Our engineering groups make regular commissions to client manufacturing facilities, treatment plants, and utility substations to verify telemetry loops, security firewalls, and digital twin layouts directly on-site.
+              </p>
             </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {BENEFITS_LIST.map((benefit, i) => (
-                <div key={i} className="bg-slate-50 border border-line rounded-2xl p-6 text-left space-y-3 hover:border-brand/40 transition-all duration-300">
-                  <h4 className="font-extrabold text-text-strong text-base tracking-tight">{benefit.name}</h4>
-                  <p className="card-description">{benefit.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="pt-4 text-center">
-              <span className="text-[11px] font-mono text-slate-400 block max-w-xl mx-auto leading-relaxed">
-                * Muted Note: Tailor these benefits to your actual offering.
-              </span>
+            {/* Image */}
+            <div className="lg:col-span-6 relative aspect-[16/10] rounded-[24px] overflow-hidden shadow-sm border border-line bg-slate-50">
+              <Image
+                src="/images/careers/culture/engineer-factory.jpg"
+                alt="DHGsoft engineer tuning system loop parameters beside PLC panel"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 45vw"
+              />
             </div>
           </div>
         </Section>
 
-        {/* Life in Pictures Mosaic component */}
-        <PhotoMosaic />
-
-        {/* Diversity & Inclusion Band */}
-        <Section variant="ink" containerSize="wide" className=" border-b border-slate-800 text-white text-center relative overflow-hidden select-none">
-          <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
-          <div className="w-full relative z-10 space-y-4 max-w-3xl">
-            <span className="section-eyebrow">
-              DIVERSITY & INCLUSION
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
-              Belonging & Growth
-            </h2>
-            <p className="section-subtitle on-dark">
-              We build diverse teams and an inclusive culture where different backgrounds and perspectives make our engineering stronger.
-            </p>
-          </div>
-        </Section>
-
-        {/* Employee Spotlights */}
-        <Section variant="mist" containerSize="wide" className=" border-b border-line relative bg-dot-matrix">
-          <div className="w-full relative z-10 space-y-12">
-            <div className="text-left space-y-3">
-              <span className="section-eyebrow">
-                EMPLOYEE SPOTLIGHTS
-              </span>
-              <h2 className="text-3xl font-black text-text-strong tracking-tight">
-                Meet the Architects
+        {/* Section 3: Training & Knowledge Transfer (Image Left, Text Right) */}
+        <Section variant="white" size="snug" pattern="none" className="border-b border-line">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Image */}
+            <div className="lg:col-span-6 relative aspect-[16/10] rounded-[24px] overflow-hidden shadow-sm border border-line bg-slate-50">
+              <Image
+                src="/images/careers/culture/training.jpg"
+                alt="Senior engineering leads conducting a technical systems architecture workshop"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 45vw"
+              />
+            </div>
+            {/* Text */}
+            <div className="lg:col-span-6 space-y-6">
+              <span className="section-eyebrow">Continuous Learning</span>
+              <h2 className="heading-section text-txt-strong">
+                Structured Technical Mentorship
               </h2>
+              <p className="text-body-md text-txt-muted font-sans font-medium leading-relaxed">
+                Growth is built into our daily routine. Senior systems architects lead weekly whiteboarding syncs, code teardowns, and certification reviews. We provide dedicated development hours to ensure everyone maintains a sharp technical edge.
+              </p>
             </div>
+          </div>
+        </Section>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {EMPLOYEE_SPOTLIGHTS.map((spot, i) => (
-                <div key={i} className="bg-white border border-line rounded-2xl p-8 flex flex-col justify-between shadow-sm text-left hover:border-brand/40 transition-all duration-300">
-                  <div className="space-y-6">
-                    <p className="italic section-subtitle">
-                      &ldquo;{spot.quote}&rdquo;
-                    </p>
-                  </div>
-                  
-                  <div className="pt-6 border-t border-slate-100 mt-6 flex items-center gap-3">
-                    <div className="h-10 w-10 rounded-full bg-brand/10 border border-brand/20 text-brand font-black text-sm flex items-center justify-center font-mono">
-                      {spot.initials}
-                    </div>
-                    <div>
-                      <h4 className="font-extrabold text-text-strong text-xs">{spot.name}</h4>
-                      <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider font-mono mt-0.5">{spot.role}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+        {/* Section 4: Milestones & Team Focus (Image Right, Text Left) */}
+        <Section variant="mist" size="snug" pattern="none" className="border-b border-line">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Text */}
+            <div className="lg:col-span-6 space-y-6 order-last lg:order-first">
+              <span className="section-eyebrow">Team Alignment</span>
+              <h2 className="heading-section text-txt-strong">
+                Celebrating Project Deliveries
+              </h2>
+              <p className="text-body-md text-txt-muted font-sans font-medium leading-relaxed">
+                Deploying complex systems across global facilities is demanding work. We ensure our delivery groups step back to review milestones, share architecture lessons, and celebrate successful commissioning phases together.
+              </p>
             </div>
-
-            <div className="pt-4 text-center">
-              <span className="text-[11px] font-mono text-slate-400 block max-w-xl mx-auto leading-relaxed">
-                * Note: Replace spotlight placeholders with real, consenting employee quotes before staging.
-              </span>
+            {/* Image */}
+            <div className="lg:col-span-6 relative aspect-[16/10] rounded-[24px] overflow-hidden shadow-sm border border-line bg-slate-50">
+              <Image
+                src="/images/careers/culture/celebration.jpg"
+                alt="DHGsoft delivery team reviewing project commissioning milestones"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 45vw"
+              />
             </div>
           </div>
         </Section>
@@ -216,7 +171,8 @@ export default function LifeAtDhgsoftPage() {
       <Footer />
 
       {/* Contact Modal */}
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} showToast={(msg, type) => {}} />
+      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} showToast={() => {}} />
     </div>
   );
 }
+

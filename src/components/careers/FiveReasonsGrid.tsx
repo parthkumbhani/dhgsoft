@@ -4,7 +4,8 @@ import React, { useRef } from "react";
 import { Cpu, Target, GraduationCap, Users, Rocket } from "lucide-react";
 import { whyJoinReasons } from "@/lib/careersData";
 import { Section } from "@/components/ui/Section";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useSafeReducedMotion } from "@/hooks/useSafeReducedMotion";
 
 // Map lucide components
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -18,7 +19,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 export default function FiveReasonsGrid() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.1 });
-  const shouldReduceMotion = !!useReducedMotion();
+  const shouldReduceMotion = useSafeReducedMotion();
 
   return (
     <Section 

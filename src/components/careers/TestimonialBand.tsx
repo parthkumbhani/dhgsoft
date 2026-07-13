@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
-import { motion, useInView, AnimatePresence, useReducedMotion } from "framer-motion";
+import React, { useRef, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useSafeReducedMotion } from "@/hooks/useSafeReducedMotion";
 import { Section } from "@/components/ui/Section";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
@@ -44,12 +45,7 @@ const testimonials: Testimonial[] = [
 export default function TestimonialBand() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.15 });
-  const shouldReduceMotion = !!useReducedMotion();
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  const shouldReduceMotion = useSafeReducedMotion();
 
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -72,7 +68,7 @@ export default function TestimonialBand() {
       className="relative overflow-visible py-16 md:py-24"
     >
       <motion.div 
-        initial={isClient && shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+        initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.65, ease: "easeOut" }}
         className="w-full bg-[#0c1020] border border-white/10 rounded-[2rem] p-8 md:p-12 lg:p-16 text-white shadow-[0_30px_70px_rgba(0,0,0,0.5)] relative overflow-hidden"
@@ -125,9 +121,9 @@ export default function TestimonialBand() {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}
-              initial={isClient && shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: 20 }}
+              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={isClient && shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: -20 }}
+              exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: -20 }}
               transition={{ duration: 0.35, ease: "easeInOut" }}
               className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full relative z-10"
             >

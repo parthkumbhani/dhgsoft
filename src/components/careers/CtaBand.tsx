@@ -1,9 +1,10 @@
 // src/components/careers/CtaBand.tsx
 "use client";
-import { Section } from "@/components/ui/Section";
 
 import React from "react";
 import Link from "next/link";
+import { Section } from "@/components/ui/Section";
+import { ArrowRight } from "lucide-react";
 
 interface CtaBandProps {
   title?: string;
@@ -17,15 +18,23 @@ export default function CtaBand({
   buttonHref = "/careers/submit-cv"
 }: CtaBandProps) {
   return (
-    <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center select-none">
-      <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
+    <Section variant="white" size="snug" pattern="none" className="relative overflow-hidden border-t border-line bg-slate-50">
+      {/* Subtle Contour Grid Texture */}
+      <div
+        className="absolute inset-0 bg-tech-grid opacity-[0.012] pointer-events-none z-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+        }}
+      />
+      
       <div className="w-full relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8 text-left">
-        
         <div className="max-w-2xl space-y-2">
-          <span className="section-eyebrow on-dark">
+          <span className="section-eyebrow">
             BUILD THE FUTURE
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-txt-strong tracking-tight leading-tight font-sans">
             {title}
           </h2>
         </div>
@@ -33,13 +42,14 @@ export default function CtaBand({
         <div className="shrink-0">
           <Link
             href={buttonHref}
-            className="bg-white hover:bg-slate-100 text-brand font-extrabold text-sm sm:text-base px-8 py-4 rounded-xl transition-all duration-300 shadow-md inline-block active:scale-95 cursor-pointer text-center"
+            className="bg-gradient-to-r from-brand to-brand-deep hover:-translate-y-[2px] text-white font-bold text-sm px-8 py-4 rounded-xl transition-all duration-300 shadow-md inline-flex items-center gap-2 cursor-pointer text-center"
           >
-            {buttonText}
+            <span>{buttonText}</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-
       </div>
     </Section>
   );
 }
+export { CtaBand };
