@@ -20,7 +20,7 @@ export default function Footer() {
 
           {/* Left: Logo + Socials */}
           <div className="lg:col-span-6 flex flex-col items-start space-y-4">
-            <Link href="/" className="inline-block mt-0 lg:-ml-6 lg:-mt-4">
+            <Link href="/" className="inline-block lg:-ml-10 lg:-mt-20 mt-0">
               <Image
                 src="/DHGsoft Logo.svg"
                 alt="DHG Soft Logo"
