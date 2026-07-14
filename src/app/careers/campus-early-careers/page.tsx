@@ -15,6 +15,7 @@ import CampusJourney from "@/components/careers/campus-early/07_CampusJourney"
 import WhatYoullGain from "@/components/careers/campus-early/08_WhatYoullGain"
 import FAQ from "@/components/careers/campus-early/09_FAQ"
 import FinalCta from "@/components/careers/campus-early/10_FinalCta"
+import CTABand from "@/components/CTABand"
 
 export default function CampusEarlyCareersPage() {
   const [isContactOpen, setIsContactOpen] = useState(false)
@@ -54,8 +55,16 @@ export default function CampusEarlyCareersPage() {
         {/* Section 9: FAQ Accordion */}
         <FAQ />
 
-        {/* Section 10: Final closing CTA */}
-        <FinalCta />
+        {/* CTA BAND */}
+        <CTABand
+          label="PARTNER WITH DHGSOFT"
+          headline="Building Value"
+          highlightedText="for Tomorrow."
+          description="Whether you are modernizing a single production line, connecting enterprise systems to the cloud, or building a secure data foundation — DHGsoft is your engineering partner from concept to commissioning."
+          primaryLabel="Start a Conversation →"
+          secondaryLabel="Explore Capabilities"
+          onPrimaryClick={() => setIsContactOpen(true)}
+        />
 
       </main>
 

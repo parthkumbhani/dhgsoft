@@ -46,7 +46,7 @@ export default function ProcessJourney({ steps }: ProcessJourneyProps) {
                 {step.num}
               </motion.div>
               <div className="space-y-2">
-                <h4 className="font-extrabold text-text-strong text-lg tracking-tight">{step.title}</h4>
+                <h3 className="font-extrabold text-text-strong text-lg tracking-tight">{step.title}</h3>
                 <p className="text-text-muted text-sm leading-relaxed">{step.desc}</p>
               </div>
             </div>
@@ -82,7 +82,7 @@ export default function ProcessJourney({ steps }: ProcessJourneyProps) {
               {step.num}
             </motion.div>
             <div className="pl-4 space-y-1">
-              <h4 className="font-extrabold text-text-strong text-base tracking-tight">{step.title}</h4>
+              <h3 className="font-extrabold text-text-strong text-base tracking-tight">{step.title}</h3>
               <p className="text-text-muted text-xs leading-relaxed">{step.desc}</p>
             </div>
           </div>

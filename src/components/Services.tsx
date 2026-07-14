@@ -202,12 +202,12 @@ function ServiceCard({ data, isExpanded, onCardHover, onCardLeave }: {
           {/* Content — 34% */}
           <div className="flex-grow flex flex-col justify-between px-6 pt-4 pb-6">
             <div>
-              <h4
+              <h5
                 className="font-bold tracking-tight font-headline text-white"
                 style={{ fontSize: 18, lineHeight: 1.25, marginBottom: 8 }}
               >
                 {data.title}
-              </h4>
+              </h5>
               <p
                 className="font-sans line-clamp-2 text-[#C7CEDD]"
                 style={{ fontSize: 13, lineHeight: 1.6 }}

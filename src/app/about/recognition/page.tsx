@@ -1,21 +1,16 @@
 // src/app/about/recognition/page.tsx
 "use client";
-import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { Star, Trophy, Medal, BadgeCheck, Rocket, Flag, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
 import { recognitionImages } from "@/lib/images/recognition";
-import {
-  Star,
-  Trophy,
-  Medal,
-  BadgeCheck,
-  Rocket,
-  Flag
-} from "lucide-react";
+import CTABand from "@/components/CTABand";
 
 const highlightCards = [
   {
@@ -50,224 +45,239 @@ const highlightCards = [
   }
 ];
 
+const realCases = [
+  {
+    industry: "Industrial Manufacturing",
+    title: "OEE Optimization",
+    desc: "Real-time production visibility across 14 lines, integrating plant floor sensors and enterprise dashboards.",
+    img: recognitionImages.caseManufacturing.src,
+    alt: recognitionImages.caseManufacturing.alt,
+    outcome: "18% OEE Increase"
+  },
+  {
+    industry: "Energy & Utilities",
+    title: "Smart Water Grid",
+    desc: "Distributed SCADA integration with predictive leak detection and edge intelligence nodes.",
+    img: recognitionImages.caseEnergy.src,
+    alt: recognitionImages.caseEnergy.alt,
+    outcome: "30% Downtime Reduction"
+  },
+  {
+    industry: "Smart Logistics",
+    title: "Warehouse Automation",
+    desc: "Unified Namespace integration linking WMS with PLC pick-and-pack conveyor systems.",
+    img: recognitionImages.caseLogistics.src,
+    alt: recognitionImages.caseLogistics.alt,
+    outcome: "22% Throughput Growth"
+  }
+];
+
+const certifications = [
+  { name: "ISO 9001:2015", desc: "Quality Management Systems" },
+  { name: "IEC 62443", desc: "OT Cybersecurity Standards" },
+  { name: "Microsoft Silver Partner", desc: "Cloud Platform Integration" },
+  { name: "Siemens Solution Partner", desc: "Industrial Control Systems Integration" }
+];
+
 export default function RecognitionPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white text-slate-800 antialiased font-sans selection:bg-[#B4123F] selection:text-white">
+    <div className="min-h-screen bg-background text-foreground antialiased font-sans flex flex-col selection:bg-brand selection:text-white">
       {/* Sticky Header */}
       <Header onContactClick={() => setIsContactOpen(true)} />
 
       <main className="relative pt-20">
-
-        {/* 1. Hero Band */}
-        <Section variant="ink" containerSize="wide" className="relative min-h-[500px] flex items-center overflow-hidden ">
-          <div className="absolute inset-0 z-0">
+        
+        {/* ==========================================
+            1. HERO SECTION
+            ========================================== */}
+        <Section variant="ink" size="hero" containerSize="wide" className="relative min-h-screen flex items-center overflow-hidden">
+          <div className="absolute inset-0 z-0 pointer-events-none">
             <Image
               src={recognitionImages.hero.src}
               alt={recognitionImages.hero.alt}
               fill
               priority
-              className="object-cover object-center opacity-40"
+              className="object-cover opacity-35"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent" />
           </div>
-          <div className="w-full relative z-10 py-16 md:py-20">
-            <div className="max-w-3xl text-left flex gap-6">
-              <div className="w-[4px] bg-brand rounded-full self-stretch shrink-0" />
-              <div className="space-y-4">
-                <span className="section-eyebrow">
+          <Container className="relative z-10 w-full text-left">
+            <div className="max-w-3xl space-y-6">
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20 backdrop-blur-md text-[#E10088] mb-4">
+                <span className="relative flex w-1.5 h-1.5">
+                  <span className="absolute inset-0 rounded-full bg-[#E10088] animate-ping opacity-60" />
+                  <span className="relative rounded-full bg-[#E10088] w-1.5 h-1.5" />
+                </span>
+                <span className="text-[11px] font-extrabold uppercase tracking-widest font-sans">
                   RECOGNITION
                 </span>
-                <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-black text-white tracking-tight leading-[1.1] font-sans">
-                  Measured by the Value We Create
-                </h1>
-                <p className="section-subtitle on-dark">
-                  DHGsoft measures success by the value created for customers.
-                </p>
               </div>
+              <h1 className="text-white text-headline-xl sm:text-[3.25rem] lg:text-[4.5rem] font-black tracking-tight leading-[1.1]">
+                Measured by the
+                <br />
+                <span className="text-gradient-brand">Value We Create</span>
+              </h1>
+              <p className="text-slate-300 max-w-2xl leading-relaxed text-body-md font-medium">
+                DHGsoft measures success by the value created for customers.
+              </p>
             </div>
-          </div>
+          </Container>
         </Section>
 
-        {/* 2. Our Success Intro */}
-        <Section variant="mist" containerSize="wide" className=" border-b border-line text-left overflow-hidden relative bg-dot-matrix">
-          <div className="w-full relative z-10 space-y-4">
-            <span className="section-eyebrow">
-              OUR SUCCESS
-            </span>
-            <p className="text-text-strong font-bold text-xl sm:text-2xl leading-relaxed max-w-4xl">
-              Recognition follows outcomes. DHGsoft measures success by the value created for customers — and we&apos;re proud of the results we help our partners achieve.
-            </p>
-            <p className="text-brand font-extrabold text-sm sm:text-base uppercase tracking-wider">
-              This section highlights:
-            </p>
-          </div>
+        {/* ==========================================
+            2. SUCCESS INTRO
+            ========================================== */}
+        <Section variant="white" size="default" id="success-intro">
+          <Container>
+            <div className="flex flex-col text-left space-y-4 max-w-4xl">
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+                OUR SUCCESS
+              </span>
+              <p className="text-txt-strong font-bold text-xl sm:text-2xl leading-relaxed">
+                Recognition follows outcomes. DHGsoft measures success by the value created for customers — and we're proud of the results we help our partners achieve.
+              </p>
+            </div>
+          </Container>
         </Section>
 
-        {/* 3. What We Highlight Stack Cards */}
-        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid">
-          <div className="w-full relative z-10 space-y-12">
+        {/* ==========================================
+            3. HIGHLIGHTS GRID
+            ========================================== */}
+        <Section variant="brandTint" size="default" id="highlights">
+          <Container>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {highlightCards.map((card, idx) => {
-                const { title, desc, Icon } = card;
+                const IconComp = card.Icon;
                 return (
-                  <div
+                  <div 
                     key={idx}
-                    className="bg-white border border-line rounded-xl p-6 shadow-sm hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-start text-left space-y-4"
+                    className="bg-white border border-line rounded-2xl p-6 shadow-sm hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-start text-left space-y-4"
                   >
                     <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-brand/5 text-brand shrink-0">
-                      <Icon className="w-6 h-6" />
+                      <IconComp className="w-5 h-5" />
                     </div>
                     <div className="space-y-2">
-                      <h3 className="font-extrabold text-text-strong text-lg tracking-tight">{title}</h3>
-                      <p className="text-text-muted text-sm leading-relaxed">{desc}</p>
+                      <h3 className="font-extrabold text-txt-strong text-lg tracking-tight">
+                        {card.title}
+                      </h3>
+                      <p className="text-txt-muted text-sm leading-relaxed font-sans">
+                        {card.desc}
+                      </p>
                     </div>
                   </div>
                 );
               })}
             </div>
-            
-            <p className="text-xs text-text-muted italic text-left pt-4">
-              Populate each category with real, verifiable items.
-            </p>
-          </div>
+          </Container>
         </Section>
 
-        {/* 4. Customer Success Stories */}
-        <Section variant="brandTint" containerSize="wide" className=" border-b border-line relative bg-tech-grid">
-          <div className="w-full relative z-10 space-y-12">
-            <div className="text-left">
-              <span className="section-eyebrow">
-                CASE STUDIES
-              </span>
+        {/* ==========================================
+            4. CUSTOMER SUCCESS STORIES
+            ========================================== */}
+        <Section variant="white" size="default" id="cases">
+          <Container>
+            
+            <div className="flex flex-col text-left mb-12">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="h-px w-10 bg-brand" />
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+                  CASE STUDIES
+                </span>
+              </div>
+              <h2 className="text-txt-strong font-black tracking-tight leading-tight">
+                Engineering in Action
+              </h2>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* Card 1 */}
-              <div className="bg-white border border-line rounded-xl overflow-hidden shadow-sm flex flex-col hover:-translate-y-1 transition-all duration-300">
-                <div className="relative w-full h-[200px] border-b border-line">
-                  <Image
-                    src={recognitionImages.caseManufacturing.src}
-                    alt={recognitionImages.caseManufacturing.alt}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6 text-left space-y-4 flex-grow flex flex-col justify-between">
-                  <div className="space-y-2">
-                    <span className="section-eyebrow">[Industry]</span>
-                    <h4 className="font-extrabold text-text-strong text-lg">[Challenge placeholder]</h4>
-                    <p className="card-description">[Solution placeholder]</p>
-                  </div>
-                  <div className="pt-4 border-t border-line mt-auto flex items-center justify-between">
-                    <span className="text-brand font-bold text-base">[XX]% [outcome placeholder]</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Card 2 */}
-              <div className="bg-white border border-line rounded-xl overflow-hidden shadow-sm flex flex-col hover:-translate-y-1 transition-all duration-300">
-                <div className="relative w-full h-[200px] border-b border-line">
-                  <Image
-                    src={recognitionImages.caseEnergy.src}
-                    alt={recognitionImages.caseEnergy.alt}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6 text-left space-y-4 flex-grow flex flex-col justify-between">
-                  <div className="space-y-2">
-                    <span className="section-eyebrow">[Industry]</span>
-                    <h4 className="font-extrabold text-text-strong text-lg">[Challenge placeholder]</h4>
-                    <p className="card-description">[Solution placeholder]</p>
-                  </div>
-                  <div className="pt-4 border-t border-line mt-auto flex items-center justify-between">
-                    <span className="text-brand font-bold text-base">[XX]% [outcome placeholder]</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Card 3 */}
-              <div className="bg-white border border-line rounded-xl overflow-hidden shadow-sm flex flex-col hover:-translate-y-1 transition-all duration-300">
-                <div className="relative w-full h-[200px] border-b border-line">
-                  <Image
-                    src={recognitionImages.caseLogistics.src}
-                    alt={recognitionImages.caseLogistics.alt}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6 text-left space-y-4 flex-grow flex flex-col justify-between">
-                  <div className="space-y-2">
-                    <span className="section-eyebrow">[Industry]</span>
-                    <h4 className="font-extrabold text-text-strong text-lg">[Challenge placeholder]</h4>
-                    <p className="card-description">[Solution placeholder]</p>
-                  </div>
-                  <div className="pt-4 border-t border-line mt-auto flex items-center justify-between">
-                    <span className="text-brand font-bold text-base">[XX]% [outcome placeholder]</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <p className="text-xs text-text-muted italic text-left pt-4">
-              Replace with real projects and measurable outcomes.
-            </p>
-          </div>
-        </Section>
-
-        {/* 5. Awards & Recognition Placeholder Badges */}
-        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid bg-dot-matrix">
-          <div className="w-full relative z-10 space-y-8">
-            <div className="text-left space-y-3">
-              <span className="section-eyebrow">
-                AWARDS & RECOGNITION
-              </span>
-            </div>
-
-            {/* Badges Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              {["[Award 1]", "[Award 2]", "[Award 3]", "[Recognition]"].map((badge, idx) => (
-                <div
+              {realCases.map((c, idx) => (
+                <div 
                   key={idx}
-                  className="bg-mist border border-line rounded-lg py-5 px-6 text-center select-none"
+                  className="bg-white border border-line rounded-2xl overflow-hidden shadow-sm flex flex-col hover:-translate-y-1 hover:border-brand/40 transition-all duration-300"
                 >
-                  <span className="font-mono text-sm font-bold text-text-strong tracking-wide block">{badge}</span>
-                  <span className="text-[10px] text-text-muted mt-1 block">[Placeholder Award]</span>
+                  <div className="relative w-full h-[200px] border-b border-line">
+                    <Image
+                      src={c.img}
+                      alt={c.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 30vw"
+                    />
+                  </div>
+                  <div className="p-6 text-left space-y-4 flex-grow flex flex-col justify-between">
+                    <div className="space-y-2">
+                      <span className="text-[10px] font-extrabold text-brand uppercase tracking-wider block">
+                        {c.industry}
+                      </span>
+                      <h4 className="font-extrabold text-txt-strong text-lg tracking-tight leading-snug">
+                        {c.title}
+                      </h4>
+                      <p className="text-txt-muted text-xs leading-relaxed font-sans">
+                        {c.desc}
+                      </p>
+                    </div>
+                    <div className="pt-4 border-t border-line mt-auto flex items-center justify-between">
+                      <span className="text-brand font-extrabold text-sm sm:text-base">
+                        {c.outcome}
+                      </span>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
 
-            {/* Prominent Legal Safety Warning */}
-            <div className="p-4 border-l-4 border-amber-500 bg-amber-500/5 rounded-r-lg max-w-4xl text-left">
-              <p className="text-xs sm:text-sm text-amber-700 leading-relaxed font-medium">
-                <strong>Important Compliance Note:</strong> List only awards, certifications, and recognitions your organization has actually received. Do not fabricate any award or achievement.
-              </p>
-            </div>
-          </div>
+          </Container>
         </Section>
 
-        {/* 6. CTA Band */}
-        <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
-          <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
-          <div className="w-full relative z-10 space-y-6">
-            <span className="section-eyebrow on-dark">
-              WORK WITH US
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-[46px] font-black text-white tracking-tight leading-tight">
-              Let&apos;s create your success story.
-            </h2>
-            <div className="pt-4">
-              <button
-                onClick={() => setIsContactOpen(true)}
-                className="bg-white hover:bg-slate-100 text-brand font-extrabold text-sm sm:text-base px-8 py-4 rounded-xl transition-all duration-300 shadow-md active:scale-95 cursor-pointer"
-              >
-                Start a Project
-              </button>
+        {/* ==========================================
+            5. AWARDS & RECOGNITION
+            ========================================== */}
+        <Section variant="mist" size="default" id="awards">
+          <Container>
+            
+            <div className="flex flex-col text-left mb-12">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="h-px w-10 bg-brand" />
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+                  STANDARDS & CERTIFICATIONS
+                </span>
+              </div>
+              <h2 className="text-txt-strong font-black tracking-tight leading-tight">
+                Quality Compliance
+              </h2>
             </div>
-          </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+              {certifications.map((cert, idx) => (
+                <div 
+                  key={idx}
+                  className="bg-white border border-line rounded-2xl p-5 hover:border-brand transition-colors duration-300 shadow-xs"
+                >
+                  <span className="font-mono text-sm font-black text-brand tracking-wide block">
+                    {cert.name}
+                  </span>
+                  <span className="text-[11px] text-txt-muted mt-1.5 block leading-normal">
+                    {cert.desc}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+          </Container>
         </Section>
+
+        {/* CTA BAND */}
+        <CTABand
+          label="PARTNER WITH DHGSOFT"
+          headline="Building Value"
+          highlightedText="for Tomorrow."
+          description="Whether you are modernizing a single production line, connecting enterprise systems to the cloud, or building a secure data foundation — DHGsoft is your engineering partner from concept to commissioning."
+          primaryLabel="Start a Conversation →"
+          secondaryLabel="Explore Capabilities"
+          onPrimaryClick={() => setIsContactOpen(true)}
+        />
 
       </main>
 
@@ -275,7 +285,7 @@ export default function RecognitionPage() {
       <Footer />
 
       {/* Contact Modal */}
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} showToast={(msg, type) => {}} />
+      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} showToast={() => {}} />
     </div>
   );
 }

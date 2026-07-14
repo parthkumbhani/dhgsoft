@@ -1,5 +1,6 @@
 "use client";
 import { Section } from "@/components/ui/Section";
+import CTABand from "@/components/CTABand";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -350,27 +351,16 @@ export default function InnovationInstitutePage() {
           </div>
         </Section>
 
-        {/* ── CTA BAND ──────────────────────────────────────────── */}
-        <Section variant="white" containerSize="default" className="relative bg-[#B4123F] overflow-hidden">
-          <div className="absolute inset-0 bg-tech-grid opacity-20" />
-          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-white/5 blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-black/10 blur-3xl pointer-events-none" />
-          <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 py-20 text-center">
-            <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tight mb-5">
-              Partner with DHG Innovation Institute
-            </h2>
-            <p className="text-white/75 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-              Whether you're a university, government lab, or technology company — let's build the future of industrial intelligence together.
-            </p>
-            <button
-              onClick={() => setIsContactOpen(true)}
-              className="inline-flex items-center gap-2.5 bg-white text-[#B4123F] hover:bg-slate-100 font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:-translate-y-0.5 shadow-xl shadow-black/20 text-sm"
-            >
-              Get in Touch
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-        </Section>
+        {/* CTA BAND */}
+        <CTABand
+          label="PARTNER WITH DHGSOFT"
+          headline="Building Value"
+          highlightedText="for Tomorrow."
+          description="Whether you are modernizing a single production line, connecting enterprise systems to the cloud, or building a secure data foundation — DHGsoft is your engineering partner from concept to commissioning."
+          primaryLabel="Start a Conversation →"
+          secondaryLabel="Explore Capabilities"
+          onPrimaryClick={() => setIsContactOpen(true)}
+        />
       </main>
 
       <Footer />

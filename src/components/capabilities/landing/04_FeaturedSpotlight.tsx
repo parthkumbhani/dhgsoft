@@ -39,7 +39,7 @@ export function FeaturedSpotlight() {
           />
           <div className="relative rounded-[24px] overflow-hidden shadow-xl border border-line aspect-[4/5] bg-slate-50">
             <Image
-              src="/images/capabilities/spotlight-idt.png"
+              src="/images/capabilities/spotlight-idt.jpg"
               alt="DHGsoft industrial digital transformation SCADA and edge computing visualization screen"
               fill
               className="object-cover"

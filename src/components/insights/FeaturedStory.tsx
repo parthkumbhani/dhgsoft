@@ -62,9 +62,9 @@ export default function FeaturedStory({ type, hub, story }: FeaturedStoryProps) 
               FEATURED ARTICLE
             </span>
           )}
-          <h4 className="font-black text-text-strong text-2xl sm:text-3xl tracking-tight leading-tight group-hover:text-brand transition-colors">
+          <h2 className="font-black text-text-strong text-2xl sm:text-3xl tracking-tight leading-tight group-hover:text-brand transition-colors">
             {story.title}
-          </h4>
+          </h2>
           <p className="text-text-muted text-sm sm:text-base leading-relaxed">
             {story.excerpt}
           </p>

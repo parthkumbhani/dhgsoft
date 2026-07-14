@@ -16,6 +16,7 @@ import { WhyChoose } from "@/components/capabilities/landing/07_WhyChoose";
 import { DeliveryExcellenceBand } from "@/components/capabilities/landing/08_DeliveryExcellenceBand";
 import { ClosingStatement } from "@/components/capabilities/landing/09_ClosingStatement";
 import { FinalCta } from "@/components/capabilities/landing/10_FinalCta";
+import CTABand from "@/components/CTABand";
 
 export default function CapabilitiesPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -54,8 +55,16 @@ export default function CapabilitiesPage() {
         {/* 9. Centered closing statement ribbon */}
         <ClosingStatement />
 
-        {/* 10. Final Call to Action */}
-        <FinalCta />
+        {/* CTA BAND */}
+        <CTABand
+          label="PARTNER WITH DHGSOFT"
+          headline="Building Value"
+          highlightedText="for Tomorrow."
+          description="Whether you are modernizing a single production line, connecting enterprise systems to the cloud, or building a secure data foundation — DHGsoft is your engineering partner from concept to commissioning."
+          primaryLabel="Start a Conversation →"
+          secondaryLabel="Explore Capabilities"
+          onPrimaryClick={() => setIsContactOpen(true)}
+        />
       </main>
 
       {/* Corporate Footer */}

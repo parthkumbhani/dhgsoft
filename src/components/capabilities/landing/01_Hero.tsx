@@ -35,7 +35,7 @@ export function Hero() {
         <div 
           className="absolute inset-0 opacity-75"
           style={{ 
-            backgroundImage: 'url(/images/capabilities/capabilities-hero.png)',
+            backgroundImage: 'url(/images/capabilities/capabilities-hero.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             maskImage: 'linear-gradient(to left, black 30%, transparent 100%)',

@@ -1,260 +1,319 @@
 // src/app/about/overview/page.tsx
 "use client";
-import { Section } from "@/components/ui/Section";
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Network, BrainCircuit, ShieldCheck, Check, MapPin, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
 import { overviewImages } from "@/lib/images/overview";
-import { Network, BrainCircuit, ShieldCheck, Check } from "lucide-react";
-import { motion } from "framer-motion";
+import CTABand from "@/components/CTABand";
 
 export default function OverviewPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
+  const focusAreas = [
+    {
+      title: "Connected Operations",
+      desc: "Unifying plant-floor assets, historians, and enterprise systems into a single source of operational truth.",
+      Icon: Network
+    },
+    {
+      title: "Applied Intelligence",
+      desc: "Turning industrial data into predictions, insights, and autonomous action that improve performance every day.",
+      Icon: BrainCircuit
+    },
+    {
+      title: "Trusted Delivery",
+      desc: "Secure, standards-based engineering delivered by teams who have run real operations, not just written code.",
+      Icon: ShieldCheck
+    }
+  ];
+
+  const journeySteps = [
+    {
+      num: "01",
+      title: "Foundation",
+      desc: "DHGsoft was formed by engineers who had lived the gap between operations and IT — and were determined to close it."
+    },
+    {
+      num: "02",
+      title: "Focus",
+      desc: "We concentrated on the hardest problem in industry: making OT and IT work as one, securely and at scale."
+    },
+    {
+      num: "03",
+      title: "Expansion",
+      desc: "Our capabilities grew across automation, data platforms, cloud, AI, and cybersecurity — end to end."
+    },
+    {
+      num: "04",
+      title: "Today",
+      desc: "We partner with organizations worldwide to build connected, intelligent, and sustainable operations."
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-white text-slate-800 antialiased font-sans selection:bg-[#B4123F] selection:text-white">
+    <div className="min-h-screen bg-background text-foreground antialiased font-sans flex flex-col selection:bg-brand selection:text-white">
       {/* Sticky Header */}
       <Header onContactClick={() => setIsContactOpen(true)} />
 
-      <main className="relative pt-20">
+      <main className="flex-grow">
         
-        {/* 1. Hero Band */}
-        <Section variant="ink" containerSize="wide" className="relative min-h-[500px] flex items-center overflow-hidden ">
-          <div className="absolute inset-0 z-0">
+        {/* ==========================================
+            1. HERO SECTION
+            ========================================== */}
+        <Section variant="ink" size="hero" containerSize="wide" className="relative min-h-screen flex items-center overflow-hidden">
+          <div className="absolute inset-0 z-0 pointer-events-none">
             <Image
               src={overviewImages.hero.src}
               alt={overviewImages.hero.alt}
               fill
               priority
-              className="object-cover object-center opacity-40"
+              className="object-cover opacity-35"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent" />
           </div>
-          <div className="w-full relative z-10 py-16 md:py-20">
-            <div className="max-w-3xl text-left flex gap-6">
-              <div className="w-[4px] bg-brand rounded-full self-stretch shrink-0" />
-              <div className="space-y-4">
-                <span className="section-eyebrow">
+          <Container className="relative z-10 w-full text-left">
+            <div className="max-w-4xl space-y-6">
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20 backdrop-blur-md text-[#E10088] mb-4">
+                <span className="relative flex w-1.5 h-1.5">
+                  <span className="absolute inset-0 rounded-full bg-[#E10088] animate-ping opacity-60" />
+                  <span className="relative rounded-full bg-[#E10088] w-1.5 h-1.5" />
+                </span>
+                <span className="text-[11px] font-extrabold uppercase tracking-widest font-sans">
                   OUR STORY
                 </span>
-                <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-black text-white tracking-tight leading-[1.1] font-sans">
-                  Engineering Clarity from Industrial Complexity
-                </h1>
-                <p className="section-subtitle on-dark">
-                  DHGsoft exists to help industrial organizations turn fragmented operations into connected, intelligent systems. From the plant floor to the cloud, we engineer the digital backbone that makes modern industry faster, safer, and more sustainable.
-                </p>
               </div>
+              <h1 className="text-white text-headline-xl sm:text-[3.25rem] lg:text-[4.5rem] font-black tracking-tight leading-[1.1]">
+                Engineering Clarity from
+                <br />
+                <span className="text-gradient-brand">Industrial Complexity</span>
+              </h1>
+              <p className="text-slate-300 max-w-2xl leading-relaxed text-body-md font-medium">
+                DHGsoft exists to help industrial organizations turn fragmented operations into connected, intelligent systems. We engineer the digital backbone that makes modern industry faster, safer, and more sustainable.
+              </p>
             </div>
-          </div>
+          </Container>
         </Section>
 
-        {/* 2. Who We Are (Split layout) */}
-        <Section variant="mist" containerSize="wide" className=" border-b border-line overflow-hidden relative bg-dot-matrix">
-          <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 space-y-6 text-left">
-              <span className="section-eyebrow">
-                WHO WE ARE
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-text-strong tracking-tight leading-tight">
-                A digital engineering partner built for industry
-              </h2>
-              <div className="space-y-4 section-subtitle">
-                <p>
+        {/* ==========================================
+            2. WHO WE ARE (Split layout)
+            ========================================== */}
+        <Section variant="white" size="default" id="who-we-are">
+          <Container>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              
+              {/* Left Column: Text Content */}
+              <div className="lg:col-span-7 space-y-6 text-left">
+                <div className="flex items-center gap-3">
+                  <div className="h-px w-10 bg-brand" />
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+                    WHO WE ARE
+                  </span>
+                </div>
+                <h2 className="text-txt-strong font-black tracking-tight leading-tight">
+                  A digital engineering partner <span className="text-gradient-brand">built for industry</span>
+                </h2>
+                <p className="text-body-md text-txt-muted leading-relaxed font-sans">
                   DHGsoft is a global Industrial Digital Transformation company. We bring together deep operational technology expertise, modern software engineering, and applied AI to help manufacturers, utilities, and process industries connect what they build with how they run it.
                 </p>
-                <p>
+                <p className="text-body-md text-txt-muted leading-relaxed font-sans">
                   Our teams work at the intersection of OT and IT — the place where most transformation efforts stall. We close that gap with engineering that respects the realities of the plant floor while unlocking the scale of the enterprise and the cloud.
                 </p>
-                <p>
+                <p className="text-body-md text-txt-muted leading-relaxed font-sans">
                   Whether an organization is modernizing a single line or standardizing operations across dozens of sites, we bring the same discipline: understand the process first, then apply the technology that moves the business.
                 </p>
               </div>
+
+              {/* Right Column: Image Card */}
+              <div className="lg:col-span-5 relative w-full aspect-[4/3] rounded-[24px] overflow-hidden border border-line shadow-lg">
+                <Image
+                  src={overviewImages.whoWeAre.src}
+                  alt={overviewImages.whoWeAre.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                />
+              </div>
+
             </div>
-            <div className="lg:col-span-6 relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-line shadow-sm">
-              <Image
-                src={overviewImages.whoWeAre.src}
-                alt={overviewImages.whoWeAre.alt}
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
+          </Container>
         </Section>
 
-        {/* 3. Our Engineering Focus */}
-        <Section variant="brandTint" containerSize="wide" className=" border-b border-line relative bg-tech-grid">
-          <div className="w-full relative z-10">
-            <div className="text-left mb-12">
-              <span className="section-eyebrow">
-                OUR ENGINEERING FOCUS
-              </span>
+        {/* ==========================================
+            3. OUR ENGINEERING FOCUS
+            ========================================== */}
+        <Section variant="brandTint" size="default" id="focus">
+          <Container>
+            
+            <div className="flex flex-col text-left mb-12">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="h-px w-10 bg-brand" />
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+                  OUR FOCUS
+                </span>
+              </div>
+              <h2 className="text-txt-strong font-black tracking-tight leading-tight">
+                Our Engineering Core
+              </h2>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full">
-              {/* Card 1 */}
-              <div className="bg-white border border-line rounded-xl p-6 shadow-sm flex flex-col justify-start text-left space-y-4">
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-brand/5 text-brand shrink-0">
-                  <Network className="w-6 h-6" />
-                </div>
-                <div className="space-y-2">
-                  <h3 className="font-extrabold text-text-strong text-lg tracking-tight">Connected Operations</h3>
-                  <p className="text-text-muted text-sm leading-relaxed">
-                    Unifying plant-floor assets, historians, and enterprise systems into a single source of operational truth.
-                  </p>
-                </div>
-              </div>
-              {/* Card 2 */}
-              <div className="bg-white border border-line rounded-xl p-6 shadow-sm flex flex-col justify-start text-left space-y-4">
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-brand/5 text-brand shrink-0">
-                  <BrainCircuit className="w-6 h-6" />
-                </div>
-                <div className="space-y-2">
-                  <h3 className="font-extrabold text-text-strong text-lg tracking-tight">Applied Intelligence</h3>
-                  <p className="text-text-muted text-sm leading-relaxed">
-                    Turning industrial data into predictions, insights, and autonomous action that improve performance every day.
-                  </p>
-                </div>
-              </div>
-              {/* Card 3 */}
-              <div className="bg-white border border-line rounded-xl p-6 shadow-sm flex flex-col justify-start text-left space-y-4">
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-brand/5 text-brand shrink-0">
-                  <ShieldCheck className="w-6 h-6" />
-                </div>
-                <div className="space-y-2">
-                  <h3 className="font-extrabold text-text-strong text-lg tracking-tight">Trusted Delivery</h3>
-                  <p className="text-text-muted text-sm leading-relaxed">
-                    Secure, standards-based engineering delivered by teams who have run real operations, not just written code.
-                  </p>
-                </div>
-              </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {focusAreas.map((area, idx) => {
+                const IconComp = area.Icon;
+                return (
+                  <div 
+                    key={idx}
+                    className="bg-white border border-line rounded-2xl p-6 shadow-sm hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-start text-left space-y-4"
+                  >
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-brand/5 text-brand shrink-0">
+                      <IconComp className="w-5 h-5" />
+                    </div>
+                    <h3 className="font-extrabold text-txt-strong text-lg tracking-tight">
+                      {area.title}
+                    </h3>
+                    <p className="text-txt-muted text-sm leading-relaxed">
+                      {area.desc}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
-          </div>
+
+          </Container>
         </Section>
 
-        {/* 4. By the Numbers */}
-        <Section variant="ink" containerSize="wide" className=" text-white border-b border-slate-900 overflow-hidden relative">
-          <div className="w-full relative z-10 space-y-8">
-            <div className="text-left">
-              <span className="section-eyebrow">
-                BY THE NUMBERS
-              </span>
+        {/* ==========================================
+            4. BY THE NUMBERS
+            ========================================== */}
+        <Section variant="ink" size="default" id="stats">
+          <Container>
+            
+            <div className="flex flex-col text-left mb-12">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="h-px w-10 bg-brand-hot" />
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-hot">
+                  BY THE NUMBERS
+                </span>
+              </div>
+              <h2 className="text-white font-black tracking-tight leading-tight">
+                Scale and Execution Capacity
+              </h2>
             </div>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 w-full text-left">
-              <div className="space-y-1">
-                <span className="text-4xl sm:text-5xl font-black text-brand-hot font-mono block">450+</span>
-                <span className="text-slate-400 text-xs sm:text-sm font-semibold">Industrial projects delivered</span>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+              <div>
+                <span className="text-4xl sm:text-5xl font-black text-brand-hot block">450+</span>
+                <span className="text-slate-400 text-xs sm:text-sm font-semibold mt-2 block">Industrial projects delivered</span>
               </div>
-              <div className="space-y-1">
-                <span className="text-4xl sm:text-5xl font-black text-brand-hot font-mono block">120+</span>
-                <span className="text-slate-400 text-xs sm:text-sm font-semibold">Plant & enterprise sites connected</span>
+              <div>
+                <span className="text-4xl sm:text-5xl font-black text-brand-hot block">120+</span>
+                <span className="text-slate-400 text-xs sm:text-sm font-semibold mt-2 block">Plant & enterprise sites connected</span>
               </div>
-              <div className="space-y-1">
-                <span className="text-4xl sm:text-5xl font-black text-brand-hot font-mono block">14</span>
-                <span className="text-slate-400 text-xs sm:text-sm font-semibold">Industries served</span>
+              <div>
+                <span className="text-4xl sm:text-5xl font-black text-brand-hot block">14+</span>
+                <span className="text-slate-400 text-xs sm:text-sm font-semibold mt-2 block">Industries served</span>
               </div>
-              <div className="space-y-1">
-                <span className="text-4xl sm:text-5xl font-black text-brand-hot font-mono block">24×7</span>
-                <span className="text-slate-400 text-xs sm:text-sm font-semibold">Global engineering support</span>
+              <div>
+                <span className="text-4xl sm:text-5xl font-black text-brand-hot block">24×7</span>
+                <span className="text-slate-400 text-xs sm:text-sm font-semibold mt-2 block">Global engineering support</span>
               </div>
             </div>
-            <p className="text-[11px] text-slate-500 italic text-left">
-              Figures shown are placeholders — replace with verified numbers.
-            </p>
-          </div>
+
+          </Container>
         </Section>
 
-        {/* 5. Our Journey */}
-        <Section variant="white" containerSize="wide" className="bg-white border-b border-line relative bg-tech-grid">
-          <div className="w-full relative z-10">
-            <div className="text-left mb-12">
-              <span className="section-eyebrow">
-                OUR JOURNEY
-              </span>
+        {/* ==========================================
+            5. OUR JOURNEY
+            ========================================== */}
+        <Section variant="white" size="default" id="journey">
+          <Container>
+            
+            <div className="flex flex-col text-left mb-12">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="h-px w-10 bg-brand" />
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+                  OUR JOURNEY
+                </span>
+              </div>
+              <h2 className="text-txt-strong font-black tracking-tight leading-tight">
+                Milestones of Growth
+              </h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full text-left relative">
-              <div className="absolute top-[24px] left-0 right-0 h-[1.5px] bg-line hidden md:block z-0" />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+              {journeySteps.map((step, idx) => (
+                <div 
+                  key={idx}
+                  className="bg-white border border-line rounded-2xl p-6 shadow-xs hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div className="space-y-4">
+                    <span className="font-mono text-3xl font-black text-[#8C123B]/20 block">
+                      {step.num}
+                    </span>
+                    <h4 className="text-txt-strong font-extrabold text-base tracking-tight">
+                      {step.title}
+                    </h4>
+                    <p className="text-txt-muted text-xs leading-relaxed">
+                      {step.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </Container>
+        </Section>
+
+        {/* ==========================================
+            6. WHAT DRIVES US
+            ========================================== */}
+        <Section variant="mist" size="default" id="drivers">
+          <Container>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               
-              {/* Phase 1 */}
-              <div className="space-y-3 relative z-10">
-                <div className="w-12 h-12 rounded-full border-2 border-brand bg-white flex items-center justify-center font-bold text-brand font-mono">01</div>
-                <h4 className="font-extrabold text-text-strong text-base">Foundation</h4>
-                <p className="card-description">
-                  DHGsoft was formed by engineers who had lived the gap between operations and IT — and were determined to close it.
-                </p>
+              {/* Left Column: Image Card */}
+              <div className="lg:col-span-5 relative w-full aspect-[4/3] rounded-[24px] overflow-hidden border border-line shadow-md order-last lg:order-first">
+                <Image
+                  src={overviewImages.whatDrivesUs.src}
+                  alt={overviewImages.whatDrivesUs.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                />
               </div>
-              {/* Phase 2 */}
-              <div className="space-y-3 relative z-10">
-                <div className="w-12 h-12 rounded-full border-2 border-brand bg-white flex items-center justify-center font-bold text-brand font-mono">02</div>
-                <h4 className="font-extrabold text-text-strong text-base">Focus</h4>
-                <p className="card-description">
-                  We concentrated on the hardest problem in industry: making OT and IT work as one, securely and at scale.
-                </p>
+
+              {/* Right Column: Statement */}
+              <div className="lg:col-span-7 space-y-6 text-left">
+                <div className="flex items-center gap-3">
+                  <div className="h-px w-10 bg-brand" />
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+                    WHAT DRIVES US
+                  </span>
+                </div>
+                <h2 className="text-txt-strong text-2xl sm:text-3xl lg:text-[32px] font-black tracking-tight leading-relaxed">
+                  We measure our work in outcomes our customers can feel — less downtime, cleaner data, safer sites, and decisions made in real time. Technology is only the means. <span className="text-gradient-brand">Operational excellence is the goal.</span>
+                </h2>
               </div>
-              {/* Phase 3 */}
-              <div className="space-y-3 relative z-10">
-                <div className="w-12 h-12 rounded-full border-2 border-brand bg-white flex items-center justify-center font-bold text-brand font-mono">03</div>
-                <h4 className="font-extrabold text-text-strong text-base">Expansion</h4>
-                <p className="card-description">
-                  Our capabilities grew across automation, data platforms, cloud, AI, and cybersecurity — end to end.
-                </p>
-              </div>
-              {/* Phase 4 */}
-              <div className="space-y-3 relative z-10">
-                <div className="w-12 h-12 rounded-full border-2 border-brand bg-white flex items-center justify-center font-bold text-brand font-mono">04</div>
-                <h4 className="font-extrabold text-text-strong text-base">Today</h4>
-                <p className="card-description">
-                  We partner with organizations worldwide to build connected, intelligent, and sustainable operations.
-                </p>
-              </div>
+
             </div>
-          </div>
+          </Container>
         </Section>
 
-        {/* 6. What Drives Us */}
-        <Section variant="mist" containerSize="wide" className=" border-b border-line overflow-hidden relative bg-dot-matrix">
-          <div className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-line shadow-sm order-2 lg:order-1">
-              <Image
-                src={overviewImages.whatDrivesUs.src}
-                alt={overviewImages.whatDrivesUs.alt}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="lg:col-span-6 space-y-6 text-left order-1 lg:order-2">
-              <span className="section-eyebrow">
-                WHAT DRIVES US
-              </span>
-              <p className="text-text-strong font-bold text-xl sm:text-2xl leading-relaxed">
-                We measure our work in outcomes our customers can feel — less downtime, cleaner data, safer sites, and decisions made in real time. Technology is only the means. Operational excellence is the goal.
-              </p>
-            </div>
-          </div>
-        </Section>
-
-        {/* 7. CTA Band */}
-        <Section variant="gradient" containerSize="wide" className="relative overflow-hidden text-center">
-          <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
-          <div className="w-full relative z-10 space-y-6">
-            <span className="section-eyebrow on-dark">
-              GET STARTED
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-[46px] font-black text-white tracking-tight leading-tight">
-              Let&apos;s build your connected enterprise.
-            </h2>
-            <div className="pt-4">
-              <button
-                onClick={() => setIsContactOpen(true)}
-                className="bg-white hover:bg-slate-100 text-brand font-extrabold text-sm sm:text-base px-8 py-4 rounded-xl transition-all duration-300 shadow-md active:scale-95 cursor-pointer"
-              >
-                Talk to Our Team
-              </button>
-            </div>
-          </div>
-        </Section>
+        {/* CTA BAND */}
+        <CTABand
+          label="PARTNER WITH DHGSOFT"
+          headline="Building Value"
+          highlightedText="for Tomorrow."
+          description="Whether you are modernizing a single production line, connecting enterprise systems to the cloud, or building a secure data foundation — DHGsoft is your engineering partner from concept to commissioning."
+          primaryLabel="Start a Conversation →"
+          secondaryLabel="Explore Capabilities"
+          onPrimaryClick={() => setIsContactOpen(true)}
+        />
 
       </main>
 
@@ -262,7 +321,7 @@ export default function OverviewPage() {
       <Footer />
 
       {/* Contact Modal */}
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} showToast={(msg, type) => {}} />
+      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} showToast={() => {}} />
     </div>
   );
 }

@@ -57,7 +57,7 @@ const STAGES_DATA: StageItem[] = [
     name: "Strategy",
     icon: Target,
     desc: "Define business objectives, transformation roadmaps, governance models, and measurable outcomes.",
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/home/service-strategy.jpg",
     badgeSubtitle: "Assess • Align • Blueprint",
     features: [
       { icon: TrendingUp, title: "Goal Alignment", desc: "Align business vision with measurable digital outcomes." },
@@ -70,7 +70,7 @@ const STAGES_DATA: StageItem[] = [
     name: "Design",
     icon: Compass,
     desc: "Create user-centered experiences, solution architectures, operating models, and implementation plans.",
-    image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/home/service-design.jpg",
     badgeSubtitle: "Model • Architect • Plan",
     features: [
       { icon: Layout, title: "Architecture Design", desc: "Build resilient cloud-native and edge architectures." },
@@ -83,7 +83,7 @@ const STAGES_DATA: StageItem[] = [
     name: "Build",
     icon: Cpu,
     desc: "Develop, configure, integrate, and test digital solutions using agile and quality-focused delivery practices.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/home/service-build.jpg",
     badgeSubtitle: "Engineer • Code • Integrate",
     features: [
       { icon: Settings, title: "System Integration", desc: "Assemble factory automation software and core databases." },
@@ -96,7 +96,7 @@ const STAGES_DATA: StageItem[] = [
     name: "Deploy",
     icon: Play,
     desc: "Launch solutions efficiently through structured release management, change management, and adoption planning.",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/home/service-deploy.jpg",
     badgeSubtitle: "Launch • Validate • Adapt",
     features: [
       { icon: Zap, title: "Plant Commissioning", desc: "Supervise deployment, validation, and physical startup." },
@@ -109,7 +109,7 @@ const STAGES_DATA: StageItem[] = [
     name: "Operate",
     icon: Monitor,
     desc: "Maintain, monitor, optimize, and support business-critical systems to ensure reliability and performance.",
-    image: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/home/service-operate.jpg",
     badgeSubtitle: "Monitor • Optimize • Defend",
     features: [
       { icon: Monitor, title: "Dashboard Telemetry", desc: "Monitor SCADA data and performance analytics." },
@@ -122,7 +122,7 @@ const STAGES_DATA: StageItem[] = [
     name: "Enable",
     icon: Award,
     desc: "Drive continuous improvement through training, knowledge transfer, capability building, and innovation programs that empower organizations to sustain operational excellence.",
-    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/home/service-enable.jpg",
     badgeSubtitle: "Empower • Educate • Elevate",
     features: [
       { icon: GraduationCap, title: "Skill Engineering", desc: "Deliver hands-on training to engineering teams." },
@@ -135,7 +135,7 @@ const STAGES_DATA: StageItem[] = [
     name: "Business Outcome",
     icon: Trophy,
     desc: "A consistent, scalable approach that transforms strategy into sustainable business value and operational excellence.",
-    image: "https://images.unsplash.com/photo-1581091870622-0c3ae06d507b?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/home/service-outcome.jpg",
     badgeSubtitle: "Value • Scale • Sustainability",
     features: [
       { icon: Check, title: "Faster Delivery", desc: "Accelerate time-to-market using pre-built engineering accelerators." },

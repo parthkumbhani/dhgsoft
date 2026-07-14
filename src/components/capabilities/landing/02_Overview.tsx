@@ -63,7 +63,7 @@ export function Overview() {
           />
           <div className="relative rounded-[24px] overflow-hidden shadow-xl border border-line aspect-[4/5] bg-slate-50">
             <Image
-              src="/images/capabilities/capabilities-overview.png"
+              src="/images/capabilities/capabilities-overview.jpg"
               alt="DHGsoft industrial digital production line modern systems integration"
               fill
               className="object-cover"

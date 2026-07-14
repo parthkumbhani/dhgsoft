@@ -221,7 +221,7 @@ function IndustryCard({
         {/* Content Area — Height 250px */}
         <div className="flex flex-col justify-between p-7 flex-grow" style={{ height: 250 }}>
           <div>
-            <h4 className="font-bold tracking-tight font-headline text-[#111827]" style={{ fontSize: 22, lineHeight: 1.25, marginBottom: 10 }}>{data.industry}</h4>
+            <h5 className="font-bold tracking-tight font-headline text-[#111827]" style={{ fontSize: 22, lineHeight: 1.25, marginBottom: 10 }}>{data.industry}</h5>
             <p
               className="font-sans line-clamp-3 text-[#64748B]"
               style={{ fontSize: 16, lineHeight: 1.6 }}
@@ -349,7 +349,7 @@ function IndustryCard({
         {/* Expanded Panel Content */}
         <div className="relative z-10 flex flex-col h-full p-7 justify-between">
           <div>
-            <h4 className="font-bold tracking-tight font-headline text-[#111827]" style={{ fontSize: 22, lineHeight: 1.25, marginBottom: 10 }}>{data.industry}</h4>
+            <h5 className="font-bold tracking-tight font-headline text-[#111827]" style={{ fontSize: 22, lineHeight: 1.25, marginBottom: 10 }}>{data.industry}</h5>
 
             <p
               className="font-sans text-[#64748B]"
