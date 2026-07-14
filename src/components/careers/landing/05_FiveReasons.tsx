@@ -69,7 +69,7 @@ export function FiveReasons() {
             <motion.div
               key={reason.number}
               initial={{ opacity: 0, y: 22 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className="h-full"
             >
@@ -87,7 +87,7 @@ export function FiveReasons() {
             <motion.div
               key={reason.number}
               initial={{ opacity: 0, y: 22 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
               transition={{ duration: 0.5, delay: (i + 3) * 0.08 }}
               className="lg:col-span-2 h-full"
             >

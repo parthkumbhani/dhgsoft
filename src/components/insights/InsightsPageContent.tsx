@@ -3,29 +3,47 @@
 import React from "react";
 import { Hero } from "@/components/insights/01_Hero";
 import { Introduction } from "@/components/insights/02_Introduction";
-import { FeaturedInsights } from "@/components/insights/03_FeaturedInsights";
+import { ImageBandOne } from "@/components/insights/02b_ImageBand";
 import { CategoryGrid } from "@/components/insights/04_CategoryGrid";
 import { IndustryPerspectives } from "@/components/insights/05_IndustryPerspectives";
+import { FeaturedSpotlight } from "@/components/insights/05b_Spotlight";
 import { CaseStudies } from "@/components/insights/06_CaseStudies";
-import { Whitepapers } from "@/components/insights/07_Whitepapers";
 import { NewsUpdates } from "@/components/insights/08_NewsUpdates";
-import { ResourceLibrary } from "@/components/insights/09_ResourceLibrary";
+import { ClosingBand } from "@/components/insights/09b_ClosingBand";
 import { ClosingCta } from "@/components/insights/10_ClosingCta";
 
 export default function InsightsPageContent() {
   return (
     <div className="w-full">
+      {/* 1. Hero */}
       <Hero />
+
+      {/* 2. Introduction */}
       <Introduction />
-      <FeaturedInsights />
+
+      {/* 3. Image Band - "Knowledge in Motion" */}
+      <ImageBandOne />
+
+      {/* 4. Category Grid */}
       <CategoryGrid />
+
+      {/* 5. Industry Perspectives */}
       <IndustryPerspectives />
+
+      {/* 6. Featured Spotlight */}
+      <FeaturedSpotlight />
+
+      {/* 7. Combined Case Studies + Whitepapers */}
       <CaseStudies />
-      <Whitepapers />
+
+      {/* 8. Combined News + Resource Library */}
       <NewsUpdates />
-      <ResourceLibrary />
+
+      {/* 9. Image Band - Closing */}
+      <ClosingBand />
+
+      {/* 10. Final CTA */}
       <ClosingCta />
     </div>
   );
 }
-

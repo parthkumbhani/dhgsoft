@@ -69,7 +69,7 @@ export default function TestimonialBand() {
     >
       <motion.div 
         initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
         transition={{ duration: 0.65, ease: "easeOut" }}
         className="w-full bg-[#0c1020] border border-white/10 rounded-[2rem] p-8 md:p-12 lg:p-16 text-white shadow-[0_30px_70px_rgba(0,0,0,0.5)] relative overflow-hidden"
       >

@@ -1,16 +1,14 @@
 "use client";
 
 import React from "react";
-import { SubPageHero } from "../shared/SubPageHero";
-import { SubPageOverview } from "../shared/SubPageOverview";
-import { Section } from "@/components/ui/Section";
+import { InsightsHero } from "../../shared/InsightsHero";
+import { InsightsOverview } from "../../shared/InsightsOverview";
+import { InsightsImageBand } from "../../shared/InsightsImageBand";
 import { CoreTechnologies } from "./CoreTechnologies";
-import { ArchitectureFlow } from "./ArchitectureFlow";
 import { Benefits } from "./Benefits";
-import { Industries } from "./Industries";
-import { WhyDHGsoft } from "./WhyDHGsoft";
+import { InsightsJourney } from "../../shared/InsightsJourney";
 import { RelatedInsights } from "../shared/RelatedInsights";
-import { SubPageCta } from "../shared/SubPageCta";
+import { InsightsCta } from "../../shared/InsightsCta";
 
 const relatedCards = [
   {
@@ -41,74 +39,66 @@ export function TechEcosystemPageContent() {
 
   return (
     <div className="w-full">
-      <SubPageHero
+      {/* 1. Hero (Cinematic + Stats) */}
+      <InsightsHero
         breadcrumb="Insights → Technology Ecosystem"
         eyebrow="Technology Ecosystem"
-        h1={
-          <span>
-            Building Connected <span className="text-gradient-brand">Industrial Ecosystems</span>
-          </span>
-        }
-        subLine="Explore how DHGsoft integrates industrial technologies, enterprise platforms, cloud infrastructure, and intelligent applications into one connected digital ecosystem."
-        primaryCta={{ text: "Explore Core Domains", href: "#core-domains" }}
-        secondaryCta={{ text: "Talk to an Expert", href: "#contact-architect" }}
-        bgImage="/images/insights/tech-ecosystem-overview.jpg"
-      />
-
-      <SubPageOverview
-        eyebrow="OVERVIEW"
-        h2="Ecosystems, Not Silos"
-        bodyParagraphs={[
-          "Modern industrial enterprises rely on connected technologies rather than isolated systems.",
-          "DHGsoft designs and integrates complete industrial ecosystems where Operational Technology (OT), Information Technology (IT), cloud platforms, enterprise applications, Industrial IoT, cybersecurity, and advanced analytics work together seamlessly.",
-          "Our ecosystem approach creates greater visibility, interoperability, scalability, and operational resilience.",
+        h1="Building Connected Industrial Ecosystems"
+        emphasisWord="Connected Industrial Ecosystems"
+        subLine="Connecting industrial operations, enterprise applications, cloud platforms, and intelligent data to create scalable, secure, and future-ready digital enterprises."
+        heroImage="/about_values.png" // Mapping to existing premium photo
+        primaryCta={{ label: "Explore Core Domains", href: "#core-domains" }}
+        secondaryCta={{ label: "Talk to an Expert", href: "#", onClick: handleOpenContact }}
+        stats={[
+          { value: "8", label: "Core Domains" },
+          { value: "6", label: "Architecture Layers" },
+          { value: "14", label: "Industries Served" },
         ]}
-        image={{
-          src: "/images/insights/tech-ecosystem-overview.jpg",
-          alt: "industrial control room networked systems modern facility",
-        }}
-        pattern="v1"
       />
 
-      {/* Section 3: The Connected Ecosystem */}
-      <Section variant="mist" size="compact" pattern="v3" className="relative overflow-hidden border-b border-line/10">
-        <div className="max-w-[800px] mx-auto text-center space-y-6 flex flex-col items-center">
-          <span className="text-brand text-label-bold uppercase tracking-[0.2em] font-sans block">
-            THE CONNECTED ECOSYSTEM
-          </span>
-          <h2 className="text-txt-strong tracking-tight font-black leading-tight font-sans">
-            Every successful digital transformation begins with connectivity.
-          </h2>
-          <p className="text-body-md text-txt-muted max-w-[720px] mx-auto leading-relaxed font-sans font-medium">
-            Our ecosystem approach integrates people, machines, applications, and operational intelligence into one seamless platform that enables real-time collaboration and informed decision-making.
-          </p>
-        </div>
-      </Section>
+      {/* 2. Overview (2-col with photo) */}
+      <InsightsOverview
+        eyebrow="Overview"
+        h2="Ecosystems, Not Silos."
+        bodyParagraphs={[
+          "Modern industrial enterprises are no longer built on isolated technologies. They thrive through connected ecosystems where operational technology, enterprise systems, industrial data, and intelligent applications work together as one unified environment.",
+          "DHGsoft designs and integrates complete industrial technology ecosystems that enable organizations to improve operational visibility, streamline processes, strengthen cybersecurity, and accelerate digital transformation.",
+          "By connecting every layer of industrial operations, we help businesses create intelligent environments that are scalable, resilient, and prepared for future innovation.",
+        ]}
+        image="/about_global.png" // Mapping to existing premium photo
+        imageAlt="industrial network integration servers data flow modern"
+      />
 
+      {/* 3. Image Band */}
+      <InsightsImageBand
+        image="/smart_factory_visual.png" // Mapping to existing premium photo
+        imageAlt="connected factory ecosystem workers digital modern"
+        caption="Every successful digital transformation begins with connectivity."
+        captionEyebrow="Connected Ecosystem"
+      />
+
+      {/* 4. Core Domains Grid */}
       <CoreTechnologies />
 
-      <ArchitectureFlow />
-
+      {/* 5. Business Benefits */}
       <Benefits />
 
-      <Industries />
+      {/* 6. Journey / Architecture Timeline */}
+      <InsightsJourney
+        eyebrow="Ecosystem Architecture"
+        h2="DHGsoft connects every layer of industrial operations"
+        subLine="From field instruments on the shop floor to enterprise applications in the cloud, we design and integrate unified operational stacks."
+        steps={["Operational Layer", "Connectivity Layer", "Data Layer", "Intelligence Layer", "Enterprise Layer", "Cloud & Security"]}
+      />
 
-      <WhyDHGsoft />
-
+      {/* 7. Related Insights */}
       <RelatedInsights cards={relatedCards} pattern="v8" />
 
-      <div id="contact-architect" className="scroll-mt-20">
-        <SubPageCta
-          heading="Connect Every Layer of Your Industrial Intelligence"
-          subLine="Explore how DHGsoft designs and integrates connected industrial ecosystems that scale with your operations and adapt with your future."
-          primaryCta={{ 
-            text: "Talk to an Architect", 
-            href: "#",
-            onClick: handleOpenContact,
-          }}
-          secondaryCta={{ text: "Explore All Insights", href: "/insights" }}
-        />
+      {/* 8. Final CTA (crimson gradient) */}
+      <div id="contact-architect" className="w-full">
+        <InsightsCta title="Connect Every Layer of Your Industrial Intelligence" />
       </div>
     </div>
   );
 }
+export default TechEcosystemPageContent;

@@ -36,7 +36,7 @@ export function GlobalWorkplace() {
         {/* Panoramic Enterprise Image */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
           transition={{ duration: 0.8 }}
           className="relative w-full aspect-[21/9] min-h-[260px] rounded-[24px] overflow-hidden shadow-sm border border-line bg-slate-50 group"
         >

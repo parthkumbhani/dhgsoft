@@ -39,7 +39,7 @@ export function DeliveryExcellenceBand() {
               custom={idx}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              variants={cardVariants}
+              variants={cardVariants as any}
               className="card bg-white border border-line rounded-[24px] p-6 text-center hover:border-brand/40 hover:shadow-xs transition-all duration-300 flex flex-col justify-center items-center"
             >
               <div className="heading-hero text-brand leading-none tracking-tight">

@@ -1,19 +1,29 @@
 "use client";
 
-import React, { useRef } from "react";
-import Link from "next/link";
+import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { Section } from "@/components/ui/Section";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { toast } from "sonner";
 
-export function FinalCta() {
+type Props = { title: string };
+
+export function InsightsCta({ title }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    // TODO: Wire to Mailchimp/HubSpot or custom endpoint before publishing
+    console.log("Subscribed email:", email);
+    toast.success("Successfully subscribed to DHGsoft Insights newsletter!");
+    setEmail("");
+  };
 
   return (
-    <Section ref={ref} variant="ink" size="hero" pattern="none" className="relative overflow-hidden border-t border-line">
+    <section ref={ref} className="relative overflow-hidden py-20 md:py-28 select-none">
       {/* Background — rich crimson gradient overlay + corner glows */}
       <div 
         className="absolute inset-0 z-0" 
@@ -36,8 +46,7 @@ export function FinalCta() {
         }}
       />
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto w-full max-w-site px-gutter md:px-gutter-md flex flex-col items-center text-center">
+      <div className="relative z-10 max-w-site mx-auto px-gutter md:px-gutter-md text-center flex flex-col items-center">
         {/* Eyebrow chip */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -45,21 +54,20 @@ export function FinalCta() {
           transition={{ duration: 0.5 }}
           className="inline-flex items-center gap-2 px-4 py-2 bg-white/15 border border-white/25 backdrop-blur-xs rounded-full mb-8"
         >
-          {/* Amber status-pill dot */}
-          <span className="w-1.5 h-1.5 rounded-full bg-[#F5B301] animate-pulse" />
+          <div className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse" />
           <span className="text-[10px] font-extrabold uppercase tracking-widest text-white font-sans">
-            Start Your Transformation
+            Stay Connected
           </span>
         </motion.div>
 
-        {/* Heading */}
+        {/* H2 Title */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
           transition={{ duration: 0.6, delay: 0.08 }}
-          className="heading-hero text-white text-center leading-[1.1] tracking-tight font-sans font-extrabold max-w-3xl"
+          className="heading-hero text-white mt-6 max-w-[820px] mx-auto text-center font-extrabold leading-[1.1] tracking-tight font-sans"
         >
-          Ready to Transform Your Industrial Operations?
+          {title}
         </motion.h2>
 
         {/* Sub-line */}
@@ -67,37 +75,37 @@ export function FinalCta() {
           initial={{ opacity: 0, y: 18 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
           transition={{ duration: 0.6, delay: 0.16 }}
-          className="text-body-md text-white/85 max-w-[680px] mx-auto mt-6 font-sans font-semibold leading-relaxed"
+          className="text-body-md text-white/85 mt-6 max-w-[620px] mx-auto leading-relaxed font-sans font-medium text-center"
         >
-          Let&apos;s discuss how DHGsoft&apos;s capabilities can accelerate your digital transformation journey with proven engineering excellence and industrial expertise.
+          Explore the latest engineering perspectives, industry developments, and digital transformation knowledge to stay ahead in a rapidly evolving industrial landscape.
         </motion.p>
 
-        {/* Action buttons */}
-        <motion.div
+        {/* Newsletter form */}
+        <motion.form 
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
           transition={{ duration: 0.55, delay: 0.24 }}
-          className="flex flex-wrap items-center justify-center gap-4 mt-8"
+          onSubmit={handleSubmit}
+          className="mt-10 flex flex-col sm:flex-row gap-3 w-full max-w-[520px] mx-auto"
         >
-          <Link
-            href="/contact"
-            className={cn(
-              buttonVariants({ variant: "outline", size: "lg" }),
-              "h-12 px-8 flex items-center justify-center gap-2 group cursor-pointer font-bold rounded-xl border-white text-white hover:bg-white hover:text-brand transition-all duration-300 shadow-sm"
-            )}
+          <input 
+            type="email" 
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Your work email"
+            className="flex-grow px-6 h-12 rounded-xl bg-white/10 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/40 focus:border-white/50 text-sm font-sans"
+          />
+          <button 
+            type="submit"
+            className="h-12 px-8 flex items-center justify-center gap-2 rounded-xl bg-white text-brand font-bold hover:shadow-lg hover:-translate-y-[2px] active:scale-[0.98] transition-all duration-300 whitespace-nowrap cursor-pointer text-sm font-sans shadow-sm"
           >
-            <span>Talk to an Expert</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </Link>
-          <Link
-            href="/contact#schedule"
-            className="border border-white/30 hover:border-white hover:bg-white/5 text-white rounded-xl font-bold h-12 px-8 flex items-center justify-center transition-all duration-300 hover:-translate-y-[2px]"
-          >
-            Schedule Consultation
-          </Link>
-        </motion.div>
+            <span>Subscribe</span>
+            <ArrowRight className="w-4.5 h-4.5" />
+          </button>
+        </motion.form>
 
-        {/* Footer Tagline */}
+        {/* Tagline */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
@@ -107,7 +115,7 @@ export function FinalCta() {
           Building Value for Tomorrow.
         </motion.p>
       </div>
-    </Section>
+    </section>
   );
 }
-export default FinalCta;
+export default InsightsCta;

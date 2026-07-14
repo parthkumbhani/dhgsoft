@@ -19,8 +19,8 @@ export function CapOverview({ eyebrow, h2, bodyParagraphs, image, imageAlt }: Pr
 
   const fade = (delay = 0) => ({
     initial: { opacity: 0, y: 25 },
-    animate: isInView ? { opacity: 1, y: 0 } : {},
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1], delay },
+    animate: isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 },
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const, delay },
   });
 
   return (

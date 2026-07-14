@@ -15,8 +15,8 @@ export function CapClosing({ text }: Props) {
       <div className="relative z-10 max-w-[800px] mx-auto text-center">
         <motion.p
           initial={{ opacity: 0, y: 15 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] as const }}
           className="text-txt-strong italic font-sans font-semibold leading-relaxed text-lg sm:text-xl md:text-2xl"
         >
           &ldquo;{text}&rdquo;

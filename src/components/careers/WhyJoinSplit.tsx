@@ -47,7 +47,7 @@ export default function WhyJoinSplit() {
         <div className="lg:col-span-6 text-left space-y-6 lg:pl-4">
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
             transition={{ duration: 0.4 }}
             className="section-eyebrow"
           >
@@ -56,7 +56,7 @@ export default function WhyJoinSplit() {
 
           <motion.h2 
             initial={{ opacity: 0, y: 15 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight tracking-tight text-txt-strong font-sans"
           >
@@ -67,7 +67,7 @@ export default function WhyJoinSplit() {
 
           <motion.p 
             initial={{ opacity: 0, y: 15 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base md:text-lg leading-relaxed text-txt-muted font-light"
           >
@@ -76,7 +76,7 @@ export default function WhyJoinSplit() {
 
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             className="pt-2"
           >

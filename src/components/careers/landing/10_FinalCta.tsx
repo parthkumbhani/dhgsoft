@@ -42,7 +42,7 @@ export function FinalCta() {
         {/* Eyebrow */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
           transition={{ duration: 0.5 }}
           className="inline-flex items-center gap-2 px-3 py-1 bg-brand/5 border border-brand/10 rounded-full mb-8"
         >
@@ -55,7 +55,7 @@ export function FinalCta() {
         {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
           transition={{ duration: 0.6, delay: 0.08 }}
           className="heading-hero text-txt-strong text-center leading-[1.1] tracking-tight font-sans font-extrabold max-w-3xl"
         >
@@ -65,7 +65,7 @@ export function FinalCta() {
         {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 18 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
           transition={{ duration: 0.6, delay: 0.16 }}
           className="section-subtitle text-txt-muted max-w-[620px] mx-auto mt-6 font-sans font-semibold"
         >
@@ -75,7 +75,7 @@ export function FinalCta() {
         {/* Action buttons */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
           transition={{ duration: 0.55, delay: 0.24 }}
           className="flex flex-wrap items-center justify-center gap-4 mt-8"
         >

@@ -49,7 +49,7 @@ export function CapSolutions({ eyebrow, h2, subLine, items }: Props) {
                 custom={idx}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
-                variants={cardVariants}
+                variants={cardVariants as any}
                 className="h-full"
               >
                 <div className="card group bg-white border border-line rounded-[24px] p-6 hover:border-brand/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300 h-full flex flex-col justify-start">

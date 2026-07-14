@@ -88,11 +88,11 @@ export default function FiveReasonsCarousel() {
           className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-6 -mx-4 px-4 sm:mx-0 sm:px-0"
           style={{ scrollbarWidth: "none" }}
         >
-          {whyJoinReasons.map((reason, index) => (
+          {whyJoinReasons.map((reason: any, index: number) => (
             <motion.div
               key={reason.id}
               initial={ { opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex-shrink-0 w-[290px] sm:w-[320px] snap-start bg-slate-50/50 border border-slate-100 rounded-2xl p-6 text-left relative flex flex-col justify-between group hover:shadow-lg hover:border-brand/20 transition-all duration-300 min-h-[220px]"
             >

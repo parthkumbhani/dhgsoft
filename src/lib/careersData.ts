@@ -1,4 +1,8 @@
 // src/lib/careersData.ts
+import { 
+  Cpu, Target, GraduationCap, Users, Rocket, 
+  Heart, BookOpen, Clock, DollarSign, Globe, Calendar 
+} from "lucide-react";
 
 export interface CareerDomain {
   title: string;
@@ -162,4 +166,168 @@ export const culturePhotos: CulturePhoto[] = [
     caption: "We celebrate wins together.",
   },
 ];
+
+export interface WhyJoinReason {
+  id: string;
+  iconName: string;
+  title: string;
+  description: string;
+  isPlaceholder?: boolean;
+}
+
+export const whyJoinReasons: WhyJoinReason[] = [
+  {
+    id: "innovation",
+    iconName: "Cpu",
+    title: "Cutting-Edge Tech",
+    description: "Work with advanced industrial technologies, from AI/ML to edge intelligence and IIoT architecture.",
+  },
+  {
+    id: "impact",
+    iconName: "Target",
+    title: "Real Industry Impact",
+    description: "Your code runs on actual factory floors, helping global industrial companies modernize and succeed.",
+  },
+  {
+    id: "learning",
+    iconName: "GraduationCap",
+    title: "Continuous Learning",
+    description: "Sponsorship for certifications, training courses, and custom mentorship pathways to boost your career.",
+  },
+  {
+    id: "culture",
+    iconName: "Users",
+    title: "Exceptional Culture",
+    description: "A highly collaborative, supportive, and inclusive team that celebrates success and works as one.",
+  },
+  {
+    id: "growth",
+    iconName: "Globe",
+    title: "Global Projects",
+    description: "Partner with top global technology companies and participate in large-scale international deliveries.",
+  },
+];
+
+export interface StatItem {
+  value: string;
+  label: string;
+}
+
+export const stats: StatItem[] = [
+  { value: "150+", label: "Engineers" },
+  { value: "50+", label: "Completed Projects" },
+  { value: "10+", label: "Global Locations" },
+  { value: "100%", label: "Client Retention" },
+];
+
+export const statItems = stats;
+
+export interface Reason {
+  number: string;
+  title: string;
+  body: string;
+  Icon: any;
+}
+
+export const fiveReasons: Reason[] = [
+  {
+    number: "01",
+    title: "Cutting-Edge Tech",
+    body: "Work with advanced industrial technologies, from AI/ML to edge intelligence and IIoT architecture.",
+    Icon: Cpu,
+  },
+  {
+    number: "02",
+    title: "Real Industry Impact",
+    body: "Your code runs on actual factory floors, helping global industrial companies modernize and succeed.",
+    Icon: Target,
+  },
+  {
+    number: "03",
+    title: "Continuous Learning",
+    body: "Sponsorship for certifications, training courses, and custom mentorship pathways to boost your career.",
+    Icon: GraduationCap,
+  },
+  {
+    number: "04",
+    title: "Exceptional Culture",
+    body: "A highly collaborative, supportive, and inclusive team that celebrates success and works as one.",
+    Icon: Users,
+  },
+  {
+    number: "05",
+    title: "Global Projects",
+    body: "Partner with top global technology companies and participate in large-scale international deliveries.",
+    Icon: Rocket,
+  },
+];
+
+export interface Benefit {
+  title: string;
+  body: string;
+  Icon: any;
+}
+
+export const benefits: Benefit[] = [
+  {
+    title: "Comprehensive Health",
+    body: "Premium medical, dental, and vision coverage for you and your family.",
+    Icon: Heart,
+  },
+  {
+    title: "Continuous Learning",
+    body: "Sponsorship for professional credentials, technical courses, and career mentorship.",
+    Icon: BookOpen,
+  },
+  {
+    title: "Flexible Work",
+    body: "Balance your professional and personal life with hybrid remote options.",
+    Icon: Clock,
+  },
+  {
+    title: "Financial Wellness",
+    body: "Competitive retirement savings programs and performance-based incentive recognition.",
+    Icon: DollarSign,
+  },
+  {
+    title: "Global Projects",
+    body: "Work on international projects and collaborate with multi-disciplinary global teams.",
+    Icon: Globe,
+  },
+  {
+    title: "Paid Time Off",
+    body: "Generous vacation policies, volunteer time off, and holiday benefits.",
+    Icon: Calendar,
+  },
+];
+
+export interface TestimonialItem {
+  quote: string;
+  initials: string;
+  name: string;
+  role: string;
+}
+
+export const testimonials: TestimonialItem[] = [
+  {
+    quote: "Building software that integrates with heavy machinery is incredibly challenging and rewarding. At DHGsoft, I get to work on real-world problems that have a direct impact on industrial safety and efficiency.",
+    initials: "MS",
+    name: "Marcus Sterling",
+    role: "Lead Systems Architect",
+  },
+  {
+    quote: "The culture here is built on collaboration and continuous learning. I've been sponsored to get three major cloud certifications, and the team was supportive every step of the way.",
+    initials: "AP",
+    name: "Aisha Patel",
+    role: "Senior Cloud Engineer",
+  },
+  {
+    quote: "Transitioning traditional operational technology to modern data platforms is the future of manufacturing. DHGsoft is leading this space, and it's exciting to shape this transformation.",
+    initials: "DK",
+    name: "Dieter Klaus",
+    role: "Director of OT Integration",
+  },
+];
+
+
 

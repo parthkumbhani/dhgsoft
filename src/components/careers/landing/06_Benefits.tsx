@@ -41,7 +41,7 @@ export function Benefits() {
             <motion.div
               key={benefit.title}
               initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
               transition={{ duration: 0.5, delay: i * 0.06 }}
               className="card bg-white border border-line rounded-2xl p-6 hover:border-brand hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 text-center group relative overflow-hidden flex flex-col items-center"
             >

@@ -24,7 +24,7 @@ export default function StatsStrip() {
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 15 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
               transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
               className="space-y-2 text-center lg:text-left"
             >

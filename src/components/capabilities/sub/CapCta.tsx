@@ -40,7 +40,7 @@ export function CapCta({ title }: Props) {
       <div className="relative z-10 max-w-site mx-auto px-gutter md:px-gutter-md text-center flex flex-col items-center">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
           transition={{ duration: 0.5 }}
           className="inline-flex items-center gap-2 px-4 py-2 bg-white/15 border border-white/25 backdrop-blur-xs rounded-full mb-8"
         >
@@ -52,7 +52,7 @@ export function CapCta({ title }: Props) {
 
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
           transition={{ duration: 0.6, delay: 0.08 }}
           className="heading-hero text-white mt-6 max-w-[820px] mx-auto text-center font-extrabold leading-[1.1] tracking-tight font-sans"
         >
@@ -61,7 +61,7 @@ export function CapCta({ title }: Props) {
 
         <motion.p
           initial={{ opacity: 0, y: 18 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
           transition={{ duration: 0.6, delay: 0.16 }}
           className="text-body-md text-white/85 mt-6 max-w-[620px] mx-auto leading-relaxed font-sans font-medium"
         >

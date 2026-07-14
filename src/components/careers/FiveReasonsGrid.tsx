@@ -53,7 +53,7 @@ export default function FiveReasonsGrid() {
  
       {/* 5-Card Grid Column layout (1 column mobile, 2 tablet, 3 small desktop, 5 desktop) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 xl:gap-6 w-full items-stretch">
-        {whyJoinReasons.map((reason, index) => {
+        {whyJoinReasons.map((reason: any, index: number) => {
           // Replace Globe icon with Rocket for Growth/Global Opportunities
           const iconKey = reason.iconName === "Globe" ? "Rocket" : reason.iconName;
           const Icon = iconMap[iconKey] || Cpu;
@@ -62,7 +62,7 @@ export default function FiveReasonsGrid() {
             <motion.div
               key={reason.id}
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 25 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
               transition={{ duration: 0.55, delay: index * 0.1, ease: "easeOut" as const }}
               className="w-full flex h-full"
             >

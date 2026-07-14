@@ -1,12 +1,14 @@
 "use client";
 
 import React from "react";
-import { SubPageHero } from "../shared/SubPageHero";
-import { SubPageOverview } from "../shared/SubPageOverview";
+import { InsightsHero } from "../../shared/InsightsHero";
+import { InsightsOverview } from "../../shared/InsightsOverview";
+import { InsightsImageBand } from "../../shared/InsightsImageBand";
 import { FocusAreas } from "./FocusAreas";
 import { Outcomes } from "./Outcomes";
+import { InsightsJourney } from "../../shared/InsightsJourney";
 import { RelatedInsights } from "../shared/RelatedInsights";
-import { SubPageCta } from "../shared/SubPageCta";
+import { InsightsCta } from "../../shared/InsightsCta";
 
 const relatedCards = [
   {
@@ -37,52 +39,65 @@ export function AiAutomationPageContent() {
 
   return (
     <div className="w-full">
-      <SubPageHero
+      {/* 1. Hero (Cinematic + Stats) */}
+      <InsightsHero
         breadcrumb="Insights → AI & Automation"
         eyebrow="AI & Automation"
-        h1={
-          <span>
-            Accelerating Industry Through <span className="text-gradient-brand">Intelligent Automation</span>
-          </span>
-        }
+        h1="Accelerating Industry Through Intelligent Automation"
+        emphasisWord="Intelligent Automation"
         subLine="Discover how Artificial Intelligence, Machine Learning, Industrial Automation, and advanced analytics are transforming industrial operations into intelligent, autonomous, and data-driven ecosystems."
-        primaryCta={{ text: "Explore Focus Areas", href: "#focus-areas" }}
-        secondaryCta={{ text: "Talk to an Expert", href: "#contact-expert" }}
-        bgImage="/images/insights/ai-automation-overview.jpg"
+        heroImage="/about_hero.png" // Mapping to existing premium photo
+        primaryCta={{ label: "Explore Focus Areas", href: "#focus-areas" }}
+        secondaryCta={{ label: "Talk to an Expert", href: "#", onClick: handleOpenContact }}
+        stats={[
+          { value: "6", label: "Focus Areas" },
+          { value: "Real-Time", label: "Intelligence" },
+          { value: "Predictive", label: "Insights" },
+        ]}
       />
 
-      <SubPageOverview
-        eyebrow="OVERVIEW"
-        h2="Where Intelligence Meets Industry"
+      {/* 2. Overview (2-col with photo) */}
+      <InsightsOverview
+        eyebrow="Overview"
+        h2="Where Intelligence Meets Industry."
         bodyParagraphs={[
           "Artificial Intelligence is reshaping the future of industrial operations. From predictive maintenance and intelligent quality inspection to autonomous decision-making and operational optimization, AI enables organizations to improve efficiency, reduce downtime, and unlock new levels of productivity.",
           "At DHGsoft, we combine industrial expertise with modern AI technologies to help organizations transform raw operational data into actionable intelligence.",
         ]}
-        image={{
-          src: "/images/insights/ai-automation-overview.jpg",
-          alt: "industrial AI control room analytics screens engineer",
-        }}
-        pattern="v1"
+        image="/about_engineering.png" // Mapping to existing premium photo
+        imageAlt="industrial AI control room analytics screens engineer"
       />
 
+      {/* 3. Image Band */}
+      <InsightsImageBand
+        image="/smart_factory_visual.png" // Mapping to existing premium photo
+        imageAlt="ai machine learning industrial predictive analytics"
+        caption="Turning industrial data into intelligent decisions — at every layer of operations."
+        captionEyebrow="AI In Industry"
+      />
+
+      {/* 4. Focus Areas Grid */}
       <FocusAreas />
 
+      {/* 5. Business Outcomes */}
       <Outcomes />
 
+      {/* 6. Journey / Approach Timeline */}
+      <InsightsJourney
+        eyebrow="AI Lifecycle"
+        h2="Our Strategic Delivery Approach"
+        subLine="From ingestion to continuous production feedback, we guide your team through each critical step of the AI lifecycle."
+        steps={["Collect Data", "Prepare Data", "Train Models", "Deploy AI", "Monitor", "Optimize"]}
+      />
+
+      {/* 7. Related Insights */}
       <RelatedInsights cards={relatedCards} pattern="v8" />
 
-      <div id="contact-expert" className="scroll-mt-20">
-        <SubPageCta
-          heading="Ready to Bring Intelligence to Your Operations?"
-          subLine="Let's discuss how AI and intelligent automation can accelerate your industrial transformation with practical, measurable outcomes."
-          primaryCta={{ 
-            text: "Talk to an AI Expert", 
-            href: "#",
-            onClick: handleOpenContact,
-          }}
-          secondaryCta={{ text: "Explore All Insights", href: "/insights" }}
-        />
+      {/* 8. Final CTA (crimson gradient) */}
+      <div id="contact-expert" className="w-full">
+        <InsightsCta title="Ready to Bring Intelligence to Your Operations?" />
       </div>
     </div>
   );
 }
+export default AiAutomationPageContent;

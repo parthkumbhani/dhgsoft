@@ -23,7 +23,7 @@ export default function CampusCard() {
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
         transition={{ duration: 0.65, ease: "easeOut" }}
         className="w-full border border-line bg-white rounded-3xl p-8 md:p-12 lg:p-16 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 hover:shadow-2xl hover:border-brand/20 transition-all duration-500 relative overflow-hidden"
       >

@@ -39,11 +39,11 @@ export function StatsBand() {
 
         {/* Stats grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {stats.map((stat, i) => (
+          {stats.map((stat: any, i: number) => (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className="card bg-white border border-line rounded-2xl p-6 text-center hover:border-brand transition-all duration-300 hover:shadow-md group relative overflow-hidden"
             >

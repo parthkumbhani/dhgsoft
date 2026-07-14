@@ -68,7 +68,7 @@ export function TeamCulture() {
           <motion.div
             key={photo.src}
             initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
             transition={{ duration: 0.55, delay: 0.12 + i * 0.1 }}
             className="relative aspect-square p-[1px] rounded-2xl bg-gradient-to-br from-line via-transparent to-brand/15 shadow-md overflow-hidden group"
           >

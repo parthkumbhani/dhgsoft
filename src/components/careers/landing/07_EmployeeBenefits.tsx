@@ -40,7 +40,7 @@ export function EmployeeBenefits() {
             <motion.div
               key={benefit.title}
               initial={{ opacity: 0, y: 15 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
               transition={{ duration: 0.5, delay: i * 0.06 }}
               className="py-6 first:pt-6 select-none"
             >

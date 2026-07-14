@@ -40,7 +40,7 @@ export function HowWeDeliver() {
               custom={i}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              variants={stepVariants}
+              variants={stepVariants as any}
               className="card bg-white border border-line rounded-[24px] p-6 relative flex flex-col justify-start h-full"
             >
               {/* Number badge */}

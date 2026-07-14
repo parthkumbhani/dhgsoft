@@ -73,7 +73,7 @@ export function LifeAtDHGsoft() {
               <motion.div
                 key={photo.src}
                 initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="relative aspect-square rounded-[20px] overflow-hidden shadow-sm border border-line bg-slate-50 group"
               >
@@ -96,7 +96,7 @@ export function LifeAtDHGsoft() {
             {/* Spanning full width in the right column */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="sm:col-span-2 relative aspect-[21/9] rounded-[20px] overflow-hidden shadow-sm border border-line bg-slate-50 group"
             >

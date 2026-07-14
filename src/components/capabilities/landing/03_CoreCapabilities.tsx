@@ -47,7 +47,7 @@ export function CoreCapabilities() {
                   custom={idx}
                   initial="hidden"
                   animate={isInView ? "visible" : "hidden"}
-                  variants={cardVariants}
+                  variants={cardVariants as any}
                   className="h-full"
                 >
                   <Link
@@ -113,7 +113,7 @@ export function CoreCapabilities() {
                   custom={idx + 8}
                   initial="hidden"
                   animate={isInView ? "visible" : "hidden"}
-                  variants={cardVariants}
+                  variants={cardVariants as any}
                   className="h-full"
                 >
                   <Link

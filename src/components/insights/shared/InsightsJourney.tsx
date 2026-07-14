@@ -11,7 +11,7 @@ type Props = {
   steps: string[];
 };
 
-export function CapJourney({ eyebrow, h2, subLine, steps }: Props) {
+export function InsightsJourney({ eyebrow, h2, subLine, steps }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.15 });
 
@@ -25,7 +25,7 @@ export function CapJourney({ eyebrow, h2, subLine, steps }: Props) {
   };
 
   return (
-    <Section variant="white" size="default" pattern="v5" ref={ref} className="relative overflow-hidden border-b border-line">
+    <Section variant="white" size="default" pattern="v5" ref={ref} className="relative overflow-hidden border-b border-line text-left">
       <div className="w-full relative z-10">
         {/* Header */}
         <div className="text-center mb-12 max-w-2xl mx-auto space-y-4">
@@ -73,4 +73,4 @@ export function CapJourney({ eyebrow, h2, subLine, steps }: Props) {
     </Section>
   );
 }
-export default CapJourney;
+export default InsightsJourney;

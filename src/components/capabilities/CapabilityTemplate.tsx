@@ -49,7 +49,7 @@ export default function CapabilityTemplate({ data }: CapabilityTemplateProps) {
           h2={pageContent.overview.h2}
           bodyParagraphs={pageContent.overview.bodyParagraphs}
           image={pageContent.overview.image}
-          imageAlt={pageContent.title}
+          imageAlt={pageContent.eyebrow}
         />
 
         {/* 3. CapSolutions Section */}
@@ -63,7 +63,7 @@ export default function CapabilityTemplate({ data }: CapabilityTemplateProps) {
         {/* 4. CapImageBand Section */}
         <CapImageBand
           image={pageContent.imageBand.image}
-          imageAlt={pageContent.title + " Visual Band"}
+          imageAlt={pageContent.eyebrow + " Visual Band"}
           caption={pageContent.imageBand.caption}
           captionEyebrow={pageContent.imageBand.captionEyebrow}
         />

@@ -94,7 +94,7 @@ export default function CareersHero({ onContactClick }: CareersHeroProps) {
           >
             {/* Eyebrow chip */}
             <motion.div 
-              variants={itemVariants} 
+              variants={itemVariants as any} 
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse" />
@@ -105,7 +105,7 @@ export default function CareersHero({ onContactClick }: CareersHeroProps) {
             
             {/* H1 — Large anchor with tightened line-height */}
             <motion.h1 
-              variants={itemVariants}
+              variants={itemVariants as any}
               className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.25rem] font-extrabold leading-[0.95] tracking-tight text-white font-sans"
             >
               <span className="block">Build</span>
@@ -117,7 +117,7 @@ export default function CareersHero({ onContactClick }: CareersHeroProps) {
             
             {/* Supporting paragraph */}
             <motion.p 
-              variants={itemVariants}
+              variants={itemVariants as any}
               className="lg:text-[16px] max-w-[560px] section-subtitle on-dark"
             >
               Join a team that&apos;s transforming industrial enterprises through Automation, AI, Data, Cloud, and Digital Engineering. At DHGsoft, you&apos;ll work on cutting-edge technologies, collaborate with industry experts, and help shape the future of connected industries across the globe.
@@ -125,7 +125,7 @@ export default function CareersHero({ onContactClick }: CareersHeroProps) {
             
             {/* CTAs */}
             <motion.div 
-              variants={itemVariants}
+              variants={itemVariants as any}
               className="pt-2 flex flex-wrap items-center gap-4"
             >
               <Link 

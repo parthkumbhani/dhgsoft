@@ -43,7 +43,7 @@ export function CapBenefits({ eyebrow, h2, benefits }: Props) {
               custom={idx}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              variants={cardVariants}
+              variants={cardVariants as any}
               className="h-full"
             >
               <div className="card flex items-start gap-4 bg-white border border-line rounded-[24px] p-6 hover:border-brand/40 hover:shadow-xs transition-all duration-300 h-full">

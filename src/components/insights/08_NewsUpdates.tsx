@@ -1,60 +1,95 @@
 "use client";
 
-import React from "react";
-import { Megaphone, ArrowRight } from "lucide-react";
+import React, { useRef } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { motion, useInView } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
 
 export function NewsUpdates() {
-  return (
-    <Section variant="white" size="default" pattern="v6" className="relative overflow-hidden border-b border-line/10">
-      {/* Header */}
-      <div className="text-left space-y-4">
-        <span className="text-brand text-label-bold uppercase tracking-[0.2em] font-sans block">
-          NEWS & UPDATES
-        </span>
-        <h2 className="text-txt-strong tracking-tight font-black leading-tight font-sans">
-          News & Updates
-        </h2>
-        <p className="text-body-md text-txt-muted max-w-[720px] leading-relaxed font-sans">
-          Stay informed about DHGsoft's latest announcements, partnerships, technology initiatives, engineering achievements, product innovations, and company developments.
-        </p>
-      </div>
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.15 });
 
-      {/* Coming-soon placeholder card */}
-      <div className="card mt-12 bg-white border border-line rounded-3xl p-10 md:p-14 text-center relative overflow-hidden">
-        {/* Soft brand glow behind */}
-        <div 
-          className="absolute -top-20 -right-20 w-[300px] h-[300px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(180,18,63,0.10) 0%, transparent 70%)', filter: 'blur(60px)' }}
-        />
-        
-        <div className="relative z-10 flex flex-col items-center">
-          <div className="inline-flex w-14 h-14 rounded-full bg-[#B4123F]/10 items-center justify-center shrink-0">
-            <Megaphone className="w-6 h-6 text-[#B4123F]" />
-          </div>
-          <h3 className="heading-md text-txt-strong mt-6 font-sans font-bold">
-            Newsroom launching soon
-          </h3>
-          <p className="text-body-sm text-txt-muted mt-3 max-w-[540px] mx-auto leading-relaxed font-sans">
-            Company milestones, partnership announcements, and technology launches will appear here. Follow us on LinkedIn for real-time updates.
-          </p>
+  return (
+    <Section variant="white" size="default" pattern="v6" ref={ref} className="relative overflow-hidden border-b border-line text-left">
+      <Container>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           
-          <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
-            <a 
-              href="https://www.linkedin.com" 
-              target="_blank" 
-              rel="noreferrer" 
-              className="inline-flex items-center justify-center h-10 px-6 rounded-full bg-[#0A66C2] hover:bg-[#08529d] text-white font-semibold text-xs tracking-wider transition-colors cursor-pointer font-sans"
-            >
-              Follow on LinkedIn
-            </a>
-            <a href="#newsletter" className="inline-flex items-center gap-2 text-brand font-semibold hover:gap-3 transition-all cursor-pointer font-sans text-xs">
-              Get notified
-              <ArrowRight className="w-4 h-4 text-brand" />
-            </a>
-          </div>
+          {/* News & Updates Card */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="card relative overflow-hidden rounded-[24px] min-h-[360px] group border border-line"
+          >
+            <Image 
+              src="/about_values.png" // Mapping to existing premium photo
+              alt="DHGsoft news and announcements"
+              fill 
+              className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-transparent z-10" />
+            <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
+              <span className="text-brand-hot text-[10px] font-extrabold uppercase tracking-widest block mb-2 font-sans">
+                News & Updates
+              </span>
+              <h3 className="text-white font-extrabold text-xl sm:text-2xl leading-tight font-sans">
+                Latest from DHGsoft
+              </h3>
+              <p className="text-body-sm text-white/80 mt-3 max-w-[420px] font-sans font-medium leading-relaxed">
+                Stay informed about DHGsoft&apos;s latest announcements, partnerships, technology initiatives, engineering achievements, product innovations, and company developments.
+              </p>
+              <a 
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-xl bg-white text-brand font-bold hover:shadow-lg hover:-translate-y-0.5 transition-all w-fit cursor-pointer text-xs uppercase tracking-wider font-sans"
+              >
+                <span>Follow on LinkedIn</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </motion.div>
+          
+          {/* Resource Library Card */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="card relative overflow-hidden rounded-[24px] min-h-[360px] group border border-line"
+          >
+            <Image 
+              src="/about_global.png" // Mapping to existing premium photo
+              alt="DHGsoft resource library"
+              fill 
+              className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-transparent z-10" />
+            <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
+              <span className="text-brand-hot text-[10px] font-extrabold uppercase tracking-widest block mb-2 font-sans">
+                Resource Library
+              </span>
+              <h3 className="text-white font-extrabold text-xl sm:text-2xl leading-tight font-sans">
+                A Growing Knowledge Base
+              </h3>
+              <p className="text-body-sm text-white/80 mt-3 max-w-[420px] font-sans font-medium leading-relaxed">
+                Explore a growing collection of technical guides, implementation frameworks, engineering documents, webinars, presentations, and educational resources designed to support your digital transformation journey.
+              </p>
+              <Link 
+                href="#newsletter"
+                className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-xl bg-white text-brand font-bold hover:shadow-lg hover:-translate-y-0.5 transition-all w-fit cursor-pointer text-xs uppercase tracking-wider font-sans"
+              >
+                <span>Browse Library</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </motion.div>
+          
         </div>
-      </div>
+      </Container>
     </Section>
   );
 }
+export default NewsUpdates;
