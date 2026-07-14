@@ -17,7 +17,7 @@ export default function Footer() {
       {/* Structural background highlights */}
       <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] bg-[size:24px_24px] opacity-10 pointer-events-none" />
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-16">
+      <div className="max-w-site mx-auto px-gutter md:px-gutter-md relative z-10 space-y-16">
         
         {/* Top block: logo, socials and links */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">

@@ -7,7 +7,6 @@ import { partners, locations } from "@/lib/aboutData";
 export function PartnershipMarquee() {
   return (
     <Section variant="mist" size="default" pattern="v8">
-      <div className="mx-auto w-full max-w-site px-gutter md:px-gutter-md">
         
         {/* Header block */}
         <div className="text-center max-w-[720px] mx-auto text-left md:text-center">
@@ -81,8 +80,7 @@ export function PartnershipMarquee() {
             ))}
           </div>
         </div>
-      </div>
-    </Section>
+      </Section>
   );
 }
 

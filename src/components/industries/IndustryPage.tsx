@@ -89,7 +89,7 @@ export default function IndustryPage({ data }: IndustryPageProps) {
           {/* Interactive Digital Intelligence Overlay */}
           <DigitalOverlay nodes={data.hudNodes} />
           
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] w-full py-16 md:py-20 relative z-30">
+          <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md w-full py-16 md:py-20 relative z-30">
             {/* Breadcrumb */}
             <div className="flex items-center gap-1 text-txt-muted text-xs sm:text-sm font-semibold tracking-wide mb-6">
               <Link href="/industries" className="hover:text-white transition-colors">
@@ -138,7 +138,7 @@ export default function IndustryPage({ data }: IndustryPageProps) {
 
         {/* 3) The Landscape Overview */}
         <SectionBand variant="mist">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+          <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md">
             <div className="max-w-4xl mx-auto text-center space-y-6">
               <Eyebrow>THE LANDSCAPE</Eyebrow>
               <p className="text-txt-strong font-bold text-xl sm:text-2xl sm:leading-relaxed">
@@ -150,7 +150,7 @@ export default function IndustryPage({ data }: IndustryPageProps) {
 
         {/* 4) Industry Challenges */}
         <SectionBand variant="white" className="bg-tech-grid">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+          <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md space-y-12">
             <div className="text-left">
               <Eyebrow>INDUSTRY CHALLENGES</Eyebrow>
             </div>
@@ -181,7 +181,7 @@ export default function IndustryPage({ data }: IndustryPageProps) {
 
         {/* 5) How DHGsoft Helps */}
         <SectionBand variant="mist">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+          <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md space-y-12">
             <div className="text-left">
               <Eyebrow>HOW WE HELP</Eyebrow>
             </div>
@@ -219,7 +219,7 @@ export default function IndustryPage({ data }: IndustryPageProps) {
 
         {/* 7) Key Use Cases */}
         <SectionBand variant="white" className="bg-tech-grid">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-8">
+          <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md space-y-8">
             <div className="text-left">
               <Eyebrow>KEY USE CASES</Eyebrow>
             </div>
@@ -236,7 +236,7 @@ export default function IndustryPage({ data }: IndustryPageProps) {
 
         {/* 8) Business Outcomes */}
         <SectionBand variant="mist">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+          <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md space-y-12">
             <div className="text-left">
               <Eyebrow>TARGET BUSINESS OUTCOMES</Eyebrow>
             </div>
@@ -264,7 +264,7 @@ export default function IndustryPage({ data }: IndustryPageProps) {
 
         {/* 9) Relevant Capabilities */}
         <SectionBand variant="white" className="bg-tech-grid">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+          <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md space-y-12">
             <div className="text-left">
               <Eyebrow>RELEVANT CAPABILITIES</Eyebrow>
             </div>
@@ -295,7 +295,7 @@ export default function IndustryPage({ data }: IndustryPageProps) {
 
         {/* 10) Why DHGsoft */}
         <SectionBand variant="mist">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+          <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md space-y-12">
             <div className="text-left">
               <Eyebrow>WHY DHGSOFT</Eyebrow>
             </div>
@@ -331,7 +331,7 @@ export default function IndustryPage({ data }: IndustryPageProps) {
 
         {/* 11) Related Industries */}
         <SectionBand variant="white" className="bg-tech-grid">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+          <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md space-y-12">
             <div className="text-left">
               <Eyebrow>RELATED INDUSTRIES</Eyebrow>
             </div>
@@ -352,7 +352,7 @@ export default function IndustryPage({ data }: IndustryPageProps) {
         {/* 12) CTA Band */}
         <SectionBand variant="gradient" className="text-center py-20">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-6">
+          <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md relative z-10 space-y-6">
             <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block animate-pulse">
               LET&apos;S BUILD
             </span>

@@ -26,7 +26,7 @@ export default function Loading() {
         </Section>
 
         {/* Section Grid Skeleton */}
-        <Section variant="white" containerSize="wide" className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+        <Section variant="white" containerSize="wide">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="h-[250px] bg-slate-200 rounded-2xl" />
             <div className="h-[250px] bg-slate-200 rounded-2xl" />

@@ -14,7 +14,7 @@ export default function CapabilitySwitcher({ currentSlug }: CapabilitySwitcherPr
 
   return (
     <div className="sticky top-20 z-40 w-full bg-slate-950/90 border-b border-slate-900 backdrop-blur-md overflow-x-auto select-none scrollbar-none">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] py-3.5 flex items-center gap-3 whitespace-nowrap">
+      <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md py-3.5 flex items-center gap-3 whitespace-nowrap">
         <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mr-2 font-mono">
           Jump to:
         </span>

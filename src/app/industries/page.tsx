@@ -31,7 +31,7 @@ export default function ExploreIndustriesPage() {
           <div className="absolute inset-0 bg-tech-grid opacity-25 pointer-events-none" />
           <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-brand/10 blur-[130px] pointer-events-none" />
           
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 text-left space-y-6">
+          <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md relative z-10 text-left space-y-6">
             <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-brand-hot font-mono block">
               INDUSTRIES
             </span>
@@ -46,7 +46,7 @@ export default function ExploreIndustriesPage() {
 
         {/* 14 Industry Cards Grid */}
         <SectionBand variant="mist">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+          <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md space-y-12">
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {industries.map((ind) => (
@@ -104,7 +104,7 @@ export default function ExploreIndustriesPage() {
         {/* CTA Band */}
         <SectionBand variant="gradient" className="text-center py-20">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-6">
+          <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md relative z-10 space-y-6">
             <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
               LET&apos;S BUILD
             </span>

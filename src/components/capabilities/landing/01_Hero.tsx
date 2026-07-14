@@ -55,7 +55,7 @@ export function Hero() {
       />
 
       {/* Content — Left Aligned, pl-[8vw] style spacing */}
-      <div className="relative z-20 mx-auto w-full max-w-site px-gutter md:px-gutter-md lg:pl-[8vw] lg:pr-8">
+      <div className="relative z-20 mx-auto w-full max-w-site px-gutter md:px-gutter-md">
         <motion.div
           variants={container}
           initial="hidden"

@@ -35,7 +35,7 @@ export default function IndustrySwitcher({ industries, activeSlug }: IndustrySwi
 
   return (
     <div className="w-full bg-ink/95 border-y border-slate-900 sticky top-20 z-40 backdrop-blur-md">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+      <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md">
         <div 
           ref={containerRef}
           className="flex items-center gap-2 overflow-x-auto py-3 no-scrollbar scroll-smooth"

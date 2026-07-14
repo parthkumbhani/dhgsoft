@@ -44,7 +44,7 @@ export default function ConnectedOperations({ industryName, assets, caption }: C
       <div className="absolute -top-1/4 -left-1/4 w-[500px] h-[500px] rounded-full bg-brand/5 blur-[150px] pointer-events-none" />
       <div className="absolute -bottom-1/4 -right-1/4 w-[500px] h-[500px] rounded-full bg-brand-hot/5 blur-[150px] pointer-events-none" />
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10">
+      <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Text Description Block */}

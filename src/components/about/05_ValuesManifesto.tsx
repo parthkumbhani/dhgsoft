@@ -6,7 +6,6 @@ import { values } from "@/lib/aboutData";
 export function ValuesManifesto() {
   return (
     <Section variant="mist" size="default" pattern="v6">
-      <div className="mx-auto w-full max-w-site px-gutter md:px-gutter-md">
         <div className="max-w-[1100px] mx-auto">
           
           {/* Chapter marker */}
@@ -64,8 +63,7 @@ export function ValuesManifesto() {
             <div className="w-12 h-[2px] bg-brand shrink-0" />
           </div>
         </div>
-      </div>
-    </Section>
+      </Section>
   );
 }
 

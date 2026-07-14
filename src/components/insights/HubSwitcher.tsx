@@ -17,7 +17,7 @@ const hubs = [
 export default function HubSwitcher({ activeHub }: HubSwitcherProps) {
   return (
     <div className="sticky top-20 z-30 w-full bg-white border-b border-line py-4 shadow-sm backdrop-blur-md bg-white/90">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+      <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md">
         <div className="flex items-center gap-3 overflow-x-auto no-scrollbar scroll-smooth">
           <span className="text-[10px] font-extrabold uppercase tracking-widest text-text-muted font-mono mr-2 shrink-0 select-none">
             Hubs:

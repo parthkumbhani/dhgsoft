@@ -24,92 +24,326 @@ interface IndustryCardData {
 
 const INDUSTRIES_DATA: IndustryCardData[] = [
   {
-    industry: "Mining & Metals",
-    desc: "Build intelligent mining operations with predictive maintenance, process optimization, digital safety monitoring, and real-time production analytics.",
-    image: "/industries/mining.png",
-    objectPosition: "center 40%",
-    overview: "End-to-end digital transformation for mining and metals operations — from pit-to-port optimization to autonomous fleet management.",
-    services: ["Predictive Equipment Maintenance", "Autonomous Fleet Management", "AI Ore Grade Optimization", "Digital Mine Safety Systems"],
-    technologies: ["IoT Edge Sensors", "SCADA", "AI/ML Pipelines", "Digital Twin"],
-    outcomes: ["30% downtime reduction", "15% yield improvement", "Zero-harm safety targets"],
-    slug: "mining-metals"
-  },
-  {
-    industry: "Power Utility",
-    desc: "Modernize power generation, transmission, substations, and smart grid infrastructure with secure digital automation.",
-    image: "/industries/power.png",
+    industry: "Industrial Manufacturing",
+    desc: "Accelerate manufacturing excellence by connecting production systems, industrial data, and enterprise operations to improve visibility, efficiency, and operational performance.",
+    image: "/industries/industrial_manufacturing.png",
     objectPosition: "center 30%",
-    overview: "Secure digital automation for power generation, transmission, and distribution infrastructure with real-time grid intelligence.",
-    services: ["Smart Grid Platforms", "Substation Automation", "Load Forecasting Systems", "Renewable Integration"],
-    technologies: ["IEC 61850", "DNP3", "ADMS", "AMI Metering"],
-    outcomes: ["99.9% grid reliability", "20% outage reduction", "Real-time asset visibility"],
-    slug: "power-utilities"
+    overview: "Engineering the Intelligent Factory",
+    services: [
+      "Smart Factory & Industry 4.0",
+      "Manufacturing Execution (MES)",
+      "Industrial AI & Analytics",
+      "OT/IT Integration",
+      "Industrial Data Platforms",
+      "Predictive Maintenance"
+    ],
+    technologies: ["OPC UA", "MQTT", "MES", "Digital Twin", "AI/ML"],
+    outcomes: [
+      "Connected Manufacturing Operations",
+      "Increased Asset Utilization",
+      "Improved Production Visibility",
+      "Data-Driven Decision Making"
+    ],
+    slug: "industrial-manufacturing"
   },
   {
     industry: "Life Sciences",
-    desc: "Accelerate pharmaceutical manufacturing, laboratory automation, quality compliance, and digital healthcare innovation.",
-    image: "/industries/lifesciences.png",
+    desc: "Modernize pharmaceutical and life sciences operations with compliant, intelligent, and data-driven manufacturing solutions that enhance quality and operational excellence.",
+    image: "/industries/life_sciences.png",
     objectPosition: "center 35%",
-    overview: "GMP-compliant digital solutions for pharmaceutical manufacturing, laboratory automation, and regulatory compliance.",
-    services: ["Electronic Batch Records", "Laboratory Info Systems", "Serialization & Track-Trace", "Process Analytical Tech"],
-    technologies: ["GAMP 5", "21 CFR Part 11", "MES", "LIMS"],
-    outcomes: ["40% faster batch release", "100% compliance record", "Full lifecycle traceability"],
+    overview: "Connected Digital Manufacturing for Regulated Industries",
+    services: [
+      "Manufacturing Intelligence",
+      "Batch & Process Monitoring",
+      "MES & LIMS Integration",
+      "Industrial Data Platforms",
+      "AI & Advanced Analytics",
+      "Digital Compliance Solutions"
+    ],
+    technologies: ["GxP", "FDA 21 CFR", "MES", "LIMS", "Batch Control"],
+    outcomes: [
+      "Enhanced Product Quality",
+      "Digital Batch Traceability",
+      "Improved Regulatory Compliance",
+      "Real-Time Manufacturing Insights"
+    ],
     slug: "life-sciences"
   },
   {
-    industry: "Food & Beverages",
-    desc: "Optimize production lines, quality assurance, packaging automation, traceability, and operational efficiency.",
-    image: "/industries/food.png",
-    objectPosition: "center 40%",
-    overview: "Smart manufacturing solutions for food safety, production optimization, and end-to-end supply chain traceability.",
-    services: ["OEE Optimization Platforms", "Recipe & Batch Control", "Quality Inspection Systems", "Packaging Automation"],
-    technologies: ["ISA-88", "ISA-95", "ERP Integration", "Vision AI"],
-    outcomes: ["25% OEE increase", "Zero safety incidents", "Full product traceability"],
-    slug: "food-beverages"
-  },
-  {
     industry: "Automotive",
-    desc: "Enable smart manufacturing, connected production systems, robotics, and Industry 4.0 transformation.",
-    image: "/industries/automotive.png",
+    desc: "Transform automotive manufacturing through intelligent automation, connected production systems, and operational analytics.",
+    image: "/industries/automotive_industry.png",
     objectPosition: "center 45%",
-    overview: "Industry 4.0 transformation for automotive OEMs and Tier-1 suppliers with connected factory intelligence.",
-    services: ["Digital Factory Platforms", "Robotic Cell Integration", "Predictive Quality Analytics", "Connected Supply Chain"],
-    technologies: ["OPC UA", "CAN Bus", "ROS", "MQTT Edge"],
-    outcomes: ["35% faster cycle times", "50% defect reduction", "Real-time production views"],
+    overview: "Driving the Connected Factory",
+    services: [
+      "Smart Assembly Lines",
+      "Robotics Integration",
+      "Production Analytics",
+      "Quality Management",
+      "OT/IT Integration",
+      "Industrial AI"
+    ],
+    technologies: ["ROS", "OPC UA", "Robotics", "OEE", "Edge AI"],
+    outcomes: [
+      "Connected Production",
+      "Improved Product Quality",
+      "Enhanced Manufacturing Agility",
+      "Greater Operational Efficiency"
+    ],
     slug: "automotive"
   },
   {
-    industry: "Data Centers",
-    desc: "Deliver resilient digital infrastructure with intelligent monitoring, energy optimization, and mission-critical operations.",
-    image: "/industries/datacenters.png",
+    industry: "Semiconductor",
+    desc: "Enable high-performance semiconductor manufacturing through advanced automation, equipment connectivity, and real-time production intelligence.",
+    image: "/industries/semiconductor.png",
     objectPosition: "center 45%",
-    overview: "Mission-critical infrastructure management for hyperscale and enterprise data center operations.",
-    services: ["DCIM Platform Integration", "Energy & Cooling Tuning", "Capacity Planning Systems", "Power Monitoring & Backup"],
-    technologies: ["SNMP", "BACnet", "Modbus", "IPMI"],
-    outcomes: ["40% energy savings", "99.999% uptime SLA", "Predictive capacity management"],
-    slug: "data-centres"
+    overview: "Precision Manufacturing Powered by Digital Intelligence",
+    services: [
+      "Equipment Connectivity",
+      "Yield Analytics",
+      "Factory Automation",
+      "Industrial Data Platforms",
+      "Predictive Analytics",
+      "Operational Intelligence"
+    ],
+    technologies: ["SECS/GEM", "SPC", "Yield AI", "Fab Auto"],
+    outcomes: [
+      "Higher Manufacturing Visibility",
+      "Improved Equipment Performance",
+      "Enhanced Yield Optimization",
+      "Faster Operational Decisions"
+    ],
+    slug: "semiconductor"
   },
   {
-    industry: "Water & Wastewater",
-    desc: "Improve water treatment, distribution, monitoring, and sustainable utility operations through intelligent automation.",
-    image: "/industries/water.png",
+    industry: "Food & Beverages",
+    desc: "Digitize food production with connected operations, quality monitoring, and end-to-end traceability.",
+    image: "/industries/food_beverages_industry.png",
     objectPosition: "center 40%",
-    overview: "Intelligent water management systems for treatment optimization, distribution monitoring, and regulatory compliance.",
-    services: ["Treatment Process Control", "Leak Detection & NRW Control", "Water Quality Monitoring", "Distribution Network Intel"],
-    technologies: ["PLC/RTU", "GIS Mapping", "Telemetry", "SCADA"],
-    outcomes: ["30% NRW reduction", "Full compliance safety", "Real-time quality alerts"],
+    overview: "Smart Manufacturing from Production to Packaging",
+    services: [
+      "Production Monitoring",
+      "Recipe & Batch Management",
+      "Quality Analytics",
+      "Energy Monitoring",
+      "Supply Chain Integration",
+      "Industrial IoT"
+    ],
+    technologies: ["ISA-88", "HACCP", "IoT Sensors", "Track & Trace"],
+    outcomes: [
+      "Improved Product Quality",
+      "End-to-End Traceability",
+      "Optimized Production",
+      "Greater Operational Visibility"
+    ],
+    slug: "food-beverages"
+  },
+  {
+    industry: "Chemical Manufacturing",
+    desc: "Modernize chemical manufacturing with integrated process automation, industrial analytics, and connected asset management.",
+    image: "/industries/chemical_manufacturing.png",
+    objectPosition: "center 35%",
+    overview: "Safe, Intelligent and Sustainable Operations",
+    services: [
+      "Process Optimization",
+      "Asset Performance Management",
+      "Industrial AI",
+      "Process Historian",
+      "OT Cybersecurity",
+      "Energy Analytics"
+    ],
+    technologies: ["SCADA", "Process Safety", "Historian", "Cybersecurity"],
+    outcomes: [
+      "Safer Operations",
+      "Improved Process Efficiency",
+      "Better Asset Reliability",
+      "Sustainable Manufacturing"
+    ],
+    slug: "chemical-manufacturing"
+  },
+  {
+    industry: "Oil & Gas",
+    desc: "Digitally connect upstream, midstream, and downstream operations through intelligent automation and industrial data platforms.",
+    image: "/industries/oil_gas_industry.png",
+    objectPosition: "center 40%",
+    overview: "Connected Energy Operations",
+    services: [
+      "Pipeline Monitoring",
+      "Asset Performance Management",
+      "SCADA Integration",
+      "Industrial Data Platforms",
+      "Predictive Analytics",
+      "Remote Operations"
+    ],
+    technologies: ["SCADA", "IoT", "Telemetry", "APM", "Digital Twin"],
+    outcomes: [
+      "Operational Visibility",
+      "Enhanced Asset Performance",
+      "Improved Operational Safety",
+      "Intelligent Energy Management"
+    ],
+    slug: "oil-gas"
+  },
+  {
+    industry: "Power & Utilities",
+    desc: "Support modern energy operations through connected assets, operational intelligence, and digital grid management.",
+    image: "/industries/power_utilities.png",
+    objectPosition: "center 30%",
+    overview: "Building Intelligent Energy Infrastructure",
+    services: [
+      "Grid Monitoring",
+      "Energy Analytics",
+      "Renewable Integration",
+      "Asset Health Monitoring",
+      "Industrial AI",
+      "OT/IT Integration"
+    ],
+    technologies: ["IEC 61850", "DNP3", "Smart Grid", "DER"],
+    outcomes: [
+      "Reliable Energy Operations",
+      "Better Asset Visibility",
+      "Improved Grid Performance",
+      "Data-Driven Energy Decisions"
+    ],
+    slug: "power-utilities"
+  },
+  {
+    industry: "Mining & Metals",
+    desc: "Optimize mining and metal operations through automation, industrial analytics, and connected operational intelligence.",
+    image: "/industries/mining_metals.png",
+    objectPosition: "center 40%",
+    overview: "Digital Transformation for Heavy Industries",
+    services: [
+      "Fleet Monitoring",
+      "Asset Performance",
+      "Production Analytics",
+      "Industrial IoT",
+      "Process Optimization",
+      "Predictive Maintenance"
+    ],
+    technologies: ["IoT Edge", "APM", "OEE", "Fleet Telemetry"],
+    outcomes: [
+      "Connected Mining Operations",
+      "Increased Equipment Availability",
+      "Better Operational Performance",
+      "Improved Resource Utilization"
+    ],
+    slug: "mining-metals"
+  },
+  {
+    industry: "Water & Wastewater Management",
+    desc: "Enable intelligent water management through connected assets, real-time monitoring, and operational analytics.",
+    image: "/industries/water_wastewater.png",
+    objectPosition: "center 40%",
+    overview: "Smart Water Infrastructure",
+    services: [
+      "SCADA Solutions",
+      "Pump Station Monitoring",
+      "Water Quality Analytics",
+      "Industrial Data Platforms",
+      "Remote Monitoring",
+      "Predictive Maintenance"
+    ],
+    technologies: ["SCADA", "Pump Control", "Telemetry", "GIS"],
+    outcomes: [
+      "Improved Network Visibility",
+      "Optimized Water Operations",
+      "Better Resource Management",
+      "Reliable Infrastructure Performance"
+    ],
     slug: "water-wastewater"
   },
   {
-    industry: "EPC",
-    desc: "Digitize engineering, procurement, project execution, and asset lifecycle management for large-scale infrastructure.",
+    industry: "Consumer Packaged Goods (CPG)",
+    desc: "Digitize production and packaging operations to improve manufacturing efficiency, product quality, and supply chain visibility.",
+    image: "/industries/consumer_packaged_goods.png",
+    objectPosition: "center 45%",
+    overview: "Connected Manufacturing and Supply Chain Intelligence",
+    services: [
+      "Production Monitoring",
+      "Packaging Line Automation",
+      "Warehouse Integration",
+      "Manufacturing Analytics",
+      "Industrial AI",
+      "Enterprise Integration"
+    ],
+    technologies: ["OEE", "Packaging Automation", "ERP Integration", "IIoT"],
+    outcomes: [
+      "Connected Operations",
+      "Improved Manufacturing Performance",
+      "Enhanced Supply Chain Visibility",
+      "Better Customer Responsiveness"
+    ],
+    slug: "consumer-packaged-goods"
+  },
+  {
+    industry: "Data Centres",
+    desc: "Improve the reliability, efficiency, and sustainability of data centre operations through intelligent monitoring and digital infrastructure management.",
+    image: "/industries/data_centres.png",
+    objectPosition: "center 45%",
+    overview: "Intelligent Infrastructure for Mission-Critical Operations",
+    services: [
+      "Infrastructure Monitoring",
+      "Energy Management",
+      "Cooling Optimization",
+      "Industrial IoT",
+      "AI Analytics",
+      "Operational Dashboards"
+    ],
+    technologies: ["DCIM", "HVAC", "Modbus", "AI Cooling"],
+    outcomes: [
+      "Improved Infrastructure Availability",
+      "Optimized Energy Efficiency",
+      "Real-Time Operational Visibility",
+      "Sustainable Data Centre Operations"
+    ],
+    slug: "data-centres"
+  },
+  {
+    industry: "Engineering, Procurement & Construction (EPC)",
+    desc: "Transform engineering and construction projects through integrated digital engineering, project information management, and intelligent commissioning.",
     image: "/industries/epc.png",
     objectPosition: "center 35%",
-    overview: "Digital project execution platforms for engineering, procurement, and construction of large-scale industrial infrastructure.",
-    services: ["Digital Twin Engineering", "BIM-Integrated Workflows", "Automated Document Control", "Commissioning Systems"],
-    technologies: ["Primavera P6", "Aveva E3D", "SAP PM", "Intergraph"],
-    outcomes: ["20% faster project delivery", "15% cost reduction", "Zero-rework commissioning"],
+    overview: "Connected Digital Project Delivery",
+    services: [
+      "Digital Engineering",
+      "BIM Integration",
+      "Project Information Management",
+      "Document Control",
+      "Construction Digitalization",
+      "Commissioning Management"
+    ],
+    technologies: ["BIM", "P6", "Digital Twin", "Commissioning"],
+    outcomes: [
+      "Connected Project Execution",
+      "Improved Team Collaboration",
+      "Digital Asset Handover",
+      "Greater Project Visibility"
+    ],
     slug: "epc"
+  },
+  {
+    industry: "Agriculture",
+    desc: "Modernize agricultural operations with IoT, automation, and data-driven insights that improve productivity and resource efficiency.",
+    image: "/industries/agriculture_industry.png",
+    objectPosition: "center 40%",
+    overview: "Smart Agriculture Through Connected Intelligence",
+    services: [
+      "Smart Irrigation",
+      "Farm Automation",
+      "IoT Sensors",
+      "Remote Monitoring",
+      "Data Analytics",
+      "Sustainability Solutions"
+    ],
+    technologies: ["Smart Irrigation", "IoT", "GIS", "Data Analytics"],
+    outcomes: [
+      "Increased Farm Productivity",
+      "Optimized Resource Utilization",
+      "Better Crop Visibility",
+      "Sustainable Agricultural Operations"
+    ],
+    slug: "agriculture"
   }
 ];
 
@@ -147,7 +381,7 @@ function IndustryCard({
       className="absolute select-none flex flex-col bg-white overflow-hidden cursor-pointer"
       animate={{
         x: d * (w_c + gap),
-        opacity: (d >= -1 && d <= visibleCount) ? 1 : 0,
+        opacity: (d >= 0 && d < visibleCount) ? 1 : 0,
         scale: isActive ? 1.03 : 1.0,
         y: isHovered ? -10 : 0,
         boxShadow: isHovered
@@ -158,8 +392,8 @@ function IndustryCard({
         zIndex: isHovered ? 40 : isActive ? 30 : 10,
       }}
       transition={{
-        duration: 0.45,
-        ease: [0.22, 1, 0.36, 1]
+        duration: 0.75,
+        ease: [0.16, 1, 0.3, 1] // premium smooth easeOutQuart
       }}
       style={{
         width: w_c,
@@ -207,6 +441,31 @@ function IndustryCard({
             transition={{
               duration: 3,
               ease: [0.22, 1, 0.36, 1]
+            }}
+          />
+          {/* Brand theme color grading overlay (Multiply) */}
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            animate={{
+              background: isHovered
+                ? 'linear-gradient(135deg, rgba(139, 0, 54, 0.15) 0%, rgba(242, 140, 40, 0.05) 100%)'
+                : 'linear-gradient(135deg, rgba(139, 0, 54, 0.28) 0%, rgba(242, 140, 40, 0.15) 100%)',
+            }}
+            transition={{ duration: 0.4 }}
+            style={{
+              mixBlendMode: 'multiply',
+            }}
+          />
+          {/* Subtle color highlight layer (Color) */}
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            animate={{
+              opacity: isHovered ? 0.15 : 0.22,
+            }}
+            transition={{ duration: 0.4 }}
+            style={{
+              background: 'linear-gradient(135deg, #8B0036 0%, #F28C28 100%)',
+              mixBlendMode: 'color',
             }}
           />
           {/* Soft bottom image gradient overlay */}
@@ -401,25 +660,6 @@ function IndustryCard({
           </div>
 
           <div>
-            {/* Technologies */}
-            <div className="flex flex-wrap gap-1.5 mb-5">
-              {data.technologies.map((tech, tIdx) => (
-                <span
-                  key={tIdx}
-                  className="rounded-full font-medium"
-                  style={{
-                    fontSize: 10,
-                    padding: '3px 10px',
-                    color: '#8B0036',
-                    background: 'rgba(139,0,54,0.06)',
-                    border: '1px solid rgba(139,0,54,0.08)',
-                    letterSpacing: '0.02em',
-                  }}
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
 
             {/* CTA Row */}
             <div className="flex items-center justify-between pt-2">
@@ -518,19 +758,19 @@ export default function Industries() {
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % 8);
+      setActiveIndex((prev) => (prev + 1) % INDUSTRIES_DATA.length);
     }, 5000);
     return () => clearInterval(timer);
   }, [isPaused]);
 
   const handlePrev = () => {
     setIsPaused(true);
-    setActiveIndex((prev) => (prev - 1 + 8) % 8);
+    setActiveIndex((prev) => (prev - 1 + INDUSTRIES_DATA.length) % INDUSTRIES_DATA.length);
   };
 
   const handleNext = () => {
     setIsPaused(true);
-    setActiveIndex((prev) => (prev + 1) % 8);
+    setActiveIndex((prev) => (prev + 1) % INDUSTRIES_DATA.length);
   };
 
   return (
@@ -579,7 +819,7 @@ export default function Industries() {
               lineHeight: 1.08,
             }}
           >
-            Tailored Solutions for Global Industries
+            Transforming Industries Through Connected Intelligence
           </h2>
           <p
             className="font-sans max-w-3xl text-[#64748B]"
@@ -588,7 +828,7 @@ export default function Industries() {
               lineHeight: 1.7,
             }}
           >
-            We engineer intelligent digital platforms that solve complex operational challenges across critical industries with enterprise-grade security, scalability, and automation.
+           Every industry has unique operational challenges and opportunities. DHGsoft combines deep industrial expertise with digital engineering, AI, automation, and industrial data platforms to deliver solutions that improve operational excellence, accelerate innovation, and create measurable business value.
           </p>
         </div>
 
@@ -617,10 +857,11 @@ export default function Industries() {
             {INDUSTRIES_DATA.map((item, idx) => {
               // Calculate index circular distance
               let d = idx - activeIndex;
-              if (d < -2) d += 8;
-              if (d > 5) d -= 8;
+              const half = Math.floor(INDUSTRIES_DATA.length / 2);
+              if (d < -half) d += INDUSTRIES_DATA.length;
+              if (d > half) d -= INDUSTRIES_DATA.length;
 
-              const isVisible = d >= -1 && d <= visibleCount;
+              const isVisible = d >= -2 && d <= visibleCount + 1;
               if (!isVisible) return null;
 
               return (

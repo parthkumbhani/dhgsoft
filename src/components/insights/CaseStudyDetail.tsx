@@ -81,7 +81,7 @@ export default function CaseStudyDetail({ caseStudy, relatedStudies }: CaseStudy
           <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
           <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] rounded-full bg-brand/10 blur-[120px] pointer-events-none" />
 
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-6 text-left">
+          <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md relative z-10 space-y-6 text-left">
             {/* Breadcrumb */}
             <div className="flex items-center gap-1 text-txt-muted text-xs sm:text-sm font-semibold tracking-wide mb-2">
               <Link href="/insights" className="hover:text-white transition-colors">
@@ -128,7 +128,7 @@ export default function CaseStudyDetail({ caseStudy, relatedStudies }: CaseStudy
         {/* 3) Results Strip */}
         <SectionBand variant="ink" className="py-10 select-none">
           <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+          <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left">
               {caseStudy.kpis.map((kpi, idx) => (
                 <div 
@@ -154,7 +154,7 @@ export default function CaseStudyDetail({ caseStudy, relatedStudies }: CaseStudy
 
         {/* Core Case Study Body */}
         <SectionBand variant="white" className="bg-tech-grid text-left">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px]">
+          <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
               
               {/* Left Column: Challenge & Solution */}
@@ -263,7 +263,7 @@ export default function CaseStudyDetail({ caseStudy, relatedStudies }: CaseStudy
 
         {/* 4) Sibling Case Studies links */}
         <SectionBand variant="mist">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] space-y-12">
+          <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md space-y-12">
             <div className="text-left">
               <Eyebrow>RELATED CASE STUDIES</Eyebrow>
             </div>
@@ -291,7 +291,7 @@ export default function CaseStudyDetail({ caseStudy, relatedStudies }: CaseStudy
         {/* CTA Band */}
         <SectionBand variant="gradient" className="text-center py-20">
           <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10 space-y-6">
+          <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md relative z-10 space-y-6">
             <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-white/90 font-mono block">
               READY FOR IMPACT?
             </span>

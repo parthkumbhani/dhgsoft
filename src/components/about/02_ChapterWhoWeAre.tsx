@@ -16,7 +16,6 @@ export function ChapterWhoWeAre() {
 
   return (
     <Section variant="white" size="default" pattern="v1">
-      <div className="mx-auto w-full max-w-site px-gutter md:px-gutter-md">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start text-left">
           
           {/* Left column — HUGE numbered marker */}
@@ -84,8 +83,7 @@ export function ChapterWhoWeAre() {
             </div>
           </div>
         </div>
-      </div>
-    </Section>
+      </Section>
   );
 }
 

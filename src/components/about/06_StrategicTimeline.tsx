@@ -6,7 +6,6 @@ import { strategicObjectives } from "@/lib/aboutData";
 export function StrategicTimeline() {
   return (
     <Section variant="white" size="default" pattern="v4">
-      <div className="mx-auto w-full max-w-site px-gutter md:px-gutter-md">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-left">
           
           {/* Left — sticky intro */}
@@ -58,8 +57,7 @@ export function StrategicTimeline() {
             </div>
           </div>
         </div>
-      </div>
-    </Section>
+      </Section>
   );
 }
 

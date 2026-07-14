@@ -24,8 +24,7 @@ export default function CEOMessage() {
         initial={shouldReduceMotion ? {} : { opacity: 0, y: 24 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-        className="relative rounded-3xl shadow-2xl overflow-hidden"
-        /* NOTE: overflow-hidden added to fully contain portrait within the box */
+        className="relative rounded-3xl shadow-2xl"
       >
         {/* ── Background — clipped separately so portrait can overflow ── */}
         <div className="absolute inset-0 rounded-3xl overflow-hidden bg-gradient-to-br from-brand via-[#9E1039] to-brand-deep z-0">
@@ -50,40 +49,48 @@ export default function CEOMessage() {
 
           {/* ──────────────── LEFT — content zone (58%) ──────────────── */}
           {/* Reduced vertical padding → drives panel to compact height */}
-          <div className="lg:w-[58%] px-8 md:px-12 lg:px-14 py-10 md:py-12 lg:py-14 flex flex-col justify-center">
+          <div className="lg:w-[64%] px-6 md:px-10 lg:pl-12 lg:pr-8 py-6 md:py-8 lg:py-8 flex flex-col justify-center">
 
-            {/* Decorative opening quote glyph */}
-            <motion.div
-              initial={shouldReduceMotion ? {} : { opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.4, delay: 0.05 }}
-              aria-hidden="true"
-              className="text-[4.5rem] lg:text-[5.5rem] leading-none font-serif text-white/25 select-none -ml-1 mb-1"
-            >
-              &ldquo;
-            </motion.div>
-
-            {/* Pull-quote — 2 lines */}
-            <motion.h2
-              initial={shouldReduceMotion ? {} : { opacity: 0, y: 14 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.55, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-2xl sm:text-3xl lg:text-[2.5rem] leading-[1.18] font-medium text-white/85"
-            >
-              We&apos;re not just{" "}
-              <span className="font-bold text-white">building technology</span>{" "}
-              &mdash; we&apos;re
-              <br />
-              <span className="font-bold text-white">engineering the future</span>{" "}
-              of connected industry.
-            </motion.h2>
+            {/* Pull-quote — 3 lines with hanging double quotes */}
+            <div className="relative pl-10 lg:pl-14">
+              <div className="absolute left-0 top-[-2px] lg:top-[-6px]">
+                <svg
+                  className="w-8 h-8 lg:w-11 lg:h-11 text-white/30 select-none pointer-events-none"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path d="M10 11c0-2.2-1.8-4-4-4S2 8.8 2 11s1.8 4 4 4c.4 0 .8-.1 1.2-.2C6.6 17.3 4.5 19 2 19v2c4 0 8-3.3 8-10zm12 0c0-2.2-1.8-4-4-4s-4 1.8-4 4 1.8 4 4 4c.4 0 .8-.1 1.2-.2-.6 2.5-2.7 4.2-5.2 4.2v2c4 0 8-3.3 8-10z" />
+                </svg>
+              </div>
+              <motion.p
+                role="heading"
+                aria-level={2}
+                initial={shouldReduceMotion ? {} : { opacity: 0, y: 14 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.55, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="text-white font-normal"
+                style={{
+                  fontSize: 'clamp(1.75rem, 3.2vw, 2.25rem)',
+                  lineHeight: 1.2,
+                  letterSpacing: '0'
+                }}
+              >
+                We&apos;re not just <span className="font-extrabold">connecting systems</span>.
+                <br />
+                we&apos;re building <span className="font-extrabold">connected intelligence</span>
+                <br />
+                for the <span className="font-extrabold">industries of tomorrow</span>.
+              </motion.p>
+            </div>
 
             {/* Signature block */}
             <motion.div
               initial={shouldReduceMotion ? {} : { opacity: 0, y: 14 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.55, delay: 0.2 }}
-              className="mt-8 lg:mt-10 flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-7"
+              className="mt-5 lg:mt-6 flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-7"
             >
               {/* Name + title */}
               <div className="shrink-0">
@@ -106,9 +113,7 @@ export default function CEOMessage() {
 
               {/* Supporting statement */}
               <p className="text-sm md:text-[0.9375rem] text-white/80 leading-relaxed max-w-[340px] font-light">
-                At DHGsoft, we don&apos;t just build systems &mdash; we build
-                intelligence into industries, enabling them to evolve, adapt,
-                and lead in a rapidly changing world.
+                Digital transformation is no longer about implementing technology—it's about connecting operations, data, and intelligence to create measurable business value. At DHGsoft, we engineer end-to-end industrial digital solutions that help organizations innovate with confidence, operate more intelligently, and build value for tomorrow.
               </p>
             </motion.div>
 
@@ -117,7 +122,7 @@ export default function CEOMessage() {
               initial={shouldReduceMotion ? {} : { opacity: 0, y: 14 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.55, delay: 0.3 }}
-              className="mt-8 lg:mt-10 flex items-center gap-4"
+              className="mt-5 lg:mt-6 flex items-center gap-4"
             >
               <button
                 onClick={() =>
@@ -156,15 +161,15 @@ export default function CEOMessage() {
             - items-end → base of image sits at bottom of container
             Result: head overflows ~40px above panel top, jacket ~40px below panel bottom
           */}
-          <div className="hidden lg:block lg:w-[42%] relative">
+          <div className="hidden lg:block lg:w-[36%] relative">
             <motion.div
               initial={shouldReduceMotion ? {} : { opacity: 0, x: 16 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.65, delay: 0.2, ease: "easeOut" }}
-              className="absolute inset-y-0 right-0 w-full flex items-end justify-start pointer-events-none"
+              className="absolute top-[-90px] bottom-0 right-0 w-full flex items-end justify-center pointer-events-none"
             >
               <Image
-                src="/ceo.png"
+                src="/ceo_image.png"
                 alt="Hitesh Patel, CEO of DHGsoft"
                 width={1200}
                 height={1500}

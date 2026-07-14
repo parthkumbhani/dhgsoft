@@ -90,7 +90,7 @@ const CAREERS_MENU = [
   { name: "Life at DHGsoft", desc: "Discover our culture, benefits, and engineering mindset.", href: "/careers/life-at-dhgsoft" },
   { name: "Current Openings", desc: "Explore active engineering, architecture, and consulting roles.", href: "/careers/current-openings" },
   { name: "Campus & Early Careers", desc: "Internships, graduate roles, and university partnerships.", href: "/careers/campus-early-careers" },
-  { name: "Learning & Development", desc: "Continuous training, certifications, and leadership growth.", href: "/careers/learning-development" }
+  
 ]
 
 interface HeaderProps {

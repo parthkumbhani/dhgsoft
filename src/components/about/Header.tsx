@@ -29,7 +29,7 @@ export default function Header({ onContactClick }: HeaderProps) {
           : "bg-white border-b border-line py-5"
       }`}
     >
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] flex items-center justify-between">
+      <div className="max-w-site mx-auto px-gutter md:px-gutter-md flex items-center justify-between">
         
         {/* Logo "dhg Soft" */}
         <Link href="/" className="flex items-center text-xl font-bold tracking-tight">

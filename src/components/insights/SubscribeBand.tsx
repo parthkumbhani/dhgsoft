@@ -23,7 +23,7 @@ export default function SubscribeBand() {
     <SectionBand variant="ink" className="py-12 select-none">
       {/* Mesh lines */}
       <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-[120px] relative z-10">
+      <div className="max-w-site-wide mx-auto px-gutter md:px-gutter-md relative z-10">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 text-left">
           
           <div className="max-w-xl space-y-2">

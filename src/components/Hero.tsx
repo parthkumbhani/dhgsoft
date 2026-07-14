@@ -48,7 +48,7 @@ export default function Hero({ onContactClick, onExploreServices }: HeroProps) {
       {/* Cinematic Background Video and Overlays */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
         <Image
-          src="/Untitled design.jpg"
+          src="/herok.jpeg"
           alt="DHGsoft industrial intelligence background"
           fill
           priority

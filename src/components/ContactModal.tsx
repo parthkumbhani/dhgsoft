@@ -1,38 +1,36 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
 } from '@/components/ui/dialog';
+import { ArrowRight, Loader2 } from 'lucide-react';
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
 interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
-  showToast: (message: string, type?: 'success' | 'error') => void;
+  showToast?: (message: string, type?: 'success' | 'error') => void;
   prefill?: string;
 }
 
 interface FormData {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  company: string;
   phone: string;
   industry: string;
+  company: string;
+  jobTitle: string;
+  country: string;
   message: string;
-}
-
-interface FormErrors {
-  name?: string;
-  email?: string;
-  phone?: string;
-  message?: string;
+  personalDataConsent: boolean;
+  marketingConsent: boolean;
 }
 
 const INDUSTRIES = [
@@ -53,59 +51,94 @@ const INDUSTRIES = [
   'Other',
 ];
 
+interface FormErrors {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  phone?: string;
+  company?: string;
+  jobTitle?: string;
+  country?: string;
+  message?: string;
+  personalDataConsent?: string;
+}
+
 export default function ContactModal({ isOpen, onClose, prefill = '' }: ContactModalProps) {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
-    company: '',
     phone: '',
     industry: '',
+    company: '',
+    jobTitle: '',
+    country: '',
     message: '',
+    personalDataConsent: false,
+    marketingConsent: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
-  // Progressive disclosure: expand full form once email has any value
   const [expanded, setExpanded] = useState(false);
-  const expandedRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isOpen) {
-      setFormData(prev => ({ ...prev, message: prefill || '' }));
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        industry: '',
+        company: '',
+        jobTitle: '',
+        country: '',
+        message: prefill || '',
+        personalDataConsent: false,
+        marketingConsent: false,
+      });
       setExpanded(false);
       setErrors({});
     }
   }, [isOpen, prefill]);
 
-  // Expand when user starts typing an email
-  useEffect(() => {
-    if (formData.email.length > 0 && !expanded) {
-      setExpanded(true);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target;
+    if (type === 'checkbox') {
+      const checked = (e.target as HTMLInputElement).checked;
+      setFormData(prev => ({ ...prev, [name]: checked }));
+      if (errors[name as keyof FormErrors]) {
+        setErrors(prev => ({ ...prev, [name]: '' }));
+      }
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
+      if (errors[name as keyof FormErrors]) {
+        setErrors(prev => ({ ...prev, [name]: '' }));
+      }
+      if (name === 'email' && value.length > 0) {
+        setExpanded(true);
+      }
     }
-  }, [formData.email, expanded]);
+  };
 
   const validate = () => {
     const tempErrors: FormErrors = {};
-    if (!formData.name.trim()) tempErrors.name = 'Full name is required';
+    if (!formData.firstName.trim()) tempErrors.firstName = 'First name is required';
+    if (!formData.lastName.trim()) tempErrors.lastName = 'Last name is required';
     if (!formData.email.trim()) {
-      tempErrors.email = 'Work email is required';
+      tempErrors.email = 'Email address is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      tempErrors.email = 'Please enter a valid email address';
+      tempErrors.email = 'Email address is invalid';
     }
-    if (formData.phone && !/^[+\d\s\-()]{7,20}$/.test(formData.phone)) {
-      tempErrors.phone = 'Please provide a valid phone number';
+    if (!formData.company.trim()) tempErrors.company = 'Company name is required';
+    if (!formData.jobTitle.trim()) tempErrors.jobTitle = 'Job title is required';
+    if (!formData.country) tempErrors.country = 'Country selection is required';
+    if (!formData.message.trim()) tempErrors.message = 'Message requirements are required';
+    if (!formData.personalDataConsent) {
+      tempErrors.personalDataConsent = 'You must accept the data privacy terms';
     }
+
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    if (errors[name as keyof FormErrors]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -114,199 +147,326 @@ export default function ContactModal({ isOpen, onClose, prefill = '' }: ContactM
 
     setIsSubmitting(true);
     try {
+      // Pack additional fields in the message to remain backward compatible with the database
+      const packedMessage = `Phone: ${formData.phone}\nIndustry: ${formData.industry}\nJob Title: ${formData.jobTitle.trim()}\nCountry: ${formData.country}\nPersonal Data Consent: Yes\nMarketing Consent: ${formData.marketingConsent ? 'Yes' : 'No'}\n\nLet us know how we can help you:\n${formData.message.trim()}`;
+
+      const payload = {
+        name: `${formData.firstName.trim()} ${formData.lastName.trim()}`,
+        email: formData.email.trim(),
+        company: formData.company.trim(),
+        message: packedMessage,
+      };
+
       const response = await fetch(`${API_BASE}/api/inquiries`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
-      if (!response.ok) throw new Error('Failed to submit');
+      if (!response.ok) throw new Error('Failed to submit inquiry');
 
-      toast.success('Your inquiry has been sent successfully!');
-      setFormData({ name: '', email: '', company: '', phone: '', industry: '', message: '' });
+      toast.success('Your consultation request has been sent successfully!');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        industry: '',
+        company: '',
+        jobTitle: '',
+        country: '',
+        message: '',
+        personalDataConsent: false,
+        marketingConsent: false,
+      });
       setExpanded(false);
       onClose();
     } catch (err) {
       console.error(err);
-      toast.error('Error sending inquiry. Please ensure the backend is running.');
+      toast.error('Error submitting inquiry. Please make sure the backend is active.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const inputBase =
-    'w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand/30 focus:border-brand transition-all duration-200';
-  const labelBase = 'block text-sm font-semibold text-slate-700 mb-1.5';
-  const errorBase = 'text-xs text-red-500 mt-1';
-
   return (
     <Dialog open={isOpen} onOpenChange={(open) => { if (!open) onClose(); }}>
-      <DialogContent className="bg-white p-0 max-w-lg w-full border border-slate-200 sm:rounded-2xl shadow-2xl overflow-hidden">
-        {/* Gradient header strip */}
-        <div className="h-1.5 w-full bg-gradient-to-r from-brand via-brand-hot to-brand-deep" />
+      <DialogContent className="bg-white p-0 max-w-xl w-full border border-slate-200 sm:rounded-[20px] shadow-2xl overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#C30072] via-[#E10088] to-[#F36B2A]" />
 
-        <div className="px-8 pt-6 pb-8">
+        <div className="px-8 pt-6 pb-8 max-h-[90vh] overflow-y-auto">
           <DialogHeader className="mb-6">
-            <DialogTitle className="text-2xl font-black text-slate-900 tracking-tight">
-              Contact Sales
+            <DialogTitle className="text-xl font-bold text-slate-800 font-headline">
+              Enterprise Request Form
             </DialogTitle>
-            <DialogDescription className="text-sm text-slate-500 mt-1 leading-relaxed">
-              A DHGsoft intelligence architect will reach out to build your digital transformation roadmap.
-            </DialogDescription>
           </DialogHeader>
 
-          <form onSubmit={handleSubmit} noValidate className="space-y-4">
-            {/* ── STEP 1: Always visible — Work Email ── */}
+          <form onSubmit={handleSubmit} className="space-y-4 font-sans">
+            {/* Email Address */}
             <div>
-              <label className={labelBase} htmlFor="email">
-                Work Email <span className="text-brand">*</span>
+              <label className="block text-xs font-bold text-slate-700 uppercase mb-1.5" htmlFor="modal-email">
+                Email Address *
               </label>
               <input
                 type="email"
-                id="email"
+                id="modal-email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                autoComplete="email"
-                className={`${inputBase} ${errors.email ? 'border-red-400 focus:ring-red-200 focus:border-red-400' : ''}`}
-                placeholder="you@company.com"
+                className={`w-full px-4 py-2.5 bg-white border rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#C30072] focus:ring-1 focus:ring-[#C30072]/30 transition-all ${
+                  errors.email ? 'border-red-500' : 'border-slate-200'
+                }`}
+                placeholder="john@company.com"
               />
-              {errors.email && <p className={errorBase}>{errors.email}</p>}
-              {!expanded && (
-                <p className="text-xs text-slate-400 mt-2">
-                  Start typing your email to reveal the full form.
-                </p>
-              )}
+              {errors.email && <p className="text-red-500 text-[10px] mt-1">{errors.email}</p>}
             </div>
 
-            {/* ── STEP 2: Progressive expansion ── */}
-            <div
-              ref={expandedRef}
-              style={{
-                maxHeight: expanded ? '1000px' : '0px',
-                opacity: expanded ? 1 : 0,
-                overflow: 'hidden',
-                transition: 'max-height 0.55s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease',
-              }}
-            >
-              <div className="space-y-4 pt-1">
+            {/* Phone Number */}
+            <div>
+              <label className="block text-xs font-bold text-slate-700 uppercase mb-1.5" htmlFor="modal-phone">
+                Work Phone Number *
+              </label>
+              <input
+                type="tel"
+                id="modal-phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                className={`w-full px-4 py-2.5 bg-white border rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#C30072] focus:ring-1 focus:ring-[#C30072]/30 transition-all ${
+                  errors.phone ? 'border-red-500' : 'border-slate-200'
+                }`}
+                placeholder="+91 98765 43210"
+              />
+              {errors.phone && <p className="text-red-500 text-[10px] mt-1">{errors.phone}</p>}
+            </div>
 
-                {/* Full Name + Company in a 2-col grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className={labelBase} htmlFor="name">
-                      Full Name <span className="text-brand">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      autoComplete="name"
-                      className={`${inputBase} ${errors.name ? 'border-red-400 focus:ring-red-200 focus:border-red-400' : ''}`}
-                      placeholder="John Doe"
-                    />
-                    {errors.name && <p className={errorBase}>{errors.name}</p>}
-                  </div>
-                  <div>
-                    <label className={labelBase} htmlFor="company">
-                      Company / Organization
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      autoComplete="organization"
-                      className={inputBase}
-                      placeholder="Enterprise Inc."
-                    />
-                  </div>
-                </div>
-
-                {/* Phone + Industry in a 2-col grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className={labelBase} htmlFor="phone">
-                      Work Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      autoComplete="tel"
-                      className={`${inputBase} ${errors.phone ? 'border-red-400 focus:ring-red-200 focus:border-red-400' : ''}`}
-                      placeholder="+91 98765 43210"
-                    />
-                    {errors.phone && <p className={errorBase}>{errors.phone}</p>}
-                  </div>
-                  <div>
-                    <label className={labelBase} htmlFor="industry">
-                      Select an Industry
-                    </label>
-                    <select
-                      id="industry"
-                      name="industry"
-                      value={formData.industry}
-                      onChange={handleChange}
-                      className={`${inputBase} appearance-none cursor-pointer`}
-                    >
-                      <option value="">Select an Industry</option>
-                      {INDUSTRIES.map((ind) => (
-                        <option key={ind} value={ind}>{ind}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                {/* Message */}
-                <div>
-                  <label className={labelBase} htmlFor="message">
-                    Comments / Questions
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={4}
-                    className={`${inputBase} resize-none`}
-                    placeholder="Tell us about your digital infrastructure needs..."
-                  />
+            {/* Select Industry */}
+            <div>
+              <label className="block text-xs font-bold text-slate-700 uppercase mb-1.5" htmlFor="modal-industry">
+                Select an Industry *
+              </label>
+              <div className="relative">
+                <select
+                  id="modal-industry"
+                  name="industry"
+                  value={formData.industry}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#C30072] focus:ring-1 focus:ring-[#C30072]/30 transition-all appearance-none cursor-pointer"
+                >
+                  <option value="">Select an Industry</option>
+                  {INDUSTRIES.map((ind) => (
+                    <option key={ind} value={ind}>{ind}</option>
+                  ))}
+                </select>
+                <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-500">
+                  ▼
                 </div>
               </div>
             </div>
 
-            {/* ── Submit + Cancel ── */}
+            {!expanded && (
+              <p className="text-[11px] text-slate-400">
+                Enter your email above to reveal the full form.
+              </p>
+            )}
+
+            {/* STEP 2: Progressive expansion on email input */}
             <div
-              className="flex gap-3 pt-2 justify-end"
               style={{
-                transition: 'margin-top 0.3s ease',
+                maxHeight: expanded ? '1400px' : '0px',
+                opacity: expanded ? 1 : 0,
+                overflow: 'hidden',
+                transition: 'max-height 0.65s cubic-bezier(0.4,0,0.2,1), opacity 0.5s ease',
               }}
             >
-              <button
-                type="button"
-                onClick={onClose}
-                className="border border-slate-300 text-slate-600 hover:bg-slate-50 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all"
-              >
-                Cancel
-              </button>
+              <div className="space-y-4 pt-2">
+                {/* First Name & Last Name */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase mb-1.5" htmlFor="modal-firstName">
+                      First Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="modal-firstName"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-2.5 bg-white border rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#C30072] focus:ring-1 focus:ring-[#C30072]/30 transition-all ${
+                        errors.firstName ? 'border-red-500' : 'border-slate-200'
+                      }`}
+                      placeholder="John"
+                    />
+                    {errors.firstName && <p className="text-red-500 text-[10px] mt-1">{errors.firstName}</p>}
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase mb-1.5" htmlFor="modal-lastName">
+                      Last Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="modal-lastName"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-2.5 bg-white border rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#C30072] focus:ring-1 focus:ring-[#C30072]/30 transition-all ${
+                        errors.lastName ? 'border-red-500' : 'border-slate-200'
+                      }`}
+                      placeholder="Doe"
+                    />
+                    {errors.lastName && <p className="text-red-500 text-[10px] mt-1">{errors.lastName}</p>}
+                  </div>
+                </div>
+
+                {/* Company & Job Title */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase mb-1.5" htmlFor="modal-company">
+                      Company *
+                    </label>
+                    <input
+                      type="text"
+                      id="modal-company"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-2.5 bg-white border rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#C30072] focus:ring-1 focus:ring-[#C30072]/30 transition-all ${
+                        errors.company ? 'border-red-500' : 'border-slate-200'
+                      }`}
+                      placeholder="Enterprise Inc."
+                    />
+                    {errors.company && <p className="text-red-500 text-[10px] mt-1">{errors.company}</p>}
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase mb-1.5" htmlFor="modal-jobTitle">
+                      Job Title *
+                    </label>
+                    <input
+                      type="text"
+                      id="modal-jobTitle"
+                      name="jobTitle"
+                      value={formData.jobTitle}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-2.5 bg-white border rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#C30072] focus:ring-1 focus:ring-[#C30072]/30 transition-all ${
+                        errors.jobTitle ? 'border-red-500' : 'border-slate-200'
+                      }`}
+                      placeholder="Systems Architect"
+                    />
+                    {errors.jobTitle && <p className="text-red-500 text-[10px] mt-1">{errors.jobTitle}</p>}
+                  </div>
+                </div>
+
+                {/* Country */}
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 uppercase mb-1.5" htmlFor="modal-country">
+                    Country *
+                  </label>
+                  <div className="relative">
+                    <select
+                      id="modal-country"
+                      name="country"
+                      value={formData.country}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-2.5 bg-white border rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#C30072] focus:ring-1 focus:ring-[#C30072]/30 transition-all appearance-none cursor-pointer ${
+                        errors.country ? 'border-red-500' : 'border-slate-200'
+                      }`}
+                    >
+                      <option value="">Select Country</option>
+                      <option value="India">India</option>
+                      <option value="United States">United States</option>
+                      <option value="Germany">Germany</option>
+                      <option value="United Kingdom">United Kingdom</option>
+                      <option value="Canada">Canada</option>
+                      <option value="Australia">Australia</option>
+                      <option value="Singapore">Singapore</option>
+                      <option value="France">France</option>
+                      <option value="Japan">Japan</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-500">
+                      ▼
+                    </div>
+                  </div>
+                  {errors.country && <p className="text-red-500 text-[10px] mt-1">{errors.country}</p>}
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 uppercase mb-1.5" htmlFor="modal-message">
+                    Let us know how we can help you *
+                  </label>
+                  <textarea
+                    id="modal-message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={4}
+                    className={`w-full px-4 py-2.5 bg-white border rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#C30072] focus:ring-1 focus:ring-[#C30072]/30 transition-all resize-none ${
+                      errors.message ? 'border-red-500' : 'border-slate-200'
+                    }`}
+                    placeholder="Specify your project requirements or queries..."
+                  />
+                  {errors.message && <p className="text-red-500 text-[10px] mt-1">{errors.message}</p>}
+                </div>
+
+                {/* Consents */}
+                <div className="space-y-3 pt-1">
+                  <div className="flex items-start gap-3">
+                    <input
+                      type="checkbox"
+                      id="modal-personalDataConsent"
+                      name="personalDataConsent"
+                      checked={formData.personalDataConsent}
+                      onChange={handleChange}
+                      className="mt-1 h-4 w-4 rounded border-slate-200 text-[#C30072] focus:ring-[#C30072] accent-[#C30072] cursor-pointer shrink-0"
+                    />
+                    <label htmlFor="modal-personalDataConsent" className="text-xs text-slate-600 leading-snug cursor-pointer select-none">
+                      I agree to DHGsoft collecting and processing my personal data to respond to my request and provide related services. <span className="text-[#C30072] font-semibold">*</span>
+                    </label>
+                  </div>
+                  {errors.personalDataConsent && <p className="text-red-500 text-[10px] pl-7">{errors.personalDataConsent}</p>}
+                  <div className="flex items-start gap-3">
+                    <input
+                      type="checkbox"
+                      id="modal-marketingConsent"
+                      name="marketingConsent"
+                      checked={formData.marketingConsent}
+                      onChange={handleChange}
+                      className="mt-1 h-4 w-4 rounded border-slate-200 text-[#C30072] focus:ring-[#C30072] accent-[#C30072] cursor-pointer shrink-0"
+                    />
+                    <label htmlFor="modal-marketingConsent" className="text-xs text-slate-600 leading-snug cursor-pointer select-none">
+                      I agree to receive details about services, events and any marketing communication from DHGsoft.
+                    </label>
+                  </div>
+                </div>
+
+                {/* Disclosures */}
+                <div className="text-[10px] text-slate-400 space-y-1 pt-1">
+                  <p>To learn more about how we protect your data, please refer to the{' '}
+                    <a href="#privacy" className="text-[#C30072] hover:underline font-semibold">DHGsoft privacy policy</a>.
+                  </p>
+                  <p>This site is protected by reCAPTCHA.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Submit Button */}
+            <div className="pt-2">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-gradient-to-r from-brand via-brand-hot to-brand-deep text-white px-8 py-2.5 rounded-xl text-sm font-bold transition-all shadow-md hover:brightness-110 active:scale-95 flex items-center gap-2 min-w-[150px] justify-center"
+                className="w-full bg-[#C30072] hover:bg-[#C30072]/95 text-white font-bold rounded-xl py-3.5 shadow-md shadow-[#C30072]/15 transition-all flex items-center justify-center gap-2 group cursor-pointer"
               >
                 {isSubmitting ? (
                   <>
-                    <span className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full" />
-                    Sending...
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    Submitting...
                   </>
                 ) : (
-                  'Contact Sales'
+                  <>
+                    Submit
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                  </>
                 )}
               </button>
             </div>

@@ -7,7 +7,6 @@ import { missionItems } from "@/lib/aboutData";
 export function VisionMission() {
   return (
     <Section variant="white" size="default" pattern="v3">
-      <div className="mx-auto w-full max-w-site px-gutter md:px-gutter-md">
         
         {/* Left column marker (compact) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 text-left">
@@ -93,8 +92,7 @@ export function VisionMission() {
             ))}
           </div>
         </div>
-      </div>
-    </Section>
+      </Section>
   );
 }
 
