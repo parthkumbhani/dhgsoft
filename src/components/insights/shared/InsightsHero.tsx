@@ -36,7 +36,7 @@ export function InsightsHero({
     : [h1, ''];
 
   return (
-    <section className="relative min-h-[75vh] bg-ink text-white overflow-hidden flex items-center select-none">
+    <section className="relative min-h-[90vh] bg-ink text-white overflow-hidden flex items-center select-none">
       {/* Full-bleed background image with gradient fade */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-ink via-ink/95 to-ink/50 z-10" />

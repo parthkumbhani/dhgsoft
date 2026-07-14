@@ -31,7 +31,7 @@ export function SubPageHero({
       variant="ink"
       size="hero"
       pattern="none"
-      className="relative min-h-[calc(100vh-80px)] flex items-center justify-start text-left overflow-hidden border-b border-line/10 pt-28 pb-16"
+      className="relative min-h-screen flex items-center justify-start text-left overflow-hidden border-b border-line/10 pt-28 pb-16"
     >
       {/* Background Image with Gradient Overlay */}
       {bgImage ? (
