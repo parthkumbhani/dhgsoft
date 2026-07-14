@@ -47,7 +47,7 @@ export function Section({
     null;
 
   return (
-    <motion.section className={`relative w-full ${bg} ${py} ${className}`} {...props}>
+    <motion.section className={`dhg-section relative w-full ${bg} ${py} ${className}`} {...props}>
       {PatternComponent}
       <Container size={containerSize}>{children}</Container>
     </motion.section>

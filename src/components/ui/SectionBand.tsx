@@ -16,7 +16,7 @@ export default function SectionBand({ variant, children, className, ...props }: 
   }
 
   return (
-    <section className={cn("py-16 md:py-24 border-b border-line relative", bgStyles[variant], className)} {...props}>
+    <section className={cn("dhg-section py-sec-y md:py-sec-y-md border-b border-line relative", bgStyles[variant], className)} {...props}>
       {children}
     </section>
   )

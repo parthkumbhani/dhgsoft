@@ -8,7 +8,7 @@ interface EyebrowProps {
 
 export default function Eyebrow({ children, className }: EyebrowProps) {
   return (
-    <span className={cn("text-xs font-extrabold uppercase tracking-[0.25em] text-brand font-mono block", className)}>
+    <span className={cn("section-eyebrow", className)}>
       {children}
     </span>
   )
