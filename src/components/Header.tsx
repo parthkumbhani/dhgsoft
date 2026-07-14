@@ -23,6 +23,7 @@ const SERVICES_MENU = [
     icon: Factory,
     items: [
       { name: "Industrial Digital Transformation", desc: "Enterprise-wide OT/IT modernization.", href: "/capabilities/industrial-digital-transformation" },
+      { name: "Industrial Automation", desc: "Intelligent automation and process reliability.", href: "/capabilities/industrial-automation" },
       { name: "OT / IT Integration", desc: "Bridge shop-floor and top-floor systems.", href: "/capabilities/ot-it-integration" },
       { name: "Industrial Data Platforms", desc: "Unified analytics pipeline for industrial IoT.", href: "/capabilities/industrial-data-platforms" }
     ]
@@ -39,7 +40,7 @@ const SERVICES_MENU = [
     title: "Digital Engineering",
     icon: Settings2,
     items: [
-      { name: "Digital Engineering Services", desc: "Custom industrial software & integrations.", href: "/capabilities/digital-engineering" },
+      { name: "Digital Engineering", desc: "Custom industrial software & integrations.", href: "/capabilities/digital-engineering" },
       { name: "Enterprise Applications", desc: "Next-gen ERP, MES, and PLM implementation.", href: "/capabilities/enterprise-applications" }
     ]
   },
@@ -47,7 +48,7 @@ const SERVICES_MENU = [
     title: "Cloud & Infrastructure",
     icon: Database,
     items: [
-      { name: "Cloud & Infrastructure", desc: "Hybrid cloud solutions for critical ops.", href: "/capabilities/cloud-infrastructure" },
+      { name: "Cloud Infrastructure", desc: "Hybrid cloud solutions for critical ops.", href: "/capabilities/cloud-infrastructure" },
       { name: "Cybersecurity", desc: "Zero-trust OT cybersecurity defense systems.", href: "/capabilities/cybersecurity" },
       { name: "Managed Services", desc: "24/7/365 global operations management.", href: "/capabilities/managed-services" }
     ]
