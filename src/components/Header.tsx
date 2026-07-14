@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import { Menu, ArrowRight, ChevronDown, Check, Globe, Shield, Terminal, Settings2, Cpu, Factory, Database, Network, Search } from "lucide-react"
 import { Container } from "@/components/ui/Container"
 import { Button } from "@/components/ui/button"
@@ -97,6 +98,7 @@ interface HeaderProps {
 }
 
 export default function Header({ onContactClick }: HeaderProps) {
+  const router = useRouter()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeValue, setActiveValue] = useState("")
@@ -206,7 +208,10 @@ export default function Header({ onContactClick }: HeaderProps) {
               
               {/* Capabilities Mega Menu */}
               <NavigationMenuItem value="capabilities" className="relative">
-                <NavigationMenuTrigger className="relative text-sm font-semibold text-slate-700 hover:text-primary focus:text-primary data-[state=open]:text-primary px-4 py-2 transition-colors after:absolute after:bottom-0 after:left-4 after:right-4 after:h-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-tertiary after:transform after:scale-x-0 hover:after:scale-x-100 data-[state=open]:after:scale-x-100 data-[active]:after:scale-x-100 after:transition-transform after:duration-300">
+                <NavigationMenuTrigger 
+                  onClick={() => router.push("/capabilities")}
+                  className="relative cursor-pointer text-sm font-semibold text-slate-700 hover:text-primary focus:text-primary data-[state=open]:text-primary px-4 py-2 transition-colors after:absolute after:bottom-0 after:left-4 after:right-4 after:h-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-tertiary after:transform after:scale-x-0 hover:after:scale-x-100 data-[state=open]:after:scale-x-100 data-[active]:after:scale-x-100 after:transition-transform after:duration-300"
+                >
                   Capabilities
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="p-6 !w-[950px] max-h-[520px] overflow-y-auto z-50">
@@ -252,7 +257,10 @@ export default function Header({ onContactClick }: HeaderProps) {
 
               {/* Industries Mega Menu */}
               <NavigationMenuItem value="industries" className="relative">
-                <NavigationMenuTrigger className="relative text-sm font-semibold text-slate-700 hover:text-primary focus:text-primary data-[state=open]:text-primary px-4 py-2 transition-colors after:absolute after:bottom-0 after:left-4 after:right-4 after:h-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-tertiary after:transform after:scale-x-0 hover:after:scale-x-100 data-[state=open]:after:scale-x-100 data-[active]:after:scale-x-100 after:transition-transform after:duration-300">
+                <NavigationMenuTrigger 
+                  onClick={() => router.push("/industries")}
+                  className="relative cursor-pointer text-sm font-semibold text-slate-700 hover:text-primary focus:text-primary data-[state=open]:text-primary px-4 py-2 transition-colors after:absolute after:bottom-0 after:left-4 after:right-4 after:h-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-tertiary after:transform after:scale-x-0 hover:after:scale-x-100 data-[state=open]:after:scale-x-100 data-[active]:after:scale-x-100 after:transition-transform after:duration-300"
+                >
                   Industries
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="p-6 !w-[950px] z-50">
@@ -295,7 +303,10 @@ export default function Header({ onContactClick }: HeaderProps) {
 
               {/* Insights Mega Menu */}
               <NavigationMenuItem value="insights" className="relative">
-                <NavigationMenuTrigger className="relative text-sm font-semibold text-slate-700 hover:text-primary focus:text-primary data-[state=open]:text-primary px-4 py-2 transition-colors after:absolute after:bottom-0 after:left-4 after:right-4 after:h-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-tertiary after:transform after:scale-x-0 hover:after:scale-x-100 data-[state=open]:after:scale-x-100 data-[active]:after:scale-x-100 after:transition-transform after:duration-300">
+                <NavigationMenuTrigger 
+                  onClick={() => router.push("/insights")}
+                  className="relative cursor-pointer text-sm font-semibold text-slate-700 hover:text-primary focus:text-primary data-[state=open]:text-primary px-4 py-2 transition-colors after:absolute after:bottom-0 after:left-4 after:right-4 after:h-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-tertiary after:transform after:scale-x-0 hover:after:scale-x-100 data-[state=open]:after:scale-x-100 data-[active]:after:scale-x-100 after:transition-transform after:duration-300"
+                >
                   Insights
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="p-6 !w-[600px] z-50">
@@ -333,7 +344,10 @@ export default function Header({ onContactClick }: HeaderProps) {
 
               {/* About Mega Menu */}
               <NavigationMenuItem value="about" className="relative">
-                <NavigationMenuTrigger className="relative text-sm font-semibold text-slate-700 hover:text-primary focus:text-primary data-[state=open]:text-primary px-4 py-2 transition-colors after:absolute after:bottom-0 after:left-4 after:right-4 after:h-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-tertiary after:transform after:scale-x-0 hover:after:scale-x-100 data-[state=open]:after:scale-x-100 data-[active]:after:scale-x-100 after:transition-transform after:duration-300">
+                <NavigationMenuTrigger 
+                  onClick={() => router.push("/about")}
+                  className="relative cursor-pointer text-sm font-semibold text-slate-700 hover:text-primary focus:text-primary data-[state=open]:text-primary px-4 py-2 transition-colors after:absolute after:bottom-0 after:left-4 after:right-4 after:h-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-tertiary after:transform after:scale-x-0 hover:after:scale-x-100 data-[state=open]:after:scale-x-100 data-[active]:after:scale-x-100 after:transition-transform after:duration-300"
+                >
                   About
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="p-6 !w-[750px] z-50">
@@ -376,7 +390,10 @@ export default function Header({ onContactClick }: HeaderProps) {
 
               {/* Careers Dropdown */}
               <NavigationMenuItem value="careers" className="relative">
-                <NavigationMenuTrigger className="relative text-sm font-semibold text-slate-700 hover:text-primary focus:text-primary data-[state=open]:text-primary px-4 py-2 transition-colors after:absolute after:bottom-0 after:left-4 after:right-4 after:h-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-tertiary after:transform after:scale-x-0 hover:after:scale-x-100 data-[state=open]:after:scale-x-100 data-[active]:after:scale-x-100 after:transition-transform after:duration-300">
+                <NavigationMenuTrigger 
+                  onClick={() => router.push("/careers")}
+                  className="relative cursor-pointer text-sm font-semibold text-slate-700 hover:text-primary focus:text-primary data-[state=open]:text-primary px-4 py-2 transition-colors after:absolute after:bottom-0 after:left-4 after:right-4 after:h-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-tertiary after:transform after:scale-x-0 hover:after:scale-x-100 data-[state=open]:after:scale-x-100 data-[active]:after:scale-x-100 after:transition-transform after:duration-300"
+                >
                   Careers
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="p-6 !w-[650px] z-50">
@@ -504,6 +521,13 @@ export default function Header({ onContactClick }: HeaderProps) {
                       Capabilities
                     </AccordionTrigger>
                     <AccordionContent className="bg-slate-50 p-3 rounded-md flex flex-col gap-2">
+                      <Link
+                        href="/capabilities"
+                        onClick={() => setMobileOpen(false)}
+                        className="block py-1.5 text-xs text-[#B4123F] font-bold border-b border-slate-200 transition-colors"
+                      >
+                        Explore All Capabilities
+                      </Link>
                       {SERVICES_MENU.map((col, index) => (
                         <div key={index} className="mb-2 last:mb-0">
                           <div className="text-xs font-bold text-primary uppercase mb-1">{col.title}</div>

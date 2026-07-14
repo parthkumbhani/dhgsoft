@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
-import CapabilitySwitcher from "./CapabilitySwitcher";
 import { CapabilityData } from "@/lib/capabilities";
 import { capabilityPages } from "@/lib/capabilitiesSubData";
 
@@ -34,9 +33,6 @@ export default function CapabilityTemplate({ data }: CapabilityTemplateProps) {
       <Header onContactClick={() => setIsContactOpen(true)} />
 
       <main className="relative pt-20">
-        {/* Capability Jump Switcher Bar */}
-        <CapabilitySwitcher currentSlug={data.slug} />
-
         {/* 1. CapHero Section */}
         <CapHero
           eyebrow={pageContent.eyebrow}
