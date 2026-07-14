@@ -81,17 +81,14 @@ export default function CareersHero({ onContactClick }: CareersHeroProps) {
       {/* Grid overlay for subtle high-tech engineering structure */}
       <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none z-10" />
 
-      {/* Content — sits above overlays, left-aligned two-column grid */}
+      {/* Content — sits above overlays, left-aligned */}
       <div className="relative z-20 mx-auto w-full max-w-site px-gutter md:px-gutter-md pt-28 pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
-          
-          {/* Left Column: Staggered text content */}
-          <motion.div 
-            variants={containerVariants}
-            initial={isClient && shouldReduceMotion ? "visible" : "hidden"}
-            animate="visible"
-            className="lg:col-span-7 text-left space-y-6 flex flex-col items-start"
-          >
+        <motion.div 
+          variants={containerVariants}
+          initial={isClient && shouldReduceMotion ? "visible" : "hidden"}
+          animate="visible"
+          className="max-w-3xl text-left space-y-6 flex flex-col items-start"
+        >
             {/* Eyebrow chip */}
             <motion.div 
               variants={itemVariants as any} 
@@ -155,39 +152,7 @@ export default function CareersHero({ onContactClick }: CareersHeroProps) {
               )}
             </motion.div>
             
-          </motion.div>
-
-          {/* Right Column: Purposeful Visual Display */}
-          <motion.div
-            initial={isClient && shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 35, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.85, delay: 0.4, ease: "easeOut" as const }}
-            className="lg:col-span-5 relative w-full h-[300px] sm:h-[380px] lg:h-[460px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-slate-900/40 backdrop-blur-md p-2 group"
-          >
-            <div className="relative w-full h-full rounded-xl overflow-hidden">
-              <Image
-                src="/about_collaboration.png"
-                alt="DHGsoft digital engineering and smart factory collaboration team"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent" />
-              
-              {/* Captive text tag inside the image container */}
-              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-slate-950/75 backdrop-blur-md border border-white/10 text-white">
-                <p className="mb-1 section-eyebrow on-dark">
-                  Life at DHGsoft
-                </p>
-                <p className="text-xs text-white/90 leading-relaxed">
-                  Collaborate in a culture of high performance, deep engineering expertise, and continuous innovation.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-        </div>
+        </motion.div>
       </div>
       
     </section>
