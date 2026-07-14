@@ -6,43 +6,57 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
 
-// Clean Light-Theme Editorial Sections for Careers Overview (Page 1)
-import { Hero }                from "@/components/careers/landing/01_Hero";
-import { WhyDHGsoft }          from "@/components/careers/landing/02_WhyDHGsoft";
-import { CareerOpportunities } from "@/components/careers/landing/05_CareerOpportunities";
-import { FinalCta }            from "@/components/careers/landing/10_FinalCta";
+// Sub-components matching the CEO reference design exactly with upgraded styles
+import CareersHero from "@/components/careers/CareersHero";
+import InnovationBand from "@/components/careers/InnovationBand";
+import WhyJoinSplit from "@/components/careers/WhyJoinSplit";
+import FiveReasonsGrid from "@/components/careers/FiveReasonsGrid";
+import TestimonialBand from "@/components/careers/TestimonialBand";
+import JourneyCta from "@/components/careers/JourneyCta";
+import CampusCard from "@/components/careers/CampusCard";
 
-export default function CareersPage() {
+export default function CareersLandingPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-white text-slate-800 antialiased font-sans selection:bg-[#B4123F] selection:text-white">
-      {/* Header Navigation */}
+      {/* Premium Navigation Menu */}
       <Header onContactClick={() => setIsContactOpen(true)} />
 
-      {/* Page Content: Clean Editorial Layout */}
+      {/* Main flow sections assembled matching the exact CEO reference PDF order */}
       <main className="relative pt-20">
-        {/* 1. Full Screen Hero */}
-        <Hero />
+        
+        {/* Section 1: Hero */}
+        <CareersHero onContactClick={() => setIsContactOpen(true)} />
 
-        {/* 2. Below Hero Storytelling (Why choose DHGsoft) */}
-        <WhyDHGsoft />
+        {/* Section 2: Innovation Meets Opportunity Photo Band */}
+        <InnovationBand />
 
-        {/* 3. Career Domains (Premium Editorial Navigation Panels) */}
-        <CareerOpportunities />
+        {/* Section 3: Why Join DHGsoft (Split Column) */}
+        <WhyJoinSplit />
 
-        {/* 4. Final CTA Section */}
-        <FinalCta />
+        {/* Section 4: 5 Reasons Grid */}
+        <FiveReasonsGrid />
+
+        {/* Section 5: Employee Testimonial Gradient Band */}
+        <TestimonialBand />
+
+        {/* Section 7: Journey CTA Card */}
+        <JourneyCta />
+
+        {/* Section 8: Campus & Early Careers Bottom Card */}
+        <CampusCard />
+
       </main>
 
       {/* Footer */}
       <Footer />
 
-      {/* Contact Interaction Overlay */}
-      <ContactModal
-        isOpen={isContactOpen}
-        onClose={() => setIsContactOpen(false)}
-        showToast={() => {}}
+      {/* Contact consultation Overlay Modal */}
+      <ContactModal 
+        isOpen={isContactOpen} 
+        onClose={() => setIsContactOpen(false)} 
+        showToast={() => {}} 
       />
     </div>
   );
