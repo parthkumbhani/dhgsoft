@@ -83,7 +83,7 @@ pages_data = {
                 "type": "ceo",
                 "name": "Hitesh Patel",
                 "role": "Chief Executive Officer",
-                "quote": "Digital transformation is not about implementing more technology. It is about connecting operations, engineering, and intelligence to create measurable business value.",
+                "quote": "Digital transformation is not about implementing technology. It is about connecting operations, data, and intelligence to create measurable business value.",
                 "bio": "Hitesh Patel leads DHGsoft with a vision of building an engineering-first organization focused on helping industrial enterprises embrace intelligent digital transformation. His leadership combines strategic thinking with practical engineering expertise, ensuring every customer engagement delivers measurable operational outcomes and long-term value.",
                 "image": "/CEO_nobg_clean.png"
             },
@@ -516,8 +516,8 @@ export default function About__CLASSNAME__Page() {
               className="object-cover" 
               sizes="100vw" 
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-ink/75 to-ink/40" />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/65 to-ink/30" />
+            <div className="absolute inset-0 bg-gradient-to-r from-ink/40 via-transparent to-transparent" />
           </div>
 
           <div className="relative z-10 w-full max-w-site mx-auto px-gutter md:px-gutter-md">
@@ -526,11 +526,11 @@ export default function About__CLASSNAME__Page() {
               <span className="opacity-50">/</span>
               <span className="text-white font-medium">__TITLE__</span>
             </nav>
-            <div className="text-brand-hot text-label-bold uppercase tracking-[0.3em]">__TITLE__</div>
-            <h1 className="text-white mt-5 max-w-[900px] font-black tracking-tight leading-[1.05]" style={{ fontSize: 'clamp(36px,5vw,60px)' }}>
+            <div className="text-brand-hot text-[11px] font-extrabold uppercase tracking-widest">__TITLE__</div>
+            <h1 className="text-white mt-5 max-w-[900px] font-extrabold tracking-tight leading-[1.05] text-headline-xl">
               __HERO_TITLE__
             </h1>
-            <p className="text-slate-200 text-body-md mt-6 max-w-[760px] leading-relaxed font-semibold">
+            <p className="text-slate-300 text-body-md mt-6 max-w-[760px] leading-relaxed font-medium">
               __HERO_SUB__
             </p>
           </div>
@@ -541,9 +541,10 @@ export default function About__CLASSNAME__Page() {
 
         {/* ============ COMMITMENT BAND ============ */}
         <section className="relative overflow-hidden bg-mist min-h-[50vh] flex items-center py-14 md:py-20 text-center">
-          <div className="max-w-[1000px] mx-auto px-6 md:px-12 w-full">
-            <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Our Commitment</div>
-            <h3 className="text-txt-strong mt-6 font-black leading-snug" style={{ fontSize: 'clamp(24px, 3.5vw, 38px)' }}>__COMMITMENT__</h3>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-brand/5 rounded-full blur-[100px] pointer-events-none z-0" />
+          <div className="relative z-10 max-w-[1000px] mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="text-brand text-[11px] font-extrabold uppercase tracking-widest">Our Commitment</div>
+            <h3 className="text-txt-strong mt-6 font-extrabold leading-snug tracking-tight text-3xl md:text-4xl" style={{ fontSize: 'clamp(1.75rem, 1.4rem + 1vw, 2.25rem)' }}>__COMMITMENT__</h3>
           </div>
         </section>
         <div className="w-full h-px bg-line/60" />
@@ -553,11 +554,11 @@ export default function About__CLASSNAME__Page() {
           <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
           <div className="relative z-10 max-w-site mx-auto px-gutter md:px-gutter-md w-full">
             <div className="max-w-[900px] space-y-6">
-              <div className="text-brand-hot text-label-bold uppercase tracking-[0.3em]">Closing Statement</div>
-              <h2 className="text-white mt-4 font-black tracking-tight leading-tight" style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}>
+              <div className="text-brand-hot text-[11px] font-extrabold uppercase tracking-widest">Closing Statement</div>
+              <h2 className="text-white mt-4 font-black tracking-tight leading-tight text-headline-xl">
                 __CLOSING__
               </h2>
-              <p className="text-slate-300 text-lg md:text-xl leading-relaxed max-w-[720px]">
+              <p className="text-slate-300 text-body-md leading-relaxed max-w-[720px] font-medium">
                 __CLOSING_SUB__
               </p>
               <div className="flex flex-wrap gap-4 pt-6">
@@ -617,19 +618,25 @@ def create_files():
         sections_jsx = ""
         for sec in data["sections"]:
             if sec["type"] == "split_image_right":
-                body_p = "\n".join([f'<p className="text-body-md text-txt-muted mt-5">{p}</p>' for p in sec["body"][1:]])
+                body_p = "\n".join([f'<p className="text-body-sm text-txt-muted mt-5 leading-relaxed">{p}</p>' for p in sec["body"][1:]])
                 sections_jsx += f"""
         {'{/* ============ SPLIT IMAGE RIGHT ============ */}'}
         <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
-          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+          <div className="absolute top-1/4 left-[5%] w-[350px] h-[350px] bg-brand/5 rounded-full blur-[110px] pointer-events-none z-0" />
+          <div className="absolute bottom-1/4 right-[5%] w-[350px] h-[350px] bg-brand-hot/5 rounded-full blur-[110px] pointer-events-none z-0" />
+          
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
               <div className="lg:col-span-7 text-left order-2 lg:order-1 space-y-6">
-                <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
-                  <{sec["icon"]} className="w-6 h-6" />
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0">
+                    <{sec["icon"]} className="w-6 h-6" />
+                  </div>
+                  <div className="text-brand text-[11px] font-extrabold uppercase tracking-widest">{sec["title"]}</div>
                 </div>
-                <div className="text-brand text-label-bold uppercase tracking-[0.25em]">{sec["title"]}</div>
-                <h3 className="text-txt-strong mt-2 tracking-tight font-black leading-tight" style={{{{ fontSize: 'clamp(28px, 3.5vw, 42px)' }}}}>{sec["subtitle"]}</h3>
-                <p className="text-txt-strong mt-6" style={{{{ fontSize: "20px", lineHeight: "1.6", fontWeight: 600 }}}}>{sec["body"][0]}</p>
+                
+                <h3 className="text-txt-strong mt-2 tracking-tight font-extrabold leading-[1.1] text-3xl md:text-4xl lg:text-5xl" style={{{{ fontSize: 'clamp(2.25rem, 1.75rem + 1.2vw, 3rem)' }}}}>{sec["subtitle"]}</h3>
+                <p className="text-txt-strong text-body-md mt-6 leading-relaxed font-normal">{sec["body"][0]}</p>
                 {body_p}
               </div>
               <div className="lg:col-span-5 order-1 lg:order-2">
@@ -643,11 +650,14 @@ def create_files():
         <div className="w-full h-px bg-line/60" />
 """
             elif sec["type"] == "split_image_left":
-                body_p = "\n".join([f'<p className="text-body-md text-txt-muted mt-5">{p}</p>' for p in sec["body"][1:]])
+                body_p = "\n".join([f'<p className="text-body-sm text-txt-muted mt-5 leading-relaxed">{p}</p>' for p in sec["body"][1:]])
                 sections_jsx += f"""
         {'{/* ============ SPLIT IMAGE LEFT ============ */}'}
         <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
-          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+          <div className="absolute top-1/4 right-[5%] w-[350px] h-[350px] bg-brand/5 rounded-full blur-[110px] pointer-events-none z-0" />
+          <div className="absolute bottom-1/4 left-[5%] w-[350px] h-[350px] bg-brand-hot/5 rounded-full blur-[110px] pointer-events-none z-0" />
+          
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
               <div className="lg:col-span-5">
                 <div className="relative rounded-[32px] overflow-hidden ring-1 ring-brand/10 shadow-2xl aspect-[4/5] hover:scale-[1.02] transition-transform duration-500">
@@ -655,12 +665,15 @@ def create_files():
                 </div>
               </div>
               <div className="lg:col-span-7 text-left space-y-6">
-                <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
-                  <{sec["icon"]} className="w-6 h-6" />
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0">
+                    <{sec["icon"]} className="w-6 h-6" />
+                  </div>
+                  <div className="text-brand text-[11px] font-extrabold uppercase tracking-widest">{sec["title"]}</div>
                 </div>
-                <div className="text-brand text-label-bold uppercase tracking-[0.25em]">{sec["title"]}</div>
-                <h3 className="text-txt-strong mt-2 tracking-tight font-black leading-tight" style={{{{ fontSize: 'clamp(28px, 3.5vw, 42px)' }}}}>{sec["subtitle"]}</h3>
-                <p className="text-txt-strong mt-6" style={{{{ fontSize: "20px", lineHeight: "1.6", fontWeight: 600 }}}}>{sec["body"][0]}</p>
+                
+                <h3 className="text-txt-strong mt-2 tracking-tight font-extrabold leading-[1.1] text-3xl md:text-4xl lg:text-5xl" style={{{{ fontSize: 'clamp(2.25rem, 1.75rem + 1.2vw, 3rem)' }}}}>{sec["subtitle"]}</h3>
+                <p className="text-txt-strong text-body-md mt-6 leading-relaxed font-normal">{sec["body"][0]}</p>
                 {body_p}
               </div>
             </div>
@@ -676,17 +689,19 @@ def create_files():
                 <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
                   <{item["icon"]} className="w-6 h-6" />
                 </div>
-                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">{item["title"]}</h4>
-                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">{item["body"]}</p>
+                <h4 className="text-txt-strong font-bold text-lg md:text-xl leading-snug">{item["title"]}</h4>
+                <p className="text-body-sm text-txt-muted mt-3 leading-relaxed">{item["body"]}</p>
               </div>
 """
                 sections_jsx += f"""
         {'{/* ============ GRID SECTION ============ */}'}
         <section className="relative overflow-hidden bg-mist min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
-          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[500px] bg-brand/5 rounded-full blur-[130px] pointer-events-none z-0" />
+          
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full relative z-10">
             <div className="text-center max-w-[720px] mx-auto mb-14">
-              <div className="text-brand text-label-bold uppercase tracking-[0.25em]">{sec["title"]}</div>
-              <div className="w-16 h-[3px] bg-brand rounded-full mt-6 mx-auto" />
+              <div className="text-brand text-[11px] font-extrabold uppercase tracking-widest">{sec["title"]}</div>
+              <div className="w-16 h-[3px] bg-brand rounded-full mt-5 mx-auto" />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {grid_items_jsx}
@@ -699,7 +714,9 @@ def create_files():
                 sections_jsx += f"""
         {'{/* ============ CEO SECTION ============ */}'}
         <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
-          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+          <div className="absolute top-1/4 left-[10%] w-[300px] h-[300px] bg-brand/5 rounded-full blur-[100px] pointer-events-none z-0" />
+          
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
               <div className="lg:col-span-4">
                 <div className="relative rounded-[32px] overflow-hidden ring-1 ring-brand/10 shadow-2xl aspect-[4/5] bg-gradient-to-br from-ink to-[#1a1226]">
@@ -707,12 +724,12 @@ def create_files():
                 </div>
               </div>
               <div className="lg:col-span-8 text-left space-y-6">
-                <div className="text-brand text-label-bold uppercase tracking-[0.25em]">{sec["role"]}</div>
-                <h2 className="text-txt-strong mt-4 font-black" style={{{{ fontSize: 'clamp(32px, 4vw, 48px)' }}}}>{sec["name"]}</h2>
+                <div className="text-brand text-[11px] font-extrabold uppercase tracking-widest">{sec["role"]}</div>
+                <h2 className="text-txt-strong mt-4 font-extrabold tracking-tight leading-[1.1]" style={{{{ fontSize: 'clamp(2.25rem, 1.75rem + 1.2vw, 3rem)' }}}}>{sec["name"]}</h2>
                 <div className="pl-6 border-l-[4px] border-brand mt-6">
-                  <p className="text-txt-strong italic font-serif" style={{{{ fontSize: "24px", lineHeight: "1.5", fontWeight: 500 }}}}>"{sec["quote"]}"</p>
+                  <p className="text-txt-strong italic font-serif leading-relaxed" style={{{{ fontSize: "clamp(1.5rem, 1.25rem + 0.6vw, 1.875rem)" }}}}>"{sec["quote"]}"</p>
                 </div>
-                <p className="text-body-md text-txt-muted mt-6 leading-relaxed">{sec["bio"]}</p>
+                <p className="text-body-sm text-txt-muted mt-6 leading-relaxed">{sec["bio"]}</p>
               </div>
             </div>
           </div>
@@ -729,8 +746,8 @@ def create_files():
           </div>
           <div className="relative z-10 max-w-site mx-auto px-gutter md:px-gutter-md text-left w-full">
             <div className="max-w-[720px] space-y-6">
-              <div className="text-brand-hot text-label-bold uppercase tracking-[0.2em]">{sec["title"]}</div>
-              <p className="text-white mt-6 leading-relaxed font-black" style={{{{ fontSize: 'clamp(24px, 3.5vw, 38px)' }}}}>{sec["body"]}</p>
+              <div className="text-brand-hot text-[11px] font-extrabold uppercase tracking-widest">{sec["title"]}</div>
+              <p className="text-white mt-6 leading-relaxed font-extrabold" style={{{{ fontSize: 'clamp(1.75rem, 1.4rem + 1vw, 2.25rem)' }}}}>{sec["body"]}</p>
             </div>
           </div>
         </section>
@@ -744,16 +761,16 @@ def create_files():
                 <div className="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-5">
                   <{item["icon"]} className="w-5 h-5" />
                 </div>
-                <h4 className="text-txt-strong font-extrabold text-base leading-snug">{item["title"]}</h4>
+                <h4 className="text-txt-strong font-bold text-base leading-snug">{item["title"]}</h4>
                 <p className="text-body-sm text-txt-muted mt-2 leading-relaxed">{item["body"]}</p>
               </div>
 """
                 sections_jsx += f"""
         {'{/* ============ FULL WIDTH IMAGE PANEL + GRID ============ */}'}
         <section className="relative overflow-hidden bg-mist min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
-          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full relative z-10">
             <div className="text-center max-w-[720px] mx-auto mb-10">
-              <div className="text-brand text-label-bold uppercase tracking-[0.25em]">{sec["title"]}</div>
+              <div className="text-brand text-[11px] font-extrabold uppercase tracking-widest">{sec["title"]}</div>
               <div className="w-16 h-[3px] bg-brand rounded-full mt-5 mx-auto" />
             </div>
             
@@ -770,16 +787,18 @@ def create_files():
         <div className="w-full h-px bg-line/60" />
 """
             elif sec["type"] == "industries":
-                chips_jsx = "".join([f'<span className="text-body-md text-txt-strong bg-mist border border-line rounded-full px-6 py-3 font-semibold hover:border-brand hover:text-brand transition-colors cursor-default select-none shrink-0">{ind}</span>' for ind in sec["items"]])
+                chips_jsx = "".join([f'<span className="text-body-sm text-txt-strong bg-mist border border-line rounded-full px-5 py-2.5 font-semibold hover:border-brand hover:text-brand transition-colors cursor-default select-none shrink-0">{ind}</span>' for ind in sec["items"]])
                 sections_jsx += f"""
         {'{/* ============ CHIPS SECTION ============ */}'}
         <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
-          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-brand/5 rounded-full blur-[100px] pointer-events-none z-0" />
+          
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full relative z-10">
             <div className="text-center max-w-[720px] mx-auto mb-12">
-              <div className="text-brand text-label-bold uppercase tracking-[0.25em]">{sec["title"]}</div>
-              <div className="w-16 h-[3px] bg-brand rounded-full mt-6 mx-auto" />
+              <div className="text-brand text-[11px] font-extrabold uppercase tracking-widest">{sec["title"]}</div>
+              <div className="w-16 h-[3px] bg-brand rounded-full mt-5 mx-auto" />
             </div>
-            <div className="flex flex-wrap justify-center gap-4 max-w-[1000px] mx-auto">
+            <div className="flex flex-wrap justify-center gap-3.5 max-w-[1000px] mx-auto">
               {chips_jsx}
             </div>
           </div>

@@ -27,8 +27,8 @@ export default function AboutPartnersPage() {
               className="object-cover" 
               sizes="100vw" 
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-ink/75 to-ink/40" />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/65 to-ink/30" />
+            <div className="absolute inset-0 bg-gradient-to-r from-ink/40 via-transparent to-transparent" />
           </div>
 
           <div className="relative z-10 w-full max-w-site mx-auto px-gutter md:px-gutter-md">
@@ -37,11 +37,11 @@ export default function AboutPartnersPage() {
               <span className="opacity-50">/</span>
               <span className="text-white font-medium">Partner Ecosystem</span>
             </nav>
-            <div className="text-brand-hot text-label-bold uppercase tracking-[0.3em]">Partner Ecosystem</div>
-            <h1 className="text-white mt-5 max-w-[900px] font-black tracking-tight leading-[1.05]" style={{ fontSize: 'clamp(36px,5vw,60px)' }}>
+            <div className="text-brand-hot text-[11px] font-extrabold uppercase tracking-widest">Partner Ecosystem</div>
+            <h1 className="text-white mt-5 max-w-[900px] font-extrabold tracking-tight leading-[1.05] text-headline-xl">
               Strong Partnerships. Greater Innovation.
             </h1>
-            <p className="text-slate-200 text-body-md mt-6 max-w-[760px] leading-relaxed font-semibold">
+            <p className="text-slate-300 text-body-md mt-6 max-w-[760px] leading-relaxed font-medium">
               Industrial transformation is built on collaboration. At DHGsoft, we work alongside customers, technology providers, academic institutions, research organizations, and strategic partners to deliver innovative, scalable, and future-ready engineering solutions.
             </p>
           </div>
@@ -51,17 +51,23 @@ export default function AboutPartnersPage() {
         
         {/* ============ SPLIT IMAGE RIGHT ============ */}
         <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
-          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+          <div className="absolute top-1/4 left-[5%] w-[350px] h-[350px] bg-brand/5 rounded-full blur-[110px] pointer-events-none z-0" />
+          <div className="absolute bottom-1/4 right-[5%] w-[350px] h-[350px] bg-brand-hot/5 rounded-full blur-[110px] pointer-events-none z-0" />
+          
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
               <div className="lg:col-span-7 text-left order-2 lg:order-1 space-y-6">
-                <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
-                  <Globe className="w-6 h-6" />
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0">
+                    <Globe className="w-6 h-6" />
+                  </div>
+                  <div className="text-brand text-[11px] font-extrabold uppercase tracking-widest">Overview</div>
                 </div>
-                <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Overview</div>
-                <h3 className="text-txt-strong mt-2 tracking-tight font-black leading-tight" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)' }}>No organization transforms industries alone.</h3>
-                <p className="text-txt-strong mt-6" style={{ fontSize: "20px", lineHeight: "1.6", fontWeight: 600 }}>Digital transformation requires the combined expertise of engineering professionals, technology leaders, research communities, and industrial organizations working together toward a common goal.</p>
-                <p className="text-body-md text-txt-muted mt-5">DHGsoft believes long-term partnerships create stronger solutions, faster innovation, and sustainable business growth.</p>
-<p className="text-body-md text-txt-muted mt-5">Our Partner Ecosystem enables us to deliver integrated technologies, accelerate implementation, and continuously expand our engineering capabilities while creating greater value for our customers.</p>
+                
+                <h3 className="text-txt-strong mt-2 tracking-tight font-extrabold leading-[1.1] text-3xl md:text-4xl lg:text-5xl" style={{ fontSize: 'clamp(2.25rem, 1.75rem + 1.2vw, 3rem)' }}>No organization transforms industries alone.</h3>
+                <p className="text-txt-strong text-body-md mt-6 leading-relaxed font-normal">Digital transformation requires the combined expertise of engineering professionals, technology leaders, research communities, and industrial organizations working together toward a common goal.</p>
+                <p className="text-body-sm text-txt-muted mt-5 leading-relaxed">DHGsoft believes long-term partnerships create stronger solutions, faster innovation, and sustainable business growth.</p>
+<p className="text-body-sm text-txt-muted mt-5 leading-relaxed">Our Partner Ecosystem enables us to deliver integrated technologies, accelerate implementation, and continuously expand our engineering capabilities while creating greater value for our customers.</p>
               </div>
               <div className="lg:col-span-5 order-1 lg:order-2">
                 <div className="relative rounded-[32px] overflow-hidden ring-1 ring-brand/10 shadow-2xl aspect-[4/5] hover:scale-[1.02] transition-transform duration-500">
@@ -75,7 +81,10 @@ export default function AboutPartnersPage() {
 
         {/* ============ SPLIT IMAGE LEFT ============ */}
         <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
-          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+          <div className="absolute top-1/4 right-[5%] w-[350px] h-[350px] bg-brand/5 rounded-full blur-[110px] pointer-events-none z-0" />
+          <div className="absolute bottom-1/4 left-[5%] w-[350px] h-[350px] bg-brand-hot/5 rounded-full blur-[110px] pointer-events-none z-0" />
+          
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
               <div className="lg:col-span-5">
                 <div className="relative rounded-[32px] overflow-hidden ring-1 ring-brand/10 shadow-2xl aspect-[4/5] hover:scale-[1.02] transition-transform duration-500">
@@ -83,13 +92,16 @@ export default function AboutPartnersPage() {
                 </div>
               </div>
               <div className="lg:col-span-7 text-left space-y-6">
-                <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
-                  <Handshake className="w-6 h-6" />
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0">
+                    <Handshake className="w-6 h-6" />
+                  </div>
+                  <div className="text-brand text-[11px] font-extrabold uppercase tracking-widest">Our Collaboration Model</div>
                 </div>
-                <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Our Collaboration Model</div>
-                <h3 className="text-txt-strong mt-2 tracking-tight font-black leading-tight" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)' }}>We build partnerships based on trust, shared expertise, and long-term collaboration.</h3>
-                <p className="text-txt-strong mt-6" style={{ fontSize: "20px", lineHeight: "1.6", fontWeight: 600 }}>Our ecosystem combines engineering excellence with global technology platforms to deliver connected industrial solutions across diverse industries.</p>
-                <p className="text-body-md text-txt-muted mt-5">Every partnership is focused on solving real operational challenges while preparing organizations for the future of intelligent industry.</p>
+                
+                <h3 className="text-txt-strong mt-2 tracking-tight font-extrabold leading-[1.1] text-3xl md:text-4xl lg:text-5xl" style={{ fontSize: 'clamp(2.25rem, 1.75rem + 1.2vw, 3rem)' }}>We build partnerships based on trust, shared expertise, and long-term collaboration.</h3>
+                <p className="text-txt-strong text-body-md mt-6 leading-relaxed font-normal">Our ecosystem combines engineering excellence with global technology platforms to deliver connected industrial solutions across diverse industries.</p>
+                <p className="text-body-sm text-txt-muted mt-5 leading-relaxed">Every partnership is focused on solving real operational challenges while preparing organizations for the future of intelligent industry.</p>
               </div>
             </div>
           </div>
@@ -98,10 +110,12 @@ export default function AboutPartnersPage() {
 
         {/* ============ GRID SECTION ============ */}
         <section className="relative overflow-hidden bg-mist min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
-          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[500px] bg-brand/5 rounded-full blur-[130px] pointer-events-none z-0" />
+          
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full relative z-10">
             <div className="text-center max-w-[720px] mx-auto mb-14">
-              <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Our Partner Network</div>
-              <div className="w-16 h-[3px] bg-brand rounded-full mt-6 mx-auto" />
+              <div className="text-brand text-[11px] font-extrabold uppercase tracking-widest">Our Partner Network</div>
+              <div className="w-16 h-[3px] bg-brand rounded-full mt-5 mx-auto" />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               
@@ -109,32 +123,32 @@ export default function AboutPartnersPage() {
                 <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
                   <Smile className="w-6 h-6" />
                 </div>
-                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Customer Partnerships</h4>
-                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Every customer relationship is built on collaboration rather than transactions. We work closely with customers throughout strategy, implementation, and support to ensure operational value.</p>
+                <h4 className="text-txt-strong font-bold text-lg md:text-xl leading-snug">Customer Partnerships</h4>
+                <p className="text-body-sm text-txt-muted mt-3 leading-relaxed">Every customer relationship is built on collaboration rather than transactions. We work closely with customers throughout strategy, implementation, and support to ensure operational value.</p>
               </div>
 
               <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
                 <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
                   <Cpu className="w-6 h-6" />
                 </div>
-                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Technology Collaboration</h4>
-                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">DHGsoft collaborates with leading technology providers to integrate automation platforms, enterprise systems, cloud infrastructure, cybersecurity, and advanced analytics.</p>
+                <h4 className="text-txt-strong font-bold text-lg md:text-xl leading-snug">Technology Collaboration</h4>
+                <p className="text-body-sm text-txt-muted mt-3 leading-relaxed">DHGsoft collaborates with leading technology providers to integrate automation platforms, enterprise systems, cloud infrastructure, cybersecurity, and advanced analytics.</p>
               </div>
 
               <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
                 <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
                   <BookOpen className="w-6 h-6" />
                 </div>
-                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Academic & Research Collaboration</h4>
-                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">We actively encourage collaboration with universities, engineering institutions, and research organizations to support innovation, workforce development, and emerging technologies.</p>
+                <h4 className="text-txt-strong font-bold text-lg md:text-xl leading-snug">Academic & Research Collaboration</h4>
+                <p className="text-body-sm text-txt-muted mt-3 leading-relaxed">We actively encourage collaboration with universities, engineering institutions, and research organizations to support innovation, workforce development, and emerging technologies.</p>
               </div>
 
               <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
                 <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
                   <Network className="w-6 h-6" />
                 </div>
-                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">System Integration Network</h4>
-                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">DHGsoft partners with specialized integrators to deliver scalable solutions that connect operational technology, enterprise systems, and cloud platforms.</p>
+                <h4 className="text-txt-strong font-bold text-lg md:text-xl leading-snug">System Integration Network</h4>
+                <p className="text-body-sm text-txt-muted mt-3 leading-relaxed">DHGsoft partners with specialized integrators to deliver scalable solutions that connect operational technology, enterprise systems, and cloud platforms.</p>
               </div>
 
             </div>
@@ -145,9 +159,10 @@ export default function AboutPartnersPage() {
 
         {/* ============ COMMITMENT BAND ============ */}
         <section className="relative overflow-hidden bg-mist min-h-[50vh] flex items-center py-14 md:py-20 text-center">
-          <div className="max-w-[1000px] mx-auto px-6 md:px-12 w-full">
-            <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Our Commitment</div>
-            <h3 className="text-txt-strong mt-6 font-black leading-snug" style={{ fontSize: 'clamp(24px, 3.5vw, 38px)' }}>Our partnerships are built to create long-term value for customers by combining engineering expertise, technology innovation, and collaborative problem-solving.</h3>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-brand/5 rounded-full blur-[100px] pointer-events-none z-0" />
+          <div className="relative z-10 max-w-[1000px] mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="text-brand text-[11px] font-extrabold uppercase tracking-widest">Our Commitment</div>
+            <h3 className="text-txt-strong mt-6 font-extrabold leading-snug tracking-tight text-3xl md:text-4xl" style={{ fontSize: 'clamp(1.75rem, 1.4rem + 1vw, 2.25rem)' }}>Our partnerships are built to create long-term value for customers by combining engineering expertise, technology innovation, and collaborative problem-solving.</h3>
           </div>
         </section>
         <div className="w-full h-px bg-line/60" />
@@ -157,11 +172,11 @@ export default function AboutPartnersPage() {
           <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
           <div className="relative z-10 max-w-site mx-auto px-gutter md:px-gutter-md w-full">
             <div className="max-w-[900px] space-y-6">
-              <div className="text-brand-hot text-label-bold uppercase tracking-[0.3em]">Closing Statement</div>
-              <h2 className="text-white mt-4 font-black tracking-tight leading-tight" style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}>
+              <div className="text-brand-hot text-[11px] font-extrabold uppercase tracking-widest">Closing Statement</div>
+              <h2 className="text-white mt-4 font-black tracking-tight leading-tight text-headline-xl">
                 Innovation Grows Stronger Through Collaboration
               </h2>
-              <p className="text-slate-300 text-lg md:text-xl leading-relaxed max-w-[720px]">
+              <p className="text-slate-300 text-body-md leading-relaxed max-w-[720px] font-medium">
                 Together with our customers and partners, we continue building connected, intelligent, and sustainable industrial enterprises.
               </p>
               <div className="flex flex-wrap gap-4 pt-6">

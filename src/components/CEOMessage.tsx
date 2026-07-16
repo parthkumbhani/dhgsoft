@@ -61,7 +61,7 @@ export default function CEOMessage() {
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
                 >
-                  <path d="M10 11c0-2.2-1.8-4-4-4S2 8.8 2 11s1.8 4 4 4c.4 0 .8-.1 1.2-.2C6.6 17.3 4.5 19 2 19v2c4 0 8-3.3 8-10zm12 0c0-2.2-1.8-4-4-4s-4 1.8-4 4 1.8 4 4 4c.4 0 .8-.1 1.2-.2-.6 2.5-2.7 4.2-5.2 4.2v2c4 0 8-3.3 8-10z" />
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
               </div>
               <motion.p
@@ -112,11 +112,11 @@ export default function CEOMessage() {
               />
 
               {/* Supporting statement */}
-              <p className="text-sm md:text-[0.9375rem] text-white/80 leading-relaxed max-w-[340px] font-light">
+              <p className="text-sm md:text-[0.9375rem] text-white/80 leading-relaxed max-w-[520px] font-light">
                 Digital transformation is no longer about implementing technology—it's about connecting operations, data, and intelligence to create measurable business value. At DHGsoft, we engineer end-to-end industrial digital solutions that help organizations innovate with confidence, operate more intelligently, and build value for tomorrow.
               </p>
             </motion.div>
-
+ 
             {/* CTA row */}
             <motion.div
               initial={shouldReduceMotion ? {} : { opacity: 0, y: 14 }}
@@ -135,7 +135,7 @@ export default function CEOMessage() {
                 Connect with Our Team
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </button>
-
+ 
               <a
                 href="https://linkedin.com/in/hitesh-patel-967087a0"
                 target="_blank"
@@ -150,7 +150,7 @@ export default function CEOMessage() {
               </a>
             </motion.div>
           </div>
-
+ 
           {/* ──────────────── RIGHT — portrait zone (42%) ──────────────── */}
           {/*
             CINEMATIC OVERFLOW TRICK:
@@ -166,7 +166,7 @@ export default function CEOMessage() {
               initial={shouldReduceMotion ? {} : { opacity: 0, x: 16 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.65, delay: 0.2, ease: "easeOut" }}
-              className="absolute top-[-90px] bottom-0 right-0 w-full flex items-end justify-center pointer-events-none"
+              className="absolute top-[-95px] bottom-0 right-0 w-full flex items-end justify-center pointer-events-none"
             >
               <Image
                 src="/ceo_image.png"
