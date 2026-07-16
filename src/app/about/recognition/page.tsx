@@ -1,291 +1,213 @@
-// src/app/about/recognition/page.tsx
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
-import { Star, Trophy, Medal, BadgeCheck, Rocket, Flag, ArrowRight } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import ContactModal from "@/components/ContactModal";
-import { Section } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
-import { recognitionImages } from "@/lib/images/recognition";
-import CTABand from "@/components/CTABand";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowRight, Award, FileText, Lightbulb, MapPin, ShieldCheck, Smile, Wrench } from 'lucide-react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import ContactModal from '@/components/ContactModal';
 
-const highlightCards = [
-  {
-    title: "Customer Success Stories",
-    desc: "Real results delivered for the industries we serve.",
-    Icon: Star
-  },
-  {
-    title: "Awards",
-    desc: "Recognition for our engineering and impact.",
-    Icon: Trophy
-  },
-  {
-    title: "Industry Recognition",
-    desc: "Acknowledgement from the industrial and technology community.",
-    Icon: Medal
-  },
-  {
-    title: "Certifications",
-    desc: "Standards and credentials that reflect our commitment to quality.",
-    Icon: BadgeCheck
-  },
-  {
-    title: "Technology Achievements",
-    desc: "Milestones in the platforms and solutions we build.",
-    Icon: Rocket
-  },
-  {
-    title: "Project Milestones",
-    desc: "Significant deliveries and long-term partnerships.",
-    Icon: Flag
-  }
-];
-
-const realCases = [
-  {
-    industry: "Industrial Manufacturing",
-    title: "OEE Optimization",
-    desc: "Real-time production visibility across 14 lines, integrating plant floor sensors and enterprise dashboards.",
-    img: recognitionImages.caseManufacturing.src,
-    alt: recognitionImages.caseManufacturing.alt,
-    outcome: "18% OEE Increase"
-  },
-  {
-    industry: "Energy & Utilities",
-    title: "Smart Water Grid",
-    desc: "Distributed SCADA integration with predictive leak detection and edge intelligence nodes.",
-    img: recognitionImages.caseEnergy.src,
-    alt: recognitionImages.caseEnergy.alt,
-    outcome: "30% Downtime Reduction"
-  },
-  {
-    industry: "Smart Logistics",
-    title: "Warehouse Automation",
-    desc: "Unified Namespace integration linking WMS with PLC pick-and-pack conveyor systems.",
-    img: recognitionImages.caseLogistics.src,
-    alt: recognitionImages.caseLogistics.alt,
-    outcome: "22% Throughput Growth"
-  }
-];
-
-const certifications = [
-  { name: "ISO 9001:2015", desc: "Quality Management Systems" },
-  { name: "IEC 62443", desc: "OT Cybersecurity Standards" },
-  { name: "Microsoft Silver Partner", desc: "Cloud Platform Integration" },
-  { name: "Siemens Solution Partner", desc: "Industrial Control Systems Integration" }
-];
-
-export default function RecognitionPage() {
+export default function AboutRecognitionPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground antialiased font-sans flex flex-col selection:bg-brand selection:text-white">
-      {/* Sticky Header */}
       <Header onContactClick={() => setIsContactOpen(true)} />
 
-      <main className="relative pt-20">
-        
-        {/* ==========================================
-            1. HERO SECTION
-            ========================================== */}
-        <Section variant="ink" size="hero" containerSize="wide" className="relative min-h-screen flex items-center overflow-hidden">
-          <div className="absolute inset-0 z-0 pointer-events-none">
-            <Image
-              src={recognitionImages.hero.src}
-              alt={recognitionImages.hero.alt}
-              fill
-              priority
-              className="object-cover opacity-35"
+      <main className="flex-grow">
+        {/* ============ 1. PREMIUM HERO (Full-bleed Background Image with Dark Gradient overlay) ============ */}
+        <section className="relative min-h-screen flex items-center pt-24 pb-12 text-left overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <Image 
+              src="/images/about/recognition-hero.jpg" 
+              alt="Recognition banner" 
+              fill 
+              priority 
+              className="object-cover" 
+              sizes="100vw" 
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-ink/75 to-ink/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-transparent" />
           </div>
-          <Container className="relative z-10 w-full text-left">
-            <div className="max-w-3xl space-y-6">
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20 backdrop-blur-md text-[#E10088] mb-4">
-                <span className="relative flex w-1.5 h-1.5">
-                  <span className="absolute inset-0 rounded-full bg-[#E10088] animate-ping opacity-60" />
-                  <span className="relative rounded-full bg-[#E10088] w-1.5 h-1.5" />
-                </span>
-                <span className="text-[11px] font-extrabold uppercase tracking-widest font-sans">
-                  RECOGNITION
-                </span>
+
+          <div className="relative z-10 w-full max-w-site mx-auto px-gutter md:px-gutter-md">
+            <nav className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/80 text-xs mb-7">
+              <Link href="/about" className="hover:text-brand-hot transition-colors">About</Link>
+              <span className="opacity-50">/</span>
+              <span className="text-white font-medium">Recognition</span>
+            </nav>
+            <div className="text-brand-hot text-label-bold uppercase tracking-[0.3em]">Recognition</div>
+            <h1 className="text-white mt-5 max-w-[900px] font-black tracking-tight leading-[1.05]" style={{ fontSize: 'clamp(36px,5vw,60px)' }}>
+              Excellence Measured by Customer Success
+            </h1>
+            <p className="text-slate-200 text-body-md mt-6 max-w-[760px] leading-relaxed font-semibold">
+              Recognition is not defined only by awards. It is reflected in successful partnerships, trusted relationships, engineering excellence, and measurable business outcomes.
+            </p>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
+
+        
+        {/* ============ SPLIT IMAGE RIGHT ============ */}
+        <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+              <div className="lg:col-span-7 text-left order-2 lg:order-1 space-y-6">
+                <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                  <Award className="w-6 h-6" />
+                </div>
+                <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Overview</div>
+                <h3 className="text-txt-strong mt-2 tracking-tight font-black leading-tight" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)' }}>Our greatest achievement is the success of our customers.</h3>
+                <p className="text-txt-strong mt-6" style={{ fontSize: "20px", lineHeight: "1.6", fontWeight: 600 }}>At DHGsoft, our greatest achievement is the success of our customers.</p>
+                <p className="text-body-md text-txt-muted mt-5">Every completed project, every operational improvement, and every long-term partnership reflects our commitment to engineering excellence and continuous innovation.</p>
+<p className="text-body-md text-txt-muted mt-5">As our organization grows, we continue building a reputation based on quality, reliability, technical expertise, and customer trust.</p>
               </div>
-              <h1 className="text-white text-headline-xl sm:text-[3.25rem] lg:text-[4.5rem] font-black tracking-tight leading-[1.1]">
-                Measured by the
-                <br />
-                <span className="text-gradient-brand">Value We Create</span>
-              </h1>
-              <p className="text-slate-300 max-w-2xl leading-relaxed text-body-md font-medium">
-                DHGsoft measures success by the value created for customers.
-              </p>
+              <div className="lg:col-span-5 order-1 lg:order-2">
+                <div className="relative rounded-[32px] overflow-hidden ring-1 ring-brand/10 shadow-2xl aspect-[4/5] hover:scale-[1.02] transition-transform duration-500">
+                  <Image src="/images/about/recognition-accomplishments.jpg" alt="Overview photography" fill className="object-cover" sizes="(min-width:1024px) 35vw, 100vw" />
+                </div>
+              </div>
             </div>
-          </Container>
-        </Section>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
 
-        {/* ==========================================
-            2. SUCCESS INTRO
-            ========================================== */}
-        <Section variant="white" size="default" id="success-intro">
-          <Container>
-            <div className="flex flex-col text-left space-y-4 max-w-4xl">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                OUR SUCCESS
-              </span>
-              <p className="text-txt-strong font-bold text-xl sm:text-2xl leading-relaxed">
-                Recognition follows outcomes. DHGsoft measures success by the value created for customers — and we're proud of the results we help our partners achieve.
-              </p>
+        {/* ============ GRID SECTION ============ */}
+        <section className="relative overflow-hidden bg-mist min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="text-center max-w-[720px] mx-auto mb-14">
+              <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Key Accomplishments</div>
+              <div className="w-16 h-[3px] bg-brand rounded-full mt-6 mx-auto" />
             </div>
-          </Container>
-        </Section>
-
-        {/* ==========================================
-            3. HIGHLIGHTS GRID
-            ========================================== */}
-        <Section variant="brandTint" size="default" id="highlights">
-          <Container>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {highlightCards.map((card, idx) => {
-                const IconComp = card.Icon;
-                return (
-                  <div 
-                    key={idx}
-                    className="bg-white border border-line rounded-2xl p-6 shadow-sm hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-start text-left space-y-4"
-                  >
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-brand/5 text-brand shrink-0">
-                      <IconComp className="w-5 h-5" />
-                    </div>
-                    <div className="space-y-2">
-                      <h3 className="font-extrabold text-txt-strong text-lg tracking-tight">
-                        {card.title}
-                      </h3>
-                      <p className="text-txt-muted text-sm leading-relaxed font-sans">
-                        {card.desc}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </Container>
-        </Section>
-
-        {/* ==========================================
-            4. CUSTOMER SUCCESS STORIES
-            ========================================== */}
-        <Section variant="white" size="default" id="cases">
-          <Container>
-            
-            <div className="flex flex-col text-left mb-12">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-px w-10 bg-brand" />
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                  CASE STUDIES
-                </span>
-              </div>
-              <h2 className="text-txt-strong font-black tracking-tight leading-tight">
-                Engineering in Action
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {realCases.map((c, idx) => (
-                <div 
-                  key={idx}
-                  className="bg-white border border-line rounded-2xl overflow-hidden shadow-sm flex flex-col hover:-translate-y-1 hover:border-brand/40 transition-all duration-300"
-                >
-                  <div className="relative w-full h-[200px] border-b border-line">
-                    <Image
-                      src={c.img}
-                      alt={c.alt}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 30vw"
-                    />
-                  </div>
-                  <div className="p-6 text-left space-y-4 flex-grow flex flex-col justify-between">
-                    <div className="space-y-2">
-                      <span className="text-[10px] font-extrabold text-brand uppercase tracking-wider block">
-                        {c.industry}
-                      </span>
-                      <h4 className="font-extrabold text-txt-strong text-lg tracking-tight leading-snug">
-                        {c.title}
-                      </h4>
-                      <p className="text-txt-muted text-xs leading-relaxed font-sans">
-                        {c.desc}
-                      </p>
-                    </div>
-                    <div className="pt-4 border-t border-line mt-auto flex items-center justify-between">
-                      <span className="text-brand font-extrabold text-sm sm:text-base">
-                        {c.outcome}
-                      </span>
-                    </div>
-                  </div>
+              
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Smile className="w-6 h-6" />
                 </div>
-              ))}
-            </div>
-
-          </Container>
-        </Section>
-
-        {/* ==========================================
-            5. AWARDS & RECOGNITION
-            ========================================== */}
-        <Section variant="mist" size="default" id="awards">
-          <Container>
-            
-            <div className="flex flex-col text-left mb-12">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-px w-10 bg-brand" />
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                  STANDARDS & CERTIFICATIONS
-                </span>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Customer Success</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Every successful implementation represents a shared achievement between our engineering teams and our customers. Our focus remains on delivering practical solutions that improve productivity, operational efficiency, and business performance.</p>
               </div>
-              <h2 className="text-txt-strong font-black tracking-tight leading-tight">
-                Quality Compliance
-              </h2>
-            </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-              {certifications.map((cert, idx) => (
-                <div 
-                  key={idx}
-                  className="bg-white border border-line rounded-2xl p-5 hover:border-brand transition-colors duration-300 shadow-xs"
-                >
-                  <span className="font-mono text-sm font-black text-brand tracking-wide block">
-                    {cert.name}
-                  </span>
-                  <span className="text-[11px] text-txt-muted mt-1.5 block leading-normal">
-                    {cert.desc}
-                  </span>
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Wrench className="w-6 h-6" />
                 </div>
-              ))}
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Engineering Excellence</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Quality engineering is recognized through consistent execution. From digital engineering and industrial automation to enterprise integration and managed services, we strive to deliver solutions that exceed customer expectations while maintaining the highest technical standards.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Lightbulb className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Innovation</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Innovation drives continuous progress. We invest in emerging technologies, engineering talent, industrial research, and digital capabilities that enable customers to remain competitive in an evolving industrial landscape.</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
+
+        {/* ============ FULL WIDTH IMAGE PANEL + GRID ============ */}
+        <section className="relative overflow-hidden bg-mist min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="text-center max-w-[720px] mx-auto mb-10">
+              <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Future Recognition Milestones</div>
+              <div className="w-16 h-[3px] bg-brand rounded-full mt-5 mx-auto" />
+            </div>
+            
+            <div className="relative rounded-[32px] overflow-hidden aspect-[21/9] mb-10 shadow-xl">
+              <Image src="/images/about/recognition-milestones.jpg" alt="Future Recognition Milestones dynamic setup" fill className="object-cover" sizes="100vw" />
+              <div className="absolute inset-0 bg-ink/20" />
             </div>
 
-          </Container>
-        </Section>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              
+              <div className="card bg-white border border-line rounded-2xl p-6 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start">
+                <div className="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-5">
+                  <FileText className="w-5 h-5" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-base leading-snug">Customer Success Stories</h4>
+                <p className="text-body-sm text-txt-muted mt-2 leading-relaxed">Showcasing operational gains and quantitative case study results.</p>
+              </div>
 
-        {/* CTA BAND */}
-        <CTABand
-          label="PARTNER WITH DHGSOFT"
-          headline="Building Value"
-          highlightedText="for Tomorrow."
-          description="Whether you are modernizing a single production line, connecting enterprise systems to the cloud, or building a secure data foundation — DHGsoft is your engineering partner from concept to commissioning."
-          primaryLabel="Start a Conversation →"
-          secondaryLabel="Explore Capabilities"
-          onPrimaryClick={() => setIsContactOpen(true)}
-        />
+              <div className="card bg-white border border-line rounded-2xl p-6 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start">
+                <div className="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-5">
+                  <Award className="w-5 h-5" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-base leading-snug">Industry Awards</h4>
+                <p className="text-body-sm text-txt-muted mt-2 leading-relaxed">Validating our software architecture and integration capabilities.</p>
+              </div>
 
+              <div className="card bg-white border border-line rounded-2xl p-6 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start">
+                <div className="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-5">
+                  <ShieldCheck className="w-5 h-5" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-base leading-snug">Engineering Certifications</h4>
+                <p className="text-body-sm text-txt-muted mt-2 leading-relaxed">Expanding our certified technicians and functional safety credentials.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-2xl p-6 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start">
+                <div className="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-5">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-base leading-snug">Strategic Milestones</h4>
+                <p className="text-body-sm text-txt-muted mt-2 leading-relaxed">Highlighting key technology center expansions.</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
+
+
+        {/* ============ COMMITMENT BAND ============ */}
+        <section className="relative overflow-hidden bg-mist min-h-[50vh] flex items-center py-14 md:py-20 text-center">
+          <div className="max-w-[1000px] mx-auto px-6 md:px-12 w-full">
+            <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Our Commitment</div>
+            <h3 className="text-txt-strong mt-6 font-black leading-snug" style={{ fontSize: 'clamp(24px, 3.5vw, 38px)' }}>Recognition is not our destination. Continuous improvement, customer satisfaction, and engineering excellence remain the true measures of our success.</h3>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
+
+        {/* ============ CLOSING STATEMENT (Full bleed) ============ */}
+        <section className="relative min-h-[85vh] md:min-h-[90vh] bg-gradient-to-br from-ink to-[#1a1226] text-white overflow-hidden flex items-center text-left py-16 md:py-24">
+          <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
+          <div className="relative z-10 max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="max-w-[900px] space-y-6">
+              <div className="text-brand-hot text-label-bold uppercase tracking-[0.3em]">Closing Statement</div>
+              <h2 className="text-white mt-4 font-black tracking-tight leading-tight" style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}>
+                Every Achievement Begins with a Customer Challenge
+              </h2>
+              <p className="text-slate-300 text-lg md:text-xl leading-relaxed max-w-[720px]">
+                Together with our customers, partners, and engineering teams, we continue building solutions that create measurable impact across industries.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-6">
+                <button
+                  onClick={() => setIsContactOpen(true)}
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-brand font-semibold hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer text-base"
+                >
+                  Start a Conversation <ArrowRight className="w-4 h-4" />
+                </button>
+                <Link href="/about" className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors text-base">
+                  Back to About
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
-      {/* Footer */}
       <Footer />
 
-      {/* Contact Modal */}
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} showToast={() => {}} />
+      <ContactModal
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+        showToast={() => {}}
+      />
     </div>
   );
 }

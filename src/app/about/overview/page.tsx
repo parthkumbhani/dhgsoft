@@ -1,327 +1,209 @@
-// src/app/about/overview/page.tsx
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
-import { Network, BrainCircuit, ShieldCheck, Check, MapPin, ArrowRight } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import ContactModal from "@/components/ContactModal";
-import { Section } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
-import { overviewImages } from "@/lib/images/overview";
-import CTABand from "@/components/CTABand";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowRight, BookOpen, Compass, Factory, Globe, Headphones, RefreshCw, Wrench } from 'lucide-react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import ContactModal from '@/components/ContactModal';
 
-export default function OverviewPage() {
+export default function AboutOverviewPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
-
-  const focusAreas = [
-    {
-      title: "Connected Operations",
-      desc: "Unifying plant-floor assets, historians, and enterprise systems into a single source of operational truth.",
-      Icon: Network
-    },
-    {
-      title: "Applied Intelligence",
-      desc: "Turning industrial data into predictions, insights, and autonomous action that improve performance every day.",
-      Icon: BrainCircuit
-    },
-    {
-      title: "Trusted Delivery",
-      desc: "Secure, standards-based engineering delivered by teams who have run real operations, not just written code.",
-      Icon: ShieldCheck
-    }
-  ];
-
-  const journeySteps = [
-    {
-      num: "01",
-      title: "Foundation",
-      desc: "DHGsoft was formed by engineers who had lived the gap between operations and IT — and were determined to close it."
-    },
-    {
-      num: "02",
-      title: "Focus",
-      desc: "We concentrated on the hardest problem in industry: making OT and IT work as one, securely and at scale."
-    },
-    {
-      num: "03",
-      title: "Expansion",
-      desc: "Our capabilities grew across automation, data platforms, cloud, AI, and cybersecurity — end to end."
-    },
-    {
-      num: "04",
-      title: "Today",
-      desc: "We partner with organizations worldwide to build connected, intelligent, and sustainable operations."
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background text-foreground antialiased font-sans flex flex-col selection:bg-brand selection:text-white">
-      {/* Sticky Header */}
       <Header onContactClick={() => setIsContactOpen(true)} />
 
       <main className="flex-grow">
-        
-        {/* ==========================================
-            1. HERO SECTION
-            ========================================== */}
-        <Section variant="ink" size="hero" containerSize="wide" className="relative min-h-screen flex items-center overflow-hidden">
-          <div className="absolute inset-0 z-0 pointer-events-none">
-            <Image
-              src={overviewImages.hero.src}
-              alt={overviewImages.hero.alt}
-              fill
-              priority
-              className="object-cover opacity-35"
+        {/* ============ 1. PREMIUM HERO (Full-bleed Background Image with Dark Gradient overlay) ============ */}
+        <section className="relative min-h-screen flex items-center pt-24 pb-12 text-left overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <Image 
+              src="/images/about/overview-hero.jpg" 
+              alt="Overview banner" 
+              fill 
+              priority 
+              className="object-cover" 
+              sizes="100vw" 
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-ink/75 to-ink/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-transparent" />
           </div>
-          <Container className="relative z-10 w-full text-left">
-            <div className="max-w-4xl space-y-6">
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20 backdrop-blur-md text-[#E10088] mb-4">
-                <span className="relative flex w-1.5 h-1.5">
-                  <span className="absolute inset-0 rounded-full bg-[#E10088] animate-ping opacity-60" />
-                  <span className="relative rounded-full bg-[#E10088] w-1.5 h-1.5" />
-                </span>
-                <span className="text-[11px] font-extrabold uppercase tracking-widest font-sans">
-                  OUR STORY
-                </span>
+
+          <div className="relative z-10 w-full max-w-site mx-auto px-gutter md:px-gutter-md">
+            <nav className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/80 text-xs mb-7">
+              <Link href="/about" className="hover:text-brand-hot transition-colors">About</Link>
+              <span className="opacity-50">/</span>
+              <span className="text-white font-medium">Overview</span>
+            </nav>
+            <div className="text-brand-hot text-label-bold uppercase tracking-[0.3em]">Overview</div>
+            <h1 className="text-white mt-5 max-w-[900px] font-black tracking-tight leading-[1.05]" style={{ fontSize: 'clamp(36px,5vw,60px)' }}>
+              Engineering Excellence for a Connected Industrial Future
+            </h1>
+            <p className="text-slate-200 text-body-md mt-6 max-w-[760px] leading-relaxed font-semibold">
+              Digital transformation is changing the way industries design, manufacture, operate, and innovate. As industrial environments become more connected and data-driven, organizations require engineering partners capable of integrating operational technology, enterprise systems, and intelligent digital solutions.
+            </p>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
+
+        
+        {/* ============ SPLIT IMAGE LEFT ============ */}
+        <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+              <div className="lg:col-span-5">
+                <div className="relative rounded-[32px] overflow-hidden ring-1 ring-brand/10 shadow-2xl aspect-[4/5] hover:scale-[1.02] transition-transform duration-500">
+                  <Image src="/images/about/overview-story.jpg" alt="Our Story photography" fill className="object-cover" sizes="(min-width:1024px) 35vw, 100vw" />
+                </div>
               </div>
-              <h1 className="text-white text-headline-xl sm:text-[3.25rem] lg:text-[4.5rem] font-black tracking-tight leading-[1.1]">
-                Engineering Clarity from
-                <br />
-                <span className="text-gradient-brand">Industrial Complexity</span>
-              </h1>
-              <p className="text-slate-300 max-w-2xl leading-relaxed text-body-md font-medium">
-                DHGsoft exists to help industrial organizations turn fragmented operations into connected, intelligent systems. We engineer the digital backbone that makes modern industry faster, safer, and more sustainable.
+              <div className="lg:col-span-7 text-left space-y-6">
+                <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                  <BookOpen className="w-6 h-6" />
+                </div>
+                <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Our Story</div>
+                <h3 className="text-txt-strong mt-2 tracking-tight font-black leading-tight" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)' }}>Connecting operations, data, enterprise systems, and intelligent technologies</h3>
+                <p className="text-txt-strong mt-6" style={{ fontSize: "20px", lineHeight: "1.6", fontWeight: 600 }}>Every industrial organization generates vast amounts of operational data every second. Yet for many businesses, valuable information remains isolated across machines, control systems, enterprise applications, and operational teams.</p>
+                <p className="text-body-md text-txt-muted mt-5">DHGsoft was founded with a simple vision: to transform disconnected industrial environments into intelligent, connected enterprises.</p>
+<p className="text-body-md text-txt-muted mt-5">Our journey began with a commitment to engineering excellence and a belief that successful digital transformation requires more than implementing new technologies. It requires understanding industrial operations, solving complex engineering challenges, and delivering solutions that create measurable business value.</p>
+<p className="text-body-md text-txt-muted mt-5">Over the years, we have expanded our expertise across industrial automation, OT/IT integration, cloud technologies, artificial intelligence, industrial data platforms, cybersecurity, and enterprise applications. This integrated approach allows us to deliver solutions that not only modernize operations but also prepare organizations for the future of connected industry.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
+
+        {/* ============ GRID SECTION ============ */}
+        <section className="relative overflow-hidden bg-mist min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="text-center max-w-[720px] mx-auto mb-14">
+              <div className="text-brand text-label-bold uppercase tracking-[0.25em]">DHGsoft at a Glance</div>
+              <div className="w-16 h-[3px] bg-brand rounded-full mt-6 mx-auto" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Compass className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Industrial Digital Transformation Partner</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Helping organizations build intelligent operations where machines, systems, and people work together through connected ecosystems.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Wrench className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Engineering-First Delivery Approach</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Ensuring precision, technical quality, and structural integrity are incorporated into every automation and data platform solution.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <RefreshCw className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">End-to-End Project Lifecycle Support</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Supporting clients from initial operational discovery and strategy design through to commissioning and long-term optimization.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Globe className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Global Delivery Model</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Leveraging onsite and remote engineering models to provide agile, scalable, and responsive support to global industrial sites.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Factory className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Cross-Industry Engineering Expertise</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Delivering digital systems configured specifically to the regulatory, safety, and operational needs of diverse industrial sectors.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Headphones className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Long-Term Managed Services</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Providing continuous monitoring, telemetry analysis, proactive maintenance, and operational security to safeguard industrial assets.</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
+
+        {/* ============ SPLIT IMAGE RIGHT ============ */}
+        <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+              <div className="lg:col-span-7 text-left order-2 lg:order-1 space-y-6">
+                <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                  <Factory className="w-6 h-6" />
+                </div>
+                <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Industries We Serve</div>
+                <h3 className="text-txt-strong mt-2 tracking-tight font-black leading-tight" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)' }}>Engineering expertise tailored to your specific industry environment</h3>
+                <p className="text-txt-strong mt-6" style={{ fontSize: "20px", lineHeight: "1.6", fontWeight: 600 }}>Every industry presents unique operational challenges. Our engineering solutions are designed to address these challenges while creating connected, intelligent, and resilient operations.</p>
+                <p className="text-body-md text-txt-muted mt-5">Our engineering expertise supports organizations across a wide range of industrial sectors, providing digital solutions that optimize resources, improve efficiency, and support sustainable growth.</p>
+              </div>
+              <div className="lg:col-span-5 order-1 lg:order-2">
+                <div className="relative rounded-[32px] overflow-hidden ring-1 ring-brand/10 shadow-2xl aspect-[4/5] hover:scale-[1.02] transition-transform duration-500">
+                  <Image src="/images/about/overview-industries.jpg" alt="Industries We Serve photography" fill className="object-cover" sizes="(min-width:1024px) 35vw, 100vw" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
+
+
+        {/* ============ COMMITMENT BAND ============ */}
+        <section className="relative overflow-hidden bg-mist min-h-[50vh] flex items-center py-14 md:py-20 text-center">
+          <div className="max-w-[1000px] mx-auto px-6 md:px-12 w-full">
+            <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Our Commitment</div>
+            <h3 className="text-txt-strong mt-6 font-black leading-snug" style={{ fontSize: 'clamp(24px, 3.5vw, 38px)' }}>By connecting operational technology, enterprise systems, and intelligent digital solutions, DHGsoft helps organizations transform complexity into opportunity and innovation into measurable business value.</h3>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
+
+        {/* ============ CLOSING STATEMENT (Full bleed) ============ */}
+        <section className="relative min-h-[85vh] md:min-h-[90vh] bg-gradient-to-br from-ink to-[#1a1226] text-white overflow-hidden flex items-center text-left py-16 md:py-24">
+          <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
+          <div className="relative z-10 max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="max-w-[900px] space-y-6">
+              <div className="text-brand-hot text-label-bold uppercase tracking-[0.3em]">Closing Statement</div>
+              <h2 className="text-white mt-4 font-black tracking-tight leading-tight" style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}>
+                Building the Future of Connected Industries
+              </h2>
+              <p className="text-slate-300 text-lg md:text-xl leading-relaxed max-w-[720px]">
+                Engineering is at the heart of everything we do. Together with our customers, partners, and engineering teams, we are shaping the future of intelligent industry.
               </p>
-            </div>
-          </Container>
-        </Section>
-
-        {/* ==========================================
-            2. WHO WE ARE (Split layout)
-            ========================================== */}
-        <Section variant="white" size="default" id="who-we-are">
-          <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              
-              {/* Left Column: Text Content */}
-              <div className="lg:col-span-7 space-y-6 text-left">
-                <div className="flex items-center gap-3">
-                  <div className="h-px w-10 bg-brand" />
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                    WHO WE ARE
-                  </span>
-                </div>
-                <h2 className="text-txt-strong font-black tracking-tight leading-tight">
-                  A digital engineering partner <span className="text-gradient-brand">built for industry</span>
-                </h2>
-                <p className="text-body-md text-txt-muted leading-relaxed font-sans">
-                  DHGsoft is a global Industrial Digital Transformation company. We bring together deep operational technology expertise, modern software engineering, and applied AI to help manufacturers, utilities, and process industries connect what they build with how they run it.
-                </p>
-                <p className="text-body-md text-txt-muted leading-relaxed font-sans">
-                  Our teams work at the intersection of OT and IT — the place where most transformation efforts stall. We close that gap with engineering that respects the realities of the plant floor while unlocking the scale of the enterprise and the cloud.
-                </p>
-                <p className="text-body-md text-txt-muted leading-relaxed font-sans">
-                  Whether an organization is modernizing a single line or standardizing operations across dozens of sites, we bring the same discipline: understand the process first, then apply the technology that moves the business.
-                </p>
-              </div>
-
-              {/* Right Column: Image Card */}
-              <div className="lg:col-span-5 relative w-full aspect-[4/3] rounded-[24px] overflow-hidden border border-line shadow-lg">
-                <Image
-                  src={overviewImages.whoWeAre.src}
-                  alt={overviewImages.whoWeAre.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                />
-              </div>
-
-            </div>
-          </Container>
-        </Section>
-
-        {/* ==========================================
-            3. OUR ENGINEERING FOCUS
-            ========================================== */}
-        <Section variant="brandTint" size="default" id="focus">
-          <Container>
-            
-            <div className="flex flex-col text-left mb-12">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-px w-10 bg-brand" />
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                  OUR FOCUS
-                </span>
-              </div>
-              <h2 className="text-txt-strong font-black tracking-tight leading-tight">
-                Our Engineering Core
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {focusAreas.map((area, idx) => {
-                const IconComp = area.Icon;
-                return (
-                  <div 
-                    key={idx}
-                    className="bg-white border border-line rounded-2xl p-6 shadow-sm hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-start text-left space-y-4"
-                  >
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-brand/5 text-brand shrink-0">
-                      <IconComp className="w-5 h-5" />
-                    </div>
-                    <h3 className="font-extrabold text-txt-strong text-lg tracking-tight">
-                      {area.title}
-                    </h3>
-                    <p className="text-txt-muted text-sm leading-relaxed">
-                      {area.desc}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-
-          </Container>
-        </Section>
-
-        {/* ==========================================
-            4. BY THE NUMBERS
-            ========================================== */}
-        <Section variant="ink" size="default" id="stats">
-          <Container>
-            
-            <div className="flex flex-col text-left mb-12">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-px w-10 bg-brand-hot" />
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-hot">
-                  BY THE NUMBERS
-                </span>
-              </div>
-              <h2 className="text-white font-black tracking-tight leading-tight">
-                Scale and Execution Capacity
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
-              <div>
-                <span className="text-4xl sm:text-5xl font-black text-brand-hot block">450+</span>
-                <span className="text-slate-400 text-xs sm:text-sm font-semibold mt-2 block">Industrial projects delivered</span>
-              </div>
-              <div>
-                <span className="text-4xl sm:text-5xl font-black text-brand-hot block">120+</span>
-                <span className="text-slate-400 text-xs sm:text-sm font-semibold mt-2 block">Plant & enterprise sites connected</span>
-              </div>
-              <div>
-                <span className="text-4xl sm:text-5xl font-black text-brand-hot block">14+</span>
-                <span className="text-slate-400 text-xs sm:text-sm font-semibold mt-2 block">Industries served</span>
-              </div>
-              <div>
-                <span className="text-4xl sm:text-5xl font-black text-brand-hot block">24×7</span>
-                <span className="text-slate-400 text-xs sm:text-sm font-semibold mt-2 block">Global engineering support</span>
-              </div>
-            </div>
-
-          </Container>
-        </Section>
-
-        {/* ==========================================
-            5. OUR JOURNEY
-            ========================================== */}
-        <Section variant="white" size="default" id="journey">
-          <Container>
-            
-            <div className="flex flex-col text-left mb-12">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-px w-10 bg-brand" />
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                  OUR JOURNEY
-                </span>
-              </div>
-              <h2 className="text-txt-strong font-black tracking-tight leading-tight">
-                Milestones of Growth
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-              {journeySteps.map((step, idx) => (
-                <div 
-                  key={idx}
-                  className="bg-white border border-line rounded-2xl p-6 shadow-xs hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+              <div className="flex flex-wrap gap-4 pt-6">
+                <button
+                  onClick={() => setIsContactOpen(true)}
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-brand font-semibold hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer text-base"
                 >
-                  <div className="space-y-4">
-                    <span className="font-mono text-3xl font-black text-[#8C123B]/20 block">
-                      {step.num}
-                    </span>
-                    <h4 className="text-txt-strong font-extrabold text-base tracking-tight">
-                      {step.title}
-                    </h4>
-                    <p className="text-txt-muted text-xs leading-relaxed">
-                      {step.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-          </Container>
-        </Section>
-
-        {/* ==========================================
-            6. WHAT DRIVES US
-            ========================================== */}
-        <Section variant="mist" size="default" id="drivers">
-          <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              
-              {/* Left Column: Image Card */}
-              <div className="lg:col-span-5 relative w-full aspect-[4/3] rounded-[24px] overflow-hidden border border-line shadow-md order-last lg:order-first">
-                <Image
-                  src={overviewImages.whatDrivesUs.src}
-                  alt={overviewImages.whatDrivesUs.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                />
+                  Start a Conversation <ArrowRight className="w-4 h-4" />
+                </button>
+                <Link href="/about" className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors text-base">
+                  Back to About
+                </Link>
               </div>
-
-              {/* Right Column: Statement */}
-              <div className="lg:col-span-7 space-y-6 text-left">
-                <div className="flex items-center gap-3">
-                  <div className="h-px w-10 bg-brand" />
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                    WHAT DRIVES US
-                  </span>
-                </div>
-                <h2 className="text-txt-strong text-2xl sm:text-3xl lg:text-[32px] font-black tracking-tight leading-relaxed">
-                  We measure our work in outcomes our customers can feel — less downtime, cleaner data, safer sites, and decisions made in real time. Technology is only the means. <span className="text-gradient-brand">Operational excellence is the goal.</span>
-                </h2>
-              </div>
-
             </div>
-          </Container>
-        </Section>
-
-        {/* CTA BAND */}
-        <CTABand
-          label="PARTNER WITH DHGSOFT"
-          headline="Building Value"
-          highlightedText="for Tomorrow."
-          description="Whether you are modernizing a single production line, connecting enterprise systems to the cloud, or building a secure data foundation — DHGsoft is your engineering partner from concept to commissioning."
-          primaryLabel="Start a Conversation →"
-          secondaryLabel="Explore Capabilities"
-          onPrimaryClick={() => setIsContactOpen(true)}
-        />
-
+          </div>
+        </section>
       </main>
 
-      {/* Footer */}
       <Footer />
 
-      {/* Contact Modal */}
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} showToast={() => {}} />
+      <ContactModal
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+        showToast={() => {}}
+      />
     </div>
   );
 }

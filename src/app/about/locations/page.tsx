@@ -1,277 +1,198 @@
-// src/app/about/locations/page.tsx
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
-import { MapPin, Globe, Monitor, Clock, Workflow, Mail, Phone, ArrowRight } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import ContactModal from "@/components/ContactModal";
-import { Section } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
-import { locationsImages } from "@/lib/images/locations";
-import CTABand from "@/components/CTABand";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowRight, Clock, Cpu, Globe, Network, Users } from 'lucide-react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import ContactModal from '@/components/ContactModal';
 
-const deliveryModels = [
-  {
-    title: "Onsite Services",
-    desc: "Engineers on the ground, at the plant, when it matters.",
-    Icon: MapPin
-  },
-  {
-    title: "Offshore Engineering",
-    desc: "Specialized engineering delivered efficiently from our centers.",
-    Icon: Globe
-  },
-  {
-    title: "Remote Operations",
-    desc: "Continuous remote support and monitoring for connected operations.",
-    Icon: Monitor
-  },
-  {
-    title: "24×7 Support",
-    desc: "Round-the-clock support across time zones.",
-    Icon: Clock
-  },
-  {
-    title: "Global Project Delivery",
-    desc: "Coordinated delivery across sites, regions, and teams.",
-    Icon: Workflow
-  }
-];
-
-const realOffices = [
-  {
-    type: "Corporate Office",
-    city: "Ahmedabad, India",
-    address: "420, HillTown Plaza, Nikol, Ahmedabad - 382350",
-    phone: "+91 942 941 942 7",
-    email: "hitesh.patel@dhgsoft.com"
-  },
-  {
-    type: "Regional Office",
-    city: "Pune, India",
-    address: "Mumbai – Pune Road, Dapodi, Pune - 411 012",
-    phone: "+91 823 811 891 5",
-    email: "ankita.parikh@dhgsoft.com"
-  }
-];
-
-export default function LocationsPage() {
+export default function AboutLocationsPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground antialiased font-sans flex flex-col selection:bg-brand selection:text-white">
-      {/* Sticky Header */}
       <Header onContactClick={() => setIsContactOpen(true)} />
 
-      <main className="relative pt-20">
-        
-        {/* ==========================================
-            1. HERO SECTION
-            ========================================== */}
-        <Section variant="ink" size="hero" containerSize="wide" className="relative min-h-screen flex items-center overflow-hidden">
-          <div className="absolute inset-0 z-0 pointer-events-none">
-            <Image
-              src={locationsImages.hero.src}
-              alt={locationsImages.hero.alt}
-              fill
-              priority
-              className="object-cover opacity-35"
+      <main className="flex-grow">
+        {/* ============ 1. PREMIUM HERO (Full-bleed Background Image with Dark Gradient overlay) ============ */}
+        <section className="relative min-h-screen flex items-center pt-24 pb-12 text-left overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <Image 
+              src="/images/about/locations-hero.jpg" 
+              alt="Global Presence banner" 
+              fill 
+              priority 
+              className="object-cover" 
+              sizes="100vw" 
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-ink/75 to-ink/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-transparent" />
           </div>
-          <Container className="relative z-10 w-full text-left">
-            <div className="max-w-3xl space-y-6">
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20 backdrop-blur-md text-[#E10088] mb-4">
-                <span className="relative flex w-1.5 h-1.5">
-                  <span className="absolute inset-0 rounded-full bg-[#E10088] animate-ping opacity-60" />
-                  <span className="relative rounded-full bg-[#E10088] w-1.5 h-1.5" />
-                </span>
-                <span className="text-[11px] font-extrabold uppercase tracking-widest font-sans">
-                  GLOBAL PRESENCE
-                </span>
-              </div>
-              <h1 className="text-white text-headline-xl sm:text-[3.25rem] lg:text-[4.5rem] font-black tracking-tight leading-[1.1]">
-                Global Reach,
-                <br />
-                <span className="text-gradient-brand">Local Delivery</span>
-              </h1>
-              <p className="text-slate-300 max-w-2xl leading-relaxed text-body-md font-medium">
-                DHGsoft serves customers through a flexible global delivery model.
-              </p>
-            </div>
-          </Container>
-        </Section>
 
-        {/* ==========================================
-            2. DELIVERY MODEL
-            ========================================== */}
-        <Section variant="white" size="default" id="delivery-model">
-          <Container>
-            
-            <div className="flex flex-col text-left mb-12">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-px w-10 bg-brand" />
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                  DELIVERY MODEL
-                </span>
-              </div>
-              <h2 className="text-txt-strong font-black tracking-tight leading-tight">
-                Flexible, global, always on
-              </h2>
-            </div>
+          <div className="relative z-10 w-full max-w-site mx-auto px-gutter md:px-gutter-md">
+            <nav className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/80 text-xs mb-7">
+              <Link href="/about" className="hover:text-brand-hot transition-colors">About</Link>
+              <span className="opacity-50">/</span>
+              <span className="text-white font-medium">Global Presence</span>
+            </nav>
+            <div className="text-brand-hot text-label-bold uppercase tracking-[0.3em]">Global Presence</div>
+            <h1 className="text-white mt-5 max-w-[900px] font-black tracking-tight leading-[1.05]" style={{ fontSize: 'clamp(36px,5vw,60px)' }}>
+              Delivering Engineering Excellence Across Global Industries
+            </h1>
+            <p className="text-slate-200 text-body-md mt-6 max-w-[760px] leading-relaxed font-semibold">
+              Industrial transformation knows no boundaries. DHGsoft supports organizations through a flexible global delivery model that combines local expertise with international engineering capabilities.
+            </p>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-              {deliveryModels.map((model, idx) => {
-                const IconComp = model.Icon;
-                return (
-                  <div 
-                    key={idx}
-                    className="bg-white border border-line rounded-2xl p-5 shadow-sm hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-start text-left space-y-3"
-                  >
-                    <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-brand/5 text-brand shrink-0">
-                      <IconComp className="w-5 h-5" />
-                    </div>
-                    <h4 className="font-extrabold text-txt-strong text-base tracking-tight leading-snug">
-                      {model.title}
-                    </h4>
-                    <p className="text-txt-muted text-xs leading-relaxed">
-                      {model.desc}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-
-          </Container>
-        </Section>
-
-        {/* ==========================================
-            3. OUR LOCATIONS
-            ========================================== */}
-        <Section variant="brandTint" size="default" id="locations-list">
-          <Container>
-            
-            <div className="flex flex-col text-left mb-12">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-px w-10 bg-brand" />
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                  OUR LOCATIONS
-                </span>
-              </div>
-              <h2 className="text-txt-strong font-black tracking-tight leading-tight">
-                Active Office Hubs
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
-              {realOffices.map((office, idx) => (
-                <div 
-                  key={idx}
-                  className="bg-white border border-line rounded-2xl p-6 shadow-sm flex flex-col justify-between text-left space-y-4 hover:border-brand/40 hover:-translate-y-1 transition-all duration-300"
-                >
-                  <div className="space-y-3">
-                    <span className="text-[10px] font-extrabold tracking-wider text-brand uppercase">
-                      {office.type}
-                    </span>
-                    <h4 className="font-extrabold text-txt-strong text-lg tracking-tight">
-                      {office.city}
-                    </h4>
-                    <p className="text-txt-muted text-xs leading-relaxed">
-                      {office.address}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-line space-y-2 text-xs font-mono">
-                    <div className="flex items-center gap-2">
-                      <Phone className="w-3.5 h-3.5 text-brand" />
-                      <a href={`tel:${office.phone.replace(/\s+/g, "")}`} className="text-brand font-bold hover:text-brand-deep">
-                        {office.phone}
-                      </a>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Mail className="w-3.5 h-3.5 text-brand" />
-                      <a href={`mailto:${office.email}`} className="text-brand hover:text-brand-deep">
-                        {office.email}
-                      </a>
-                    </div>
-                  </div>
+        
+        {/* ============ SPLIT IMAGE RIGHT ============ */}
+        <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+              <div className="lg:col-span-7 text-left order-2 lg:order-1 space-y-6">
+                <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                  <Globe className="w-6 h-6" />
                 </div>
-              ))}
-            </div>
-
-            {/* World Map Visual */}
-            <div className="mt-12 relative w-full h-[250px] md:h-[400px] rounded-2xl border border-line overflow-hidden bg-slate-950 flex items-center justify-center select-none shadow-sm">
-              <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] bg-[size:24px_24px] opacity-35" />
-              <div className="relative z-10 text-center space-y-3 p-6">
-                <span className="text-4xl">🌍</span>
-                <h4 className="font-extrabold text-white text-lg">Global Delivery Network</h4>
-                <p className="text-slate-400 text-xs sm:text-sm max-w-lg leading-relaxed">
-                  Interactive location markers loading geographic network hubs.
-                </p>
+                <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Overview</div>
+                <h3 className="text-txt-strong mt-2 tracking-tight font-black leading-tight" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)' }}>Delivering engineering expertise wherever operations exist.</h3>
+                <p className="text-txt-strong mt-6" style={{ fontSize: "20px", lineHeight: "1.6", fontWeight: 600 }}>Modern industrial organizations require partners capable of delivering engineering expertise wherever operations exist.</p>
+                <p className="text-body-md text-txt-muted mt-5">DHGsoft combines onsite collaboration, offshore engineering, remote services, and continuous operational support to help customers accelerate digital transformation while maintaining consistency, quality, and responsiveness.</p>
+<p className="text-body-md text-txt-muted mt-5">Our flexible delivery approach enables organizations to scale projects efficiently while accessing specialized engineering expertise across multiple technologies and industries.</p>
+              </div>
+              <div className="lg:col-span-5 order-1 lg:order-2">
+                <div className="relative rounded-[32px] overflow-hidden ring-1 ring-brand/10 shadow-2xl aspect-[4/5] hover:scale-[1.02] transition-transform duration-500">
+                  <Image src="/images/about/locations-delivery.jpg" alt="Overview photography" fill className="object-cover" sizes="(min-width:1024px) 35vw, 100vw" />
+                </div>
               </div>
             </div>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
 
-          </Container>
-        </Section>
-
-        {/* ==========================================
-            4. GLOBAL DELIVERY CENTERS
-            ========================================== */}
-        <Section variant="white" size="default" id="delivery-centers">
-          <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        {/* ============ GRID SECTION ============ */}
+        <section className="relative overflow-hidden bg-mist min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="text-center max-w-[720px] mx-auto mb-14">
+              <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Global Delivery Model</div>
+              <div className="w-16 h-[3px] bg-brand rounded-full mt-6 mx-auto" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               
-              {/* Left Column: Content */}
-              <div className="lg:col-span-7 space-y-6 text-left">
-                <div className="flex items-center gap-3">
-                  <div className="h-px w-10 bg-brand" />
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                    DELIVERY CENTERS
-                  </span>
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Users className="w-6 h-6" />
                 </div>
-                <h2 className="text-txt-strong font-black tracking-tight leading-tight">
-                  Follow-the-sun operational support
-                </h2>
-                <p className="text-body-md text-txt-muted leading-relaxed font-sans">
-                  Our delivery centers provide follow-the-sun engineering and support — so work continues across time zones and customers get responses when they need them.
-                </p>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Onsite Engineering</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Working directly with customer teams to support implementation, commissioning, consulting, and project execution.</p>
               </div>
 
-              {/* Right Column: Image */}
-              <div className="lg:col-span-5 relative w-full aspect-[4/3] rounded-[24px] overflow-hidden border border-line shadow-md">
-                <Image
-                  src={locationsImages.delivery.src}
-                  alt={locationsImages.delivery.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                />
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Cpu className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Offshore Engineering</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Providing dedicated engineering resources that improve scalability, reduce project timelines, and support continuous development.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Network className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Remote Operations</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Delivering secure remote engineering services, monitoring, diagnostics, optimization, and technical assistance through connected digital platforms.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Clock className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">24x7 Support</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Ensuring continuous operational reliability through proactive monitoring, issue resolution, and managed engineering services.</p>
               </div>
 
             </div>
-          </Container>
-        </Section>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
 
-        {/* CTA BAND */}
-        <CTABand
-          label="PARTNER WITH DHGSOFT"
-          headline="Building Value"
-          highlightedText="for Tomorrow."
-          description="Whether you are modernizing a single production line, connecting enterprise systems to the cloud, or building a secure data foundation — DHGsoft is your engineering partner from concept to commissioning."
-          primaryLabel="Start a Conversation →"
-          secondaryLabel="Explore Capabilities"
-          onPrimaryClick={() => setIsContactOpen(true)}
-        />
+        {/* ============ FULL BLEED IMAGE BANNER ============ */}
+        <section className="relative min-h-[85vh] md:min-h-[90vh] flex items-center overflow-hidden py-16 md:py-24">
+          <div className="absolute inset-0 z-0">
+            <Image src="/images/about/locations-offices.jpg" alt="International Offices graphic" fill className="object-cover" sizes="100vw" />
+            <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/75 to-transparent" />
+          </div>
+          <div className="relative z-10 max-w-site mx-auto px-gutter md:px-gutter-md text-left w-full">
+            <div className="max-w-[720px] space-y-6">
+              <div className="text-brand-hot text-label-bold uppercase tracking-[0.2em]">International Offices</div>
+              <p className="text-white mt-6 leading-relaxed font-black" style={{ fontSize: 'clamp(24px, 3.5vw, 38px)' }}>With major delivery centers in India (Ahmedabad & Pune) and international partner collaborations, we support global operations with agility and high technical capability.</p>
+            </div>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
 
+        {/* ============ CHIPS SECTION ============ */}
+        <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="text-center max-w-[720px] mx-auto mb-12">
+              <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Industries We Support</div>
+              <div className="w-16 h-[3px] bg-brand rounded-full mt-6 mx-auto" />
+            </div>
+            <div className="flex flex-wrap justify-center gap-4 max-w-[1000px] mx-auto">
+              <span className="text-body-md text-txt-strong bg-mist border border-line rounded-full px-6 py-3 font-semibold hover:border-brand hover:text-brand transition-colors cursor-default select-none shrink-0">Industrial Manufacturing</span><span className="text-body-md text-txt-strong bg-mist border border-line rounded-full px-6 py-3 font-semibold hover:border-brand hover:text-brand transition-colors cursor-default select-none shrink-0">Automotive</span><span className="text-body-md text-txt-strong bg-mist border border-line rounded-full px-6 py-3 font-semibold hover:border-brand hover:text-brand transition-colors cursor-default select-none shrink-0">Semiconductor</span><span className="text-body-md text-txt-strong bg-mist border border-line rounded-full px-6 py-3 font-semibold hover:border-brand hover:text-brand transition-colors cursor-default select-none shrink-0">Life Sciences</span><span className="text-body-md text-txt-strong bg-mist border border-line rounded-full px-6 py-3 font-semibold hover:border-brand hover:text-brand transition-colors cursor-default select-none shrink-0">Chemical Manufacturing</span><span className="text-body-md text-txt-strong bg-mist border border-line rounded-full px-6 py-3 font-semibold hover:border-brand hover:text-brand transition-colors cursor-default select-none shrink-0">Food & Beverage</span><span className="text-body-md text-txt-strong bg-mist border border-line rounded-full px-6 py-3 font-semibold hover:border-brand hover:text-brand transition-colors cursor-default select-none shrink-0">Oil & Gas</span><span className="text-body-md text-txt-strong bg-mist border border-line rounded-full px-6 py-3 font-semibold hover:border-brand hover:text-brand transition-colors cursor-default select-none shrink-0">Power & Utilities</span><span className="text-body-md text-txt-strong bg-mist border border-line rounded-full px-6 py-3 font-semibold hover:border-brand hover:text-brand transition-colors cursor-default select-none shrink-0">Mining & Metals</span><span className="text-body-md text-txt-strong bg-mist border border-line rounded-full px-6 py-3 font-semibold hover:border-brand hover:text-brand transition-colors cursor-default select-none shrink-0">Water & Wastewater</span><span className="text-body-md text-txt-strong bg-mist border border-line rounded-full px-6 py-3 font-semibold hover:border-brand hover:text-brand transition-colors cursor-default select-none shrink-0">Consumer Packaged Goods</span><span className="text-body-md text-txt-strong bg-mist border border-line rounded-full px-6 py-3 font-semibold hover:border-brand hover:text-brand transition-colors cursor-default select-none shrink-0">Data Centres</span><span className="text-body-md text-txt-strong bg-mist border border-line rounded-full px-6 py-3 font-semibold hover:border-brand hover:text-brand transition-colors cursor-default select-none shrink-0">EPC</span><span className="text-body-md text-txt-strong bg-mist border border-line rounded-full px-6 py-3 font-semibold hover:border-brand hover:text-brand transition-colors cursor-default select-none shrink-0">Agriculture</span>
+            </div>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
+
+
+        {/* ============ COMMITMENT BAND ============ */}
+        <section className="relative overflow-hidden bg-mist min-h-[50vh] flex items-center py-14 md:py-20 text-center">
+          <div className="max-w-[1000px] mx-auto px-6 md:px-12 w-full">
+            <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Our Commitment</div>
+            <h3 className="text-txt-strong mt-6 font-black leading-snug" style={{ fontSize: 'clamp(24px, 3.5vw, 38px)' }}>Digital transformation succeeds through collaboration. DHGsoft works closely with customers, technology providers, and academic partners.</h3>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
+
+        {/* ============ CLOSING STATEMENT (Full bleed) ============ */}
+        <section className="relative min-h-[85vh] md:min-h-[90vh] bg-gradient-to-br from-ink to-[#1a1226] text-white overflow-hidden flex items-center text-left py-16 md:py-24">
+          <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
+          <div className="relative z-10 max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="max-w-[900px] space-y-6">
+              <div className="text-brand-hot text-label-bold uppercase tracking-[0.3em]">Closing Statement</div>
+              <h2 className="text-white mt-4 font-black tracking-tight leading-tight" style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}>
+                Engineering Beyond Borders
+              </h2>
+              <p className="text-slate-300 text-lg md:text-xl leading-relaxed max-w-[720px]">
+                Wherever our customers operate, DHGsoft is committed to delivering trusted engineering expertise, connected intelligence, and future-ready digital transformation solutions.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-6">
+                <button
+                  onClick={() => setIsContactOpen(true)}
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-brand font-semibold hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer text-base"
+                >
+                  Start a Conversation <ArrowRight className="w-4 h-4" />
+                </button>
+                <Link href="/about" className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors text-base">
+                  Back to About
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
-      {/* Footer */}
       <Footer />
 
-      {/* Contact Modal */}
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} showToast={() => {}} />
+      <ContactModal
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+        showToast={() => {}}
+      />
     </div>
   );
 }

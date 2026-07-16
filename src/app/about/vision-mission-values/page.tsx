@@ -1,308 +1,232 @@
-// src/app/about/vision-mission-values/page.tsx
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
-import { Lightbulb, HeartHandshake, ShieldCheck, Award, Users, Leaf, ArrowRight } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import ContactModal from "@/components/ContactModal";
-import { Section } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
-import { vmvImages } from "@/lib/images/vmv";
-import CTABand from "@/components/CTABand";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowRight, Award, Eye, Leaf, Lightbulb, ShieldCheck, Smile, Target, Users, Zap } from 'lucide-react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import ContactModal from '@/components/ContactModal';
 
-export default function VisionMissionValuesPage() {
+export default function AboutVisionmissionvaluesPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
-
-  const coreValues = [
-    {
-      title: "Innovation",
-      desc: "Continuously embracing emerging technologies to solve complex industrial challenges.",
-      Icon: Lightbulb
-    },
-    {
-      title: "Customer Success",
-      desc: "Our customers' success defines our success. We partner for the long term.",
-      Icon: HeartHandshake
-    },
-    {
-      title: "Integrity",
-      desc: "Building trusted relationships through transparency and ethical business practices.",
-      Icon: ShieldCheck
-    },
-    {
-      title: "Excellence",
-      desc: "Delivering high-quality engineering and technology solutions with precision.",
-      Icon: Award
-    },
-    {
-      title: "Collaboration",
-      desc: "Working together with customers, partners, and technology leaders to create lasting value.",
-      Icon: Users
-    },
-    {
-      title: "Sustainability",
-      desc: "Helping industries operate more efficiently while supporting environmental responsibility.",
-      Icon: Leaf
-    }
-  ];
-
-  const principles = [
-    {
-      title: "Process before technology",
-      desc: "We understand the operation before we change it."
-    },
-    {
-      title: "Secure by design",
-      desc: "Every solution is engineered to protect operations and data."
-    },
-    {
-      title: "Built to scale",
-      desc: "What we deploy on one line should standardize across the enterprise."
-    },
-    {
-      title: "Outcomes over output",
-      desc: "Success is measured by the business result, not the deliverable."
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background text-foreground antialiased font-sans flex flex-col selection:bg-brand selection:text-white">
-      {/* Sticky Header */}
       <Header onContactClick={() => setIsContactOpen(true)} />
 
-      <main className="relative pt-20">
-        
-        {/* ==========================================
-            1. HERO SECTION
-            ========================================== */}
-        <Section variant="ink" size="hero" containerSize="wide" className="relative min-h-screen flex items-center overflow-hidden">
-          <div className="absolute inset-0 z-0 pointer-events-none">
-            <Image
-              src={vmvImages.hero.src}
-              alt={vmvImages.hero.alt}
-              fill
-              priority
-              className="object-cover opacity-35"
+      <main className="flex-grow">
+        {/* ============ 1. PREMIUM HERO (Full-bleed Background Image with Dark Gradient overlay) ============ */}
+        <section className="relative min-h-screen flex items-center pt-24 pb-12 text-left overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <Image 
+              src="/images/about/vision-hero.jpg" 
+              alt="Vision, Mission & Values banner" 
+              fill 
+              priority 
+              className="object-cover" 
+              sizes="100vw" 
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-ink/75 to-ink/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-transparent" />
           </div>
-          <Container className="relative z-10 w-full text-left">
-            <div className="max-w-3xl space-y-6">
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20 backdrop-blur-md text-[#E10088] mb-4">
-                <span className="relative flex w-1.5 h-1.5">
-                  <span className="absolute inset-0 rounded-full bg-[#E10088] animate-ping opacity-60" />
-                  <span className="relative rounded-full bg-[#E10088] w-1.5 h-1.5" />
-                </span>
-                <span className="text-[11px] font-extrabold uppercase tracking-widest font-sans">
-                  WHAT GUIDES US
-                </span>
-              </div>
-              <h1 className="text-white text-headline-xl sm:text-[3.25rem] lg:text-[4.5rem] font-black tracking-tight leading-[1.1]">
-                Vision, Mission
-                <br />
-                <span className="text-gradient-brand">& Values</span>
-              </h1>
-              <p className="text-slate-300 max-w-2xl leading-relaxed text-body-md font-medium">
-                The beliefs that shape every engagement, every line of code, and every operation we help transform.
-              </p>
-            </div>
-          </Container>
-        </Section>
 
-        {/* ==========================================
-            2. OUR VISION (Split layout)
-            ========================================== */}
-        <Section variant="white" size="default" id="vision">
-          <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              
-              {/* Left Column: Text */}
-              <div className="lg:col-span-7 space-y-6 text-left">
-                <div className="flex items-center gap-3">
-                  <div className="h-px w-10 bg-brand" />
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                    OUR VISION
-                  </span>
+          <div className="relative z-10 w-full max-w-site mx-auto px-gutter md:px-gutter-md">
+            <nav className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/80 text-xs mb-7">
+              <Link href="/about" className="hover:text-brand-hot transition-colors">About</Link>
+              <span className="opacity-50">/</span>
+              <span className="text-white font-medium">Vision, Mission & Values</span>
+            </nav>
+            <div className="text-brand-hot text-label-bold uppercase tracking-[0.3em]">Vision, Mission & Values</div>
+            <h1 className="text-white mt-5 max-w-[900px] font-black tracking-tight leading-[1.05]" style={{ fontSize: 'clamp(36px,5vw,60px)' }}>
+              Driving the Future of Connected Industries
+            </h1>
+            <p className="text-slate-200 text-body-md mt-6 max-w-[760px] leading-relaxed font-semibold">
+              Every transformation begins with a clear purpose. At DHGsoft, our vision, mission, and values define how we innovate, collaborate, and deliver engineering excellence across every industrial engagement.
+            </p>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
+
+        
+        {/* ============ SPLIT IMAGE RIGHT ============ */}
+        <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+              <div className="lg:col-span-7 text-left order-2 lg:order-1 space-y-6">
+                <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                  <Eye className="w-6 h-6" />
                 </div>
-                <h2 className="text-txt-strong text-2xl sm:text-3xl lg:text-[34px] font-extrabold tracking-tight leading-snug">
-                  To become a globally trusted leader in Industrial Digital Transformation by enabling connected, intelligent, and sustainable industries.
-                </h2>
-                <p className="text-body-md text-txt-muted leading-relaxed font-sans">
-                  We see a future where every industrial asset is connected, every decision is informed by real-time intelligence, and every operation runs cleaner and safer than the day before. We are building the engineering foundation that makes that future practical.
-                </p>
+                <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Our Vision</div>
+                <h3 className="text-txt-strong mt-2 tracking-tight font-black leading-tight" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)' }}>Building the Next Generation of Intelligent Industries</h3>
+                <p className="text-txt-strong mt-6" style={{ fontSize: "20px", lineHeight: "1.6", fontWeight: 600 }}>Our vision is to become a globally trusted leader in Industrial Digital Transformation by enabling connected, intelligent, secure, and sustainable industrial enterprises.</p>
+                <p className="text-body-md text-txt-muted mt-5">We envision a future where industrial operations are seamlessly connected through engineering expertise, intelligent technologies, and data-driven decision-making. By integrating operational technology, enterprise systems, cloud platforms, and industrial intelligence, we help organizations unlock new levels of productivity, operational resilience, and long-term business value.</p>
               </div>
-
-              {/* Right Column: Image */}
-              <div className="lg:col-span-5 relative w-full aspect-[16/10] rounded-[24px] overflow-hidden border border-line shadow-md">
-                <Image
-                  src={vmvImages.vision.src}
-                  alt={vmvImages.vision.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                />
-              </div>
-
-            </div>
-          </Container>
-        </Section>
-
-        {/* ==========================================
-            3. OUR MISSION (Split layout)
-            ========================================== */}
-        <Section variant="mist" size="default" id="mission">
-          <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              
-              {/* Left Column: Image */}
-              <div className="lg:col-span-5 relative w-full aspect-[16/10] rounded-[24px] overflow-hidden border border-line shadow-md order-last lg:order-first">
-                <Image
-                  src={vmvImages.mission.src}
-                  alt={vmvImages.mission.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                />
-              </div>
-
-              {/* Right Column: Text */}
-              <div className="lg:col-span-7 space-y-6 text-left">
-                <div className="flex items-center gap-3">
-                  <div className="h-px w-10 bg-brand" />
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                    OUR MISSION
-                  </span>
+              <div className="lg:col-span-5 order-1 lg:order-2">
+                <div className="relative rounded-[32px] overflow-hidden ring-1 ring-brand/10 shadow-2xl aspect-[4/5] hover:scale-[1.02] transition-transform duration-500">
+                  <Image src="/images/about/vision-vision.jpg" alt="Our Vision photography" fill className="object-cover" sizes="(min-width:1024px) 35vw, 100vw" />
                 </div>
-                <h2 className="text-txt-strong text-2xl sm:text-3xl lg:text-[34px] font-extrabold tracking-tight leading-snug">
-                  To empower industries with innovative digital engineering solutions that connect operational technology, enterprise systems, and data intelligence to improve operational excellence.
-                </h2>
-                <p className="text-body-md text-txt-muted leading-relaxed font-sans">
-                  Our mission is deliberately practical. We help organizations connect what was disconnected, standardize what was fragmented, and act on data that was previously trapped — so that operational excellence becomes a repeatable capability, not a one-time project.
-                </p>
               </div>
-
             </div>
-          </Container>
-        </Section>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
 
-        {/* ==========================================
-            4. OUR PURPOSE
-            ========================================== */}
-        <Section variant="ink" size="default" id="purpose" className="text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
-          <Container className="relative z-10 space-y-6">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-brand-hot">
-              OUR PURPOSE
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-white tracking-tight leading-tight">
-              Connecting Intelligence to Transform Industry.
-            </h2>
-          </Container>
-        </Section>
-
-        {/* ==========================================
-            5. CORE VALUES
-            ========================================== */}
-        <Section variant="white" size="default" id="values">
-          <Container>
-            
-            <div className="flex flex-col text-left mb-12">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-px w-10 bg-brand" />
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                  CORE VALUES
-                </span>
+        {/* ============ SPLIT IMAGE LEFT ============ */}
+        <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+              <div className="lg:col-span-5">
+                <div className="relative rounded-[32px] overflow-hidden ring-1 ring-brand/10 shadow-2xl aspect-[4/5] hover:scale-[1.02] transition-transform duration-500">
+                  <Image src="/images/about/vision-mission.jpg" alt="Our Mission photography" fill className="object-cover" sizes="(min-width:1024px) 35vw, 100vw" />
+                </div>
               </div>
-              <h2 className="text-txt-strong font-black tracking-tight leading-tight">
-                Our Driving Principles
-              </h2>
+              <div className="lg:col-span-7 text-left space-y-6">
+                <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                  <Target className="w-6 h-6" />
+                </div>
+                <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Our Mission</div>
+                <h3 className="text-txt-strong mt-2 tracking-tight font-black leading-tight" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)' }}>Engineering Solutions That Create Lasting Impact</h3>
+                <p className="text-txt-strong mt-6" style={{ fontSize: "20px", lineHeight: "1.6", fontWeight: 600 }}>Our mission is to empower industrial organizations with innovative engineering solutions that bridge the gap between operational technology and enterprise intelligence.</p>
+                <p className="text-body-md text-txt-muted mt-5">Through digital engineering, industrial automation, cloud technologies, AI, cybersecurity, and enterprise integration, we deliver scalable solutions that improve operational performance, enhance business agility, and accelerate sustainable transformation.</p>
+<p className="text-body-md text-txt-muted mt-5">Every engagement is designed to solve real industrial challenges while preparing organizations for the future.</p>
+              </div>
             </div>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
 
+        {/* ============ SPLIT IMAGE RIGHT ============ */}
+        <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+              <div className="lg:col-span-7 text-left order-2 lg:order-1 space-y-6">
+                <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                  <Zap className="w-6 h-6" />
+                </div>
+                <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Our Purpose</div>
+                <h3 className="text-txt-strong mt-2 tracking-tight font-black leading-tight" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)' }}>Connecting Intelligence to Transform Industry</h3>
+                <p className="text-txt-strong mt-6" style={{ fontSize: "20px", lineHeight: "1.6", fontWeight: 600 }}>Technology becomes valuable only when it creates measurable business outcomes.</p>
+                <p className="text-body-md text-txt-muted mt-5">Our purpose is to connect machines, systems, people, and industrial data into one intelligent ecosystem that enables organizations to operate more efficiently, make better decisions, and continuously improve performance.</p>
+<p className="text-body-md text-txt-muted mt-5">We believe engineering is the foundation of meaningful digital transformation.</p>
+              </div>
+              <div className="lg:col-span-5 order-1 lg:order-2">
+                <div className="relative rounded-[32px] overflow-hidden ring-1 ring-brand/10 shadow-2xl aspect-[4/5] hover:scale-[1.02] transition-transform duration-500">
+                  <Image src="/images/about/vision-purpose.jpg" alt="Our Purpose photography" fill className="object-cover" sizes="(min-width:1024px) 35vw, 100vw" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
+
+        {/* ============ GRID SECTION ============ */}
+        <section className="relative overflow-hidden bg-mist min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="text-center max-w-[720px] mx-auto mb-14">
+              <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Our Core Values</div>
+              <div className="w-16 h-[3px] bg-brand rounded-full mt-6 mx-auto" />
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {coreValues.map((val, idx) => {
-                const IconComp = val.Icon;
-                return (
-                  <div 
-                    key={idx}
-                    className="bg-white border border-line rounded-2xl p-6 shadow-sm hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-start text-left space-y-4"
-                  >
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-brand/5 text-brand shrink-0">
-                      <IconComp className="w-5 h-5" />
-                    </div>
-                    <h3 className="font-extrabold text-txt-strong text-lg tracking-tight">
-                      {val.title}
-                    </h3>
-                    <p className="text-txt-muted text-sm leading-relaxed">
-                      {val.desc}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-
-          </Container>
-        </Section>
-
-        {/* ==========================================
-            6. HOW WE WORK
-            ========================================== */}
-        <Section variant="brandTint" size="default" id="principles">
-          <Container>
-            
-            <div className="flex flex-col text-left mb-12">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-px w-10 bg-brand" />
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                  HOW WE WORK
-                </span>
-              </div>
-              <h2 className="text-txt-strong font-black tracking-tight leading-tight">
-                Operating Principles
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-              {principles.map((pr, idx) => (
-                <div 
-                  key={idx}
-                  className="bg-white border border-line rounded-2xl p-6 shadow-xs hover:-translate-y-1 transition-all duration-300 flex flex-col justify-start space-y-3"
-                >
-                  <span className="text-[10px] font-extrabold text-brand font-mono">
-                    PRINCIPLE 0{idx + 1}
-                  </span>
-                  <h4 className="font-extrabold text-txt-strong text-base tracking-tight leading-snug">
-                    {pr.title}
-                  </h4>
-                  <p className="text-txt-muted text-xs leading-relaxed">
-                    {pr.desc}
-                  </p>
+              
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Lightbulb className="w-6 h-6" />
                 </div>
-              ))}
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Innovation</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Innovation drives continuous improvement across everything we build. We embrace emerging technologies, engineering excellence, and creative problem-solving to help customers overcome complex industrial challenges.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Smile className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Customer Success</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Our customers' success defines our own. Every project is aligned with measurable business outcomes, operational improvements, and long-term value creation rather than simply delivering technology.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <ShieldCheck className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Integrity</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Trust is built through transparency, accountability, and ethical business practices. We believe strong customer relationships are created through honesty and delivering on our commitments.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Award className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Excellence</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Engineering precision is fundamental to every solution we deliver. We maintain the highest standards of quality, reliability, and technical excellence throughout the complete project lifecycle.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Users className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Collaboration</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Innovation happens through collaboration. We work closely with customers, technology partners, universities, research institutions, and engineering teams to build intelligent solutions.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Leaf className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Sustainability</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Engineering should improve both business performance and environmental responsibility. We help organizations optimize operations, reduce waste, improve energy efficiency, and support sustainable growth.</p>
+              </div>
+
             </div>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
 
-          </Container>
-        </Section>
 
-        {/* CTA BAND */}
-        <CTABand
-          label="PARTNER WITH DHGSOFT"
-          headline="Building Value"
-          highlightedText="for Tomorrow."
-          description="Whether you are modernizing a single production line, connecting enterprise systems to the cloud, or building a secure data foundation — DHGsoft is your engineering partner from concept to commissioning."
-          primaryLabel="Start a Conversation →"
-          secondaryLabel="Explore Capabilities"
-          onPrimaryClick={() => setIsContactOpen(true)}
-        />
+        {/* ============ COMMITMENT BAND ============ */}
+        <section className="relative overflow-hidden bg-mist min-h-[50vh] flex items-center py-14 md:py-20 text-center">
+          <div className="max-w-[1000px] mx-auto px-6 md:px-12 w-full">
+            <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Our Commitment</div>
+            <h3 className="text-txt-strong mt-6 font-black leading-snug" style={{ fontSize: 'clamp(24px, 3.5vw, 38px)' }}>Everything we design, develop, and deliver is guided by our commitment to engineering excellence, customer success, continuous innovation, and responsible business practices.</h3>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
 
+        {/* ============ CLOSING STATEMENT (Full bleed) ============ */}
+        <section className="relative min-h-[85vh] md:min-h-[90vh] bg-gradient-to-br from-ink to-[#1a1226] text-white overflow-hidden flex items-center text-left py-16 md:py-24">
+          <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
+          <div className="relative z-10 max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="max-w-[900px] space-y-6">
+              <div className="text-brand-hot text-label-bold uppercase tracking-[0.3em]">Closing Statement</div>
+              <h2 className="text-white mt-4 font-black tracking-tight leading-tight" style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}>
+                Engineering Tomorrow with Purpose
+              </h2>
+              <p className="text-slate-300 text-lg md:text-xl leading-relaxed max-w-[720px]">
+                Our vision inspires where we are going. Our mission defines how we get there. Our values guide every step of the journey. Together, they form the foundation of DHGsoft's commitment to building connected, intelligent, and future-ready industries.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-6">
+                <button
+                  onClick={() => setIsContactOpen(true)}
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-brand font-semibold hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer text-base"
+                >
+                  Start a Conversation <ArrowRight className="w-4 h-4" />
+                </button>
+                <Link href="/about" className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors text-base">
+                  Back to About
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
-      {/* Footer */}
       <Footer />
 
-      {/* Contact Modal */}
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} showToast={() => {}} />
+      <ContactModal
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+        showToast={() => {}}
+      />
     </div>
   );
 }

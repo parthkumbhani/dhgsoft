@@ -715,3 +715,11 @@ h5, h6 {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+
+@keyframes about-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-about-marquee { animation: about-marquee 40s linear infinite; }
+.animate-about-marquee:hover { animation-play-state: paused; }

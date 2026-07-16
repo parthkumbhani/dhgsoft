@@ -1,353 +1,190 @@
-// src/app/about/why-dhgsoft/page.tsx
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
-import { Workflow, Factory, Network, Layers, Target, CheckCircle, ArrowRight } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import ContactModal from "@/components/ContactModal";
-import { Section } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
-import { whyImages } from "@/lib/images/why";
-import CTABand from "@/components/CTABand";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowRight, CheckCircle, Factory, Network, RefreshCw, Sliders, Target, Wrench } from 'lucide-react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import ContactModal from '@/components/ContactModal';
 
-export default function WhyDHGsoftPage() {
+export default function AboutWhydhgsoftPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
-
-  const advantages = [
-    {
-      title: "End-to-End Expertise",
-      desc: "One trusted partner from consulting to long-term support. We stay with you from the first assessment through implementation, managed services, and continuous improvement — so accountability never falls between vendors.",
-      Icon: Workflow
-    },
-    {
-      title: "Industrial Domain Knowledge",
-      desc: "Deep understanding of manufacturing and industrial operations. Our teams have run real plants and know that uptime, safety, and process integrity come first.",
-      Icon: Factory
-    },
-    {
-      title: "Connected Intelligence",
-      desc: "Transforming industrial data into real-time business intelligence. We turn scattered signals from machines and systems into decisions you can act on immediately.",
-      Icon: Network
-    },
-    {
-      title: "Technology Agnostic",
-      desc: "Delivering the right solution using leading global technologies. We choose what fits your operation and goals — not a single vendor's catalog.",
-      Icon: Layers
-    },
-    {
-      title: "Customer-Centric Delivery",
-      desc: "Every engagement is aligned with measurable customer outcomes. We agree on the result up front and hold ourselves to it.",
-      Icon: Target
-    }
-  ];
-
-  const differencePoints = [
-    {
-      title: "We speak both languages",
-      desc: "Fluent in OT and IT — we bridge the divide where most projects stall."
-    },
-    {
-      title: "We minimize disruption",
-      desc: "Integration engineered for low-risk, near zero-downtime cutover."
-    },
-    {
-      title: "We stay after go-live",
-      desc: "Managed services and continuous optimization keep systems performing."
-    },
-    {
-      title: "We stay neutral",
-      desc: "The right technology for the problem, backed by strong partner relationships."
-    }
-  ];
-
-  const steps = [
-    {
-      num: "01",
-      title: "Consult",
-      desc: "Understand the operation, the constraints, and the outcome that matters."
-    },
-    {
-      num: "02",
-      title: "Architect",
-      desc: "Design a secure, scalable solution across OT, IT, data, and cloud."
-    },
-    {
-      num: "03",
-      title: "Implement",
-      desc: "Build, integrate, and commission with minimal disruption to operations."
-    },
-    {
-      num: "04",
-      title: "Optimize",
-      desc: "Support, monitor, and continuously improve after go-live."
-    }
-  ];
-
-  const outcomes = [
-    {
-      title: "Less unplanned downtime",
-      desc: "Predictive insight and reliable integration keep operations running."
-    },
-    {
-      title: "Faster time to insight",
-      desc: "Clean, connected data turns questions into answers in real time."
-    },
-    {
-      title: "Stronger security posture",
-      desc: "Secure-by-design engineering protects operations and data."
-    },
-    {
-      title: "Lower operational cost",
-      desc: "Efficiency and automation reduce waste across the operation."
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background text-foreground antialiased font-sans flex flex-col selection:bg-brand selection:text-white">
-      {/* Sticky Header */}
       <Header onContactClick={() => setIsContactOpen(true)} />
 
-      <main className="relative pt-20">
-        
-        {/* ==========================================
-            1. HERO SECTION
-            ========================================== */}
-        <Section variant="ink" size="hero" containerSize="wide" className="relative min-h-screen flex items-center overflow-hidden">
-          <div className="absolute inset-0 z-0 pointer-events-none">
-            <Image
-              src={whyImages.hero.src}
-              alt={whyImages.hero.alt}
-              fill
-              priority
-              className="object-cover opacity-35"
+      <main className="flex-grow">
+        {/* ============ 1. PREMIUM HERO (Full-bleed Background Image with Dark Gradient overlay) ============ */}
+        <section className="relative min-h-screen flex items-center pt-24 pb-12 text-left overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <Image 
+              src="/images/about/why-hero.jpg" 
+              alt="Why DHGsoft banner" 
+              fill 
+              priority 
+              className="object-cover" 
+              sizes="100vw" 
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-ink/75 to-ink/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-transparent" />
           </div>
-          <Container className="relative z-10 w-full text-left">
-            <div className="max-w-3xl space-y-6">
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20 backdrop-blur-md text-[#E10088] mb-4">
-                <span className="relative flex w-1.5 h-1.5">
-                  <span className="absolute inset-0 rounded-full bg-[#E10088] animate-ping opacity-60" />
-                  <span className="relative rounded-full bg-[#E10088] w-1.5 h-1.5" />
-                </span>
-                <span className="text-[11px] font-extrabold uppercase tracking-widest font-sans">
-                  WHY DHGSOFT
-                </span>
-              </div>
-              <h1 className="text-white text-headline-xl sm:text-[3.25rem] lg:text-[4.5rem] font-black tracking-tight leading-[1.1]">
-                One Partner. End to End.
-                <br />
-                <span className="text-gradient-brand">Built for Industry.</span>
-              </h1>
-              <p className="text-slate-300 max-w-2xl leading-relaxed text-body-md font-medium">
-                Choosing a digital transformation partner is a decision about trust, depth, and delivery. Here is why industrial organizations choose DHGsoft.
-              </p>
-            </div>
-          </Container>
-        </Section>
 
-        {/* ==========================================
-            2. ADVANTAGES SECTION
-            ========================================== */}
-        <Section variant="white" size="default" id="advantages">
-          <Container>
+          <div className="relative z-10 w-full max-w-site mx-auto px-gutter md:px-gutter-md">
+            <nav className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/80 text-xs mb-7">
+              <Link href="/about" className="hover:text-brand-hot transition-colors">About</Link>
+              <span className="opacity-50">/</span>
+              <span className="text-white font-medium">Why DHGsoft</span>
+            </nav>
+            <div className="text-brand-hot text-label-bold uppercase tracking-[0.3em]">Why DHGsoft</div>
+            <h1 className="text-white mt-5 max-w-[900px] font-black tracking-tight leading-[1.05]" style={{ fontSize: 'clamp(36px,5vw,60px)' }}>
+              Why Organizations Choose DHGsoft
+            </h1>
+            <p className="text-slate-200 text-body-md mt-6 max-w-[760px] leading-relaxed font-semibold">
+              Industrial transformation requires more than technology implementation. It requires an engineering partner capable of understanding operations, integrating complex systems, and delivering measurable business outcomes.
+            </p>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
+
+        
+        {/* ============ FULL WIDTH IMAGE PANEL + GRID ============ */}
+        <section className="relative overflow-hidden bg-mist min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="text-center max-w-[720px] mx-auto mb-10">
+              <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Core Strengths</div>
+              <div className="w-16 h-[3px] bg-brand rounded-full mt-5 mx-auto" />
+            </div>
             
-            <div className="flex flex-col text-left mb-12">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-px w-10 bg-brand" />
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                  THE ADVANTAGE
-                </span>
-              </div>
-              <h2 className="text-txt-strong font-black tracking-tight leading-tight">
-                Our Core Competency
-              </h2>
+            <div className="relative rounded-[32px] overflow-hidden aspect-[21/9] mb-10 shadow-xl">
+              <Image src="/images/about/why-strengths.jpg" alt="Core Strengths dynamic setup" fill className="object-cover" sizes="100vw" />
+              <div className="absolute inset-0 bg-ink/20" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {advantages.map((adv, idx) => {
-                const IconComp = adv.Icon;
-                return (
-                  <div 
-                    key={idx}
-                    className="bg-white border border-line rounded-2xl p-6 shadow-sm hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-start text-left space-y-4"
-                  >
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-brand/5 text-brand shrink-0">
-                      <IconComp className="w-5 h-5" />
-                    </div>
-                    <h3 className="font-extrabold text-txt-strong text-lg tracking-tight">
-                      {adv.title}
-                    </h3>
-                    <p className="text-txt-muted text-sm leading-relaxed">
-                      {adv.desc}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-
-          </Container>
-        </Section>
-
-        {/* ==========================================
-            3. THE DIFFERENCE SECTION
-            ========================================== */}
-        <Section variant="ink" size="default" id="difference" className="relative overflow-hidden">
-          <div 
-            className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full opacity-[0.06]"
-            style={{
-              background: 'radial-gradient(circle, rgb(180 18 63) 0%, transparent 70%)',
-              filter: 'blur(100px)',
-            }}
-          />
-          <Container>
-            
-            <div className="flex flex-col text-left mb-12">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-px w-10 bg-brand-hot" />
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-hot">
-                  THE DHGSOFT DIFFERENCE
-                </span>
-              </div>
-              <h2 className="text-white font-black tracking-tight leading-tight">
-                Why We Stand Out
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-              {differencePoints.map((pt, idx) => (
-                <div key={idx} className="flex gap-4 items-start bg-slate-900/40 border border-slate-800 p-6 rounded-2xl">
-                  <CheckCircle className="w-5 h-5 text-brand-hot shrink-0 mt-0.5" />
-                  <div className="space-y-1">
-                    <h4 className="font-extrabold text-white text-base sm:text-lg tracking-tight">
-                      {pt.title}
-                    </h4>
-                    <p className="text-slate-400 text-sm leading-relaxed">
-                      {pt.desc}
-                    </p>
-                  </div>
+              
+              <div className="card bg-white border border-line rounded-2xl p-6 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start">
+                <div className="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-5">
+                  <RefreshCw className="w-5 h-5" />
                 </div>
-              ))}
-            </div>
-
-          </Container>
-        </Section>
-
-        {/* ==========================================
-            4. HOW WE DELIVER
-            ========================================== */}
-        <Section variant="white" size="default" id="deliver">
-          <Container>
-            
-            <div className="flex flex-col text-left mb-12">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-px w-10 bg-brand" />
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                  HOW WE DELIVER
-                </span>
+                <h4 className="text-txt-strong font-extrabold text-base leading-snug">End-to-End Expertise</h4>
+                <p className="text-body-sm text-txt-muted mt-2 leading-relaxed">From strategy and consulting to engineering, implementation, optimization, and managed services, DHGsoft delivers complete lifecycle support under one trusted partner.</p>
               </div>
-              <h2 className="text-txt-strong font-black tracking-tight leading-tight">
-                Lifecycle Execution Framework
-              </h2>
-            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-              {steps.map((st, idx) => (
-                <div 
-                  key={idx}
-                  className="bg-white border border-line rounded-2xl p-6 shadow-xs hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
-                >
-                  <div className="space-y-4">
-                    <span className="font-mono text-3xl font-black text-[#8C123B]/20 block">
-                      {st.num}
-                    </span>
-                    <h4 className="font-extrabold text-txt-strong text-base tracking-tight">
-                      {st.title}
-                    </h4>
-                    <p className="text-txt-muted text-xs leading-relaxed">
-                      {st.desc}
-                    </p>
-                  </div>
+              <div className="card bg-white border border-line rounded-2xl p-6 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start">
+                <div className="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-5">
+                  <Factory className="w-5 h-5" />
                 </div>
-              ))}
-            </div>
-
-          </Container>
-        </Section>
-
-        {/* ==========================================
-            5. OUTCOMES SECTION
-            ========================================== */}
-        <Section variant="brandTint" size="default" id="outcomes">
-          <Container>
-            
-            <div className="flex flex-col text-left mb-12">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-px w-10 bg-brand" />
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                  WHAT YOU CAN EXPECT
-                </span>
+                <h4 className="text-txt-strong font-extrabold text-base leading-snug">Industrial Domain Knowledge</h4>
+                <p className="text-body-sm text-txt-muted mt-2 leading-relaxed">Our teams understand industrial environments because engineering is at the core of everything we do. We combine operational knowledge with modern technologies to solve real challenges.</p>
               </div>
-              <h2 className="text-txt-strong font-black tracking-tight leading-tight">
-                Measurable Value
-              </h2>
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-              {outcomes.map((out, idx) => (
-                <div 
-                  key={idx}
-                  className="bg-white border border-line rounded-2xl p-6 shadow-xs hover:-translate-y-1 transition-all duration-300 flex flex-col justify-start space-y-4"
-                >
-                  <span className="w-2.5 h-2.5 rounded-full bg-brand shrink-0 block" />
-                  <div className="space-y-2">
-                    <h4 className="font-extrabold text-txt-strong text-base tracking-tight leading-snug">
-                      {out.title}
-                    </h4>
-                    <p className="text-txt-muted text-xs leading-relaxed">
-                      {out.desc}
-                    </p>
-                  </div>
+              <div className="card bg-white border border-line rounded-2xl p-6 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start">
+                <div className="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-5">
+                  <Network className="w-5 h-5" />
                 </div>
-              ))}
+                <h4 className="text-txt-strong font-extrabold text-base leading-snug">Connected Intelligence</h4>
+                <p className="text-body-sm text-txt-muted mt-2 leading-relaxed">Operational data becomes valuable only when it supports better decision-making. We help organizations transform fragmented information into connected intelligence that improves performance.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-2xl p-6 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start">
+                <div className="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-5">
+                  <Sliders className="w-5 h-5" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-base leading-snug">Technology Agnostic</h4>
+                <p className="text-body-sm text-txt-muted mt-2 leading-relaxed">Every customer has unique requirements. We recommend and implement technologies based on operational needs rather than vendor preferences, providing flexible and future-ready solutions.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-2xl p-6 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start">
+                <div className="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-5">
+                  <Target className="w-5 h-5" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-base leading-snug">Customer-Centric Delivery</h4>
+                <p className="text-body-sm text-txt-muted mt-2 leading-relaxed">Every engagement begins with understanding customer objectives. We work collaboratively throughout the transformation journey, ensuring solutions deliver measurable long-term value.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-2xl p-6 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start">
+                <div className="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-5">
+                  <Wrench className="w-5 h-5" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-base leading-snug">Engineering-First Approach</h4>
+                <p className="text-body-sm text-txt-muted mt-2 leading-relaxed">Unlike traditional IT consulting firms, DHGsoft approaches digital transformation through engineering, ensuring solutions integrate seamlessly and support safety and scalability.</p>
+              </div>
+
             </div>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
 
-          </Container>
-        </Section>
+        {/* ============ SPLIT IMAGE RIGHT ============ */}
+        <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+              <div className="lg:col-span-7 text-left order-2 lg:order-1 space-y-6">
+                <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                  <CheckCircle className="w-6 h-6" />
+                </div>
+                <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Why It Matters</div>
+                <h3 className="text-txt-strong mt-2 tracking-tight font-black leading-tight" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)' }}>Connecting operations, data, enterprise systems, and intelligent technologies</h3>
+                <p className="text-txt-strong mt-6" style={{ fontSize: "20px", lineHeight: "1.6", fontWeight: 600 }}>Organizations choose DHGsoft because they need more than technology.</p>
+                <p className="text-body-md text-txt-muted mt-5">They need a trusted engineering partner capable of connecting operations, data, enterprise systems, and intelligent technologies into one integrated ecosystem.</p>
+              </div>
+              <div className="lg:col-span-5 order-1 lg:order-2">
+                <div className="relative rounded-[32px] overflow-hidden ring-1 ring-brand/10 shadow-2xl aspect-[4/5] hover:scale-[1.02] transition-transform duration-500">
+                  <Image src="/images/about/why-matters.jpg" alt="Why It Matters photography" fill className="object-cover" sizes="(min-width:1024px) 35vw, 100vw" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
 
-        {/* ==========================================
-            6. COMMITMENT STATEMENT
-            ========================================== */}
-        <Section variant="white" size="default" id="commitment" className="text-center border-b border-line">
-          <Container>
-            <div className="max-w-4xl mx-auto">
-              <p className="font-extrabold text-xl sm:text-2xl md:text-3xl text-txt-strong tracking-tight leading-relaxed">
-                "Every engagement is measured against outcomes we agree on up front. If it doesn't move your operation, it doesn't ship."
+
+        {/* ============ COMMITMENT BAND ============ */}
+        <section className="relative overflow-hidden bg-mist min-h-[50vh] flex items-center py-14 md:py-20 text-center">
+          <div className="max-w-[1000px] mx-auto px-6 md:px-12 w-full">
+            <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Our Commitment</div>
+            <h3 className="text-txt-strong mt-6 font-black leading-snug" style={{ fontSize: 'clamp(24px, 3.5vw, 38px)' }}>We bring deep industry expertise, technology excellence, and a customer-centric delivery model to every engagement.</h3>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
+
+        {/* ============ CLOSING STATEMENT (Full bleed) ============ */}
+        <section className="relative min-h-[85vh] md:min-h-[90vh] bg-gradient-to-br from-ink to-[#1a1226] text-white overflow-hidden flex items-center text-left py-16 md:py-24">
+          <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
+          <div className="relative z-10 max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="max-w-[900px] space-y-6">
+              <div className="text-brand-hot text-label-bold uppercase tracking-[0.3em]">Closing Statement</div>
+              <h2 className="text-white mt-4 font-black tracking-tight leading-tight" style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}>
+                Connected Intelligence, Trusted Partnerships
+              </h2>
+              <p className="text-slate-300 text-lg md:text-xl leading-relaxed max-w-[720px]">
+                Engineering expertise. Connected intelligence. Trusted partnerships. These principles define why organizations continue to choose DHGsoft as their Industrial Digital Transformation partner.
               </p>
+              <div className="flex flex-wrap gap-4 pt-6">
+                <button
+                  onClick={() => setIsContactOpen(true)}
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-brand font-semibold hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer text-base"
+                >
+                  Start a Conversation <ArrowRight className="w-4 h-4" />
+                </button>
+                <Link href="/about" className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors text-base">
+                  Back to About
+                </Link>
+              </div>
             </div>
-          </Container>
-        </Section>
-
-        {/* CTA BAND */}
-        <CTABand
-          label="PARTNER WITH DHGSOFT"
-          headline="Building Value"
-          highlightedText="for Tomorrow."
-          description="Whether you are modernizing a single production line, connecting enterprise systems to the cloud, or building a secure data foundation — DHGsoft is your engineering partner from concept to commissioning."
-          primaryLabel="Start a Conversation →"
-          secondaryLabel="Explore Capabilities"
-          onPrimaryClick={() => setIsContactOpen(true)}
-        />
-
+          </div>
+        </section>
       </main>
 
-      {/* Footer */}
       <Footer />
 
-      {/* Contact Modal */}
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} showToast={() => {}} />
+      <ContactModal
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+        showToast={() => {}}
+      />
     </div>
   );
 }

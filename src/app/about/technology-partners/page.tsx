@@ -1,290 +1,208 @@
-// src/app/about/technology-partners/page.tsx
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
-import { Cloud, Cpu, Database, AppWindow, ShieldCheck, BrainCircuit, ArrowRight } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import ContactModal from "@/components/ContactModal";
-import { Section } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
-import { techpartnersImages } from "@/lib/images/techpartners";
-import CTABand from "@/components/CTABand";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowRight, Brain, Cloud, Cpu, Database, Factory, Settings, ShieldAlert, Sliders } from 'lucide-react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import ContactModal from '@/components/ContactModal';
 
-const stackCards = [
-  {
-    title: "Cloud Platforms",
-    desc: "Scalable, secure cloud foundations for industrial data, applications, and AI.",
-    Icon: Cloud
-  },
-  {
-    title: "Industrial Automation Platforms",
-    desc: "PLC, SCADA, and control systems integrated with modern digital layers.",
-    Icon: Cpu
-  },
-  {
-    title: "Industrial Data Platforms",
-    desc: "Historians, unified namespaces, and data platforms that create a single source of operational truth.",
-    Icon: Database
-  },
-  {
-    title: "Enterprise Software",
-    desc: "ERP, MES, EAM, and enterprise systems connected to plant-floor reality.",
-    Icon: AppWindow
-  },
-  {
-    title: "Cybersecurity Technologies",
-    desc: "OT and IT security tools that protect operations end to end.",
-    Icon: ShieldCheck
-  },
-  {
-    title: "Artificial Intelligence Platforms",
-    desc: "AI and analytics platforms that turn industrial data into action.",
-    Icon: BrainCircuit
-  }
-];
-
-export default function TechnologyPartnersPage() {
+export default function AboutTechnologypartnersPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground antialiased font-sans flex flex-col selection:bg-brand selection:text-white">
-      {/* Sticky Header */}
       <Header onContactClick={() => setIsContactOpen(true)} />
 
-      <main className="relative pt-20">
-        
-        {/* ==========================================
-            1. HERO SECTION
-            ========================================== */}
-        <Section variant="ink" size="hero" containerSize="wide" className="relative min-h-screen flex items-center overflow-hidden">
-          <div className="absolute inset-0 z-0 pointer-events-none">
-            <Image
-              src={techpartnersImages.hero.src}
-              alt={techpartnersImages.hero.alt}
-              fill
-              priority
-              className="object-cover opacity-35"
+      <main className="flex-grow">
+        {/* ============ 1. PREMIUM HERO (Full-bleed Background Image with Dark Gradient overlay) ============ */}
+        <section className="relative min-h-screen flex items-center pt-24 pb-12 text-left overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <Image 
+              src="/images/about/technology-hero.jpg" 
+              alt="Technology Partners banner" 
+              fill 
+              priority 
+              className="object-cover" 
+              sizes="100vw" 
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-ink/75 to-ink/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-transparent" />
           </div>
-          <Container className="relative z-10 w-full text-left">
-            <div className="max-w-3xl space-y-6">
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20 backdrop-blur-md text-[#E10088] mb-4">
-                <span className="relative flex w-1.5 h-1.5">
-                  <span className="absolute inset-0 rounded-full bg-[#E10088] animate-ping opacity-60" />
-                  <span className="relative rounded-full bg-[#E10088] w-1.5 h-1.5" />
-                </span>
-                <span className="text-[11px] font-extrabold uppercase tracking-widest font-sans">
-                  TECHNOLOGY PARTNERS
-                </span>
-              </div>
-              <h1 className="text-white text-headline-xl sm:text-[3.25rem] lg:text-[4.5rem] font-black tracking-tight leading-[1.1]">
-                Powered by the World's
-                <br />
-                <span className="text-gradient-brand">Leading Platforms</span>
-              </h1>
-              <p className="text-slate-300 max-w-2xl leading-relaxed text-body-md font-medium">
-                DHGsoft integrates best-in-class industrial and enterprise technologies into solutions that perform on the plant floor and scale across the enterprise.
-              </p>
-            </div>
-          </Container>
-        </Section>
 
-        {/* ==========================================
-            2. OUR APPROACH
-            ========================================== */}
-        <Section variant="white" size="default" id="approach">
-          <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              
-              {/* Left Column: Text */}
-              <div className="lg:col-span-7 space-y-6 text-left">
-                <div className="flex items-center gap-3">
-                  <div className="h-px w-10 bg-brand" />
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                    OUR APPROACH
-                  </span>
+          <div className="relative z-10 w-full max-w-site mx-auto px-gutter md:px-gutter-md">
+            <nav className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/80 text-xs mb-7">
+              <Link href="/about" className="hover:text-brand-hot transition-colors">About</Link>
+              <span className="opacity-50">/</span>
+              <span className="text-white font-medium">Technology Partners</span>
+            </nav>
+            <div className="text-brand-hot text-label-bold uppercase tracking-[0.3em]">Technology Partners</div>
+            <h1 className="text-white mt-5 max-w-[900px] font-black tracking-tight leading-[1.05]" style={{ fontSize: 'clamp(36px,5vw,60px)' }}>
+              Building the Future with Trusted Technology Leaders
+            </h1>
+            <p className="text-slate-200 text-body-md mt-6 max-w-[760px] leading-relaxed font-semibold">
+              Modern industrial transformation requires technologies that are secure, scalable, and proven. DHGsoft works with leading global technology platforms to deliver reliable engineering solutions tailored to each customer's operational requirements.
+            </p>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
+
+        
+        {/* ============ SPLIT IMAGE RIGHT ============ */}
+        <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+              <div className="lg:col-span-7 text-left order-2 lg:order-1 space-y-6">
+                <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                  <Settings className="w-6 h-6" />
                 </div>
-                <h2 className="text-txt-strong font-black tracking-tight leading-tight">
-                  Technology-agnostic <span className="text-gradient-brand">by design</span>
-                </h2>
-                <p className="text-body-md text-txt-muted leading-relaxed font-sans">
-                  We are technology-agnostic. We select and integrate the platforms that best fit each operation and business goal — not a single vendor's catalog. Our value is in the engineering that makes these technologies work together: securely, reliably, and at industrial scale.
-                </p>
+                <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Overview</div>
+                <h3 className="text-txt-strong mt-2 tracking-tight font-black leading-tight" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)' }}>Technology is only valuable when it delivers measurable business outcomes.</h3>
+                <p className="text-txt-strong mt-6" style={{ fontSize: "20px", lineHeight: "1.6", fontWeight: 600 }}>DHGsoft follows a technology-agnostic approach, selecting platforms based on customer objectives rather than vendor preference.</p>
+                <p className="text-body-md text-txt-muted mt-5">By collaborating with globally recognized technology providers, we help organizations implement reliable, scalable, and future-ready digital ecosystems that integrate seamlessly with existing industrial environments.</p>
               </div>
-
-              {/* Right Column: Image */}
-              <div className="lg:col-span-5 relative w-full aspect-[4/3] rounded-[24px] overflow-hidden border border-line shadow-md">
-                <Image
-                  src={techpartnersImages.approach.src}
-                  alt={techpartnersImages.approach.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                />
-              </div>
-
-            </div>
-          </Container>
-        </Section>
-
-        {/* ==========================================
-            3. FEATURED PARTNERS LOGOS
-            ========================================== */}
-        <Section variant="brandTint" size="default" id="featured-partners">
-          <Container>
-            
-            <div className="flex flex-col text-left mb-12">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-px w-10 bg-brand" />
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                  FEATURED PARTNERS
-                </span>
-              </div>
-              <h2 className="text-txt-strong font-black tracking-tight leading-tight">
-                Vendor Platform Ecosystem
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 pt-4">
-              {[
-                { name: "AWS", logo: "/logos/aws.svg" },
-                { name: "Microsoft Azure", logo: "/logos/microsoft-azure.svg" },
-                { name: "Schneider Electric", logo: "/logos/schneider-electric.svg" },
-                { name: "AVEVA", logo: "/logos/aveva.svg" },
-                { name: "Phoenix Contact", logo: "/logos/phoenix-contact.svg" },
-                { name: "Databricks", logo: "/logos/databricks.svg" }
-              ].map((p, idx) => (
-                <div 
-                  key={idx}
-                  className="bg-white border border-line rounded-2xl p-6 shadow-xs flex items-center justify-center min-h-[90px] hover:border-brand/40 transition-colors duration-300 group"
-                >
-                  <div className="relative w-full h-8 opacity-50 group-hover:opacity-100 transition-opacity duration-300">
-                    <Image
-                      src={p.logo}
-                      alt={`${p.name} Logo`}
-                      fill
-                      className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
-                    />
-                  </div>
+              <div className="lg:col-span-5 order-1 lg:order-2">
+                <div className="relative rounded-[32px] overflow-hidden ring-1 ring-brand/10 shadow-2xl aspect-[4/5] hover:scale-[1.02] transition-transform duration-500">
+                  <Image src="/images/about/technology-overview.jpg" alt="Overview photography" fill className="object-cover" sizes="(min-width:1024px) 35vw, 100vw" />
                 </div>
-              ))}
-            </div>
-
-          </Container>
-        </Section>
-
-        {/* ==========================================
-            4. THE STACK
-            ========================================== */}
-        <Section variant="white" size="default" id="stack">
-          <Container>
-            
-            <div className="flex flex-col text-left mb-12">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-px w-10 bg-brand" />
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                  THE STACK
-                </span>
               </div>
-              <h2 className="text-txt-strong font-black tracking-tight leading-tight">
-                Supported Technologies
-              </h2>
             </div>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
 
+        {/* ============ GRID SECTION ============ */}
+        <section className="relative overflow-hidden bg-mist min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="text-center max-w-[720px] mx-auto mb-14">
+              <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Platform Capabilities</div>
+              <div className="w-16 h-[3px] bg-brand rounded-full mt-6 mx-auto" />
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {stackCards.map((card, idx) => {
-                const IconComp = card.Icon;
-                return (
-                  <div 
-                    key={idx}
-                    className="bg-white border border-line rounded-2xl p-6 shadow-sm hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-start text-left space-y-4"
-                  >
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-brand/5 text-brand shrink-0">
-                      <IconComp className="w-5 h-5" />
-                    </div>
-                    <h3 className="font-extrabold text-txt-strong text-lg tracking-tight">
-                      {card.title}
-                    </h3>
-                    <p className="text-txt-muted text-sm leading-relaxed">
-                      {card.desc}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-
-          </Container>
-        </Section>
-
-        {/* ==========================================
-            5. INTEGRATION EXPERTISE
-            ========================================== */}
-        <Section variant="ink" size="default" id="expertise" className="relative overflow-hidden">
-          <Container>
-            
-            <div className="flex flex-col text-left mb-12">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-px w-10 bg-brand-hot" />
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-hot">
-                  INTEGRATION EXPERTISE
-                </span>
+              
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Factory className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Industrial Automation Platforms</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Supporting modern automation systems through leading industrial control technologies that improve operational efficiency, process reliability, and production performance.</p>
               </div>
-              <h2 className="text-white font-black tracking-tight leading-tight">
-                Why Partners Work With Us
+
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Cloud className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Cloud Platforms</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Designing secure cloud environments that enable connected operations, scalable infrastructure, remote collaboration, and enterprise-wide digital transformation.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Cpu className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Enterprise Technologies</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Integrating business applications that connect manufacturing, engineering, maintenance, quality, and enterprise operations into one intelligent digital environment.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Database className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Industrial Data Platforms</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Transforming industrial information into connected intelligence through modern data architectures, operational analytics, historians, and enterprise reporting platforms.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <ShieldAlert className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Cybersecurity Technologies</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Protecting industrial operations through trusted security technologies that strengthen operational resilience, reduce cyber risk, and support regulatory compliance.</p>
+              </div>
+
+              <div className="card bg-white border border-line rounded-[24px] p-8 hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all text-left flex flex-col justify-start min-h-[220px]">
+                <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-6">
+                  <Brain className="w-6 h-6" />
+                </div>
+                <h4 className="text-txt-strong font-extrabold text-xl leading-snug">Artificial Intelligence Platforms</h4>
+                <p className="text-body-md text-txt-muted mt-4 leading-relaxed">Leveraging modern AI and advanced analytics platforms to transform operational data into predictive insights, intelligent automation, and better business decisions.</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
+
+        {/* ============ SPLIT IMAGE LEFT ============ */}
+        <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
+          <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+              <div className="lg:col-span-5">
+                <div className="relative rounded-[32px] overflow-hidden ring-1 ring-brand/10 shadow-2xl aspect-[4/5] hover:scale-[1.02] transition-transform duration-500">
+                  <Image src="/images/about/technology-philosophy.jpg" alt="Our Technology Philosophy photography" fill className="object-cover" sizes="(min-width:1024px) 35vw, 100vw" />
+                </div>
+              </div>
+              <div className="lg:col-span-7 text-left space-y-6">
+                <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                  <Sliders className="w-6 h-6" />
+                </div>
+                <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Our Technology Philosophy</div>
+                <h3 className="text-txt-strong mt-2 tracking-tight font-black leading-tight" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)' }}>Neutral evaluation before recommending the right solution.</h3>
+                <p className="text-txt-strong mt-6" style={{ fontSize: "20px", lineHeight: "1.6", fontWeight: 600 }}>Every customer has different operational goals.</p>
+                <p className="text-body-md text-txt-muted mt-5">Instead of promoting one technology platform, DHGsoft evaluates business requirements, engineering complexity, scalability, security, and long-term value before recommending the right solution.</p>
+<p className="text-body-md text-txt-muted mt-5">This technology-neutral approach enables organizations to build sustainable digital ecosystems without unnecessary vendor dependency.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
+
+
+        {/* ============ COMMITMENT BAND ============ */}
+        <section className="relative overflow-hidden bg-mist min-h-[50vh] flex items-center py-14 md:py-20 text-center">
+          <div className="max-w-[1000px] mx-auto px-6 md:px-12 w-full">
+            <div className="text-brand text-label-bold uppercase tracking-[0.25em]">Our Commitment</div>
+            <h3 className="text-txt-strong mt-6 font-black leading-snug" style={{ fontSize: 'clamp(24px, 3.5vw, 38px)' }}>By combining leading hardware and software technologies, we ensure industrial reliability and enterprise readiness.</h3>
+          </div>
+        </section>
+        <div className="w-full h-px bg-line/60" />
+
+        {/* ============ CLOSING STATEMENT (Full bleed) ============ */}
+        <section className="relative min-h-[85vh] md:min-h-[90vh] bg-gradient-to-br from-ink to-[#1a1226] text-white overflow-hidden flex items-center text-left py-16 md:py-24">
+          <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
+          <div className="relative z-10 max-w-site mx-auto px-gutter md:px-gutter-md w-full">
+            <div className="max-w-[900px] space-y-6">
+              <div className="text-brand-hot text-label-bold uppercase tracking-[0.3em]">Closing Statement</div>
+              <h2 className="text-white mt-4 font-black tracking-tight leading-tight" style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}>
+                Technology Should Empower Engineering, Not Limit It
               </h2>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-              <div className="space-y-3 bg-slate-900/40 border border-slate-800 p-6 rounded-2xl">
-                <h4 className="font-extrabold text-white text-base sm:text-lg">Vendor-neutral selection</h4>
-                <p className="text-slate-400 text-xs leading-relaxed">
-                  The right platform for the problem, backed by real integration experience.
-                </p>
-              </div>
-              <div className="space-y-3 bg-slate-900/40 border border-slate-800 p-6 rounded-2xl">
-                <h4 className="font-extrabold text-white text-base sm:text-lg">Secure interoperability</h4>
-                <p className="text-slate-400 text-xs leading-relaxed">
-                  OT and IT systems connected without compromising security.
-                </p>
-              </div>
-              <div className="space-y-3 bg-slate-900/40 border border-slate-800 p-6 rounded-2xl">
-                <h4 className="font-extrabold text-white text-base sm:text-lg">Built to scale</h4>
-                <p className="text-slate-400 text-xs leading-relaxed">
-                  Solutions designed to standardize across lines, sites, and regions.
-                </p>
-              </div>
-              <div className="space-y-3 bg-slate-900/40 border border-slate-800 p-6 rounded-2xl">
-                <h4 className="font-extrabold text-white text-base sm:text-lg">Lifecycle support</h4>
-                <p className="text-slate-400 text-xs leading-relaxed">
-                  We support the technology we deploy, long after go-live.
-                </p>
+              <p className="text-slate-300 text-lg md:text-xl leading-relaxed max-w-[720px]">
+                DHGsoft works with trusted global technologies to deliver connected industrial solutions that create measurable business value.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-6">
+                <button
+                  onClick={() => setIsContactOpen(true)}
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-brand font-semibold hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer text-base"
+                >
+                  Start a Conversation <ArrowRight className="w-4 h-4" />
+                </button>
+                <Link href="/about" className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors text-base">
+                  Back to About
+                </Link>
               </div>
             </div>
-
-          </Container>
-        </Section>
-
-        {/* CTA BAND */}
-        <CTABand
-          label="PARTNER WITH DHGSOFT"
-          headline="Building Value"
-          highlightedText="for Tomorrow."
-          description="Whether you are modernizing a single production line, connecting enterprise systems to the cloud, or building a secure data foundation — DHGsoft is your engineering partner from concept to commissioning."
-          primaryLabel="Start a Conversation →"
-          secondaryLabel="Explore Capabilities"
-          onPrimaryClick={() => setIsContactOpen(true)}
-        />
-
+          </div>
+        </section>
       </main>
 
-      {/* Footer */}
       <Footer />
 
-      {/* Contact Modal */}
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} showToast={() => {}} />
+      <ContactModal
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+        showToast={() => {}}
+      />
     </div>
   );
 }
