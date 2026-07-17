@@ -51,7 +51,7 @@ export default function AboutPage() {
       <main className="flex-grow">
         
         {/* ==========================================
-            1. HERO SECTION (Cinematic Cover)
+            1. HERO SECTION (Cinematic Cover - min-h-screen)
             ========================================== */}
         <Section variant="ink" size="hero" containerSize="wide" className="relative min-h-screen flex items-center overflow-hidden">
           <div className="absolute inset-0 z-0 pointer-events-none">
@@ -105,7 +105,7 @@ export default function AboutPage() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-10 border-t border-white/10 max-w-3xl">
                 <div>
                   <div className="text-xs uppercase tracking-wider text-slate-400 font-bold">HQ Office</div>
-                  <div className="text-white font-extrabold text-sm sm:text-base mt-1">Ahmedabad · Pune</div>
+                  <div className="text-white font-extrabold text-sm sm:text-base mt-1">Ahmedabad</div>
                 </div>
                 <div>
                   <div className="text-xs uppercase tracking-wider text-slate-400 font-bold">Focus</div>
@@ -120,13 +120,14 @@ export default function AboutPage() {
             </div>
           </Container>
         </Section>
+        <div className="w-full h-px bg-line/60" />
 
         {/* ==========================================
-            2. WHO WE ARE SECTION
+            2. WHO WE ARE SECTION (min-h-[85vh] / min-h-[90vh])
             ========================================== */}
-        <Section variant="white" size="default" id="overview">
+        <Section variant="white" size="default" className="relative overflow-hidden" id="overview">
           <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               
               {/* Left Side: Content */}
               <div className="lg:col-span-7 space-y-6 text-left">
@@ -152,11 +153,11 @@ export default function AboutPage() {
                 <div 
                   className="absolute -inset-4 rounded-3xl pointer-events-none"
                   style={{
-                    background: 'linear-gradient(135deg, rgba(180,18,63,0.1) 0%, rgba(225,29,92,0.05) 50%, transparent 100%)',
+                    background: 'linear-gradient(135deg, rgba(180,18,63,0.08) 0%, rgba(225,29,92,0.04) 50%, transparent 100%)',
                     filter: 'blur(20px)',
                   }}
                 />
-                <div className="relative rounded-[24px] border border-line bg-mist p-8 shadow-sm flex flex-col justify-start text-left space-y-6">
+                <div className="relative rounded-[24px] border border-line bg-mist/60 backdrop-blur-md p-8 shadow-sm flex flex-col justify-start text-left space-y-6">
                   <h4 className="text-txt-strong text-sm font-bold uppercase tracking-widest text-foreground/75 border-b border-line pb-4">
                     Our Industrial Expertise
                   </h4>
@@ -176,108 +177,122 @@ export default function AboutPage() {
             </div>
           </Container>
         </Section>
+        <div className="w-full h-px bg-line/60" />
 
         {/* ==========================================
-            3. WHY WE EXIST (PURPOSE SECTION)
+            3. WHY WE EXIST (PURPOSE SECTION - Widescreen Giant Card Layout)
             ========================================== */}
-        <Section variant="ink" size="default" className="relative overflow-hidden">
-          {/* Decorative glows */}
-          <div 
-            className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full pointer-events-none"
-            style={{ 
-              background: 'radial-gradient(circle, rgba(225,29,92,0.12) 0%, transparent 70%)', 
-              filter: 'blur(80px)' 
-            }} 
-          />
-          <div 
-            className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full pointer-events-none"
-            style={{ 
-              background: 'radial-gradient(circle, rgba(180,18,63,0.1) 0%, transparent 70%)', 
-              filter: 'blur(90px)' 
-            }} 
-          />
-
+        <Section variant="ink" className="min-h-[85vh] md:min-h-[90vh] flex items-center relative overflow-hidden">
           <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* The Giant Showcase Card Redesign */}
+            <div className="w-full rounded-[32px] overflow-hidden border border-white/10 bg-white/[0.02] backdrop-blur-md shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-0 relative group">
+              {/* Internal neon glows */}
+              <div className="absolute top-0 right-0 w-80 h-80 bg-brand-hot/10 rounded-full blur-[100px] pointer-events-none z-0" />
+              <div className="absolute bottom-0 left-1/3 w-60 h-60 bg-brand/5 rounded-full blur-[100px] pointer-events-none z-0" />
               
-              {/* Left Column — Cinematic Purpose Image Card */}
-              <div className="lg:col-span-5 relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/5] rounded-[24px] overflow-hidden border border-white/10 shadow-2xl">
+              {/* Left Side: Cinematic Image filling the column */}
+              <div className="lg:col-span-5 relative min-h-[320px] lg:min-h-[520px]">
                 <Image
                   src="/images/about/about-purpose.jpg"
                   alt="Connected operations control dashboard and industrial systems monitoring"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-75 group-hover:scale-[1.02]"
                   sizes="(max-width: 1024px) 100vw, 40vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-transparent via-slate-950/20 to-slate-950/80 lg:to-transparent pointer-events-none" />
                 
                 {/* Visual Label */}
-                <div className="absolute bottom-6 left-6 text-left">
+                <div className="absolute bottom-6 left-6 text-left z-10">
                   <span className="bg-brand/85 backdrop-blur-sm text-white px-2.5 py-0.5 rounded text-[9.5px] font-extrabold tracking-wider uppercase">
                     Core Focus
                   </span>
-                  <p className="text-[10px] text-slate-300 font-medium tracking-wide mt-1">
+                  <p className="text-[10px] text-slate-200 font-medium tracking-wide mt-1">
                     Continuous Plant Intelligence
                   </p>
                 </div>
               </div>
 
-              {/* Right Column — Large Quotes Panel */}
-              <div className="lg:col-span-7 text-left space-y-6 lg:pl-6 relative">
-                <div className="flex items-center gap-3">
-                  <div className="h-px w-10 bg-brand-hot" />
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-hot">
-                    Our Purpose
-                  </span>
+              {/* Right Side: Text & Quotes Panel (Padded) */}
+              <div className="lg:col-span-7 p-8 sm:p-12 lg:p-16 flex flex-col justify-between text-left relative z-10 space-y-8">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="h-px w-10 bg-brand-hot" />
+                    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-hot">
+                      Our Purpose
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-white text-2xl sm:text-3xl lg:text-[36px] font-black tracking-tight leading-tight">
+                    Connecting intelligence to transform operational performance.
+                  </h3>
+                  
+                  <blockquote className="text-slate-300 text-sm sm:text-base italic leading-relaxed border-l-2 border-brand-hot pl-4 mt-6">
+                    "To transform industries through engineering intelligence, connected technology, and continuous innovation — building value for tomorrow, today."
+                  </blockquote>
                 </div>
                 
-                <h3 className="text-white text-3xl sm:text-4xl lg:text-[40px] font-black tracking-tight leading-tight">
-                  Connecting intelligence to transform operational performance.
-                </h3>
-                
-                <blockquote className="text-slate-300 text-body-md italic leading-relaxed border-l-2 border-brand-hot pl-4">
-                  "To transform industries through engineering intelligence, connected technology, and continuous innovation — building value for tomorrow, today."
-                </blockquote>
-                
-                <div className="pt-4 flex items-center gap-3">
-                  <Briefcase className="w-5 h-5 text-brand-hot" />
-                  <span className="text-xs uppercase font-extrabold tracking-wider text-slate-400">
+                {/* Purely decorative SVG schematic connector pattern to resolve blank space */}
+                <div className="relative h-12 w-full opacity-35 py-1">
+                  <svg className="w-full h-full stroke-white/20" fill="none" preserveAspectRatio="none" viewBox="0 0 500 40">
+                    <path d="M 0,20 L 100,20 L 125,5 L 300,5 L 325,35 L 420,35 L 435,20 L 500,20" strokeWidth="1.2" />
+                    <circle cx="100" cy="20" r="3" className="fill-brand-hot animate-pulse" />
+                    <circle cx="125" cy="5" r="2" className="fill-white/40" />
+                    <circle cx="300" cy="5" r="2" className="fill-white/40" />
+                    <circle cx="325" cy="35" r="2" className="fill-white/40" />
+                    <circle cx="420" cy="35" r="3" className="fill-brand-hot animate-pulse" />
+                  </svg>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <Briefcase className="w-4 h-4 text-brand-hot" />
+                  <span className="text-[10px] uppercase font-extrabold tracking-wider text-slate-400">
                     DHGsoft Delivery Commitment
                   </span>
                 </div>
               </div>
 
             </div>
+            
           </Container>
         </Section>
+        <div className="w-full h-px bg-line/60" />
 
         {/* ==========================================
-            4. VISION & MISSION SECTION
+            4A. OUR VISION SECTION (Compact Split & Vertically Centered Left Side)
             ========================================== */}
-        <Section variant="white" size="default" id="vision-mission">
+        <Section variant="white" size="compact" className="relative overflow-hidden pt-16 md:pt-24" id="vision">
           <Container>
-            
-            {/* Vision statement */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-left mb-16">
-              <div className="lg:col-span-4">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-left">
+              <div className="lg:col-span-5 space-y-4 self-start lg:pt-1">
                 <div className="flex items-center gap-3">
                   <div className="h-px w-10 bg-brand" />
                   <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
                     Our Vision
                   </span>
                 </div>
+                <h3 className="text-txt-strong mt-2 lg:mt-10 tracking-tight font-extrabold leading-[1.1] text-3xl md:text-4xl" style={{ fontSize: 'clamp(2rem, 1.5rem + 1vw, 2.5rem)' }}>
+                  Intelligent & Sustainable Industrial Ecosystems
+                </h3>
               </div>
-              <div className="lg:col-span-8">
-                <h2 className="text-txt-strong text-2xl sm:text-3xl lg:text-[34px] font-extrabold tracking-tight leading-snug">
-                  To become a <span className="text-gradient-brand">globally trusted industrial technology partner</span> enabling intelligent, connected, and sustainable manufacturing ecosystems.
-                </h2>
+              <div className="lg:col-span-7 self-center">
+                <div className="p-8 rounded-3xl bg-mist/60 border border-line backdrop-blur-md relative overflow-hidden group hover:border-brand/30 transition-all duration-300 shadow-sm">
+                  <p className="text-txt-strong text-lg sm:text-xl lg:text-[22px] font-bold leading-relaxed">
+                    "To become a <span className="text-gradient-brand">globally trusted industrial technology partner</span> enabling intelligent, connected, and sustainable manufacturing ecosystems."
+                  </p>
+                </div>
               </div>
             </div>
+          </Container>
+        </Section>
+        <div className="w-full h-px bg-line/60" />
 
-            <div className="w-full h-px bg-line/60 my-12" />
-
-            {/* Mission statement & list */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-left">
+        {/* ==========================================
+            4B. OUR MISSION SECTION (min-h-[85vh] / min-h-[90vh])
+            ========================================== */}
+        <Section variant="mist" className="min-h-[85vh] md:min-h-[90vh] flex items-center" id="mission">
+          <Container>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
               <div className="lg:col-span-4 space-y-4">
                 <div className="flex items-center gap-3">
                   <div className="h-px w-10 bg-brand" />
@@ -285,7 +300,7 @@ export default function AboutPage() {
                     Our Mission
                   </span>
                 </div>
-                <h3 className="text-txt-strong text-xl font-bold">
+                <h3 className="text-txt-strong mt-2 tracking-tight font-extrabold leading-[1.1] text-2xl md:text-3xl lg:text-4xl" style={{ fontSize: 'clamp(1.75rem, 1.4vw, 2.25rem)' }}>
                   Five commitments that define how we deliver value.
                 </h3>
               </div>
@@ -294,9 +309,9 @@ export default function AboutPage() {
                 {missionItems.map((item, idx) => (
                   <div 
                     key={idx}
-                    className="flex items-center gap-4 bg-mist border border-line rounded-2xl p-5 hover:border-brand hover:shadow-sm hover:-translate-y-0.5 transition-all duration-300 group cursor-default"
+                    className="flex items-center gap-4 bg-white border border-line rounded-2xl p-5 hover:border-brand hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group cursor-default"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-white border border-line flex items-center justify-center font-mono text-[#8C123B] font-extrabold shrink-0 group-hover:bg-[#8C123B] group-hover:text-white transition-colors duration-300">
+                    <div className="w-10 h-10 rounded-xl bg-mist border border-line flex items-center justify-center font-mono text-[#8C123B] font-extrabold shrink-0 group-hover:bg-[#8C123B] group-hover:text-white transition-colors duration-300">
                       {String(idx + 1).padStart(2, "0")}
                     </div>
                     <span className="text-txt-strong font-semibold text-sm sm:text-base flex-grow">
@@ -307,14 +322,14 @@ export default function AboutPage() {
                 ))}
               </div>
             </div>
-
           </Container>
         </Section>
+        <div className="w-full h-px bg-line/60" />
 
         {/* ==========================================
-            5. CORE VALUES SECTION
+            5. CORE VALUES SECTION (min-h-[85vh] / min-h-[90vh])
             ========================================== */}
-        <Section variant="brandTint" size="default" id="values">
+        <Section variant="brandTint" className="min-h-[85vh] md:min-h-[90vh] flex items-center relative overflow-hidden" id="values">
           <Container>
             
             <div className="flex flex-col text-left mb-12">
@@ -335,7 +350,7 @@ export default function AboutPage() {
                 return (
                   <div 
                     key={idx}
-                    className="bg-white border border-line rounded-2xl p-6 shadow-sm hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between text-left space-y-4"
+                    className="bg-white border border-line rounded-2xl p-6 shadow-sm hover:border-brand/40 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between text-left space-y-4"
                   >
                     <div className="space-y-4">
                       <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-brand/5 text-brand shrink-0">
@@ -355,11 +370,12 @@ export default function AboutPage() {
 
           </Container>
         </Section>
+        <div className="w-full h-px bg-line/60" />
 
         {/* ==========================================
-            6. STRATEGIC OBJECTIVES SECTION
+            6. STRATEGIC FOCUS SECTION (Sticky Scroll Effect + Number Centered, Line Removed)
             ========================================== */}
-        <Section variant="white" size="default" id="objectives">
+        <Section variant="white" size="default" id="objectives" className="relative overflow-hidden">
           <Container>
             
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-left">
@@ -380,16 +396,13 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              {/* Right Column: Timeline Checklist */}
+              {/* Right Column: Timeline Checklist (No Vertical Line) */}
               <div className="lg:col-span-8 relative pl-4 sm:pl-8">
-                {/* Vertical timeline path */}
-                <div className="absolute left-[30px] top-6 bottom-6 w-[2px] bg-gradient-to-b from-brand via-brand-hot to-[#ECECEC] z-0 pointer-events-none" />
-
-                <div className="space-y-8 relative">
+                <div className="space-y-6 relative">
                   {strategicObjectives.map((obj, idx) => (
-                    <div key={idx} className="flex items-start gap-6 relative">
+                    <div key={idx} className="flex items-center gap-6 relative">
                       
-                      {/* Circle dot on the line */}
+                      {/* Circle dot (No vertical line passes behind it) */}
                       <div className="relative flex-shrink-0 z-10">
                         <div className="w-12 h-12 rounded-full bg-white border-2 border-brand flex items-center justify-center shadow-xs">
                           <span className="text-brand font-mono text-sm font-extrabold">
@@ -399,7 +412,7 @@ export default function AboutPage() {
                       </div>
 
                       {/* Content Card */}
-                      <div className="flex-1 bg-white border border-line rounded-2xl p-6 shadow-xs hover:border-brand hover:shadow-sm transition-all duration-300">
+                      <div className="flex-1 bg-white border border-line rounded-2xl p-5 shadow-xs hover:border-brand hover:shadow-md transition-all duration-300">
                         <h4 className="text-txt-strong font-extrabold text-base tracking-tight leading-snug">
                           {obj.title}
                         </h4>
@@ -417,133 +430,158 @@ export default function AboutPage() {
 
           </Container>
         </Section>
+        <div className="w-full h-px bg-line/60" />
 
         {/* ==========================================
-            7. PARTNER MARQUEE & LOCATIONS SECTION
+            7. PARTNERS & LOCATIONS SECTION (Symmetrical Dual Card Layout - Combined)
             ========================================== */}
-        <Section variant="mist" size="default" id="partners">
+        <Section variant="mist" size="compact" className="relative overflow-hidden" id="partners">
           <Container>
-            
-            {/* Section Header */}
-            <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-              <div className="flex items-center justify-center gap-3">
-                <div className="h-px w-6 bg-brand" />
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                  OEM & Technology Partners
-                </span>
-                <div className="h-px w-6 bg-brand" />
-              </div>
-              <h2 className="text-txt-strong font-black tracking-tight leading-tight">
-                Certified, Trusted, Connected
-              </h2>
-              <p className="text-txt-muted text-sm leading-relaxed">
-                We maintain active technical relationships and certifications with the world's leading industrial hardware and software vendors.
-              </p>
-            </div>
-
-            {/* Loop Marquee */}
-            <div className="relative overflow-hidden py-4 select-none mb-20">
-              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-mist to-transparent z-10 pointer-events-none" />
-              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-mist to-transparent z-10 pointer-events-none" />
-
-              <div className="flex gap-4 animate-marquee whitespace-nowrap">
-                {[...partners, ...partners].map((partner, idx) => (
-                  <div 
-                    key={idx}
-                    className="flex-shrink-0 w-44 h-20 bg-white border border-line rounded-2xl flex items-center justify-center px-4 hover:border-brand/40 hover:shadow-xs transition-all duration-300"
-                  >
-                    <span className="text-txt-strong text-xs font-bold text-center tracking-tight truncate">
-                      {partner}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mx-auto text-left">
+              
+              {/* Left Column: Partners Card */}
+              <div className="lg:col-span-6 bg-white border border-line rounded-3xl p-8 flex flex-col justify-between shadow-sm">
+                <div className="space-y-6">
+                  <div className="flex items-center gap-3">
+                    <div className="h-px w-8 bg-brand" />
+                    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+                      Ecosystem Partners
                     </span>
                   </div>
-                ))}
-              </div>
-            </div>
+                  <h3 className="text-txt-strong font-black text-2xl tracking-tight leading-tight">
+                    Certified, Trusted, Connected
+                  </h3>
+                  <p className="text-txt-muted text-xs leading-relaxed">
+                    We maintain active technical relationships and certifications with the world's leading industrial hardware and software vendors.
+                  </p>
+                </div>
 
-            {/* Office Locations */}
-            <div className="pt-12 border-t border-line/70">
-              <h4 className="text-brand text-xs font-extrabold uppercase tracking-[0.25em] text-center mb-8">
-                Where We Operate
-              </h4>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[800px] mx-auto text-left">
-                {locations.map((loc, idx) => (
-                  <div 
-                    key={idx}
-                    className="bg-white border border-line rounded-2xl p-6 hover:border-brand transition-colors duration-300 shadow-xs flex items-start gap-4"
-                  >
-                    <div className="w-10 h-10 rounded-full bg-brand/5 flex items-center justify-center flex-shrink-0 text-brand">
-                      <MapPin className="w-5 h-5" />
+                {/* Partners Grid */}
+                <div className="grid grid-cols-2 gap-2.5 pt-8">
+                  {partners.slice(0, 6).map((partner, idx) => (
+                    <div 
+                      key={idx}
+                      className="bg-mist/50 border border-line/60 rounded-xl py-3 px-4 flex items-center justify-center shadow-xs"
+                    >
+                      <span className="text-txt-strong text-xs font-bold text-center tracking-tight truncate">
+                        {partner}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right Column: Office Location Card */}
+              <div className="lg:col-span-6 bg-white border border-line rounded-3xl p-8 flex flex-col justify-between shadow-sm relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-brand/5 rounded-full blur-2xl pointer-events-none" />
+                
+                <div className="space-y-6">
+                  <div className="flex items-center gap-3">
+                    <div className="h-px w-8 bg-brand" />
+                    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+                      Where We Operate
+                    </span>
+                  </div>
+                  <h3 className="text-txt-strong font-black text-2xl tracking-tight leading-tight">
+                    Our Headquarters
+                  </h3>
+                  <p className="text-txt-muted text-xs leading-relaxed">
+                    We serve industrial clients globally from our engineering and support headquarters in Ahmedabad, India.
+                  </p>
+                </div>
+
+                {/* Address & Contact Details */}
+                <div className="pt-8 space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-brand/5 flex items-center justify-center text-brand flex-shrink-0 mt-0.5">
+                      <MapPin className="w-4 h-4" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h5 className="text-txt-strong font-extrabold text-base tracking-tight">
-                        {loc.city}
-                      </h5>
-                      <p className="text-xs text-txt-muted mt-2 leading-relaxed">
-                        {loc.address}
+                      <h5 className="text-txt-strong font-bold text-sm tracking-tight font-sans">Ahmedabad, India</h5>
+                      <p className="text-xs text-txt-muted mt-1 leading-relaxed font-sans">
+                        420, HillTown Plaza, Nikol, Ahmedabad - 382350
                       </p>
-                      
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-x-3 gap-y-1 mt-4 pt-4 border-t border-line/60 font-mono text-xs">
-                        <a 
-                          href={`tel:${loc.phone.replace(/\s+/g, "")}`}
-                          className="text-brand font-bold hover:text-brand-deep transition-colors"
-                        >
-                          {loc.phone}
-                        </a>
-                        <span className="hidden sm:inline text-line">|</span>
-                        <a 
-                          href={`mailto:${loc.email}`}
-                          className="text-brand hover:text-brand-deep transition-colors truncate"
-                        >
-                          {loc.email}
-                        </a>
-                      </div>
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
 
+                  <div className="flex gap-4 pt-3 border-t border-line/60 font-mono text-[11px]">
+                    <a 
+                      href="tel:+919429419427"
+                      className="text-brand font-bold hover:text-brand-deep transition-colors"
+                    >
+                      +91 942 941 942 7
+                    </a>
+                    <span className="text-line">|</span>
+                    <a 
+                      href="mailto:hitesh.patel@dhgsoft.com"
+                      className="text-brand hover:text-brand-deep transition-colors truncate"
+                    >
+                      hitesh.patel@dhgsoft.com
+                    </a>
+                  </div>
+
+                  <a 
+                    href="https://maps.google.com/?q=420,+HillTown+Plaza,+Nikol,+Ahmedabad+-+382350"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand/5 hover:bg-brand text-brand hover:text-white text-xs font-bold transition-all duration-300 w-full justify-center border border-brand/10 font-sans mt-2"
+                  >
+                    <span>View on Google Maps</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+
+            </div>
           </Container>
         </Section>
+        <div className="w-full h-px bg-line/60" />
 
         {/* ==========================================
-            8. SIGNATURE CLOSING CTA
+            8. SIGNATURE CLOSING CTA (min-h-screen)
             ========================================== */}
-        <Section variant="ink" size="hero" className="relative overflow-hidden flex items-center py-24 text-left">
+        <Section variant="ink" className="relative overflow-hidden text-center py-20 md:py-28" id="cta">
+          {/* Symmetrical background image and vignetted gradient overlays */}
           <div className="absolute inset-0 z-0 pointer-events-none">
             <Image
               src="/images/about/about-closing.jpg"
               alt="DHGsoft industrial engineering and automation validation"
               fill
-              className="object-cover opacity-35"
+              className="object-cover opacity-50"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950/80 to-slate-950" />
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-deep/20 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+            <div 
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] rounded-full opacity-[0.20]"
+              style={{
+                background: 'radial-gradient(circle, rgb(180 18 63) 0%, transparent 70%)',
+                filter: 'blur(100px)',
+              }}
+            />
           </div>
 
-          <Container className="relative z-10 w-full">
-            <div className="max-w-3xl space-y-6">
+          <Container className="relative z-10 w-full flex flex-col items-center">
+            <div className="max-w-3xl space-y-6 flex flex-col items-center">
               
               <div className="flex items-center gap-3">
-                <div className="h-px w-10 bg-brand-hot" />
+                <div className="h-px w-8 bg-brand-hot" />
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-hot">
                   Partner with DHGsoft
                 </span>
+                <div className="h-px w-8 bg-brand-hot" />
               </div>
 
-              <h3 className="text-white text-4xl sm:text-[3.25rem] lg:text-[4.25rem] font-black tracking-tight leading-[1.1]">
+              <h3 className="text-white text-4xl sm:text-[3.5rem] lg:text-[4.2rem] font-black tracking-tight leading-[1.05] max-w-2xl">
                 Building Value
                 <br />
                 <span className="text-gradient-brand">for Tomorrow.</span>
               </h3>
 
-              <p className="text-slate-300 max-w-xl leading-relaxed text-body-md font-medium">
+              <p className="text-slate-300 max-w-xl leading-relaxed text-body-md font-medium text-center">
                 Whether you are modernizing a single production line, connecting enterprise systems to the cloud, or building a secure data foundation — DHGsoft is your engineering partner from concept to commissioning.
               </p>
 
-              <div className="pt-4 flex flex-wrap gap-4 items-center">
+              <div className="pt-4 flex flex-wrap gap-4 items-center justify-center w-full">
                 <button
                   onClick={() => setIsContactOpen(true)}
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-brand text-white font-semibold hover:bg-brand-deep hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/25 transition-all duration-300 cursor-pointer"

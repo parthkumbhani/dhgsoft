@@ -50,10 +50,7 @@ export default function AboutOverviewPage() {
 
         
         {/* ============ SPLIT IMAGE LEFT ============ */}
-        <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
-          <div className="absolute top-1/4 right-[5%] w-[350px] h-[350px] bg-brand/5 rounded-full blur-[110px] pointer-events-none z-0" />
-          <div className="absolute bottom-1/4 left-[5%] w-[350px] h-[350px] bg-brand-hot/5 rounded-full blur-[110px] pointer-events-none z-0" />
-          
+        <section className="relative overflow-hidden bg-mesh-glow-light bg-dot-matrix min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
           <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
               <div className="lg:col-span-5">
@@ -81,9 +78,7 @@ export default function AboutOverviewPage() {
         <div className="w-full h-px bg-line/60" />
 
         {/* ============ GRID SECTION ============ */}
-        <section className="relative overflow-hidden bg-mist min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[500px] bg-brand/5 rounded-full blur-[130px] pointer-events-none z-0" />
-          
+        <section className="relative overflow-hidden bg-mesh-glow-light bg-tech-grid min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
           <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full relative z-10">
             <div className="text-center max-w-[720px] mx-auto mb-14">
               <div className="text-brand text-[11px] font-extrabold uppercase tracking-widest">DHGsoft at a Glance</div>
@@ -144,14 +139,13 @@ export default function AboutOverviewPage() {
         </section>
         <div className="w-full h-px bg-line/60" />
 
-        {/* ============ SPLIT IMAGE RIGHT ============ */}
-        <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
-          <div className="absolute top-1/4 left-[5%] w-[350px] h-[350px] bg-brand/5 rounded-full blur-[110px] pointer-events-none z-0" />
-          <div className="absolute bottom-1/4 right-[5%] w-[350px] h-[350px] bg-brand-hot/5 rounded-full blur-[110px] pointer-events-none z-0" />
-          
+        {/* ============ INDUSTRIES WE SERVE (Creative Split Grid Layout) ============ */}
+        <section className="relative overflow-hidden bg-mesh-glow-light bg-dot-matrix py-20 md:py-28">
           <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-              <div className="lg:col-span-7 text-left order-2 lg:order-1 space-y-6">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              
+              {/* Left Column: Copy & Styled Grid of Industries (lg:col-span-7) */}
+              <div className="lg:col-span-7 text-left space-y-6 order-2 lg:order-1">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0">
                     <Factory className="w-6 h-6" />
@@ -159,15 +153,72 @@ export default function AboutOverviewPage() {
                   <div className="text-brand text-[11px] font-extrabold uppercase tracking-widest">Industries We Serve</div>
                 </div>
                 
-                <h3 className="text-txt-strong mt-2 tracking-tight font-extrabold leading-[1.1] text-3xl md:text-4xl lg:text-5xl" style={{ fontSize: 'clamp(2.25rem, 1.75rem + 1.2vw, 3rem)' }}>Engineering expertise tailored to your specific industry environment</h3>
-                <p className="text-txt-strong text-body-md mt-6 leading-relaxed font-normal">Every industry presents unique operational challenges. Our engineering solutions are designed to address these challenges while creating connected, intelligent, and resilient operations.</p>
-                <p className="text-body-sm text-txt-muted mt-5 leading-relaxed">Our engineering expertise supports organizations across a wide range of industrial sectors, providing digital solutions that optimize resources, improve efficiency, and support sustainable growth.</p>
+                <h3 className="text-txt-strong mt-2 tracking-tight font-extrabold leading-[1.1]" style={{ fontSize: 'clamp(2.25rem, 1.75rem + 1.2vw, 3rem)' }}>
+                  Engineering expertise tailored to your specific industry environment
+                </h3>
+                <p className="text-txt-strong text-body-md leading-relaxed font-normal">
+                  Every industry presents unique operational challenges. Our engineering solutions are designed to address these challenges while creating connected, intelligent, and resilient operations.
+                </p>
+
+                {/* Industries Miniature Cards Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                  <Link href="/industries/industrial-manufacturing" className="flex items-center gap-3 p-3 bg-white border border-line rounded-xl hover:border-brand hover:shadow-md transition-all group">
+                    <div className="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-brand/10 text-slate-600 group-hover:text-brand flex items-center justify-center transition-colors">
+                      <Factory className="w-4 h-4" />
+                    </div>
+                    <span className="text-xs font-bold text-txt-strong">Manufacturing</span>
+                    <ArrowRight className="w-3.5 h-3.5 ml-auto text-slate-300 group-hover:text-brand transition-colors" />
+                  </Link>
+
+                  <Link href="/industries/life-sciences" className="flex items-center gap-3 p-3 bg-white border border-line rounded-xl hover:border-brand hover:shadow-md transition-all group">
+                    <div className="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-brand/10 text-slate-600 group-hover:text-brand flex items-center justify-center transition-colors">
+                      <Globe className="w-4 h-4" />
+                    </div>
+                    <span className="text-xs font-bold text-txt-strong">Life Sciences</span>
+                    <ArrowRight className="w-3.5 h-3.5 ml-auto text-slate-300 group-hover:text-brand transition-colors" />
+                  </Link>
+
+                  <Link href="/industries/semiconductor" className="flex items-center gap-3 p-3 bg-white border border-line rounded-xl hover:border-brand hover:shadow-md transition-all group">
+                    <div className="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-brand/10 text-slate-600 group-hover:text-brand flex items-center justify-center transition-colors">
+                      <RefreshCw className="w-4 h-4" />
+                    </div>
+                    <span className="text-xs font-bold text-txt-strong">Semiconductor</span>
+                    <ArrowRight className="w-3.5 h-3.5 ml-auto text-slate-300 group-hover:text-brand transition-colors" />
+                  </Link>
+
+                  <Link href="/industries/food-beverages" className="flex items-center gap-3 p-3 bg-white border border-line rounded-xl hover:border-brand hover:shadow-md transition-all group">
+                    <div className="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-brand/10 text-slate-600 group-hover:text-brand flex items-center justify-center transition-colors">
+                      <Compass className="w-4 h-4" />
+                    </div>
+                    <span className="text-xs font-bold text-txt-strong">Food & Beverages</span>
+                    <ArrowRight className="w-3.5 h-3.5 ml-auto text-slate-300 group-hover:text-brand transition-colors" />
+                  </Link>
+
+                  <Link href="/industries/power-utilities" className="flex items-center gap-3 p-3 bg-white border border-line rounded-xl hover:border-brand hover:shadow-md transition-all group">
+                    <div className="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-brand/10 text-slate-600 group-hover:text-brand flex items-center justify-center transition-colors">
+                      <Wrench className="w-4 h-4" />
+                    </div>
+                    <span className="text-xs font-bold text-txt-strong">Power & Utilities</span>
+                    <ArrowRight className="w-3.5 h-3.5 ml-auto text-slate-300 group-hover:text-brand transition-colors" />
+                  </Link>
+
+                  <Link href="/industries/oil-gas" className="flex items-center gap-3 p-3 bg-white border border-line rounded-xl hover:border-brand hover:shadow-md transition-all group">
+                    <div className="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-brand/10 text-slate-600 group-hover:text-brand flex items-center justify-center transition-colors">
+                      <Headphones className="w-4 h-4" />
+                    </div>
+                    <span className="text-xs font-bold text-txt-strong">Oil & Gas</span>
+                    <ArrowRight className="w-3.5 h-3.5 ml-auto text-slate-300 group-hover:text-brand transition-colors" />
+                  </Link>
+                </div>
               </div>
+              
+              {/* Right Column: Image (lg:col-span-5) */}
               <div className="lg:col-span-5 order-1 lg:order-2">
-                <div className="relative rounded-[32px] overflow-hidden ring-1 ring-brand/10 shadow-2xl aspect-[4/5] hover:scale-[1.02] transition-transform duration-500">
+                <div className="relative rounded-[32px] overflow-hidden ring-1 ring-brand/10 shadow-2xl aspect-[4/5] hover:scale-[1.01] transition-transform duration-500 max-h-[460px]">
                   <Image src="/images/about/overview-industries.jpg" alt="Industries We Serve photography" fill className="object-cover" sizes="(min-width:1024px) 35vw, 100vw" />
                 </div>
               </div>
+
             </div>
           </div>
         </section>
@@ -175,8 +226,7 @@ export default function AboutOverviewPage() {
 
 
         {/* ============ COMMITMENT BAND ============ */}
-        <section className="relative overflow-hidden bg-mist min-h-[50vh] flex items-center py-14 md:py-20 text-center">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-brand/5 rounded-full blur-[100px] pointer-events-none z-0" />
+        <section className="relative overflow-hidden bg-mesh-glow-light bg-tech-grid min-h-[50vh] flex items-center py-14 md:py-20 text-center">
           <div className="relative z-10 max-w-[1000px] mx-auto px-gutter md:px-gutter-md w-full">
             <div className="text-brand text-[11px] font-extrabold uppercase tracking-widest">Our Commitment</div>
             <h3 className="text-txt-strong mt-6 font-extrabold leading-snug tracking-tight text-3xl md:text-4xl" style={{ fontSize: 'clamp(1.75rem, 1.4rem + 1vw, 2.25rem)' }}>By connecting operational technology, enterprise systems, and intelligent digital solutions, DHGsoft helps organizations transform complexity into opportunity and innovation into measurable business value.</h3>
@@ -184,29 +234,64 @@ export default function AboutOverviewPage() {
         </section>
         <div className="w-full h-px bg-line/60" />
 
-        {/* ============ CLOSING STATEMENT (Full bleed) ============ */}
-        <section className="relative min-h-[85vh] md:min-h-[90vh] bg-gradient-to-br from-ink to-[#1a1226] text-white overflow-hidden flex items-center text-left py-16 md:py-24">
-          <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
-          <div className="relative z-10 max-w-site mx-auto px-gutter md:px-gutter-md w-full">
-            <div className="max-w-[900px] space-y-6">
-              <div className="text-brand-hot text-[11px] font-extrabold uppercase tracking-widest">Closing Statement</div>
-              <h2 className="text-white mt-4 font-black tracking-tight leading-tight text-headline-xl">
-                Building the Future of Connected Industries
+        {/* ============ CLOSING STATEMENT (Centered Cinematic Layout) ============ */}
+        <section className="relative overflow-hidden text-center py-20 md:py-28 bg-mesh-glow-dark" id="closing">
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <Image
+              src="/images/about/overview-closing.jpg"
+              alt="DHGsoft connected industries digital transformation closing"
+              fill
+              className="object-cover opacity-50"
+              sizes="100vw"
+            />
+            {/* Extremely light vertical gradient to blend with the footer at the bottom, transparent at the top */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+            <div 
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] rounded-full opacity-[0.20]"
+              style={{
+                background: 'radial-gradient(circle, rgb(180 18 63) 0%, transparent 70%)',
+                filter: 'blur(100px)',
+              }}
+            />
+          </div>
+
+          <div className="relative z-10 max-w-site mx-auto px-gutter md:px-gutter-md w-full flex flex-col items-center">
+            <div className="max-w-3xl space-y-6 flex flex-col items-center">
+              
+              <div className="flex items-center gap-3">
+                <div className="h-px w-8 bg-brand-hot" />
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-hot">
+                  Closing Statement
+                </span>
+                <div className="h-px w-8 bg-brand-hot" />
+              </div>
+
+              <h2 className="text-white text-4xl sm:text-[3.5rem] lg:text-[4.2rem] font-black tracking-tight leading-[1.05] max-w-2xl text-center">
+                Building the Future
+                <br />
+                <span className="text-gradient-brand">of Connected Industries</span>
               </h2>
-              <p className="text-slate-300 text-body-md leading-relaxed max-w-[720px] font-medium">
+
+              <p className="text-slate-300 max-w-xl leading-relaxed text-body-md font-medium text-center">
                 Engineering is at the heart of everything we do. Together with our customers, partners, and engineering teams, we are shaping the future of intelligent industry.
               </p>
-              <div className="flex flex-wrap gap-4 pt-6">
+
+              <div className="pt-4 flex flex-wrap gap-4 items-center justify-center w-full">
                 <button
                   onClick={() => setIsContactOpen(true)}
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-brand font-semibold hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer text-base"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-brand text-white font-semibold hover:bg-brand-deep hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/25 transition-all duration-300 cursor-pointer text-base"
                 >
-                  Start a Conversation <ArrowRight className="w-4 h-4" />
+                  Start a Conversation
+                  <ArrowRight className="w-4 h-4" />
                 </button>
-                <Link href="/about" className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors text-base">
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/10 hover:border-white/40 transition-all duration-300 text-base"
+                >
                   Back to About
                 </Link>
               </div>
+
             </div>
           </div>
         </section>

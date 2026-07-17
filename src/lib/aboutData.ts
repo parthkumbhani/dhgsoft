@@ -99,10 +99,4 @@ export const locations: LocationItem[] = [
     phone: '+91 942 941 942 7', 
     email: 'hitesh.patel@dhgsoft.com' 
   },
-  { 
-    city: 'Pune, India',      
-    address: 'Mumbai – Pune Road, Dapodi, Pune - 411 012',       
-    phone: '+91 823 811 891 5', 
-    email: 'ankita.parikh@dhgsoft.com' 
-  },
 ];

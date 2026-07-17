@@ -23,11 +23,11 @@ export function Section({
   ...props
 }: SectionProps) {
   const bg =
-    variant === "mist"      ? "bg-mist"                                         :
-    variant === "ink"       ? "bg-ink text-white"                               :
-    variant === "brandTint" ? "bg-brand/5"                                      :
-    variant === "gradient"  ? "bg-gradient-to-r from-brand-hot to-brand-deep text-white" :
-                              "bg-white";
+    variant === "mist"      ? "bg-mist bg-tech-grid"                                         :
+    variant === "ink"       ? "bg-mesh-glow-dark bg-tech-grid text-white"                               :
+    variant === "brandTint" ? "bg-brand/5 bg-dot-matrix"                                      :
+    variant === "gradient"  ? "bg-gradient-to-r from-brand-hot to-brand-deep text-white bg-tech-grid" :
+                              "bg-mesh-glow-light bg-dot-matrix text-foreground";
 
   const py =
     size === "hero"    ? "py-sec-y-lg md:py-sec-y-lg"    :
@@ -53,5 +53,3 @@ export function Section({
     </motion.section>
   );
 }
-
-

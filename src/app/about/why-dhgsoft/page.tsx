@@ -50,7 +50,7 @@ export default function AboutWhydhgsoftPage() {
 
         
         {/* ============ FULL WIDTH IMAGE PANEL + GRID ============ */}
-        <section className="relative overflow-hidden bg-mist min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
+        <section className="relative overflow-hidden bg-mesh-glow-light bg-tech-grid min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
           <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full relative z-10">
             <div className="text-center max-w-[720px] mx-auto mb-10">
               <div className="text-brand text-[11px] font-extrabold uppercase tracking-widest">Core Strengths</div>
@@ -118,10 +118,7 @@ export default function AboutWhydhgsoftPage() {
         <div className="w-full h-px bg-line/60" />
 
         {/* ============ SPLIT IMAGE RIGHT ============ */}
-        <section className="relative overflow-hidden bg-white min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
-          <div className="absolute top-1/4 left-[5%] w-[350px] h-[350px] bg-brand/5 rounded-full blur-[110px] pointer-events-none z-0" />
-          <div className="absolute bottom-1/4 right-[5%] w-[350px] h-[350px] bg-brand-hot/5 rounded-full blur-[110px] pointer-events-none z-0" />
-          
+        <section className="relative overflow-hidden bg-mesh-glow-light bg-dot-matrix min-h-[85vh] md:min-h-[90vh] flex items-center py-16 md:py-24">
           <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
               <div className="lg:col-span-7 text-left order-2 lg:order-1 space-y-6">
@@ -148,8 +145,7 @@ export default function AboutWhydhgsoftPage() {
 
 
         {/* ============ COMMITMENT BAND ============ */}
-        <section className="relative overflow-hidden bg-mist min-h-[50vh] flex items-center py-14 md:py-20 text-center">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-brand/5 rounded-full blur-[100px] pointer-events-none z-0" />
+        <section className="relative overflow-hidden bg-mesh-glow-light bg-tech-grid min-h-[50vh] flex items-center py-14 md:py-20 text-center">
           <div className="relative z-10 max-w-[1000px] mx-auto px-gutter md:px-gutter-md w-full">
             <div className="text-brand text-[11px] font-extrabold uppercase tracking-widest">Our Commitment</div>
             <h3 className="text-txt-strong mt-6 font-extrabold leading-snug tracking-tight text-3xl md:text-4xl" style={{ fontSize: 'clamp(1.75rem, 1.4rem + 1vw, 2.25rem)' }}>We bring deep industry expertise, technology excellence, and a customer-centric delivery model to every engagement.</h3>
@@ -158,8 +154,7 @@ export default function AboutWhydhgsoftPage() {
         <div className="w-full h-px bg-line/60" />
 
         {/* ============ CLOSING STATEMENT (Full bleed) ============ */}
-        <section className="relative min-h-[85vh] md:min-h-[90vh] bg-gradient-to-br from-ink to-[#1a1226] text-white overflow-hidden flex items-center text-left py-16 md:py-24">
-          <div className="absolute inset-0 bg-tech-grid opacity-10 pointer-events-none" />
+        <section className="relative min-h-[85vh] md:min-h-[90vh] bg-mesh-glow-dark bg-tech-grid text-white overflow-hidden flex items-center text-left py-16 md:py-24">
           <div className="relative z-10 max-w-site mx-auto px-gutter md:px-gutter-md w-full">
             <div className="max-w-[900px] space-y-6">
               <div className="text-brand-hot text-[11px] font-extrabold uppercase tracking-widest">Closing Statement</div>
