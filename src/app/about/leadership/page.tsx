@@ -50,7 +50,7 @@ export default function AboutLeadershipPage() {
 
         
         {/* ============ LEADERSHIP PHILOSOPHY ============ */}
-        <section className="relative overflow-hidden bg-white py-16 md:py-20 border-b border-line bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px]">
+        <section className="relative overflow-hidden bg-white py-16 md:py-20 border-b border-line">
           <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
               
@@ -66,38 +66,38 @@ export default function AboutLeadershipPage() {
                 <h3 className="text-txt-strong mt-2 tracking-tight font-extrabold leading-[1.1] text-3xl md:text-4xl lg:text-5xl" style={{ fontSize: 'clamp(2rem, 1.6rem + 1vw, 2.5rem)' }}>
                   Technology alone does not transform businesses.
                 </h3>
-                <p className="text-txt-muted text-body-md mt-4 leading-relaxed">
+                <p className="text-txt-muted text-body-sm leading-relaxed">
                   People, engineering expertise, collaboration, and continuous innovation create meaningful and sustainable change. Our leadership philosophy reflects a commitment to long-term partnerships, technical excellence, and measurable customer success.
                 </p>
 
                 {/* Structured Value Checklist to fill space cleanly */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-line mt-6">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-brand shrink-0 mt-0.5" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-5 border-t border-line mt-4">
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle className="w-4.5 h-4.5 text-brand shrink-0 mt-0.5" />
                     <div>
                       <span className="text-txt-strong font-bold text-sm block">Empowering Teams</span>
-                      <span className="text-xs text-txt-muted">Fostering collaboration across engineering disciplines.</span>
+                      <span className="text-xs text-txt-muted leading-tight">Fostering collaboration across engineering disciplines.</span>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-brand shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle className="w-4.5 h-4.5 text-brand shrink-0 mt-0.5" />
                     <div>
                       <span className="text-txt-strong font-bold text-sm block">Standard Compliance</span>
-                      <span className="text-xs text-txt-muted">Upholding ISA-95 & ISA-88 integration standards.</span>
+                      <span className="text-xs text-txt-muted leading-tight">Upholding ISA-95 & ISA-88 integration standards.</span>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-brand shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle className="w-4.5 h-4.5 text-brand shrink-0 mt-0.5" />
                     <div>
                       <span className="text-txt-strong font-bold text-sm block">Value Driven</span>
-                      <span className="text-xs text-txt-muted">Aligning digital strategy directly to operational goals.</span>
+                      <span className="text-xs text-txt-muted leading-tight">Aligning digital strategy directly to operational goals.</span>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-brand shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle className="w-4.5 h-4.5 text-brand shrink-0 mt-0.5" />
                     <div>
                       <span className="text-txt-strong font-bold text-sm block">Continuous Learning</span>
-                      <span className="text-xs text-txt-muted">Adapting to evolving IT/OT platforms.</span>
+                      <span className="text-xs text-txt-muted leading-tight">Adapting to evolving IT/OT platforms.</span>
                     </div>
                   </div>
                 </div>
@@ -105,7 +105,7 @@ export default function AboutLeadershipPage() {
 
               {/* Right Column: Image */}
               <div className="lg:col-span-5 order-1 lg:order-2">
-                <div className="relative rounded-[24px] overflow-hidden border border-line shadow-lg aspect-[4/3] hover:scale-[1.01] transition-transform duration-500 max-h-[340px]">
+                <div className="relative rounded-[24px] overflow-hidden border border-line shadow-lg aspect-[4/3] max-h-[340px] w-full">
                   <Image src="/images/about/leadership-philosophy.jpg" alt="Leadership Philosophy photography" fill className="object-cover" sizes="(min-width:1024px) 35vw, 100vw" />
                 </div>
               </div>
@@ -115,25 +115,25 @@ export default function AboutLeadershipPage() {
         </section>
 
         {/* ============ CEO SECTION ============ */}
-        <section className="relative overflow-hidden bg-slate-50/60 py-16 md:py-20 border-b border-line bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px]">
+        <section className="relative overflow-hidden bg-slate-50/60 py-16 md:py-20 border-b border-line">
           <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
               
               {/* Left Column: Photo */}
-              <div className="lg:col-span-4">
-                <div className="relative rounded-[24px] overflow-hidden border border-line shadow-lg aspect-[4/5] bg-gradient-to-br from-ink to-[#1a1226] max-h-[420px]">
-                  <Image src="/CEO_nobg_clean.png" alt="Hitesh Patel photo" fill className="object-cover object-top hover:scale-[1.01] transition-transform duration-500" sizes="(min-width:1024px) 30vw, 100vw" />
+              <div className="lg:col-span-4 flex justify-center">
+                <div className="relative rounded-[24px] overflow-hidden border border-line shadow-lg aspect-[4/5] bg-gradient-to-br from-ink to-[#1a1226] max-h-[420px] w-full max-w-[320px]">
+                  <Image src="/CEO_nobg_clean.png" alt="Hitesh Patel photo" fill className="object-cover object-top" sizes="(min-width:1024px) 30vw, 100vw" />
                 </div>
               </div>
 
               {/* Right Column: Profile Info */}
-              <div className="lg:col-span-8 text-left space-y-6">
+              <div className="lg:col-span-8 text-left space-y-5">
                 <div className="text-brand text-xs font-bold uppercase tracking-widest">Chief Executive Officer</div>
-                <h2 className="text-txt-strong mt-2 font-extrabold tracking-tight leading-[1.1] text-3xl md:text-4xl" style={{ fontSize: 'clamp(2rem, 1.6rem + 1vw, 2.5rem)' }}>
+                <h2 className="text-txt-strong mt-2 font-extrabold tracking-tight leading-[1.1] text-3xl md:text-4xl lg:text-5xl" style={{ fontSize: 'clamp(2rem, 1.6rem + 1vw, 2.5rem)' }}>
                   Hitesh Patel
                 </h2>
                 
-                <div className="pl-6 border-l-4 border-brand bg-white p-6 rounded-r-[16px] border border-line border-l-0 shadow-sm mt-4">
+                <div className="pl-6 border-l-4 border-brand bg-white p-5 rounded-r-[16px] border border-line border-l-0 shadow-sm mt-4">
                   <p className="text-txt-strong italic font-serif leading-relaxed text-base md:text-lg">
                     "Digital transformation is not about implementing technology. It is about connecting operations, data, and intelligence to create measurable business value."
                   </p>
@@ -144,18 +144,18 @@ export default function AboutLeadershipPage() {
                 </p>
                 
                 {/* Horizontal Stat Bar */}
-                <div className="grid grid-cols-3 gap-4 pt-6 border-t border-line mt-6 max-w-lg">
+                <div className="grid grid-cols-3 gap-6 pt-5 border-t border-line mt-5 max-w-md">
                   <div>
                     <span className="text-brand text-2xl font-black block">20+</span>
-                    <span className="text-[10px] text-txt-muted font-bold uppercase tracking-wider mt-0.5 block">Years OT/IT Exp</span>
+                    <span className="text-[10px] text-txt-muted font-bold uppercase tracking-wider block">Years OT/IT Exp</span>
                   </div>
                   <div>
                     <span className="text-brand text-2xl font-black block">50+</span>
-                    <span className="text-[10px] text-txt-muted font-bold uppercase tracking-wider mt-0.5 block">Transformations</span>
+                    <span className="text-[10px] text-txt-muted font-bold uppercase tracking-wider block">Transformations</span>
                   </div>
                   <div>
                     <span className="text-brand text-2xl font-black block">100%</span>
-                    <span className="text-[10px] text-txt-muted font-bold uppercase tracking-wider mt-0.5 block">Engineering Focus</span>
+                    <span className="text-[10px] text-txt-muted font-bold uppercase tracking-wider block">Engineering Focus</span>
                   </div>
                 </div>
               </div>
@@ -164,45 +164,44 @@ export default function AboutLeadershipPage() {
           </div>
         </section>
 
-        {/* ============ EXECUTIVE LEADERSHIP ============ */}
-        <section className="relative overflow-hidden bg-white py-16 md:py-20 border-b border-line bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px]">
+        <section className="relative overflow-hidden bg-white py-16 md:py-20 border-b border-line">
           <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full relative z-10">
             
             {/* Centered Header */}
             <div className="text-center max-w-xl mx-auto mb-12">
               <span className="text-brand text-xs font-bold uppercase tracking-widest block">Executive Leadership</span>
-              <h3 className="text-txt-strong mt-3 tracking-tight font-extrabold text-2xl md:text-3xl">The Team Behind Our Success</h3>
+              <h3 className="text-txt-strong mt-2 tracking-tight font-extrabold text-3xl md:text-4xl">The Team Behind Our Success</h3>
               <p className="text-body-sm text-txt-muted mt-2 leading-relaxed">Our leadership team combines deep technical expertise with strategic vision, guiding DHGsoft in executing world-class solutions.</p>
               <div className="w-12 h-1 bg-brand rounded-full mt-4 mx-auto" />
             </div>
 
             {/* 3-Column Roles Row */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               
-              <div className="group card bg-white border border-line rounded-[24px] p-6 hover:border-brand hover:shadow-lg transition-all text-left flex flex-col justify-start relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-[3px] bg-brand scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+              <div className="group card bg-white border border-line rounded-[24px] p-6 shadow-sm hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-[4px] bg-brand scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                 <div className="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-5">
                   <Cpu className="w-5 h-5" />
                 </div>
-                <h4 className="text-txt-strong font-bold text-lg leading-snug">Chief Technology Officer</h4>
+                <h4 className="text-txt-strong font-bold text-lg md:text-xl leading-snug">Chief Technology Officer</h4>
                 <p className="text-body-sm text-txt-muted mt-2 leading-relaxed">Leading technology strategy, digital innovation, industrial platforms, and enterprise architecture to deliver scalable engineering solutions.</p>
               </div>
 
-              <div className="group card bg-white border border-line rounded-[24px] p-6 hover:border-brand hover:shadow-lg transition-all text-left flex flex-col justify-start relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-[3px] bg-brand scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+              <div className="group card bg-white border border-line rounded-[24px] p-6 shadow-sm hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-[4px] bg-brand scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                 <div className="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-5">
                   <Settings2 className="w-5 h-5" />
                 </div>
-                <h4 className="text-txt-strong font-bold text-lg leading-snug">Vice President – Engineering</h4>
+                <h4 className="text-txt-strong font-bold text-lg md:text-xl leading-snug">Vice President – Engineering</h4>
                 <p className="text-body-sm text-txt-muted mt-2 leading-relaxed">Driving engineering excellence, project delivery, solution implementation, and operational quality across industrial transformation initiatives.</p>
               </div>
 
-              <div className="group card bg-white border border-line rounded-[24px] p-6 hover:border-brand hover:shadow-lg transition-all text-left flex flex-col justify-start relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-[3px] bg-brand scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+              <div className="group card bg-white border border-line rounded-[24px] p-6 shadow-sm hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-[4px] bg-brand scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                 <div className="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-5">
                   <Briefcase className="w-5 h-5" />
                 </div>
-                <h4 className="text-txt-strong font-bold text-lg leading-snug">Head of Delivery</h4>
+                <h4 className="text-txt-strong font-bold text-lg md:text-xl leading-snug">Head of Delivery</h4>
                 <p className="text-body-sm text-txt-muted mt-2 leading-relaxed">Ensuring successful execution of customer engagements through efficient project management, technical leadership, and continuous operational improvement.</p>
               </div>
 
@@ -212,72 +211,73 @@ export default function AboutLeadershipPage() {
         </section>
 
         {/* ============ LEADERSHIP PRINCIPLES ============ */}
-        <section className="relative overflow-hidden bg-white py-16 md:py-20 border-b border-line bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px]">
+        <section className="relative overflow-hidden bg-white py-16 md:py-20 border-b border-line">
           <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full relative z-10">
             <div className="text-center max-w-[720px] mx-auto mb-10">
               <span className="text-brand text-xs font-bold uppercase tracking-widest block">Leadership Principles</span>
+              <h3 className="text-txt-strong mt-2 tracking-tight font-extrabold text-3xl md:text-4xl">Our Core Principles</h3>
               <div className="w-12 h-1 bg-brand rounded-full mt-3 mx-auto" />
             </div>
             
-            <div className="relative rounded-[24px] overflow-hidden aspect-[21/9] mb-10 shadow-md max-h-[280px] border border-line">
+            <div className="relative rounded-[24px] overflow-hidden aspect-[21/9] mb-10 shadow-md max-h-[300px] border border-line">
               <Image src="/images/about/leadership-principles.jpg" alt="Leadership Principles setup" fill className="object-cover" sizes="100vw" />
               <div className="absolute inset-0 bg-ink/10" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               
-              <div className="group card bg-white border border-line rounded-xl p-5 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start relative overflow-hidden">
+              <div className="group card bg-white border border-line rounded-xl p-6 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start relative overflow-hidden">
                 <span className="absolute right-4 bottom-1 text-3xl font-mono font-black text-slate-100 group-hover:text-brand/10 transition-colors pointer-events-none select-none">01</span>
                 <div className="w-9 h-9 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-4">
                   <Lightbulb className="w-4.5 h-4.5" />
                 </div>
                 <h4 className="text-txt-strong font-bold text-base leading-snug">Innovation</h4>
-                <p className="text-body-sm text-txt-muted mt-1 leading-relaxed">Embracing change and leading-edge technology solutions.</p>
+                <p className="text-xs text-txt-muted mt-1 leading-relaxed">Embracing change and leading-edge technology solutions.</p>
               </div>
 
-              <div className="group card bg-white border border-line rounded-xl p-5 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start relative overflow-hidden">
+              <div className="group card bg-white border border-line rounded-xl p-6 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start relative overflow-hidden">
                 <span className="absolute right-4 bottom-1 text-3xl font-mono font-black text-slate-100 group-hover:text-brand/10 transition-colors pointer-events-none select-none">02</span>
                 <div className="w-9 h-9 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-4">
                   <CheckCircle className="w-4.5 h-4.5" />
                 </div>
                 <h4 className="text-txt-strong font-bold text-base leading-snug">Engineering Excellence</h4>
-                <p className="text-body-sm text-txt-muted mt-1 leading-relaxed">Delivering high precision and premium quality.</p>
+                <p className="text-xs text-txt-muted mt-1 leading-relaxed">Delivering high precision and premium quality solutions.</p>
               </div>
 
-              <div className="group card bg-white border border-line rounded-xl p-5 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start relative overflow-hidden">
+              <div className="group card bg-white border border-line rounded-xl p-6 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start relative overflow-hidden">
                 <span className="absolute right-4 bottom-1 text-3xl font-mono font-black text-slate-100 group-hover:text-brand/10 transition-colors pointer-events-none select-none">03</span>
                 <div className="w-9 h-9 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-4">
                   <Target className="w-4.5 h-4.5" />
                 </div>
                 <h4 className="text-txt-strong font-bold text-base leading-snug">Customer Success</h4>
-                <p className="text-body-sm text-txt-muted mt-1 leading-relaxed">Aligning technology directly with business goals.</p>
+                <p className="text-xs text-txt-muted mt-1 leading-relaxed">Aligning technology directly with our clients' business goals.</p>
               </div>
 
-              <div className="group card bg-white border border-line rounded-xl p-5 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start relative overflow-hidden">
+              <div className="group card bg-white border border-line rounded-xl p-6 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start relative overflow-hidden">
                 <span className="absolute right-4 bottom-1 text-3xl font-mono font-black text-slate-100 group-hover:text-brand/10 transition-colors pointer-events-none select-none">04</span>
                 <div className="w-9 h-9 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-4">
                   <Users className="w-4.5 h-4.5" />
                 </div>
                 <h4 className="text-txt-strong font-bold text-base leading-snug">Collaboration</h4>
-                <p className="text-body-sm text-txt-muted mt-1 leading-relaxed">Co-innovating with clients and OEM partners.</p>
+                <p className="text-xs text-txt-muted mt-1 leading-relaxed">Co-innovating with clients and OEM industry leaders.</p>
               </div>
 
-              <div className="group card bg-white border border-line rounded-xl p-5 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start relative overflow-hidden">
+              <div className="group card bg-white border border-line rounded-xl p-6 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start relative overflow-hidden">
                 <span className="absolute right-4 bottom-1 text-3xl font-mono font-black text-slate-100 group-hover:text-brand/10 transition-colors pointer-events-none select-none">05</span>
                 <div className="w-9 h-9 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-4">
                   <FileText className="w-4.5 h-4.5" />
                 </div>
                 <h4 className="text-txt-strong font-bold text-base leading-snug">Accountability</h4>
-                <p className="text-body-sm text-txt-muted mt-1 leading-relaxed">Taking absolute ownership from concept to commissioning.</p>
+                <p className="text-xs text-txt-muted mt-1 leading-relaxed">Taking absolute ownership from concept to commissioning.</p>
               </div>
 
-              <div className="group card bg-white border border-line rounded-xl p-5 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start relative overflow-hidden">
+              <div className="group card bg-white border border-line rounded-xl p-6 hover:border-brand hover:shadow-md transition-all text-left flex flex-col justify-start relative overflow-hidden">
                 <span className="absolute right-4 bottom-1 text-3xl font-mono font-black text-slate-100 group-hover:text-brand/10 transition-colors pointer-events-none select-none">06</span>
                 <div className="w-9 h-9 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0 mb-4">
                   <BookOpen className="w-4.5 h-4.5" />
                 </div>
                 <h4 className="text-txt-strong font-bold text-base leading-snug">Continuous Learning</h4>
-                <p className="text-body-sm text-txt-muted mt-1 leading-relaxed">Staying ahead of emerging OT/IT standards.</p>
+                <p className="text-xs text-txt-muted mt-1 leading-relaxed">Staying ahead of emerging global OT/IT standards.</p>
               </div>
 
             </div>
@@ -286,21 +286,21 @@ export default function AboutLeadershipPage() {
         <div className="w-full h-px bg-line/60" />
 
         {/* ============ COMMITMENT BAND (Horizontal Layout Row - Zero Space Gaps) ============ */}
-        <section className="relative overflow-hidden bg-slate-50/60 py-12 border-b border-line bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px]">
+        <section className="relative overflow-hidden bg-slate-50/60 py-12 border-b border-line">
           <div className="max-w-site mx-auto px-gutter md:px-gutter-md w-full relative z-10">
             <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-12 justify-between">
               
               {/* Left Side: Category Tag */}
               <div className="lg:w-1/4 flex items-center gap-3 shrink-0">
-                <div className="w-8 h-8 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0">
-                  <Target className="w-4.5 h-4.5" />
+                <div className="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0">
+                  <Target className="w-5 h-5" />
                 </div>
                 <span className="text-brand text-xs font-bold uppercase tracking-widest">Our Commitment</span>
               </div>
 
               {/* Right Side: Simple High-Contrast Quote Block */}
               <div className="lg:w-3/4 text-left border-l-2 border-slate-300 lg:pl-8">
-                <h3 className="text-txt-strong font-bold leading-snug text-lg md:text-xl lg:text-2xl">
+                <h3 className="text-txt-strong font-bold leading-snug text-xl md:text-2xl lg:text-[26px]">
                   "Our leaders work alongside customers, engineering teams, and technology partners to solve complex industrial challenges while creating sustainable business value."
                 </h3>
               </div>
