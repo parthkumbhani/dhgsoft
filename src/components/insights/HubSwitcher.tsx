@@ -5,7 +5,7 @@ import React from "react";
 import Link from "next/link";
 
 interface HubSwitcherProps {
-  activeHub: "ai-automation" | "technology-ecosystem" | "case-studies";
+  activeHub?: "ai-automation" | "technology-ecosystem" | "case-studies" | "newsroom";
 }
 
 const hubs = [

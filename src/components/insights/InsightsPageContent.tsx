@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import HubSwitcher from "./HubSwitcher";
 import { Hero } from "@/components/insights/01_Hero";
 import { Introduction } from "@/components/insights/02_Introduction";
 import { ImageBandOne } from "@/components/insights/02b_ImageBand";
@@ -15,6 +16,8 @@ import { ClosingCta } from "@/components/insights/10_ClosingCta";
 export default function InsightsPageContent() {
   return (
     <div className="w-full">
+      {/* Sticky Switcher bar removed */}
+
       {/* 1. Hero */}
       <Hero />
 

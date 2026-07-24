@@ -328,6 +328,9 @@ export default function Header({ onContactClick }: HeaderProps) {
                       <Link href="/insights/case-studies" className="text-sm font-semibold text-slate-800 hover:text-primary py-1 block transition-colors">
                         Enterprise Case Studies
                       </Link>
+                      <Link href="/newsroom" className="text-sm font-semibold text-slate-800 hover:text-primary py-1 block transition-colors">
+                        News &amp; Press
+                      </Link>
                     </div>
                     <div className="border-l border-slate-100 pl-6 flex flex-col justify-between">
                       <div className="text-xs text-slate-500 leading-relaxed">
@@ -587,6 +590,9 @@ export default function Header({ onContactClick }: HeaderProps) {
                       </Link>
                       <Link href="/insights/case-studies" onClick={() => setMobileOpen(false)} className="text-xs text-slate-700 font-medium block py-1 hover:text-primary transition-colors">
                         Enterprise Case Studies
+                      </Link>
+                      <Link href="/newsroom" onClick={() => setMobileOpen(false)} className="text-xs text-slate-700 font-medium block py-1 hover:text-primary transition-colors">
+                        News &amp; Press
                       </Link>
                     </AccordionContent>
                   </AccordionItem>

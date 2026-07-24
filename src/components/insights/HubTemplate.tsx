@@ -57,8 +57,7 @@ export default function HubTemplate({
 
   return (
     <div className="relative">
-      {/* Sticky Switcher just below Header */}
-      <HubSwitcher activeHub={hub} />
+      {/* Sticky Switcher bar removed */}
 
       {/* Hero Header Block */}
       <Section variant="ink" containerSize="wide" className="relative overflow-hidden border-b border-slate-900">

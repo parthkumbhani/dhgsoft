@@ -273,14 +273,13 @@ export default function AboutVisionmissionvaluesPage() {
           </div>
         </section>
 
-        {/* ============ CLOSING STATEMENT (Centered Cinematic Layout) ============ */}
-        <section className="relative overflow-hidden text-center py-20 md:py-28 bg-mesh-glow-dark" id="closing">
+        <section className="relative overflow-hidden text-center min-h-[85vh] md:min-h-[90vh] flex items-center py-20 md:py-28 bg-mesh-glow-dark" id="closing">
           <div className="absolute inset-0 z-0 pointer-events-none">
             <Image
-              src="/images/about/about-closing.jpg"
+              src="/images/about/vision-purpose.jpg"
               alt="DHGsoft vision engineering tomorrow with purpose closing"
               fill
-              className="object-cover opacity-50"
+              className="object-cover opacity-45"
               sizes="100vw"
             />
             {/* Extremely light vertical gradient to blend with the footer at the bottom, transparent at the top */}

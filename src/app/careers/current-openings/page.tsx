@@ -1,7 +1,7 @@
 // src/app/careers/current-openings/page.tsx
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ChevronRight, ArrowRight, Briefcase, Search, MapPin, Clock } from "lucide-react";
 import Header from "@/components/Header";
@@ -9,17 +9,29 @@ import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
 import { Section } from "@/components/ui/Section";
 import CtaBand from "@/components/careers/CtaBand";
-import { SAMPLE_JOBS } from "@/lib/careers";
+import { getJobs, JobPosition } from "@/lib/data-store";
 import { employeeBenefits, hiringJourney } from "@/lib/careersData";
 
 export default function CurrentOpeningsPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDept, setSelectedDept] = useState("All");
+  const [jobs, setJobs] = useState<JobPosition[]>([]);
+
+  useEffect(() => {
+    setJobs(getJobs());
+    const handleJobsUpdate = () => {
+      setJobs(getJobs());
+    };
+    window.addEventListener("dhg_jobs_updated", handleJobsUpdate);
+    return () => {
+      window.removeEventListener("dhg_jobs_updated", handleJobsUpdate);
+    };
+  }, []);
 
   const departments = ["All", "Engineering", "Architecture", "Consulting", "Data & AI", "Cybersecurity", "Delivery"];
 
-  const filteredJobs = SAMPLE_JOBS.filter((job) => {
+  const filteredJobs = jobs.filter((job) => {
     const matchesSearch = job.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           job.blurb.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesDept = selectedDept === "All" || job.department === selectedDept;

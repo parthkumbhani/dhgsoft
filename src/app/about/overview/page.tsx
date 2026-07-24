@@ -235,7 +235,7 @@ export default function AboutOverviewPage() {
         <div className="w-full h-px bg-line/60" />
 
         {/* ============ CLOSING STATEMENT (Centered Cinematic Layout) ============ */}
-        <section className="relative overflow-hidden text-center py-20 md:py-28 bg-mesh-glow-dark" id="closing">
+        <section className="relative overflow-hidden text-center min-h-[85vh] md:min-h-[90vh] flex items-center py-20 md:py-28 bg-mesh-glow-dark" id="closing">
           <div className="absolute inset-0 z-0 pointer-events-none">
             <Image
               src="/images/about/overview-closing.jpg"
