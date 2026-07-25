@@ -182,9 +182,28 @@ const PhoenixContactLogo = ({ className = "h-12 w-auto" }: LogoProps) => (
   </svg>
 )
 
-/* ═══════════════════════════════════════════════════════════════
-   PARTNERS DATA
-   ═══════════════════════════════════════════════════════════════ */
+import { getPartners, EcosystemPartner } from "@/lib/data-store"
+
+function getDomainIcon(category: string): LucideIcon {
+  switch (category) {
+    case "Automation": return Cpu;
+    case "Cloud": return Cloud;
+    case "Hardware": return Zap;
+    default: return Server;
+  }
+}
+
+function getLogoComponent(id: string): React.ComponentType<{ className?: string }> {
+  switch (id) {
+    case "schneider-electric": return SchneiderLogo;
+    case "aveva": return AvevaLogo;
+    case "aws": return AwsLogo;
+    case "databricks": return DatabricksLogo;
+    case "azure": return AzureLogo;
+    case "phoenix-contact": return PhoenixContactLogo;
+    default: return () => null;
+  }
+}
 
 interface PartnerItem {
   name: string
@@ -193,71 +212,51 @@ interface PartnerItem {
   domainIcon: LucideIcon
   capabilityTitle: string
   desc: string
+  websiteUrl?: string
 }
-
-const PARTNERS_DATA: PartnerItem[] = [
-  {
-    name: "Schneider Electric",
-    logo: SchneiderLogo,
-    logoSrc: "/logos/schneider-electric.svg",
-    domainIcon: Cpu,
-    capabilityTitle: "Industrial Automation",
-    desc: "Deploy smart factory systems with high PLC and SCADA integration."
-  },
-  {
-    name: "AVEVA",
-    logo: AvevaLogo,
-    logoSrc: "/logos/aveva.svg",
-    domainIcon: Layers,
-    capabilityTitle: "Digital Twin & Industrial Software",
-    desc: "Real-time engineering visualization and SCADA intelligence."
-  },
-  {
-    name: "AWS",
-    logo: AwsLogo,
-    logoSrc: "/logos/aws.svg",
-    domainIcon: Cloud,
-    capabilityTitle: "Industrial Cloud & AI Infrastructure",
-    desc: "Industrial cloud platforms, high-capacity IoT pipelines, and generative AI."
-  },
-  {
-    name: "Databricks",
-    logo: DatabricksLogo,
-    logoSrc: "/logos/databricks.svg",
-    domainIcon: Database,
-    capabilityTitle: "Industrial Data Intelligence",
-    desc: "Unified analytics lakehouse for processing manufacturing telemetry."
-  },
-  {
-    name: "Microsoft Azure",
-    logo: AzureLogo,
-    logoSrc: "/logos/microsoft-azure.svg",
-    domainIcon: Server,
-    capabilityTitle: "Enterprise Cloud Platform",
-    desc: "Resilient enterprise hybrid cloud infrastructure and secure IoT."
-  },
-  {
-    name: "Phoenix Contact",
-    logo: PhoenixContactLogo,
-    logoSrc: "/logos/phoenix-contact.svg",
-    domainIcon: Zap,
-    capabilityTitle: "Industrial Connectivity",
-    desc: "Deploy surge protection, industrial ethernet switches, and terminal blocks."
-  }
-]
 
 interface TechEcosystemProps {
   onContactClick?: () => void
 }
 
 export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
+  // Initialize with real data immediately so N is stable from first render
+  // This prevents the React hooks order violation caused by N changing 1→6
+  const [partners, setPartners] = useState<EcosystemPartner[]>(() => {
+    if (typeof window !== 'undefined') return getPartners()
+    return []
+  })
+
+  useEffect(() => {
+    // Sync on mount in case localStorage has updated data
+    setPartners(getPartners())
+
+    const handleUpdate = () => {
+      setPartners(getPartners())
+    }
+    window.addEventListener("dhg_partners_updated", handleUpdate)
+    return () => window.removeEventListener("dhg_partners_updated", handleUpdate)
+  }, [])
+
+  const PARTNERS_DATA: PartnerItem[] = partners.map((p) => ({
+    name: p.name,
+    logo: getLogoComponent(p.id),
+    logoSrc: p.logoUrl || "",
+    domainIcon: getDomainIcon(p.category),
+    capabilityTitle: p.capabilityTitle || p.name,
+    desc: p.description,
+    websiteUrl: p.websiteUrl || ""
+  }))
+
+  const N = PARTNERS_DATA.length || 1
+
   const [activeIdx, setActiveIdx] = useState(2) // AWS is active by default
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null)
   const [windowWidth, setWindowWidth] = useState(1200)
 
   // Motion Values for continuous horizontal Coverflow slider index
   const activeIndex = useMotionValue(2) // Start at AWS index
-  const wrappedIndex = useTransform(activeIndex, (v) => ((v % 6) + 6) % 6)
+  const wrappedIndex = useTransform(activeIndex, (v) => ((v % N) + N) % N)
   const backgroundX = useMotionValue(0)
   const backgroundY = useMotionValue(0)
 
@@ -277,17 +276,17 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
     }
   }, [])
 
-  // Auto-rotate over 18 seconds for a complete loop (6 index steps)
+  // Auto-rotate over dynamic duration (3 seconds per card)
   const startAutoplay = (startFrom = activeIndex.get()) => {
     autoplayControlsRef.current?.stop()
     activeIndex.set(startFrom)
 
-    autoplayControlsRef.current = animate(activeIndex, startFrom + 6, {
+    autoplayControlsRef.current = animate(activeIndex, startFrom + N, {
       ease: "linear",
-      duration: 18,
+      duration: Math.max(6, 3 * N),
       repeat: Infinity,
       onUpdate: (latest) => {
-        const closestIdx = ((Math.round(latest) % 6) + 6) % 6
+        const closestIdx = ((Math.round(latest) % N) + N) % N
         if (closestIdx !== activeIdxRef.current) {
           activeIdxRef.current = closestIdx
           setActiveIdx(closestIdx)
@@ -297,12 +296,12 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
   }
 
   useEffect(() => {
-    startAutoplay(2) // AWS is index 2
+    startAutoplay(2) // Start autoplay
     return () => {
       autoplayControlsRef.current?.stop()
       if (timeoutRef.current) clearTimeout(timeoutRef.current)
     }
-  }, [])
+  }, [partners.length]) // restart autoplay if partner length changes
 
   const getSpacing = () => {
     if (windowWidth < 640) return 295   // mobile
@@ -335,14 +334,14 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
     isTransitioningRef.current = true
     const currentVal = activeIndex.get()
     const targetBase = clickedIdx
-    const m = Math.round((currentVal - targetBase) / 6)
-    const target = targetBase + m * 6
+    const m = Math.round((currentVal - targetBase) / N)
+    const target = targetBase + m * N
 
     autoplayControlsRef.current = animate(activeIndex, target, {
       duration: 0.8,
       ease: [0.22, 1, 0.36, 1],
       onUpdate: (latest) => {
-        const closestIdx = ((Math.round(latest) % 6) + 6) % 6
+        const closestIdx = ((Math.round(latest) % N) + N) % N
         if (closestIdx !== activeIdxRef.current) {
           activeIdxRef.current = closestIdx
           setActiveIdx(closestIdx)
@@ -371,7 +370,7 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
       duration: 0.8,
       ease: [0.22, 1, 0.36, 1],
       onUpdate: (latest) => {
-        const closestIdx = ((Math.round(latest) % 6) + 6) % 6
+        const closestIdx = ((Math.round(latest) % N) + N) % N
         if (closestIdx !== activeIdxRef.current) {
           activeIdxRef.current = closestIdx
           setActiveIdx(closestIdx)
@@ -726,6 +725,7 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
                   spacing={spacing}
                   hoveredIdx={hoveredIdx}
                   setHoveredIdx={setHoveredIdx}
+                  N={N}
                 />
               ))}
             </motion.div>
@@ -767,6 +767,7 @@ interface PartnerCardProps {
   spacing: number
   hoveredIdx: number | null
   setHoveredIdx: (idx: number | null) => void
+  N: number
 }
 
 function PartnerCard({
@@ -776,7 +777,8 @@ function PartnerCard({
   wrappedIndex,
   spacing,
   hoveredIdx,
-  setHoveredIdx
+  setHoveredIdx,
+  N
 }: PartnerCardProps) {
   const hoverOffset = useMotionValue(0)
   const hoverScale = useMotionValue(1.0)
@@ -807,11 +809,12 @@ function PartnerCard({
     }
   }, [])
 
-  // Continuous wrapped diff calculation in range [-3, 3]
+  // Continuous wrapped diff calculation in range [-N/2, N/2]
   const cardDiff = useTransform(wrappedIndex, (wrapped) => {
-    let diff = (index - (wrapped as number)) % 6
-    if (diff > 3) diff -= 6
-    if (diff < -3) diff += 6
+    let diff = (index - (wrapped as number)) % N
+    const half = N / 2
+    if (diff > half) diff -= N
+    if (diff < -half) diff += N
     return diff
   })
 
@@ -1047,11 +1050,14 @@ function PartnerCard({
           }}
           className="overflow-hidden w-full flex justify-center"
         >
-          <button
-            className="flex items-center justify-center text-[#C5165C] transition-all hover:scale-110 active:scale-95 duration-200 select-none p-2 rounded-full bg-slate-50 border border-slate-100/80 hover:bg-[#C5165C]/5 shadow-sm"
+          <a
+            href={partner.websiteUrl || "#"}
+            target={partner.websiteUrl ? "_blank" : undefined}
+            rel="noopener noreferrer"
+            className="flex items-center justify-center text-[#C5165C] transition-all hover:scale-110 active:scale-95 duration-200 select-none p-2 rounded-full bg-slate-50 border border-slate-100/80 hover:bg-[#C5165C]/5 shadow-sm pointer-events-auto"
           >
             <ArrowRight className="w-4.5 h-4.5" />
-          </button>
+          </a>
         </motion.div>
       </div>
     </motion.div>

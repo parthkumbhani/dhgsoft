@@ -120,6 +120,7 @@ export interface EcosystemPartner {
   name: string;
   category: "Automation" | "Cloud" | "Network & Safety" | "Hardware";
   logoUrl?: string;
+  capabilityTitle?: string;
   description: string;
   websiteUrl?: string;
 }
@@ -129,36 +130,55 @@ const INITIAL_PARTNERS: EcosystemPartner[] = [
     id: "schneider-electric",
     name: "Schneider Electric",
     category: "Automation",
-    description: "Alliances for PLC controllers, motor drives, and Modbus/Ethernet process loop sensors.",
+    logoUrl: "/logos/schneider-electric.svg",
+    capabilityTitle: "Industrial Automation",
+    description: "Deploy smart factory systems with high PLC and SCADA integration.",
     websiteUrl: "https://se.com"
   },
   {
     id: "aveva",
     name: "AVEVA",
     category: "Automation",
-    description: "Software engineering partner for system platform HMI layouts, history logs, and batch recipes.",
+    logoUrl: "/logos/aveva.svg",
+    capabilityTitle: "Digital Twin & Industrial Software",
+    description: "Real-time engineering visualization and SCADA intelligence.",
     websiteUrl: "https://aveva.com"
+  },
+  {
+    id: "aws",
+    name: "AWS",
+    category: "Cloud",
+    logoUrl: "/logos/aws.svg",
+    capabilityTitle: "Industrial Cloud & AI Infrastructure",
+    description: "Industrial cloud platforms, high-capacity IoT pipelines, and generative AI.",
+    websiteUrl: "https://aws.amazon.com"
   },
   {
     id: "databricks",
     name: "Databricks",
     category: "Cloud",
-    description: "Data intelligence lakehouse integration for deep learning operations and predictive maintenance analytics.",
+    logoUrl: "/logos/databricks.svg",
+    capabilityTitle: "Industrial Data Intelligence",
+    description: "Unified analytics lakehouse for processing manufacturing telemetry.",
     websiteUrl: "https://databricks.com"
   },
   {
-    id: "fortinet",
-    name: "Fortinet",
-    category: "Network & Safety",
-    description: "Industrial firewall devices and zero-trust OT DMZ zoning security controls.",
-    websiteUrl: "https://fortinet.com"
+    id: "azure",
+    name: "Microsoft Azure",
+    category: "Cloud",
+    logoUrl: "/logos/microsoft-azure.svg",
+    capabilityTitle: "Enterprise Cloud Platform",
+    description: "Resilient enterprise hybrid cloud infrastructure and secure IoT.",
+    websiteUrl: "https://azure.microsoft.com"
   },
   {
-    id: "moxa",
-    name: "MOXA",
+    id: "phoenix-contact",
+    name: "Phoenix Contact",
     category: "Hardware",
-    description: "Industrial ethernet switches, gateway routers, and media converter setups.",
-    websiteUrl: "https://moxa.com"
+    logoUrl: "/logos/phoenix-contact.svg",
+    capabilityTitle: "Industrial Connectivity",
+    description: "Deploy surge protection, industrial ethernet switches, and terminal blocks.",
+    websiteUrl: "https://phoenixcontact.com"
   }
 ];
 
@@ -214,7 +234,20 @@ export function getPartners(): EcosystemPartner[] {
     return INITIAL_PARTNERS;
   }
   try {
-    return JSON.parse(stored);
+    const parsed = JSON.parse(stored) as EcosystemPartner[];
+    const ids = parsed.map(p => p.id);
+    const expectedIds = ["schneider-electric", "aveva", "aws", "databricks", "azure", "phoenix-contact"];
+    
+    // Strict migration check: ensure all 6 default partners are present and have their logos
+    const needsMigration = 
+      expectedIds.some(id => !ids.includes(id)) || 
+      parsed.some(p => expectedIds.includes(p.id) && !p.logoUrl);
+
+    if (needsMigration) {
+      localStorage.setItem("dhg_ecosystem_partners", JSON.stringify(INITIAL_PARTNERS));
+      return INITIAL_PARTNERS;
+    }
+    return parsed;
   } catch (e) {
     return INITIAL_PARTNERS;
   }

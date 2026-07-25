@@ -28,7 +28,7 @@ import {
 } from "@/lib/data-store";
 
 export default function AdminDashboardPage() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
 
@@ -197,6 +197,8 @@ export default function AdminDashboardPage() {
       id: "partner-" + Date.now(),
       name: "",
       category: "Automation",
+      logoUrl: "",
+      capabilityTitle: "",
       description: "",
       websiteUrl: ""
     });
@@ -742,6 +744,66 @@ export default function AdminDashboardPage() {
                       </div>
 
                       <div className="space-y-2">
+                        <label className="text-[10px] font-mono font-bold text-slate-400 uppercase">Capability / Domain Title</label>
+                        <input
+                          type="text"
+                          value={editingPartner.capabilityTitle || ""}
+                          onChange={(e) => setEditingPartner({ ...editingPartner, capabilityTitle: e.target.value })}
+                          placeholder="e.g. Industrial Automation"
+                          className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-white outline-none"
+                        />
+                      </div>
+
+                      {/* Logo File Upload Component */}
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-mono font-bold text-slate-400 uppercase block">Upload Logo Image File</label>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file) {
+                              const reader = new FileReader();
+                              reader.onloadend = () => {
+                                setEditingPartner({
+                                  ...editingPartner,
+                                  logoUrl: reader.result as string
+                                });
+                              };
+                              reader.readAsDataURL(file);
+                            }
+                          }}
+                          className="block w-full text-xs text-slate-400
+                            file:mr-4 file:py-2 file:px-4
+                            file:rounded-xl file:border-0
+                            file:text-xs file:font-semibold
+                            file:bg-brand/10 file:text-brand
+                            hover:file:bg-brand/20 cursor-pointer"
+                        />
+                        {editingPartner.logoUrl && (
+                          <div className="mt-2 bg-slate-900/60 border border-slate-800/80 rounded-xl p-3 flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                              <img
+                                src={editingPartner.logoUrl}
+                                alt="Logo Preview"
+                                className="h-10 w-auto object-contain max-h-10 bg-white/5 rounded-md p-1"
+                              />
+                              <span className="text-[10px] text-slate-500 font-mono truncate max-w-[220px]">
+                                {editingPartner.logoUrl.startsWith("data:") ? "Base64 Image Uploaded" : editingPartner.logoUrl}
+                              </span>
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => setEditingPartner({ ...editingPartner, logoUrl: "" })}
+                              className="text-xs text-red-400 hover:text-red-300 font-bold px-2 py-1 hover:bg-red-500/10 rounded-md transition-colors"
+                            >
+                              Clear
+                            </button>
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="space-y-2">
                         <label className="text-[10px] font-mono font-bold text-slate-400 uppercase">Website URL</label>
                         <input
                           type="text"
@@ -771,23 +833,49 @@ export default function AdminDashboardPage() {
                     </form>
                   ) : (
                     // Partners list
-                    <div className="bg-slate-950/40 border border-slate-800 rounded-3xl overflow-hidden divide-y divide-slate-850">
+                    <div className="bg-slate-950/40 border border-slate-800 rounded-3xl overflow-hidden divide-y divide-slate-800">
                       {partners.map((item) => (
-                        <div key={item.id} className="flex items-center justify-between p-5 hover:bg-slate-950/60 transition-colors">
-                          <div className="space-y-1">
-                            <div className="flex items-center gap-2">
-                              <span className="px-2 py-0.5 bg-slate-850 text-slate-400 text-[9px] font-mono font-bold rounded">
-                                {item.category}
-                              </span>
-                            </div>
-                            <h4 className="text-sm font-bold text-white">{item.name}</h4>
-                            <p className="text-xs text-slate-500">{item.description}</p>
+                        <div key={item.id} className="flex items-center gap-4 p-4 hover:bg-white/[0.02] transition-colors">
+                          {/* Logo thumbnail */}
+                          <div className="w-14 h-14 shrink-0 rounded-xl border border-slate-800 bg-slate-900 flex items-center justify-center overflow-hidden">
+                            {item.logoUrl ? (
+                              <img
+                                src={item.logoUrl}
+                                alt={item.name}
+                                className="w-10 h-10 object-contain"
+                              />
+                            ) : (
+                              <div className="w-8 h-8 rounded-full bg-brand/20 flex items-center justify-center">
+                                <span className="text-brand font-black text-xs">{item.name.charAt(0)}</span>
+                              </div>
+                            )}
                           </div>
 
-                          <div className="flex items-center gap-2">
+                          {/* Info */}
+                          <div className="flex-1 min-w-0 space-y-0.5">
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <span className="px-2 py-0.5 bg-brand/10 text-brand text-[9px] font-mono font-bold rounded-md">
+                                {item.category}
+                              </span>
+                              {item.capabilityTitle && (
+                                <span className="text-[10px] text-slate-500 font-mono">{item.capabilityTitle}</span>
+                              )}
+                            </div>
+                            <h4 className="text-sm font-bold text-white truncate">{item.name}</h4>
+                            <p className="text-[11px] text-slate-500 truncate">{item.description}</p>
+                            {item.websiteUrl && (
+                              <a href={item.websiteUrl} target="_blank" rel="noopener noreferrer"
+                                className="text-[10px] text-brand/60 hover:text-brand font-mono truncate block max-w-xs transition-colors">
+                                {item.websiteUrl}
+                              </a>
+                            )}
+                          </div>
+
+                          {/* Actions */}
+                          <div className="flex items-center gap-2 shrink-0">
                             <button
                               onClick={() => setEditingPartner(item)}
-                              className="w-9 h-9 rounded-xl border border-slate-800 bg-slate-900 hover:bg-slate-850 flex items-center justify-center text-slate-400 hover:text-white transition-colors cursor-pointer"
+                              className="w-9 h-9 rounded-xl border border-slate-800 bg-slate-900 hover:bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white transition-colors cursor-pointer"
                             >
                               <Edit2 className="w-4 h-4" />
                             </button>

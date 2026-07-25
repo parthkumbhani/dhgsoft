@@ -7,7 +7,8 @@ import { ArrowRight, Brain, CheckCircle, Cloud, Cpu, Database, Factory, Settings
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactModal from '@/components/ContactModal';
-import TechEcosystem from '@/components/TechEcosystem';
+import dynamic from 'next/dynamic';
+const TechEcosystem = dynamic(() => import('@/components/TechEcosystem'), { ssr: false });
 
 export default function AboutTechnologypartnersPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
