@@ -273,9 +273,9 @@ export default function ServiceDelivery() {
       <div className="relative z-10 w-full">
         
         {/* ── Section Header ── */}
-        <div className="flex flex-col w-full text-left mb-14 lg:mb-18">
+        <div className="flex flex-col w-full text-left mb-10 lg:mb-14">
           <span
-            className="font-bold uppercase block mb-3 font-sans tracking-[0.25em]"
+            className="font-bold uppercase block mb-2.5 font-sans tracking-[0.25em]"
             style={{
               fontSize: 11,
               color: '#8C123B',
@@ -284,7 +284,7 @@ export default function ServiceDelivery() {
             DELIVERY EXCELLENCE
           </span>
           <h2
-            className="font-extrabold tracking-tight text-[#0F172A] mb-4 font-headline"
+            className="font-extrabold tracking-tight text-[#0F172A] mb-3 font-headline"
             style={{
               fontSize: 'clamp(28px, 3.2vw, 46px)',
               lineHeight: 1.1,
@@ -293,10 +293,10 @@ export default function ServiceDelivery() {
             From Strategy to Sustainable Business Outcomes
           </h2>
           <p
-            className="font-sans text-slate-600 max-w-[850px]"
+            className="font-sans text-slate-600 max-w-[1140px]"
             style={{
               fontSize: 15.5,
-              lineHeight: 1.7,
+              lineHeight: 1.65,
             }}
           >
             Our proven delivery framework guides organizations through every stage of digital transformation—from strategic planning and solution design to implementation, optimization, and continuous innovation. We combine domain expertise, engineering excellence, and industry best practices to deliver measurable business value while minimizing project risk.
@@ -315,7 +315,7 @@ export default function ServiceDelivery() {
             ]
           }}
           transition={premiumTransition}
-          className="relative w-full rounded-[30px] border border-[#ECECEC] bg-white/40 backdrop-blur-md p-6 lg:p-8 mb-12 overflow-hidden"
+          className="relative w-full rounded-[30px] border border-[#ECECEC] bg-white/40 backdrop-blur-md p-6 lg:p-8 mb-10 overflow-hidden"
         >
           {/* Subtle animated gradient line strictly on the top edge */}
           <div className="absolute top-0 left-0 right-0 h-[4px] overflow-hidden rounded-t-[30px] z-20">
@@ -446,7 +446,7 @@ export default function ServiceDelivery() {
             </div>
 
             {/* COLUMN 2: CENTER HERO IMAGE (38% Width on Desktop) - 100% BORDERLESS EDGE-TO-EDGE */}
-            <div className="w-full lg:w-[38%] relative overflow-hidden min-h-[460px] rounded-[24px] shadow-md border border-[#ECECEC] bg-[#0A0C14] flex flex-col justify-between z-10">
+            <div className="w-full lg:w-[38%] relative overflow-hidden min-h-[580px] rounded-[24px] shadow-md border border-[#ECECEC] bg-[#0A0C14] flex flex-col justify-between z-10">
               
               {/* Premium top border animation traveling once across top edge on transition */}
               <div className="absolute top-0 left-0 right-0 h-[3.5px] overflow-hidden z-20">
@@ -463,7 +463,7 @@ export default function ServiceDelivery() {
                 />
               </div>
 
-              {/* Seamless Edge-to-Edge Morphing Image - Zero White Borders */}
+              {/* Seamless Edge-to-Edge Morphing Image - Zero White Borders & Full Height Coverage */}
               <div className="absolute inset-0 w-full h-full overflow-hidden bg-[#0A0C14] rounded-[24px]">
                 <AnimatePresence mode="popLayout">
                   <motion.img
@@ -500,8 +500,8 @@ export default function ServiceDelivery() {
               </div>
             </div>
 
-            {/* COLUMN 3: RIGHT PREMIUM GLASS CONTENT PANEL (32% Width on Desktop) */}
-            <div className="w-full lg:w-[32%] p-6 flex flex-col justify-between relative bg-white/85 backdrop-blur-md rounded-[24px] border border-white/60 shadow-md overflow-hidden min-h-[500px] z-10">
+            {/* COLUMN 3: RIGHT PREMIUM GLASS CONTENT PANEL (32% Width on Desktop) - ZERO SCROLLBARS */}
+            <div className="w-full lg:w-[32%] p-6 flex flex-col justify-between relative bg-white/85 backdrop-blur-md rounded-[24px] border border-white/60 shadow-md overflow-hidden min-h-[580px] z-10">
               
               <AnimatePresence mode="wait">
                 <motion.div
@@ -521,12 +521,12 @@ export default function ServiceDelivery() {
                       {activeStage.desc}
                     </p>
 
-                    {/* Key Capabilities / Expected Outcomes Grid */}
+                    {/* Key Capabilities / Expected Outcomes Grid - ZERO SCROLLBAR */}
                     <div className="mb-4 text-left">
                       <h4 className="text-[11px] font-extrabold text-slate-800 tracking-wider uppercase mb-2">
                         {activeStage.capabilitiesHeader}
                       </h4>
-                      <div className="grid grid-cols-1 gap-1.5 max-h-[190px] overflow-y-auto pr-1 custom-scrollbar">
+                      <div className="grid grid-cols-1 gap-1.5">
                         {activeStage.capabilities.map((cap, cIdx) => (
                           <div key={cIdx} className="flex items-center gap-2 p-1.5 rounded-lg bg-slate-50 border border-slate-100 hover:bg-slate-100/80 transition-colors">
                             <Check className="w-3.5 h-3.5 text-[#8C123B] shrink-0" />
@@ -550,7 +550,7 @@ export default function ServiceDelivery() {
                   </div>
 
                   {/* CTA Button */}
-                  <div className="pt-2 text-left">
+                  <div className="pt-2 text-left mt-auto">
                     <motion.button
                       whileHover={{
                         y: -2,
@@ -581,20 +581,20 @@ export default function ServiceDelivery() {
           </div>
         </motion.div>
 
-        {/* ── Our Commitment Banner ── */}
-        <div className="w-full rounded-[22px] p-6 lg:p-8 bg-gradient-to-r from-[#0F172A] via-[#1E293B] to-[#0F172A] text-white border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg text-left">
-          <div className="max-w-[850px]">
+        {/* ── Our Commitment Banner — 1 Line on Desktop ── */}
+        <div className="w-full rounded-[22px] p-6 lg:py-5 lg:px-8 bg-gradient-to-r from-[#0F172A] via-[#1E293B] to-[#0F172A] text-white border border-slate-800 flex flex-col lg:flex-row items-center justify-between gap-4 shadow-lg text-left">
+          <div className="w-full lg:flex-1">
             <span className="text-amber-400 text-[11px] font-extrabold tracking-widest uppercase block mb-1">
               OUR COMMITMENT
             </span>
-            <p className="text-[14px] lg:text-[15px] text-slate-200 leading-relaxed font-sans">
+            <p className="text-[13.5px] lg:text-[14.5px] text-slate-200 leading-relaxed font-sans">
               From strategy through operations, DHGsoft delivers integrated digital transformation solutions that create measurable business outcomes, accelerate innovation, and establish long-term operational excellence.
             </p>
           </div>
           <motion.button
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
-            className="px-6 py-3 rounded-full bg-gradient-to-r from-[#8C123B] to-[#F59E0B] text-white font-bold text-[12px] tracking-wide shrink-0 shadow-md cursor-pointer"
+            className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#8C123B] to-[#F59E0B] text-white font-bold text-[12px] tracking-wide shrink-0 shadow-md cursor-pointer"
           >
             Start Transformation
           </motion.button>
