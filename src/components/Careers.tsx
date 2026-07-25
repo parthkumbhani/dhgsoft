@@ -120,7 +120,7 @@ export default function Careers() {
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
       variants={sectionVariants}
-      className="overflow-hidden border-t border-slate-200/60"
+      className="overflow-hidden border-t border-slate-200/60 min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-16 lg:py-24"
       style={{ background: '#FAFBFC' }}
     >
       {/* ── Subtle decorative background ── */}
@@ -210,7 +210,7 @@ export default function Careers() {
             </div>
 
             {/* Heading */}
-            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 leading-[1.15] tracking-tight mb-5">
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 leading-[1.15] tracking-tight mb-5 font-headline">
               Engineering Tomorrow,
               <br />
               <span
@@ -226,7 +226,7 @@ export default function Careers() {
             </h2>
 
             {/* Subtitle */}
-            <p className="text-[14.5px] text-slate-500 leading-relaxed font-sans">
+            <p className="text-[15px] text-slate-500 leading-relaxed font-sans">
               At DHGsoft, we foster a culture where people with a can-do
               attitude can be a part of our growing team and build meaningful
               impact across the globe.
@@ -269,46 +269,48 @@ export default function Careers() {
                 custom={idx}
                 variants={cardVariant}
                 whileHover={{
-                  y: -6,
+                  y: -8,
                   boxShadow:
-                    '0 20px 50px rgba(15, 23, 42, 0.08), 0 8px 20px rgba(15, 23, 42, 0.04)',
+                    '0 25px 55px rgba(15, 23, 42, 0.10), 0 10px 25px rgba(15, 23, 42, 0.05)',
                 }}
-                className="group relative bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:border-slate-200/80 transition-all duration-500 cursor-pointer"
+                className="group relative bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:border-slate-200/80 transition-all duration-500 cursor-pointer flex flex-col justify-between"
               >
-                {/* Image */}
-                <div className="relative h-48 overflow-hidden">
+                {/* Large Image */}
+                <div className="relative h-64 lg:h-72 overflow-hidden">
                   <img
                     src={card.image}
                     alt={card.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
                 </div>
 
-                {/* Icon badge - positioned overlapping image/content boundary, outside overflow-hidden */}
+                {/* Icon badge - positioned overlapping image/content boundary */}
                 <div
-                  className="absolute top-[167px] left-5 z-20 w-11 h-11 rounded-xl flex items-center justify-center shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:scale-110"
+                  className="absolute top-[232px] lg:top-[264px] left-6 z-20 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:scale-110"
                   style={{ background: card.iconBg }}
                 >
                   <CardIcon
-                    className="w-5 h-5"
+                    className="w-5.5 h-5.5"
                     style={{ color: '#FFFFFF' }}
                   />
                 </div>
 
                 {/* Content */}
-                <div className="px-5 pt-8 pb-5">
-                  <h4 className="text-[16px] font-bold text-slate-800 mb-2 tracking-tight">
-                    {card.title}
-                  </h4>
-                  <p className="text-[13px] text-slate-500 leading-relaxed mb-4 font-sans">
-                    {card.description}
-                  </p>
+                <div className="px-6 pt-9 pb-6 flex flex-col justify-between flex-grow">
+                  <div>
+                    <h4 className="text-[17px] font-bold text-slate-800 mb-2.5 tracking-tight font-headline">
+                      {card.title}
+                    </h4>
+                    <p className="text-[13.5px] text-slate-500 leading-relaxed mb-5 font-sans">
+                      {card.description}
+                    </p>
+                  </div>
 
                   {/* Arrow link */}
                   <div className="flex items-center">
-                    <ArrowRight className="w-4 h-4 text-[#C5165C] transition-transform duration-300 group-hover:translate-x-2" />
+                    <ArrowRight className="w-4.5 h-4.5 text-[#C5165C] transition-transform duration-300 group-hover:translate-x-2" />
                   </div>
                 </div>
               </motion.div>
