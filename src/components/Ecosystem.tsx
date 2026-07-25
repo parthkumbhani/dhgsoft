@@ -14,6 +14,7 @@ import {
   Truck, 
   CheckCircle2, 
   ArrowRight,
+  Sparkles,
   LucideIcon
 } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
@@ -40,12 +41,12 @@ const PRODUCT_CATEGORIES: CategoryItem[] = [
     image: "/images/home/supply-automation.png",
     badgeSubtitle: "Process Control • Machine Automation • Enterprise Platforms",
     solutions: [
-      { label: "AUTOMATION", name: "PLC Systems" },
-      { label: "SUPERVISORY", name: "SCADA Platforms" },
-      { label: "CONTROL", name: "Distributed Control (DCS)" },
-      { label: "INTERFACE", name: "Human Machine Interfaces (HMI)" },
-      { label: "HARDWARE", name: "Industrial Controllers" },
-      { label: "FIELD I/O", name: "Remote I/O Systems" }
+      { label: "AUTOMATION PLATFORM", name: "PLC Systems & Programmable Controllers" },
+      { label: "SUPERVISORY CONTROL", name: "SCADA Platforms & Plant Monitoring" },
+      { label: "DISTRIBUTED CONTROL", name: "DCS Systems & Integrated Process Nodes" },
+      { label: "OPERATOR INTERFACE", name: "HMI User Interfaces & Touch Displays" },
+      { label: "CONTROL HARDWARE", name: "Industrial Controllers & Embedded Processing" },
+      { label: "FIELD TELEMETRY", name: "Remote I/O Modules & Field Expansion" }
     ],
     icon: Cpu
   },
@@ -58,12 +59,12 @@ const PRODUCT_CATEGORIES: CategoryItem[] = [
     image: "/images/home/supply-networking.png",
     badgeSubtitle: "Plant-Floor Connectivity • Secure Gateways • Resilient Infrastructure",
     solutions: [
-      { label: "SWITCHES", name: "Managed Ethernet Switches" },
-      { label: "ROUTERS", name: "Industrial Routers & Gateways" },
-      { label: "SECURITY", name: "OT Firewalls & Cyber Security" },
-      { label: "WIRELESS", name: "Industrial Wireless & 5G" },
-      { label: "SERIAL", name: "Fieldbus & Serial Converters" },
-      { label: "FIBER", name: "Fiber Optic Transceivers" }
+      { label: "NETWORK SWITCHES", name: "Managed Ethernet Switches & Redundant Rings" },
+      { label: "SECURE ROUTERS", name: "Industrial Routers & Edge Gateways" },
+      { label: "CYBER SECURITY", name: "OT Firewalls & Zero Trust Security" },
+      { label: "WIRELESS CONNECTIVITY", name: "Industrial Wireless & Private 5G" },
+      { label: "BUS CONVERTERS", name: "Fieldbus Converters & Serial Adapters" },
+      { label: "OPTICAL NETWORKING", name: "Fiber Optic Transceivers & Converters" }
     ],
     icon: Network
   },
@@ -76,12 +77,12 @@ const PRODUCT_CATEGORIES: CategoryItem[] = [
     image: "/images/home/supply-computing.png",
     badgeSubtitle: "Mission-Critical Hardware • Edge Compute • High Reliability",
     solutions: [
-      { label: "HARDWARE", name: "Rugged Industrial PCs (IPC)" },
-      { label: "EDGE AI", name: "Edge AI Computing Nodes" },
-      { label: "SERVERS", name: "DIN-Rail Embedded Servers" },
-      { label: "STATIONS", name: "Rackmount Workstations" },
-      { label: "BOX IPC", name: "Fanless Box Controllers" },
-      { label: "GATEWAYS", name: "Edge Gateway Devices" }
+      { label: "INDUSTRIAL COMPUTING", name: "Rugged Industrial PCs (IPC) & DIN Mounts" },
+      { label: "EDGE INTELLIGENCE", name: "Edge AI Computing Nodes & Processors" },
+      { label: "EMBEDDED SERVERS", name: "DIN-Rail Embedded Servers & Storage" },
+      { label: "WORKSTATION HARDWARE", name: "Rackmount Workstations & Processing" },
+      { label: "FANLESS HARDWARE", name: "Fanless Box Controllers & Thermal Units" },
+      { label: "EDGE GATEWAYS", name: "Multi-Protocol Edge Gateways & Cloud Sync" }
     ],
     icon: Server
   },
@@ -94,12 +95,12 @@ const PRODUCT_CATEGORIES: CategoryItem[] = [
     image: "/images/home/supply-drives.png",
     badgeSubtitle: "Precision Control • Energy Efficiency • High Performance",
     solutions: [
-      { label: "VFD DRIVES", name: "Variable Frequency Drives" },
-      { label: "SERVO", name: "Servo Drives & Motors" },
-      { label: "MOTION", name: "Multi-Axis Motion Control" },
-      { label: "STARTERS", name: "Soft Starters & Contactors" },
-      { label: "PROTECTION", name: "Industrial Motor Protection" },
-      { label: "POWER", name: "Regenerative Power Units" }
+      { label: "FREQUENCY DRIVES", name: "Variable Frequency Drives (VFD) & Inverters" },
+      { label: "SERVO SYSTEMS", name: "Servo Drives & High-Precision Motors" },
+      { label: "MOTION CONTROLLERS", name: "Multi-Axis Motion Controllers & Sync" },
+      { label: "SOFT STARTERS", name: "Soft Starters & Acceleration Systems" },
+      { label: "MOTOR PROTECTION", name: "Intelligent Motor Protection & Relays" },
+      { label: "POWER RECOVERY", name: "Regenerative Power Units & Resistors" }
     ],
     icon: Zap
   },
@@ -112,12 +113,12 @@ const PRODUCT_CATEGORIES: CategoryItem[] = [
     image: "/images/home/supply-instrumentation.png",
     badgeSubtitle: "Accurate Measurement • Process Intelligence • Smart Monitoring",
     solutions: [
-      { label: "PRESSURE", name: "Smart Pressure Sensors" },
-      { label: "FLOW", name: "Electromagnetic Flow Meters" },
-      { label: "TEMP", name: "Temperature Sensors & RTDs" },
-      { label: "LEVEL", name: "Radar Level Transmitters" },
-      { label: "ANALYTICAL", name: "Gas & Liquid Analytics" },
-      { label: "VALVES", name: "Control Valves & Actuators" }
+      { label: "PRESSURE SENSORS", name: "Smart Pressure Transmitters & Gauges" },
+      { label: "FLOW MEASUREMENT", name: "Electromagnetic Meters & Ultrasonic Flow" },
+      { label: "TEMPERATURE TELEMETRY", name: "Temperature Sensors, Thermocouples & RTDs" },
+      { label: "LEVEL MONITORING", name: "Radar Level Transmitters & Guided Probes" },
+      { label: "PROCESS ANALYTICS", name: "Gas Analyzers & Liquid Quality Analytics" },
+      { label: "VALVE ACTUATION", name: "Control Valves & Electric Actuators" }
     ],
     icon: Gauge
   },
@@ -130,12 +131,12 @@ const PRODUCT_CATEGORIES: CategoryItem[] = [
     image: "/images/home/supply-iot.png",
     badgeSubtitle: "Real-Time Telemetry • Predictive Maintenance • Connected Assets",
     solutions: [
-      { label: "IIOT", name: "Wireless IIoT Sensors" },
-      { label: "MONITORING", name: "Condition Monitoring Nodes" },
-      { label: "VIBRATION", name: "Vibration & Acoustic Sensors" },
-      { label: "ASSET", name: "Smart Asset Gateways" },
-      { label: "TELEMETRY", name: "Environmental Telemetry" },
-      { label: "LOGGERS", name: "Edge Data Loggers" }
+      { label: "IIOT SENSORS", name: "Wireless IIoT Sensors & Battery Nodes" },
+      { label: "PREDICTIVE MONITORING", name: "Condition Monitoring Nodes & Telemetry" },
+      { label: "VIBRATION DIAGNOSTICS", name: "Vibration Sensors & Acoustic Diagnostics" },
+      { label: "SMART GATEWAYS", name: "Smart Asset Gateways & Transmission" },
+      { label: "ENVIRONMENTAL SENSORS", name: "Environmental Telemetry & Climate Monitors" },
+      { label: "DATA LOGGERS", name: "Edge Data Loggers & Onboard Data Caching" }
     ],
     icon: Radio
   },
@@ -148,12 +149,12 @@ const PRODUCT_CATEGORIES: CategoryItem[] = [
     image: "/images/home/supply-power.png",
     badgeSubtitle: "Safe Distribution • Power Quality • Electrical Protection",
     solutions: [
-      { label: "SWITCHGEAR", name: "Low Voltage Switchgear" },
-      { label: "MCC & PCC", name: "Motor Control Centers (MCC)" },
-      { label: "RELAYS", name: "Digital Protection Relays" },
-      { label: "BUSBAR", name: "Busbar Trunking Systems" },
-      { label: "QUALITY", name: "Power Quality & Filters" },
-      { label: "METERS", name: "Smart Energy Meters" }
+      { label: "SWITCHGEAR PANELS", name: "Low Voltage Switchgear & Distribution" },
+      { label: "MOTOR CONTROL", name: "Motor Control Centers (MCC Assemblies)" },
+      { label: "PROTECTION RELAYS", name: "Digital Protection Relays & Feeders" },
+      { label: "BUSBAR SYSTEMS", name: "Busbar Trunking Systems & Conductors" },
+      { label: "POWER QUALITY", name: "Power Quality Filters & Harmonic Mitigation" },
+      { label: "ENERGY METERS", name: "Smart Energy Meters & Sub-Metering Units" }
     ],
     icon: ShieldCheck
   },
@@ -166,12 +167,12 @@ const PRODUCT_CATEGORIES: CategoryItem[] = [
     image: "/images/home/supply-software.png",
     badgeSubtitle: "Operations Management • Industrial Analytics • Subscriptions",
     solutions: [
-      { label: "SCADA", name: "SCADA & HMI Software" },
-      { label: "HISTORIAN", name: "Process Historian Databases" },
-      { label: "ANALYTICS", name: "Industrial Analytics Engines" },
-      { label: "MES", name: "MES & Batch Execution" },
-      { label: "SUITES", name: "PLC Engineering Suites" },
-      { label: "LICENSING", name: "OEM Software Subscriptions" }
+      { label: "SCADA SOFTWARE", name: "SCADA & HMI Software Subscriptions" },
+      { label: "HISTORIAN DATABASES", name: "Process Historian Databases & Time-Series" },
+      { label: "ANALYTICS ENGINES", name: "Industrial Analytics Engines & OEE Trackers" },
+      { label: "MES EXECUTION", name: "MES Batch Execution & Manufacturing" },
+      { label: "ENGINEERING SUITES", name: "PLC Engineering Suites & CAD Licenses" },
+      { label: "SOFTWARE LICENSING", name: "OEM Software Subscriptions & Enterprise Keys" }
     ],
     icon: FileCode
   },
@@ -184,12 +185,12 @@ const PRODUCT_CATEGORIES: CategoryItem[] = [
     image: "/images/home/supply-procurement.png",
     badgeSubtitle: "Authorised Sourcing • Global Logistics • Lifecycle Support",
     solutions: [
-      { label: "OEM SOURCING", name: "Authorised OEM Sourcing" },
-      { label: "LOGISTICS", name: "Global Spares Logistics" },
-      { label: "EXPEDITED", name: "Expedited Spares Supply" },
-      { label: "WARRANTY", name: "OEM Warranty & Support" },
-      { label: "LIFECYCLE", name: "Lifecycle Spares Sourcing" },
-      { label: "CONSULTING", name: "Procurement Consulting" }
+      { label: "AUTHORISED SOURCING", name: "Authorised OEM Sourcing & Genuine Parts" },
+      { label: "GLOBAL LOGISTICS", name: "Global Spares Logistics & Customs Freight" },
+      { label: "EXPEDITED SUPPLY", name: "Expedited Spares Supply & Emergency Delivery" },
+      { label: "WARRANTY SUPPORT", name: "OEM Warranty Support & Replacement" },
+      { label: "LIFECYCLE MANAGEMENT", name: "Lifecycle Spares Management & Obsolete Parts" },
+      { label: "PROCUREMENT CONSULTING", name: "Procurement Consulting & BOM Optimization" }
     ],
     icon: Truck
   }
@@ -202,6 +203,19 @@ export default function Ecosystem() {
 
   const activeCategory = PRODUCT_CATEGORIES[activeIdx];
 
+  const handleRequestClick = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        const emailInput = document.getElementById('email') as HTMLInputElement;
+        if (emailInput) {
+          emailInput.focus();
+        }
+      }, 500);
+    }
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -212,8 +226,8 @@ export default function Ecosystem() {
       <Container size="wide" className="relative z-10 w-full flex flex-col justify-between h-full flex-grow gap-6">
         
         {/* ── 1. SINGLE-LINE EDGE-TO-EDGE HEADER ── */}
-        <div className="text-left w-full max-w-none">
-          <div className="flex items-center gap-2 mb-2">
+        <div className="text-left w-full max-w-none mb-2">
+          <div className="flex items-center gap-2 mb-1.5">
             <span className="w-2 h-2 rounded-full bg-[#C2185B] animate-pulse" />
             <span className="text-[11px] font-extrabold text-[#C2185B] uppercase tracking-[0.25em] font-sans">
               INDUSTRIAL PRODUCTS &amp; TECHNOLOGY SUPPLY
@@ -231,14 +245,14 @@ export default function Ecosystem() {
           </p>
         </div>
 
-        {/* ── 2. DESKTOP MAIN STAGE GRID (SPACIOUS HEIGHT H-[450PX]) ── */}
-        <div className="hidden lg:grid lg:grid-cols-12 gap-6 my-auto items-stretch h-[450px]">
+        {/* ── 2. DESKTOP MAIN STAGE GRID (EXPANDED TO H-[570PX] TO GUARANTEE CTA BUTTON IS 100% VISIBLE AT BOTTOM) ── */}
+        <div className="hidden lg:grid lg:grid-cols-12 gap-6 my-auto items-stretch h-[570px]">
           
-          {/* LEFT VISUAL HERO CARD WITH DIRECT HTML <img> PHOTOGRAPHY BACKGROUND */}
-          <div className="lg:col-span-7 flex flex-col justify-between h-[450px]">
+          {/* LEFT VISUAL HERO CARD (8 COLS, FULL H-[545PX]) */}
+          <div className="lg:col-span-8 flex flex-col justify-between h-[570px]">
             
             <div 
-              className="relative rounded-[24px] overflow-hidden border border-slate-800/90 shadow-2xl h-[420px] flex items-end p-7 lg:p-8 text-left group"
+              className="relative rounded-[24px] overflow-hidden border border-slate-800/90 shadow-2xl h-[545px] flex flex-col justify-between p-7 lg:p-8 text-left group"
               style={{ backgroundColor: '#0A0E1A' }}
             >
               {/* Top Accent Gradient Line */}
@@ -257,7 +271,7 @@ export default function Ecosystem() {
                 <div 
                   className="absolute inset-0 pointer-events-none z-10"
                   style={{
-                    background: 'linear-gradient(to top, rgba(10, 14, 26, 0.95) 0%, rgba(10, 14, 26, 0.45) 55%, rgba(10, 14, 26, 0.1) 100%)'
+                    background: 'linear-gradient(to top, rgba(10, 14, 26, 0.97) 0%, rgba(10, 14, 26, 0.6) 55%, rgba(10, 14, 26, 0.15) 100%)'
                   }}
                 />
               </div>
@@ -266,49 +280,58 @@ export default function Ecosystem() {
               <div className="relative z-20 w-full flex flex-col justify-between h-full">
                 
                 {/* Top Badge Tag */}
-                <div className="flex items-center justify-between w-full">
+                <div className="flex items-center justify-between w-full mb-2">
                   <span className="text-[10px] font-extrabold text-white bg-gradient-to-r from-[#8C123B] to-[#C2185B] uppercase tracking-[0.2em] font-sans px-3.5 py-1 rounded-md shadow-md border border-white/10">
                     FEATURED INDUSTRIAL CATEGORY
                   </span>
                 </div>
 
-                {/* Bottom Content Area */}
-                <div className="mt-auto">
+                {/* Main Content Area */}
+                <div className="flex flex-col justify-between flex-grow">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={activeIdx}
-                      initial={{ opacity: 0, y: 8 }}
+                      initial={{ opacity: 0, y: 6 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -8 }}
+                      exit={{ opacity: 0, y: -6 }}
                       transition={{ duration: 0.2 }}
+                      className="flex flex-col justify-between h-full"
                     >
-                      <h3 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight mb-1.5 font-headline drop-shadow-md">
-                        {activeCategory.name}
-                      </h3>
+                      {/* Header & Subtitle */}
+                      <div>
+                        <h3 className="text-2xl lg:text-[30px] font-extrabold text-white tracking-tight mb-1.5 font-headline drop-shadow-md leading-tight">
+                          {activeCategory.name}
+                        </h3>
 
-                      <p className="text-[13px] text-slate-100 leading-relaxed mb-4 max-w-xl font-sans drop-shadow-sm">
-                        {activeCategory.desc}
-                      </p>
+                        <p className="text-[13px] text-slate-100 leading-relaxed mb-3 max-w-2xl font-sans drop-shadow-sm">
+                          {activeCategory.desc}
+                        </p>
+                      </div>
 
-                      {/* ── THEME-MATCHING GLASSMORPHIC 2-COLUMN SOLUTION CARDS ── */}
-                      <div className="grid grid-cols-2 gap-3 mb-4 max-w-xl">
+                      {/* ── 🌟 BRAND THEME RECTANGULAR SOLUTION CARDS (COMPACT FIT) ── */}
+                      <div className="grid grid-cols-2 gap-3 mb-4 max-w-2xl">
                         {activeCategory.solutions.map((sol, idx) => (
                           <div
                             key={idx}
-                            style={{ backgroundColor: 'rgba(10, 14, 26, 0.92)' }}
-                            className="rounded-xl p-2.5 px-3.5 flex items-center gap-2.5 shadow-2xl border border-slate-700/80 hover:border-[#C2185B] hover:shadow-[0_0_12px_rgba(194,24,91,0.35)] transition-all duration-200 text-left backdrop-blur-md group/sol"
+                            style={{ 
+                              background: 'linear-gradient(135deg, rgba(140, 18, 59, 0.40) 0%, rgba(11, 17, 32, 0.95) 100%)'
+                            }}
+                            className="rounded-xl p-3 px-3.5 flex items-start gap-2.5 shadow-xl border border-[#8C123B]/60 hover:border-[#C2185B] hover:shadow-[0_0_22px_rgba(194,24,91,0.40)] hover:-translate-y-0.5 transition-all duration-300 text-left backdrop-blur-md group/sol min-h-[68px] relative overflow-hidden"
                           >
-                            {/* Crimson Badge Icon */}
-                            <div className="w-6 h-6 rounded-lg bg-[#8C123B]/40 border border-[#C2185B]/60 flex items-center justify-center shrink-0 group-hover/sol:bg-[#C2185B] transition-colors">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-[#C2185B] group-hover/sol:text-white transition-colors" />
+                            {/* Glowing Left Crimson Brand Accent Line */}
+                            <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#C2185B] via-[#8C123B] to-amber-500 opacity-80 group-hover/sol:opacity-100 transition-opacity" />
+
+                            {/* Top-Left Signature Crimson Badge Icon */}
+                            <div className="w-6.5 h-6.5 rounded-lg bg-[#8C123B] text-white flex items-center justify-center shrink-0 shadow-md border border-[#C2185B]/60 group-hover/sol:scale-110 group-hover/sol:bg-[#C2185B] transition-all mt-0.5">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-white" />
                             </div>
 
-                            {/* Content */}
+                            {/* Stacked Text Content */}
                             <div className="min-w-0 flex-grow">
-                              <span className="text-[8.5px] font-extrabold text-[#C2185B] uppercase tracking-widest block font-sans">
+                              <span className="text-[8px] font-extrabold text-[#C2185B] uppercase tracking-widest block font-sans mb-0.5 group-hover/sol:text-pink-300 transition-colors">
                                 {sol.label}
                               </span>
-                              <h5 className="text-[12px] font-extrabold text-white font-headline leading-tight truncate">
+                              <h5 className="text-[12px] font-extrabold text-white font-headline leading-snug">
                                 {sol.name}
                               </h5>
                             </div>
@@ -316,11 +339,19 @@ export default function Ecosystem() {
                         ))}
                       </div>
 
-                      {/* Action CTA Button */}
-                      <button className="flex items-center gap-2 text-[12px] font-extrabold text-white px-6 py-2.5 rounded-full bg-gradient-to-r from-[#8C123B] via-[#C2185B] to-[#F59E0B] shadow-lg hover:scale-[1.02] transition-all cursor-pointer font-sans">
-                        <span>REQUEST PRODUCT QUOTE</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </button>
+                      {/* 🔘 100% VISIBLE BOTTOM CTA BUTTON ("REQUEST →" WITH SMOOTH SCROLL TO CONTACT FORM) */}
+                      <div className="pt-1">
+                        <button 
+                          onClick={handleRequestClick}
+                          className="flex items-center gap-3 text-[12.5px] font-extrabold text-white px-7 py-2.5 rounded-full bg-gradient-to-r from-[#8C123B] via-[#C2185B] to-[#F59E0B] hover:from-[#C2185B] hover:to-[#F59E0B] shadow-[0_0_22px_rgba(194,24,91,0.5)] hover:shadow-[0_0_32px_rgba(245,158,11,0.65)] hover:scale-[1.03] transition-all duration-300 cursor-pointer font-sans tracking-wider uppercase"
+                        >
+                          <span>REQUEST</span>
+                          <div className="w-5.5 h-5.5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                            <ArrowRight className="w-3.5 h-3.5 text-white" />
+                          </div>
+                        </button>
+                      </div>
+
                     </motion.div>
                   </AnimatePresence>
                 </div>
@@ -341,8 +372,8 @@ export default function Ecosystem() {
 
           </div>
 
-          {/* RIGHT CATEGORY SELECTOR RAIL (5 Columns out of 12 - H-[450PX], NO NUMBERS) ── */}
-          <div className="lg:col-span-5 flex flex-col justify-between h-[450px] gap-1.5">
+          {/* RIGHT CATEGORY SELECTOR RAIL (NARROW 4 COLS - COMPACT, H-[570PX]) ── */}
+          <div className="lg:col-span-4 flex flex-col justify-between h-[570px] gap-2">
             {PRODUCT_CATEGORIES.map((cat, idx) => {
               const isActive = activeIdx === idx;
               const Icon = cat.icon;
@@ -356,7 +387,7 @@ export default function Ecosystem() {
                     backgroundColor: isActive ? '#111827' : 'rgba(11, 17, 32, 0.55)',
                     borderColor: isActive ? '#8C123B' : 'rgba(30, 41, 59, 0.6)'
                   }}
-                  className={`w-full flex items-center gap-3 p-2.5 px-4 rounded-[14px] cursor-pointer select-none transition-all duration-200 text-left border relative overflow-hidden ${
+                  className={`w-full flex items-center gap-3 p-3.5 px-4 rounded-[14px] cursor-pointer select-none transition-all duration-200 text-left border relative overflow-hidden ${
                     isActive
                       ? "shadow-lg shadow-[#8C123B]/25 scale-[1.01]"
                       : "hover:bg-slate-900 text-slate-400"
@@ -378,7 +409,7 @@ export default function Ecosystem() {
                     <Icon className="w-3.5 h-3.5" />
                   </div>
                   
-                  {/* Category Info (Clean Name, No Number 01-09) */}
+                  {/* Category Info */}
                   <div className="flex-grow min-w-0 flex items-center justify-between">
                     <span className={`text-[13px] font-extrabold tracking-tight font-headline truncate ${
                       isActive ? "text-white" : "text-slate-200"
@@ -416,8 +447,11 @@ export default function Ecosystem() {
                     </p>
                   </div>
 
-                  <button className="flex items-center gap-1.5 text-[11px] font-bold text-white px-4 py-2 rounded-full bg-[#8C123B] cursor-pointer font-sans w-fit">
-                    <span>Request Quote</span>
+                  <button 
+                    onClick={handleRequestClick}
+                    className="flex items-center gap-1.5 text-[11px] font-bold text-white px-4 py-2 rounded-full bg-[#8C123B] cursor-pointer font-sans w-fit"
+                  >
+                    <span>REQUEST</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
