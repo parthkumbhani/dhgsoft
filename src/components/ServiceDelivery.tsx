@@ -337,16 +337,16 @@ export default function ServiceDelivery() {
 
           <div className="flex flex-col lg:flex-row gap-8 items-stretch z-10 relative">
             
-            {/* COLUMN 1: LEFT DELIVERY NAVIGATION (30% Width on Desktop) */}
-            <div className="w-full lg:w-[30%] flex flex-col gap-3 justify-center relative py-2 px-1">
+            {/* COLUMN 1: LEFT DELIVERY NAVIGATION (30% Width on Desktop) - 100% PERFECT PIXEL ALIGNMENT */}
+            <div className="w-full lg:w-[30%] flex flex-col justify-between relative py-0 px-0 h-[580px]">
               
               {/* Background timeline line running behind cards */}
-              <div className="absolute left-[34px] top-[34px] bottom-[34px] w-[1.5px] bg-[#ECECEC] z-0 pointer-events-none" />
+              <div className="absolute left-[34px] top-[24px] bottom-[24px] w-[1.5px] bg-[#ECECEC] z-0 pointer-events-none" />
 
               {/* Filled active timeline line */}
               <motion.div
-                className="absolute left-[34px] top-[34px] w-[1.5px] bg-gradient-to-b from-[#8C123B] via-[#C2185B] to-[#8C123B] z-0 pointer-events-none origin-top"
-                style={{ height: 'calc(100% - 68px)' }}
+                className="absolute left-[34px] top-[24px] w-[1.5px] bg-gradient-to-b from-[#8C123B] via-[#C2185B] to-[#8C123B] z-0 pointer-events-none origin-top"
+                style={{ height: 'calc(100% - 48px)' }}
                 animate={{
                   scaleY: activeIdx / 6
                 }}
@@ -366,31 +366,31 @@ export default function ServiceDelivery() {
                     onMouseLeave={() => setHoveredIdx(null)}
                     className="w-full relative z-10"
                     animate={{
-                      x: isActive ? 6 : 0,
-                      scale: isActive ? 1.02 : 1.0,
+                      x: 0,
+                      scale: 1.0,
                     }}
                     transition={premiumTransition}
                   >
                     <div
-                      className={`relative flex items-center justify-between p-3.5 pl-11 pr-4 rounded-[16px] cursor-pointer select-none transition-all duration-300 border ${
+                      className={`relative flex items-center justify-between p-3.5 pl-11 pr-4 rounded-[16px] cursor-pointer select-none transition-all duration-300 border overflow-hidden ${
                         isActive
-                          ? 'border-[#8C123B] bg-white shadow-md shadow-[#8C123B]/10'
+                          ? 'border-[#8C123B] bg-white shadow-[0_4px_20px_rgba(140,18,59,0.12),0_-2px_10px_rgba(140,18,59,0.06)]'
                           : isHovered
-                          ? 'border-[#ECECEC] bg-white shadow-sm'
-                          : 'border-[#ECECEC] bg-white/70 backdrop-blur-sm shadow-sm'
+                          ? 'border-[#ECECEC] bg-white shadow-[0_4px_15px_rgba(0,0,0,0.05),0_-2px_8px_rgba(0,0,0,0.03)]'
+                          : 'border-[#ECECEC] bg-white/70 backdrop-blur-sm shadow-[0_2px_10px_rgba(0,0,0,0.03),0_-1px_5px_rgba(0,0,0,0.02)]'
                       }`}
                     >
-                      {/* Glowing vertical left status indicator bar */}
+                      {/* Glowing vertical left status indicator bar strictly inside card */}
                       {isActive ? (
                         <motion.div
                           layoutId="activeVerticalIndicator"
-                          className="absolute left-[-1.5px] top-3 bottom-3 w-[3.5px] bg-[#8C123B] rounded-r-full z-30 shadow-sm shadow-[#8C123B]/40"
+                          className="absolute left-0 top-2.5 bottom-2.5 w-[3.5px] bg-[#8C123B] rounded-r-md z-30 shadow-sm shadow-[#8C123B]/40"
                           transition={premiumTransition}
                         />
                       ) : isHovered ? (
                         <motion.div
                           layoutId="hoverVerticalIndicator"
-                          className="absolute left-[-1.5px] top-[25%] bottom-[25%] w-[2.5px] bg-[#8C123B]/40 rounded-r-full z-20"
+                          className="absolute left-0 top-[25%] bottom-[25%] w-[2.5px] bg-[#8C123B]/40 rounded-r-md z-20"
                           transition={premiumTransition}
                         />
                       ) : null}
@@ -446,7 +446,7 @@ export default function ServiceDelivery() {
             </div>
 
             {/* COLUMN 2: CENTER HERO IMAGE (38% Width on Desktop) - 100% BORDERLESS EDGE-TO-EDGE */}
-            <div className="w-full lg:w-[38%] relative overflow-hidden min-h-[580px] rounded-[24px] shadow-md border border-[#ECECEC] bg-[#0A0C14] flex flex-col justify-between z-10">
+            <div className="w-full lg:w-[38%] relative overflow-hidden min-h-[580px] h-[580px] rounded-[24px] shadow-[0_8px_30px_rgba(0,0,0,0.12),0_-4px_20px_rgba(0,0,0,0.06)] border border-[#ECECEC] bg-[#0A0C14] flex flex-col justify-between z-10">
               
               {/* Premium top border animation traveling once across top edge on transition */}
               <div className="absolute top-0 left-0 right-0 h-[3.5px] overflow-hidden z-20">
@@ -501,7 +501,7 @@ export default function ServiceDelivery() {
             </div>
 
             {/* COLUMN 3: RIGHT PREMIUM GLASS CONTENT PANEL (32% Width on Desktop) - ZERO SCROLLBARS */}
-            <div className="w-full lg:w-[32%] p-6 flex flex-col justify-between relative bg-white/85 backdrop-blur-md rounded-[24px] border border-white/60 shadow-md overflow-hidden min-h-[580px] z-10">
+            <div className="w-full lg:w-[32%] p-6 flex flex-col justify-between relative bg-white/90 backdrop-blur-md rounded-[24px] border border-white/80 shadow-[0_8px_30px_rgba(0,0,0,0.08),0_-3px_15px_rgba(0,0,0,0.04)] overflow-hidden min-h-[580px] h-[580px] z-10">
               
               <AnimatePresence mode="wait">
                 <motion.div
@@ -521,16 +521,16 @@ export default function ServiceDelivery() {
                       {activeStage.desc}
                     </p>
 
-                    {/* Key Capabilities / Expected Outcomes Grid - Title Case without uppercase CSS */}
-                    <div className="mb-4 text-left">
-                      <h4 className="text-[12px] font-bold text-slate-800 tracking-wide mb-2 font-sans">
+                    {/* Key Capabilities / Expected Outcomes Grid - Exact Same Spacious Gap Top and Bottom */}
+                    <div className="mb-5 text-left">
+                      <h4 className="text-[14px] font-extrabold text-slate-900 tracking-wide font-headline block">
                         {activeStage.capabilitiesHeader}
                       </h4>
-                      <div className="grid grid-cols-1 gap-1.5">
+                      <div className="grid grid-cols-1 gap-2.5 mt-5">
                         {activeStage.capabilities.map((cap, cIdx) => (
-                          <div key={cIdx} className="flex items-center gap-2 p-1.5 rounded-lg bg-slate-50 border border-slate-100 hover:bg-slate-100/80 transition-colors">
+                          <div key={cIdx} className="flex items-center gap-2.5 p-1.5 px-2.5 rounded-lg bg-slate-50 border border-slate-100 hover:bg-slate-100/80 transition-colors">
                             <Check className="w-3.5 h-3.5 text-[#8C123B] shrink-0" />
-                            <span className="text-[12px] font-medium text-slate-700">{cap}</span>
+                            <span className="text-[12px] font-medium text-slate-700 font-sans">{cap}</span>
                           </div>
                         ))}
                       </div>
@@ -538,7 +538,7 @@ export default function ServiceDelivery() {
 
                     {/* Business Outcome Highlight Box (Shown for Stages 1-6) */}
                     {activeStage.businessOutcome && (
-                      <div className="p-3.5 rounded-xl bg-gradient-to-br from-[#8C123B]/8 to-amber-500/8 border border-[#8C123B]/20 text-left mb-4">
+                      <div className="p-3.5 rounded-xl bg-gradient-to-br from-[#8C123B]/8 to-amber-500/8 border border-[#8C123B]/20 text-left mt-5 mb-4">
                         <span className="text-[9.5px] font-extrabold text-[#8C123B] tracking-wider uppercase block mb-1">
                           BUSINESS OUTCOME
                         </span>
