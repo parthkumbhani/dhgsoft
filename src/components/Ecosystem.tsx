@@ -12,9 +12,9 @@ import {
   ShieldCheck, 
   FileCode, 
   Truck, 
-  Check, 
   CheckCircle2, 
   ArrowRight,
+  Sparkles,
   LucideIcon
 } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
@@ -22,6 +22,7 @@ import { Section } from '@/components/ui/Section';
 interface CategoryItem {
   num: string;
   name: string;
+  shortName: string;
   stageTitle: string;
   desc: string;
   image: string;
@@ -35,6 +36,7 @@ const PRODUCT_CATEGORIES: CategoryItem[] = [
   {
     num: "01",
     name: "Industrial Automation Systems",
+    shortName: "Automation Systems",
     stageTitle: "01. Industrial Automation Systems",
     desc: "Enterprise-grade automation platforms for process control, machine automation, and operational excellence.",
     image: "/images/home/supply-automation.png",
@@ -53,6 +55,7 @@ const PRODUCT_CATEGORIES: CategoryItem[] = [
   {
     num: "02",
     name: "Industrial Networking & Connectivity",
+    shortName: "Networking & Connectivity",
     stageTitle: "02. Industrial Networking & Connectivity",
     desc: "Secure and resilient industrial communication infrastructure connecting plant-floor operations with enterprise systems.",
     image: "/images/home/supply-networking.png",
@@ -71,6 +74,7 @@ const PRODUCT_CATEGORIES: CategoryItem[] = [
   {
     num: "03",
     name: "Industrial Computing & Edge Platforms",
+    shortName: "Computing & Edge",
     stageTitle: "03. Industrial Computing & Edge Platforms",
     desc: "High-performance computing infrastructure designed for industrial environments and mission-critical applications.",
     image: "/images/home/supply-computing.png",
@@ -89,6 +93,7 @@ const PRODUCT_CATEGORIES: CategoryItem[] = [
   {
     num: "04",
     name: "Drives & Motion Control",
+    shortName: "Drives & Motion",
     stageTitle: "04. Drives & Motion Control",
     desc: "Advanced motion technologies designed to maximise machine performance, efficiency, and precision.",
     image: "/images/home/supply-drives.png",
@@ -107,6 +112,7 @@ const PRODUCT_CATEGORIES: CategoryItem[] = [
   {
     num: "05",
     name: "Instrumentation & Field Devices",
+    shortName: "Instrumentation",
     stageTitle: "05. Instrumentation & Field Devices",
     desc: "Intelligent field instrumentation providing accurate process measurement, monitoring, and control.",
     image: "/images/home/supply-instrumentation.png",
@@ -125,6 +131,7 @@ const PRODUCT_CATEGORIES: CategoryItem[] = [
   {
     num: "06",
     name: "Industrial IoT & Smart Devices",
+    shortName: "Industrial IoT",
     stageTitle: "06. Industrial IoT & Smart Devices",
     desc: "Connected industrial technologies enabling real-time monitoring, predictive maintenance, and enterprise-wide visibility.",
     image: "/images/home/supply-iot.png",
@@ -143,6 +150,7 @@ const PRODUCT_CATEGORIES: CategoryItem[] = [
   {
     num: "07",
     name: "Electrical Power Distribution",
+    shortName: "Power Distribution",
     stageTitle: "07. Electrical Power Distribution",
     desc: "Reliable electrical infrastructure supporting safe and efficient industrial power distribution.",
     image: "/images/home/supply-power.png",
@@ -161,6 +169,7 @@ const PRODUCT_CATEGORIES: CategoryItem[] = [
   {
     num: "08",
     name: "Industrial Software & Licensing",
+    shortName: "Software & Licensing",
     stageTitle: "08. Industrial Software & Licensing",
     desc: "Enterprise software platforms enabling automation, operations management, industrial analytics, and digital transformation.",
     image: "/images/home/supply-software.png",
@@ -179,6 +188,7 @@ const PRODUCT_CATEGORIES: CategoryItem[] = [
   {
     num: "09",
     name: "Technology Procurement & Supply Chain",
+    shortName: "Procurement & Supply",
     stageTitle: "09. Technology Procurement & Supply Chain",
     desc: "Delivering genuine industrial technologies through authorised sourcing, global procurement, logistics, and lifecycle support.",
     image: "/images/home/supply-procurement.png",
@@ -198,16 +208,10 @@ const PRODUCT_CATEGORIES: CategoryItem[] = [
 
 export default function Ecosystem() {
   const [activeIdx, setActiveIdx] = useState(0);
-  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
   const activeCategory = PRODUCT_CATEGORIES[activeIdx];
-
-  const premiumTransition = {
-    duration: 0.5,
-    ease: [0.22, 1, 0.36, 1] as const
-  };
 
   return (
     <Section
@@ -224,200 +228,219 @@ export default function Ecosystem() {
         duration: 0.8,
         ease: [0.22, 1, 0.36, 1]
       }}
-      className="bg-[#060B16] overflow-hidden border-b border-slate-950 select-none py-10 lg:py-12 min-h-screen flex flex-col justify-center"
+      className="bg-[#060B16] overflow-hidden border-b border-slate-950 select-none py-14 lg:py-20"
     >
-      {/* Dark Animated Background Grid & Ambient Glow */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1E293B_1px,transparent_1px),linear-gradient(to_bottom,#1E293B_1px,transparent_1px)] bg-[size:45px_45px] opacity-10 pointer-events-none z-0" />
-      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] rounded-full bg-[#8C123B] blur-[160px] opacity-15 pointer-events-none z-0" />
+      {/* Background Animated Technical Grid & Ambient Glow */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1E293B_1px,transparent_1px),linear-gradient(to_bottom,#1E293B_1px,transparent_1px)] bg-[size:50px_50px] opacity-10 pointer-events-none z-0" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full bg-[#8C123B] blur-[180px] opacity-15 pointer-events-none z-0" />
 
-      <div className="relative z-10 w-full flex flex-col justify-between max-w-[1440px] mx-auto">
+      <div className="relative z-10 w-full flex flex-col max-w-[1440px] mx-auto">
         
-        {/* ── Section Header (Compact Viewport Fit) ── */}
-        <div className="flex flex-col w-full text-left mb-6">
-          <span className="text-[10.5px] font-extrabold text-[#C2185B] uppercase tracking-[0.25em] block mb-1.5 font-sans">
-            INDUSTRIAL PRODUCTS &amp; TECHNOLOGY SUPPLY
-          </span>
-          <h2 className="text-2xl lg:text-4xl font-extrabold tracking-tight text-white mb-2 font-headline">
+        {/* ── Section Header ── */}
+        <div className="flex flex-col w-full text-left mb-8 lg:mb-10">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="w-2 h-2 rounded-full bg-[#C2185B] animate-pulse" />
+            <span className="text-[11px] font-extrabold text-[#C2185B] uppercase tracking-[0.25em] block font-sans">
+              INDUSTRIAL PRODUCTS &amp; TECHNOLOGY SUPPLY
+            </span>
+          </div>
+          <h2 className="text-3xl lg:text-5xl font-extrabold tracking-tight text-white mb-3 font-headline">
             Trusted Industrial Technology. Global Partners. Reliable Solutions.
           </h2>
-          <p className="text-[13.5px] lg:text-[14.5px] text-slate-300 leading-relaxed font-sans w-full">
+          <p className="text-[14.5px] lg:text-[15.5px] text-slate-300 leading-relaxed font-sans w-full">
             We supply certified industrial automation hardware, software, networking, and electrical technologies from globally recognised manufacturers. Our technology portfolio enables reliable plant operations, seamless system integration, and scalable digital transformation across process and discrete industries.
           </p>
         </div>
 
-        {/* ── Desktop Viewport Showcase Container (Fits inside 1 Desktop Screen) ── */}
-        <div className="relative w-full rounded-[26px] border border-slate-800 bg-[#0A0F1D]/85 backdrop-blur-xl p-5 lg:p-6 mb-6 overflow-hidden shadow-2xl">
+        {/* ── HORIZONTAL CATEGORY PILL SELECTOR TABS ── */}
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-8 w-full border-b border-slate-800/80">
+          {PRODUCT_CATEGORIES.map((cat, idx) => {
+            const Icon = cat.icon;
+            const isActive = activeIdx === idx;
+
+            return (
+              <button
+                key={idx}
+                onClick={() => setActiveIdx(idx)}
+                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-full shrink-0 text-[12.5px] font-sans font-bold transition-all duration-300 cursor-pointer border ${
+                  isActive
+                    ? 'bg-gradient-to-r from-[#8C123B] to-[#C2185B] text-white border-transparent shadow-lg shadow-[#8C123B]/30 scale-[1.03]'
+                    : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800/80'
+                }`}
+              >
+                <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-400'}`} />
+                <span>{cat.shortName}</span>
+                <span className={`text-[10px] font-extrabold px-1.5 py-0.5 rounded-full ${
+                  isActive ? 'bg-white/20 text-white' : 'bg-slate-800 text-slate-500'
+                }`}>
+                  {cat.num}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* ── BENTO BOX CATEGORY SHOWCASE ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-10 items-stretch">
           
-          {/* Burgundy Animated Top Edge Line */}
-          <div className="absolute top-0 left-0 right-0 h-[3.5px] overflow-hidden rounded-t-[26px] z-20">
-            <motion.div
-              className="w-[200%] h-full"
-              style={{
-                background: 'linear-gradient(90deg, #8C123B 0%, #C2185B 50%, #8C123B 100%)',
-              }}
-              animate={{ x: ['0%', '-50%'] }}
-              transition={{ repeat: Infinity, duration: 10, ease: 'linear' }}
-            />
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch z-10 relative">
+          {/* LEFT BENTO CARD: CATEGORY VISUAL & OVERVIEW (5 Columns out of 12) */}
+          <div className="lg:col-span-5 relative rounded-[28px] border border-slate-800 bg-[#0A0F1D] overflow-hidden min-h-[460px] flex flex-col justify-between p-8 text-left shadow-2xl group">
             
-            {/* COLUMN 1: 9 CATEGORIES SIDEBAR (3 Columns out of 12) */}
-            <div className="lg:col-span-3 flex flex-col gap-1.5 justify-between relative py-0.5">
-              {PRODUCT_CATEGORIES.map((cat, idx) => {
-                const Icon = cat.icon;
-                const isActive = activeIdx === idx;
-                const isHovered = hoveredIdx === idx;
-
-                return (
-                  <motion.div
-                    key={idx}
-                    onClick={() => setActiveIdx(idx)}
-                    onMouseEnter={() => setHoveredIdx(idx)}
-                    onMouseLeave={() => setHoveredIdx(null)}
-                    className="w-full relative z-10 cursor-pointer"
-                    animate={{
-                      x: isActive ? 4 : 0,
-                    }}
-                    transition={premiumTransition}
-                  >
-                    <div
-                      className={`relative flex items-center justify-between p-2 px-3 rounded-[12px] transition-all duration-300 border ${
-                        isActive
-                          ? 'border-[#8C123B] bg-gradient-to-r from-[#8C123B]/30 via-[#8C123B]/10 to-slate-900/90 shadow-md shadow-[#8C123B]/25 text-white'
-                          : isHovered
-                          ? 'border-slate-800 bg-slate-900/70 text-slate-300'
-                          : 'border-slate-900/40 bg-slate-900/30 text-slate-400'
-                      }`}
-                    >
-                      {/* Active Indicator Bar */}
-                      {isActive && (
-                        <motion.div
-                          layoutId="darkCatActiveIndicator"
-                          className="absolute left-0 top-2 bottom-2 w-[3px] bg-[#8C123B] rounded-r-full shadow-sm shadow-[#8C123B]/60"
-                          transition={premiumTransition}
-                        />
-                      )}
-
-                      <div className="flex items-center gap-2.5 overflow-hidden">
-                        <div className={`w-6.5 h-6.5 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
-                          isActive ? 'bg-[#8C123B] text-white shadow-sm' : 'bg-slate-800/80 text-slate-400'
-                        }`}>
-                          <Icon className="w-3.5 h-3.5" />
-                        </div>
-                        <span className={`text-[12px] font-sans font-semibold truncate transition-colors ${
-                          isActive ? 'text-white font-bold' : 'text-slate-300'
-                        }`}>
-                          {cat.name}
-                        </span>
-                      </div>
-
-                      <span className={`text-[10px] font-extrabold font-sans shrink-0 ml-1.5 ${
-                        isActive ? 'text-[#C2185B]' : 'text-slate-600'
-                      }`}>
-                        {cat.num}
-                      </span>
-                    </div>
-                  </motion.div>
-                );
-              })}
+            {/* Morphing Image Background */}
+            <div className="absolute inset-0 w-full h-full overflow-hidden bg-[#0A0F1D]">
+              <AnimatePresence mode="popLayout">
+                <motion.img
+                  key={activeIdx}
+                  src={activeCategory.image}
+                  alt={activeCategory.stageTitle}
+                  initial={{ opacity: 0, scale: 1.06, filter: 'blur(6px)' }}
+                  animate={{ opacity: 1, scale: 1.0, filter: 'blur(0px)' }}
+                  exit={{ opacity: 0, scale: 1.06, filter: 'blur(6px)' }}
+                  transition={{ duration: 0.6 }}
+                  className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
+                />
+              </AnimatePresence>
+              
+              {/* Deep Gradient Vignette */}
+              <div
+                className="absolute inset-0 pointer-events-none z-10"
+                style={{
+                  background: 'linear-gradient(to top, rgba(6,11,22,0.95) 0%, rgba(6,11,22,0.45) 50%, rgba(6,11,22,0.85) 100%)',
+                }}
+              />
             </div>
 
-            {/* COLUMN 2: ACTIVE CATEGORY DETAILS & SOLUTIONS (5 Columns out of 12) */}
-            <div className="lg:col-span-5 p-5 flex flex-col justify-between relative bg-slate-900/90 backdrop-blur-md rounded-[20px] border border-slate-800 shadow-xl overflow-hidden text-left min-h-[440px]">
+            {/* Top Badge Info */}
+            <div className="relative z-20 flex items-center justify-between">
+              <span className="bg-[#8C123B] text-white px-3.5 py-1 rounded-md text-[10.5px] font-extrabold tracking-wider uppercase shadow-md">
+                CATEGORY {activeCategory.num} OF 09
+              </span>
+              <div className="w-10 h-10 rounded-full bg-slate-900/80 border border-slate-700 text-white flex items-center justify-center shadow-md">
+                {React.createElement(activeCategory.icon, { className: "w-5 h-5 text-[#C2185B]" })}
+              </div>
+            </div>
+
+            {/* Bottom Content Area */}
+            <div className="relative z-20 mt-auto">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeIdx}
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
+                  exit={{ opacity: 0, y: -15 }}
                   transition={{ duration: 0.35 }}
-                  className="flex flex-col justify-between h-full"
                 >
-                  <div>
-                    {/* Category Tag */}
-                    <span className="text-[9.5px] font-extrabold text-[#C2185B] tracking-widest uppercase block mb-1">
-                      CATEGORY {activeCategory.num}
-                    </span>
-                    <h3 className="text-lg lg:text-xl font-extrabold text-white tracking-tight mb-2 font-headline">
-                      {activeCategory.name}
-                    </h3>
-                    <p className="text-[12.5px] text-slate-300 leading-relaxed mb-4 font-sans">
-                      {activeCategory.desc}
-                    </p>
-
-                    {/* Solutions Grid */}
-                    <div className="mb-4">
-                      <h4 className="text-[11.5px] font-bold text-white tracking-wide mb-2 font-sans">
-                        {activeCategory.solutionsHeader}
-                      </h4>
-                      <div className="grid grid-cols-1 gap-1.5">
-                        {activeCategory.solutions.map((sol, sIdx) => (
-                          <div key={sIdx} className="flex items-center gap-2 p-1.5 px-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-[#8C123B]/60 transition-colors">
-                            <Check className="w-3.5 h-3.5 text-[#C2185B] shrink-0" />
-                            <span className="text-[12px] font-medium text-slate-200 font-sans">{sol}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* CTA Quote Button */}
-                  <div className="pt-2">
-                    <motion.button
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.97 }}
-                      className="flex items-center gap-2 text-[11.5px] font-bold text-white px-5 py-2 rounded-full bg-gradient-to-r from-[#8C123B] via-[#C2185B] to-[#F59E0B] shadow-md cursor-pointer w-fit"
-                    >
-                      <span>Request Quote</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </motion.button>
-                  </div>
+                  <h3 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight mb-3 font-headline">
+                    {activeCategory.name}
+                  </h3>
+                  <p className="text-[13.5px] text-slate-300 leading-relaxed mb-6 font-sans">
+                    {activeCategory.desc}
+                  </p>
+                  
+                  <motion.button
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="flex items-center gap-2.5 text-[12px] font-bold text-white px-6 py-3 rounded-full bg-gradient-to-r from-[#8C123B] via-[#C2185B] to-[#F59E0B] shadow-lg cursor-pointer w-fit"
+                  >
+                    <span>Request Technology Quote</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </motion.button>
                 </motion.div>
               </AnimatePresence>
             </div>
 
-            {/* COLUMN 3: WHY DHGSOFT AUTHORISED PARTNER PANEL (4 Columns out of 12) */}
-            <div className="lg:col-span-4 p-5 flex flex-col justify-between relative bg-gradient-to-br from-[#0D1527] to-[#0A0F1D] rounded-[20px] border border-slate-800 shadow-xl text-left min-h-[440px]">
-              <div>
-                <span className="text-amber-400 text-[10px] font-extrabold tracking-widest uppercase block mb-1">
-                  WHY DHGSOFT
-                </span>
-                <h3 className="text-base lg:text-lg font-extrabold text-white tracking-tight mb-1.5 font-headline">
-                  Authorised &amp; Trusted Technology Partner
-                </h3>
-                <p className="text-[11.5px] text-slate-400 leading-snug mb-4 font-sans">
-                  Delivering Reliable Industrial Hardware, Intelligent Automation, and Future-Ready Technology Infrastructure.
-                </p>
+          </div>
 
-                {/* 8 Feature Highlights Grid */}
-                <div className="grid grid-cols-1 gap-1.5">
-                  {[
-                    "Genuine Industrial Products",
-                    "Global Technology Partners",
-                    "Expert Product Selection",
-                    "End-to-End Procurement",
-                    "Integrated Engineering Support",
-                    "Installation & Commissioning",
-                    "Lifecycle Maintenance Services",
-                    "Complete Warranty Assistance"
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-2 p-1.5 px-2.5 rounded-lg bg-slate-900/80 border border-slate-800/80 hover:border-[#8C123B]/50 transition-colors">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#C2185B] shrink-0" />
-                      <span className="text-[11.5px] font-medium text-slate-200 font-sans">{item}</span>
-                    </div>
+          {/* RIGHT BENTO CARD: SOLUTIONS GRID (7 Columns out of 12) */}
+          <div className="lg:col-span-7 rounded-[28px] border border-slate-800 bg-slate-900/80 backdrop-blur-xl p-8 flex flex-col justify-between text-left shadow-2xl relative overflow-hidden">
+            
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#8C123B] via-[#C2185B] to-[#F59E0B]" />
+
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span className="text-[11px] font-extrabold text-amber-400 uppercase tracking-wider block font-sans">
+                  CERTIFIED INDUSTRIAL PORTFOLIO
+                </span>
+              </div>
+
+              <h4 className="text-xl font-extrabold text-white tracking-tight mb-6 font-headline">
+                {activeCategory.solutionsHeader} Included in {activeCategory.name}
+              </h4>
+
+              {/* 6 Solutions Grid in 2 Columns */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeIdx}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="grid grid-cols-1 md:grid-cols-2 gap-3.5 mb-6"
+                >
+                  {activeCategory.solutions.map((item, idx) => (
+                    <motion.div
+                      key={idx}
+                      whileHover={{ scale: 1.02, borderColor: 'rgba(140, 18, 59, 0.6)' }}
+                      className="flex items-center gap-3 p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 transition-all duration-300 group/sol shadow-sm"
+                    >
+                      <div className="w-7 h-7 rounded-lg bg-[#8C123B]/20 text-[#C2185B] flex items-center justify-center shrink-0 group-hover/sol:bg-[#8C123B] group-hover/sol:text-white transition-colors">
+                        <CheckCircle2 className="w-4 h-4" />
+                      </div>
+                      <span className="text-[13px] font-semibold text-slate-200 font-sans group-hover/sol:text-white transition-colors">
+                        {item}
+                      </span>
+                    </motion.div>
                   ))}
-                </div>
-              </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
 
-              <div className="pt-3 border-t border-slate-800/80 mt-3">
-                <span className="text-[10.5px] text-slate-400 italic block font-sans">
-                  Certified Supply Chain &amp; OEM Sourcing Assurance.
-                </span>
-              </div>
+            {/* Subtitle Banner */}
+            <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800 text-slate-400 text-[12px] font-medium font-sans">
+              <span className="text-white font-bold">Key Capability: </span>
+              {activeCategory.badgeSubtitle}
             </div>
 
           </div>
+
+        </div>
+
+        {/* ── WHY DHGSOFT FEATURE GRID (BOTTOM BANNER) ── */}
+        <div className="w-full rounded-[28px] p-8 bg-gradient-to-r from-[#0D1527] via-[#111827] to-[#0D1527] border border-slate-800 text-white shadow-2xl flex flex-col gap-6 text-left relative overflow-hidden">
+          
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-800/80 pb-5">
+            <div>
+              <span className="text-amber-400 text-[11px] font-extrabold tracking-widest uppercase block mb-1">
+                WHY DHGSOFT
+              </span>
+              <h3 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight font-headline">
+                Authorised &amp; Trusted Technology Partner
+              </h3>
+            </div>
+            <span className="text-[13px] lg:text-[14px] font-medium text-slate-300 leading-relaxed max-w-xl">
+              Delivering Reliable Industrial Hardware, Intelligent Automation, and Future-Ready Technology Infrastructure.
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              "Genuine Industrial Products",
+              "Global Technology Partners",
+              "Expert Product Selection",
+              "End-to-End Procurement",
+              "Integrated Engineering Support",
+              "Installation & Commissioning",
+              "Lifecycle Maintenance Services",
+              "Complete Warranty Assistance"
+            ].map((item, idx) => (
+              <div key={idx} className="flex items-center gap-3 p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-[#8C123B]/60 transition-colors">
+                <CheckCircle2 className="w-4 h-4 text-[#C2185B] shrink-0" />
+                <span className="text-[12.5px] font-semibold text-slate-200 font-sans">{item}</span>
+              </div>
+            ))}
+          </div>
+
         </div>
 
       </div>
