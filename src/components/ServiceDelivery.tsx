@@ -445,7 +445,7 @@ export default function ServiceDelivery() {
               })}
             </div>
 
-            {/* COLUMN 2: CENTER HERO IMAGE (38% Width on Desktop) - FULL IMAGE DISPLAY GUARANTEED */}
+            {/* COLUMN 2: CENTER HERO IMAGE (38% Width on Desktop) - 100% BORDERLESS EDGE-TO-EDGE */}
             <div className="w-full lg:w-[38%] relative overflow-hidden min-h-[460px] rounded-[24px] shadow-md border border-[#ECECEC] bg-[#0A0C14] flex flex-col justify-between z-10">
               
               {/* Premium top border animation traveling once across top edge on transition */}
@@ -463,30 +463,38 @@ export default function ServiceDelivery() {
                 />
               </div>
 
-              {/* Layered Crossfade Morphing Images - Display Full Image Cleanly Without Cropping */}
-              <div className="relative w-full h-full min-h-[440px] flex items-center justify-center p-3 bg-[#0A0C14]">
+              {/* Seamless Edge-to-Edge Morphing Image - Zero White Borders */}
+              <div className="absolute inset-0 w-full h-full overflow-hidden bg-[#0A0C14] rounded-[24px]">
                 <AnimatePresence mode="popLayout">
                   <motion.img
                     key={activeIdx}
                     src={activeStage.image}
                     alt={activeStage.stageTitle}
-                    initial={{ opacity: 0, scale: 0.96, filter: 'blur(4px)' }}
+                    initial={{ opacity: 0, scale: 1.04, filter: 'blur(4px)' }}
                     animate={{ opacity: 1, scale: 1.0, filter: 'blur(0px)' }}
-                    exit={{ opacity: 0, scale: 0.96, filter: 'blur(4px)' }}
+                    exit={{ opacity: 0, scale: 1.04, filter: 'blur(4px)' }}
                     transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] as const }}
-                    className="w-full h-full object-contain max-h-[460px] rounded-[18px] select-none"
+                    className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
                   />
                 </AnimatePresence>
+                
+                {/* Gradient vignette overlay for text contrast */}
+                <div
+                  className="absolute inset-0 pointer-events-none z-10"
+                  style={{
+                    background: 'linear-gradient(to top, rgba(10,12,20,0.85) 0%, rgba(10,12,20,0.15) 50%, transparent 80%)',
+                  }}
+                />
               </div>
 
               {/* Bottom Badge Bar */}
-              <div className="relative z-20 p-4 bg-gradient-to-t from-[#0A0C14] via-[#0A0C14]/90 to-transparent flex flex-col gap-1 text-left">
+              <div className="relative z-20 p-5 mt-auto bg-gradient-to-t from-[#0A0C14] via-[#0A0C14]/90 to-transparent flex flex-col gap-1 text-left">
                 <div className="flex items-center gap-2">
                   <span className="bg-[#8C123B] text-white px-3 py-1 rounded-md text-[10px] font-extrabold tracking-wider uppercase shadow">
                     {activeStage.stageTitle}
                   </span>
                 </div>
-                <span className="text-[11px] text-amber-400 font-bold tracking-wide mt-1">
+                <span className="text-[11px] text-slate-200 font-bold tracking-wide mt-1">
                   {activeStage.badgeSubtitle}
                 </span>
               </div>
