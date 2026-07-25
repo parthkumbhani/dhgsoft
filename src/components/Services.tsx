@@ -22,84 +22,213 @@ interface ServiceData {
 
 const SERVICES_DATA: ServiceData[] = [
   {
-    title: "Industrial Digital Transformation",
-    category: "Smart Manufacturing",
-    desc: "Modernize industrial assets and factories with AI-powered automation, digital twins, real-time OEE tracking, and smart manufacturing systems.",
-    image: "/industries/automotive.png",
-    overview: "End-to-end modernization of legacy manufacturing operations into data-driven smart industrial enterprises.",
-    capabilities: ["Real-Time Digital Twin Deployment", "OEE Tracking & Bottleneck Analytics", "Predictive Quality Control", "Smart Factory Process Automation"],
-    technologies: ["Industry 4.0", "Edge AI", "Digital Twins", "MES Platforms"],
-    outcomes: ["35% downtime reduction", "18% OEE increase", "Zero-defect production"]
+    title: "Engineering & EPC Services",
+    category: "Engineering & EPC",
+    desc: "Delivering multidisciplinary engineering, procurement, construction support, and commissioning services for greenfield, brownfield, and plant expansion projects.",
+    image: "/industries/epc.png",
+    overview: "Engineering End-to-End Industrial Infrastructure",
+    capabilities: [
+      "Basic & Detailed Engineering",
+      "Electrical Engineering",
+      "Mechanical Engineering",
+      "Process Engineering",
+      "Instrumentation Engineering",
+      "Civil & Structural Coordination",
+      "Engineering Design & Documentation",
+      "Engineering Procurement Support",
+      "EPC Project Management",
+      "Site Engineering & Supervision",
+      "Testing & Commissioning",
+      "Plant Start-up Support",
+      "Turnkey Industrial Projects",
+      "Plant Expansion & Modernization",
+      "As-Built Documentation"
+    ],
+    technologies: ["FEED Design", "CAD 3D Modeling", "EPC Standards", "Project Governance"],
+    outcomes: ["On-time project delivery", "Zero design rework", "100% safety compliance"]
   },
   {
-    title: "OT / IT Integration",
+    title: "Industrial Automation & Process Control",
     category: "Automation",
-    desc: "Connect shop-floor operational technology (OT) with enterprise IT platforms, ERP, MES, and Unified Namespace (UNS).",
+    desc: "Designing, implementing, and supporting automation systems that improve productivity, reliability, and process efficiency.",
+    image: "/industries/automotive.png",
+    overview: "Intelligent Automation for Modern Industrial Operations",
+    capabilities: [
+      "PLC Programming",
+      "SCADA Development",
+      "Distributed Control Systems (DCS)",
+      "Human Machine Interface (HMI)",
+      "Batch Automation Systems",
+      "Process Automation",
+      "Alarm Management",
+      "Control Logic Development",
+      "Plant Automation Migration",
+      "Legacy System Modernization",
+      "Control System Integration",
+      "Industrial Communication Protocols",
+      "Remote Monitoring Solutions",
+      "Factory Acceptance Testing (FAT)",
+      "Site Acceptance Testing (SAT)"
+    ],
+    technologies: ["PLC / SCADA", "DCS Platforms", "Siemens / Rockwell", "ISA-88 / ISA-95"],
+    outcomes: ["35% downtime reduction", "Real-time process control", "High plant availability"]
+  },
+  {
+    title: "Electrical Systems & Panel Manufacturing",
+    category: "Electrical & Hardware",
+    desc: "Providing complete electrical design, panel manufacturing, power distribution, and industrial control solutions.",
     image: "/industries/power.png",
-    overview: "Seamless data convergence bridging physical factory floor assets with corporate IT business intelligence systems.",
-    capabilities: ["PLC / SCADA to ERP Integration", "Unified Namespace (UNS) Architecture", "OPC UA & MQTT Broker Setup", "Legacy Protocol Translation"],
-    technologies: ["OPC UA", "MQTT Sparkplug", "Apache Kafka", "SCADA / HMI"],
-    outcomes: ["100% data ingestion", "Zero packet drop rates", "Real-time asset sync"]
+    overview: "Reliable Electrical Infrastructure for Industrial Operations",
+    capabilities: [
+      "PLC Control Panels",
+      "Motor Control Centres (MCC)",
+      "Intelligent MCC (iMCC)",
+      "Power Control Centres (PCC)",
+      "Variable Frequency Drive (VFD) Panels",
+      "APFC Panels",
+      "HMI Operator Panels",
+      "Control Desks & Consoles",
+      "LT Power Distribution Panels",
+      "Bus Duct Systems",
+      "Cable Engineering",
+      "Power Distribution Systems",
+      "Panel Testing & Certification",
+      "Site Installation & Commissioning"
+    ],
+    technologies: ["PCC / MCC", "IEC 61439", "VFD Drives", "Power Distribution"],
+    outcomes: ["100% FAT compliance", "Optimized power factor", "Enhanced electrical safety"]
   },
   {
-    title: "Industrial Data Platforms",
-    category: "Data Platforms",
-    desc: "Build centralized telemetry hubs and time-series data infrastructure for real-time plant visibility and analytics.",
-    image: "/industries/datacenters.png",
-    overview: "High-throughput industrial telemetry ecosystems capable of processing millions of time-series data points.",
-    capabilities: ["Historian Database Upgrades", "Multi-Site Industrial Data Hubs", "Time-Series Analytics Engines", "Unified Data Namespace"],
-    technologies: ["TimescaleDB", "InfluxDB", "Apache Spark", "Snowflake"],
-    outcomes: ["45% query speedup", "Single source of truth", "Scalable telemetry"]
+    title: "Industry 4.0 & Smart Manufacturing",
+    category: "Smart Manufacturing",
+    desc: "Helping manufacturers transform into intelligent, connected, and data-driven enterprises through advanced digital technologies.",
+    image: "/industries/industrial-manufacturing.png",
+    overview: "Accelerating the Connected Factory",
+    capabilities: [
+      "Smart Factory Solutions",
+      "Manufacturing Execution Support",
+      "Digital Operations Centre",
+      "Real-Time Production Monitoring",
+      "Overall Equipment Effectiveness (OEE)",
+      "Predictive Maintenance",
+      "Asset Performance Management",
+      "Manufacturing Intelligence",
+      "Energy Management Systems",
+      "Digital Twin Integration",
+      "AI Operational Dashboards",
+      "Production Performance Monitoring",
+      "Industrial Reporting",
+      "Continuous Improvement Analytics"
+    ],
+    technologies: ["Industry 4.0", "Digital Twins", "MES Platforms", "OEE Analytics"],
+    outcomes: ["18% OEE increase", "Zero-defect manufacturing", "Optimized throughput"]
   },
   {
-    title: "Artificial Intelligence & Analytics",
-    category: "AI Systems",
-    desc: "Deploy industrial AI and machine learning models for predictive maintenance, computer vision inspection, and decision intelligence.",
-    image: "/industries/lifesciences.png",
-    overview: "Cognitive automation systems designed to predict equipment failures and prescribe optimal process parameters.",
-    capabilities: ["Predictive Maintenance AI", "Computer Vision Defect Inspection", "Energy Load & Demand Forecasting", "Process Parameter Auto-Tuning"],
-    technologies: ["TensorFlow", "PyTorch", "Computer Vision", "MLOps Pipelines"],
-    outcomes: ["50% scrap rate reduction", "94% anomaly detection accuracy", "12% energy savings"]
-  },
-  {
-    title: "Industrial IoT",
+    title: "Industrial IoT (IIoT) Solutions",
     category: "Industrial IoT",
-    desc: "Connect machines, smart sensors, and edge gateways into one secure, low-latency telemetry network.",
+    desc: "Creating secure, scalable IIoT platforms that enable real-time visibility across plants, equipment, and enterprise systems.",
     image: "/industries/food.png",
-    overview: "Dense sensor networks and smart edge node deployments for granular machinery telemetry and condition monitoring.",
-    capabilities: ["Edge Mesh Network Deployment", "Smart Sensor Data Pipelines", "Remote Asset Telemetry", "Condition Monitoring Dashboards"],
-    technologies: ["LoRaWAN", "AWS IoT", "Azure IoT Hub", "Edge Computing"],
+    overview: "Connecting Industrial Assets to Enterprise Intelligence",
+    capabilities: [
+      "Machine Connectivity",
+      "PLC Connectivity",
+      "Industrial Gateway Deployment",
+      "Edge Computing Solutions",
+      "Industrial Data Acquisition",
+      "Sensor Integration",
+      "Smart Device Integration",
+      "OPC UA Integration",
+      "MQTT Communication",
+      "Modbus Integration",
+      "Protocol Conversion",
+      "Cloud Connectivity",
+      "Remote Asset Monitoring",
+      "Industrial Data Collection"
+    ],
+    technologies: ["LoRaWAN", "AWS / Azure IoT", "Edge Gateways", "MQTT / Sparkplug"],
     outcomes: ["99.9% device uptime", "Sub-second telemetry latency", "Automated alert triggers"]
   },
   {
-    title: "Cloud Infrastructure",
-    category: "Enterprise Cloud",
-    desc: "Scalable, resilient cloud architectures engineered for mission-critical, high-availability industrial workloads.",
-    image: "/industries/epc.png",
-    overview: "Hybrid cloud ecosystems and automated deployment pipelines hosting enterprise OT and IT industrial applications.",
-    capabilities: ["Kubernetes Cluster Deployments", "Hybrid Cloud Environments", "Infrastructure as Code (IaC)", "Scalable API Gateways"],
-    technologies: ["Terraform", "EKS / GKE", "Helm Charts", "Hybrid Cloud"],
-    outcomes: ["99.99% system SLA", "Auto-scaling orchestration", "Zero-downtime rollouts"]
-  },
-  {
-    title: "Cybersecurity",
-    category: "Cyber Defense",
-    desc: "Zero Trust security architectures protecting industrial control systems, OT networks, and enterprise cloud operations.",
+    title: "OT & IT Infrastructure Solutions",
+    category: "Network & Security",
+    desc: "Designing enterprise-grade industrial communication infrastructure that securely connects operational technology with enterprise IT systems.",
     image: "/industries/water.png",
-    overview: "OT-centric security frameworks conforming to ISA/IEC 62443 standards to shield critical industrial assets.",
-    capabilities: ["OT/IT Network Zoning (ISA/IEC 62443)", "Edge Intrusion Prevention Systems", "Zero-Trust Access Control", "Vulnerability & Threat Audits"],
-    technologies: ["IEC 62443", "Zero Trust", "SIEM / SOAR", "OT Firewalls"],
-    outcomes: ["Zero security breaches", "Full ISO 27001 readiness", "Immediate incident logs"]
+    overview: "Secure, Resilient & Connected Industrial Networks",
+    capabilities: [
+      "OT & IT Network Architecture",
+      "Industrial Ethernet Networks",
+      "Fibre Optic Infrastructure",
+      "Industrial LAN/WAN",
+      "Industrial Wi-Fi",
+      "Secure Remote Access",
+      "Industrial VPN",
+      "VLAN Segmentation",
+      "Industrial DMZ",
+      "Firewall Integration",
+      "OT Cybersecurity",
+      "Server Infrastructure",
+      "Data Centre Solutions",
+      "Hybrid Cloud Infrastructure",
+      "Network Monitoring & Diagnostics",
+      "Multi-Plant Connectivity"
+    ],
+    technologies: ["IEC 62443", "Industrial Ethernet", "OT Firewalls", "Zero Trust"],
+    outcomes: ["Zero security breaches", "100% network uptime", "ISA/IEC 62443 compliance"]
   },
   {
-    title: "Managed Services",
-    category: "Digital Operations",
-    desc: "24/7/365 continuous monitoring, system maintenance, governance, and SLA-backed lifecycle support.",
+    title: "AI, Data Analytics & Industrial Intelligence",
+    category: "AI & Intelligence",
+    desc: "Empowering organisations with AI-driven insights that improve operational performance, reliability, and executive decision-making.",
+    image: "/industries/datacenters.png",
+    overview: "Transforming Industrial Data into Business Intelligence",
+    capabilities: [
+      "Industrial AI Solutions",
+      "Predictive Analytics",
+      "Machine Learning Models",
+      "Executive Dashboards",
+      "KPI Management",
+      "Industrial Reporting",
+      "Production Analytics",
+      "Alarm Analytics",
+      "Event Analytics",
+      "Energy Analytics",
+      "Utility Analytics",
+      "Asset Performance Intelligence",
+      "Digital Operations Dashboard",
+      "Operational Intelligence Platform",
+      "Decision Support Systems"
+    ],
+    technologies: ["TensorFlow / PyTorch", "Computer Vision", "Machine Learning", "MLOps Pipelines"],
+    outcomes: ["50% scrap rate reduction", "94% anomaly detection accuracy", "12% energy savings"]
+  },
+  {
+    title: "Field Services & Lifecycle Support (24×7)",
+    category: "Lifecycle Support",
+    desc: "Providing proactive maintenance, remote support, and operational services that ensure continuous industrial performance and reliability.",
     image: "/industries/mining.png",
-    overview: "Proactive infrastructure monitoring, patch management, and dedicated engineering support for sustained operating health.",
-    capabilities: ["24/7/365 Remote Monitoring", "Database Tuning & Scaling", "Compliance & Security Patch Syncs", "Performance SLA Tracking"],
-    technologies: ["Datadog", "Prometheus", "PagerDuty", "ITIL Framework"],
-    outcomes: ["99.9% availability", "Immediate alert response", "Sustained lifecycle health"]
+    overview: "Maximising System Performance Throughout the Asset Lifecycle",
+    capabilities: [
+      "24×7 Technical Support",
+      "Annual Maintenance Contracts (AMC)",
+      "Preventive Maintenance",
+      "Breakdown Maintenance",
+      "Emergency Support",
+      "Resident Engineers",
+      "Remote Technical Support",
+      "Health Assessments",
+      "System Audits",
+      "Performance Optimisation",
+      "Software Upgrades",
+      "Hardware Modernisation",
+      "Spare Parts Management",
+      "System Commissioning Support",
+      "Plant Shutdown Support",
+      "Lifecycle Asset Management",
+      "Service Level Agreement (SLA) Management",
+      "Training & Knowledge Transfer"
+    ],
+    technologies: ["24x7 Field Support", "System Retrofits", "SLA Governance", "On-Site Engineering"],
+    outcomes: ["24/7 SLA guarantee", "Immediate incident response", "Extended asset lifespan"]
   }
 ];
 
@@ -344,7 +473,7 @@ function ServiceCard({ data, isExpanded, onCardHover, onCardLeave }: {
               </motion.p>
 
               {/* Service Points */}
-              <div className="flex flex-col gap-2.5 mb-4">
+              <div className="flex flex-col gap-2.5 mb-4 max-h-[220px] overflow-y-auto pr-1 text-left custom-scrollbar">
                 {data.capabilities.map((service, sIdx) => (
                   <motion.div
                     key={sIdx}
