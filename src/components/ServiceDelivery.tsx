@@ -293,9 +293,9 @@ export default function ServiceDelivery() {
             From Strategy to Sustainable Business Outcomes
           </h2>
           <p
-            className="font-sans text-slate-600 max-w-[1140px]"
+            className="font-sans text-slate-600 w-full"
             style={{
-              fontSize: 15.5,
+              fontSize: 16,
               lineHeight: 1.65,
             }}
           >
@@ -521,9 +521,9 @@ export default function ServiceDelivery() {
                       {activeStage.desc}
                     </p>
 
-                    {/* Key Capabilities / Expected Outcomes Grid - ZERO SCROLLBAR */}
+                    {/* Key Capabilities / Expected Outcomes Grid - Title Case without uppercase CSS */}
                     <div className="mb-4 text-left">
-                      <h4 className="text-[11px] font-extrabold text-slate-800 tracking-wider uppercase mb-2">
+                      <h4 className="text-[12px] font-bold text-slate-800 tracking-wide mb-2 font-sans">
                         {activeStage.capabilitiesHeader}
                       </h4>
                       <div className="grid grid-cols-1 gap-1.5">
