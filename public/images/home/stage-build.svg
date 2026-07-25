@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#090D16"/>
+      <stop offset="100%" stop-color="#1E1E2E"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg3)"/>
+
+  <!-- IDE Window -->
+  <rect x="100" y="80" width="1000" height="640" rx="20" fill="#181825" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+
+  <!-- Window Bar -->
+  <path d="M 100 100 A 20 20 0 0 1 120 80 L 1080 80 A 20 20 0 0 1 1100 100 L 1100 135 L 100 135 Z" fill="#11111B"/>
+  <circle cx="135" cy="107" r="6" fill="#F38BA8"/>
+  <circle cx="155" cy="107" r="6" fill="#F9E2AF"/>
+  <circle cx="175" cy="107" r="6" fill="#A6E3A1"/>
+  <text x="210" y="112" fill="#6C7086" font-family="monospace" font-size="13">src/services/AutomationEngine.ts — DHGsoft Core IDE</text>
+
+  <!-- Sidebar -->
+  <rect x="100" y="135" width="220" height="585" fill="#11111B"/>
+  <text x="125" y="175" fill="#9399B2" font-family="sans-serif" font-size="12" font-weight="700">EXPLORER</text>
+  <text x="135" y="210" fill="#89B4FA" font-family="monospace" font-size="13">📁 src/components</text>
+  <text x="150" y="240" fill="#A6E3A1" font-family="monospace" font-size="13">📄 ScadaBroker.ts</text>
+  <text x="150" y="270" fill="#F9E2AF" font-family="monospace" font-size="13">📄 PlcGateway.cpp</text>
+  <text x="150" y="300" fill="#FAB387" font-family="monospace" font-size="13">📄 TelemetryPipe.go</text>
+  <text x="135" y="340" fill="#89B4FA" font-family="monospace" font-size="13">📁 config/uns</text>
+
+  <!-- Editor Code Area -->
+  <g font-family="monospace" font-size="15" xml:space="preserve">
+    <text x="360" y="190" fill="#CBA6F7">import</text><text x="425" y="190" fill="#CDD6F4"> { </text><text x="445" y="190" fill="#F9E2AF">IndustrialPipeline</text><text x="610" y="190" fill="#CDD6F4"> } </text><text x="635" y="190" fill="#CBA6F7">from</text><text x="680" y="190" fill="#A6E3A1"> '@dhgsoft/core-engine'</text><text x="915" y="190" fill="#CDD6F4">;</text>
+
+    <text x="360" y="230" fill="#CBA6F7">export class</text><text x="480" y="230" fill="#89B4FA"> AutomationEngine</text><text x="630" y="230" fill="#CBA6F7"> implements</text><text x="735" y="230" fill="#F9E2AF"> IScadaBridge</text><text x="850" y="230" fill="#CDD6F4"> {</text>
+
+    <text x="390" y="270" fill="#CBA6F7">private async</text><text x="515" y="270" fill="#89B4FA"> initializeProtocolHandler</text><text x="745" y="270" fill="#CDD6F4">(): </text><text x="775" y="270" fill="#F9E2AF">Promise&lt;void&gt;</text><text x="900" y="270" fill="#CDD6F4"> {</text>
+    <text x="420" y="310" fill="#6C7086">// Establishing OPC UA / MQTT Sparkplug B Data Ingestion</text>
+    <text x="420" y="340" fill="#CBA6F7">const</text><text x="475" y="340" fill="#CDD6F4"> broker = </text><text x="560" y="340" fill="#CBA6F7">await</text><text x="615" y="340" fill="#F9E2AF"> UNSManager</text><text x="720" y="340" fill="#CDD6F4">.</text><text x="730" y="340" fill="#89B4FA">connect</text><text x="800" y="340" fill="#CDD6F4">({</text>
+    <text x="450" y="375" fill="#CDD6F4">endpoint: </text><text x="545" y="375" fill="#A6E3A1">"opc.tcp://192.168.1.100:4840"</text><text x="830" y="375" fill="#CDD6F4">,</text>
+    <text x="450" y="405" fill="#CDD6F4">keepAlive: </text><text x="555" y="405" fill="#FAB387">true</text><text x="595" y="405" fill="#CDD6F4">,</text>
+    <text x="450" y="435" fill="#CDD6F4">maxPacketDrop: </text><text x="595" y="435" fill="#FAB387">0</text>
+    <text x="420" y="465" fill="#CDD6F4">});</text>
+
+    <text x="420" y="505" fill="#89B4FA">broker</text><text x="475" y="505" fill="#CDD6F4">.</text><text x="485" y="505" fill="#89B4FA">subscribeTelemetry</text><text x="665" y="505" fill="#CDD6F4">((</text><text x="685" y="505" fill="#FAB387">data</text><text x="725" y="505" fill="#CDD6F4">) </text><text x="745" y="505" fill="#CBA6F7">=&gt;</text><text x="775" y="505" fill="#CDD6F4"> {</text>
+    <text x="450" y="540" fill="#CBA6F7">this</text><text x="490" y="540" fill="#CDD6F4">.</text><text x="500" y="540" fill="#89B4FA">processOeeMetrics</text><text x="660" y="540" fill="#CDD6F4">(</text><text x="670" y="540" fill="#FAB387">data</text><text x="710" y="540" fill="#CDD6F4">);</text>
+    <text x="420" y="570" fill="#CDD6F4">});</text>
+    <text x="390" y="605" fill="#CDD6F4">}</text>
+    <text x="360" y="640" fill="#CDD6F4">}</text>
+  </g>
+
+  <!-- Bottom Terminal Bar -->
+  <rect x="320" y="660" width="780" height="60" fill="#11111B" rx="10"/>
+  <text x="345" y="695" fill="#A6E3A1" font-family="monospace" font-size="13">✓ [BUILD SUCCESS] Compiled 48 modules in 1.4s. 0 Errors, 0 Warnings.</text>
+</svg>

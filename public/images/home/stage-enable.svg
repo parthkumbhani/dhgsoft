@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg6" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B0E17"/>
+      <stop offset="100%" stop-color="#1E1E2E"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg6)"/>
+
+  <!-- Portal Container -->
+  <rect x="90" y="70" width="1020" height="660" rx="22" fill="rgba(30, 41, 59, 0.75)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+
+  <text x="130" y="140" fill="#FFFFFF" font-family="sans-serif" font-size="24" font-weight="800">DHGsoft Developer Knowledge Portal & Team Capability Hub</text>
+  <text x="130" y="165" fill="#94A3B8" font-family="sans-serif" font-size="14">Empower • Educate • Elevate Engineering Teams</text>
+
+  <!-- 3 Main Enablement Modules -->
+  <!-- Module 1 -->
+  <rect x="130" y="210" width="290" height="470" rx="18" fill="rgba(15, 23, 42, 0.85)" stroke="url(#purpleGrad)" stroke-width="2"/>
+  <text x="160" y="260" fill="#EC4899" font-family="sans-serif" font-size="13" font-weight="800">ACADEMY MODULE 01</text>
+  <text x="160" y="295" fill="#FFFFFF" font-family="sans-serif" font-size="20" font-weight="700">Skill Engineering</text>
+  <text x="160" y="335" fill="#94A3B8" font-family="sans-serif" font-size="13">• Hands-on OT-IT Labs</text>
+  <text x="160" y="365" fill="#94A3B8" font-family="sans-serif" font-size="13">• PLC/SCADA Certification</text>
+  <text x="160" y="395" fill="#94A3B8" font-family="sans-serif" font-size="13">• Cloud Developer Tracks</text>
+  <rect x="160" y="600" width="140" height="40" rx="20" fill="url(#purpleGrad)"/>
+  <text x="230" y="625" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="700">View Catalog</text>
+
+  <!-- Module 2 -->
+  <rect x="455" y="210" width="290" height="470" rx="18" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <text x="485" y="260" fill="#3B82F6" font-family="sans-serif" font-size="13" font-weight="800">KNOWLEDGE ASSETS 02</text>
+  <text x="485" y="295" fill="#FFFFFF" font-family="sans-serif" font-size="20" font-weight="700">Runtime Protocols</text>
+  <text x="485" y="335" fill="#94A3B8" font-family="sans-serif" font-size="13">• System Architecture Docs</text>
+  <text x="485" y="365" fill="#94A3B8" font-family="sans-serif" font-size="13">• Reusable Code Libraries</text>
+  <text x="485" y="395" fill="#94A3B8" font-family="sans-serif" font-size="13">• Standard Operating SOPs</text>
+  <rect x="485" y="600" width="140" height="40" rx="20" fill="rgba(255,255,255,0.1)"/>
+  <text x="555" y="625" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="700">Access Assets</text>
+
+  <!-- Module 3 -->
+  <rect x="780" y="210" width="290" height="470" rx="18" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <text x="810" y="260" fill="#10B981" font-family="sans-serif" font-size="13" font-weight="800">INNOVATION 03</text>
+  <text x="810" y="295" fill="#FFFFFF" font-family="sans-serif" font-size="20" font-weight="700">Continuous Upgrade</text>
+  <text x="810" y="335" fill="#94A3B8" font-family="sans-serif" font-size="13">• System Expansion Loops</text>
+  <text x="810" y="365" fill="#94A3B8" font-family="sans-serif" font-size="13">• AI Feature Roadmaps</text>
+  <text x="810" y="395" fill="#94A3B8" font-family="sans-serif" font-size="13">• Feedback Diagnostics</text>
+  <rect x="810" y="600" width="140" height="40" rx="20" fill="rgba(255,255,255,0.1)"/>
+  <text x="880" y="625" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="700">Explore Roadmap</text>
+</svg>

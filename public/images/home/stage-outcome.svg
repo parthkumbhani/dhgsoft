@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg7" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#080B14"/>
+      <stop offset="100%" stop-color="#1E1B2E"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="50%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#8C123B"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg7)"/>
+
+  <!-- Main Container -->
+  <rect x="80" y="70" width="1040" height="660" rx="22" fill="rgba(15, 23, 42, 0.85)" stroke="url(#goldGrad)" stroke-width="2"/>
+
+  <text x="130" y="140" fill="#FFFFFF" font-family="sans-serif" font-size="24" font-weight="800">Executive Business Intelligence & ROI Outcomes Dashboard</text>
+  <text x="130" y="165" fill="#94A3B8" font-family="sans-serif" font-size="14">Value • Scale • Operational Excellence</text>
+
+  <!-- 4 Outcome Cards Grid -->
+  <rect x="130" y="210" width="220" height="150" rx="16" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="155" y="250" fill="#F59E0B" font-family="sans-serif" font-size="13" font-weight="800">DOWNTIME REDUCTION</text>
+  <text x="155" y="295" fill="#FFFFFF" font-family="sans-serif" font-size="36" font-weight="900">-35%</text>
+  <text x="155" y="325" fill="#10B981" font-family="sans-serif" font-size="12">✓ Verified Across Plants</text>
+
+  <rect x="375" y="210" width="220" height="150" rx="16" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="400" y="250" fill="#10B981" font-family="sans-serif" font-size="13" font-weight="800">OEE EFFICIENCY</text>
+  <text x="400" y="295" fill="#FFFFFF" font-family="sans-serif" font-size="36" font-weight="900">+18%</text>
+  <text x="400" y="325" fill="#10B981" font-family="sans-serif" font-size="12">✓ Production Gains</text>
+
+  <rect x="620" y="210" width="220" height="150" rx="16" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="645" y="250" fill="#3B82F6" font-family="sans-serif" font-size="13" font-weight="800">SCRAP RATE</text>
+  <text x="645" y="295" fill="#FFFFFF" font-family="sans-serif" font-size="36" font-weight="900">-50%</text>
+  <text x="645" y="325" fill="#10B981" font-family="sans-serif" font-size="12">✓ AI Defect Detection</text>
+
+  <rect x="865" y="210" width="210" height="150" rx="16" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="890" y="250" fill="#EC4899" font-family="sans-serif" font-size="13" font-weight="800">ENERGY SAVINGS</text>
+  <text x="890" y="295" fill="#FFFFFF" font-family="sans-serif" font-size="36" font-weight="900">12%</text>
+  <text x="890" y="325" fill="#10B981" font-family="sans-serif" font-size="12">✓ Carbon Footprint Cut</text>
+
+  <!-- Large Growth ROI Chart -->
+  <rect x="130" y="390" width="945" height="300" rx="18" fill="rgba(15, 23, 42, 0.9)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="165" y="435" fill="#FFFFFF" font-family="sans-serif" font-size="17" font-weight="700">Cumulative Enterprise Value & Cost Savings ROI Curve ($ Million)</text>
+
+  <path d="M 165 640 Q 350 620, 500 530 T 800 460 T 1030 430" fill="none" stroke="url(#goldGrad)" stroke-width="4.5"/>
+</svg>
