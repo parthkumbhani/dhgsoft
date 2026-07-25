@@ -24,82 +24,82 @@ const SERVICES_DATA: ServiceData[] = [
   {
     title: "Industrial Digital Transformation",
     category: "Smart Manufacturing",
-    desc: "Modernize factories with AI-powered automation, predictive maintenance, digital twins, and intelligent manufacturing systems.",
+    desc: "Modernize industrial assets and factories with AI-powered automation, digital twins, real-time OEE tracking, and smart manufacturing systems.",
     image: "/industries/automotive.png",
-    overview: "End-to-end modernization of legacy manufacturing operations into highly optimized, data-driven smart factories.",
-    capabilities: ["Real-Time Digital Twin Deployment", "OEE Optimization & Analytics", "Predictive Quality Control", "Zero-Harm Safety Monitoring"],
-    technologies: ["Industry 4.0", "Edge AI", "Computer Vision", "3D Digital Twins"],
-    outcomes: ["35% downtime reduction", "18% OEE increase", "Zero-safety incident logs"]
+    overview: "End-to-end modernization of legacy manufacturing operations into data-driven smart industrial enterprises.",
+    capabilities: ["Real-Time Digital Twin Deployment", "OEE Tracking & Bottleneck Analytics", "Predictive Quality Control", "Smart Factory Process Automation"],
+    technologies: ["Industry 4.0", "Edge AI", "Digital Twins", "MES Platforms"],
+    outcomes: ["35% downtime reduction", "18% OEE increase", "Zero-defect production"]
   },
   {
     title: "OT / IT Integration",
     category: "Automation",
-    desc: "Connect operational technology with enterprise platforms for real-time visibility, secure communication, and seamless operations.",
+    desc: "Connect shop-floor operational technology (OT) with enterprise IT platforms, ERP, MES, and Unified Namespace (UNS).",
     image: "/industries/power.png",
-    overview: "Bridges the gap between physical factory floor assets and corporate IT business intelligence systems.",
-    capabilities: ["PLC/SCADA to ERP Syncing", "OPC UA & MQTT Broker Design", "Secure Edge Data Pipelines", "Legacy Protocol Translations"],
-    technologies: ["OPC UA", "MQTT Sparkplug", "Kafka", "SCADA/HMI"],
+    overview: "Seamless data convergence bridging physical factory floor assets with corporate IT business intelligence systems.",
+    capabilities: ["PLC / SCADA to ERP Integration", "Unified Namespace (UNS) Architecture", "OPC UA & MQTT Broker Setup", "Legacy Protocol Translation"],
+    technologies: ["OPC UA", "MQTT Sparkplug", "Apache Kafka", "SCADA / HMI"],
     outcomes: ["100% data ingestion", "Zero packet drop rates", "Real-time asset sync"]
   },
   {
     title: "Industrial Data Platforms",
     category: "Data Platforms",
-    desc: "Build centralized data ecosystems that transform industrial telemetry into actionable business intelligence.",
+    desc: "Build centralized telemetry hubs and time-series data infrastructure for real-time plant visibility and analytics.",
     image: "/industries/datacenters.png",
-    overview: "Unified telemetry hubs capable of processing millions of time-series data points from plant sensors.",
-    capabilities: ["Historian Database Upgrades", "Multi-Site Data Hubs", "Time-Series Analytics Engines", "Unified Namespace (UNS)"],
+    overview: "High-throughput industrial telemetry ecosystems capable of processing millions of time-series data points.",
+    capabilities: ["Historian Database Upgrades", "Multi-Site Industrial Data Hubs", "Time-Series Analytics Engines", "Unified Data Namespace"],
     technologies: ["TimescaleDB", "InfluxDB", "Apache Spark", "Snowflake"],
-    outcomes: ["45% speedup in queries", "Single source of truth", "Scalable telemetry"]
+    outcomes: ["45% query speedup", "Single source of truth", "Scalable telemetry"]
   },
   {
     title: "Artificial Intelligence & Analytics",
     category: "AI Systems",
-    desc: "Deploy enterprise AI models that optimize production, forecasting, anomaly detection, and decision intelligence.",
+    desc: "Deploy industrial AI and machine learning models for predictive maintenance, computer vision inspection, and decision intelligence.",
     image: "/industries/lifesciences.png",
-    overview: "Cognitive automation systems designed to predict anomalies and prescribe optimal plant settings.",
-    capabilities: ["Predictive Maintenance Models", "Vision Defect Inspection", "Energy Load Forecasting", "Process Setpoint Tuning"],
+    overview: "Cognitive automation systems designed to predict equipment failures and prescribe optimal process parameters.",
+    capabilities: ["Predictive Maintenance AI", "Computer Vision Defect Inspection", "Energy Load & Demand Forecasting", "Process Parameter Auto-Tuning"],
     technologies: ["TensorFlow", "PyTorch", "Computer Vision", "MLOps Pipelines"],
     outcomes: ["50% scrap rate reduction", "94% anomaly detection accuracy", "12% energy savings"]
   },
   {
     title: "Industrial IoT",
     category: "Industrial IoT",
-    desc: "Connect machines, sensors, and edge devices into one secure intelligent ecosystem.",
+    desc: "Connect machines, smart sensors, and edge gateways into one secure, low-latency telemetry network.",
     image: "/industries/food.png",
-    overview: "Dense sensor networks and smart edge node deployments for granular machinery metrics tracking.",
-    capabilities: ["Edge Mesh Network Setup", "Low-Latency Device Control", "Smart Metering Platforms", "Edge Computing Nodes"],
-    technologies: ["LoRaWAN", "AWS IoT", "Azure IoT Hub", "Edge Compute"],
-    outcomes: ["99.9% device uptime", "Sub-second data latency", "Automated device pairing"]
+    overview: "Dense sensor networks and smart edge node deployments for granular machinery telemetry and condition monitoring.",
+    capabilities: ["Edge Mesh Network Deployment", "Smart Sensor Data Pipelines", "Remote Asset Telemetry", "Condition Monitoring Dashboards"],
+    technologies: ["LoRaWAN", "AWS IoT", "Azure IoT Hub", "Edge Computing"],
+    outcomes: ["99.9% device uptime", "Sub-second telemetry latency", "Automated alert triggers"]
   },
   {
     title: "Cloud Infrastructure",
     category: "Enterprise Cloud",
-    desc: "Scalable cloud-native platforms built for mission-critical industrial workloads.",
+    desc: "Scalable, resilient cloud architectures engineered for mission-critical, high-availability industrial workloads.",
     image: "/industries/epc.png",
-    overview: "Resilient cloud architectures built to host mission-critical, high-availability OT applications.",
-    capabilities: ["Kubernetes Cluster Deployments", "Hybrid Cloud Environments", "IaC Configuration Pipelines", "Scalable API Gateways"],
-    technologies: ["Terraform", "EKS/GKE", "Helm Charts", "Hybrid Network"],
+    overview: "Hybrid cloud ecosystems and automated deployment pipelines hosting enterprise OT and IT industrial applications.",
+    capabilities: ["Kubernetes Cluster Deployments", "Hybrid Cloud Environments", "Infrastructure as Code (IaC)", "Scalable API Gateways"],
+    technologies: ["Terraform", "EKS / GKE", "Helm Charts", "Hybrid Cloud"],
     outcomes: ["99.99% system SLA", "Auto-scaling orchestration", "Zero-downtime rollouts"]
   },
   {
     title: "Cybersecurity",
     category: "Cyber Defense",
-    desc: "Zero Trust architectures protecting industrial assets, networks, cloud, and enterprise operations.",
+    desc: "Zero Trust security architectures protecting industrial control systems, OT networks, and enterprise cloud operations.",
     image: "/industries/water.png",
-    overview: "OT-centric security systems built to protect critical assets from cyber risks and network intrusions.",
-    capabilities: ["OT/IT Network Zoning (62443)", "Edge Intrusion Prevention", "Zero-Trust Access Control", "Vulnerability Audits"],
-    technologies: ["IEC 62443", "Zero Trust", "SIEM/SOAR", "OT Firewalls"],
-    outcomes: ["No security breaches", "Full ISO 27001 readiness", "Immediate incident logs"]
+    overview: "OT-centric security frameworks conforming to ISA/IEC 62443 standards to shield critical industrial assets.",
+    capabilities: ["OT/IT Network Zoning (ISA/IEC 62443)", "Edge Intrusion Prevention Systems", "Zero-Trust Access Control", "Vulnerability & Threat Audits"],
+    technologies: ["IEC 62443", "Zero Trust", "SIEM / SOAR", "OT Firewalls"],
+    outcomes: ["Zero security breaches", "Full ISO 27001 readiness", "Immediate incident logs"]
   },
   {
     title: "Managed Services",
     category: "Digital Operations",
-    desc: "Continuous monitoring, optimization, governance, and enterprise operational excellence.",
+    desc: "24/7/365 continuous monitoring, system maintenance, governance, and SLA-backed lifecycle support.",
     image: "/industries/mining.png",
-    overview: "Proactive infrastructure monitoring and continuous support for enterprise software solutions.",
-    capabilities: ["24/7/365 Remote Monitoring", "Database Tuning & Scaling", "Compliance & Patch Syncs", "Performance SLA Tracking"],
+    overview: "Proactive infrastructure monitoring, patch management, and dedicated engineering support for sustained operating health.",
+    capabilities: ["24/7/365 Remote Monitoring", "Database Tuning & Scaling", "Compliance & Security Patch Syncs", "Performance SLA Tracking"],
     technologies: ["Datadog", "Prometheus", "PagerDuty", "ITIL Framework"],
-    outcomes: ["99.9% availability", "Immediate alert responses", "Sustained lifecycle health"]
+    outcomes: ["99.9% availability", "Immediate alert response", "Sustained lifecycle health"]
   }
 ];
 
@@ -191,12 +191,6 @@ function ServiceCard({ data, isExpanded, onCardHover, onCardLeave }: {
                 background: 'linear-gradient(to top, rgba(10,12,18,0.85) 0%, rgba(10,12,18,0.2) 40%, transparent 70%)',
               }}
             />
-            {/* Category badge */}
-            <div className="absolute top-4 left-4 z-20">
-              <span className="backdrop-blur-md bg-black/40 text-[#AEB7C8] border border-white/10 px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase">
-                {data.category}
-              </span>
-            </div>
           </div>
 
           {/* Content — 34% */}
@@ -376,31 +370,6 @@ function ServiceCard({ data, isExpanded, onCardHover, onCardLeave }: {
             </div>
 
             <div>
-              {/* Technologies */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={isExpanded ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.3, delay: 0.32, ease: 'easeOut' }}
-                className="flex flex-wrap gap-1.5 mb-5"
-              >
-                {data.technologies.map((tech, tIdx) => (
-                  <span
-                    key={tIdx}
-                    className="rounded-full font-medium"
-                    style={{
-                      fontSize: 10,
-                      padding: '3px 10px',
-                      color: '#AEB7C8',
-                      background: 'rgba(255,255,255,0.04)',
-                      border: '1px solid rgba(255,255,255,0.06)',
-                      letterSpacing: '0.02em',
-                    }}
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </motion.div>
-
               {/* CTA Row */}
               <motion.div
                 initial={{ opacity: 0, y: 6 }}
