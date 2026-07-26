@@ -1,254 +1,274 @@
-"use client"
+'use client';
 
-import React from "react"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Section } from "@/components/ui/Section"
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { 
+  BookOpen, 
+  FileText, 
   Cpu, 
-  Network, 
-  Cloud, 
-  Settings, 
+  Factory, 
+  Wifi, 
+  FlaskConical, 
+  CheckCircle2, 
   ArrowRight, 
-  Users, 
-  Lightbulb, 
-  Rocket, 
-  TrendingUp, 
-  Compass 
-} from "lucide-react"
+  LucideIcon
+} from 'lucide-react';
+import { Container } from '@/components/ui/Container';
 
-const INNOVATION_CARDS = [
+interface KnowledgeItem {
+  id: string;
+  title: string;
+  desc: string;
+  image: string;
+  icon: LucideIcon;
+  bullets: string[];
+  link: string;
+}
+
+const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
   {
-    title: "Artificial Intelligence",
-    desc: "Intelligent algorithms and machine learning models that drive smarter decisions.",
+    id: "research",
+    title: "Research & Industry Insights",
+    desc: "Market research, industry trends, benchmark studies, and executive perspectives shaping the future of industrial enterprises.",
+    image: "/images/insights/insights-featured.jpg",
+    icon: BookOpen,
+    bullets: [
+      "Industry Research Reports",
+      "Market Trends & Insights",
+      "Executive Perspectives",
+      "Digital Transformation Studies"
+    ],
+    link: "/insights"
+  },
+  {
+    id: "whitepapers",
+    title: "Whitepapers & Publications",
+    desc: "Access in-depth technical documents, implementation guides, engineering standards, and best practices developed by our specialists.",
+    image: "/images/insights/insights-whitepapers.jpg",
+    icon: FileText,
+    bullets: [
+      "Technical Whitepapers",
+      "Engineering Guidelines",
+      "Best Practices",
+      "Implementation Frameworks"
+    ],
+    link: "/insights"
+  },
+  {
+    id: "ai",
+    title: "AI & Industrial Intelligence",
+    desc: "Discover how Artificial Intelligence, Machine Learning, and Operational Intelligence are transforming industrial operations and business decision-making.",
+    image: "/images/insights/ai-automation-overview.jpg",
     icon: Cpu,
-    colorClass: "border-l-indigo-600",
-    iconBg: "bg-indigo-50 text-indigo-600",
-    arrowColor: "text-indigo-600"
+    bullets: [
+      "Industrial AI",
+      "Predictive Analytics",
+      "Digital Intelligence",
+      "AI-Powered Operations"
+    ],
+    link: "/insights"
   },
   {
-    title: "Industrial IoT",
-    desc: "Connecting machines, systems, and people to unlock real-time insights and efficiency.",
-    icon: Network,
-    colorClass: "border-l-emerald-500",
-    iconBg: "bg-emerald-50 text-emerald-500",
-    arrowColor: "text-emerald-500"
+    id: "industry4",
+    title: "Industry 4.0 & Smart Manufacturing",
+    desc: "Learn how connected factories, automation, robotics, digital twins, and real-time manufacturing intelligence are driving operational excellence.",
+    image: "/smart_factory_visual.png",
+    icon: Factory,
+    bullets: [
+      "Smart Factory",
+      "Manufacturing Intelligence",
+      "Digital Twin",
+      "Operational Excellence"
+    ],
+    link: "/insights"
   },
   {
-    title: "Cloud & Data Platforms",
-    desc: "Scalable cloud solutions and modern data platforms that power growth and innovation.",
-    icon: Cloud,
-    colorClass: "border-l-blue-500",
-    iconBg: "bg-blue-50 text-blue-500",
-    arrowColor: "text-blue-500"
+    id: "iiot",
+    title: "Industrial IoT & Connected Assets",
+    desc: "Explore secure industrial connectivity, edge computing, Industrial IoT architectures, and real-time asset monitoring.",
+    image: "/images/insights/tech-ecosystem-overview.jpg",
+    icon: Wifi,
+    bullets: [
+      "IIoT Architecture",
+      "Edge Computing",
+      "Connected Assets",
+      "Remote Operations"
+    ],
+    link: "/insights"
   },
   {
-    title: "Digital Engineering",
-    desc: "End-to-end engineering solutions that transform ideas into high-performing systems.",
-    icon: Settings,
-    colorClass: "border-l-orange-500",
-    iconBg: "bg-orange-50 text-orange-500",
-    arrowColor: "text-orange-500"
+    id: "labs",
+    title: "Innovation Labs & Case Studies",
+    desc: "Explore real-world implementations, proof-of-concepts, innovation projects, and customer success stories demonstrating measurable business value.",
+    image: "/images/insights/case-studies-overview.jpg",
+    icon: FlaskConical,
+    bullets: [
+      "Innovation Labs",
+      "Proof of Concepts",
+      "Case Studies",
+      "Success Stories"
+    ],
+    link: "/insights"
   }
-]
+];
 
-const STATS_DATA = [
-  {
-    value: "50+",
-    label: "Innovation Experts",
-    icon: Users,
-    iconBg: "bg-blue-50 text-blue-600"
-  },
-  {
-    value: "100+",
-    label: "Research Projects",
-    icon: Lightbulb,
-    iconBg: "bg-emerald-50 text-emerald-600"
-  },
-  {
-    value: "25+",
-    label: "Patents & IPs",
-    icon: Rocket,
-    iconBg: "bg-purple-50 text-purple-600"
-  },
-  {
-    value: "30+",
-    label: "Industrial Deployments",
-    icon: TrendingUp,
-    iconBg: "bg-orange-50 text-orange-600"
-  }
-]
+const WHY_VISIT_REASONS = [
+  "Access industry-leading research & insights",
+  "Explore proven engineering architectures",
+  "Learn from successful transformation projects",
+  "Discover practical smart factory solutions"
+];
 
 export default function InnovationInstitute() {
   return (
-    <Section id="innovation-institute" variant="white" className="overflow-hidden">
-      {/* Top right ambient background blur and dot pattern */}
-      <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-gradient-to-br from-blue-300/20 to-purple-300/20 blur-3xl pointer-events-none" />
-      
-      {/* 3x6 Dot Grid Pattern */}
-      <div className="absolute top-12 right-[8%] hidden lg:grid grid-cols-3 gap-3.5 opacity-30 pointer-events-none">
-        {[...Array(18)].map((_, i) => (
-          <div key={i} className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-        ))}
-      </div>
+    <section
+      id="innovation-institute"
+      style={{ backgroundColor: '#0A0E1A' }}
+      className="w-full text-white relative overflow-hidden border-b border-slate-900 select-none pt-28 pb-14 lg:pt-32 lg:pb-16 h-auto"
+    >
+      {/* Signature 2-3 Color Theme Lighting Flares (Dark Navy + Deep Crimson + Magenta ONLY - ZERO YELLOW) */}
+      <div className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-[#8C123B]/18 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[550px] h-[550px] bg-[#C2185B]/14 rounded-full blur-[160px] pointer-events-none" />
 
-      <div className="relative z-10 w-full">
+      <Container size="wide" className="relative z-10 w-full flex flex-col gap-8">
         
-        {/* Section Header */}
-        <div className="text-left mb-12 lg:mb-16">
-          <div className="flex items-center gap-3 text-[11px] font-bold text-blue-600 uppercase tracking-[0.2em] font-sans">
-            <span>DHG Innovation Institute</span>
-            <div className="h-[1px] w-12 bg-blue-200" />
+        {/* ── 1. CLEAN ENTERPRISE HEADER (WITH COMPLETE FLOATING NAVBAR CLEARANCE: PT-28 / PT-32) ── */}
+        <div className="text-left w-full max-w-none">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#C2185B] animate-pulse" />
+            <span className="text-[11px] font-extrabold text-[#C2185B] uppercase tracking-[0.25em] font-sans">
+              DHGSOFT INNOVATION INSTITUTE
+            </span>
           </div>
-          <h2 className="text-3xl lg:text-[42px] font-extrabold text-slate-950 leading-[1.15] tracking-tight mt-3 mb-4 font-headline">
-            Engineering Innovation.<br />Powering the <span className="text-blue-600">Future.</span>
+
+          <h2 className="text-2xl md:text-3xl lg:text-[32px] font-extrabold tracking-tight text-white font-headline leading-tight mb-2">
+            Advancing Industrial Innovation Through Research, Engineering &amp; Intelligence
           </h2>
-          <p className="text-slate-600 text-sm max-w-[560px] leading-relaxed font-sans font-medium">
-            At DHG Innovation Institute, we research, build, and deploy next-generation 
-            technologies that solve real industrial challenges and create measurable impact.
+
+          <p className="text-[13.5px] lg:text-[14.5px] text-slate-300 leading-relaxed font-sans max-w-5xl font-normal">
+            The DHGsoft Innovation Institute is our centre for industrial research, technology innovation, and engineering excellence. We create practical insights, reference architectures, technology frameworks, and industry research that help organisations accelerate digital transformation.
           </p>
         </div>
 
-        {/* Main Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
-          {/* Left Column - Image Card with custom sloped SVG clipping mask and stroke */}
-          <div className="lg:col-span-7 relative">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative w-full overflow-visible"
-            >
-              {/* Responsive Sloped SVG Card */}
-              <svg 
-                viewBox="0 0 700 500" 
-                className="w-full h-auto overflow-visible select-none drop-shadow-[0_10px_30px_rgba(148,163,184,0.12)]"
-                xmlns="http://www.w3.org/2000/svg"
+        {/* ── 2. REAL TOPIC-SPECIFIC CARD BACKGROUND IMAGE GRID SHOWCASE (CLEAR & BRIGHT IMAGES) ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch w-full">
+          {KNOWLEDGE_ITEMS.map((item, idx) => {
+            const Icon = item.icon;
+
+            return (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.25, delay: idx * 0.04 }}
+                style={{ 
+                  background: 'linear-gradient(135deg, rgba(140, 18, 59, 0.35) 0%, rgba(11, 17, 32, 0.96) 100%)'
+                }}
+                className="rounded-[22px] p-6 lg:p-7 flex flex-col justify-between shadow-2xl border border-slate-800/90 hover:border-[#C2185B] hover:shadow-[0_0_35px_rgba(194,24,91,0.40)] hover:-translate-y-1 transition-all duration-300 text-left backdrop-blur-md relative overflow-hidden group min-h-[270px]"
               >
-                <defs>
-                  <clipPath id="institute-img-clip">
-                    <path d="M 32,0 L 668,0 A 32,32 0 0 1 700,32 L 700,300 Q 700,325 680,340 L 540,480 Q 520,500 490,500 L 32,500 A 32,32 0 0 1 0,468 L 0,32 A 32,32 0 0 1 32,0 Z" />
-                  </clipPath>
-                </defs>
-                
-                {/* Fallback Background block for clean rendering */}
-                <path d="M 32,0 L 668,0 A 32,32 0 0 1 700,32 L 700,300 Q 700,325 680,340 L 540,480 Q 520,500 490,500 L 32,500 A 32,32 0 0 1 0,468 L 0,32 A 32,32 0 0 1 32,0 Z" fill="#F8FAFC" />
-                
-                {/* Image clipped to the sloped path */}
-                <image
-                  href="/smart_factory_visual.png"
-                  width="700"
-                  height="500"
-                  clipPath="url(#institute-img-clip)"
-                  preserveAspectRatio="xMidYMid slice"
+                {/* Real Topic-Specific Full Card Background Image (Increased Opacity for High Clarity) */}
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover opacity-60 group-hover:scale-105 group-hover:opacity-75 transition-all duration-500 pointer-events-none"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
 
-                {/* Accent blue outline that runs along the bottom-right slope */}
-                <path 
-                  d="M 710,240 L 710,300 Q 710,325 690,345 L 545,490 Q 525,510 495,510 L 315,510" 
-                  fill="none" 
-                  stroke="#3b82f6" 
-                  strokeWidth="2.5" 
-                  strokeLinecap="round"
-                  className="opacity-75"
-                />
-              </svg>
+                {/* Soft Dark Gradient Overlay Layer for Maximum Image Clarity & Text Readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120] via-[#0B1120]/60 to-[#0B1120]/30 z-10" />
 
-              {/* Bottom-left overlay badge */}
-              <div className="absolute bottom-6 left-6 right-6 md:right-auto bg-[#080E1E] text-white p-5 rounded-2xl shadow-2xl flex items-center gap-4 border border-blue-950/20 max-w-full md:max-w-[340px] z-20">
-                <div className="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400 shrink-0">
-                  <Compass className="w-5 h-5" />
-                </div>
-                <div className="text-left">
-                  <h5 className="text-sm font-bold tracking-wide">Research. Engineer. Deploy.</h5>
-                  <p className="text-[11px] text-slate-400 mt-0.5 font-medium">Solutions built for the real world.</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
+                {/* Top Crimson Accent Ribbon Line */}
+                <div className="absolute top-0 left-0 right-0 h-[3.5px] bg-gradient-to-r from-[#8C123B] via-[#C2185B] to-[#8C123B] opacity-80 group-hover:opacity-100 transition-opacity z-30" />
 
-          {/* Right Column - Stacked List Cards */}
-          <div className="lg:col-span-5 flex flex-col gap-4">
-            {INNOVATION_CARDS.map((card, idx) => {
-              const Icon = card.icon
-              return (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className={`flex items-center justify-between p-5 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 border-l-[4px] ${card.colorClass} group cursor-pointer`}
-                >
-                  <div className="flex items-center">
-                    <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${card.iconBg}`}>
-                      <Icon className="w-5 h-5" />
+                {/* Card Content Body (Z-Index 20 Above Background Image) */}
+                <div className="relative z-20 flex flex-col justify-between h-full space-y-4">
+                  
+                  {/* Card Header: Icon & Category Tag */}
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="w-9 h-9 rounded-xl bg-[#8C123B] text-white flex items-center justify-center shrink-0 shadow-lg border border-[#C2185B]/60 group-hover:scale-105 transition-transform">
+                        <Icon className="w-4.5 h-4.5 text-white" />
+                      </div>
+
+                      <span className="text-[10px] font-extrabold text-white bg-[#8C123B]/85 border border-[#C2185B]/70 uppercase tracking-widest font-sans px-3.5 py-1 rounded-full shadow-md backdrop-blur-md">
+                        KNOWLEDGE HUB
+                      </span>
                     </div>
-                    <div className="flex-grow pl-4 text-left">
-                      <h4 className="text-slate-950 font-bold text-sm tracking-tight">{card.title}</h4>
-                      <p className="text-slate-500 text-[11px] leading-relaxed mt-0.5 font-medium">{card.desc}</p>
+
+                    {/* Title (Full Text, High Contrast with Drop Shadow) */}
+                    <h3 className="text-lg lg:text-[18.5px] font-extrabold text-white tracking-tight font-headline mb-1.5 leading-snug drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                      {item.title}
+                    </h3>
+
+                    {/* Description (High Contrast with Drop Shadow) */}
+                    <p className="text-[12.5px] text-slate-100 leading-relaxed font-sans mb-3 font-medium drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
+                      {item.desc}
+                    </p>
+
+                    {/* Bullet Tags Grid */}
+                    <div className="grid grid-cols-2 gap-2 border-t border-slate-700/80 pt-3 mb-4">
+                      {item.bullets.map((bullet, bIdx) => (
+                        <div key={bIdx} className="flex items-center gap-1.5 text-[11px] font-semibold text-white font-sans drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#C2185B] shrink-0" />
+                          <span>{bullet}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                  <div className={`shrink-0 pl-2 transition-transform duration-300 group-hover:translate-x-1 ${card.arrowColor}`}>
-                    <ArrowRight className="w-4 h-4" />
+
+                  {/* Action Button */}
+                  <div>
+                    <Link href={item.link} className="inline-block w-full">
+                      <button className="w-full flex items-center justify-between text-[12px] font-extrabold text-white px-4 py-2.5 rounded-xl bg-[#8C123B]/60 hover:bg-[#8C123B] border border-[#C2185B]/80 hover:border-[#C2185B] transition-all cursor-pointer font-sans group/btn shadow-lg backdrop-blur-md">
+                        <span>Explore Knowledge Hub</span>
+                        <ArrowRight className="w-4 h-4 text-white group-hover/btn:translate-x-1 transition-transform" />
+                      </button>
+                    </Link>
                   </div>
-                </motion.div>
-              )
-            })}
 
-            {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="mt-2 text-left"
-            >
-              <Link href="/innovation-institute" className="inline-block">
-                <Button className="rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold text-xs px-6 py-4 h-auto shadow-md shadow-blue-500/10 transition-all duration-300 flex items-center gap-2 border-0 cursor-pointer">
-                  Explore Our Innovation
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Button>
-              </Link>
-            </motion.div>
-          </div>
+                </div>
 
+              </motion.div>
+            );
+          })}
         </div>
 
-        {/* Bottom Statistics Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-16 lg:mt-24 bg-white border border-slate-100 rounded-3xl p-6 lg:p-8 shadow-lg shadow-slate-100/50"
+        {/* ── 3. ENTERPRISE BOTTOM SHOWCASE STRIP ("WHY VISIT THE DHGSOFT INNOVATION INSTITUTE?") ── */}
+        <div 
+          style={{
+            background: 'linear-gradient(135deg, rgba(11, 17, 32, 0.96) 0%, rgba(140, 18, 59, 0.40) 100%)'
+          }}
+          className="rounded-[20px] p-4 px-6 border border-[#8C123B]/60 shadow-2xl backdrop-blur-md text-left flex flex-col md:flex-row items-center justify-between gap-4 mt-2"
         >
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-4 lg:gap-0 lg:divide-x lg:divide-slate-150">
-            {STATS_DATA.map((stat, idx) => {
-              const StatIcon = stat.icon
-              return (
-                <div key={idx} className="flex items-center gap-4 pl-0 lg:pl-8 first:pl-0">
-                  <div className={`w-11 h-11 rounded-full flex items-center justify-center shrink-0 ${stat.iconBg}`}>
-                    <StatIcon className="w-5 h-5" />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-2xl lg:text-3xl font-extrabold text-slate-950 tracking-tight leading-none">
-                      {stat.value}
-                    </div>
-                    <div className="text-[11px] font-semibold text-slate-500 mt-1 uppercase tracking-wider">
-                      {stat.label}
-                    </div>
-                  </div>
+          <div className="flex items-center gap-5 min-w-0">
+            <span className="text-[11px] font-extrabold text-[#C2185B] uppercase tracking-[0.2em] font-sans shrink-0 hidden md:inline-block">
+              WHY VISIT:
+            </span>
+            <div className="flex flex-wrap items-center gap-4 text-[12px] font-semibold text-slate-200 font-sans">
+              {WHY_VISIT_REASONS.map((reason, idx) => (
+                <div key={idx} className="flex items-center gap-2 shrink-0">
+                  <CheckCircle2 className="w-4 h-4 text-[#C2185B] shrink-0" />
+                  <span>{reason}</span>
                 </div>
-              )
-            })}
+              ))}
+            </div>
           </div>
-        </motion.div>
 
-      </div>
-    </Section>
-  )
+          <div className="shrink-0 text-right w-full md:w-auto">
+            <Link href="/innovation-institute" className="inline-block w-full md:w-auto">
+              <button className="w-full md:w-auto flex items-center justify-center gap-2 text-[11.5px] font-extrabold text-white px-6 py-2.5 rounded-full bg-gradient-to-r from-[#8C123B] to-[#C2185B] hover:from-[#C2185B] hover:to-[#8C123B] shadow-[0_0_20px_rgba(194,24,91,0.5)] hover:scale-[1.02] transition-all duration-300 cursor-pointer font-sans tracking-wide uppercase">
+                <span>EXPLORE INNOVATION INSTITUTE</span>
+                <ArrowRight className="w-4 h-4 text-white" />
+              </button>
+            </Link>
+          </div>
+        </div>
+
+      </Container>
+    </section>
+  );
 }
