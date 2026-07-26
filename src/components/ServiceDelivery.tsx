@@ -538,7 +538,7 @@ export default function ServiceDelivery() {
 
                     {/* Business Outcome Highlight Box (Shown for Stages 1-6) */}
                     {activeStage.businessOutcome && (
-                      <div className="p-3.5 rounded-xl bg-gradient-to-br from-[#8C123B]/8 to-amber-500/8 border border-[#8C123B]/20 text-left mt-5 mb-4">
+                      <div className="p-3.5 rounded-xl bg-[#8C123B]/5 border border-[#8C123B]/20 text-left mt-5 mb-4">
                         <span className="text-[9.5px] font-extrabold text-[#8C123B] tracking-wider uppercase block mb-1">
                           BUSINESS OUTCOME
                         </span>
@@ -557,16 +557,7 @@ export default function ServiceDelivery() {
                         boxShadow: '0px 10px 25px rgba(140, 18, 59, 0.22)',
                       }}
                       whileTap={{ scale: 0.98 }}
-                      className="group relative overflow-hidden flex items-center gap-2.5 text-[11.5px] font-bold text-white px-6 py-2.5 rounded-full transition-all duration-300 cursor-pointer w-fit"
-                      style={{
-                        background: 'linear-gradient(90deg, #8C123B 0%, #C2185B 50%, #F59E0B 100%)',
-                        backgroundSize: '200% 100%',
-                        backgroundPosition: '0% 0%',
-                      }}
-                      animate={{
-                        backgroundPosition: hoveredIdx !== null ? '100% 0%' : '0% 0%'
-                      }}
-                      transition={{ duration: 0.45, ease: 'easeInOut' }}
+                      className="group relative overflow-hidden flex items-center gap-2.5 text-[11.5px] font-bold text-white px-6 py-2.5 rounded-full transition-all duration-300 cursor-pointer w-fit shadow-md bg-gradient-to-r from-[#8C123B] to-[#C2185B] hover:from-[#6B0D2D] hover:to-[#A01348]"
                     >
                       <span className="relative z-10 font-sans tracking-wide">{buttonText}</span>
                       <ArrowRight className="w-3.5 h-3.5 relative z-10 transition-transform duration-300 group-hover:translate-x-[6px]" />
@@ -584,7 +575,7 @@ export default function ServiceDelivery() {
         {/* ── Our Commitment Banner — 1 Line on Desktop ── */}
         <div className="w-full rounded-[22px] p-6 lg:py-5 lg:px-8 bg-gradient-to-r from-[#0F172A] via-[#1E293B] to-[#0F172A] text-white border border-slate-800 flex flex-col lg:flex-row items-center justify-between gap-4 shadow-lg text-left">
           <div className="w-full lg:flex-1">
-            <span className="text-amber-400 text-[11px] font-extrabold tracking-widest uppercase block mb-1">
+            <span className="text-[#C2185B] text-[11px] font-extrabold tracking-widest uppercase block mb-1 font-sans">
               OUR COMMITMENT
             </span>
             <p className="text-[13.5px] lg:text-[14.5px] text-slate-200 leading-relaxed font-sans">
@@ -594,7 +585,7 @@ export default function ServiceDelivery() {
           <motion.button
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
-            className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#8C123B] to-[#F59E0B] text-white font-bold text-[12px] tracking-wide shrink-0 shadow-md cursor-pointer"
+            className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#8C123B] to-[#C2185B] text-white font-bold text-[12px] tracking-wide shrink-0 shadow-md cursor-pointer"
           >
             Start Transformation
           </motion.button>

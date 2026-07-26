@@ -208,7 +208,7 @@ export default function ContactSection() {
           {/* Right Column: Premium Consultation Form Card */}
           <div className="lg:col-span-6">
             <Card className="p-8 border border-slate-200 bg-white rounded-[20px] shadow-[0_10px_35px_rgba(0,0,0,0.02)] relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#C30072] via-[#E10088] to-[#F36B2A]" />
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#8C123B] via-[#C2185B] to-[#8C123B]" />
 
               <CardHeader className="p-0 mb-6">
                 <CardTitle className="text-xl font-bold text-slate-800 font-headline">
@@ -232,7 +232,7 @@ export default function ContactSection() {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className={`w-full px-4 py-2.5 bg-white border rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#C30072] focus:ring-1 focus:ring-[#C30072]/30 transition-all ${
+                      className={`w-full px-4 py-2.5 bg-white border rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#8C123B] focus:ring-1 focus:ring-[#8C123B]/30 transition-all ${
                         errors.email ? "border-red-500" : "border-slate-200"
                       }`}
                       placeholder="john@company.com"
@@ -251,7 +251,7 @@ export default function ContactSection() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className={`w-full px-4 py-2.5 bg-white border rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#C30072] focus:ring-1 focus:ring-[#C30072]/30 transition-all ${
+                      className={`w-full px-4 py-2.5 bg-white border rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#8C123B] focus:ring-1 focus:ring-[#8C123B]/30 transition-all ${
                         errors.phone ? "border-red-500" : "border-slate-200"
                       }`}
                       placeholder="+91 98765 43210"
@@ -466,7 +466,7 @@ export default function ContactSection() {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-[#C30072] hover:bg-[#C30072]/95 text-white font-bold rounded-xl py-3.5 shadow-md shadow-[#C30072]/15 transition-all flex items-center justify-center gap-2 group cursor-pointer"
+                      className="w-full bg-gradient-to-r from-[#8C123B] to-[#C2185B] hover:from-[#6B0D2D] hover:to-[#A01348] text-white font-bold rounded-xl py-3.5 shadow-md shadow-[#8C123B]/20 transition-all flex items-center justify-center gap-2 group cursor-pointer"
                     >
                       {isSubmitting ? (
                         <>

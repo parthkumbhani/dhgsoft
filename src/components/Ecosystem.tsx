@@ -256,7 +256,7 @@ export default function Ecosystem() {
               style={{ backgroundColor: '#0A0E1A' }}
             >
               {/* Top Accent Gradient Line */}
-              <div className="absolute top-0 left-0 right-0 h-[3.5px] bg-gradient-to-r from-[#8C123B] via-[#C2185B] to-amber-400 z-30" />
+              <div className="absolute top-0 left-0 right-0 h-[3.5px] bg-gradient-to-r from-[#8C123B] via-[#C2185B] to-[#8C123B] z-30" />
 
               {/* 🖼️ DIRECT HTML <img> ELEMENT FOR 100% RELIABLE BROWSER RENDERING ACROSS ALL 9 CATEGORIES */}
               <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
@@ -319,7 +319,7 @@ export default function Ecosystem() {
                             className="rounded-xl p-3 px-3.5 flex items-start gap-2.5 shadow-xl border border-[#8C123B]/60 hover:border-[#C2185B] hover:shadow-[0_0_22px_rgba(194,24,91,0.40)] hover:-translate-y-0.5 transition-all duration-300 text-left backdrop-blur-md group/sol min-h-[68px] relative overflow-hidden"
                           >
                             {/* Glowing Left Crimson Brand Accent Line */}
-                            <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#C2185B] via-[#8C123B] to-amber-500 opacity-80 group-hover/sol:opacity-100 transition-opacity" />
+                            <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#C2185B] via-[#8C123B] to-[#C2185B] opacity-80 group-hover/sol:opacity-100 transition-opacity" />
 
                             {/* Top-Left Signature Crimson Badge Icon */}
                             <div className="w-6.5 h-6.5 rounded-lg bg-[#8C123B] text-white flex items-center justify-center shrink-0 shadow-md border border-[#C2185B]/60 group-hover/sol:scale-110 group-hover/sol:bg-[#C2185B] transition-all mt-0.5">
@@ -343,7 +343,7 @@ export default function Ecosystem() {
                       <div className="pt-1">
                         <button 
                           onClick={handleRequestClick}
-                          className="flex items-center gap-3 text-[12.5px] font-extrabold text-white px-7 py-2.5 rounded-full bg-gradient-to-r from-[#8C123B] via-[#C2185B] to-[#F59E0B] hover:from-[#C2185B] hover:to-[#F59E0B] shadow-[0_0_22px_rgba(194,24,91,0.5)] hover:shadow-[0_0_32px_rgba(245,158,11,0.65)] hover:scale-[1.03] transition-all duration-300 cursor-pointer font-sans tracking-wider uppercase"
+                          className="flex items-center gap-3 text-[12.5px] font-extrabold text-white px-7 py-2.5 rounded-full bg-gradient-to-r from-[#8C123B] via-[#C2185B] to-[#8C123B] hover:from-[#C2185B] hover:to-[#8C123B] shadow-[0_0_22px_rgba(194,24,91,0.5)] hover:shadow-[0_0_32px_rgba(194,24,91,0.65)] hover:scale-[1.03] transition-all duration-300 cursor-pointer font-sans tracking-wider uppercase"
                         >
                           <span>REQUEST</span>
                           <div className="w-5.5 h-5.5 rounded-full bg-white/20 flex items-center justify-center shrink-0">

@@ -73,9 +73,9 @@ export default function Hero({ onContactClick, onExploreServices }: HeroProps) {
             {/* Tag Badge */}
             <motion.div
               variants={itemVariants}
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20 backdrop-blur-md text-[#E10088] mb-8"
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#8C123B]/10 border border-[#C2185B]/20 backdrop-blur-md text-[#C2185B] mb-8"
             >
-              <Cpu className="h-4 w-4 text-[#E10088]" />
+              <Cpu className="h-4 w-4 text-[#C2185B]" />
               <span className="text-[11px] font-extrabold uppercase tracking-widest font-sans">
                 It's Time to Connect Intelligence
               </span>
@@ -87,7 +87,7 @@ export default function Hero({ onContactClick, onExploreServices }: HeroProps) {
               className="text-headline-xl text-white tracking-tight font-extrabold leading-tight text-balance"
             >
               Transforming Industrial Enterprises Through{" "}
-              <span className="block sm:inline bg-gradient-to-r from-[#C30072] via-[#E10088] to-[#fbc00e] bg-clip-text text-transparent font-black">
+              <span className="block sm:inline bg-gradient-to-r from-[#8C123B] to-[#C2185B] bg-clip-text text-transparent font-black">
                 AI, Data & Digital Engineering
               </span>
             </motion.h1>

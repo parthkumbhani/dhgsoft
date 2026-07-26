@@ -540,8 +540,8 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
           viewBox="0 0 1200 600"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <ellipse cx="600" cy="300" rx="550" ry="180" fill="none" stroke="#C5165C" strokeWidth="0.8" strokeDasharray="4,8" />
-          <ellipse cx="600" cy="300" rx="450" ry="145" fill="none" stroke="#FF8A00" strokeWidth="0.6" strokeDasharray="2,6" />
+          <ellipse cx="600" cy="300" rx="550" ry="180" fill="none" stroke="#C2185B" strokeWidth="0.8" strokeDasharray="4,8" />
+          <ellipse cx="600" cy="300" rx="450" ry="145" fill="none" stroke="#8C123B" strokeWidth="0.6" strokeDasharray="2,6" />
         </motion.svg>
       </motion.div>
 
@@ -666,11 +666,11 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
           >
             <defs>
               <linearGradient id="horizontal-connect-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#C5165C" stopOpacity="0.01" />
-                <stop offset="30%" stopColor="#C5165C" stopOpacity="0.15" />
-                <stop offset="50%" stopColor="#FF8A00" stopOpacity="0.25" />
-                <stop offset="70%" stopColor="#C5165C" stopOpacity="0.15" />
-                <stop offset="100%" stopColor="#C5165C" stopOpacity="0.01" />
+                <stop offset="0%" stopColor="#8C123B" stopOpacity="0.01" />
+                <stop offset="30%" stopColor="#8C123B" stopOpacity="0.15" />
+                <stop offset="50%" stopColor="#C2185B" stopOpacity="0.25" />
+                <stop offset="70%" stopColor="#8C123B" stopOpacity="0.15" />
+                <stop offset="100%" stopColor="#8C123B" stopOpacity="0.01" />
               </linearGradient>
             </defs>
             <line
@@ -683,10 +683,10 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
               strokeDasharray="4,8"
             />
             {/* Travelling micro particles on straight line */}
-            <circle r="2.0" fill="#FF8A00" opacity="0.6">
+            <circle r="2.0" fill="#C2185B" opacity="0.6">
               <animateMotion dur="20s" repeatCount="indefinite" path="M 0,1 L 1200,1" />
             </circle>
-            <circle r="1.5" fill="#C5165C" opacity="0.5">
+            <circle r="1.5" fill="#8C123B" opacity="0.5">
               <animateMotion dur="15s" repeatCount="indefinite" path="M 1200,1 L 0,1" />
             </circle>
           </svg>
@@ -704,7 +704,7 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
             <div
               className="absolute w-[350px] h-[350px] rounded-full blur-[70px] opacity-[0.035]"
               style={{
-                background: "radial-gradient(circle, #C5165C 20%, #FF8A00 80%, transparent 100%)",
+                background: "radial-gradient(circle, #8C123B 20%, #C2185B 80%, transparent 100%)",
               }}
             />
           </div>
@@ -737,12 +737,12 @@ export default function TechEcosystem({ onContactClick }: TechEcosystemProps) {
           <motion.button
             onClick={handleContactNavigation}
             whileHover={{
-              boxShadow: '0px 12px 30px rgba(197, 22, 92, 0.22)',
+              boxShadow: '0px 12px 30px rgba(140, 18, 59, 0.22)',
             }}
             whileTap={{ scale: 0.98 }}
             className="group relative overflow-hidden flex items-center gap-3 text-[13px] font-extrabold text-white px-9 py-4 rounded-full shadow-md transition-all duration-300 cursor-pointer"
             style={{
-              background: 'linear-gradient(90deg, #C5165C 0%, #FF8A00 100%)',
+              background: 'linear-gradient(90deg, #8C123B 0%, #C2185B 100%)',
             }}
           >
             <span className="relative z-10 font-sans tracking-wider uppercase">Explore All Partnerships</span>
@@ -788,8 +788,6 @@ function PartnerCard({
   
   const floatBreathe = useMotionValue(0)
   const logoBreathe = useMotionValue(0)
-
-  const isHovered = hoveredIdx === index
 
   // Set up breathing timers on mount (Floating: 3.5s loop, Logo: 3s loop)
   useEffect(() => {
@@ -877,13 +875,13 @@ function PartnerCard({
     if (r === 0) {
       return '0 2px 8px rgba(0, 0, 0, 0.02), 0 8px 20px rgba(0, 0, 0, 0.03)'
     }
-    return `0 4px 12px rgba(0, 0, 0, 0.03), 0px 20px 40px rgba(197, 22, 92, ${0.08 * r}), 0px 10px 20px rgba(255, 122, 0, ${0.04 * r})`
+    return `0 4px 12px rgba(0, 0, 0, 0.03), 0px 20px 40px rgba(140, 18, 59, ${0.12 * r})`
   })
 
   // Hairline border that strengthens on hover
   const borderStyle = useTransform([activeRatio, hoverOffset], ([ratio, hover]) => {
     if ((ratio as number) > 0.1) return 'none'
-    if ((hover as number) < 0) return '1px solid rgba(197, 22, 92, 0.25)' // Strengthen border on hover
+    if ((hover as number) < 0) return '1px solid rgba(140, 18, 59, 0.3)' // Strengthen border on hover
     return '1px solid #ECECEC'
   })
 
@@ -948,7 +946,7 @@ function PartnerCard({
           x: "-50%",
           y: "-50%",
         }}
-        className="absolute w-32 h-32 rounded-full pointer-events-none bg-gradient-to-r from-[#C5165C]/8 to-[#FF8A00]/8 blur-2xl z-0"
+        className="absolute w-32 h-32 rounded-full pointer-events-none bg-[#8C123B]/10 blur-2xl z-0"
       />
 
       {/* Flowing active gradient border */}
@@ -970,7 +968,7 @@ function PartnerCard({
           className="w-full h-full rounded-[16px]"
           style={{
             border: '2px solid transparent',
-            background: 'linear-gradient(90deg, #C5165C, #FF8A00, #C5165C) border-box',
+            background: 'linear-gradient(90deg, #8C123B, #C2185B, #8C123B) border-box',
             backgroundSize: '200% 100%',
             WebkitMask: 'linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)',
             WebkitMaskComposite: 'destination-out',

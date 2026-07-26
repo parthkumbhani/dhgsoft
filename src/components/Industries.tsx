@@ -409,7 +409,7 @@ function IndustryCard({
         className="absolute top-0 left-0 right-0 h-[4px] z-40"
         style={{
           borderRadius: '28px 28px 0 0',
-          background: 'linear-gradient(90deg, #8B0036, #C2185B, #F28C28)',
+          background: 'linear-gradient(90deg, #8C123B, #C2185B, #8C123B)',
         }}
         animate={{
           opacity: isHovered || isActive ? 1.0 : 0.7,

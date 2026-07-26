@@ -701,7 +701,7 @@ export default function Services() {
             className="font-semibold uppercase block mb-4"
             style={{
               fontSize: 11,
-              color: '#F28C28',
+              color: '#C2185B',
               letterSpacing: '0.3em',
             }}
           >
