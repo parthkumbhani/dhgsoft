@@ -252,7 +252,7 @@ export default function Ecosystem() {
           <div className="lg:col-span-8 flex flex-col justify-between h-[570px]">
             
             <div 
-              className="relative rounded-[24px] overflow-hidden border border-slate-800/90 shadow-2xl h-[545px] flex flex-col justify-between p-7 lg:p-8 text-left group"
+              className="relative rounded-[24px] overflow-hidden border border-[#8C123B]/20 shadow-2xl h-[545px] flex flex-col justify-between p-7 lg:p-8 text-left group"
               style={{ backgroundColor: '#0A0E1A' }}
             >
               {/* Top Accent Gradient Line */}

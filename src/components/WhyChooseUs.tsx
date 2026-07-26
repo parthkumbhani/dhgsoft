@@ -220,7 +220,7 @@ export default function WhyChooseUs({ onContactClick }: WhyChooseUsProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: idx * 0.04 }}
-                  className="group bg-gradient-to-br from-white via-slate-50/40 to-white rounded-[22px] p-5 border border-slate-200/90 shadow-[0_4px_20px_rgba(15,23,42,0.04)] hover:shadow-[0_20px_40px_rgba(140,18,59,0.12)] hover:border-[#C2185B]/60 hover:-translate-y-1.5 transition-all duration-300 text-left flex flex-col justify-between relative overflow-hidden"
+                  className="group bg-gradient-to-br from-white via-slate-50/40 to-white rounded-[22px] p-5 border border-[#8C123B]/20 shadow-[0_4px_20px_rgba(15,23,42,0.04)] hover:shadow-[0_20px_40px_rgba(140,18,59,0.12)] hover:border-[#8C123B]/50 hover:-translate-y-1.5 transition-all duration-300 text-left flex flex-col justify-between relative overflow-hidden"
                 >
                   {/* Top Crimson Accent Ribbon Line */}
                   <div className="absolute top-0 left-0 right-0 h-[3.5px] bg-gradient-to-r from-[#8C123B] via-[#C2185B] to-[#8C123B] opacity-0 group-hover:opacity-100 transition-opacity z-20" />

@@ -88,6 +88,20 @@
   --radius-xl: 1.5rem;
   --radius-full: 9999px;
 
+  /* Site max-width tokens used by Container.tsx */
+  --max-w-site: 1440px;
+  --max-w-site-wide: 1440px;
+  --max-w-prose: 70ch;
+
+  /* Horizontal gutter tokens used by Container.tsx */
+  --spacing-gutter: 1.5rem;
+  --spacing-gutter-md: 2rem;
+
+  /* Section vertical spacing tokens used by Section.tsx */
+  --spacing-sec-y: 4rem;
+  --spacing-sec-y-md: 5rem;
+  --spacing-sec-y-lg: 6rem;
+
   --font-sans: "Inter", sans-serif;
   --font-headline: "Hanken Grotesk", sans-serif;
 

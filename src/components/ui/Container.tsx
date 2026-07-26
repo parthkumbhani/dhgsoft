@@ -12,7 +12,7 @@ export function Container({ size = "default", as: Tag = "div", className = "", .
                        "max-w-site";
   return (
     <Tag
-      className={`mx-auto w-full px-gutter md:px-gutter-md ${sizeClass} ${className}`}
+      className={`mx-auto w-full px-6 md:px-8 lg:px-12 ${sizeClass} ${className}`}
       {...props}
     />
   );
