@@ -30,7 +30,7 @@ const CAREER_CARDS: CareerCard[] = [
     title: 'Job Opportunities',
     description: 'Explore exciting roles and build the career you envision.',
     icon: Briefcase,
-    iconBg: 'linear-gradient(135deg, #E8364F 0%, #F0506A 100%)',
+    iconBg: 'linear-gradient(135deg, #8C123B 0%, #C2185B 100%)',
     iconColor: '#FFFFFF',
     image:
       'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
@@ -40,7 +40,7 @@ const CAREER_CARDS: CareerCard[] = [
     description:
       'We build trust, drive innovation, and deliver excellence together.',
     icon: Lightbulb,
-    iconBg: 'linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%)',
+    iconBg: 'linear-gradient(135deg, #8C123B 0%, #C2185B 100%)',
     iconColor: '#FFFFFF',
     image:
       'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80',
@@ -50,7 +50,7 @@ const CAREER_CARDS: CareerCard[] = [
     description:
       'A supportive workplace where ideas thrive and careers grow.',
     icon: Users,
-    iconBg: 'linear-gradient(135deg, #F97316 0%, #FB923C 100%)',
+    iconBg: 'linear-gradient(135deg, #8C123B 0%, #C2185B 100%)',
     iconColor: '#FFFFFF',
     image:
       'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80',
@@ -60,7 +60,7 @@ const CAREER_CARDS: CareerCard[] = [
     description:
       'We celebrate diversity and create an inclusive environment for all.',
     icon: Heart,
-    iconBg: 'linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%)',
+    iconBg: 'linear-gradient(135deg, #8C123B 0%, #C2185B 100%)',
     iconColor: '#FFFFFF',
     image:
       'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=800&q=80',
@@ -175,8 +175,8 @@ export default function Careers() {
           className="absolute top-0 left-0 right-0 h-[2px]"
           style={{
             background:
-              'linear-gradient(90deg, transparent 0%, #C5165C 30%, #FF8A00 70%, transparent 100%)',
-            opacity: 0.15,
+              'linear-gradient(90deg, transparent 0%, #8C123B 30%, #C2185B 70%, transparent 100%)',
+            opacity: 0.25,
           }}
         />
       </div>
@@ -184,83 +184,55 @@ export default function Careers() {
       {/* ── Main Content ── */}
       <div className="relative z-10 w-full">
         {/* Header Row */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-12 lg:mb-16">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-12 lg:mb-16">
           {/* Left: Label + Heading + Subtitle */}
-          <motion.div variants={fadeUp} className="max-w-xl">
+          <motion.div variants={fadeUp} className="max-w-none w-full flex-grow">
             {/* JOIN US label */}
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-3">
               <div
-                className="h-[2px] w-6"
-                style={{
-                  background:
-                    'linear-gradient(90deg, #C5165C, #FF8A00)',
-                }}
+                className="h-[2.5px] w-6 rounded-full bg-gradient-to-r from-[#8C123B] to-[#C2185B]"
               />
               <span
-                className="text-[11px] font-extrabold tracking-[0.2em] uppercase"
-                style={{
-                  background:
-                    'linear-gradient(90deg, #C5165C, #FF8A00)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }}
+                className="text-[11.5px] font-extrabold tracking-[0.25em] uppercase font-sans text-[#8C123B]"
               >
                 Join Us
               </span>
             </div>
 
-            {/* Heading */}
-            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 leading-[1.15] tracking-tight mb-5 font-headline">
-              Engineering Tomorrow,
-              <br />
-              <span
-                style={{
-                  background:
-                    'linear-gradient(90deg, #C5165C 0%, #E8364F 40%, #FF8A00 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }}
-              >
+            {/* Heading in Single Line */}
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 leading-tight tracking-tight mb-2 font-headline whitespace-nowrap">
+              Engineering Tomorrow,{' '}
+              <span className="bg-gradient-to-r from-[#8C123B] to-[#C2185B] bg-clip-text text-transparent inline-block">
                 Together.
               </span>
             </h2>
 
-            {/* Subtitle */}
-            <p className="text-[15px] text-slate-500 leading-relaxed font-sans">
-              At DHGsoft, we foster a culture where people with a can-do
-              attitude can be a part of our growing team and build meaningful
-              impact across the globe.
+            {/* Subtitle in Single Line */}
+            <p className="text-[15px] lg:text-[16px] text-slate-600 leading-relaxed font-sans max-w-5xl whitespace-normal sm:whitespace-nowrap">
+              At DHGsoft, we foster a culture where people with a can-do attitude can be a part of our growing team and build meaningful impact across the globe.
             </p>
           </motion.div>
 
           {/* Right: CTA Button */}
-          <motion.div variants={fadeUp} className="flex-shrink-0 lg:mt-6">
+          <motion.div variants={fadeUp} className="flex-shrink-0 lg:mt-0">
             <motion.button
               whileHover={{
                 y: -2,
-                boxShadow: '0px 8px 24px rgba(197, 22, 92, 0.18)',
+                boxShadow: '0px 10px 28px rgba(140, 18, 59, 0.22)',
               }}
               whileTap={{ scale: 0.97 }}
-              className="group flex items-center gap-2.5 text-[13px] font-bold px-7 py-3.5 rounded-full border-2 border-slate-200 bg-white hover:border-[#C5165C]/30 transition-all duration-300 cursor-pointer"
+              className="group flex items-center gap-2.5 text-[13.5px] font-extrabold px-8 py-4 rounded-full border-2 border-slate-200 bg-white hover:border-[#8C123B]/40 transition-all duration-300 cursor-pointer shadow-sm"
             >
-              <span
-                className="font-sans tracking-wide"
-                style={{
-                  background:
-                    'linear-gradient(90deg, #C5165C, #FF8A00)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }}
-              >
+              <span className="font-sans tracking-wide uppercase text-[#8C123B] group-hover:text-[#C2185B] transition-colors">
                 Explore Careers
               </span>
-              <ArrowRight className="w-4 h-4 text-[#C5165C] transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 text-[#8C123B] transition-transform duration-300 group-hover:translate-x-1" />
             </motion.button>
           </motion.div>
         </div>
 
-        {/* ── Cards Grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* ── Cards Grid (INCREASED BOX SIZES ALONG WITH LARGER IMAGES) ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
           {CAREER_CARDS.map((card, idx) => {
             const CardIcon = card.icon;
             return (
@@ -269,48 +241,49 @@ export default function Careers() {
                 custom={idx}
                 variants={cardVariant}
                 whileHover={{
-                  y: -8,
+                  y: -10,
                   boxShadow:
-                    '0 25px 55px rgba(15, 23, 42, 0.10), 0 10px 25px rgba(15, 23, 42, 0.05)',
+                    '0 30px 65px rgba(15, 23, 42, 0.12), 0 12px 30px rgba(15, 23, 42, 0.08)',
                 }}
-                className="group relative bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:border-slate-200/80 transition-all duration-500 cursor-pointer flex flex-col justify-between"
+                className="group relative bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-md hover:border-slate-200/90 transition-all duration-500 cursor-pointer flex flex-col justify-between"
               >
-                {/* Large Image */}
-                <div className="relative h-64 lg:h-72 overflow-hidden">
+                {/* INCREASED LARGE IMAGE CONTAINER (H-80 / H-[350PX]) */}
+                <div className="relative h-80 lg:h-[350px] overflow-hidden">
                   <img
                     src={card.image}
                     alt={card.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 </div>
 
                 {/* Icon badge - positioned overlapping image/content boundary */}
                 <div
-                  className="absolute top-[232px] lg:top-[264px] left-6 z-20 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:scale-110"
+                  className="absolute top-[296px] lg:top-[326px] left-6 z-20 w-13 h-13 rounded-xl flex items-center justify-center shadow-xl ring-4 ring-white transition-transform duration-300 group-hover:scale-110"
                   style={{ background: card.iconBg }}
                 >
                   <CardIcon
-                    className="w-5.5 h-5.5"
-                    style={{ color: '#FFFFFF' }}
+                    className="w-6 h-6 text-white"
                   />
                 </div>
 
-                {/* Content */}
-                <div className="px-6 pt-9 pb-6 flex flex-col justify-between flex-grow">
+                {/* INCREASED CONTENT BOX PADDING & TEXT SIZES */}
+                <div className="px-7 pt-10 pb-7 flex flex-col justify-between flex-grow">
                   <div>
-                    <h4 className="text-[17px] font-bold text-slate-800 mb-2.5 tracking-tight font-headline">
+                    <h4 className="text-[19px] font-extrabold text-slate-900 mb-2.5 tracking-tight font-headline">
                       {card.title}
                     </h4>
-                    <p className="text-[13.5px] text-slate-500 leading-relaxed mb-5 font-sans">
+                    <p className="text-[14px] text-slate-600 leading-relaxed mb-6 font-sans font-normal">
                       {card.description}
                     </p>
                   </div>
 
                   {/* Arrow link */}
                   <div className="flex items-center">
-                    <ArrowRight className="w-4.5 h-4.5 text-[#C5165C] transition-transform duration-300 group-hover:translate-x-2" />
+                    <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#8C123B] flex items-center justify-center transition-colors">
+                      <ArrowRight className="w-4 h-4 text-[#8C123B] group-hover:text-white transition-all duration-300 group-hover:translate-x-0.5" />
+                    </div>
                   </div>
                 </div>
               </motion.div>

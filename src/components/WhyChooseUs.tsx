@@ -1,196 +1,283 @@
-"use client"
+'use client';
 
-import React, { useState, useEffect, useRef } from "react"
-import { motion } from "framer-motion"
-import { Award, Globe2, Briefcase, Calendar, ArrowRight } from "lucide-react"
-import { Section } from "@/components/ui/Section"
+import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { 
+  Factory, 
+  Layers, 
+  Sparkles, 
+  Target, 
+  Globe2, 
+  ShieldCheck, 
+  Clock, 
+  Zap,
+  LucideIcon
+} from 'lucide-react';
+import { Container } from '@/components/ui/Container';
 
-const METRICS_DATA = [
+interface Differentiator {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}
+
+const DIFFERENTIATORS: Differentiator[] = [
   {
-    value: 15,
-    suffix: "+",
-    label: "Years of Engineering Excellence",
-    subtext: "Since 2011, delivering enterprise-grade core systems engineering and software solutions.",
-    icon: Calendar,
+    title: 'Industrial Domain Expertise',
+    description: 'Extensive experience in industrial automation, process control, OT/IT integration, and digital transformation across multiple industries.',
+    icon: Factory,
   },
   {
-    value: 450,
-    suffix: "+",
-    label: "Production Deployments",
-    subtext: "Complex projects successfully commissioned across manufacturing, cloud, and energy grids.",
-    icon: Briefcase,
+    title: 'End-to-End Solutions',
+    description: 'A single technology partner for consulting, engineering, implementation, system integration, managed services, and long-term support.',
+    icon: Layers,
   },
   {
-    value: 30,
-    suffix: "+",
-    label: "Global Regions Served",
-    subtext: "Providing round-the-clock support and systems deployment on an international scale.",
+    title: 'Digital Innovation',
+    description: 'Leveraging AI, IIoT, Industrial Data Platforms, cloud technologies, and advanced analytics to enable smarter industrial operations.',
+    icon: Sparkles,
+  },
+  {
+    title: 'Customer-Centric Delivery',
+    description: 'Every solution is tailored to your operational goals, ensuring measurable improvements in productivity, quality, reliability, and sustainability.',
+    icon: Target,
+  },
+  {
+    title: 'Global Delivery Capability',
+    description: 'Supporting customers with scalable delivery models, remote engineering, and on-site services for projects across India and international markets.',
     icon: Globe2,
   },
   {
-    value: 250,
-    suffix: "+",
-    label: "Certified Systems Specialists",
-    subtext: "Elite engineers holding certifications in IEC 62443, Azure IoT, MES, PLM, and SCADA systems.",
-    icon: Award,
-  }
-]
+    title: 'Trusted Engineering Team',
+    description: 'Experienced automation, software, cloud, and data engineering professionals delivering projects with quality, safety, and reliability.',
+    icon: ShieldCheck,
+  },
+  {
+    title: '24×7 Lifecycle Support',
+    description: 'Comprehensive support services including monitoring, maintenance, troubleshooting, upgrades, and performance optimization throughout the asset lifecycle.',
+    icon: Clock,
+  },
+  {
+    title: 'Future-Ready Technologies',
+    description: 'Designing scalable architectures that support Industry 4.0, Industrial AI, smart manufacturing, and digital enterprise initiatives.',
+    icon: Zap,
+  },
+];
 
-function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {
-  const [count, setCount] = useState(0)
-  const ref = useRef<HTMLDivElement>(null)
-  const hasAnimated = useRef(false)
+interface MetricItem {
+  value: number;
+  suffix: string;
+  label: string;
+  isStringValue?: string;
+}
+
+const METRICS_DATA: MetricItem[] = [
+  {
+    value: 100,
+    suffix: "+",
+    label: "Successful Projects Delivered",
+  },
+  {
+    value: 25,
+    suffix: "+",
+    label: "Industrial Technologies & Platforms",
+  },
+  {
+    value: 10,
+    suffix: "+",
+    label: "Industry Verticals Served",
+  },
+  {
+    value: 24,
+    suffix: "/7",
+    label: "Global Technical Support",
+    isStringValue: "24×7",
+  },
+  {
+    value: 99.9,
+    suffix: "%",
+    label: "Solution Availability Target",
+  },
+  {
+    value: 100,
+    suffix: "%",
+    label: "Customer-Focused Delivery",
+  },
+];
+
+function AnimatedCounter({ target, suffix, isStringValue }: { target: number; suffix: string; isStringValue?: string }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true
-          const duration = 1800
-          const startTime = performance.now()
+          hasAnimated.current = true;
+          if (isStringValue) return;
+
+          const duration = 1800;
+          const startTime = performance.now();
 
           const animate = (currentTime: number) => {
-            const elapsed = currentTime - startTime
-            const progress = Math.min(elapsed / duration, 1)
-            // Ease-out cubic for smooth deceleration
-            const eased = 1 - Math.pow(1 - progress, 3)
-            setCount(Math.floor(eased * target))
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            
+            if (target % 1 !== 0) {
+              setCount(parseFloat((eased * target).toFixed(1)));
+            } else {
+              setCount(Math.floor(eased * target));
+            }
 
             if (progress < 1) {
-              requestAnimationFrame(animate)
+              requestAnimationFrame(animate);
             }
-          }
+          };
 
-          requestAnimationFrame(animate)
+          requestAnimationFrame(animate);
         }
       },
       { threshold: 0.3 }
-    )
+    );
 
     if (ref.current) {
-      observer.observe(ref.current)
+      observer.observe(ref.current);
     }
 
-    return () => observer.disconnect()
-  }, [target])
+    return () => observer.disconnect();
+  }, [target, isStringValue]);
 
   return (
-    <div ref={ref} className="text-5xl lg:text-6xl xl:text-7xl font-black text-slate-900 tracking-tighter font-headline leading-none">
-      {count}
-      <span className="text-primary">{suffix}</span>
+    <div ref={ref} className="text-2xl lg:text-3xl font-black text-white tracking-tight font-headline leading-none">
+      {isStringValue ? (
+        <span>{isStringValue}</span>
+      ) : (
+        <>
+          <span>{count}</span>
+          <span className="text-[#C2185B]">{suffix}</span>
+        </>
+      )}
     </div>
-  )
+  );
 }
 
-export default function WhyChooseUs() {
-  return (
-    <Section id="why-us" variant="white" containerSize="wide" className="border-t border-slate-200/60 overflow-hidden">
-      {/* Background — clean, no radial grid to differentiate from other sections */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50/30 to-white pointer-events-none" />
+interface WhyChooseUsProps {
+  onContactClick?: () => void;
+}
 
-      <div className="relative z-10 w-full">
+export default function WhyChooseUs({ onContactClick }: WhyChooseUsProps) {
+  return (
+    <section
+      id="why-us"
+      style={{ backgroundColor: '#FAFBFC' }}
+      className="w-full text-slate-900 relative overflow-hidden border-t border-slate-200/80 select-none pt-8 pb-12 lg:pt-10 lg:pb-14 h-auto"
+    >
+      {/* Ambient Decorative Lighting Background */}
+      <div className="absolute top-0 right-1/3 w-[600px] h-[600px] bg-[#8C123B]/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-[550px] h-[550px] bg-[#C2185B]/5 rounded-full blur-[150px] pointer-events-none" />
+
+      <Container size="wide" className="relative z-10 w-full space-y-9 lg:space-y-10">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 text-xs font-bold text-primary uppercase tracking-widest px-3 py-1 rounded-full bg-primary/5 border border-primary/10 mb-4 font-sans">
-            🚀 Execution & Reliability
+        {/* ── 1. SINGLE LINE HEADLINE & FULL WIDTH NARRATIVE ── */}
+        <div className="text-left w-full max-w-none">
+          <div className="flex items-center gap-2 mb-2">
+            <div className="h-[2.5px] w-6 rounded-full bg-gradient-to-r from-[#8C123B] to-[#C2185B]" />
+            <span className="text-[11.5px] font-extrabold text-[#8C123B] uppercase tracking-[0.25em] font-sans">
+              Why DHGsoft
+            </span>
           </div>
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight font-headline">
-            Why Partner With DHG Soft?
+
+          {/* Headline in Single Line */}
+          <h2 className="text-2xl md:text-3xl lg:text-[36px] font-extrabold text-slate-900 tracking-tight font-headline leading-tight mb-2 whitespace-nowrap">
+            Engineering Excellence.{' '}
+            <span className="text-[#8C123B]">Measurable Business Outcomes.</span>
           </h2>
-          <div className="h-[3px] w-16 bg-gradient-to-r from-primary via-secondary to-[#fbc00e] mx-auto mt-4 rounded-full" />
-          <p className="text-slate-600 mt-5 text-sm lg:text-base leading-relaxed font-sans max-w-2xl mx-auto">
-            We bridge systems engineering discipline, strict cybersecurity frameworks, and custom software agility to support business-critical enterprise assets.
+
+          {/* Narrative in Full Width */}
+          <p className="text-[14.5px] lg:text-[15.5px] text-slate-600 leading-relaxed font-sans max-w-none w-full font-normal">
+            At DHGsoft, we combine deep industrial engineering expertise with advanced digital technologies to help organizations modernize operations, improve reliability, and accelerate business performance. From plant-floor automation to enterprise intelligence, we deliver solutions that create lasting value.
           </p>
         </div>
 
-        {/* Stats Row — Large counters with vertical dividers */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-0 mb-16"
+        {/* ── 2. 8 ULTRA-ATTRACTIVE LIGHT GLASS CARDS (4 COLS X 2 ROWS) ── */}
+        <div>
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-[12px] font-extrabold text-[#8C123B] uppercase tracking-widest font-sans">
+              Key Differentiators
+            </span>
+            <div className="h-[1px] flex-grow bg-slate-200/80" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {DIFFERENTIATORS.map((diff, idx) => {
+              const Icon = diff.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: idx * 0.04 }}
+                  className="group bg-gradient-to-br from-white via-slate-50/40 to-white rounded-[22px] p-5 border border-slate-200/90 shadow-[0_4px_20px_rgba(15,23,42,0.04)] hover:shadow-[0_20px_40px_rgba(140,18,59,0.12)] hover:border-[#C2185B]/60 hover:-translate-y-1.5 transition-all duration-300 text-left flex flex-col justify-between relative overflow-hidden"
+                >
+                  {/* Top Crimson Accent Ribbon Line */}
+                  <div className="absolute top-0 left-0 right-0 h-[3.5px] bg-gradient-to-r from-[#8C123B] via-[#C2185B] to-[#8C123B] opacity-0 group-hover:opacity-100 transition-opacity z-20" />
+
+                  <div>
+                    {/* Gradient Icon Badge */}
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#8C123B] to-[#C2185B] text-white flex items-center justify-center mb-4 shadow-md shadow-[#8C123B]/25 group-hover:scale-110 transition-transform">
+                      <Icon className="w-5 h-5 text-white" />
+                    </div>
+
+                    {/* Title */}
+                    <h4 className="text-[16px] font-extrabold text-slate-900 mb-1.5 tracking-tight font-headline group-hover:text-[#8C123B] transition-colors leading-snug">
+                      {diff.title}
+                    </h4>
+
+                    {/* Description (Verbatim Full Text) */}
+                    <p className="text-[13px] text-slate-600 leading-relaxed font-sans font-normal">
+                      {diff.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ── 3. BY THE NUMBERS (COMPACT ULTRA-SLEEK OBSIDIAN METRICS CARD) ── */}
+        <div 
+          style={{ background: 'linear-gradient(135deg, #0B1120 0%, #151C2E 100%)' }}
+          className="rounded-[20px] p-4 px-6 lg:p-5 lg:px-8 text-white shadow-xl border border-[#8C123B]/50 relative overflow-hidden"
         >
-          {METRICS_DATA.map((item, idx) => {
-            const Icon = item.icon
-            return (
-              <div
-                key={idx}
-                className={`group relative flex flex-col items-center text-center px-6 lg:px-8 py-8 transition-all duration-300 ${
-                  idx < METRICS_DATA.length - 1
-                    ? "lg:border-r border-slate-200/80"
-                    : ""
-                } ${
-                  idx < 2 ? "border-b lg:border-b-0 border-slate-200/80" : ""
-                }`}
-              >
-                {/* Icon - small and subtle above the counter */}
-                <div className="w-10 h-10 rounded-full bg-primary/5 border border-primary/10 flex items-center justify-center text-primary mb-5 transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:border-primary group-hover:shadow-[0_0_20px_rgba(124,4,56,0.2)]">
-                  <Icon className="h-4.5 w-4.5" />
+          <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#8C123B]/20 rounded-full blur-[120px] pointer-events-none" />
+
+          <div className="relative z-10 space-y-2.5">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#C2185B] animate-pulse" />
+              <span className="text-[10px] font-extrabold text-[#C2185B] uppercase tracking-[0.25em] font-sans">
+                BY THE NUMBERS
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-800/90 pt-1">
+              {METRICS_DATA.map((metric, idx) => (
+                <div key={idx} className={`pt-2 sm:pt-0 ${idx > 0 ? 'sm:pl-4' : ''} flex flex-col justify-between`}>
+                  <div>
+                    <AnimatedCounter target={metric.value} suffix={metric.suffix} isStringValue={metric.isStringValue} />
+                  </div>
+                  <p className="text-[11.5px] text-slate-300 font-semibold font-sans mt-1 leading-snug">
+                    {metric.label}
+                  </p>
                 </div>
-
-                {/* Big animated counter */}
-                <AnimatedCounter target={item.value} suffix={item.suffix} />
-
-                {/* Label */}
-                <h4 className="text-xs font-extrabold text-slate-800 uppercase tracking-wider mt-4 font-headline">
-                  {item.label}
-                </h4>
-
-                {/* Subtext */}
-                <p className="text-[11px] text-slate-500 leading-relaxed mt-2 font-sans font-medium max-w-[220px]">
-                  {item.subtext}
-                </p>
-
-                {/* Hover accent line at bottom */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[3px] w-0 bg-gradient-to-r from-primary to-secondary rounded-full group-hover:w-16 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
-              </div>
-            )
-          })}
-        </motion.div>
-
-        {/* Trust Statement Strip — Full width, no box */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="relative rounded-[24px] overflow-hidden"
-        >
-          {/* Dark background with gradient */}
-          <div className="bg-slate-950 px-8 md:px-12 py-10 md:py-12 relative">
-            {/* Subtle grid texture */}
-            <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] bg-[size:24px_24px] opacity-25 pointer-events-none" />
-            
-            {/* Brand gradient left accent */}
-            <div className="absolute top-0 left-0 w-[4px] h-full bg-gradient-to-b from-primary via-secondary to-[#fbc00e]" />
-
-            {/* Ambient glow */}
-            <div className="absolute -top-20 -right-20 w-[250px] h-[250px] bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
-
-            <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-              <div className="flex-grow">
-                <span className="text-[9px] font-extrabold text-[#fbc00e] uppercase tracking-[0.2em] font-mono block mb-2">
-                  Enterprise Commitment
-                </span>
-                <h3 className="text-lg md:text-xl font-bold text-white font-headline leading-snug max-w-2xl">
-                  Trusted by global manufacturers, energy providers, and infrastructure operators to deliver mission-critical systems with zero-downtime integration.
-                </h3>
-                <p className="text-xs text-slate-400 mt-3 leading-relaxed font-sans max-w-xl">
-                  Our teams hold certifications across IEC 62443, ISA-95, Azure IoT, and NIST frameworks — ensuring every deployment meets the highest security and compliance standards.
-                </p>
-              </div>
-
-              <button className="shrink-0 inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white px-7 py-3.5 rounded-xl font-bold text-sm hover:-translate-y-[2px] active:scale-[0.98] transition-all duration-300 shadow-lg shadow-primary/20 cursor-pointer group">
-                Talk to Experts
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              ))}
             </div>
           </div>
-        </motion.div>
+        </div>
 
-      </div>
-    </Section>
-  )
+      </Container>
+    </section>
+  );
 }

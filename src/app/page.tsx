@@ -49,9 +49,6 @@ export default function Home() {
         {/* 5. Technology Ecosystem */}
         <Ecosystem />
 
-        {/* 5. Customer Success Stories */}
-        <CaseStudies />
-
         {/* 6. Partners Ecosystem */}
         <TechEcosystem onContactClick={() => setIsContactOpen(true)} />
 
@@ -59,7 +56,7 @@ export default function Home() {
         <InnovationInstitute />
 
         {/* 9. Why DHGsoft */}
-        <WhyChooseUs />
+        <WhyChooseUs onContactClick={() => setIsContactOpen(true)} />
 
         {/* 9.5. Careers / Join Us */}
         <Careers />
