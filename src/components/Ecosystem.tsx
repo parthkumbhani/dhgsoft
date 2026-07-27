@@ -245,14 +245,14 @@ export default function Ecosystem() {
           </p>
         </div>
 
-        {/* ── 2. DESKTOP MAIN STAGE GRID (EXPANDED TO H-[570PX] TO GUARANTEE CTA BUTTON IS 100% VISIBLE AT BOTTOM) ── */}
-        <div className="hidden lg:grid lg:grid-cols-12 gap-6 my-auto items-stretch h-[570px]">
+        {/* ── 2. DESKTOP MAIN STAGE GRID (EXPANDED LEFT HERO CARD TO 9 COLS) ── */}
+        <div className="hidden lg:grid lg:grid-cols-12 gap-7 my-auto items-stretch h-[615px]">
           
-          {/* LEFT VISUAL HERO CARD (8 COLS, FULL H-[545PX]) */}
-          <div className="lg:col-span-8 flex flex-col justify-between h-[570px]">
+          {/* LEFT VISUAL HERO CARD (9 COLS - EXPANDED WIDTH) */}
+          <div className="lg:col-span-9 flex flex-col justify-between h-[615px]">
             
             <div 
-              className="relative rounded-[24px] overflow-hidden border border-[#8C123B]/20 shadow-2xl h-[545px] flex flex-col justify-between p-7 lg:p-8 text-left group"
+              className="relative rounded-[26px] overflow-hidden border border-[#8C123B]/30 shadow-2xl h-[585px] flex flex-col justify-between p-8 lg:p-9 text-left group"
               style={{ backgroundColor: '#0A0E1A' }}
             >
               {/* Top Accent Gradient Line */}
@@ -281,7 +281,7 @@ export default function Ecosystem() {
                 
                 {/* Top Badge Tag */}
                 <div className="flex items-center justify-between w-full mb-2">
-                  <span className="text-[10px] font-extrabold text-white bg-gradient-to-r from-[#8C123B] to-[#C2185B] uppercase tracking-[0.2em] font-sans px-3.5 py-1 rounded-md shadow-md border border-white/10">
+                  <span className="text-[10.5px] font-extrabold text-white bg-gradient-to-r from-[#8C123B] to-[#C2185B] uppercase tracking-[0.2em] font-sans px-4 py-1.5 rounded-md shadow-md border border-white/10">
                     FEATURED INDUSTRIAL CATEGORY
                   </span>
                 </div>
@@ -299,39 +299,39 @@ export default function Ecosystem() {
                     >
                       {/* Header & Subtitle */}
                       <div>
-                        <h3 className="text-2xl lg:text-[30px] font-extrabold text-white tracking-tight mb-1.5 font-headline drop-shadow-md leading-tight">
+                        <h3 className="text-2xl lg:text-[32px] font-extrabold text-white tracking-tight mb-2 font-headline drop-shadow-md leading-tight">
                           {activeCategory.name}
                         </h3>
 
-                        <p className="text-[13px] text-slate-100 leading-relaxed mb-3 max-w-2xl font-sans drop-shadow-sm">
+                        <p className="text-[14px] text-slate-100 leading-relaxed mb-4 max-w-2xl font-sans drop-shadow-sm">
                           {activeCategory.desc}
                         </p>
                       </div>
 
                       {/* ── 🌟 BRAND THEME RECTANGULAR SOLUTION CARDS (COMPACT FIT) ── */}
-                      <div className="grid grid-cols-2 gap-3 mb-4 max-w-2xl">
+                      <div className="grid grid-cols-2 gap-3.5 mb-5 max-w-2xl">
                         {activeCategory.solutions.map((sol, idx) => (
                           <div
                             key={idx}
                             style={{ 
                               background: 'linear-gradient(135deg, rgba(140, 18, 59, 0.40) 0%, rgba(11, 17, 32, 0.95) 100%)'
                             }}
-                            className="rounded-xl p-3 px-3.5 flex items-start gap-2.5 shadow-xl border border-[#8C123B]/60 hover:border-[#C2185B] hover:shadow-[0_0_22px_rgba(194,24,91,0.40)] hover:-translate-y-0.5 transition-all duration-300 text-left backdrop-blur-md group/sol min-h-[68px] relative overflow-hidden"
+                            className="rounded-xl p-3.5 px-4 flex items-start gap-3 shadow-xl border border-[#8C123B]/60 hover:border-[#C2185B] hover:shadow-[0_0_22px_rgba(194,24,91,0.40)] hover:-translate-y-0.5 transition-all duration-300 text-left backdrop-blur-md group/sol min-h-[72px] relative overflow-hidden"
                           >
                             {/* Glowing Left Crimson Brand Accent Line */}
-                            <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#C2185B] via-[#8C123B] to-[#C2185B] opacity-80 group-hover/sol:opacity-100 transition-opacity" />
+                            <div className="absolute left-0 top-0 bottom-0 w-[3.5px] bg-gradient-to-b from-[#C2185B] via-[#8C123B] to-[#C2185B] opacity-80 group-hover/sol:opacity-100 transition-opacity" />
 
                             {/* Top-Left Signature Crimson Badge Icon */}
-                            <div className="w-6.5 h-6.5 rounded-lg bg-[#8C123B] text-white flex items-center justify-center shrink-0 shadow-md border border-[#C2185B]/60 group-hover/sol:scale-110 group-hover/sol:bg-[#C2185B] transition-all mt-0.5">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-white" />
+                            <div className="w-7 h-7 rounded-lg bg-[#8C123B] text-white flex items-center justify-center shrink-0 shadow-md border border-[#C2185B]/60 group-hover/sol:scale-110 group-hover/sol:bg-[#C2185B] transition-all mt-0.5">
+                              <CheckCircle2 className="w-4 h-4 text-white" />
                             </div>
 
                             {/* Stacked Text Content */}
                             <div className="min-w-0 flex-grow">
-                              <span className="text-[8px] font-extrabold text-[#C2185B] uppercase tracking-widest block font-sans mb-0.5 group-hover/sol:text-pink-300 transition-colors">
+                              <span className="text-[8.5px] font-extrabold text-[#C2185B] uppercase tracking-widest block font-sans mb-0.5 group-hover/sol:text-pink-300 transition-colors">
                                 {sol.label}
                               </span>
-                              <h5 className="text-[12px] font-extrabold text-white font-headline leading-snug">
+                              <h5 className="text-[12.5px] font-extrabold text-white font-headline leading-snug">
                                 {sol.name}
                               </h5>
                             </div>
@@ -343,11 +343,11 @@ export default function Ecosystem() {
                       <div className="pt-1">
                         <button 
                           onClick={handleRequestClick}
-                          className="flex items-center gap-3 text-[12.5px] font-extrabold text-white px-7 py-2.5 rounded-full bg-gradient-to-r from-[#8C123B] via-[#C2185B] to-[#8C123B] hover:from-[#C2185B] hover:to-[#8C123B] shadow-[0_0_22px_rgba(194,24,91,0.5)] hover:shadow-[0_0_32px_rgba(194,24,91,0.65)] hover:scale-[1.03] transition-all duration-300 cursor-pointer font-sans tracking-wider uppercase"
+                          className="flex items-center gap-3 text-[13px] font-extrabold text-white px-8 py-3 rounded-full bg-gradient-to-r from-[#8C123B] via-[#C2185B] to-[#8C123B] hover:from-[#C2185B] hover:to-[#8C123B] shadow-[0_0_24px_rgba(194,24,91,0.5)] hover:shadow-[0_0_35px_rgba(194,24,91,0.7)] hover:scale-[1.03] transition-all duration-300 cursor-pointer font-sans tracking-wider uppercase"
                         >
                           <span>REQUEST</span>
-                          <div className="w-5.5 h-5.5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                            <ArrowRight className="w-3.5 h-3.5 text-white" />
+                          <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                            <ArrowRight className="w-4 h-4 text-white" />
                           </div>
                         </button>
                       </div>
@@ -372,8 +372,8 @@ export default function Ecosystem() {
 
           </div>
 
-          {/* RIGHT CATEGORY SELECTOR RAIL (NARROW 4 COLS - COMPACT, H-[570PX]) ── */}
-          <div className="lg:col-span-4 flex flex-col justify-between h-[570px] gap-2">
+          {/* RIGHT CATEGORY SELECTOR RAIL (3 COLS - COMPACT) ── */}
+          <div className="lg:col-span-3 flex flex-col justify-between h-[615px] gap-2.5">
             {PRODUCT_CATEGORIES.map((cat, idx) => {
               const isActive = activeIdx === idx;
               const Icon = cat.icon;
@@ -387,31 +387,31 @@ export default function Ecosystem() {
                     backgroundColor: isActive ? '#111827' : 'rgba(11, 17, 32, 0.55)',
                     borderColor: isActive ? '#8C123B' : 'rgba(30, 41, 59, 0.6)'
                   }}
-                  className={`w-full flex items-center gap-3 p-3.5 px-4 rounded-[14px] cursor-pointer select-none transition-all duration-200 text-left border relative overflow-hidden ${
+                  className={`w-full flex items-center gap-3.5 p-3.5 px-4.5 rounded-[15px] cursor-pointer select-none transition-all duration-200 text-left border relative overflow-hidden ${
                     isActive
-                      ? "shadow-lg shadow-[#8C123B]/25 scale-[1.01]"
+                      ? "shadow-lg shadow-[#8C123B]/30 scale-[1.01]"
                       : "hover:bg-slate-900 text-slate-400"
                   }`}
                 >
                   {/* Left Active Glow Pill */}
                   {isActive && (
-                    <div className="w-1 h-4 rounded-full bg-[#C2185B] shadow-[0_0_8px_#C2185B] shrink-0" />
+                    <div className="w-1.5 h-5 rounded-full bg-[#C2185B] shadow-[0_0_10px_#C2185B] shrink-0" />
                   )}
 
                   {/* Circular Icon Badge */}
                   <div 
-                    className={`w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 shrink-0 ${
+                    className={`w-7.5 h-7.5 rounded-full flex items-center justify-center transition-all duration-200 shrink-0 ${
                       isActive 
-                        ? "bg-[#8C123B] text-white shadow-[0_0_10px_rgba(140,18,59,0.6)]" 
-                        : "bg-slate-800 text-slate-400"
+                        ? "bg-[#8C123B] text-white shadow-[0_0_12px_rgba(140,18,59,0.7)]" 
+                        : "bg-slate-800/90 text-slate-400"
                     }`}
                   >
                     <Icon className="w-3.5 h-3.5" />
                   </div>
                   
-                  {/* Category Info */}
+                  {/* Category Info - Wide & Prominent */}
                   <div className="flex-grow min-w-0 flex items-center justify-between">
-                    <span className={`text-[13px] font-extrabold tracking-tight font-headline truncate ${
+                    <span className={`text-[13px] lg:text-[13.5px] font-extrabold tracking-tight font-headline truncate ${
                       isActive ? "text-white" : "text-slate-200"
                     }`}>
                       {cat.name}

@@ -74,12 +74,10 @@ export default function Footer() {
               <div
                 className="fixed inset-0 z-50 flex items-center justify-center p-4"
                 style={{ backgroundColor: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(8px)' }}
-                onClick={() => setShowAddress(false)}
               >
                 <div
                   className="relative rounded-2xl p-7 sm:p-8 max-w-lg w-full shadow-2xl border border-[#8C123B]/60 overflow-hidden"
                   style={{ backgroundColor: '#0A0C12' }}
-                  onClick={e => e.stopPropagation()}
                 >
 
                   {/* Close button */}
