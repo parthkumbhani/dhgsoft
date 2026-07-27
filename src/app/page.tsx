@@ -59,7 +59,7 @@ export default function Home() {
         <WhyChooseUs onContactClick={() => setIsContactOpen(true)} />
 
         {/* 9.5. Careers / Join Us */}
-        <Careers />
+        <Careers onContactClick={() => setIsContactOpen(true)} />
 
         {/* 10. Contact / CTA */}
         <ContactSection />

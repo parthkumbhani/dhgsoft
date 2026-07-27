@@ -12,7 +12,8 @@ import {
   Wifi, 
   FlaskConical, 
   CheckCircle2, 
-  ArrowRight, 
+  ArrowRight,
+  ArrowUpRight,
   LucideIcon
 } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
@@ -126,7 +127,7 @@ export default function InnovationInstitute() {
     <section
       id="innovation-institute"
       style={{ backgroundColor: '#0A0E1A' }}
-      className="w-full text-white relative overflow-hidden border-b border-slate-900 select-none pt-28 pb-14 lg:pt-32 lg:pb-16 h-auto"
+      className="w-full text-white relative overflow-hidden border-b border-slate-900 select-none pt-16 md:pt-20 pb-14 md:pb-16 h-auto"
     >
       {/* Signature 2-3 Color Theme Lighting Flares (Dark Navy + Deep Crimson + Magenta ONLY - ZERO YELLOW) */}
       <div className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-[#8C123B]/18 rounded-full blur-[160px] pointer-events-none" />
@@ -220,13 +221,19 @@ export default function InnovationInstitute() {
                     </div>
                   </div>
 
-                  {/* Action Button */}
-                  <div>
-                    <Link href={item.link} className="inline-block w-full">
-                      <button className="w-full flex items-center justify-between text-[12px] font-extrabold text-white px-4 py-2.5 rounded-xl bg-[#8C123B]/60 hover:bg-[#8C123B] border border-[#C2185B]/80 hover:border-[#C2185B] transition-all cursor-pointer font-sans group/btn shadow-lg backdrop-blur-md">
-                        <span>Explore Knowledge Hub</span>
-                        <ArrowRight className="w-4 h-4 text-white group-hover/btn:translate-x-1 transition-transform" />
-                      </button>
+                  {/* Action Button — circular icon */}
+                  <div className="flex justify-end">
+                    <Link href={item.link}>
+                      <div
+                        className="flex items-center justify-center rounded-full hover:scale-110 transition-all duration-200 cursor-pointer shadow-[0_4px_16px_rgba(194,24,91,0.45)]"
+                        style={{
+                          width: 48,
+                          height: 48,
+                          background: 'linear-gradient(135deg, #8C123B 0%, #C2185B 100%)',
+                        }}
+                      >
+                        <ArrowUpRight className="text-white" style={{ width: 20, height: 20 }} />
+                      </div>
                     </Link>
                   </div>
 

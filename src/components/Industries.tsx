@@ -403,7 +403,7 @@ function IndustryCard({
         pointerEvents: (d >= 0 && d < visibleCount) ? 'auto' : 'none',
       }}
     >
-      <Link href={`/industries/${data.slug}`} className="w-full h-full block relative text-left select-none">
+      <div className="w-full h-full block relative text-left select-none">
         {/* Top Brand Accent Border */}
       <motion.div
         className="absolute top-0 left-0 right-0 h-[4px] z-40"
@@ -708,7 +708,7 @@ function IndustryCard({
           </div>
         </div>
       </motion.div>
-      </Link>
+      </div>
 
       {/* Gradient keyframe animation */}
       <style>{`

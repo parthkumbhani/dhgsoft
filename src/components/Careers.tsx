@@ -103,11 +103,11 @@ const cardVariant = {
   }),
 };
 
-/* ═══════════════════════════════════════════════════════════════
-   COMPONENT
-   ═══════════════════════════════════════════════════════════════ */
+interface CareersProps {
+  onContactClick?: () => void;
+}
 
-export default function Careers() {
+export default function Careers({ onContactClick }: CareersProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
 
@@ -200,9 +200,9 @@ export default function Careers() {
             </div>
 
             {/* Heading in Single Line */}
-            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 leading-tight tracking-tight mb-2 font-headline whitespace-nowrap">
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 leading-tight tracking-tight mb-2 font-headline text-balance">
               Engineering Tomorrow,{' '}
-              <span className="bg-gradient-to-r from-[#8C123B] to-[#C2185B] bg-clip-text text-transparent inline-block">
+              <span className="bg-gradient-to-r from-[#8C123B] to-[#C2185B] bg-clip-text text-transparent inline">
                 Together.
               </span>
             </h2>
@@ -216,6 +216,7 @@ export default function Careers() {
           {/* Right: CTA Button */}
           <motion.div variants={fadeUp} className="flex-shrink-0 lg:mt-0">
             <motion.button
+              onClick={onContactClick}
               whileHover={{
                 y: -2,
                 boxShadow: '0px 10px 28px rgba(140, 18, 59, 0.22)',
@@ -240,6 +241,7 @@ export default function Careers() {
                 key={idx}
                 custom={idx}
                 variants={cardVariant}
+                onClick={onContactClick}
                 whileHover={{
                   y: -10,
                   boxShadow:

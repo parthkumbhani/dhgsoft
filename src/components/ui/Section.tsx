@@ -29,11 +29,14 @@ export function Section({
     variant === "gradient"  ? "bg-gradient-to-r from-brand-hot to-brand-deep text-white bg-tech-grid" :
                               "bg-mesh-glow-light bg-dot-matrix text-foreground";
 
-  const py =
-    size === "hero"    ? "py-sec-y-lg md:py-sec-y-lg"    :
-    size === "compact" ? "py-12 md:py-16"                :
-    size === "snug"    ? "py-14 md:py-20"                :
-                          "py-sec-y md:py-sec-y-md";
+  // All sections get the SAME top padding (pt-16 md:pt-20 = 4rem / 5rem)
+  // Only bottom padding varies based on size
+  const pt = "pt-16 md:pt-20";
+  const pb =
+    size === "hero"    ? "pb-16 md:pb-20"  :
+    size === "compact" ? "pb-12 md:pb-16"  :
+    size === "snug"    ? "pb-14 md:pb-20"  :
+                         "pb-16 md:pb-20";
 
   const PatternComponent = 
     pattern === "v1" ? <Patterns.PatternV1 /> :
@@ -47,7 +50,7 @@ export function Section({
     null;
 
   return (
-    <motion.section className={`dhg-section relative w-full ${bg} ${py} ${className}`} {...props}>
+    <motion.section className={`dhg-section relative w-full ${bg} ${pt} ${pb} ${className}`} {...props}>
       {PatternComponent}
       <Container size={containerSize}>{children}</Container>
     </motion.section>

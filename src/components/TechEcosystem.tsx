@@ -1048,14 +1048,12 @@ function PartnerCard({
           }}
           className="overflow-hidden w-full flex justify-center"
         >
-          <a
-            href={partner.websiteUrl || "#"}
-            target={partner.websiteUrl ? "_blank" : undefined}
-            rel="noopener noreferrer"
-            className="flex items-center justify-center text-[#C5165C] transition-all hover:scale-110 active:scale-95 duration-200 select-none p-2 rounded-full bg-slate-50 border border-slate-100/80 hover:bg-[#C5165C]/5 shadow-sm pointer-events-auto"
+          <div
+            onClick={(e) => e.preventDefault()}
+            className="flex items-center justify-center text-[#C5165C] transition-all hover:scale-110 active:scale-95 duration-200 select-none p-2 rounded-full bg-slate-50 border border-slate-100/80 hover:bg-[#C5165C]/5 shadow-sm pointer-events-auto cursor-pointer"
           >
             <ArrowRight className="w-4.5 h-4.5" />
-          </a>
+          </div>
         </motion.div>
       </div>
     </motion.div>

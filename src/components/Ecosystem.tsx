@@ -221,7 +221,7 @@ export default function Ecosystem() {
       ref={sectionRef}
       id="technology-ecosystem"
       style={{ backgroundColor: '#0A0E1A' }}
-      className="w-full text-white relative overflow-hidden border-b border-slate-900 select-none py-8 lg:py-10 min-h-screen flex flex-col justify-between"
+      className="w-full text-white relative overflow-hidden border-b border-slate-900 select-none pt-16 md:pt-20 pb-8 md:pb-10 min-h-screen flex flex-col justify-between"
     >
       <Container size="wide" className="relative z-10 w-full flex flex-col justify-between h-full flex-grow gap-6">
         

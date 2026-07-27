@@ -255,12 +255,7 @@ export default function WhyChooseUs({ onContactClick }: WhyChooseUsProps) {
           <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#8C123B]/20 rounded-full blur-[120px] pointer-events-none" />
 
           <div className="relative z-10 space-y-2.5">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#C2185B] animate-pulse" />
-              <span className="text-[10px] font-extrabold text-[#C2185B] uppercase tracking-[0.25em] font-sans">
-                BY THE NUMBERS
-              </span>
-            </div>
+
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-800/90 pt-1">
               {METRICS_DATA.map((metric, idx) => (
