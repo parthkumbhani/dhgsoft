@@ -4,6 +4,11 @@ import React from 'react';
 export const metadata = {
   title: "DHGsoft | It's Time to Connect Intelligence",
   description: "DHGsoft empowers global enterprises with sophisticated digital transformation tools, turning raw operational data into actionable strategic intelligence.",
+  icons: {
+    icon: "/DHGsoft Logo.svg",
+    shortcut: "/DHGsoft Logo.svg",
+    apple: "/DHGsoft Logo.svg",
+  },
 };
 
 interface RootLayoutProps {
@@ -14,6 +19,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* Favicon */}
+        <link rel="icon" type="image/svg+xml" href="/DHGsoft Logo.svg" />
+        <link rel="shortcut icon" href="/DHGsoft Logo.svg" />
         {/* Material Icons */}
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
