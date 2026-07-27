@@ -2,8 +2,8 @@ import "./globals.css";
 import React from 'react';
 
 export const metadata = {
-  title: "DHG Soft | It's Time to Connect Intelligence",
-  description: "DHG Soft empowers global enterprises with sophisticated digital transformation tools, turning raw operational data into actionable strategic intelligence.",
+  title: "DHGsoft | It's Time to Connect Intelligence",
+  description: "DHGsoft empowers global enterprises with sophisticated digital transformation tools, turning raw operational data into actionable strategic intelligence.",
 };
 
 interface RootLayoutProps {

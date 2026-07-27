@@ -102,7 +102,7 @@ const SERVICES_DATA: ServiceData[] = [
     title: "Industry 4.0 & Smart Manufacturing",
     category: "Smart Manufacturing",
     desc: "Helping manufacturers transform into intelligent, connected, and data-driven enterprises through advanced digital technologies.",
-    image: "/industries/industrial-manufacturing.png",
+    image: "/industries/industrial_manufacturing.png",
     overview: "Accelerating the Connected Factory",
     capabilities: [
       "Smart Factory Solutions",

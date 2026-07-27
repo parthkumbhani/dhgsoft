@@ -192,7 +192,7 @@ export default function Header({ onContactClick }: HeaderProps) {
         <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-3 cursor-pointer">
           <Image
             src="/DHGsoft Logo.svg"
-            alt="DHG Soft"
+            alt="DHGsoft"
             width={scrolled ? 170 : 230}
             height={scrolled ? 33 : 45}
             style={{ height: 'auto' }}
@@ -507,7 +507,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                 <SheetTitle>
                   <Image
                     src="/DHGsoft Logo.svg"
-                    alt="DHG Soft"
+                    alt="DHGsoft"
                     width={230}
                     height={45}
                     style={{ height: 'auto' }}
