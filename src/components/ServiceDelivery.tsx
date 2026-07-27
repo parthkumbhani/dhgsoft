@@ -81,7 +81,7 @@ const STAGES_DATA: StageItem[] = [
       "Solution Architecture",
       "Process Engineering",
       "System Design",
-      "UX/UI Design",
+      "KPI & Visualization",
       "Infrastructure Planning",
       "Cybersecurity by Design"
     ],
