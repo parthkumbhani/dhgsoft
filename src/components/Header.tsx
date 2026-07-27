@@ -209,7 +209,7 @@ export default function Header({ onContactClick }: HeaderProps) {
               {/* Capabilities Mega Menu */}
               <NavigationMenuItem value="capabilities" className="relative">
                 <NavigationMenuTrigger 
-                  onClick={onContactClick}
+                  onClick={(e) => { e.preventDefault(); onContactClick(); }}
                   className="relative cursor-pointer text-sm font-semibold text-slate-700 hover:text-primary focus:text-primary data-[state=open]:text-primary px-4 py-2 transition-colors after:absolute after:bottom-0 after:left-4 after:right-4 after:h-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-tertiary after:transform after:scale-x-0 hover:after:scale-x-100 data-[state=open]:after:scale-x-100 data-[active]:after:scale-x-100 after:transition-transform after:duration-300"
                 >
                   Capabilities
@@ -234,7 +234,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                               <li key={i}>
                                 <NavigationMenuLink asChild>
                                   <div
-                                    onClick={onContactClick}
+                                    onClick={(e) => { e.preventDefault(); onContactClick(); }}
                                     className="group block select-none rounded-md p-2 leading-none no-underline outline-none transition-all hover:bg-primary/5 cursor-pointer"
                                   >
                                     <div className="text-sm font-semibold text-slate-800 group-hover:text-primary transition-colors">
@@ -258,7 +258,7 @@ export default function Header({ onContactClick }: HeaderProps) {
               {/* Industries Mega Menu */}
               <NavigationMenuItem value="industries" className="relative">
                 <NavigationMenuTrigger 
-                  onClick={onContactClick}
+                  onClick={(e) => { e.preventDefault(); onContactClick(); }}
                   className="relative cursor-pointer text-sm font-semibold text-slate-700 hover:text-primary focus:text-primary data-[state=open]:text-primary px-4 py-2 transition-colors after:absolute after:bottom-0 after:left-4 after:right-4 after:h-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-tertiary after:transform after:scale-x-0 hover:after:scale-x-100 data-[state=open]:after:scale-x-100 data-[active]:after:scale-x-100 after:transition-transform after:duration-300"
                 >
                   Industries
@@ -275,7 +275,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                           Delivering custom software architectures, OT/IT bridges, and secure platforms for critical global sectors.
                         </p>
                       </div>
-                      <div onClick={onContactClick} className="text-xs font-bold text-primary hover:text-secondary flex items-center gap-1.5 group transition-colors cursor-pointer">
+                      <div onClick={(e) => { e.preventDefault(); onContactClick(); }} className="text-xs font-bold text-primary hover:text-secondary flex items-center gap-1.5 group transition-colors cursor-pointer">
                         Explore Industries
                         <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                       </div>
@@ -284,7 +284,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                       {INDUSTRIES.map((ind, i) => (
                         <NavigationMenuLink asChild key={i}>
                           <div
-                            onClick={onContactClick}
+                            onClick={(e) => { e.preventDefault(); onContactClick(); }}
                             className="group block select-none rounded-md p-2 leading-none no-underline outline-none transition-all hover:bg-primary/5 cursor-pointer"
                           >
                             <div className="text-sm font-semibold text-slate-800 group-hover:text-primary transition-colors">
@@ -304,7 +304,7 @@ export default function Header({ onContactClick }: HeaderProps) {
               {/* Insights Mega Menu */}
               <NavigationMenuItem value="insights" className="relative">
                 <NavigationMenuTrigger 
-                  onClick={onContactClick}
+                  onClick={(e) => { e.preventDefault(); onContactClick(); }}
                   className="relative cursor-pointer text-sm font-semibold text-slate-700 hover:text-primary focus:text-primary data-[state=open]:text-primary px-4 py-2 transition-colors after:absolute after:bottom-0 after:left-4 after:right-4 after:h-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-tertiary after:transform after:scale-x-0 hover:after:scale-x-100 data-[state=open]:after:scale-x-100 data-[active]:after:scale-x-100 after:transition-transform after:duration-300"
                 >
                   Insights
@@ -316,19 +316,19 @@ export default function Header({ onContactClick }: HeaderProps) {
                   <div className="grid grid-cols-2 gap-6 relative z-10">
                     <div className="flex flex-col gap-2">
                       <div className="text-xs font-bold uppercase tracking-wider text-primary mb-1">Knowledge Hub</div>
-                      <div onClick={onContactClick} className="text-sm font-semibold text-primary hover:text-secondary py-1 block transition-colors cursor-pointer">
+                      <div onClick={(e) => { e.preventDefault(); onContactClick(); }} className="text-sm font-semibold text-primary hover:text-secondary py-1 block transition-colors cursor-pointer">
                         All Insights
                       </div>
-                      <div onClick={onContactClick} className="text-sm font-semibold text-slate-800 hover:text-primary py-1 block transition-colors cursor-pointer">
+                      <div onClick={(e) => { e.preventDefault(); onContactClick(); }} className="text-sm font-semibold text-slate-800 hover:text-primary py-1 block transition-colors cursor-pointer">
                         AI & Automation
                       </div>
-                      <div onClick={onContactClick} className="text-sm font-semibold text-slate-800 hover:text-primary py-1 block transition-colors cursor-pointer">
+                      <div onClick={(e) => { e.preventDefault(); onContactClick(); }} className="text-sm font-semibold text-slate-800 hover:text-primary py-1 block transition-colors cursor-pointer">
                         Technology Ecosystem
                       </div>
-                      <div onClick={onContactClick} className="text-sm font-semibold text-slate-800 hover:text-primary py-1 block transition-colors cursor-pointer">
+                      <div onClick={(e) => { e.preventDefault(); onContactClick(); }} className="text-sm font-semibold text-slate-800 hover:text-primary py-1 block transition-colors cursor-pointer">
                         Enterprise Case Studies
                       </div>
-                      <div onClick={onContactClick} className="text-sm font-semibold text-slate-800 hover:text-primary py-1 block transition-colors cursor-pointer">
+                      <div onClick={(e) => { e.preventDefault(); onContactClick(); }} className="text-sm font-semibold text-slate-800 hover:text-primary py-1 block transition-colors cursor-pointer">
                         News &amp; Press
                       </div>
                     </div>
@@ -336,7 +336,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                       <div className="text-xs text-slate-500 leading-relaxed">
                         Read how Fortune 500 manufacturing, energy, and automotive companies optimize production infrastructure and deploy secure cloud edge architectures.
                       </div>
-                      <div onClick={onContactClick} className="text-xs font-bold text-primary hover:text-secondary flex items-center gap-1.5 group mt-4 transition-colors cursor-pointer">
+                      <div onClick={(e) => { e.preventDefault(); onContactClick(); }} className="text-xs font-bold text-primary hover:text-secondary flex items-center gap-1.5 group mt-4 transition-colors cursor-pointer">
                         Read Case Studies
                         <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                       </div>
@@ -348,7 +348,7 @@ export default function Header({ onContactClick }: HeaderProps) {
               {/* About Mega Menu */}
               <NavigationMenuItem value="about" className="relative">
                 <NavigationMenuTrigger 
-                  onClick={onContactClick}
+                  onClick={(e) => { e.preventDefault(); onContactClick(); }}
                   className="relative cursor-pointer text-sm font-semibold text-slate-700 hover:text-primary focus:text-primary data-[state=open]:text-primary px-4 py-2 transition-colors after:absolute after:bottom-0 after:left-4 after:right-4 after:h-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-tertiary after:transform after:scale-x-0 hover:after:scale-x-100 data-[state=open]:after:scale-x-100 data-[active]:after:scale-x-100 after:transition-transform after:duration-300"
                 >
                   About
@@ -365,7 +365,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                           Building premium digital engineering solutions and driving AI transformation for global enterprises since 2012.
                         </p>
                       </div>
-                      <div onClick={onContactClick} className="text-xs font-bold text-primary hover:text-secondary flex items-center gap-1.5 group transition-colors cursor-pointer">
+                      <div onClick={(e) => { e.preventDefault(); onContactClick(); }} className="text-xs font-bold text-primary hover:text-secondary flex items-center gap-1.5 group transition-colors cursor-pointer">
                         Discover Our Story
                         <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                       </div>
@@ -374,7 +374,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                       {ABOUT_MENU.map((item, i) => (
                         <NavigationMenuLink asChild key={i}>
                           <div
-                            onClick={onContactClick}
+                            onClick={(e) => { e.preventDefault(); onContactClick(); }}
                             className="group block select-none rounded-md p-2 leading-none no-underline outline-none transition-all hover:bg-primary/5 cursor-pointer"
                           >
                             <div className="text-sm font-semibold text-slate-800 group-hover:text-primary transition-colors">
@@ -394,7 +394,7 @@ export default function Header({ onContactClick }: HeaderProps) {
               {/* Careers Dropdown */}
               <NavigationMenuItem value="careers" className="relative">
                 <NavigationMenuTrigger 
-                  onClick={onContactClick}
+                  onClick={(e) => { e.preventDefault(); onContactClick(); }}
                   className="relative cursor-pointer text-sm font-semibold text-slate-700 hover:text-primary focus:text-primary data-[state=open]:text-primary px-4 py-2 transition-colors after:absolute after:bottom-0 after:left-4 after:right-4 after:h-[2px] after:bg-gradient-to-r after:from-primary after:via-secondary after:to-tertiary after:transform after:scale-x-0 hover:after:scale-x-100 data-[state=open]:after:scale-x-100 data-[active]:after:scale-x-100 after:transition-transform after:duration-300"
                 >
                   Careers
@@ -406,7 +406,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                   <div className="grid grid-cols-3 gap-6 relative z-10">
                     <div className="col-span-1 bg-gradient-to-b from-slate-900 to-slate-950 rounded-md p-5 text-white flex flex-col justify-between border-l-4 border-primary">
                       <div>
-                        <div onClick={onContactClick} className="group/title block cursor-pointer">
+                        <div onClick={(e) => { e.preventDefault(); onContactClick(); }} className="group/title block cursor-pointer">
                           <h4 className="text-md font-bold text-white tracking-tight group-hover/title:text-primary transition-colors flex items-center gap-1.5">
                             Careers
                             <ArrowRight className="h-3.5 w-3.5 opacity-0 -translate-x-1 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all" />
@@ -417,7 +417,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                         </p>
                       </div>
                       <div
-                        onClick={onContactClick}
+                        onClick={(e) => { e.preventDefault(); onContactClick(); }}
                         className="w-full mt-4 border border-primary text-primary hover:bg-primary hover:text-white transition-colors text-xs py-1.5 h-8 block rounded-md text-center font-semibold cursor-pointer"
                       >
                         Submit CV
@@ -426,7 +426,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                     <div className="col-span-2 flex flex-col gap-1.5">
                       <NavigationMenuLink asChild>
                         <div
-                          onClick={onContactClick}
+                          onClick={(e) => { e.preventDefault(); onContactClick(); }}
                           className="group block select-none rounded-md p-2 leading-none no-underline outline-none transition-all hover:bg-primary/5 cursor-pointer"
                         >
                           <div className="text-sm font-semibold text-primary group-hover:text-primary-hover transition-colors">
@@ -440,7 +440,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                       {CAREERS_MENU.map((item, i) => (
                         <NavigationMenuLink asChild key={i}>
                           <div
-                            onClick={onContactClick}
+                            onClick={(e) => { e.preventDefault(); onContactClick(); }}
                             className="group block select-none rounded-md p-2 leading-none no-underline outline-none transition-all hover:bg-primary/5 cursor-pointer"
                           >
                             <div className="text-sm font-semibold text-slate-800 group-hover:text-primary transition-colors">
@@ -465,7 +465,7 @@ export default function Header({ onContactClick }: HeaderProps) {
             <Button
               variant="ghost"
               size="icon"
-              onClick={onContactClick}
+              onClick={(e) => { e.preventDefault(); onContactClick(); }}
               className={`text-slate-600 hover:text-primary transition-colors rounded-full ${
                 scrolled ? "h-8 w-8" : "h-10 w-10"
               }`}
@@ -473,7 +473,7 @@ export default function Header({ onContactClick }: HeaderProps) {
               <Search className={`transition-all duration-500 ${scrolled ? "h-4 w-4" : "h-5 w-5"}`} />
             </Button>
             <Button 
-              onClick={onContactClick}
+              onClick={(e) => { e.preventDefault(); onContactClick(); }}
               className={`font-bold transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 scrolled
                   ? "rounded-full bg-gradient-to-r from-primary to-secondary hover:from-primary hover:to-secondary text-white py-2 px-4.5 text-xs h-9 cursor-pointer"

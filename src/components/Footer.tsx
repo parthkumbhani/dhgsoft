@@ -93,16 +93,6 @@ export default function Footer() {
                   {/* Region Selection Pills */}
                   <div className="flex items-center gap-2 mb-6 relative z-10 border-b border-slate-800/80 pb-4">
                     <button
-                      onClick={() => setActiveRegion('americas')}
-                      className={`px-5 py-2 rounded-full text-xs font-bold transition-all ${
-                        activeRegion === 'americas'
-                          ? 'bg-[#8C123B] text-white border border-[#C2185B]'
-                          : 'bg-slate-900/80 text-slate-400 hover:text-white border border-slate-800'
-                      }`}
-                    >
-                      Americas
-                    </button>
-                    <button
                       onClick={() => setActiveRegion('asia')}
                       className={`px-5 py-2 rounded-full text-xs font-bold transition-all ${
                         activeRegion === 'asia'
@@ -111,6 +101,16 @@ export default function Footer() {
                       }`}
                     >
                       Asia Pacific
+                    </button>
+                    <button
+                      onClick={() => setActiveRegion('americas')}
+                      className={`px-5 py-2 rounded-full text-xs font-bold transition-all ${
+                        activeRegion === 'americas'
+                          ? 'bg-[#8C123B] text-white border border-[#C2185B]'
+                          : 'bg-slate-900/80 text-slate-400 hover:text-white border border-slate-800'
+                      }`}
+                    >
+                      Americas
                     </button>
                   </div>
 

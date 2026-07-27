@@ -147,25 +147,33 @@ export default function ContactModal({ isOpen, onClose, prefill = '' }: ContactM
 
     setIsSubmitting(true);
     try {
-      // Pack additional fields in the message to remain backward compatible with the database
-      const packedMessage = `Phone: ${formData.phone}\nIndustry: ${formData.industry}\nJob Title: ${formData.jobTitle.trim()}\nCountry: ${formData.country}\nPersonal Data Consent: Yes\nMarketing Consent: ${formData.marketingConsent ? 'Yes' : 'No'}\n\nLet us know how we can help you:\n${formData.message.trim()}`;
-
       const payload = {
+        firstName: formData.firstName.trim(),
+        lastName: formData.lastName.trim(),
         name: `${formData.firstName.trim()} ${formData.lastName.trim()}`,
         email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        industry: formData.industry,
         company: formData.company.trim(),
-        message: packedMessage,
+        jobTitle: formData.jobTitle.trim(),
+        country: formData.country,
+        message: formData.message.trim(),
+        marketingConsent: formData.marketingConsent,
       };
 
-      const response = await fetch(`${API_BASE}/api/inquiries`, {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
 
-      if (!response.ok) throw new Error('Failed to submit inquiry');
+      const data = await response.json();
 
-      toast.success('Your consultation request has been sent successfully!');
+      if (!response.ok || data.success === false) {
+        throw new Error(data.error || 'Failed to submit inquiry');
+      }
+
+      toast.success('Your request has been sent! Check your inbox for confirmation.');
       setFormData({
         firstName: '',
         lastName: '',
@@ -181,9 +189,9 @@ export default function ContactModal({ isOpen, onClose, prefill = '' }: ContactM
       });
       setExpanded(false);
       onClose();
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
-      toast.error('Error submitting inquiry. Please make sure the backend is active.');
+      toast.error(err?.message || 'Error submitting inquiry. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
